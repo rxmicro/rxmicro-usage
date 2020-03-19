@@ -110,7 +110,7 @@ Server started at 0.0.0.0:8080 using NETTY transport in 500 millis # <1>
     </executions>
 </plugin>
 ----
-<1> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-surefire-plugin[Последняя стабильная версия `maven-surefire-plugin`^].
+<1> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-dependency-plugin[Последняя стабильная версия `maven-dependency-plugin`^].
 <2> Плагин выполняет работу в момент выполнения фазы `package`.
 <3> Целевая папка куда должны быть скопированы все зависимости. +
 _(В приведенном примере это папка `target/lib`.)_
