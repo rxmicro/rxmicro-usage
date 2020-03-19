@@ -15,4 +15,3 @@ image::core/how-it-work/micro-service-start-debug.jpg[]
 
 .Обработка HTTP запроса микросервисом в режиме отладки.
 image::core/how-it-work/micro-service-handle-request-debug.jpg[]
-

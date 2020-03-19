@@ -39,4 +39,3 @@ CPU и RAM используются крайне неэффективно.
 *В противном случае необходимо возвратить
 https://github.com/reactive-streams/reactive-streams-jvm/blob/v1.0.3/README.md#specification[Publisher^] or
 {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[CompletableFuture^], которые сгенерируют результат позже.*
-

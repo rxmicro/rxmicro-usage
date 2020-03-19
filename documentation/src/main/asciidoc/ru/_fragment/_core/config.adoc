@@ -23,6 +23,3 @@ include::_config/config-setting.adoc[]
 <<<
 
 include::_config/custom-config.adoc[]
-
-
-

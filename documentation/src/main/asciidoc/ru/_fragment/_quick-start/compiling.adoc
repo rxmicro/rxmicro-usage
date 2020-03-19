@@ -76,4 +76,3 @@ image::quick-start/idea-annotation-processing.jpg[]
 
 После настройки секции `Annotation Processors` необходимо пересобрать проект.
 Для этого выполняем следующую команду из главного меню: `Build` -> `Rebuild project`.
-

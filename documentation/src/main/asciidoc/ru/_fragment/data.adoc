@@ -1,9 +1,0 @@
-TODO
-
-<<<
-
-include::_data/postgresql.adoc[]
-
-<<<
-
-include::_data/mongo.adoc[]

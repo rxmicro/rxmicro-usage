@@ -1,6 +1,0 @@
-:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
-
-[[data-postgres-basic-section]]
-==== Basic Usage
-
-TODO

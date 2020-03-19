@@ -20,3 +20,4 @@ _(Параметры `port` и `randomPortProvider` взаимоисключаю
 <5> Параметр `versionValue` позволяет указать <<{rest-controller}#rest-controller-versioning-section,версию микросервиса>>.
 <6> Параметр `versionStrategy` позволяет указать <<{rest-controller}#rest-controller-versioning-section,стратегию версионирования>>, которая используется в тестируемом микросервисе.
 <7> Параметр `requestTimeout`позволяет указать таймаут запросов.
+

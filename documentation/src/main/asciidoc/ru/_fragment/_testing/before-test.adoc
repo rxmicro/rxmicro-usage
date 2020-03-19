@@ -83,3 +83,4 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-before-test/
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-before-test
 include::../___notes/full-source-code-of-example.adoc[]
+

@@ -1,7 +1,0 @@
-=== Postgre SQL Data Repositories
-
-TODO
-
-include::_postgresql/_basic.adoc[]
-
-
