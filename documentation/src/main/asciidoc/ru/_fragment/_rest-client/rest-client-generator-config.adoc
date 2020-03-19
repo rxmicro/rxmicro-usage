@@ -1,0 +1,31 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[rest-client-rest-client-generator-config-section]]
+=== Конфигурирование процесса генерации кода
+
+RxMicro предоставляет возможность конфигурировать процесс генерации кода для REST клиента.
+Для этих целей необходимо использовать аннотацию
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/RestClientGeneratorConfig.java[`@RestClientGeneratorConfig`^]
+, с помощью которой аннотируется дескриптор модуля `module-info.java`:
+
+[source,java]
+----
+import io.rxmicro.rest.model.GenerateOption;
+import io.rxmicro.rest.model.ClientExchangeFormatModule;
+import io.rxmicro.rest.server.RestClientGeneratorConfig;
+
+@RestClientGeneratorConfig(
+        exchangeFormat = ClientExchangeFormatModule.AUTO_DETECT, // <1>
+        generateRequestValidators = GenerateOption.DISABLED,     // <2>
+        generateResponseValidators = GenerateOption.AUTO_DETECT  // <3>
+)
+module examples {
+}
+----
+<1> Параметр `exchangeFormat` позволяет задавать формат обмена сообщениями с сервером. +
+_(По умолчанию используется формат обмена сообщениями, который добавлен в дескриптор `module-info.java`.
+Если в дескриптор `module-info.java` добавлены несколько модулей, поддерживающих формат обмена сообщениями, то с помощью параметра `exchangeFormat` необходимо указать, какой именно модуль нужно использовать для REST клиентов.)_
+<2> Параметр `generateRequestValidators` позволяет включать/отключать опцию генерации валидаторов HTTP запроса для всех методов REST клиента в проекте. +
+_(Значение `DISABLED` означает, что валидаторы не будут генерироваться процессором аннотаций.)_
+<3> Параметр `generateResponseValidators` позволяет включать/отключать опцию генерации валидаторов HTTP ответа для всех методов REST клиента в проекте. +
+_(Значение `AUTO_DETECT` означает, что валидаторы будут сгенерированы только в том случае, если разработчик добавит модуль <<{validation}#validation-section, `rxmicro.validation`>> в дескриптор `module-info.java`.)_

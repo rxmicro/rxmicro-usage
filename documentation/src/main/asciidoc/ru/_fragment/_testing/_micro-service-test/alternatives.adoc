@@ -1,0 +1,8 @@
+[[testing-rest-based-microservice-tests-complex-alternative-usage-section]]
+==== Особенности тестирования сложных микросервисов, использующих альтернативы
+
+include::_alternatives/rest-client.adoc[]
+
+include::_alternatives/mongo-repositories.adoc[]
+
+include::_alternatives/postgres-repositories.adoc[]

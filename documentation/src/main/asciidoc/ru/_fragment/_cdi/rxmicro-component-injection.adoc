@@ -1,0 +1,32 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[cdi-rx-micro-component-injection-section]]
+=== RxMicro Components Injection
+
+==== Basic Usage
+
+TODO
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-rxmicro-component/src/main/java/io/rxmicro/examples/cdi/rxmicro/component/RESTClient.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-rxmicro-component/src/main/java/io/rxmicro/examples/cdi/rxmicro/component/BusinessServiceFacade.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-rxmicro-component/src/test/java/io/rxmicro/examples/cdi/rxmicro/component/BusinessServiceFacadeTest.java[tag=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-rxmicro-component
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]
+
+==== All Supported RxMicro Components
+
+TODO (Table)

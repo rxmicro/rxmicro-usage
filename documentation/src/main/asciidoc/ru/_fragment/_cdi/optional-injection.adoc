@@ -1,0 +1,26 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[cdi-optional-injection-section]]
+=== Optional Injection
+
+TODO
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-optional-injection/src/main/java/io/rxmicro/examples/cdi/optional/injection/BusinessService.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-optional-injection/src/main/java/io/rxmicro/examples/cdi/optional/injection/BusinessServiceFacade.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-optional-injection/src/test/java/io/rxmicro/examples/cdi/optional/injection/BusinessServiceFacadeTest.java[tag=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-optional-injection
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]

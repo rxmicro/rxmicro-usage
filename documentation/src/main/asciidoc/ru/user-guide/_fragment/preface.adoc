@@ -1,0 +1,20 @@
+(C) 2019-2020 rxmicro.io.
+Free use of this software is granted under the terms of the {RX-MICRO-SRC-ROOT-BLOB-URL}LICENSE[`Apache License 2.0`^].
+
+[NOTE]
+====
+Copies of this entity may be made for your own use and for distribution to others, provided that you do not charge any fee for such copies and further provided that each copy contains this Copyright Notice, whether distributed in print or electronically.
+
+If you find errors or omissions in this entity, please don’t hesitate to submit an
+https://github.com/rxmicro/rxmicro-usage/issues[*issue*^] or open https://github.com/rxmicro/rxmicro-usage/pulls[*a pull request*^] with a fix.
+====
+
+ifeval::["{guide-kind}" == "full"]
+ifeval::["{guide-format}" == "html"]
+This entity is also available as a link:user-guide.pdf[PDF download^].
+endif::[]
+endif::[]
+
+ifeval::["{guide-kind}" == "index"]
+This entity is also available as a link:../user-guide.html[single HTML^] or as a link:../user-guide.pdf[PDF download^].
+endif::[]

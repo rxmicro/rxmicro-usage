@@ -1,0 +1,9 @@
+=== Требования к реализации REST Client
+
+==== Требования к интерфейсу REST Client
+
+<<<
+
+==== Требования к обработчикам HTTP запроса
+
+include::../_rest/___note_reactive_libs.adoc[]

@@ -1,0 +1,22 @@
+==== Типы конфигурирования
+
+*RxMicro* поддерживает следующие типы конфигурирования:
+
+. Конфигурирование с помощью `classpath` ресурсов;
+. Конфигурирование с помощью `properties` файлов;
+. Конфигурирование с помощью переменных окружения;
+. Конфигурирование с помощью Java системных переменных;
+. Конфигурирование с помощью Java классов;
+. Конфигурирование с помощью аннотаций;
+
+include::_config-types/classpath-resource.adoc[]
+
+include::_config-types/properties-files.adoc[]
+
+include::_config-types/environment-variables.adoc[]
+
+include::_config-types/system-properties.adoc[]
+
+include::_config-types/classes.adoc[]
+
+include::_config-types/annotations.adoc[]

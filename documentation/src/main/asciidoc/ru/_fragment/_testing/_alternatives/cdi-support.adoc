@@ -1,0 +1,60 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../../
+
+==== Альтернативы CDI бинам
+
+Если разработчик в проекте использует модуль <<{cdi}#cdi-section,`rxmicro.cdi`>>, то тогда *все* пользовательские компоненты считаются бинами и подчиняются алгоритму внедрения альтернатив RxMicro компонентов.
+
+_При использовании модуля `rxmicro.cdi` *всегда внедряйте зависимости с помощью механизма CDI*:_
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives-cdi/src/main/java/io/rxmicro/examples/testing/component/alternatives/cdi/ParentComponent.java[tag=content,indent=0]
+----
+<1> Класс `ParentComponent` зависит от компонентов `ChildComponent` и `ChildComponentImpl`. +
+_(Данные зависимости внедряются используя механизмы CDI.)_
+
+[TIP]
+====
+Приведенный выше пример является демонстрацией возможностей альтернатив и CDI контейнера.
+Именно поэтому в компонент `ParentComponent` внедряется реализация `ChildComponentImpl`.
+В реальных проектах рекомендуется внедрять только интерфейсы для получения большей гибкости.
+
+_Обращаем Ваше внимание, что так как класс `ChildComponentImpl` реализует интерфейс `ChildComponent` и все CDI бины являются <<{cdi}#cdi-singletons-section,singletons>>, поля `childComponent` и `childComponentImpl` будут содержать ссылки на один и тот же объект класса `ChildComponentImpl`!_
+====
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives-cdi/src/main/java/io/rxmicro/examples/testing/component/alternatives/cdi/ChildComponentImpl.java[tag=content,indent=0]
+----
+<1> При создании объекта класса `ChildComponentImpl` в консоль выводиться информационное сообщение. +
+_(Данное сообщение нужно, чтобы убедиться, что при использовании альтернатив CDI бинов реальный пользовательский объект не создается!)_
+
+В процессе тестирования, если альтернативы не создаются, то тестируемый компонент использует реальные объекты пользовательских компонентов:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives-cdi/src/test/java/io/rxmicro/examples/testing/component/alternatives/cdi/ParentComponent1Test.java[tag=content,indent=0]
+----
+<1> При вызове метода `getEnvironment` используются реальные объекты пользовательских компонентов.
+<2> В процессе запуска теста создается единственный экземпляр класса `ChildComponentImpl`.
+
+В процессе тестирования, если альтернативы создаются, то тестируемый компонент использует их вместо реальных объектов пользовательских компонентов:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives-cdi/src/test/java/io/rxmicro/examples/testing/component/alternatives/cdi/ParentComponent2Test.java[tag=content,indent=0]
+----
+<1> При вызове метода `getEnvironment` используются альтернативы реальных объектов пользовательских компонентов.
+<2> В процессе запуска теста экземпляр класса `ChildComponentImpl` не создается.
+
+При использовании альтернатив для сложных компонентов возможно использование альтернатив вместе с реальными компонентами:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives-cdi/src/test/java/io/rxmicro/examples/testing/component/alternatives/cdi/ParentComponent3Test.java[tag=content,indent=0]
+----
+<1> При вызове метода `getEnvironment` используется альтернатива и реальный объект.
+<2> В процессе запуска теста создается единственный экземпляр класса `ChildComponentImpl`.
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-cdi
+include::../../___notes/full-source-code-of-example.adoc[]

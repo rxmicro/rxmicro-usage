@@ -1,0 +1,63 @@
+[[core-json-type-mapping]]
+==== Соответствие между JSON и Java типами
+
+Так как данный модуль используется автоматически, он оптимизирован под машинные операции.
+Именно поэтому данный модуль не предоставляет отдельные классы для JSON типов.
+Вместо этого используются стандартные Java классы:
+
+.Таблица соответствия между JSON и Java типами.
+|===
+|*JSON type*|*Java type*
+
+|`object`
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/Map.html[`java.util.Map<java.lang.String, java.lang.Object>`^]
+
+|`array`
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/List.html[`java.util.List<java.lang.Object>`^]
+
+|`boolean`
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Boolean.html[`java.lang.Boolean`^]
+
+|`null`
+|`null`
+
+|`string`
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
+
+|`number`
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-json/src/main/java/io/rxmicro/json/JsonNumber.java[`io.rxmicro.json.JsonNumber`^]
+|===
+
+.Таблица соответствия между Java и JSON типами.
+|===
+|*Java type*|*JSON type*
+
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/Map.html[`java.util.Map<java.lang.String, java.lang.Object>`^]
+|`object`
+
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/List.html[`java.util.List<java.lang.Object>`^]
+|`array`
+
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Boolean.html[`java.lang.Boolean`^]
+|`boolean`
+
+|`null`
+|`null`
+
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
+|`string`
+
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Number.html[`? extends java.lang.Number`^]
+|`number`
+
+|`Any Java Class`
+|`string`
+|===
+
+[TIP]
+====
+Класс {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-json/src/main/java/io/rxmicro/json/JsonNumber.java[`io.rxmicro.json.JsonNumber`^]
+наследует класс {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Number.html[`java.lang.Number`^].
+
+Поэтому *для работы с числовыми типами данных Вы можете использовать тип `java.lang.Number` вместо `io.rxmicro.json.JsonNumber`*!
+====

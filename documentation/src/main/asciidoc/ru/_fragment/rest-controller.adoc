@@ -1,0 +1,87 @@
+REST Controller - это класс, который содержит хотя бы один декларативный обработчик HTTP запроса.
+
+Каждый проект REST-based микросервиса должен содержать хотя бы один REST Controller. +
+_(Именно REST Controller является точкой входа для клиента.)_
+
+Для создания REST контроллеров, RxMicro предоставляет следующие модули:
+
+* {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest[`rxmicro.rest`^] - базовый модуль, определяющий основные `RxMicro annotations`, необходимые при использовании
+https://en.wikipedia.org/wiki/Representational_state_transfer[`REST`^] архитектуры построения программных систем;
+* {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-server[`rxmicro.rest.server`^] - базовый модуль HTTP сервера, предназначенный для создания REST контроллеров и запуска REST-based микросервисов;
+* {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-server-netty[`rxmicro.rest.server.netty`^] - модуль реализации HTTP сервера построенный на базе https://netty.io/[`Netty`^];
+* {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-server-exchange-json[`rxmicro.rest.server.exchange.json`^] - Модуль конвертации Java моделей в https://www.json.org[`JSON`^] формат и наоборот;
+
+[NOTE]
+====
+Из-за транзитивных зависимостей в проект обычно необходимо подключить только два модуля:
+{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-server-netty[`rxmicro.rest.server.netty`^] и {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-server-exchange-json[`rxmicro.rest.server.exchange.json`^]. +
+_(Остальные модули подключаться в проект автоматически!)_
+====
+
+<<<
+
+include::_rest-controller/requirements.adoc[]
+
+<<<
+
+include::_rest-controller/annotations.adoc[]
+
+<<<
+
+include::_rest-controller/return-types.adoc[]
+
+<<<
+
+include::_rest-controller/routing.adoc[]
+
+<<<
+
+include::_rest-controller/not-found.adoc[]
+
+<<<
+
+include::_rest-controller/error.adoc[]
+
+<<<
+
+include::_rest-controller/set-status-code.adoc[]
+
+<<<
+
+include::_rest-controller/redirect.adoc[]
+
+<<<
+
+include::_rest-controller/http-headers.adoc[]
+
+<<<
+
+include::_rest-controller/http-params.adoc[]
+
+<<<
+
+include::_rest-controller/path-variables.adoc[]
+
+<<<
+
+include::_rest-controller/internal.adoc[]
+
+<<<
+
+include::_rest-controller/versioning.adoc[]
+
+<<<
+
+include::_rest-controller/base-url-path.adoc[]
+
+<<<
+
+include::_rest-controller/cors.adoc[]
+
+<<<
+
+include::_rest-controller/request-id.adoc[]
+
+<<<
+
+include::_rest-controller/rest-server-generator-config.adoc[]

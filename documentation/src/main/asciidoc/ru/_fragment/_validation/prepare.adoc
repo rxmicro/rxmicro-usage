@@ -1,0 +1,32 @@
+[[validation-prepare-section]]
+=== Подготовительные шаги
+
+Для активации модуля валидации в микросервисном проекте, необходимо выполнить следующие шаги:
+
+. Добавить необходимые зависимости в `pom.xml`.
+. Добавить модуль `rxmicro.validation` в `module-info.java`.
+
+==== Добавление необходимых зависимостей:
+
+Для активации модуля валидации в микросервисном проекте, необходимо добавить библиотеку `rxmicro-validation`:
+
+[source,xml]
+----
+<dependencies>
+    <dependency>
+        <groupId>io.rxmicro</groupId>
+        <artifactId>rxmicro-validation</artifactId>
+        <version>${rxmicro.version}</version>
+    </dependency>
+</dependencies>
+----
+
+==== Добавление модуля `rxmicro.validation` в `module-info.java`
+
+[source,java]
+----
+module example {
+    requires rxmicro.validation; // <1>
+}
+----
+<1> Добавление модуля валидации запросов и ответов.

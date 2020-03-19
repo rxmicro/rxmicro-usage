@@ -1,0 +1,32 @@
+[NOTE]
+====
+RxMicro рекомендует для обработчиков запросов, зависящих от 3 и более
+// tag::headers[]
+HTTP заголовков
+// end::headers[]
+// tag::params[]
+HTTP параметров
+// end::params[]
+// tag::path-variables[]
+`path variables`
+// end::path-variables[]
+// tag::all[]
+HTTP заголовков, HTTP параметров или `path variables`
+// end::all[]
+создавать отдельные классы модели запроса.
+
+*При внедрении*
+// tag::headers[]
+*HTTP заголовков*
+// end::headers[]
+// tag::params[]
+*HTTP параметров*
+// end::params[]
+// tag::path-variables[]
+*`path variables`*
+// end::path-variables[]
+// tag::all[]
+*HTTP заголовков, HTTP параметров или `path variables`*
+// end::all[]
+*непосредственно в обработчик, код становится трудночитаемым!*
+====

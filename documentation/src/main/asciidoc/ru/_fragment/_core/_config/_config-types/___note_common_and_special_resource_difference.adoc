@@ -1,0 +1,19 @@
+[NOTE]
+====
+Именно поэтому при указании порта HTTP сервера, необходимо в файле `rxmicro.properties` указывать префикс `http-server.`
+_(При использовании файла `http-server.properties` такой необходимости не было!)_
+
+Т.е.
+
+[source,properties]
+----
+http-server.port=9090
+----
+
+вместо
+
+[source,properties]
+----
+port=9090
+----
+====

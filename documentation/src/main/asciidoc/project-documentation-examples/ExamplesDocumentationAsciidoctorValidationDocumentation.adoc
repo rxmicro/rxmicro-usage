@@ -1,0 +1,1 @@
+include::../../../../../examples/documentation-asciidoctor-validation/src/main/asciidoc/ExamplesDocumentationAsciidoctorValidationDocumentation.adoc[]

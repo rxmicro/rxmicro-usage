@@ -1,0 +1,38 @@
+=== Проверка работоспособности
+
+Для получения сообщения `"Hello World!"` от созданного REST-based микросервиса, выполняем `GET` запрос на `localhost:8080`:
+
+[source,text]
+----
+curl -v localhost:8080
+
+* Rebuilt URL to: localhost:8080/
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+
+> GET / HTTP/1.1
+> Host: localhost:8080
+> User-Agent: curl/7.58.0
+> Accept: */*
+>
+
+< HTTP/1.1 200 OK <1>
+< Server: RxMicro-NettyServer/0.4
+< Date: Thu, 2 Jan 2020 11:48:13 GMT
+< Content-Type: application/json
+< Content-Length: 25
+< Request-Id: 62jJeu8x1310662
+<
+* Connection #0 to host localhost left intact
+{"message":"Hello World!"} <2>
+----
+<1>  HTTP сервер успешно возвращает ответ.
+<2>  В HTTP теле возвращается JSON ответ с сообщением `"Hello World!"`.
+
+Следовательно, созданный REST-based микросервис работает корректно!
+
+[NOTE]
+====
+Вы также можете использовать свой любимый браузер вместо `curl` для проверки корректности работы REST-based микросервиса.
+====

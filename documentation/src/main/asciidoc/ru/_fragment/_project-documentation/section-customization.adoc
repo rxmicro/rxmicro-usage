@@ -1,0 +1,17 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[project-documentation-section-customization-section]]
+=== Sections Customization
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-custom-sections/src/main/java/module-info.java[tag=content,indent=0]
+----
+
+:project-documentation-file: ExamplesDocumentationAsciidoctorCustomSectionsDocumentation.html
+include::../___notes/generated-project-documentation.adoc[]
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}documentation-asciidoctor-custom-sections
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]

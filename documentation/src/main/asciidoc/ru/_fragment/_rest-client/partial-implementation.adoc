@@ -1,0 +1,26 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[rest-client-partial-implementation-section]]
+=== Partial Implementation
+
+TODO
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-partial-implementation/src/main/java/io/rxmicro/examples/rest/client/partial/implementation/RESTClient.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-partial-implementation/src/main/java/io/rxmicro/examples/rest/client/partial/implementation/AbstractRESTClient.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-partial-implementation/src/test/java/io/rxmicro/examples/rest/client/partial/implementation/RESTClientTest.java[tag=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-partial-implementation
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]

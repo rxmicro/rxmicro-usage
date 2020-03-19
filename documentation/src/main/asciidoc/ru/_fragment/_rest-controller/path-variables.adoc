@@ -1,0 +1,56 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[rest-controller-path-variables-basic]]
+=== Поддержка `path variables`
+
+==== Базовые правила
+
+RxMicro поддерживает `path variables` в моделях запроса:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-path-variables/src/main/java/io/rxmicro/examples/rest/controller/path/variables/model/Request.java[tag=content,indent=0]
+----
+
+<1> Для того чтобы поле модели объявить как `path variable`, необходимо использовать аннотацию
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/PathVariable.java[`@PathVariable`^].
+<2> С помощью аннотации {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/PathVariable.java[`@PathVariable`^] возможно указать имя `path variable`. +
+_(Если имя не указано, то в качестве имени `path variable` используется имя поля модели.)_
+
+[TIP]
+====
+В отличие от HTTP заголовков и параметров, которые доступны и на клиентской стороне, `path variables` доступны *только* внутри обработчиков HTTP запроса.
+
+*Поэтому рекомендуется для простоты всегда использовать имя поля модели в качестве имени `path variable`!*
+====
+
+После создания классов моделей, необходимо создать обработчик HTTP запросов, использующий данную модель:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-path-variables/src/main/java/io/rxmicro/examples/rest/controller/path/variables/MicroService.java[tag=content,indent=0]
+----
+<1> При использовании `path variables` в моделях запроса обязательно использовать *все* `path variables` в URL Path.
+_(На основании анализа URL Path с учетом значений всех `path variables` RxMicro выбирает необходимый обработчик HTTP запроса.)_
+<2> Для того чтобы параметр метода объявить как `path variable`, необходимо использовать аннотацию `@PathVariable`.
+<3> С помощью аннотации `@PathVariable` возможно задать имя `path variable`, которое не соответствует имени параметра метода.
+
+include::../___notes/model-class-intead-of-method-parameters-note.adoc[tags=**;!headers;!params;!all]
+
+Несмотря на различные подходы к поддержке обработки `path variables`, с клиентской точки зрения два вышеуказанных обработчика абсолютно равнозначны:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-path-variables/src/test/java/io/rxmicro/examples/rest/controller/path/variables/MicroServiceTest.java[tag=content,indent=0]
+----
+<1> Текущий `path`, который соответствует одному из заданных `path` шаблонов.
+<2> Ожидаемая строка содержащая все извлеченные `path variables` из текущего `path`, выведенная в консоль.
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-controller-path-variables
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]
+
+==== Поддерживаемые типы данных
+
+include::../_rest/___path_variables_types.adoc[]

@@ -1,0 +1,84 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[project-documentation-basic-usage-section]]
+=== Default Project Documentation
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-quick-start/src/main/java/module-info.java[tags=content]
+----
+
+[source,xml]
+----
+<dependency>
+    <groupId>io.rxmicro</groupId>
+    <artifactId>rxmicro-documentation-asciidoctor</artifactId> <!--1-->
+    <version>${rxmicro.version}</version>
+</dependency>
+----
+
+[source,xml]
+----
+<plugin>
+    <artifactId>maven-dependency-plugin</artifactId>
+    <version>${maven.dependencies.plugin.version}</version>
+    <executions>
+        <execution>
+            <id>copy-dependencies</id>
+            <phase>package</phase>
+            <goals>
+                <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+                <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                <includeScope>compile</includeScope>
+                <excludeArtifactIds> <!--1-->
+                    rxmicro-documentation,
+                    rxmicro-documentation-asciidoctor
+                </excludeArtifactIds>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+----
+
+[source,xml]
+----
+<plugin>
+    <groupId>org.asciidoctor</groupId>
+    <artifactId>asciidoctor-maven-plugin</artifactId> <!--1-->
+    <version>${asciidoctor.maven.plugin.version}</version>
+    <executions>
+        <execution>
+            <id>output-html5</id>
+            <phase>package</phase> <!--2-->
+            <goals>
+                <goal>process-asciidoc</goal>
+            </goals>
+            <configuration>
+                <backend>html5</backend> <!--3-->
+                <sourceHighlighter>highlight.js</sourceHighlighter> <!--4-->
+                <preserveDirectories>true</preserveDirectories>
+                <relativeBaseDir>true</relativeBaseDir>
+                <attributes> <!--5-->
+                    <icons>font</icons>
+                    <pagenums/>
+                    <toclevels>3</toclevels>
+                </attributes>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+----
+
+<1> {MAVEN-REPO-SEARCH-ROOT}org.asciidoctor/asciidoctor-maven-plugin[Последняя стабильная версия `asciidoctor-maven-plugin`^].
+
+https://asciidoctor.org/docs/asciidoctor-maven-plugin/
+
+:project-documentation-file: ExamplesDocumentationAsciidoctorQuickStartDocumentation.html
+include::../___notes/generated-project-documentation.adoc[]
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}documentation-asciidoctor-quick-start
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]

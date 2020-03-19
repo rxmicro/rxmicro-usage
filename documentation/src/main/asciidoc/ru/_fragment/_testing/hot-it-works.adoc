@@ -1,0 +1,143 @@
+[[testing-how-it-works-section]]
+=== How It Works
+
+Java 9 ввела в использование https://www.oracle.com/corporate/features/understanding-java-9-modules.html[модульную систему^].
+
+Данная система требует от разработчика, чтобы он для каждого проекта определял дескриптор `module-info.java`, в котором описывал все зависимости текущего проекта.
+С точки зрения модульной системы Unit тесты, которые нужны для каждого проекта, должны быть огранизованы в виде отдельного модуля, так как зависят от библиотек, которые не должны быть доступны в `runtime`.
+Обычно такими библиотеками являются библиотеки модульного тестирования (например https://junit.org/junit5/[JUnit 5^]), библиотеки создания моков (например https://site.mockito.org/[Mockito^]) и т.д.
+
+При попытке создать отдельный дескриптор `module-info.java` доступный только для модульных тестов многие современные IDE сообщают об ошибке.
+
+*Поэтому самым простым и распространенным решением данной проблемы является организация модульных тестов в виде
+https://www.logicbig.com/tutorials/core-java-tutorial/modules/automatic-modules.html[автоматического модуля^]. +
+Данное решение позволяет исправить ошибки компиляции, но при запуске тестов возникнут ошибки времени выполнения. +
+Чтобы исправить ошибки времени выполнения, необходимо при запуске виртуальной машины Java добавить
+https://blog.codefx.org/java/five-command-line-options-hack-java-module-system/[опции, которые конфигурируют модульную систему Java в процессе выполнения^].*
+
+В случае запуска тестов данные опции необходимо добавлять в `maven-surefire-plugin`:
+
+[source,xml]
+----
+<plugin>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>2.22.1</version>
+    <configuration>
+        <argLine>
+            @{argLine}
+            --add-exports ...
+            --add-opens ...
+            --patch-module ...
+            --add-modules ...
+            --add-reads ...
+        </argLine>
+    </configuration>
+</plugin>
+----
+
+Указанные опции конфигурации модульной системы Java в процессе выполнения могут быть также добавлены, используя возможности класса
+{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Module.html[`java.lang.Module`^].
+
+*Чтобы избавить разработчика от необходимости добавлять необходимые опции в конфигурацию `maven-surefire-plugin`, RxMicro предоставляет специальный процессор аннотаций:
+`io.rxmicro.annotation.processor.RxMicroTestsAnnotationProcessor`.*
+
+Для активации данного процессора необходимо добавить новый execution в конфигурацию `maven-compiler-plugin`:
+
+[source,xml]
+----
+<execution>
+    <id>test-compile</id>
+    <goals>
+        <goal>testCompile</goal> <!--1-->
+    </goals>
+    <configuration>
+        <annotationProcessors>
+            <annotationProcessor>
+                io.rxmicro.annotation.processor.RxMicroTestsAnnotationProcessor <!--2-->
+            </annotationProcessor>
+        </annotationProcessors>
+        <generatedTestSourcesDirectory>
+            ${project.build.directory}/generated-test-sources/  <!--3-->
+        </generatedTestSourcesDirectory>
+    </configuration>
+</execution>
+----
+<1> `<id>test-compile</id>` - для тестов необходима отдельная конфигурация, поэтому необходимо добавить новый `execution`.
+<2> `io.rxmicro.annotation.processor.RxMicroTestsAnnotationProcessor` - класс процессора аннотаций, который обрабатывает тестовую конфигурацию.
+<3> `${project.build.directory}/generated-test-sources/` - местоположение генерируемых Java классов процессором тестовых аннотаций.
+
+Данный процессор аннотаций генерирует один единственный класс `rxmicro.$$ComponentTestFixer`, который автоматически открывает доступ ко всем пакетам текущего проекта из автоматических модулей:
+
+[source,java]
+----
+public final class $$ComponentTestFixer {
+
+    static {
+        final Module currentModule = $$ComponentTestFixer.class.getModule();
+        currentModule.addExports("rxmicro", getRuntimeModule());
+    }
+
+    public $$ComponentTestFixer() {
+        final Module unNamedModule = getClass().getClassLoader().getUnnamedModule(); // <1>
+        final Module currentModule = getClass().getModule();
+        if (currentModule.isNamed()) {
+            currentModule.getPackages().forEach(p -> {
+                currentModule.addOpens(p, unNamedModule); // <2>
+                System.out.println(
+                        format("opens ?/? to ALL-UNNAMED", currentModule.getName(), p) // <3>
+                );
+            });
+        }
+    }
+}
+----
+<1> С помощью стандартного Java API RxMicro получает доступ к текущему и неименованному модулям.
+<2> С помощью возможностей класса {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Module.html[`java.lang.Module`^] RxMicro открывает полный доступ ко всем классам из всех пакетов текущего модуля.
+<3> Для информирования пользователя об успешном результате работы класса `rxmicro.$$ComponentTestFixer`, RxMicro в консоль выводит информацию о том, что доступ был успешно открыт.
+
+[NOTE]
+====
+При запуске разных видов тестов иногда необходима различная конфигурация модульной системы Java, поэтому для каждого вида тестов RxMicro создает отдельный класс:
+
+.Названия генерируемых классов для каждого вида теста
+[cols="1,1"]
+|===
+|*Вид теста*|*Название генерируемого класса*
+
+|Тест REST-based микросервиса
+|`rxmicro.$$RestBasedMicroServiceTestFixer`
+
+|Модульный тест компонента
+|`rxmicro.$$ComponentTestFixer`
+
+|Интеграционный тест REST-based микросервисов
+|`rxmicro.$$IntegrationTestFixer`
+|===
+====
+
+Перед запуском тестов RxMicro использует сгенерированный класс для конфигурации модульной системы для тестового окружения:
+
+[source,text]
+----
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+opens examples.testing/io.rxmicro.examples.testing to ALL-UNNAMED # <1>
+opens examples.testing/rxmicro to ALL-UNNAMED
+[INFO] Running io.rxmicro.examples.testing.ParentComponent1Test # <2>
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.278 s
+[INFO] Running io.rxmicro.examples.testing.ParentComponent2Test
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.378 s
+[INFO]
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+----
+<1> Перед запуском тестов открыты все пакеты текущего модуля.
+<2> После настройки модульной системы для тестового окружения запускаются Unit тесты.
+
+*Таким образом для успешного написания тестов с помощью фреймворка RxMicro, кроме добавления необходимых библиотек, не забудьте сконфигурировать `maven-compiler-plugin`, добавив процессор аннотаций для тестового окружения: `io.rxmicro.annotation.processor.RxMicroTestsAnnotationProcessor`.*

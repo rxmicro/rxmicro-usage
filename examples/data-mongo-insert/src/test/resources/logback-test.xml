@@ -1,0 +1,12 @@
+<!-- http://logback.qos.ch/manual/configuration.html -->
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%thread] - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <logger name="io.r2dbc.postgresql.QUERY" level="DEBUG"/>
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>

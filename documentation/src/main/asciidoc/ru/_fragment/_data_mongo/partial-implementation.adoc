@@ -1,0 +1,26 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[data-mongo-partial-implementation-section]]
+=== Partial Implementation
+
+TODO
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-partial-implementation/src/main/java/io/rxmicro/examples/data/mongo/partial/implementation/DataRepository.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-partial-implementation/src/main/java/io/rxmicro/examples/data/mongo/partial/implementation/AbstractDataRepository.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-partial-implementation/src/test/java/io/rxmicro/examples/data/mongo/partial/implementation/DataRepositoryTest.java[tag=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-mongo-partial-implementation
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]

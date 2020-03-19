@@ -1,0 +1,46 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[cdi-post-construct-section]]
+=== `@PostConstruct`
+
+TODO
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-post-construct/src/main/java/io/rxmicro/examples/cdi/post/construct/BusinessService.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-post-construct/src/main/java/io/rxmicro/examples/cdi/post/construct/BusinessServiceImpl.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-post-construct/src/main/java/io/rxmicro/examples/cdi/post/construct/BusinessService1Facade.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-post-construct/src/main/java/io/rxmicro/examples/cdi/post/construct/BusinessService2Facade.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-post-construct/src/test/java/io/rxmicro/examples/cdi/post/construct/BusinessService1FacadeTest.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-post-construct/src/test/java/io/rxmicro/examples/cdi/post/construct/BusinessService2FacadeTest.java[tag=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-post-construct
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]
+
+[NOTE]
+====
+PreDestroy -> AutoRelease
+====

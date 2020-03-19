@@ -1,0 +1,29 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../../
+
+[[data-mongo-aggregate-section]]
+==== `@Aggregate`
+
+TODO
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-aggregate/src/main/java/io/rxmicro/examples/data/mongo/aggregate/model/Report.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-aggregate/src/main/java/io/rxmicro/examples/data/mongo/aggregate/DataRepository.java[tag=content,indent=0]
+----
+
+[NOTE]
+====
+Для получения дополнительных сведений, рекомендуем ознакомиться со следующими примерами:
+
+* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}data-mongo-all-operations/src/main/java/io/rxmicro/examples/data/mongo/all/operations/AggregateDataRepository.java[All Supported Return Types^];
+* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}data-mongo-supported-types/src/main/java/io/rxmicro/examples/data/mongo/supported/types/GetDataRepository.java#L25[All Supported Parameter Types^].
+====
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-mongo-aggregate
+include::../../___notes/full-source-code-of-example.adoc[]
+
+include::../../___notes/recompile-after-change.adoc[]

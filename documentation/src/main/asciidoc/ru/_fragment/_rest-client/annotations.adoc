@@ -1,0 +1,6 @@
+[[rest-client-annotations-section]]
+=== `RxMicro Annotations`
+
+:rest-title: REST Clients
+:rest-kind: client
+include::../_rest/___annotations.adoc[]

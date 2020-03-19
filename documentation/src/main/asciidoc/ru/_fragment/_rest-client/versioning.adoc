@@ -1,0 +1,62 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[rest-client-versioning-section]]
+=== Версионирование of REST Clients
+
+RxMicro поддерживает версионирования of REST Clients с помощью двух стратегий:
+
+* Версионирование на основании анализа HTTP заголовка с именем
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java#L193[`Api-Version`^].
+* Версионирование на основании анализа URL Path фрагмента.
+
+<<<
+
+==== Версионирования на основании анализа HTTP заголовка
+
+TODO
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-versioning-header/src/main/java/io/rxmicro/examples/rest/client/versioning/header/OldRestClient.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-versioning-header/src/main/java/io/rxmicro/examples/rest/client/versioning/header/NewRestClient.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-versioning-header/src/test/java/io/rxmicro/examples/rest/client/versioning/header/OldRestClientTest.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-versioning-header/src/test/java/io/rxmicro/examples/rest/client/versioning/header/NewRestClientTest.java[tag=content,indent=0]
+----
+
+<<<
+
+==== Версионирования на основании анализа URL Path фрагмента
+
+TODO
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-versioning-url-path/src/main/java/io/rxmicro/examples/rest/client/versioning/url/path/OldRestClient.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-versioning-url-path/src/main/java/io/rxmicro/examples/rest/client/versioning/url/path/NewRestClient.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-versioning-url-path/src/test/java/io/rxmicro/examples/rest/client/versioning/url/path/OldRestClientTest.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-versioning-url-path/src/test/java/io/rxmicro/examples/rest/client/versioning/url/path/NewRestClientTest.java[tag=content,indent=0]
+----

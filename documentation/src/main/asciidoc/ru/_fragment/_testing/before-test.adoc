@@ -1,0 +1,85 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[testing-before-test-section]]
+=== Аннотации `@BeforeTest` и `@BeforeIterationMethodSource`
+
+Для того чтобы выполнить какие либо действия перед вызовом тестового метода фреймворк
+https://junit.org/junit5/[JUnit 5^] предоставляет специальную аннотацию: {JUNIT5-DOC-ROOT-URL}api/org.junit.jupiter.api/org/junit/jupiter/api/BeforeEach.html[`@BeforeEach`^].
+
+Согласно правилам работы фреймворка https://junit.org/junit5/[JUnit 5^], если в тестовом классе есть метод, аннотированный аннотацией
+{JUNIT5-DOC-ROOT-URL}api/org.junit.jupiter.api/org/junit/jupiter/api/BeforeEach.html[`@BeforeEach`^], то этот метод необходимо вызывать перед вызовом каждого тестового метода в тестовом классе.
+
+Рассмотрим возможности применения аннотации {JUNIT5-DOC-ROOT-URL}api/org.junit.jupiter.api/org/junit/jupiter/api/BeforeEach.html[`@BeforeEach`^]
+на примере проекта, состоящего из двух компонентов: интерфейса ChildComponent и класса ParentComponent.
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-before-test/src/main/java/io/rxmicro/examples/testing/component/before/test/ChildComponent.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-before-test/src/main/java/io/rxmicro/examples/testing/component/before/test/ParentComponent.java[tag=content,indent=0]
+----
+
+При использовании альтернативы-мока запрограммировать поведение возможно в методе аннотированном аннотацией {JUNIT5-DOC-ROOT-URL}api/org.junit.jupiter.api/org/junit/jupiter/api/BeforeEach.html[`@BeforeEach`^]:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-before-test/src/test/java/io/rxmicro/examples/testing/component/before/test/ParentComponent1Test.java[tag=content,indent=0]
+----
+<1> Так как метод `beforeEach()` будет гарантированно вызван фреймворком https://junit.org/junit5/[JUnit 5^]
+перед вызовом тестового метода `Should_use_alternative()`, то в процессе теста будет использовано запрограммированное поведение мока;
+
+Недостатком использования метода аннотированного аннотацией {JUNIT5-DOC-ROOT-URL}api/org.junit.jupiter.api/org/junit/jupiter/api/BeforeEach.html[`@BeforeEach`^]
+является то, что невозможно c его помощью запрограммировать разное поведение для двух и более тестовых методов в одном классе:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-before-test/src/test/java/io/rxmicro/examples/testing/component/before/test/ParentComponent2Test.java[tag=content,indent=0]
+----
+
+Стандартным решением данной проблемы является программирование поведения в самом тестовом методе:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-before-test/src/test/java/io/rxmicro/examples/testing/component/before/test/ParentComponent3Test.java[tag=content,indent=0]
+----
+
+Однако не всегда удобно конфигурировать альтернативу в самом тестовом методе. +
+*Особенно это может вызвать проблему, когда необходимо сконфигурировать альтернативу RxMicro компонента перед ее регистрацией в RxMicro runtime container!*
+
+Для решения данной проблемы RxMicro предоставляет две дополнительные аннотации:
+
+* {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/BeforeTest.java[`@BeforeTest`^];
+* {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/BeforeIterationMethodSource.java[`@BeforeIterationMethodSource`^];
+
+Аннотация {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/BeforeTest.java[`@BeforeTest`^]
+позволяет указывать метод, который должен быть вызван перед вызовом конкретного тестового метода:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-before-test/src/test/java/io/rxmicro/examples/testing/component/before/test/ParentComponent4Test.java[tag=content,indent=0]
+----
+<1> Для конфигурации альтернативы-мока необходимо создать метод в тестовом классе.
+<2> Если данный метод нужно вызвать перед тестовым методом, необходимо с помощью аннотации
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/BeforeTest.java[`@BeforeTest`^] указать имя данного метода. +
+_(Аннотацией {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/BeforeTest.java[`@BeforeTest`^] должен аннотироваться тестовый метод!)_.
+
+При создании параметризованных тестов необходимо вместо аннотации
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/BeforeTest.java[`@BeforeTest`^] использовать аннотацию
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/BeforeIterationMethodSource.java[`@BeforeIterationMethodSource`^]:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-before-test/src/test/java/io/rxmicro/examples/testing/component/before/test/ParentComponent5Test.java[tag=content,indent=0]
+----
+<1> С помощью аннотации {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/BeforeIterationMethodSource.java[`@BeforeIterationMethodSource`^]
+разработчик указывает массив методов.
+Каждый метод из данного массива необходимо вызывать перед выполнением новой итерации параметризованного теста.
+<2> Для отчетности рекомендуется указывать параметр параметризованного теста: `final String method`.
+Данный параметр в тесте не используется, но если он присутствует, то фреймворк https://junit.org/junit5/[JUnit 5^] автоматически передает в него имя метода.
+Таким образом в отчете выполнения параметризованного теста для каждой итерации будет указан метод, который был вызван перед выполнением этой итерации.
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-before-test
+include::../___notes/full-source-code-of-example.adoc[]

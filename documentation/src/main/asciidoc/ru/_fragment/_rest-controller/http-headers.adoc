@@ -1,0 +1,168 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[rest-controller-headers-basic]]
+=== Обработка HTTP заголовков
+
+==== Базовые правила
+
+RxMicro поддерживает HTTP заголовки в моделях запроса и ответа:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-headers/src/main/java/io/rxmicro/examples/rest/controller/headers/model/Request.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-headers/src/main/java/io/rxmicro/examples/rest/controller/headers/model/Response.java[tag=content,indent=0]
+----
+<1> Аннотация {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/HeaderMappingStrategy.java[`@HeaderMappingStrategy`^]
+позволяет задать общие правила преобразования для всех имен заголовков из HTTP формата в Java и наоборот в текущем классе модели. +
+_(По умолчанию используется стратегия
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L58[`MappingStrategy.CAPITALIZE_WITH_HYPHEN`^].
+В качестве базового имени используется имя поля, а затем применяя правила указанной стратегии, формируется имя HTTP заголовка.)_
+<2> Для того, чтобы поле модели объявить как поле HTTP заголовка, необходимо использовать аннотацию
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Header.java[`@Header`^].
+<3> С помощью аннотации {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Header.java[`@Header`^]
+возможно задать имя HTTP заголовка, которое не соответствует используемой стратегии, объявленной с помощью аннотации
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/HeaderMappingStrategy.java[`@HeaderMappingStrategy`^].
+
+Для определения имени HTTP заголовка для указанного поля модели RxMicro использует следующий алгоритм:
+
+. Если поле аннотировано аннотацией `@Header` с явным указанием имени HTTP заголовка используется указанное имя;
+. Если имя HTTP заголовка не указано в аннотации `@Header`, RxMicro проверяет наличие аннотации `@HeaderMappingStrategy` над классом модели;
+. Если класс модели аннотирован аннотацией `@HeaderMappingStrategy`, то используется указанная стратегия именования. +
+_(В качестве базового имени используется имя поля, а затем применяя правила указанной стратегии, формируется имя HTTP заголовка.)_
+. Если аннотация `@HeaderMappingStrategy` отсутствует в качестве имени HTTP заголовка используется имя поля класса модели.
+
+После создания классов моделей, необходимо создать обработчик запросов, использующий данные модели:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-headers/src/main/java/io/rxmicro/examples/rest/controller/headers/SimpleUsageMicroService.java[tag=content,indent=0]
+----
+<1> Если для HTTP запроса был создан отдельный класс модели, то этот класс необходимо передавать параметром метода, обрабатывающего HTTP запрос.
+<2> Кроме поддержки классов модели HTTP запроса, RxMicro поддерживает обработчики запросов, принимающие HTTP заголовки в качестве параметров метода.
+<3> Для определения общей стратегии именования всех HTTP заголовков, которые передаются в качестве параметров метода обработчик запросов должен быть аннотирован аннотацией `@HeaderMappingStrategy`.
+<4> Для того чтобы параметр метода объявить как поле HTTP заголовка, необходимо использовать аннотацию `@Header`.
+<5> С помощью аннотации `@Header` возможно задать имя HTTP заголовка, которое не соответствует используемой стратегии, объявленной с помощью аннотации `@HeaderMappingStrategy`.
+
+include::../___notes/model-class-intead-of-method-parameters-note.adoc[tags=**;!path-variables;!params;!all]
+
+Несмотря на различные подходы к поддержке обработки HTTP заголовков, с клиентской точки зрения два вышеуказанных обработчика абсолютно равнозначны:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-headers/src/test/java/io/rxmicro/examples/rest/controller/headers/SimpleUsageMicroServiceTest.java[tag=content,indent=0]
+----
+<1> При выполнении запроса к разным URL Paths результат одинаковый.
+<2> Имя `Endpoint-Version` соответствует полю `endpointVersion` модели запроса. +
+_(Данное соответствие формируется на основании использования стратегии по умолчанию, задаваемой с помощью аннотации `@HeaderMappingStrategy`.)_
+<3> Имя `UseProxy` соответствует полю `useProxy` модели запроса, так как в аннотации `@Header` задано именно это имя.
+<4> После выполнения запроса в результирующем HTTP ответе заголовки `Endpoint-Version` и `UseProxy` равны соответственно `v1` и `true`.
+_(Обработчик возвращает теже самые значения заголовков, что были им получены из HTTP запроса.)_
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-controller-headers
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]
+
+<<<
+
+==== Поддерживаемые типы данных
+
+include::../_rest/___header_types.adoc[]
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-headers/src/main/java/io/rxmicro/examples/rest/controller/headers/ListHeaderMicroService.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-headers/src/test/java/io/rxmicro/examples/rest/controller/headers/ListHeaderMicroServiceTest.java[tag=content,indent=0]
+----
+
+<1> Если HTTP заголовок является списком значений, то элементы списка передаются по протоколу HTTP в виде строки, разделенной символом `|`. +
+_(Для HTTP заголовков ответа возможно активировать режим <<rest-controller-headers-repeating,повторяющихся заголовков.>>)_
+<2> Кроме передачи списка с помощью строки разделенной запятыми, компонент
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^] поддерживает также массив перечислений,
+<3> массив строковых значений,
+<4> список перечислений,
+<5> список строковых значений.
+<6> Кроме передачи HTTP заголовков в виде строки, разделенной запятыми, компонент
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^] также поддерживает повторяемые HTTP заголовки с разными значениями.
+<7> Все указанные типы значений для HTTP заголовка, который является списком значений, передаются в виде типа `java.lang.Object`.
+_(Компонент {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^]
+автоматически их преобразует в строку, разделенной запятыми и отправляет по протоколу HTTP.)_
+<8> Фреймворк RXMicro преобразует разные типы в список перечислений и отображает его в консоль.
+
+[[rest-controller-headers-static]]
+==== Статические HTTP заголовки
+
+Для установки статических заголовков, RxMicro предоставляет аннотации
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/AddHeader.java[`@AddHeader`^] и
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/SetHeader.java[`@SetHeader`^]:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-headers/src/main/java/io/rxmicro/examples/rest/controller/headers/StaticHeadersMicroService.java[tag=content,indent=0]
+----
+<1> Если HTTP заголовок установлен для REST контроллера, то он добавляется в HTTP ответы для каждого обработчика.
+<2> Если HTTP заголовок установлен для обработчика, то он добавляется в HTTP ответы только для этого обработчика.
+
+С точки зрения клиента, статические заголовки ничем не отличаются от любых других:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-headers/src/test/java/io/rxmicro/examples/rest/controller/headers/StaticHeadersMicroServiceTest.java[tag=content,indent=0]
+----
+
+[NOTE]
+====
+Для понимания отличий аннотаций {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/AddHeader.java[`@AddHeader`^] и
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/SetHeader.java[`@SetHeader`^] рекомендуем обратится к примеру:
+
+* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}rest-controller-headers/src/main/java/io/rxmicro/examples/rest/controller/headers/ComplexStaticHeadersMicroService.java[`ComplexStaticHeadersMicroService.java`^]
+
+* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}rest-controller-headers/src/test/java/io/rxmicro/examples/rest/controller/headers/ComplexStaticHeadersMicroServiceTest.java[`ComplexStaticHeadersMicroServiceTest.java`^]
+====
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-controller-headers
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]
+
+[[rest-controller-headers-repeating]]
+==== Повторяющиеся HTTP заголовки
+
+Если HTTP заголовок HTTP ответа является списком значений, то элементы списка по умолчанию передаются по протоколу HTTP в виде строки, разделенной символом `|`.
+
+Если необходимо, чтобы HTTP заголовок повторялся для каждого значения, необходимо использовать аннотацию
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RepeatHeader.java[`@RepeatHeader`^]:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-headers/src/main/java/io/rxmicro/examples/rest/controller/headers/model/RepeatingHeadersResponse.java[tag=content,indent=0]
+----
+
+[NOTE]
+====
+*Использование аннотации {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RepeatHeader.java[`@RepeatHeader`^] поддерживается только для моделей ответа!*
+
+Для моделей запроса она не имеет смысла, так как фреймворк RxMicro конвертирует в список значений любой из поддерживаемых форматов.
+====
+
+В результате конвертации Java модели в HTTP ответ, результат будет следующим:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-headers/src/test/java/io/rxmicro/examples/rest/controller/headers/RepeatingHeadersMicroServiceTest.java[tag=content,indent=0]
+----
+<1> По умолчанию элементы списка HTTP заголовка передаются по протоколу HTTP в виде строки, разделенной символом `|`.
+<2> Если поле помещено аннотацией {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RepeatHeader.java[`@RepeatHeader`^], то тогда заголовок повторяется для каждого элемента из списка.
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-controller-headers
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]

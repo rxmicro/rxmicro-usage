@@ -1,0 +1,7 @@
+Benchmark                                Mode  Cnt       Score       Error   Units
+InstantiationBenchmark.usingNew         thrpt   10  783947.450 ± 95075.490  ops/ms
+InstantiationBenchmark.usingReflection  thrpt   10     616.413 ±    88.638  ops/ms
+InstantiationBenchmark.usingNew          avgt   10      ≈ 10⁻⁶               ms/op
+InstantiationBenchmark.usingReflection   avgt   10       0.002 ±     0.001   ms/op
+InstantiationBenchmark.usingNew            ss   10       0.002 ±     0.001   ms/op
+InstantiationBenchmark.usingReflection     ss   10       0.032 ±     0.012   ms/op

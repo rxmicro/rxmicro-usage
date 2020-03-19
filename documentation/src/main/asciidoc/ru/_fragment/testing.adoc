@@ -1,0 +1,44 @@
+Для эффективного написания тестов RxMicro предоставляет следующие модули:
+
+* {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test[`rxmicro.test`^] - базовый модуль, предназначенный для написания тестов, используя любой современный фреймворк для тестирования;
+* {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test-junit[`rxmicro.test.junit`^] - модуль интеграции с фреймворком https://junit.org/junit5/[JUnit 5^];
+* {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test-mockito[`rxmicro.test.mockito`^] - модуль интеграции с фреймворком https://site.mockito.org/[Mockito^];
+* {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test-mockito-junit[`rxmicro.test.mockito.junit`^] - модуль интеграции с фреймворками https://junit.org/junit5/[JUnit 5^] и https://site.mockito.org/[Mockito^].
+
+Используя данные модули, разработчик может создавать следующие виды тестов:
+
+. тест REST-based микросервиса;
+. модульный тест компонента;
+. интеграционный тест REST-based микросервисов.
+
+<<<
+
+include::_testing/prepare.adoc[]
+
+<<<
+
+include::_testing/annotations.adoc[]
+
+<<<
+
+include::_testing/alternatives.adoc[]
+
+<<<
+
+include::_testing/hot-it-works.adoc[]
+
+<<<
+
+include::_testing/before-test.adoc[]
+
+<<<
+
+include::_testing/micro-service-test.adoc[]
+
+<<<
+
+include::_testing/component-test.adoc[]
+
+<<<
+
+include::_testing/integration-test.adoc[]

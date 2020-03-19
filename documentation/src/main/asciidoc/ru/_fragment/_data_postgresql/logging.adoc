@@ -1,0 +1,22 @@
+[[data-postgresql-logging-section]]
+=== Logging
+
+PostgreSQL Data Repositories use the {POSTGRESQL-R2DBC-GITHUB-ROOT}#reactive-relational-database-connectivity-postgresql-implementation--[*R2DBC PostgreSQL Driver*^], поэтому для активации логирования запросов к базе данных, необходимо конфигурировать *R2DBC PostgreSQL Driver Logger*:
+
+{POSTGRESQL-R2DBC-GITHUB-ROOT}#logging[`{POSTGRESQL-R2DBC-GITHUB-ROOT}#logging`^].
+
+Например, если в `classpath` текущего проекта добавить ресурс <<core#core-logger-config-file-inline, `jul.properties`>>:
+
+[source,properties]
+----
+io.r2dbc.postgresql.QUERY.level=TRACE
+----
+
+,то в процессе работы PostgreSQL Data Repositories будут генерировать логи запросов к базе данных:
+
+[source,text]
+----
+[DEBUG] io.r2dbc.postgresql.QUERY : Executing query: SHOW TRANSACTION ISOLATION LEVEL
+[DEBUG] io.r2dbc.postgresql.QUERY : Executing query: SELECT 2+2
+[DEBUG] io.r2dbc.postgresql.QUERY : Executing query: SELECT first_name, last_name FROM account WHERE email = $1
+----

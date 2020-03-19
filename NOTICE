@@ -1,0 +1,85 @@
+
+                                The RxMicro Usage Project
+
+                                    =================
+		The RxMicro Usage is documentation, examples and benchmark aggregation project
+                                    =================
+
+
+Copyright (c) 2020. https://rxmicro.io
+
+The RxMicro Project licenses this file to you under the Apache License,
+version 2.0 (the "License"); you may not use this file except in compliance
+with the License. You may obtain a copy of the License at:
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.
+
+-------------------------------------------------------------------------------
+RxMicro Usage requires OpenJDK 11 or later:
+
+ * LICENSE:
+   * https://openjdk.java.net/legal/gplv2+ce.html (GNU General Public License, version 2, with the Classpath Exception)
+ * HOMEPAGE:
+   * https://jdk.java.net/11/
+
+-------------------------------------------------------------------------------
+RxMicro Usage requires RxMicro framework:
+
+ * LICENSE:
+   * https://github.com/rxmicro/rxmicro/blob/master/LICENSE (Apache License 2.0)
+ * HOMEPAGE:
+   * https://rxmicro.io
+
+-------------------------------------------------------------------------------
+RxMicro Documentation uses Asciidoctor:
+
+ * LICENSE:
+   * https://github.com/asciidoctor/asciidoctor/blob/master/LICENSE (MIT License)
+ * HOMEPAGE:
+   * https://asciidoctor.org/
+
+-------------------------------------------------------------------------------
+RxMicro Benchmark uses JMH:
+
+ * LICENSE:
+   * https://openjdk.java.net/legal/gplv2+ce.html (GNU General Public License, version 2, with the Classpath Exception)
+ * HOMEPAGE:
+   * https://openjdk.java.net/projects/code-tools/jmh/
+
+-------------------------------------------------------------------------------
+RxMicro Examples uses Docker:
+
+ * LICENSE:
+   * https://www.docker.com/legal/components-licenses (Apache License 2.0)
+ * HOMEPAGE:
+   * https://www.docker.com/
+
+-------------------------------------------------------------------------------
+RxMicro Examples uses Postgres:
+
+ * LICENSE:
+   * https://www.postgresql.org/about/licence/ (PostgreSQL License)
+ * HOMEPAGE:
+   * https://www.postgresql.org/
+
+-------------------------------------------------------------------------------
+RxMicro Examples uses Mongo:
+
+ * LICENSE:
+   * https://github.com/mongodb/mongo/blob/6ea81c883e7297be99884185c908c7ece385caf8/README#L89-L95 (Server Side Public License (SSPL) v1)
+ * HOMEPAGE:
+   * https://www.mongodb.com/
+
+-------------------------------------------------------------------------------
+RxMicro Examples uses Testcontainers:
+
+ * LICENSE:
+   *https://raw.githubusercontent.com/testcontainers/testcontainers-java/master/LICENSE (The MIT License)
+ * HOMEPAGE:
+   * https://www.testcontainers.org/

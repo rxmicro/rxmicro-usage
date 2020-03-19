@@ -1,0 +1,30 @@
+[[cdi-annotations-section]]
+=== `RxMicro Annotations`
+
+RxMicro поддерживает следующие `RxMicro annotations`, которые используются для настроек CDI.
+
+.`RxMicro Annotations` for Customization of CDI.
+[cols="1,3"]
+|===
+|*Аннотация*|*Описание*
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@Inject`^]
+|
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Named.java[`@Named`^]
+|
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Autowired.java[`@Autowired`^]
+|
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Qualifier.java[`@Qualifier`^]
+|
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/PostConstruct.java[`@PostConstruct`^]
+|
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Factory.java[`@Factory`^]
+|
+
+// ---------------------------------------------------------------------------------------------------------------------
+|===

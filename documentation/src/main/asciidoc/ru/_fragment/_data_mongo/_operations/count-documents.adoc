@@ -1,0 +1,24 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../../
+
+[[data-mongo-count-documents-section]]
+==== `@CountDocuments`
+
+TODO
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-count-documents/src/main/java/io/rxmicro/examples/data/mongo/count/documents/DataRepository.java[tag=content,indent=0]
+----
+
+[NOTE]
+====
+Для получения дополнительных сведений, рекомендуем ознакомиться со следующими примерами:
+
+* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}data-mongo-all-operations/src/main/java/io/rxmicro/examples/data/mongo/all/operations/CountDocumentsDataRepository.java[All Supported Return Types^];
+* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}data-mongo-supported-types/src/main/java/io/rxmicro/examples/data/mongo/supported/types/GetDataRepository.java#L251[All Supported Parameter Types^].
+====
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-mongo-count-documents
+include::../../___notes/full-source-code-of-example.adoc[]
+
+include::../../___notes/recompile-after-change.adoc[]

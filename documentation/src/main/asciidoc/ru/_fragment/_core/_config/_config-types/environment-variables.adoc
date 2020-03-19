@@ -1,0 +1,25 @@
+===== Конфигурирование с помощью переменных окружения
+
+При использовании переменных окружения, формат конфигураций соответствует формату:
+
+`export ${name-space}.${property-name} = ${value}`:
+
+[source,text]
+----
+export http-server.port=9090 # <1>
+
+java --add-opens=java.base/jdk.internal.misc=io.netty.common -p ./classes:lib -m examples.quick.start/io.rxmicro.examples.quick.start.HelloWorldMicroService
+2020-01-02 18:49:58.372 [INFO] io.rxmicro.rest.server.netty.internal.component.NettyServer :
+Server started at 0.0.0.0:9090 using NETTY transport in 500 millis. # <2>
+----
+
+<1> Установка переменной окружения `http-server.port` = 9090 (пользовательский порт для HTTP сервера).
+<2> HTTP сервер запустился на порту `9090` вместо стандартного `8080`.
+
+[TIP]
+====
+Таким образом формат конфигураций с помощью переменных окружения соответствует формату общего файла или classpath ресурса
+`rxmicro.properties`.
+====
+
+*Конфигурирование с помощью переменных окружения очень удобно при использовании https://www.docker.com/[docker^] контейнеров!*

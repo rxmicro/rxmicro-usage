@@ -1,0 +1,26 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[rest-client-expressions-section]]
+=== Expressions
+
+TODO
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-expressions/src/main/java/io/rxmicro/examples/rest/client/expressions/CustomHttpClientConfig.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-expressions/src/main/java/io/rxmicro/examples/rest/client/expressions/RESTClient.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-expressions/src/test/java/io/rxmicro/examples/rest/client/expressions/RESTClientTest.java[tag=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-expressions
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]

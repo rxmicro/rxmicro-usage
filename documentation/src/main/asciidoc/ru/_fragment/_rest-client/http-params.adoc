@@ -1,0 +1,152 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[rest-client-params-basic]]
+=== Обработка HTTP параметров
+
+==== Базовые правила
+
+TODO
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/model/Request.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/model/Response.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/SimpleUsageRestClient.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/test/java/io/rxmicro/examples/rest/client/params/SimpleUsageRestClientTest.java[tag=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-params
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]
+
+<<<
+
+==== Поддерживаемые типы данных
+
+include::../_rest/___param_types.adoc[]
+
+<<<
+
+==== Поддержка сложных моделей
+
+В отличие от HTTP заголовков HTTP параметры могут передаваться в теле запроса.
+
+Поэтому кроме примитивов RxMicro поддерживает также и вложенные JSON объекты и массивы.
+
+[TIP]
+====
+Именно поэтому в списке поддерживаемых типов указаны следующие типы:
+
+* `? extends Object` - пользовательский класс вложенной Java модели;
+* `java.util.List<? extends Object>` - список пользовательских классов вложенной Java модели;
+====
+
+Пример вложенной модели:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/model/nested/NestedModel.java[tag=content,indent=0]
+----
+
+А также примеры более сложных Java моделей, использующих вложенную модель:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/model/ComplexRequest.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/model/ComplexResponse.java[tag=content,indent=0]
+----
+
+<1> Поле примитивного JSON типа.
+<2> JSON массив примитивного типа.
+<3> Вложенный JSON объект.
+<4> JSON массив вложенных JSON объектов.
+
+После создания классов моделей, необходимо создать REST клиент, методы которого используют данные модели:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/ComplexModelRestClient.java[tag=content,indent=0]
+----
+
+Так как запрос теперь передается в HTTP теле, то отправляемый и получаемый JSON объекты должны быть равны:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/test/java/io/rxmicro/examples/rest/client/params/ComplexModelRestClientTest.java[tag=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-params
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]
+
+<<<
+
+[[rest-client-query-params-static]]
+==== Статические Query параметры
+
+TODO
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/StaticQueryParametersRestClient.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/test/java/io/rxmicro/examples/rest/client/params/StaticQueryParametersRestClientTest.java[tag=content,indent=0]
+----
+
+[NOTE]
+====
+Для понимания отличий аннотаций {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/AddQueryParameter.java[`@AddQueryParameter`^] и
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/SetQueryParameter.java[`@SetQueryParameter`^] рекомендуем обратится к примеру:
+
+* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/ComplexStaticQueryParametersRestClient.java[`ComplexStaticQueryParametersRestClient.java`^]
+
+* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}rest-client-params/src/test/java/io/rxmicro/examples/rest/client/params/ComplexStaticQueryParametersRestClientTest.java[`ComplexStaticQueryParametersRestClientTest.java`^]
+====
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-params
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]
+
+<<<
+
+[[rest-client-query-params-repeating]]
+==== Повторяющиеся Query параметры
+
+TODO
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/RepeatingQueryParamsRestClient.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/test/java/io/rxmicro/examples/rest/client/params/RepeatingQueryParamsRestClientTest.java[tag=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-params
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]

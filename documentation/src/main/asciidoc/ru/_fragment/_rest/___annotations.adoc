@@ -1,0 +1,181 @@
+RxMicro поддерживает следующие `RxMicro annotations`, которые используются для создания и настройки {rest-title}.
+
+.`RxMicro Annotations` for {rest-title}.
+[cols="1,3"]
+|===
+|*Аннотация*|*Описание*
+
+ifeval::["{rest-kind}" == "client"]
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/RestClient.java[`@RestClient`^]
+|Объявляет интерфейс REST клиентом.
+endif::[]
+// ---------------------------------------------------------------------------------------------------------------------
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/GET.java[`@GET`^]
+|Обозначает метод, который должен обрабатывать `GET` запрос.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/POST.java[`@POST`^]
+|Обозначает метод, который должен обрабатывать `POST` запрос.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/PUT.java[`@PUT`^]
+|Обозначает метод, который должен обрабатывать `PUT` запрос.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/DELETE.java[`@DELETE`^]
+|Обозначает метод, который должен обрабатывать `DELETE` запрос.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/PATCH.java[`@PATCH`^]
+|Обозначает метод, который должен обрабатывать `PATCH` запрос.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/HEAD.java[`@HEAD`^]
+|Обозначает метод, который должен обрабатывать `HEAD` запрос.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/OPTIONS.java[`@OPTIONS`^]
+|Обозначает метод, который должен обрабатывать `OPTIONS` запрос.
+// ---------------------------------------------------------------------------------------------------------------------
+ifeval::["{rest-kind}" == "controller"]
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/BaseUrlPath.java[`@BaseUrlPath`^]
+|Обозначает <<rest-controller-base-url-path-section,базовый URL path для всех обработчиков запросов в REST контроллере>>.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java[`@Version`^]
+|Обозначает <<rest-controller-versioning-section,версию текущего REST контроллера>>.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Header.java[`@Header`^]
+|Объявляет поле Java модели <<rest-controller-headers-basic,заголовком>>.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/HeaderMappingStrategy.java[`@HeaderMappingStrategy`^]
+|Объявляет <<rest-controller-headers-basic,стратегию формирования имен заголовков на основании анализа имен полей Java модели>>.
+
+_(По умолчанию используется стратегия
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L58[`CAPITALIZE_WITH_HYPHEN`^].
+Таким образом благодаря использованию данной стратегии заголовок `Header-Name` соответствует названию поля `headerName`.)_
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/AddHeader.java[`@AddHeader`^]
+|Объявляет <<rest-controller-headers-static,статический заголовок>>, который должен быть добавлен к ответу, формируемому обработчиком запросов.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/SetHeader.java[`@SetHeader`^]
+|Объявляет <<rest-controller-headers-static,статический заголовок>>, который должен быть установлен в ответ, формируемый обработчиком запросов.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RepeatHeader.java[`@RepeatHeader`^]
+|Обозначает заголовок, <<rest-controller-headers-repeating,имя которого необходимо повторить для каждого элемента из списка>>.
+
+_(Данная аннотация применима только к поля с типом `java.util.List<?>`.)_
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Parameter.java[`@Parameter`^]
+|Объявляет поле Java модели <<rest-controller-params-basic,параметром>>.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ParameterMappingStrategy.java[`@ParameterMappingStrategy`^]
+|Объявляет <<rest-controller-params-basic,стратегию формирования имен параметров на основании анализа имен полей Java модели>>.
+
+_(По умолчанию используется стратегия
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L33[`LOWERCASE_WITH_UNDERSCORED`^].
+Таким образом благодаря использованию данной стратегии параметр `important_parameter` соответствует названию поля `importantParameter`.)_
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/PathVariable.java[`@PathVariable`^]
+|Объявляет поле Java модели <<rest-controller-path-variables-basic,`path variable`>>.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RemoteAddress.java[`@RemoteAddress`^]
+|Объявляет поле Java модели полем, куда необходимо внедрить <<rest-controller-internals-basic-section,удаленный адрес клиентского подключения>>.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RequestMethod.java[`@RequestMethod`^]
+|Объявляет поле Java модели полем, куда необходимо внедрить <<rest-controller-internals-basic-section,метод полученного запроса>>.
+
+_(Данная возможность полезна при логировании запросов в случае когда один обработчик поддерживает разные HTTP методы.)_
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RequestUrlPath.java[`@RequestUrlPath`^]
+|Объявляет поле Java модели полем, куда необходимо внедрить <<rest-controller-internals-basic-section,`URL path` полученного запроса>>.
+
+_(Данная возможность полезна при логировании запросов с использованием `path-variables`.)_
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RequestBody.java[`@RequestBody`^]
+|Объявляет поле Java модели полем, куда необходимо внедрить <<rest-controller-internals-basic-section,тело полученного запроса>>.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ResponseStatusCode.java[`@ResponseStatusCode`^]
+|Указывает фреймворку RxMicro на то, что необходимо использовать значение поля Java модели в качестве <<rest-controller-internals-basic-section,статус кода, который должен быть отправлен клиенту>>.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ResponseBody.java[`@ResponseBody`^]
+|Указывает фреймворку RxMicro на то, что необходимо использовать значение поля Java модели в качестве <<rest-controller-internals-basic-section,тела, которое должно быть отправлено клиенту>>.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RequestId.java[`@RequestId`^]
+|Объявляет поле Java модели полем, куда необходимо внедрить <<rest-controller-rqeuest-id-section,уникальный идентификатор запроса>>.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/SetStatusCode.java[`@SetStatusCode`^]
+|Объявляет <<rest-controller-set-status-code-section,статус код>>, который должен быть отправлен клиенту в случае успешного выполнения тела обработчика запросов.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/NotFoundMessage.java[`@NotFoundMessage`^]
+|Объявляет сообщение, возвращаемое обработчиком в случае <<rest-controller-not-found-section, отсутствия результата>>.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/RestServerGeneratorConfig.java[`@RestServerGeneratorConfig`^]
+|Позволяет <<rest-controller-rest-server-generator-config-section,конфигурировать процесс генерации кода процессором аннотаций для REST контроллеров>>.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/feature/EnableCrossOriginResourceSharing.java[`@EnableCrossOriginResourceSharing`^]
+|Активирует <<rest-controller-cors-section,`Cross Origin Resource Sharing (CORS)` для всех обработчиков запросов в REST контроллере>>.
+endif::[]
+// ---------------------------------------------------------------------------------------------------------------------
+ifeval::["{rest-kind}" == "client"]
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/BaseUrlPath.java[`@BaseUrlPath`^]
+|Обозначает <<rest-client-base-url-path-section,базовый URL path для всех методов отправляющих запросы в REST клиенте>>.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java[`@Version`^]
+|Обозначает <<rest-client-versioning-section,версию текущего REST Client>>.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Header.java[`@Header`^]
+|Объявляет поле Java модели <<rest-client-headers-basic,заголовком>>.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/HeaderMappingStrategy.java[`@HeaderMappingStrategy`^]
+|Объявляет <<rest-client-headers-basic,стратегию формирования имен заголовков на основании анализа имен полей Java модели>>.
+
+_(По умолчанию используется стратегия
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L58[`CAPITALIZE_WITH_HYPHEN`^].
+Таким образом благодаря использованию данной стратегии заголовок `Header-Name` соответствует названию поля `headerName`.)_
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/AddHeader.java[`@AddHeader`^]
+|Объявляет <<rest-client-headers-static,статический заголовок>>, который должен быть добавлен к запросу, формируемому REST клиентом.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/SetHeader.java[`@SetHeader`^]
+|Объявляет <<rest-client-headers-static,статический заголовок>>, который должен быть установлен в запрос, формируемый REST клиентом.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RepeatHeader.java[`@RepeatHeader`^]
+|Обозначает заголовок, <<rest-client-headers-repeating,имя которого необходимо повторить для каждого элемента из списка>>.
+
+_(Данная аннотация применима только к поля с типом `java.util.List<?>`.)_
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Parameter.java[`@Parameter`^]
+|Объявляет поле Java модели <<rest-client-params-basic,параметром>>.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ParameterMappingStrategy.java[`@ParameterMappingStrategy`^]
+|Объявляет <<rest-client-params-basic,стратегию формирования имен параметров на основании анализа имен полей Java модели>>.
+
+_(По умолчанию используется стратегия
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L33[`LOWERCASE_WITH_UNDERSCORED`^].
+Таким образом благодаря использованию данной стратегии параметр `important_parameter` соответствует названию поля `importantParameter`.)_
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/AddQueryParameter.java[`@AddQueryParameter`^]
+|Объявляет <<rest-client-query-params-static,статический Query параметр>>, который должен быть добавлен к запросу, формируемому REST клиентом.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/SetQueryParameter.java[`@SetQueryParameter`^]
+|Объявляет <<rest-client-query-params-static,статический Query параметр>>, который должен быть установлен в запрос, формируемый REST клиентом.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RepeatQueryParameter.java[`@RepeatQueryParameter`^]
+|Обозначает Query параметр, <<rest-client-query-params-repeating,имя которого необходимо повторить для каждого элемента из списка>>.
+
+_(Данная аннотация применима только к поля с типом `java.util.List<?>`.)_
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/PathVariable.java[`@PathVariable`^]
+|Объявляет поле Java модели <<rest-client-path-variables-basic,`path variable`>>.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ResponseStatusCode.java[`@ResponseStatusCode`^]
+|Указывает фреймворку RxMicro на то, что необходимо <<rest-client-internals-basic-section,считать статус код HTTP ответа, который был получен от сервера>>.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ResponseBody.java[`@ResponseBody`^]
+|Указывает фреймворку RxMicro на то, что необходимо <<rest-client-internals-basic-section,считать тело HTTP ответа, который был получен от сервера>>.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RequestId.java[`@RequestId`^]
+|Объявляет поле Java модели полем, куда необходимо внедрить <<rest-client-rqeuest-id-section,уникальный идентификатор запроса>>.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/PartialImplementation.java[`@PartialImplementation`^]
+|Позволяет <<rest-client-partial-implementation-section,задавать класс с частичной реализацией для REST клиента>>.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/RestClientGeneratorConfig.java[`@RestClientGeneratorConfig`^]
+|Позволяет <<rest-client-rest-client-generator-config-section,конфигурировать процесс генерации кода процессором аннотаций для REST клиента>>.
+endif::[]
+// ---------------------------------------------------------------------------------------------------------------------
+|===

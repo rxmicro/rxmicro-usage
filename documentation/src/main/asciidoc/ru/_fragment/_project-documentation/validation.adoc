@@ -1,0 +1,22 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[project-documentation-validation-section]]
+=== Integration with `rxmicro.validation` Module
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-validation/src/main/java/module-info.java[tags=content]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-validation/src/main/java/io/rxmicro/examples/documentation/asciidoctor/validation/MicroService.java[tags=content]
+----
+
+:project-documentation-file: ExamplesDocumentationAsciidoctorValidationDocumentation.html
+include::../___notes/generated-project-documentation.adoc[]
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}documentation-asciidoctor-validation
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]

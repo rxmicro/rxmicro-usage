@@ -1,0 +1,68 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../../../
+
+[[core-config-annotations-section]]
+===== Конфигурирование с помощью аннотаций
+
+Для переопределения значения по умолчанию RxMicro предоставляет аннотацию
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/DefaultConfigValue.java[`DefaultConfigValue`^].
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/config-annotations/src/main/java/module-info.java[tag=content,indent=0]
+----
+
+<1> При переопределении конфигурационного значения, необходимо указать конфигурационный класс.
+<2> Если конфигурационный класс указан, то пространство имен можно не указывать. +
+_(Подразумевается поле указанного конфигурационного класса.)_
+<3> Если конфигурационный класс не задан, то имя *обязательно* должно содержать пространство имен. +
+_(Пространство имен позволяет однозначно определить к какому конфигурационному классу относится указанная настройка.)_
+<4> При конфигурировании микросервисного проекта аннотацию необходимо указывать на дескрипторе `module-info.java`. +
+_(В микросервисном проекте может содержаться несколько классов REST контроллеров, поэтому общие настройки конфигурируются, используя дескриптор `module-info.java`, а не класс REST контроллера.)_
+
+[WARNING]
+====
+*При переопределении значения по умолчанию с помощью аннотаций будьте внимательны!*
+
+Если Вы ошибетесь при указании имени настройки (это относится к пространству имен и имени поля), то ошибки при запуске не возникнет!
+Переопределенное значение будет просто *проигнорировано*!
+====
+
+Переопределив значения по умолчанию с помощью дескриптора `module-info.java`, можно запустить микросервис на выполнение.
+В процессе считывании конфигурации класса `HttpServerConfig` RxMicro считает значения по умолчанию, заданные с помощью аннотаций:
+
+[source,text]
+----
+2020-01-13 13:09:44.236 [INFO] io.rxmicro.rest.server.netty.internal.component.NettyServer :
+Server started at 0.0.0.0:9090 using NETTY transport in 500 millis. # <1>
+----
+
+<1>  HTTP сервер запустился на `localhost:9090`
+
+[IMPORTANT]
+====
+Главное отличие конфигурирования с помощью аннотаций от конфигурирования с помощью Java классов, является поддержка *наследования и переопределения настроек*.
+
+Т.е. при использовании конфигурирование с помощью аннотаций, RxMicro может считывать и другие источники конфигурации.
+
+При использовании конфигурирование с помощью Java классов другие источники конфигурации *всегда игнорируются*.
+====
+
+[NOTE]
+====
+Только для тестового окружения RxMicro предоставляет специальную аннотацию <<{testing}#testing-annotations-WithConfig-inline,`@WithConfig`>>.
+С помощью данной аннотации удобно конфигурировать менеджер конфигураций для тестового окружения:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-microservice-with-config/src/test/java/io/rxmicro/examples/testing/microservice/with/config/MicroServiceTest.java[tags=WithConfig,indent=0]
+----
+
+Исходный код проекта, использующего аннотацию `@WithConfig`, доступен по ссылке:
+
+{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-microservice-with-config[`https://github.com/rxmicro/rxmicro-usage/tree/master/examples/testing-microservice-with-config`^]
+====
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}config-annotations
+include::../../../___notes/full-source-code-of-example.adoc[]
+
+include::../../../___notes/recompile-after-change.adoc[]

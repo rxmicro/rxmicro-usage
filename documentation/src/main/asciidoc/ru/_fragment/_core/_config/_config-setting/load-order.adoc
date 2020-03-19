@@ -1,0 +1,46 @@
+[[core-config-order-default-section]]
+===== Порядок считывания источников конфигурации по умолчанию
+
+По умолчанию RxMicro считывание источники конфигураций
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L42[в таком порядке^]:
+
+* Конфигурация заданная с помощью аннотаций {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/DefaultConfigValue.java[`DefaultConfigValue`^];
+* Конфигурация с помощью classpath ресурса: `rxmicro.properties`;
+* Конфигурация с помощью отдельного classpath ресурса;
+* Конфигурация с помощью переменных окружения;
+* Конфигурация с помощью Java системных переменных;
+
+Таким образом если для микросервиса будет два classpath ресурса:
+
+Ресурс `rxmicro.properties` с содержимым:
+
+[source,properties]
+----
+http-server.port=9090
+http-server.host=localhost
+----
+
+и ресурс `http-server.properties` с содержимым:
+
+[source,properties]
+----
+port=9876
+----
+
+то результат будут следующим:
+
+[source,text]
+----
+2020-01-11 16:52:26.797 [INFO] io.rxmicro.rest.server.netty.internal.component.NettyServer :
+Server started at localhost:9876 using NETTY transport in 500 millis. # <1>
+----
+<1> HTTP сервер запустился на `localhost:9876`.
+
+Алгоритм считывания конфигураций для указанного выше примера следующий:
+
+. По умолчанию HTTP сервер должен запуститься на `0.0.0.0:8080`.
+. Однако в classpath ресурсе `rxmicro.properties` указан другой IP адрес и порт: `localhost:9090`.
+. Если бы classpath ресурс `http-server.properties` не существовал, то HTTP сервер запустился бы на `localhost:9090`.
+. Однако в classpath ресурсе `http-server.properties` указан `9876` порт.
+. Поэтому при запуске IP адрес наследуется с ресурса `rxmicro.properties`, а переопределенное значения порта считывается с ресурса `http-server.properties`. +
+_(Такое поведение соответствует порядку считывания конфигураций по умолчанию.)_

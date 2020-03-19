@@ -1,0 +1,165 @@
+=== Конфигурирование проекта
+
+Перед написанием кода REST-based микросервиса, необходимо сконфигурировать `pom.xml` Вашего проекта, выполнив следующие шаги:
+
+. Определить версии используемых библиотек.
+. Добавить необходимые зависимости в `pom.xml`.
+. Сконфигурировать `maven-compiler-plugin`.
+
+==== Определение версий используемых библиотек
+
+Для удобства последующего обновления версий библиотек, рекомендуется использовать `maven properties`:
+
+[source,xml]
+----
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <rxmicro.version>0.1</rxmicro.version> <!--1-->
+    <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version> <!--2-->
+</properties>
+----
+<1> Последняя стабильная версия фреймворка RxMicro.
+<2> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-compiler-plugin[Последняя стабильная версия `maven-compiler-plugin`^].
+
+==== Добавление необходимых зависимостей:
+
+Перед использованием RxMicro модулей, необходимо в проект добавить следующие зависимости:
+
+[source,xml]
+----
+<dependencies>
+    <dependency>
+        <groupId>io.rxmicro</groupId>
+        <artifactId>rxmicro-rest-server-netty</artifactId> <!--1-->
+        <version>${rxmicro.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>io.rxmicro</groupId>
+        <artifactId>rxmicro-rest-server-exchange-json</artifactId> <!--2-->
+        <version>${rxmicro.version}</version>
+    </dependency>
+</dependencies>
+----
+<1> `rxmicro-rest-server-netty` - библиотека построения REST-based микросервисов на базе HTTP сервера, использующего https://netty.io/[Netty^];
+<2> `rxmicro-rest-server-exchange-json` - библиотека конвертации Java модели в https://www.json.org/[JSON^] формат и наоборот;
+
+[[quick-start-maven-compiler-plugin-settings-section]]
+==== Конфигурирование `maven-compiler-plugin`
+
+Так как фреймворк RxMicro использует {JDK-JAVA-COMPILER-DOC-ROOT-URL}javax/annotation/processing/Processor.html[Java annotation processors^], необходимо настроить `maven-compiler-plugin`:
+
+[source,xml]
+----
+<plugin>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>${maven.compiler.plugin.version}</version>
+    <configuration>
+        <release>11</release> <!--1-->
+        <annotationProcessorPaths>
+            <annotationProcessorPath>
+                <groupId>io.rxmicro</groupId>
+                <artifactId>rxmicro-annotation-processor</artifactId> <!--2-->
+                <version>${rxmicro.version}</version>
+            </annotationProcessorPath>
+        </annotationProcessorPaths>
+    </configuration>
+    <executions>
+        <execution>
+            <id>source-compile</id>
+            <goals>
+                <goal>compile</goal>
+            </goals>
+            <configuration>
+                <annotationProcessors>
+                    <annotationProcessor>
+                        io.rxmicro.annotation.processor.RxMicroAnnotationProcessor <!--3-->
+                    </annotationProcessor>
+                </annotationProcessors>
+                <generatedSourcesDirectory>
+                    ${project.build.directory}/generated-sources/ <!--4-->
+                </generatedSourcesDirectory>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+----
+<1> `<release>11</release>` - фреймворк RxMicro требует наличия Java компилятора версии 11 или выше;
+<2> `rxmicro-annotation-processor` - библиотека процессора аннотаций, которая будет обрабатывать все `RxMicro annotations`;
+<3> `io.rxmicro.annotation.processor.RxMicroAnnotationProcessor` - класс процессора аннотаций, который обрабатывает конфигурацию запуска;
+<4> `${project.build.directory}/generated-sources/` - местоположение генерируемых Java классов процессором аннотаций;
+
+==== Окончательная версия файла `pom.xml`
+
+После всех указанных выше изменений окончательная версия файла `pom.xml` должна выглядеть следующим образом:
+
+[source,xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>io.rxmicro.examples</groupId>
+    <artifactId>quick-start</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <rxmicro.version>0.1</rxmicro.version>
+        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+    </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven.compiler.plugin.version}</version>
+                    <configuration>
+                        <release>11</release>
+                        <annotationProcessorPaths>
+                            <annotationProcessorPath>
+                                <groupId>io.rxmicro</groupId>
+                                <artifactId>rxmicro-annotation-processor</artifactId>
+                                <version>${rxmicro.version}</version>
+                            </annotationProcessorPath>
+                        </annotationProcessorPaths>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>source-compile</id>
+                            <goals>
+                                <goal>compile</goal>
+                            </goals>
+                            <configuration>
+                                <annotationProcessors>
+                                    <annotationProcessor>
+                            io.rxmicro.annotation.processor.RxMicroAnnotationProcessor
+                                    </annotationProcessor>
+                                </annotationProcessors>
+                                <generatedSourcesDirectory>
+                                    ${project.build.directory}/generated-sources/
+                                </generatedSourcesDirectory>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.rxmicro</groupId>
+            <artifactId>rxmicro-rest-server-netty</artifactId>
+            <version>${rxmicro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rxmicro</groupId>
+            <artifactId>rxmicro-rest-server-exchange-json</artifactId>
+            <version>${rxmicro.version}</version>
+        </dependency>
+    </dependencies>
+</project>
+----

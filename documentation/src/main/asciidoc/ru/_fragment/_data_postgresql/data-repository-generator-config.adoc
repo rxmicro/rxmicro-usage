@@ -1,0 +1,6 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[data-postgres-generator-config-section]]
+=== Конфигурирование процесса генерации кода
+
+TODO

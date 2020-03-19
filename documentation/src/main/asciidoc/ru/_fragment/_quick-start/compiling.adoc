@@ -1,0 +1,79 @@
+=== Компиляция проекта
+
+Так как любая современная IDE для Java содержит встроенный `maven`, то компилировать микросервисный проект рекомендуется именно с помощью `maven`.
+
+==== Компиляция c помощью `maven`
+
+Для компиляции проекта с помощью `maven` откройте терминал в корневой папке проекта и выполните следующую команду:
+
+[source,text]
+----
+mvn clean compile
+----
+
+include::../___notes/run-maven-in-terminal-note.adoc[]
+
+Компилировать проект с помощью `maven` возможно и без использования терминала.
+Для этого необходимо открыть `maven панель`
+и выполнять указанные команды с помощью манипулятора типа мышь или touchpad.
+Например `maven панель` в IntelliJ IDEA выглядит следующим образом:
+
+.Maven панель в IntelliJ IDEA
+image::quick-start/maven-panel.jpg[]
+
+После успешного выполнения компиляции в терминале отображается информация о работе `RxMicroAnnotationProcessor`:
+
+[source,text]
+----
+[INFO] -------------------------------------------------------
+[INFO]  RX-MICRO ANNOTATIONS PROCESSING
+[INFO] -------------------------------------------------------
+[INFO] Current environment context is:
+  Current module:
+    `examples.quick.start`
+  Available RxMicro modules:
+     ...
+  Include packages: <none>
+  Exclude packages: <none>
+[INFO] Found the following REST controllers:
+  GET / -> io.rxmicro.examples.quick.start.HelloWorldMicroService.sayHelloWorld()
+[INFO] Generating java classes...
+[INFO] All java classes generated successful in 0.313 seconds. # <1>
+[INFO] -------------------------------------------------------
+[INFO] Annotations processing completed successful.
+----
+<1> Указанная информация свидетельствует о том, что все необходимые файлы для запуска микросервиса были сгенерированы.
+
+[TIP]
+====
+В папочке `target` Вы можете найти все сгенерированные и скомпилированные классы микросервисного проекта.
+
+Для понимания процесса работы фреймворка RxMicro рекомендуется перейти в раздел: <<{core}#core-how-it-works-section>>.
+====
+
+==== Компиляция c помощью `IntelliJ IDEA`
+
+Среда разработки IntelliJ IDEA позволяет автоматически запускать процессоры аннотаций в момент сборки проекта.
+Поэтому если Вы желаете компилировать микросервисный проект с помощью IntelliJ IDEA, а не `maven`, необходимо настроить секцию `Annotation Processors` в IntelliJ IDEA.
+
+===== Enable Annotation Processing
+
+Чтобы активировать обработку аннотаций в процессе сборки проекта с помощью IntelliJ IDEA необходимо настроить секцию
+`Annotation Processors`.
+Для этого открываем меню: `File` -> `Settings`.
+И переходим на нужную вкладку:
+`Build, Execution, Deployment` -> `Compiler` -> `Annotation Processors`.
+
+.Необходимые настройки Annotation Processing
+image::quick-start/idea-annotation-processing.jpg[]
+
+[WARNING]
+====
+Внимательно проверьте чтобы *все* Ваши настройки секции `Annotation Processors` соответствовали настройкам, описанным на рисунке выше.
+====
+
+===== Пересборка проекта
+
+После настройки секции `Annotation Processors` необходимо пересобрать проект.
+Для этого выполняем следующую команду из главного меню: `Build` -> `Rebuild project`.
+

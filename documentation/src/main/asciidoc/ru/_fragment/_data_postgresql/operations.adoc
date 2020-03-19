@@ -1,0 +1,18 @@
+[[data-postgresql-sql-operations-section]]
+=== SQL Operations
+
+<<<
+
+include::_operations/select.adoc[]
+
+<<<
+
+include::_operations/insert.adoc[]
+
+<<<
+
+include::_operations/update.adoc[]
+
+<<<
+
+include::_operations/delete.adoc[]

@@ -1,0 +1,8 @@
+[TIP]
+====
+Имя `rxmicro` для `properties` файла является константным.
+Именно поэтому при запросе любой конфигурации RxMicro пытается считать содержимое данного файла, если он существует.
+
+Имя `rxmicro` является именованной константой:
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Config.java#L30[`Config.RX_MICRO_CONFIG_FILE_NAME`^],
+====

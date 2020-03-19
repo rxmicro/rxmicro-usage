@@ -1,0 +1,56 @@
+name: Update User Guide
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - 'documentation/**'
+      - 'examples/documentation-asciidoctor-custom-sections/**'
+      - 'examples/documentation-asciidoctor-echo/**'
+      - 'examples/documentation-asciidoctor-errors/**'
+      - 'examples/documentation-asciidoctor-metadata-annotations/**'
+      - 'examples/documentation-asciidoctor-metadata-pomxml/**'
+      - 'examples/documentation-asciidoctor-quick-start/**'
+      - 'examples/documentation-asciidoctor-validation/**'
+
+jobs:
+  update-user-guide:
+    name: Update User Guide
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v1
+        with:
+          path: ~/.m2/repository
+          key: rxmicro-doc-maven-${{ runner.os }}-cache
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '11'
+
+      - name: Build User Guide
+        run: |
+          cd documentation/
+          mvn -B package --file pom.xml
+
+      - name: Clone rxmicro.github.io
+        run: git clone https://github.com/rxmicro/rxmicro.github.io
+
+
+      - name: Update rxmicro.github.io repository
+        run: |
+          rm -R rxmicro.github.io/doc/latest/images
+          rm -R rxmicro.github.io/doc/latest/ru
+          mv documentation/target/generated-docs/images rxmicro.github.io/doc/latest
+          mv documentation/target/generated-docs/ru rxmicro.github.io/doc/latest
+
+      - name: Commit and push changes to rxmicro.github.io repo
+        run: |
+          cd rxmicro.github.io
+          git config user.email "rxmicro.io@gmail.com"
+          git config user.name "rxmicro"
+          git add --all
+          git commit -m "Update user guide. Commit#${{ github.sha }}"
+
+          git remote set-url origin https://rxmicro:${{ secrets.AUTO_UPDATE_RX_MICRO_IO_DOC_ACCESS_TOKEN }}@github.com/rxmicro/rxmicro.github.io.git
+          git push origin master

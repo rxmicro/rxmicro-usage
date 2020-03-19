@@ -1,0 +1,49 @@
+=== RxMicro annotation processor options
+
+Процессор аннотаций RxMicro поддерживает следующие опции:
+
+.Поддерживаемые опции процессором аннотаций RxMicro.
+|===
+|*Опция*|*Описание* |*Тип* |*Значение по умолчанию*
+
+|`RX_MICRO_MAX_JSON_NESTED_DEPTH`
+|максимальный размер стека для рекурсивных вызовов при анализе моделей, содержащих вложенные JSON объекты.
+|`positive int`
+|`20`
+
+|`RX_MICRO_LOG_LEVEL`
+|уровень логирования процессора аннотаций RxMicro.
+|Enum {`OFF`, `INFO`, `DEBUG`}
+|`INFO`
+
+|`RX_MICRO_DOC_DESTINATION_DIR`
+|результирующая директория <<{project-documentation}#project-documentation-section,для сгенерированной документации>>.
+|`String`
+|Asciidoc: `./src/main/asciidoc`
+|===
+
+Данные опции задаются с помощью аргументов компилятора в `maven-compiler-plugin`:
+
+[source,xml]
+----
+<plugin>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>${maven.compiler.plugin.version}</version>
+    <configuration>
+        <release>11</release>
+        <compilerArgs>
+            <arg>-ARX_MICRO_MAX_JSON_NESTED_DEPTH=20</arg>
+            <arg>-ARX_MICRO_LOG_LEVEL=INFO</arg>
+            <arg>-ARX_MICRO_DOC_DESTINATION_DIR=target/doc</arg>
+        </compilerArgs>
+    </configuration>
+</plugin>
+----
+
+[IMPORTANT]
+====
+Обратите внимание, что необходимо добавлять префикс `-A` перед установкой значения опции.
+
+Общий формат следующий: `-A${name}=${value}`.
+Например: `-ARX_MICRO_LOG_LEVEL=OFF`
+====

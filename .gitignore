@@ -1,0 +1,55 @@
+# https://git-scm.com/docs/gitignore
+# http://www.gitignore.io/
+
+# Build results
+target
+
+# IntelliJ IDEA configurations
+.idea
+.idea_modules
+*.iml
+*.iws
+*.ipr
+*.eml
+.shelf
+out
+
+# Eclipse configurations
+.project
+.classpath
+.settings
+.metadata
+bin/
+
+# NetBeans configurations
+nb*.xml
+
+# Mac-specific directory that no other operating system needs.
+.DS_Store
+
+# docker environment file
+.env
+
+# attach pid files
+.*pid*
+
+# logs
+*.log
+
+# temp files
+temp.*
+tmp.*
+
+# cache
+*.cache
+
+# examples generated docs
+/examples/documentation-asciidoctor-custom-sections/src/main/asciidoc/*.adoc
+/examples/documentation-asciidoctor-echo/src/main/asciidoc/*.adoc
+/examples/documentation-asciidoctor-errors/src/main/asciidoc/*.adoc
+/examples/documentation-asciidoctor-full/src/main/asciidoc/*.adoc
+/examples/documentation-asciidoctor-metadata-annotations/src/main/asciidoc/*.adoc
+/examples/documentation-asciidoctor-metadata-pomxml/src/main/asciidoc/*.adoc
+/examples/documentation-asciidoctor-quick-start/src/main/asciidoc/*.adoc
+/examples/documentation-asciidoctor-validation/src/main/asciidoc/*.adoc
+/examples/documentation-asciidoctor-all-std-validators/src/main/asciidoc/*.adoc

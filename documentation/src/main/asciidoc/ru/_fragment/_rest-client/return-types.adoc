@@ -1,0 +1,46 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+=== Возвращаемые типы обработчиков HTTP запроса
+
+Обработчик HTTP запроса поддерживает две категории возвращаемых результатов:
+
+* HTTP ответ без тела;
+* HTTP ответ с телом;
+
+<<<
+
+==== Поддерживаемые типы возвращаемого результата для HTTP ответа без тела
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-handlers/src/main/java/io/rxmicro/examples/rest/client/handlers/RestClientWithoutBody.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-handlers/src/test/java/io/rxmicro/examples/rest/client/handlers/RestClientWithoutBodyTest.java[tag=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-handlers
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]
+
+<<<
+
+==== Поддерживаемые типы возвращаемого результата для HTTP ответа с телом
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-handlers/src/main/java/io/rxmicro/examples/rest/client/handlers/RestClientWithBody.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-handlers/src/test/java/io/rxmicro/examples/rest/client/handlers/RestClientWithBodyTest.java[tag=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-handlers
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]

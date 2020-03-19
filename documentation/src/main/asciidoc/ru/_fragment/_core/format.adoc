@@ -1,0 +1,32 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+=== Форматирование строк
+
+В процессе разработки программного продукта возникает необходимость форматировать строки.
+
+Для этих целей Java предоставляет разные подходы:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/format/src/main/java/io/rxmicro/examples/format/Problem.java[tag=content,indent=0]
+----
+<1> Для формирования SQL запроса необходимо использовать `$1` placeholder. +
+_(Данный placeholder зависит от используемого {R2DBC-SPEC-ROOT-URL}#statements.parameterized[R2DBC драйвера^].
+Для postgresql это символ `$1`.)_
+<2> Для формирования логирующего сообщения необходимо использовать `{}` placeholder. +
+_(Данный placeholder зависит от используемой библиотеки логирования.
+Для SLF4J это символ `{}`.)_
+<3> Для формирования сообщения об ошибке необходимо использовать `%s` placeholder из отдельного утилитного класса, например
+{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html#format(java.lang.String,java.lang.Object...)[`String.format`^].
+
+В процессе написания кода, разработчик может легко перепутать нужный placeholder.
+
+*Чтобы избежать подобной проблемы RxMicro рекомендует использовать универсальный `?` placeholder:*
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/format/src/main/java/io/rxmicro/examples/format/Solution.java[tag=content,indent=0]
+----
+<1> Для формирования SQL запроса необходимо использовать `?` placeholder.
+<2> Для формирования логирующего сообщения необходимо использовать `?` placeholder.
+<3> Для формирования сообщения об ошибке необходимо использовать `?` placeholder.

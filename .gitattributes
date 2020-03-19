@@ -1,0 +1,29 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto
+
+*.java          text diff=java
+*.javaftl       text diff=java
+
+*.properties    text
+*.json          text
+*.xml           text
+*.md            text
+*.txt           text
+
+*.adoc          text
+*.asciidoc      text
+*.adocftl       text
+
+LICENSE         text
+NOTICE          text
+
+*.yml           text
+*.sql           text
+*.js            text
+*.sh            text
+*.html          text
+*.css           text
+Dockerfile      text
+*.dockerfile    text
+
+*.jpg           binary

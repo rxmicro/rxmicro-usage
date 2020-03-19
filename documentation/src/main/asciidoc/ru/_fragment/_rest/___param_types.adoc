@@ -1,0 +1,21 @@
+RxMicro поддерживает следующие Java типы, которые могут быть HTTP параметрами модели запроса:
+
+* `? extends Enum<?>`;
+* `java.lang.Boolean`;
+* `java.lang.Byte`;
+* `java.lang.Short`;
+* `java.lang.Integer`;
+* `java.lang.Long`;
+* `java.math.BigInteger`;
+* `java.lang.Float`;
+* `java.lang.Double`;
+* `java.math.BigDecimal`;
+* `java.lang.Character`;
+* `java.lang.String`;
+* `java.time.Intant`;
+* `? extends Object`;
+* `java.util.List<? extends Object>`;
+
+include::../___notes/note_use_big_decimal.adoc[]
+
+а также тип `java.util.List<T>`, параметризован любым из выше перечисленных примитивных типов (кроме `? extends Object` и `java.util.List<? extends Object>`).

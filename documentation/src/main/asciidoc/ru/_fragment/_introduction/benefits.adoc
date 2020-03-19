@@ -1,0 +1,18 @@
+=== RxMicro benefits
+
+*RxMicro* обладает следующими преимуществами:
+
+* Declarative programming using annotations.
+* CDI by demand.
+* Human readable generated code.
+* Verifier of the redundant and inefficient source code.
+* Runtime without `reflection`.
+* Fast startup time.
+* Reduced memory footprint.
+
+Данные преимущества достигаются за счет:
+
+* использования {JDK-JAVA-COMPILER-DOC-ROOT-URL}javax/annotation/processing/Processor.html[*Java annotation processors*^], который генерирует стандартный код на основании `RxMicro annotations`;
+* замены стандартных Java библиотек, которые требуют для своей работы `reflection`, на аналоги не нуждающиеся в `reflection`;
+* использования https://netty.io/[*Netty*^] в качестве основного NIO фреймворка для *асинхронных неблокирующих IO операций*;
+* генерации низкоуровневого кода, без использования лишних абстракций и прокси.

@@ -1,0 +1,96 @@
+=== Native Transports
+
+Для выполнения асинхронных неблокирующих IO операций RxMicro использует https://netty.io/[`Netty`^].
+Для увеличения производительности `Netty` позволяет использовать https://netty.io/wiki/native-transports.html[`native transports`^].
+
+Чтобы подключить `native transports`, добавьте одну из следующих зависимостей:
+
+[source,xml]
+----
+<dependency>
+    <groupId>io.rxmicro</groupId>
+    <artifactId>rxmicro-netty-native-linux</artifactId>
+    <version>${rxmicro.version}</version>
+</dependency>
+----
+
+[source,xml]
+----
+<dependency>
+    <groupId>io.rxmicro</groupId>
+    <artifactId>rxmicro-netty-native-osx</artifactId>
+    <version>${rxmicro.version}</version>
+</dependency>
+----
+
+[source,xml]
+----
+<dependency>
+    <groupId>io.rxmicro</groupId>
+    <artifactId>rxmicro-netty-native</artifactId>
+    <version>${rxmicro.version}</version>
+</dependency>
+----
+
+[source,xml]
+----
+<dependency>
+    <groupId>io.rxmicro</groupId>
+    <artifactId>rxmicro-netty-native-all</artifactId>
+    <version>${rxmicro.version}</version>
+</dependency>
+----
+
+* `rxmicro-netty-native-linux` зависимость добавляет `netty-transport-native-epoll` artifact;
+* `rxmicro-netty-native-osx` зависимость добавляет `netty-transport-native-kqueue` artifact;
+* `rxmicro-netty-native` зависимость активирует `native transports` для текущей платформы:
+** если текущая платформа `Linux`, то добавляется `netty-transport-native-epoll` artifact;
+** если текущая платформа `OSX`, то добавляется `netty-transport-native-kqueue` artifact;
+** иначе `native transports` не активируется для текущей платформы;
+* `rxmicro-netty-native-all` зависимость добавляет `netty-transport-native-epoll` и `netty-transport-native-kqueue` artifacts.
+
+[TIP]
+====
+Подключение в микросервисный проект зависимости:
+
+[source,xml]
+----
+<dependency>
+    <groupId>io.rxmicro</groupId>
+    <artifactId>rxmicro-netty-native-linux</artifactId>
+    <version>${rxmicro.version}</version>
+</dependency>
+----
+
+вместо
+
+[source,xml]
+----
+<dependency>
+    <groupId>io.netty</groupId>
+    <artifactId>netty-transport-native-epoll</artifactId>
+    <version>${netty.version}</version>
+    <classifier>linux-x86_64</classifier>
+</dependency>
+----
+
+позволяет использовать версию библиотеки `Netty native transports` совместимую со всеми остальными `Netty` библиотеками, которые используются фреймворком RxMicro.
+
+Таким образом *модули `rxmicro-netty-native-...` не содержат никакой логики.* *Они только подключают `Netty native transports` библиотеки корректной версии.*
+====
+
+Если `native transports` был успешно активирован, то в информационном сообщении о старте HTTP сервера, будет отображаться соответствующее тип транспорта.
+
+[source,text]
+----
+2020-02-02 20:14:11.707 [INFO] io.rxmicro.rest.server.netty.internal.component.NettyServer :
+Server started at 0.0.0.0:8080 using EPOLL transport in 500 millis. # <1>
+----
+<1> Сообщение формата `using EPOLL transport` означает, что `Netty` будет использовать `netty-transport-native-epoll` библиотеку.
+
+[source,text]
+----
+2020-02-02 20:14:11.707 [INFO] io.rxmicro.rest.server.netty.internal.component.NettyServer :
+Server started at 0.0.0.0:8080 using KQUEUE transport in 500 millis. # <1>
+----
+<1> Сообщение формата `using KQUEUE transport` означает, что `Netty` будет использовать `netty-transport-native-kqueue` библиотеку.

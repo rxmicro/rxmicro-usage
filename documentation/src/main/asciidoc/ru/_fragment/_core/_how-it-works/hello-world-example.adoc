@@ -1,0 +1,325 @@
+==== Генерируемые вспомогательные классы
+
+Рассмотрим <<core-how-it-works-core-schema,общую схему работы фреймворка RxMicro>>, на примере проекта REST-based микросервиса, который отображает сообщение `"Hello World!"` в JSON формате. +
+_(Данный проект был рассмотрен в разделе <<{quick-start}#quick-start-section>>.)_
+
+Разработчик реализуя бизнес задачу (в данном примере - это задача отображения сообщения `"Hello World!"` в JSON формате) написал следующий `Micro service source code`:
+
+image::core/how-it-work/micro-src.jpg[]
+
+Для того, чтобы информировать фреймворк RxMicro о необходимости сгенерировать вспомогательные классы, с помощью которых написанный `Micro service source code` сможет быть встроен в HTTP сервер, чтобы обрабатывать желаемые HTTP запросы, разработчик добавил следующую `RxMicro annotation`:
+
+[source,java]
+----
+@GET("/")
+----
+
+Так как в maven настроен `RxMicro Annotation Processor`:
+
+[source,xml]
+----
+...
+<configuration>
+    <annotationProcessors>
+        <annotationProcessor>
+            io.rxmicro.annotation.processor.RxMicroAnnotationProcessor
+        </annotationProcessor>
+    </annotationProcessors>
+</configuration>
+...
+----
+
+то в момент компиляции проекта данный процессор обрабатывает исходный код REST-based микросервиса и генерирует вспомогательные классы `Micro service generated code`:
+
+image::core/how-it-work/micro-gen-src.jpg[]
+
+После того как исходный код вспомогательных классов был успешно сгенерирован процессором аннотаций, компилятор компилирует:
+
+* Исходный код REST-based микросервиса в `Micro service byte code`:
+
+image::core/how-it-work/micro-byte.jpg[]
+
+* Сгенерированный код вспомогательных классов в `Micro service byte code`:
+
+image::core/how-it-work/micro-gen-byte.jpg[]
+
+В результате работы компилятора байт-код REST-based микросервиса и байт-код сгенерированных вспомогательных классов будут храниться вместе в одном `jar` архиве:
+
+image::core/how-it-work/all-byte.jpg[]
+
+Для успешного запуска скомпилированных классов, необходимы `RxMicro runtime libraries`:
+
+image::core/how-it-work/rxmicro-runtime-libs.jpg[]
+
+`Micro service byte code`, `Micro service byte code` и `RxMicro runtime libraries` являются программными компонентами микросервиса, которые и выполняют полезную работу.
+
+Ниже подробнее рассмотрим каждый сгенерированный вспомогательный класс и какие функции он выполняет.
+
+[TIP]
+====
+Имена всех генерируемых фреймворком *RxMicro* классов начинаются с префикса `$$`.
+====
+
+===== Вспомогательный класс REST контроллера
+
+Любой REST-based микросервис, содержит хотя бы один REST контроллер.
+Для простейшего проекта REST-based микросервис и REST контроллер - это один и тот же класс.
+
+Поэтому при анализе таких проектов термины *REST контроллер*, *REST-based микросервис* и *микросервис* являются синонимами, так как физически являются одним и тем же классом.
+
+Рассматриваемый REST-based микросервис, который отображает сообщение `"Hello World!"`, является таким простейшим проектом, следовательно, класс `HelloWorldMicroService` является REST контроллером.
+
+[NOTE]
+====
+Для получения подробных сведений о том, чем отличаются *REST контроллер*, *REST-based микросервис* и *микросервис*, рекомендуется обратиться к разделу <<{microservice}#microservice-section>>.
+====
+
+Для каждого класса REST контроллера *RxMicro* генерирует вспомогательный класс, который выполняет следующие функции:
+
+* Создает объект REST контроллера. +
+_(В случае активации модуля <<{cdi}#cdi-section,`rxmicro.cdi`>>, после создания также внедряет необходимые зависимости.)_
+* Создает объекты `ModelReader`, которые преобразовывают параметры, заголовки и тело HTTP запроса в Java модель.
+* Создает объекты `ModelWriter`, которые преобразовывают Java модель ответа в заголовки и тело HTTP ответа;
+* Регистрирует все обработчики HTTP запросов текущего REST контроллера в RxMicro маршрутизаторе.
+* При получении HTTP запроса с помощью объекта `ModelReader` преобразовывает HTTP запрос в Java модель запроса и вызывает соответствующий обработчик REST контроллера.
+* После получения результирующей Java модели ответа, с помощью объекта `ModelWriter` преобразовывает Java модель в HTTP ответ и отправляет ответ клиенту.
+
+Таким вспомогательным классом для класса `HelloWorldMicroService` является класс `$$HelloWorldMicroService`:
+
+[source,java]
+----
+public final class $$HelloWorldMicroService extends AbstractRestController {
+
+    private HelloWorldMicroService restController;
+
+    private $$ResponseModelWriter responseModelWriter;
+
+    @Override
+    protected void postConstruct() {
+        restController = new HelloWorldMicroService(); // <1>
+        responseModelWriter =
+                new $$ResponseModelWriter(restServerConfig.isHumanReadableOutput()); // <2>
+    }
+
+    @Override
+    public void register(final RestControllerRegistrar registrar) { // <3>
+        registrar.register(
+                this,
+                new Registration(
+                        "",
+                        "sayHelloWorld()",
+                        this::sayHelloWorld, // <4>
+                        false,
+                        new ExactUrlRequestMappingRule( // <5>
+                                "GET",
+                                "/",
+                                false
+                        )
+                )
+        );
+    }
+
+    private CompletionStage<HttpResponse> sayHelloWorld(final PathVariableMapping mapping,
+                                                        final HttpRequest request) {
+        return restController.sayHelloWorld() // <6>
+                .thenApply(response -> buildResponse(response, 200)); // <7>
+    }
+
+    private HttpResponse buildResponse(final Response model,
+                                       final int statusCode) {
+        final HttpResponse response = httpResponseBuilder.build();
+        response.setStatus(statusCode);
+        responseModelWriter.write(model, response); // <8>
+        return response;
+    }
+
+}
+----
+<1> Компонент `$$HelloWorldMicroService` создает объект класса REST контроллера.
+<2> Компонент `$$HelloWorldMicroService` создает объект сгенерированного класса `ModelWriter`, который преобразовывает Java модель ответа в заголовки и тело HTTP ответа.
+<3> Компонент `$$HelloWorldMicroService` регистрирует все обработчики HTTP запросов текущего REST контроллера.
+<4> В объекте регистрации передается ссылка на обработчик HTTP запросов текущего REST контроллера.
+<5> В объекте регистрации передается правило, по которому RxMicro маршрутизатор определяет нужно ли вызывать данный обработчик HTTP запроса.
+<6> При получении HTTP запроса `$$HelloWorldMicroService` вызывает метод REST контроллера.
+<7> После вызова метода REST контроллера добавляется асинхронный обработчик результата. +
+_(При использовании реактивного подхода <<core-dont-block-current-thread,нельзя блокировать текущий поток>>, поэтому для отложенной обработки результата используется метод
+{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletionStage.html#thenApply(java.util.function.Function)[`thenApply`^].)_
+<8> Обработчик результата после получения объекта Java модели ответа создает HTTP ответ на базе данных полученной из модели, который затем отправляется клиенту.
+
+===== Вспомогательный класс ModelWriter
+
+Для преобразования Java модели в HTTP ответ, необходим отдельный компонент, который выполняет следующие функции:
+
+* Определяет в каком формате возвращать HTTP ответ в зависимости от настроек проекта.
+* Создает объекты конвертеров, поддерживающих заданный формат обмена сообщениями.
+* В момент конвертации Java модели в HTTP ответ, управляет процессом конвертирования делегируя вызовы на соответствующие компоненты.
+
+Таким отдельным компонентом для класса модели `Response` является класс `$$ResponseModelWriter`:
+
+[TIP]
+====
+Код сгенерированного класса `$$ResponseModelWriter` зависит от структуры класса модели ответа и используемого формата обмена сообщениями с клиентом.
+
+Так как формат общения с клиентом задается в `module-info.java` проекта (`requires rxmicro.rest.server.exchange.json;`) и является настройкой для всех REST контроллеров и всех их обработчиков, то в рамках текущего проекта `$$ResponseModelWriter` будет зависеть только от структуры класса модели ответа.
+
+Это означает что если несколько обработчиков из разных REST контроллеров будут возвращать модель класса `Response` то будет сгенерирован только один класс `$$ResponseModelWriter` и в каждом вспомогательном классе REST контроллера будет использоваться объект этого класса.
+====
+
+[source,java]
+----
+public final class $$ResponseModelWriter extends ModelWriter<Response> {
+
+    private final $$ResponseModelToJsonConverter responseModelToJsonConverter; //<1>
+
+    private final ExchangeDataFormatConverter<Object> exchangeDataFormatConverter; //<2>
+
+    private final String outputMimeType;
+
+    public $$ResponseModelWriter(final boolean humanReadableOutput) {
+        exchangeDataFormatConverter =
+            new JsonExchangeDataFormatConverter(humanReadableOutput); // <3>
+        responseModelToJsonConverter = new $$ResponseModelToJsonConverter();
+        outputMimeType = exchangeDataFormatConverter.getMimeType();
+    }
+
+    @Override
+    public void write(final Response model,
+                      final HttpResponse response) {
+        final Map<String, Object> json = responseModelToJsonConverter.toJsonObject(model); // <4>
+        response.setHeader(HttpHeaders.CONTENT_TYPE, outputMimeType); //<5>
+        response.setContent(exchangeDataFormatConverter.toBytes(json)); //<6>
+    }
+
+}
+----
+<1> Так как в настройках указан JSON формат обмена сообщениями, необходим компонент который умеет преобразовать Java модель ответа в JSON модель ответа.
+_(Данная задача специфична для каждой модели ответа, поэтому чтобы не использовать `reflection` необходимо сгенерировать отдельный компонент-конвертер.)_
+<2> Для преобразования любой низкоуровневой модели (в текущем примере - это JSON модель ответа) в массив байт необходим также отдельный компонент-конвертер.
+<3> Так как в настройках указан JSON формат обмена сообщениями, то подразумевается что в массив байт будет преобразована JSON модель, которая будет создана из Java модели ответа.
+<4> В момент формирования HTTP ответа, необходимо преобразовать Java модель ответа в JSON модель.
+<5> Так как в настройках указан JSON формат обмена сообщениями, то необходимо установить HTTP header: `Content-Type = application/json`.
+<6> И последним шагом необходимо преобразовать JSON модель в массив байт, который будет записан в тело HTTP ответа.
+
+===== Конвертер Java модели в JSON модель
+
+Чтобы не использовать `reflection` необходим компонент, который умеет конвертировать Java модель в JSON модель.
+
+Данный компонент должен поддерживать следующие функции:
+
+* Конвертировать Java модель в JSON модель любой сложности.
+* Поддерживать все возможные модели доступа к полям класса, чтобы быть универсальным инструментом. +
+_(Поддерживаемые модели доступа к полям класса подробно описаны в разделе: <<core-encapsulation>>.)_
+
+Таким отдельным компонентом для класса модели `Response` является класс `$$ResponseModelToJsonConverter`:
+
+[source,java]
+----
+public final class $$ResponseModelToJsonConverter extends ModelToJsonConverter<Response> {
+
+    @Override
+    // <1>
+    public Map<String, Object> toJsonObject(final Response model) {
+        return new JsonObjectBuilder()
+                .put("message", model.message) // <2>
+                .build();
+    }
+
+}
+----
+
+<1> JSON объект представляется в виде `Map<String, Object>`. +
+_(Подробнее о поддержке формата JSON фреймворком RxMicro можно ознакомиться в разделе: <<core-rx-micro-json-section>>.)_
+<2> Значение поля `message` считывается с Java модели с помощью прямого обращения к полю. +
+_(Поддерживаемые модели доступа к полям класса подробно описаны в разделе: <<core-encapsulation>>.)_
+
+===== Агрегатор REST контроллеров
+
+Для интеграции пользовательского кода в инфраструктуру фреймворка RxMicro необходимы агрегаторы.
+
+Агрегаторы выполняют следующие функции:
+
+* Регистрируют все сгенерированные вспомогательные классы;
+* Кастомизируют окружение времени выполнения;
+
+Агрегаторы вызываются фреймворком RxMicro с помощью `reflection`. +
+_(Именно поэтому агрегаторы имеют постоянное и заранее известное имя и находятся в специальном пакете `rxmicro`.)_
+
+*Агрегатором REST контроллеров для любого проекта всегда является класс: `rxmicro.$$RestControllerAggregatorImpl`*:
+
+[source,java]
+----
+package rxmicro; //<1>
+
+public final class $$RestControllerAggregatorImpl extends RestControllerAggregator { // <2>
+
+    static {
+        $$EnvironmentCustomizer.customize(); // <3>
+    }
+
+    protected List<AbstractMicroService> listAllRestControllers() {
+        return List.of(
+                new io.rxmicro.examples.quick.start.$$HelloWorldMicroService() // <4>
+        );
+    }
+
+}
+----
+<1> Все агрегаторы *всегда* генерируются в системном пакете `rxmicro`.
+<2> Имя класса агрегатора REST контроллеров: `$$RestControllerAggregatorImpl`.
+<3> В момент загрузки класса агрегатора фреймворком RxMicro, вызывается компонент <<core-how-it-works-environment-customizer,кастомизации текущего окружения>>.
+<4> Агрегатор регистрирует все сгенерированные вспомогательные классы REST контроллеров;
+
+[[core-how-it-works-environment-customizer]]
+===== Environment Customizer
+
+Java 9 ввела в использование https://www.oracle.com/corporate/features/understanding-java-9-modules.html[модульную систему^].
+
+Данная система требует, чтобы разработчик конфигурировал доступ к пакетам классов в файле *module-info.java* проекта микросервиса.
+
+Чтобы RxMicro смог загрузить классы агрегаторов необходимо экспортировать пакет `rxmicro` модулю `rxmicro.runtime`:
+
+[source,java]
+----
+module examples.quick.start {
+    requires rxmicro.rest.server.netty;
+    requires rxmicro.rest.server.exchange.json;
+
+    exports rxmicro to rxmicro.runtime; // <1>
+}
+----
+<1>  Разрешаем доступ классов из модуля `rxmicro.runtime` ко всем классам из пакета `rxmicro`.
+
+Однако пакет `rxmicro` создается автоматически и после удаления всех сгенерированных файлов, скомпилировать `module-info.java` не получиться из-за ошибки:
+
+`Error:(25,13) java: package is empty or does not exist: rxmicro`.
+
+Для решения данной проблемы RxMicro генерирует класс `rxmicro.$$EnvironmentCustomizer`:
+
+[source,java]
+----
+final class $$EnvironmentCustomizer {
+
+    static {
+        addExportsToRuntime(); // <1>
+    }
+
+    public static void customize() {
+        //do nothing. All customization is done at the static section
+    }
+
+    private static void addExportsToRuntime() {
+        final Module currentModule = $$EnvironmentCustomizer.class.getModule();
+        currentModule.addExports("rxmicro", getRuntimeModule()); // <2>
+    }
+
+}
+----
+<1> В момент загрузки класса вызывается статический метод `addExportsToRuntime()`.
+<2> В теле данного метода экспорт пакета `rxmicro` модулю `rxmicro.runtime` выполняется динамически, используя возможности класса {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Module.html[`java.lang.Module`^].
+
+Благодаря данному вспомогательному классу все необходимые настройки для модульной системы Java создаются автоматически.
+
+[TIP]
+====
+Если RxMicro будет нуждаться в дополнительных автоматических настройках для своей корректной работы, то эти настройки будут добавлены процессором аннотаций в класс `rxmicro.$$EnvironmentCustomizer` автоматически.
+====

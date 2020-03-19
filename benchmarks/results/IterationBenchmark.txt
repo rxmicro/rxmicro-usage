@@ -1,0 +1,13 @@
+Benchmark                                  Mode  Cnt     Score     Error   Units
+IterationBenchmark.usingForEachLambda     thrpt   10  3852.939 ± 384.199  ops/ms
+IterationBenchmark.usingForEachMethodRef  thrpt   10  3546.053 ± 351.304  ops/ms
+IterationBenchmark.usingIndex             thrpt   10  3614.254 ± 243.170  ops/ms
+IterationBenchmark.usingIterator          thrpt   10  2428.142 ± 330.248  ops/ms
+IterationBenchmark.usingForEachLambda      avgt   10    ≈ 10⁻⁴             ms/op
+IterationBenchmark.usingForEachMethodRef   avgt   10    ≈ 10⁻⁴             ms/op
+IterationBenchmark.usingIndex              avgt   10    ≈ 10⁻⁴             ms/op
+IterationBenchmark.usingIterator           avgt   10    ≈ 10⁻³             ms/op
+IterationBenchmark.usingForEachLambda        ss   10     0.016 ±   0.006   ms/op
+IterationBenchmark.usingForEachMethodRef     ss   10     0.012 ±   0.008   ms/op
+IterationBenchmark.usingIndex                ss   10     0.017 ±   0.016   ms/op
+IterationBenchmark.usingIterator             ss   10     0.012 ±   0.002   ms/op

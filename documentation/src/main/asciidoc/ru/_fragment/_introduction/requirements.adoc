@@ -1,0 +1,19 @@
+=== Requirements
+
+*RxMicro* для своей работы требует https://openjdk.java.net/projects/jdk/11/[JDK 11 LTS^] или выше.
+
+Для успешного изучения данного руководства предполагается, что читатель знаком со следующими технологиями:
+
+* {JDK-JAVA-BASE-DOC-ROOT-URL}module-summary.html[`JDK 11 base API`^];
+* https://maven.apache.org/users/index.html[`Apache Maven`^];
+* https://junit.org/junit5/docs/current/user-guide/[`JUnit 5`^];
+* {MOCKITO-DOC-ROOT-URL}org/mockito/Mockito.html[`Mockito`^];
+* https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview[`Hypertext Transfer Protocol (HTTP)`^];
+* https://en.wikipedia.org/wiki/Representational_state_transfer[`Representational state transfer (REST)`^];
+
+*RxMicro* для своей работы использует следующие Java модули:
+
+* {JDK-JAVA-BASE-DOC-ROOT-URL}module-summary.html[`java.base`^];
+* {JDK-JAVA-LOGGING-DOC-ROOT-URL}module-summary.html[`java.logging`^];
+* {JDK-JAVA-NET-HTTP-DOC-ROOT-URL}module-summary.html[`java.net.http`^];
+* `jdk.unsupported`;

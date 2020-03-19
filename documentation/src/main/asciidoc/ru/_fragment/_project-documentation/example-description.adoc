@@ -1,0 +1,22 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[project-documentation-example-description-section]]
+=== `@Example` and `@Description` Usage
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-echo/src/main/java/io/rxmicro/examples/documentation/asciidoctor/echo/Echo.java[tags=content]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-echo/src/main/java/io/rxmicro/examples/documentation/asciidoctor/echo/MicroService.java[tags=content]
+----
+
+:project-documentation-file: ExamplesDocumentationAsciidoctorEchoDocumentation.html
+include::../___notes/generated-project-documentation.adoc[]
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}documentation-asciidoctor-echo
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]

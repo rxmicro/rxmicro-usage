@@ -1,0 +1,29 @@
+[[testing-integration-tests-section]]
+=== Интеграционное тестирование REST-based микросервисов
+
+Интеграционное тестирование REST-based микросервисов позволяет тестировать полноценную систему, которая может состоять из нескольких REST-based микросервисов.
+
+Для удобного написания интеграционных тестов REST-based микросервисов RxMicro предоставляет:
+
+. Дополнительную аннотацию {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/RxMicroIntegrationTest.java[`@RxMicroIntegrationTest`^], которая информирует RxMicro о необходимости создать HTTP клиент и внедрить его в тестируемый класс.
+. Специальный *блокирующий* HTTP клиент для выполнения HTTP запросов в процессе тестирования:
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^].
+. Интерфейс {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/SystemOut.java[`SystemOut`^] для удобного доступа к консоли.
+
+Основные отличия интеграционного тестирование от тестирования REST-based микросервиса:
+
+. для интеграционных тестов RxMicro не запускает HTTP сервер;
+. запуск и остановка системы, состоящей из REST-based микросервисов возлагается на разработчика;
+. RxMicro не поддерживает альтернативы и дополнительную конфигурацию для интеграционных тестов;
+
+<<<
+
+include::_integration-test/basic.adoc[]
+
+<<<
+
+include::_integration-test/client-settings.adoc[]
+
+<<<
+
+include::_integration-test/docker-usage.adoc[]

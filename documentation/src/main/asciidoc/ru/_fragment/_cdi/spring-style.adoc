@@ -1,0 +1,36 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[cdi-spring-style-section]]
+=== Dependency Injection Using Spring Style
+
+TODO
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-spring-style/src/main/java/io/rxmicro/examples/cdi/spring/style/BusinessService.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-spring-style/src/main/java/io/rxmicro/examples/cdi/spring/style/impl/ProductionBusinessService.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-spring-style/src/main/java/io/rxmicro/examples/cdi/spring/style/impl/DevelopmentBusinessService.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-spring-style/src/main/java/io/rxmicro/examples/cdi/spring/style/BusinessServiceFacade.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-spring-style/src/test/java/io/rxmicro/examples/cdi/spring/style/BusinessServiceFacadeTest.java[tag=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-spring-style
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]

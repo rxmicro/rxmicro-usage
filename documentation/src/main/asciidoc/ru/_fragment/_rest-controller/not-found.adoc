@@ -1,0 +1,57 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[rest-controller-not-found-section]]
+=== `Not Found` Logic
+
+RxMicro поддерживает `Not Found` Logic для обработчиков HTTP запросов.
+
+Для активации данной feature необходимо возвращать реактивный тип, который поддерживает <<{core}#core-reactive-bussiness-process-result-types-section,optional результат>>:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-notfound/src/main/java/io/rxmicro/examples/rest/controller/notfound/NotFoundMicroService.java[tag=content,indent=0]
+----
+<1> При использовании `CompletableFuture`/`CompletionStage` необходимо использовать контракт
+{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/Optional.html[`java.util.Optional`^], так как реактивные типы `CompletableFuture`/`CompletionStage` по умолчанию не поддерживают optional результат.
+<2> В отличие от `CompletableFuture`/`CompletionStage`, реактивный тип `Mono` поддерживает optional результат.
+<3> В отличие от `CompletableFuture`/`CompletionStage`, реактивный тип `Maybe` также поддерживает optional результат.
+
+При обработке запросов RxMicro проверяет результат обработчика:
+
+* Если обработчик возвращает модель ответа, то RxMicro конвертирует ее в HTTP ответ со статусом `200` и JSON представлением данной модели.
+* Если обработчик возвращает пустой результат, то RxMicro генерирует HTTP ответ со статусом `404` и стандартным сообщением об ошибке: `"Not Found"`.
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-notfound/src/test/java/io/rxmicro/examples/rest/controller/notfound/NotFoundMicroServiceTest.java[tag=content,indent=0]
+----
+<1> В случае наличия результата, возвращается результат в JSON формате и HTTP статус ответа равен `200`.
+<2> В случае отсутствия результата, возвращается стандартное сообщение об ошибке и HTTP статус ответа равен `404`.
+
+RxMicro позволяет кастомизировать `Not Found` сообщение:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-notfound/src/main/java/io/rxmicro/examples/rest/controller/notfound/CustomizeNotFoundMicroService.java[tag=content,indent=0]
+----
+<1> Аннотация {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/NotFoundMessage.java[`@NotFoundMessage`^]
+позволяет указать сообщение, которое отобразится клиенту в случае отсутствия результата вместо стандартного `"Not Found"`.
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-notfound/src/test/java/io/rxmicro/examples/rest/controller/notfound/CustomizeNotFoundMicroServiceTest.java[tag=content,indent=0]
+----
+<1> В случае отсутствия результата возвращается заданное с помощью аннотации
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/NotFoundMessage.java[`@NotFoundMessage`^] сообщение.
+<2> HTTP статус равен `404`. +
+(_RxMicro не позволяет переопределить HTTP статус для `Not Found` logic!_)
+
+[NOTE]
+====
+Для большего контроля над генерируемым в случае ошибки HTTP ответом, используйте <<rest-controller-errors-section,исключения>> вместо возможностей `Not Found` Logic!
+====
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-controller-notfound
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]

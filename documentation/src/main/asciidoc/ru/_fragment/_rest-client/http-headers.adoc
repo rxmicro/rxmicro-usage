@@ -1,0 +1,93 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[rest-client-headers-basic]]
+=== Обработка HTTP заголовков
+
+==== Базовые правила
+
+TODO
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-headers/src/main/java/io/rxmicro/examples/rest/client/headers/model/Request.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-headers/src/main/java/io/rxmicro/examples/rest/client/headers/model/Response.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-headers/src/main/java/io/rxmicro/examples/rest/client/headers/SimpleUsageRestClient.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-headers/src/test/java/io/rxmicro/examples/rest/client/headers/SimpleUsageRestClientTest.java[tag=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-headers
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]
+
+<<<
+
+==== Поддерживаемые типы данных
+
+include::../_rest/___header_types.adoc[]
+
+<<<
+
+[[rest-client-headers-static]]
+==== Статические HTTP заголовки
+
+TODO
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-headers/src/main/java/io/rxmicro/examples/rest/client/headers/StaticHeadersRestClient.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-headers/src/test/java/io/rxmicro/examples/rest/client/headers/StaticHeadersRestClientTest.java[tag=content,indent=0]
+----
+
+[NOTE]
+====
+Для понимания отличий аннотаций {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/AddHeader.java[`@AddHeader`^] и
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/SetHeader.java[`@SetHeader`^] рекомендуем обратится к примеру:
+
+* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}rest-client-headers/src/main/java/io/rxmicro/examples/rest/client/headers/ComplexStaticHeadersRestClient.java[`ComplexStaticHeadersRestClient.java`^]
+
+* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}rest-client-headers/src/test/java/io/rxmicro/examples/rest/client/headers/ComplexStaticHeadersRestClientTest.java[`ComplexStaticHeadersRestClientTest.java`^]
+====
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-headers
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]
+
+<<<
+
+[[rest-client-headers-repeating]]
+==== Повторяющиеся HTTP заголовки
+
+TODO
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-headers/src/main/java/io/rxmicro/examples/rest/client/headers/RepeatingHeadersRestClient.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-headers/src/test/java/io/rxmicro/examples/rest/client/headers/RepeatingHeadersRestClientTest.java[tag=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-headers
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]

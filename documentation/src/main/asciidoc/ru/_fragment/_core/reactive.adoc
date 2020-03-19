@@ -1,0 +1,110 @@
+=== Reactive Libraries Support
+
+*RxMicro* поддерживает следующие библиотеки реактивного программирования:
+
+- {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/package-summary.html[*java.util.concurrent*^]:
+{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[CompletableFuture^],
+{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletionStage.html[CompletionStage^];
+- {REACTOR-CORE-DOC-USER_GUIDE}[*Project Reactor*: Mono, Flux^];
+- {RX-JAVA-USER-GUIDE}[*RxJava*: Completable, Single, Maybe, Flowable^];
+
+[[core-reactive-bussiness-process-result-types-section]]
+==== Ожидаемые результаты бизнес процессов
+
+При написании реактивных программ возможны 4 следующих ожидаемых результатов любого бизнес процесса:
+
+. Важен факт завершения бизнес процесса, но получаемый результат отсутствует или неважен.
+. Бизнес процесс возвращает результат в единственном экземпляре или ничего.
+. Бизнес процесс возвращает обязательный результат в единственном экземпляре.
+. Бизнес процесс возвращает результат в виде потока объектов `(0 .. n)`.
+
+При написании бизнес сервиса с использованием реактивных библиотек, рекомендуется следовать следующим соглашениям:
+
+[[core-reactive-bussiness-process-reactive-class-mapping-table]]
+.Соответствие между результатом бизнес процесса и рекомендуемым классом из реактивной библиотеки.
+|===
+|*Reactive Library*|*java.util.concurrent* |*Project Reactor* |*RxJava3*
+
+|*Without result*
+|CompletableFuture<Void>
+CompletionStage<Void>
+|Mono<Void>
+|Completable
+
+|*Optional result*
+|CompletableFuture<Optional<MODEL>>
+CompletionStage<Optional<MODEL>>
+|Mono<MODEL>
+|Maybe<MODEL>
+
+|*Required result*
+|CompletableFuture<MODEL>
+CompletionStage<MODEL>
+|Mono<MODEL>
+|Single<MODEL>
+
+|*Stream result*
+|CompletableFuture<List<MODEL>>
+CompletionStage<List<MODEL>>
+|Flux<MODEL>, Mono<List<MODEL>>
+|Flowable<MODEL>, Single<List<MODEL>>
+|===
+
+[TIP]
+====
+*Типы результатов `Flux<MODEL>` и `Mono<List<MODEL>>`, а также `Flowable<MODEL>`, `Single<List<MODEL>>` не являются абсолютно равнозначными!*
+
+Для типов `Flux<MODEL>` и `Flowable<MODEL>` обработчик результата может вызываться раньше чем все данные будут получены из источника данных, например из базы данных.
+
+В то время как для `Mono<List<MODEL>>` и `Single<List<MODEL>>`
+обработчик результата вызывается *только* после того как *все* данные будут получены из источника данных!
+====
+
+==== Рекомендации по выбору библиотеки
+
+Общая рекомендация по выбору библиотеки реактивного программирования при использовании фреймворка *RxMicro*:
+
+. Если Ваш микросервис содержит простую логику, Вы можете использовать легковесную и поставляемую вместе с Java библиотеку
+{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/package-summary.html[*java.util.concurrent*^], представляемую классом
+{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[`CompletableFuture`^] и интерфейсом {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletionStage.html[`CompletionStage`^].
+. Если Ваш микросервис содержит более сложную логику, для описания которой необходимо использовать
+http://reactivex.io/documentation/operators.html[сложные операторы^], рекомендуется выбирать *Project Reactor* или *RxJava*.
+. При выборе между *Project Reactor* и *RxJava* следует следовать рекомендациям:
+.. Если Вы лучше разбираетесь в *Project Reactor* используйте его, иначе используйте *RxJava*.
+.. Если Вам необходимы реактивные SQL репозитории на базе `r2dbc` (модуль `rxmicro.data.sql.r2dbc`), то используйте *Project Reactor*. +
+_(Так как `r2dbc` драйвера уже используют *Project Reactor*.)_
+
+Таким образом при написании микросервисов с помощью фреймворка *RxMicro*, Вы можете использовать любую библиотеку реактивного программирования на Java, которая Вам больше нравиться!
+
+[NOTE]
+====
+*FYI* Все библиотеки поддерживают блокирующее получение результата:
+
+[source,java]
+----
+public final class BlockingGetResult {
+
+    public static void main(final String[] args) {
+        final String blockingResult1 =
+                CompletableFuture.completedFuture("Hello")
+                        .join();
+
+        final String blockingResult2 =
+                Mono.just("Hello")
+                        .block();
+
+        final String blockingResult3 =
+                Single.just("Hello")
+                        .blockingGet();
+
+        System.out.println(blockingResult1);
+        System.out.println(blockingResult2);
+        System.out.println(blockingResult3);
+    }
+
+}
+----
+
+Основная необходимость в блокирующем получении результата, используя реактивное программирование, возникает при реализации модульного тестирования.
+Так как основные популярные фреймворки для модульного тестирования (https://junit.org/junit5/[`JUnit`^], https://testng.org/[`TestNG`^] и др.) используют обычную поточную (блокирующую) модель программирования.
+====

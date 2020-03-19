@@ -1,0 +1,19 @@
+Benchmark                                       Mode  Cnt       Score       Error   Units
+ReadWriteFieldBenchmark.readDirectField         thrpt   10  753348.188 ± 90286.947  ops/ms
+ReadWriteFieldBenchmark.readUsingGetter         thrpt   10  764112.155 ± 94525.371  ops/ms
+ReadWriteFieldBenchmark.readUsingReflection     thrpt   10   26241.478 ±  3838.172  ops/ms
+ReadWriteFieldBenchmark.writeDirectField        thrpt   10  344623.904 ± 18961.759  ops/ms
+ReadWriteFieldBenchmark.writeUsingReflection    thrpt   10   19430.735 ±  2135.813  ops/ms
+ReadWriteFieldBenchmark.writeUsingSetter        thrpt   10  323596.205 ± 28416.707  ops/ms
+ReadWriteFieldBenchmark.readDirectField          avgt   10      ≈ 10⁻⁶               ms/op
+ReadWriteFieldBenchmark.readUsingGetter          avgt   10      ≈ 10⁻⁶               ms/op
+ReadWriteFieldBenchmark.readUsingReflection      avgt   10      ≈ 10⁻⁴               ms/op
+ReadWriteFieldBenchmark.writeDirectField         avgt   10      ≈ 10⁻⁶               ms/op
+ReadWriteFieldBenchmark.writeUsingReflection     avgt   10      ≈ 10⁻⁴               ms/op
+ReadWriteFieldBenchmark.writeUsingSetter         avgt   10      ≈ 10⁻⁶               ms/op
+ReadWriteFieldBenchmark.readDirectField            ss   10       0.001 ±     0.001   ms/op
+ReadWriteFieldBenchmark.readUsingGetter            ss   10       0.001 ±     0.001   ms/op
+ReadWriteFieldBenchmark.readUsingReflection        ss   10       0.008 ±     0.005   ms/op
+ReadWriteFieldBenchmark.writeDirectField           ss   10       0.002 ±     0.001   ms/op
+ReadWriteFieldBenchmark.writeUsingReflection       ss   10       0.011 ±     0.008   ms/op
+ReadWriteFieldBenchmark.writeUsingSetter           ss   10       0.001 ±     0.001   ms/op

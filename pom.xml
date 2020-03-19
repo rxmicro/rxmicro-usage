@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>io.rxmicro</groupId>
+    <artifactId>rxmicro-usage</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <modules>
+        <module>examples</module>
+        <module>benchmarks</module>
+        <module>documentation</module>
+        <module>util</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <rxmicro.version>0.1</rxmicro.version>
+
+        <jmh.version>1.22</jmh.version>
+
+        <projectreactor.version>3.3.2.RELEASE</projectreactor.version>
+        <rxjava.version>3.0.0</rxjava.version>
+
+        <!-- Maven core plugins -->
+        <maven.clean.plugin.version>3.1.0</maven.clean.plugin.version>
+        <maven.resources.plugin.version>3.1.0</maven.resources.plugin.version>
+        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+        <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
+        <maven.jar.plugin.version>3.2.0</maven.jar.plugin.version>
+        <maven.install.plugin.version>2.5.2</maven.install.plugin.version>
+        <maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
+        <maven.site.plugin.version>3.8.2</maven.site.plugin.version>
+        <maven.project.info.reports.plugin.version>3.0.0</maven.project.info.reports.plugin.version>
+
+        <!-- Maven additional plugins -->
+        <maven.dependencies.plugin.version>3.1.1</maven.dependencies.plugin.version>
+        <jacoco.maven.plugin.version>0.8.5</jacoco.maven.plugin.version>
+        <dockerfile.maven.plugin.version>1.4.13</dockerfile.maven.plugin.version>
+        <asciidoctor.maven.plugin.version>1.6.0</asciidoctor.maven.plugin.version>
+        <versions.maven.plugin.version>2.7</versions.maven.plugin.version>
+        <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
+
+        <!-- Docker runtime -->
+        <!-- https://github.com/testcontainers/testcontainers-java/issues/1424 -->
+        <org.testcontainers.junit.jupiter.version>1.10.7</org.testcontainers.junit.jupiter.version>
+        <org.testcontainers.logback-classic.version>1.2.3</org.testcontainers.logback-classic.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>${versions.maven.plugin.version}</version>
+                <configuration>
+                    <generateBackupPoms>false</generateBackupPoms>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

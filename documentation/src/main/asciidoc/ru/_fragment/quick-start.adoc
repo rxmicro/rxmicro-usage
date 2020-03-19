@@ -1,0 +1,49 @@
+В данном разделе будут подробно описаны шаги, которые необходимо выполнить, чтобы с помощью фреймворка *RxMicro* создать REST-based микросервис возвращающий сообщение `"Hello World!"`.
+
+Для успешного выполнения указанных инструкции необходимо, чтобы на Вашем компьютере была установлена
+https://openjdk.java.net/projects/jdk/11/[JDK 11 LTS^] или выше.
+Для удобства также рекомендуется использовать современную IDE, например https://www.jetbrains.com/idea/[IntelliJ IDEA^].
+
+[NOTE]
+====
+Возможностей версии *IntelliJ IDEA Community Edition* достаточно для полноценной и удобной работы над проектом, использующим фреймворк RxMicro.
+====
+
+RxMicro фреймворк состоит из нескольких десятков модулей, поэтому для удобства управления ими рекомендуется, чтобы на Вашем компьютере был также установлен https://maven.apache.org/[`maven`^].
+
+[IMPORTANT]
+====
+Любая современная IDE для Java (`IntelliJ IDEA, Eclipse, NetBeans`) уже содержит в себе встроенный `maven`, поэтому дополнительно устанавливать его на Ваш компьютер не обязательно.
+
+Для выполнения `maven` команд, можно использовать Вашу IDE, вместо терминала.
+====
+
+include::_quick-start/create-simple-project.adoc[]
+
+<<<
+
+include::_quick-start/maven-config.adoc[]
+
+<<<
+
+include::_quick-start/java-source-code.adoc[]
+
+<<<
+
+include::_quick-start/compiling.adoc[]
+
+<<<
+
+include::_quick-start/run.adoc[]
+
+<<<
+
+include::_quick-start/verify.adoc[]
+
+<<<
+
+include::_quick-start/tests.adoc[]
+
+<<<
+
+include::_quick-start/quck-start-project.adoc[]

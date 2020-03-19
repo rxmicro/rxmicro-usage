@@ -1,0 +1,27 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[rest-client-path-variables-basic]]
+=== Поддержка `path variables`
+
+==== Базовые правила
+
+TODO
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-path-variables/src/main/java/io/rxmicro/examples/rest/client/path/variables/RESTClient.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-path-variables/src/test/java/io/rxmicro/examples/rest/client/path/variables/RESTClientTest.java[tag=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-path-variables
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]
+
+==== Поддерживаемые типы данных
+
+include::../_rest/___path_variables_types.adoc[]

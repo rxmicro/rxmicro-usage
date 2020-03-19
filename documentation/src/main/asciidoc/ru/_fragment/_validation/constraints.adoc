@@ -1,0 +1,236 @@
+[[validation-std-constraints-section]]
+=== Built-in Сonstraints.
+
+RxMicro предоставляет следующие built-in constraints, которые доступны в пакете
+{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint[`io.rxmicro.validation.constraint`^]:
+
+.Built-in Сonstraints Description.
+|===
+|*Annotation*|*Supported Type*|*Description*
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/AssertFalse.java[`@AssertFalse`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Boolean.html[`java.lang.Boolean`^]
+|The annotated element must be `false`.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/AssertFalse.java[`@AssertTrue`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Boolean.html[`java.lang.Boolean`^]
+|The annotated element must be `true`.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Base64URLEncoded.java[`@Base64URLEncoded`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
+a|The annotated element must be a valid Base64 string:
+
+* https://tools.ietf.org/html/rfc4648#section-4[Base^];
+* https://tools.ietf.org/html/rfc4648#section-5[URL^]
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/CountryCode.java[`@CountryCode`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
+a|The annotated element must be a valid country code:
+
+* https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2[ISO 3166-1 alpha2^];
+* https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3[ISO 3166-1 alpha3^];
+* https://en.wikipedia.org/wiki/ISO_3166-1_numeric[ISO 3166-1 numeric^];
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/DigitsOnly.java[`@DigitsOnly`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
+|The annotated element must be a string value with digit characters only.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Email.java[`@Email`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
+|The annotated element must be a https://tools.ietf.org/html/rfc5322#section-3.4.1[well-formed email address^].
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Enumeration.java[`@Enumeration`^]
+a|* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Character.html[`java.lang.Character`^]
+|The annotated element must be an element of the predefined enumeration.
+
+_This validation rule is useful when a Java `enum` type is not applicable._
+_For example: if an enum item name equals to a Java keyword._
+_To solve this issue use `@Enumeration` annotation, otherwise use a Java `enum`._
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Future.java[`@Future`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/time/Instant.html[`java.time.Instant`^]
+|The annotated element must be an instant in the future.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/FutureOrPresent.java[`@FutureOrPresent`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/time/Instant.html[`java.time.Instant`^]
+|The annotated element must be an instant in the present or in the future.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/HostName.java[`@HostName`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
+|The annotated element must be a valid https://tools.ietf.org/html/rfc1034#section-3.1[host name^].
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/IP.java[`@IP`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
+a|The annotated element must be a valid IP address:
+
+* https://en.wikipedia.org/wiki/IPv4[IP version 4^];
+* https://en.wikipedia.org/wiki/IPv6[IP version 6^];
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Lat.java[`@Lat`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/math/BigDecimal.html[`java.math.BigDecimal`^]
+|The annotated element must be a https://en.wikipedia.org/wiki/Latitude[valid latitude coordinate^].
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/LatinAlphabetOnly.java[`@LatinAlphabetOnly`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
+|The annotated element must be a string with latin alphabet letters only.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Length.java[`@Length`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
+|The annotated element must have the expected string length.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Lng.java[`@Lng`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/math/BigDecimal.html[`java.math.BigDecimal`^]
+|The annotated element must be a https://en.wikipedia.org/wiki/Longitude[valid longitude coordinate^].
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Lowercase.java[`@Lowercase`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
+|The annotated element must a lowercase string.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/MaxDouble.java[`@MaxDouble`^]
+a|* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Float.html[`java.lang.Float`^];
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Double.html[`java.lang.Double`^];
+|The annotated element must be a double whose value must be lower to the specified maximum.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/MaxInt.java[`@MaxInt`^]
+a|* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Byte.html[`java.lang.Byte`^];
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Short.html[`java.lang.Short`^];
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Integer.html[`java.lang.Integer`^];
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Long.html[`java.lang.Long`^];
+|The annotated element must be a `byte` or `short` or `integer` or `long` whose value must be lower or equal to the specified maximum.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/MaxLength.java[`@MaxLength`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
+|The annotated element must have a string length whose value must be lower or equal to the specified maximum.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/MaxNumber.java[`@MaxNumber`^]
+a|* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Byte.html[`java.lang.Byte`^];
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Short.html[`java.lang.Short`^];
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Integer.html[`java.lang.Integer`^];
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Long.html[`java.lang.Long`^];
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/math/BigInteger.html[`java.math.BigInteger`^];
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Float.html[`java.lang.Float`^];
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Double.html[`java.lang.Double`^];
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/math/BigDecimal.html[`java.math.BigDecimal`^];
+|The annotated element must be a number whose value must be lower or equal to the specified maximum.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/MaxSize.java[`@MaxSize`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/List.html[`java.util.List`^]
+|The annotated element must have a list size whose value must be lower or equal to the specified maximum.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/MinDouble.java[`@MinDouble`^]
+a|* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Float.html[`java.lang.Float`^];
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Double.html[`java.lang.Double`^];
+|The annotated element must be a double whose value must be higher or equal to the specified minimum.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/MinInt.java[`@MinInt`^]
+a|* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Byte.html[`java.lang.Byte`^];
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Short.html[`java.lang.Short`^];
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Integer.html[`java.lang.Integer`^];
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Long.html[`java.lang.Long`^];
+|The annotated element must be a `byte` or `short` or `integer` or `long` whose value must be higher or equal to the specified minimum.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/MinLength.java[`@MinLength`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
+|The annotated element must have a string length whose value must be higher or equal to the specified minimum.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/MinNumber.java[`@MinNumber`^]
+a|* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Byte.html[`java.lang.Byte`^];
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Short.html[`java.lang.Short`^];
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Integer.html[`java.lang.Integer`^];
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Long.html[`java.lang.Long`^];
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/math/BigInteger.html[`java.math.BigInteger`^];
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Float.html[`java.lang.Float`^];
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Double.html[`java.lang.Double`^];
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/math/BigDecimal.html[`java.math.BigDecimal`^];
+|The annotated element must be a number whose value must be higher or equal to the specified minimum.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/MinSize.java[`@MinSize`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/List.html[`java.util.List`^]
+|The annotated element must have a list size whose value must be higher or equal to the specified minimum.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Nullable.java[`@Nullable`^]
+|`? extends java.lang.Object`
+|The annotated element may be optional, i.e. `null`.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/NullableArrayItem.java[`@NullableArrayItem`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/List.html[`java.util.List`^]
+|The annotated array element may be optional, i.e. `null`.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Numeric.java[`@Numeric`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/math/BigDecimal.html[`java.math.BigDecimal`^]
+|The annotated element must be a decimal within accepted range (scale and precision).
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Past.java[`@Past`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/time/Instant.html[`java.time.Instant`^]
+|The annotated element must be an instant in the past.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/PastOrPresent.java[`@PastOrPresent`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/time/Instant.html[`java.time.Instant`^]
+|The annotated element must be an instant in the past or in the present.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Pattern.java[`@Pattern`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
+|The annotated `String` must match the specified regular expression.
+The regular expression follows the Java regular expression conventions.
+
+_(See {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/regex/Pattern.html[`java.util.regex.Pattern`^])_.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Phone.java[`@Phone`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
+|The annotated element must be a https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers[valid phone number^].
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Size.java[`@Size`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/List.html[`java.util.List`^]
+|The annotated element must have the expected list size.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Skype.java[`@Skype`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
+|The annotated element must be a valid `skype` number.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/SubEnum.java[`@SubEnum`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Enum.html[`? extends java.lang.Enum`^]
+|The annotated element must be an enumeration with predefined sub sequence.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Telegram.java[`@Telegram`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
+|The annotated element must be a https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers[valid `telegram` number^].
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/TruncatedTime.java[`@TruncatedTime`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/time/Instant.html[`java.time.Instant`^]
+|The annotated element must be an instant with truncated time value.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/UniqueItems.java[`@UniqueItems`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/List.html[`java.util.List`^]
+|The annotated element must contain unique items.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Uppercase.java[`@Uppercase`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
+|The annotated element must an uppercase string.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/URI.java[`@URI`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
+|The annotated element must be a valid {JDK-JAVA-BASE-DOC-ROOT-URL}java/net/URI.html[`java.net.URI`^] address.
+
+_(See https://en.wikipedia.org/wiki/Uniform_Resource_Identifier[Uniform Resource Identifier^])_
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/URLEncoded.java[`@URLEncoded`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
+|The annotated element must be a https://en.wikipedia.org/wiki/Percent-encoding[valid URL encoded value^].
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Viber.java[`@Viber`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
+|The annotated element must be a https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers[valid `viber` number^].
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/WhatsApp.java[`@WhatsApp`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
+|The annotated element must be a https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers[valid `whatsapp` number^].
+
+|===
+
+[IMPORTANT]
+====
+RxMicro анализирует built-in constraints при <<{project-documentation}#project-documentation-section,построении проектной документации.>>
+
+*Поэтому правильно выбранная аннотация кроме своего основного предназначения позволяет также автоматически сгенерировать более точную проектную документацию!*
+====

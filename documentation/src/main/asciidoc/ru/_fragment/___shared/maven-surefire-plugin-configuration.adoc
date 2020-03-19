@@ -1,0 +1,28 @@
+Для успешного запуска тестов в процессе сборки проекта с помощью `maven`, необходимо обновить `maven-surefire-plugin`:
+
+[source,xml]
+----
+<plugin>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>${maven.surefire.plugin.version}</version> <!--1-->
+    <configuration>
+        <properties>
+            <!-- https://junit.org/junit5/docs/5.5.1/api/org/junit/jupiter/api/Timeout.html -->
+            <configurationParameters>
+                junit.jupiter.execution.timeout.default = 60                <!--2-->
+                junit.jupiter.execution.timeout.mode = disabled_on_debug    <!--3-->
+                junit.jupiter.execution.parallel.enabled = false            <!--4-->
+            </configurationParameters>
+        </properties>
+    </configuration>
+</plugin>
+----
+<1> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-surefire-plugin[Последняя стабильная версия `maven-surefire-plugin`^]. +
+_(Версия плагина должна быть `2.22.1` или выше, иначе `maven` будет игнорировать тесты!.)_
+<2> В случае возникновения ошибки в коде, который использует реактивное программирование, возможен случай бесконечного выполнения функции.
+Для того, чтобы отлавливать такие случаи необходимо установить глобальный timeout для всех методов в тестах: `junit.jupiter.execution.timeout.default = 60`.
+_(По-умолчанию timeout задается в секундах.
+Подробная информация о конфигурации timeouts доступна {JUNIT5-DOC-ROOT-URL}user-guide/#writing-tests-declarative-timeouts[в официальной документации JUnit5^].)_
+<3> В процессе отладки, timeouts могут быть отключены: `junit.jupiter.execution.timeout.mode = disabled_on_debug`.
+<4> Установите свойство `junit.jupiter.execution.parallel.enabled = false` для удобной отладки тестов из IDE или `maven`. +
+_(При установке данного свойства скорость выполнения тестов уменьшится, поэтому используйте данное свойство только для отладки!)_

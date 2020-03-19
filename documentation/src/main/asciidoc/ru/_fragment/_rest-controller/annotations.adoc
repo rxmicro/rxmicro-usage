@@ -1,0 +1,6 @@
+[[rest-controller-annotations-section]]
+=== `RxMicro Annotations`
+
+:rest-title: REST Controllers
+:rest-kind: controller
+include::../_rest/___annotations.adoc[]

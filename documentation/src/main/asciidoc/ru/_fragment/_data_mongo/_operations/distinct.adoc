@@ -1,0 +1,24 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../../
+
+[[data-mongo-distinct-section]]
+==== `@Distinct`
+
+TODO
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-distinct/src/main/java/io/rxmicro/examples/data/mongo/distinct/DataRepository.java[tag=content,indent=0]
+----
+
+[NOTE]
+====
+Для получения дополнительных сведений, рекомендуем ознакомиться со следующими примерами:
+
+* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}data-mongo-all-operations/src/main/java/io/rxmicro/examples/data/mongo/all/operations/DistinctDataRepository.java[All Supported Return Types^];
+* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}data-mongo-supported-types/src/main/java/io/rxmicro/examples/data/mongo/supported/types/GetDataRepository.java#L341[All Supported Parameter Types^].
+====
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-mongo-distinct
+include::../../___notes/full-source-code-of-example.adoc[]
+
+include::../../___notes/recompile-after-change.adoc[]

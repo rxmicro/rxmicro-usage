@@ -1,0 +1,3 @@
+В процессе компиляции проекта RxMicro сгенерирует следующую проектную документацию:
+
+link:{project-documentation-examples-root}/{project-documentation-file}[`{project-documentation-file}`^]

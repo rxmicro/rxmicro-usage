@@ -1,0 +1,18 @@
+[IMPORTANT]
+====
+Приведенный выше пример запуска микросервисного проекта с помощью терминала не будет работать на операционных системах `Windows`.
+
+Причина неработоспособности заключается в использовании платформами Unix (Linux and Osx) и Windows разных специальных символов:
+
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/io/File.html#pathSeparatorChar[`Path separator`^]:
+** Unix использует символ `:`.
+** Windows использует символ `;`.
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/io/File.html#separatorChar[`Path name separator`^]:
+** Unix использует символ `/`.
+** Windows использует символ `\`.
+* Обращение к https://en.wikipedia.org/wiki/PATH_(variable)[переменной окружения с именем `M2_REPO`^]:
+** Unix использует выражение `$M2_REPO`.
+** Windows использует выражение `%M2_REPO%`.
+
+Поэтому для запуска микросервисного проекта на операционной системе `Windows`, необходимо заменить все спец символы.
+====

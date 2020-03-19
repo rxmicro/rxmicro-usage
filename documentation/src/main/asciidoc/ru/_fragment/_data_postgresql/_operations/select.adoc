@@ -1,0 +1,18 @@
+[[data-postgresql-select-section]]
+==== `@Select`
+
+TODO
+
+include::_select/return.adoc[]
+
+<<<
+
+include::_select/parameters.adoc[]
+
+<<<
+
+include::_select/projection.adoc[]
+
+<<<
+
+include::_select/custom.adoc[]

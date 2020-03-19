@@ -1,0 +1,16 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../../
+
+[[data-postgresql-test-templates-section]]
+==== Test Templates
+
+TODO
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-basic/src/test/java/io/rxmicro/examples/data/r2dbc/postgresql/basic/DataRepositoryTestTemplate1.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-basic/src/test/java/io/rxmicro/examples/data/r2dbc/postgresql/basic/DataRepositoryTestTemplate2.java[tag=content,indent=0]
+----

@@ -1,0 +1,23 @@
+[[testing-component-tests-section]]
+=== Тестирование компонентов микросервиса
+
+==== Базовые принципы
+
+Базовые принципы тестирования компонентов рассмотрены в разделе: <<testing-alternatives-usage-section>>.
+
+==== Особенности тестирования сложных компонентов, использующих альтернативы
+
+Особенности тестирования сложных компонентов, использующих альтернативы такие же как и <<testing-rest-based-microservice-tests-complex-alternative-usage-section, при тестировании REST-based микросервисов>>.
+
+Для получения дополнительных сведений, рекомендуем ознакомиться со следующими примерами:
+
+. Особенности тестирования компонентов, использующих REST клиент:
+{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-rest-client[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-rest-client`^];
+. Особенности тестирования компонентов, использующих mongo репозитории:
+{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-mongo-repository[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-mongo-repository`^];
+. Особенности тестирования компонентов, использующих postgres репозитории:
+{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-postgres-repository[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-postgres-repository`^];
+
+<<<
+
+include::_component-test/execution-test-order.adoc[]

@@ -1,0 +1,31 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[cdi-factory-class-section]]
+=== Factory Class
+
+TODO
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-factory-class/src/main/java/io/rxmicro/examples/cdi/factoryclass/BusinessService.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-factory-class/src/main/java/io/rxmicro/examples/cdi/factoryclass/BusinessServiceFactoryImpl.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-factory-class/src/main/java/io/rxmicro/examples/cdi/factoryclass/BusinessServiceFacade.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-factory-class/src/test/java/io/rxmicro/examples/cdi/factoryclass/BusinessServiceFacadeTest.java[tag=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-factory-class
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]

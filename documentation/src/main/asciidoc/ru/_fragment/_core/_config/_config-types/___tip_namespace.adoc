@@ -1,0 +1,8 @@
+[TIP]
+====
+Имя `http-server` является пространством имен по умолчанию для класса `HttpServerConfig`.
+Именно поэтому данные настройки автоматически применяются при запросе конфигурации класса `HttpServerConfig`.
+
+Пространство имен по умолчанию для конфигурационного класса вычисляется с помощью метода
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Config.java#L32[`Config.getDefaultNameSpace`^],
+====

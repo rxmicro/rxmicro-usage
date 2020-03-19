@@ -1,0 +1,31 @@
+INSERT INTO public.account (id,email,first_name,last_name,balance,role) VALUES
+    (nextval('account_seq'),'richard.hendricks@piedpiper.com','Richard',  'Hendricks',  70000.00,   'CEO'::role),
+    (nextval('account_seq'),'bertram.gilfoyle@piedpiper.com', 'Bertram',  'Gilfoyle',   20000.00,   'Systems_Architect'::role),
+    (nextval('account_seq'),'dinesh.chugtai@piedpiper.com',   'Dinesh',   'Chugtai',    10000.00,   'Lead_Engineer'::role);
+
+INSERT INTO public.product (id,"name",price,count) VALUES
+    (1, 'Apple MacBook Pro 15" Retina Z0WW00024 Space Gray',    5750.00,    10),
+    (2, 'Apple MacBook A1534 12" Space Gray (MNYF2)',           985.00,     12),
+    (3, 'Apple MacBook Pro 16" 512GB 2019 (MVVJ2) Space Gray',  2540.00,    8),
+    (4, 'Apple MacBook Pro 13 Retina Space Gray (MPXT2) 2017',  1345.00,    17),
+    (5, 'Apple MacBook Pro 15" Retina Z0RF00052 (Mid 2015)',    1860.00,    11),
+    (6, 'Apple iPad (2019) 10.2" Wi-Fi 32GB Gold (MW762)',      540.00,     32),
+    (7, 'Apple iPad (2019) 10.2" Wi-Fi 128GB Silver (MW782)',   620.00,     37),
+    (8, 'Apple iPad mini 5 Wi-Fi 64Gb Space Gray (MUQW2)',      645.00,     26),
+    (9, 'Apple iPad Pro 11" Wi-Fi 64GB Space Gray 2018 (MTXN2)',1100.00,    18),
+    (10,'Apple iPhone Xs 64GB Space Gray (MT9E2)',              840.00,     21),
+    (11,'Apple iPhone 11 128GB Black',                          980.00,     18),
+    (12,'Apple iPhone Xr 64GB Black (MRY42)',                   760.00,     14),
+    (13,'Apple iPhone Xs 256GB Space Gray (MT9H2)',             910.00,     10),
+    (14,'Apple iPhone 7 Plus 32GB Black',                       510.00,     3),
+    (15,'Apple iPhone 11 Pro 64GB Space Gray',                  1450.00,    42),
+    (16,'Apple iPhone 11 Pro 256GB Midnight Green',             1720.00,    38),
+    (17,'Apple iPod Touch 6 16Гб (MKH62)',                      320.00,     54),
+    (18,'Apple iPod Touch 6 32Гб (MKJ02)',                      380.00,     52),
+    (19,'Apple iPod Touch 6 16Гб (MKGX2)',                      310.00,     48),
+    (20,'Apple iPod Touch 6 32Гб (MKHV2)',                      420.00,     55),
+    (21,'Apple iMac Pro 27" Z0UR000AC / Z0UR8 (Late 2017)',     7800.00,    6),
+    (22,'Apple iMac 21.5'' Middle 2017 (MMQA2)',                1740.00,    14),
+    (23,'Apple iMac 21" Retina 4K MRT32 (Early 2019)',          1920.00,    11),
+    (24,'Apple iMac 27" with Retina 5K Display Late (MQ2Y2)',   6200.00,    7),
+    (25,'Apple iMac 27" 2017 5K (MNEA2)',                       2100.00,    17);

@@ -1,0 +1,26 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[data-postgresql-partial-implementation-section]]
+=== Partial Implementation
+
+TODO
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-partial-implementation/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/partial/implementation/DataRepository.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-partial-implementation/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/partial/implementation/AbstractDataRepository.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-partial-implementation/src/test/java/io/rxmicro/examples/data/r2dbc/postgresql/partial/implementation/DataRepositoryTest.java[tag=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-r2dbc-postgresql-partial-implementation
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]

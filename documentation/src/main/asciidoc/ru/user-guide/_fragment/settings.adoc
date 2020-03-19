@@ -1,0 +1,42 @@
+:author: nedis
+:email: rxmicro.io@gmail.com
+:revnumber: {rxmicro-version}
+:revdate: {docdatetime}
+:icons: font
+:sectanchors:
+:sectlinks:
+:idprefix:
+:toc: left
+:sectnums:
+:sectnumlevels: 6
+:linkattrs:
+:keywords: rxmicro, reactive java framework, reactive JVM framework, microservice java framework, microservice java, reactive java, reactive JVM
+:description: RxMicro is a modern, JVM-based, full-stack framework designed to develop distributed reactive applications, using a microservice architecture.
+:xrefstyle: full
+:nofooter:
+
+// Maven Repo Root
+:MAVEN-REPO-SEARCH-ROOT: https://mvnrepository.com/artifact/
+// RxMicro Root Links
+:RX-MICRO-SRC-ROOT-TREE-URL: https://github.com/rxmicro/rxmicro/tree/master/
+:RX-MICRO-SRC-ROOT-BLOB-URL: https://github.com/rxmicro/rxmicro/blob/master/
+:RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL: https://github.com/rxmicro/rxmicro-usage/tree/master/examples/
+:RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL: https://github.com/rxmicro/rxmicro-usage/blob/master/examples/
+// Oracle Java Root Links
+:JDK-JAVA-BASE-DOC-ROOT-URL: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/
+:JDK-JAVA-LOGGING-DOC-ROOT-URL: https://docs.oracle.com/en/java/javase/11/docs/api/java.logging/
+:JDK-JAVA-NET-HTTP-DOC-ROOT-URL: https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/
+:JDK-JAVA-COMPILER-DOC-ROOT-URL: https://docs.oracle.com/en/java/javase/11/docs/api/java.compiler/
+// Reactive Lib Root Links
+:RX-JAVA-USER-GUIDE: https://github.com/ReactiveX/RxJava/blob/3.x/README.md
+:RX-JAVA-DOC-ROOT-URL: http://reactivex.io/RxJava/javadoc/
+:REACTOR-CORE-DOC-USER_GUIDE: https://projectreactor.io/docs/core/release/reference/
+:REACTOR-CORE-DOC-ROOT-URL: https://projectreactor.io/docs/core/release/api/
+// Testing Lib Root Links
+:JUNIT5-DOC-ROOT-URL: https://junit.org/junit5/docs/current/
+:MOCKITO-DOC-ROOT-URL: https://javadoc.io/doc/org.mockito/mockito-core/latest/
+:TESTCONTAINERS-JUNIT-DOC-ROOT-URL: https://github.com/testcontainers/testcontainers-java/blob/master/modules/junit-jupiter/src/main/java/
+// Data Repositories Root Links
+:R2DBC-SPEC-ROOT-URL: https://r2dbc.io/spec/0.8.1.RELEASE/spec/html/
+:POSTGRESQL-R2DBC-GITHUB-ROOT: https://github.com/r2dbc/r2dbc-postgresql
+:MONGO-ASYNC-DRIVER_DOC: http://mongodb.github.io/mongo-java-driver/3.12/driver-async/

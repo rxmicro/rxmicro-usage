@@ -1,0 +1,31 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[cdi-constructor-injection-section]]
+=== Constructor Injection
+
+TODO
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-constructor-injection/src/main/java/io/rxmicro/examples/cdi/constructor/injection/BusinessService.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-constructor-injection/src/main/java/io/rxmicro/examples/cdi/constructor/injection/BusinessServiceImpl.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-constructor-injection/src/main/java/io/rxmicro/examples/cdi/constructor/injection/BusinessServiceFacade.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-constructor-injection/src/test/java/io/rxmicro/examples/cdi/constructor/injection/BusinessServiceFacadeTest.java[tag=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-constructor-injection
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]

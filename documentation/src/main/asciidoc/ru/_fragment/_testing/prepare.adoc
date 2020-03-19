@@ -1,0 +1,148 @@
+[[testing-prepare-section]]
+=== Подготовительные шаги
+
+Перед написанием тестов, используя фреймворк RxMicro необходимо выполнить следующие шаги:
+
+. Определить версии используемых библиотек.
+. Добавить необходимые зависимости в `pom.xml`.
+. Сконфигурировать `maven-compiler-plugin`.
+. Сконфигурировать `maven-surefire-plugin`.
+
+[[testing-prepare-lib-versions-section]]
+==== Определение версий используемых библиотек:
+
+[source,xml]
+----
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <rxmicro.version>0.1</rxmicro.version> <!--1-->
+
+    <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version> <!--2-->
+    <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version><!--3-->
+</properties>
+----
+<1> Последняя стабильная версия фреймворка RxMicro.
+<2> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-compiler-plugin[Последняя стабильная версия `maven-compiler-plugin`^].
+<3> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-surefire-plugin[Последняя стабильная версия `maven-surefire-plugin`^].
+
+==== Добавление необходимых зависимостей:
+
+Перед использованием RxMicro модулей для тестирования, необходимо в проект добавить следующие зависимости:
+
+[source,xml]
+----
+<dependencies>
+    <dependency>
+        <groupId>io.rxmicro</groupId>
+        <artifactId>rxmicro-test-junit</artifactId> <!--1-->
+        <version>${rxmicro.version}</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>io.rxmicro</groupId>
+        <artifactId>rxmicro-test-mockito-junit</artifactId> <!--2-->
+        <version>${rxmicro.version}</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>io.rxmicro</groupId>
+        <artifactId>rxmicro-http-client-jdk</artifactId> <!--3-->
+        <version>${rxmicro.version}</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>io.rxmicro</groupId>
+        <artifactId>rxmicro-rest-client-exchange-json</artifactId> <!--4-->
+        <version>${rxmicro.version}</version>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
+----
+<1> `rxmicro-test-junit` - библиотека модульного тестирования на базе фреймворка https://junit.org/junit5/[JUnit 5^].
+<2> `rxmicro-test-mockito-junit` - библиотека модульного тестирования на базе фреймворков https://junit.org/junit5/[JUnit 5^] с интеграцией библиотеки https://site.mockito.org/[Mockito^].
+<3> `rxmicro-http-client-jdk` - библиотека http клиента на базе JDK модуля https://developer.oracle.com/java/jdk-http-client.html[`java.net.http`^].
+<4> `rxmicro-rest-client-exchange-json` - библиотека конвертации Java модели в https://www.json.org/[JSON^] формат и наоборот на стороне HTTP клиента.
+
+[TIP]
+====
+Библиотеки `rxmicro-http-client-jdk` и `rxmicro-rest-client-exchange-json` нужны только при написании тестов REST-based микросервисов и интеграционных тестов.
+При тестировании компонентов эти зависимости могут быть опущены.
+
+Библиотека `rxmicro-test-mockito-junit` зависит от `rxmicro-test-junit`, поэтому подключать необходимо только одну из них:
+
+. Если необходим только фреймворк https://junit.org/junit5/[JUnit 5^], то используйте библиотеку `rxmicro-test-junit`.
+. Если еще нужно создать и моки, то тогда используйте библиотеку `rxmicro-test-mockito-junit`.
+====
+
+==== Конфигурирование `maven-compiler-plugin`:
+
+Для решения <<testing-how-it-works-section,проблем с модульной системой Java>> при написании тестов, необходимо добавить процессор аннотаций в конфигурацию `maven-compiler-plugin`:
+
+[source,xml]
+----
+<plugin>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>${maven.compiler.plugin.version}</version> <!--1-->
+    <configuration>
+        <release>11</release>
+        <annotationProcessorPaths>
+            <annotationProcessorPath>
+                <groupId>io.rxmicro</groupId>
+                <artifactId>rxmicro-annotation-processor</artifactId>
+                <version>${rxmicro.version}</version>
+            </annotationProcessorPath>
+        </annotationProcessorPaths>
+    </configuration>
+    <executions>
+        <execution>
+            <id>source-compile</id>
+            <goals>
+                <goal>compile</goal>
+            </goals>
+            <configuration>
+                <annotationProcessors>
+                    <annotationProcessor>
+                        io.rxmicro.annotation.processor.RxMicroAnnotationProcessor
+                    </annotationProcessor>
+                </annotationProcessors>
+                <generatedSourcesDirectory>
+                    ${project.build.directory}/generated-sources/
+                </generatedSourcesDirectory>
+            </configuration>
+        </execution>
+        <execution>
+            <id>test-compile</id> <!--2-->
+            <goals>
+                <goal>testCompile</goal>
+            </goals>
+            <configuration>
+                <annotationProcessors>
+                    <annotationProcessor>
+                        io.rxmicro.annotation.processor.RxMicroTestsAnnotationProcessor <!--3-->
+                    </annotationProcessor>
+                </annotationProcessors>
+                <generatedTestSourcesDirectory>
+                    ${project.build.directory}/generated-test-sources/ <!--4-->
+                </generatedTestSourcesDirectory>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+----
+<1> Версия плагина, определенная в секции <<testing-prepare-lib-versions-section,`properties`>>.
+<2> `<id>test-compile</id>` - для тестов необходима отдельная конфигурация, поэтому необходимо добавить новый `execution`.
+<3> `io.rxmicro.annotation.processor.RxMicroTestsAnnotationProcessor` - класс процессора аннотаций, который обрабатывает тестовую конфигурацию.
+<4> `${project.build.directory}/generated-test-sources/` - местоположение генерируемых Java классов процессором тестовых аннотаций.
+
+[TIP]
+====
+Процессор аннотаций `io.rxmicro.annotation.processor.RxMicroTestsAnnotationProcessor` генерирует дополнительные классы, необходимые *только в процессе тестирования*.
+
+*Поэтому всегда указывайте отдельную папку для сгенерированных классов!*
+====
+
+==== Конфигурирование `maven-surefire-plugin`:
+
+include::../___shared/maven-surefire-plugin-configuration.adoc[]
+
+include::../___notes/use-example-of-source-code-for-details.adoc[]

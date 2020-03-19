@@ -1,0 +1,7 @@
+Benchmark                                     Mode  Cnt       Score       Error   Units
+RequestIdGeneratorBenchmark.fasterButUnSafe  thrpt   10       0.006 ±     0.001  ops/ns
+RequestIdGeneratorBenchmark.safeButSlower    thrpt   10       0.001 ±     0.001  ops/ns
+RequestIdGeneratorBenchmark.fasterButUnSafe   avgt   10     614.958 ±   134.502   ns/op
+RequestIdGeneratorBenchmark.safeButSlower     avgt   10    4734.739 ±   158.458   ns/op
+RequestIdGeneratorBenchmark.fasterButUnSafe     ss   10   13083.925 ±  3565.161   ns/op
+RequestIdGeneratorBenchmark.safeButSlower       ss   10  105564.825 ± 23215.728   ns/op

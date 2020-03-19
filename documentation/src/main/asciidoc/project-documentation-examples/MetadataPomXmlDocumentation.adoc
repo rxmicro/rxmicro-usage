@@ -1,0 +1,1 @@
+include::../../../../../examples/documentation-asciidoctor-metadata-pomxml/src/main/asciidoc/MetadataPomXmlDocumentation.adoc[]

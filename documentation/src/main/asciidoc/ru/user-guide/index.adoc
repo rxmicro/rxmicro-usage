@@ -1,0 +1,22 @@
+[[index-section]]
+= RxMicro User Guide
+include::../user-guide/_fragment/settings.adoc[]
+:guide-kind: index
+:current-entity: appendices
+:imagesdir: ../../images
+
+include::_fragment/preface.adoc[]
+
+. <<introduction.adoc#,*Introduction*>>
+. <<microservice.adoc#,*What microservice is?*>>
+. <<quick-start.adoc#,*Quick Start*>>
+. <<core.adoc#,*Core Concepts*>>
+. <<rest-controller.adoc#,*REST Controller*>>
+. <<rest-client.adoc#,*REST Client*>>
+. <<validation.adoc#,*Validation*>>
+. <<project-documentation.adoc#,*Project Documentation*>>
+. <<data-postgresql.adoc#,*Postgre SQL Data Repositories*>>
+. <<data-mongo.adoc#,*Mongo Data Repositories*>>
+. <<cdi.adoc#,*Contexts and Dependency Injection*>>
+. <<testing.adoc#,*Testing*>>
+. <<appendices.adoc#,*Appendices*>>

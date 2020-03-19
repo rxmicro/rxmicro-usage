@@ -1,0 +1,4 @@
+Benchmark                            Mode  Cnt  Score   Error   Units
+HelloWorldBenchmark.showHelloWorld  thrpt   10  3.416 ± 0.076  ops/ms
+HelloWorldBenchmark.showHelloWorld   avgt   10  0.291 ± 0.006   ms/op
+HelloWorldBenchmark.showHelloWorld     ss   10  3.427 ± 0.956   ms/op

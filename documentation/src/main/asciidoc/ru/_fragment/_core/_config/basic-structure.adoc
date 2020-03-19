@@ -1,0 +1,55 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../../
+
+==== Базовая структура модуля конфигурации
+
+Любой класс, реализующий абстрактный класс
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Config.java[`Config`^]
+является конфигурационным классом.
+
+Каждый конфигурационный класс определяет свое пространство имен.
+Каждое пространство имен однозначно определяет конфигурационный класс, который ему соответствует.
+Пространство имен необходимо, чтобы задавать настройки полей конфигурационных классов в текстовом виде.
+(_Подробнее об этом будет описано ниже._)
+
+Для работы с конфигурациями, RxMicro предоставляет менеджер конфигураций:
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java[`Configs`^].
+
+Для считывания текущих настроек, необходимо использовать метод
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L73[`Configs.getConfig`^]:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/config-basic/src/main/java/io/rxmicro/examples/config/basic/ReadConfigMicroService.java[tag=content,indent=0]
+----
+<1> Получение текущей конфигурации HTTP сервера, используя статический метод `Configs.getConfig`.
+
+Для изменения стандартных настроек конфигурации необходимо использовать класс:
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L85[`Configs.Builder`^]:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/config-basic/src/main/java/io/rxmicro/examples/config/basic/CustomizeConfigMicroService.java[tag=content,indent=0]
+----
+<1> Установка кастомного порта HTTP сервера.
+<2> Создание объекта менеджера конфигураций.
+<3> Запуск REST-based микросервиса должен выполняться после настроек менеджера конфигураций, иначе изменения не вступят в силу.
+
+[IMPORTANT]
+====
+Каждый последующий вызов метода `Configs.Builder.build()` переопределяет все настройки менеджера конфигураций.
+_(В любом микросервисном проекте существует только один объект менеджера конфигураций!)_
+
+Это значит, что если разработчик создаст несколько объектов `Configs.Builder` то именно последний вызов метода `build`
+будет иметь значение, остальные будут проигнорированы.
+====
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}config-basic
+include::../../___notes/full-source-code-of-example.adoc[]
+
+include::../../___notes/recompile-after-change.adoc[]
+
+[NOTE]
+====
+Кастомизация настроек с помощью `Configs.Builder.build()` является одним из типов конфигурирования.
+Данный тип конфигурирования называется <<core-config-java-classes-section,конфигурирование с помощью Java классов>>.
+====

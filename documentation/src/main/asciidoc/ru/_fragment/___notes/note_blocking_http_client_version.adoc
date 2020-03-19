@@ -1,0 +1,5 @@
+[TIP]
+====
+Если необходимо тестировать только REST контроллеры определенной версии, то компонент
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^], может быть настроен на работу только определенных версий REST контроллера с помощью <<{testing}#testing-BlockingHttpClient-settings-section,аннотации `@BlockingHttpClientSettings`.>>
+====

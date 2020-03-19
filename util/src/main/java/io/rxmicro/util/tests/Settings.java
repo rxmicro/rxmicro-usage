@@ -1,0 +1,77 @@
+/*
+ * Copyright (c) 2020. https://rxmicro.io
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package io.rxmicro.util.tests;
+
+import io.rxmicro.common.RxMicroException;
+
+import java.io.File;
+import java.util.Map;
+import java.util.Optional;
+
+import static io.rxmicro.common.util.Formats.format;
+import static java.util.Map.entry;
+
+public final class Settings {
+
+    public static final String MODULE_INFO_JAVA = "module-info.java";
+
+    public static final String POM_XML = "pom.xml";
+
+    public static final String DOCUMENTATION_ASCIIDOC = "documentation-asciidoctor";
+
+    public static final String CDI = "cdi";
+
+    public static final String DATA_R2DBC_POSTGRESQL = "data-r2dbc-postgresql";
+
+    public static final String DATA_MONGO = "data-mongo";
+
+    public static final String RX_MICRO_ROOT_DIR_PATH;
+
+    public static final String EXAMPLES_ROOT_DIR_PATH;
+
+    public static final Map<String, String> RX_MICRO_MODULES;
+
+    private static final String RX_MICRO_HOME = "RX_MICRO_HOME";
+
+    private static final String RX_MICRO_HOME_VALUE;
+
+    static {
+        RX_MICRO_HOME_VALUE = Optional.ofNullable(System.getenv(RX_MICRO_HOME)).orElseThrow(() -> {
+            throw new RxMicroException("System variable '?' not defined", RX_MICRO_HOME);
+        });
+        RX_MICRO_ROOT_DIR_PATH = format("?/rxmicro", RX_MICRO_HOME_VALUE);
+        EXAMPLES_ROOT_DIR_PATH = format("?/rxmicro-usage/examples", RX_MICRO_HOME_VALUE);
+        for (final String path : new String[]{RX_MICRO_ROOT_DIR_PATH, EXAMPLES_ROOT_DIR_PATH}) {
+            if (!new File(path).exists()) {
+                throw new RxMicroException("Directory not found: '?'", path);
+            }
+        }
+        RX_MICRO_MODULES = Map.ofEntries(
+                entry("rest-controller", RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-rest-server/src/test/resources"),
+                entry("validation-server", RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-rest-server/src/test/resources"),
+                entry("rest-client", RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-rest-client/src/test/resources"),
+                entry("validation-client", RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-rest-client/src/test/resources"),
+                entry(DOCUMENTATION_ASCIIDOC, RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-documentation-asciidoctor/src/test/resources"),
+                entry(CDI, RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-cdi/src/test/resources"),
+                entry("processor", RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor/src/test/resources"),
+                entry("test-fixer", RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor/src/test/resources"),
+                entry(DATA_R2DBC_POSTGRESQL, RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-data-sql-r2dbc-postgresql/src/test/resources"),
+                entry(DATA_MONGO, RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-data-mongo/src/test/resources")
+        );
+    }
+
+}

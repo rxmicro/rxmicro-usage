@@ -1,0 +1,12 @@
+[[data-mongo-testing-section]]
+=== Repositories Testing
+
+TODO
+
+include::_testing/test-db.adoc[]
+
+<<<
+
+TODO
+
+include::_testing/test-templates.adoc[]

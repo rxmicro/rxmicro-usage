@@ -1,0 +1,45 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../../
+
+[[testing-integration-tests-basic-section]]
+==== Базовые принципы
+
+Для демонстрации возможностей интеграционного тестирования, рассмотрим следующий микросервис:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-integration-basic/src/main/java/io/rxmicro/examples/testing/integration/basic/MicroService.java[tag=content,indent=0]
+----
+
+Интеграционный тест для данного микросервиса будет следующим:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-integration-basic/src/test/java/io/rxmicro/examples/testing/integration/basic/MicroServiceIntegrationTest.java[tag=content,indent=0]
+----
+<1> Аннотация {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/RxMicroIntegrationTest.java[`@RxMicroIntegrationTest`^]
+информирует фреймворк RxMicro о том, что данный тест является интеграционным тестом.
+<2> С помощью константы объявляется порт, который будет использован для запуска HTTP сервера.
+<3> Интеграционный тест требует, чтобы разработчик запускал HTTP сервер вручную.
+<4> Перед запуском HTTP сервера, необходимо установить необходимый HTTP порт.
+<5> Настройку и запуск HTTP сервера необходимо выполнить перед выполнением тестового метода.
+<6> Так как используется отличный от стандартного HTTP порт, необходимо указать какой порт использовать компоненту
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^] для подключения к HTTP серверу.
+Конфигурация компонента {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^]
+выполняется с помощью специальной аннотации:
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClientSettings.java[`@BlockingHttpClientSettings`^].
+<7> Интеграционный тест поддерживает возможность создания мока `System.out`.
+<8> После получения ответа от микросервиса, проверяем, что запрос выполнен успешно.
+<9> После получения ответа от микросервиса, проверяем, что микросервис вывел в `System.out` заданное сообщение.
+
+[NOTE]
+====
+Данный интеграционный тест демонстрирует *все* возможности интеграционного тестирования, активируемые аннотацией
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/RxMicroIntegrationTest.java[`@RxMicroIntegrationTest`^].
+
+Т.е. интеграционный тест в отличие от теста REST-based микросервиса может только внедрять блокирующий HTTP клиент и создавать мок для `System.out`.
+====
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-integration-basic
+include::../../___notes/full-source-code-of-example.adoc[]
+
+include::../../___notes/recompile-after-change.adoc[]

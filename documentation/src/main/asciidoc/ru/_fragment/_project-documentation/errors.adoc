@@ -1,0 +1,17 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[project-documentation-errors-section]]
+=== Документирование ошибок
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-errors/src/main/java/io/rxmicro/examples/documentation/asciidoctor/errors/ProxyMicroService.java[tags=content]
+----
+
+:project-documentation-file: ExamplesDocumentationAsciidoctorErrorsDocumentation.html
+include::../___notes/generated-project-documentation.adoc[]
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}documentation-asciidoctor-errors
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]

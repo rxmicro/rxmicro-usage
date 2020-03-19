@@ -1,0 +1,23 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../../
+
+[[data-postgresql-insert-section]]
+==== `@Insert`
+
+TODO
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-insert/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/insert/DataRepository.java[tag=content,indent=0]
+----
+
+[NOTE]
+====
+Для получения дополнительных сведений, рекомендуем ознакомиться со следующими примерами:
+
+{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-r2dbc-postgresql-return-types/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/returntypes/insert[All Supported Return Types^]
+====
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-r2dbc-postgresql-insert
+include::../../___notes/full-source-code-of-example.adoc[]
+
+include::../../___notes/recompile-after-change.adoc[]

@@ -1,0 +1,92 @@
+[[core-config-properties-files-section]]
+===== Конфигурирование с помощью properties файлов
+
+По аналогии с classpath ресурсами RxMicro также поддерживает общий и отдельные `properties` файлы для внешней по отношении к исходному коду микросервиса конфигурации.
+
+Конфигурационные файлы могут находиться:
+
+* в текущей по отношению к микросервису директории;
+* в `$HOME` директории:
+** для Linux платформы: `/home/${USER-NAME}`;
+** для MacOS платформы: `/Users/${USER-NAME}`;
+** для Windows платформы: `C:\Documents and Settings\${USER-NAME}`.
+
+[TIP]
+====
+Для того, чтобы узнать местоположение `$HOME` директории на Вашем компьютере с помощью Java запустите следующую утилиту:
+
+[source,java]
+----
+public final class GetHomeDirectory {
+
+    public static void main(final String[] args) {
+        System.out.println(System.getProperty("user.home"));
+    }
+}
+----
+====
+
+*По умолчанию функция поиска и считывания конфигурационных файлов отключена в RxMicro!*
+
+Чтобы активировать данную функцию, необходимо использовать класс `Configs.Builder`:
+
+[source,java]
+----
+new Configs.Builder()
+        .withAllConfigLoadSources() // <1>
+        .build();
+----
+<1> Активация всех доступных источников конфигурации для текущего микросервиса.
+
+[TIP]
+====
+Кроме активации всех доступных источников, возможно активировать только конфигурационные файлы в заданной локации.
+
+Для получения подробностей как это сделать перейдите к подразделу <<core-config-order-settings>>.
+====
+
+====== Конфигурирование с помощью отдельного properties файла
+
+Если в текущей или в `$HOME` директории находится файл `http-server.properties` с содержимым
+
+[source,properties]
+----
+port=9090 # <1>
+----
+<1> Пользовательский порт для HTTP сервера.
+
+то RxMicro при считывании конфигурации класса `HttpServerConfig` считает данный файл:
+
+[source,text]
+----
+2020-01-11 12:44:27.518 [INFO] io.rxmicro.rest.server.netty.internal.component.NettyServer :
+Server started at 0.0.0.0:9090 using NETTY transport in 500 millis. # <1>
+----
+<1> HTTP сервер запустился на порту `9090` вместо стандартного `8080`.
+
+include::___tip_namespace.adoc[]
+
+====== Конфигурирование с помощью общего properties файла
+
+Если в текущей или в `$HOME` директории находится файл `rxmicro.properties` с содержимым
+
+[source,properties]
+----
+http-server.port=9090 # <1>
+----
+<1> Пользовательский порт для HTTP сервера.
+
+то RxMicro при считывании конфигурации класса `HttpServerConfig` считает данный ресурс:
+
+[source,text]
+----
+2020-01-11 12:44:27.518 [INFO] io.rxmicro.rest.server.netty.internal.component.NettyServer :
+Server started at 0.0.0.0:9090 using NETTY transport in 500 millis. # <1>
+----
+<1> HTTP сервер запустился на порту `9090` вместо стандартного `8080`.
+
+include::___tip_rxmicro_resource.adoc[]
+
+Так как файл `rxmicro.properties` является общим файлом для *любой* конфигурации, необходимо при указании настроек, указывать пространство имен.
+
+include::___note_common_and_special_resource_difference.adoc[]

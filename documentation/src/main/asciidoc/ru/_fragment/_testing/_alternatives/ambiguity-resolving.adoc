@@ -1,0 +1,93 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../../
+
+==== Разрешение неоднозначностей
+
+Созданная разработчиком альтернатива может быть внедрена фреймворком RxMicro не только в тестируемый компонент, но и в любой его дочерний компонент.
+
+В процессе такого внедрения может возникнуть проблема неоднозначности.
+
+===== Демонстрация разрешения неоднозначностей
+
+Допустим в проекте существует некий бизнес сервис:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives-ambiguty-resolving/src/main/java/io/rxmicro/examples/testing/component/alternatives/ambiguty/resolving/BusinessService.java[tag=content,indent=0]
+----
+
+Данный бизнес сервис является зависимостью для трех зависимых между собой компонентов `Child`, `Parent`, `GrandParent`:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives-ambiguty-resolving/src/main/java/io/rxmicro/examples/testing/component/alternatives/ambiguty/resolving/Child.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives-ambiguty-resolving/src/main/java/io/rxmicro/examples/testing/component/alternatives/ambiguty/resolving/Parent.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives-ambiguty-resolving/src/main/java/io/rxmicro/examples/testing/component/alternatives/ambiguty/resolving/GrandParent.java[tag=content,indent=0]
+----
+
+При вызове метода `GrandParent.getValue` вызывается этот метод на бизнес сервисах всех зависимых компонентов `Child`, `Parent` и `GrandParent` в соответствии с иерархией зависимостей:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives-ambiguty-resolving/src/test/java/io/rxmicro/examples/testing/component/alternatives/ambiguty/resolving/GrandParent1Test.java[tag=content,indent=0]
+----
+
+При использовании альтернативы поведение метода `GrandParent.getValue` изменяется:
+
+[source,java]
+[[GrandParent2Test-inline]]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives-ambiguty-resolving/src/test/java/io/rxmicro/examples/testing/component/alternatives/ambiguty/resolving/GrandParent2Test.java[tag=content,indent=0]
+----
+<1> Создается альтернатива бизнес сервису.
+<2> Перед тестированием программируется поведение метода `getValue` созданного мока.
+<3> В результате выполнения теста видно, что данная альтернатива внедряется во *все* зависимые компоненты `Child`, `Parent` и `GrandParent`.
+
+Если создать 2 и больше (в данном тестовом примере не больше 3) альтернатив, то каждая альтернатива может быть внедрена в отдельный бизнес компонент:
+
+[source,java]
+[[GrandParent3Test-inline]]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives-ambiguty-resolving/src/test/java/io/rxmicro/examples/testing/component/alternatives/ambiguty/resolving/GrandParent3Test.java[tag=content,indent=0]
+----
+<1> Альтернатива `grandParentBusinessService` внедряется в компонент `GrandParent`, а альтернатива `businessService` внедряется в компонент `Child`;
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-ambiguty-resolving
+include::../../___notes/full-source-code-of-example.adoc[]
+
+===== Алгоритм разрешения неоднозначностей
+
+Для разрешения неоднозначностей RxMicro использует следующий алгоритм:
+
+. Для каждого тестируемого компонента выполняется поиск кандидатов на внедрение.
+. В результате формируется карта, в качестве ключа которой выступает пользовательский тип, а значением - список кандидатов на внедрение.
+*(RxMicro не поддерживает правила полиморфизма при внедрении альтернатив.
+Таким образов альтернативу типа `A` возможно внедрить только в поле с типом `A`)*.
+. После получения карты с кандидатами на внедрение, RxMicro проходится по данной карте.
+. Для каждого пользовательского типа запрашивается список кандидатов и список альтернатив.
+. Если для пользовательского типа обнаружена только одна альтернатива и только один кандидат, то RxMicro внедряет данную альтернативу в поле кандидата;
+. Если обнаруживается больше одной альтернативы и только один кандидат, то RxMicro выбрасывает ошибку;
+. Если обнаруживается больше одного кандидата и только одна альтернатива, то:
+.. RxMicro анализирует имя поля кандидата на внедрение:
+... если имя поля кандидата совпадает с именем поля альтернативы, то RxMicro внедряет данную альтернативу;
+... если имя поля кандидата совпадает со значением параметра `name` аннотации `@Alternative`, то RxMicro внедряет данную альтернативу;
+... иначе данный кандидат пропускается;
+.. если не было внедрено ни одной альтернативы, то RxMicro внедряет данную альтернативу во *все* поля кандидатов. +
+_(Именно такое поведение возникает в тесте <<GrandParent2Test-inline,`GrandParent2Test`>>.)_
+. Если обнаруживается больше одного кандидата и больше одной альтернативы то:
+.. RxMicro анализирует имя поля кандидата на внедрение:
+... если имя поля кандидата совпадает с именем поля альтернативы, то RxMicro внедряет данную альтернативу; +
+_(В тесте <<GrandParent3Test-inline,`GrandParent3Test`>> альтернатива `grandParentBusinessService` внедряется в поле компонента `GrandParent`, потому что имена полей альтернативы и компонента равны.)_;
+... если имя поля кандидата совпадает со значением параметра `name` аннотации `@Alternative`, то RxMicro внедряет данную альтернативу; +
+_(В тесте <<GrandParent3Test-inline,`GrandParent3Test`>> альтернатива `businessService` внедряется в поле компонента `Child`, потому что параметр `name` аннотации `@Alternative` равен `childBusinessService`._ _А в классе `Child` имя поля с типом `BusinessService` также равно `childBusinessService`.)_
+... иначе данный кандидат пропускается;
+.. _(В ситуации когда обнаруживается больше одного кандидата и больше одной альтернативы возможен вариант, когда ни одна из альтернатив не будет внедрена.)_
+. После того как все кандидаты проанализированы, RxMicro проверяет наличие неиспользуемых альтернатив.
+. Если будет обнаружена неиспользуемая альтернатива, то RxMicro выбрасывает ошибку.

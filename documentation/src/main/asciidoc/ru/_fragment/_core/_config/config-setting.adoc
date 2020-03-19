@@ -1,0 +1,11 @@
+==== Настройка источников конфигураций
+
+*RxMicro* позволяет настраивать порядок считывания источников конфигураций.
+
+Благодаря данной возможности, *RxMicro* автоматически поддерживает наследование и переопределение конфигураций запуска.
+
+include::_config-setting/load-order.adoc[]
+
+include::_config-setting/custom-order.adoc[]
+
+include::_config-setting/logging.adoc[]

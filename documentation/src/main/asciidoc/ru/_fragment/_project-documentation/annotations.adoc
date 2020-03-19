@@ -1,0 +1,57 @@
+[[project-documentation-annotations-section]]
+=== `RxMicro Annotations`
+
+RxMicro поддерживает следующие `RxMicro annotations`, которые используются для настроек генерирования проектной документации.
+
+.`RxMicro Annotations` for Customization of Project Documentation.
+[cols="1,3"]
+|===
+|*Аннотация*|*Описание*
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/Author.java[`@Author`^]
+|
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/BaseEndpoint.java[`@BaseEndpoint`^]
+|
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/Description.java[`@Description`^]
+|
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/DocumentationDefinition.java[`@DocumentationDefinition`^]
+|
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/DocumentationVersion.java[`@DocumentationVersion`^]
+|
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/Example.java[`@Example`^]
+|
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/IncludeDescription.java[`@IncludeDescription`^]
+|
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/IntroductionDefinition.java[`@IntroductionDefinition`^]
+|
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/License.java[`@License`^]
+|
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/ModelExceptionErrorResponse.java[`@ModelExceptionErrorResponse`^]
+|
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/ResourceDefinition.java[`@ResourceDefinition`^]
+|
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/ResourceGroupDefinition.java[`@ResourceGroupDefinition`^]
+|
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/SimpleErrorResponse.java[`@SimpleErrorResponse`^]
+|
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/Title.java[`@Title`^]
+|
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation-asciidoctor/src/main/java/io/rxmicro/documentation/asciidoctor/DocumentAttributes.java[`@DocumentAttributes`^]
+|
+
+// ---------------------------------------------------------------------------------------------------------------------
+|===

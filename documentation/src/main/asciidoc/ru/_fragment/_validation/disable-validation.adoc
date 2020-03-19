@@ -1,0 +1,64 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[validation-disable-section]]
+=== Disabling Validation
+
+Для деактивирования генерации валидаторов необходимо выполнить один из указанных шагов:
+
+. Удалить модуль `rxmicro.validation` из дескриптора `module-info.java`.
+. Использовать опции `GenerateOption.DISABLED` для деактивации отдельных категорий валидаторов.
+. Использовать аннотацию
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/DisableValidation.java[`@DisableValidation`^]
+для деактивации валидаторов выбранной группы классов в проекте.
+
+==== Removing the `rxmicro.validation` module
+
+Самый простой и быстрый способ отключить генерацию валидаторов для *всех* классов в текущем модуле - удалить модуль `rxmicro.validation` из дескриптора `module-info.java`.
+
+[IMPORTANT]
+====
+*После удаления модуля `rxmicro.validation` НЕЗАБУДЬТЕ перекомпилировать весь проект, чтобы изменения вступили в силу: `mvn clean compile`!*
+====
+
+==== Using `GenerateOption.DISABLED` Option
+
+Для деактивирования генерации валидаторов по категориям необходимо использовать аннотации:
+
+* <<{rest-controller}#rest-controller-rest-server-generator-config-section,`@RestServerGeneratorConfig`>> (для настройки REST контроллеров).
+* <<{rest-client}#rest-client-rest-client-generator-config-section,`@RestClientGeneratorConfig`>> (для настройки REST клиентов).
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-all/src/main/java/module-info.java[tag=content,indent=0]
+----
+<1> Если `@RestServerGeneratorConfig.generateRequestValidators == GenerateOption.DISABLED`, то валидаторы для всех моделей HTTP запросов в текущем проекте не будут сгенерированы.
+<2> Если `@RestServerGeneratorConfig.generateResponseValidators == GenerateOption.DISABLED`, то валидаторы для всех моделей HTTP ответов в текущем проекте не будут сгенерированы.
+<3> Если `@RestClientGeneratorConfig.generateRequestValidators == GenerateOption.DISABLED`, то валидаторы для всех моделей HTTP запросов в текущем проекте не будут сгенерированы.
+<4> Если `@RestClientGeneratorConfig.generateResponseValidators == GenerateOption.DISABLED`, то валидаторы для всех моделей HTTP ответов в текущем проекте не будут сгенерированы.
+
+[IMPORTANT]
+====
+*При активации модуля `rxmicro.validation`, по умолчанию RxMicro генерирует только валидаторы HTTP запросов для REST контроллеров и валидаторы HTTP ответов для REST клиентов!*
+
+Все остальные категории валидаторов должны быть активированы вручную с помощью аннотаций `@RestServerGeneratorConfig` и `@RestClientGeneratorConfig`!
+====
+
+[IMPORTANT]
+====
+*После изменения настроек с помощью аннотаций `@RestServerGeneratorConfig` и `@RestClientGeneratorConfig` НЕЗАБУДЬТЕ перекомпилировать весь проект, чтобы изменения вступили в силу: `mvn clean compile`!*
+====
+
+==== Using `@DisableValidation` Annotation
+
+Аннотация {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/DisableValidation.java[`@DisableValidation`^]
+предоставляет возможность отключать генерацию валидаторов для выбранной группы классов в проекте:
+
+. Если данной аннотацией аннотирован класс модели, то *только* для этого класса модели валидатор не будет сгенерирован.
+. Если данной аннотацией аннотирован класс `package-info.java`, то для *всех классов из указанного пакета и всех его подпакетов* валидаторы не будут сгенерированы.
+. Если данной аннотацией аннотирован дескриптор `module-info.java`, то для *всех классов в текущем модуле* валидаторы не будут сгенерированы. +
+_(Данное поведение аналогично удалению модуля `rxmicro.validation` из дескриптора `module-info.java`.)_
+
+[IMPORTANT]
+====
+*После добавления аннотации `@DisableValidation` НЕЗАБУДЬТЕ перекомпилировать весь проект, чтобы изменения вступили в силу: `mvn clean compile`!*
+====

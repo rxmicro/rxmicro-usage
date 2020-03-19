@@ -1,0 +1,159 @@
+:home-title: Home
+:introduction-title: Introduction
+:microservice-title: What are microservices?
+:quick-start-title: Quick Start
+:core-title: Core Concepts
+:rest-controller-title: REST Controller
+:rest-client-title: REST Client
+:validation-title: Validation
+:project-documentation-title: Project Documentation
+:data-postgresql-title: Postgre SQL Data Repositories
+:data-mongo-title: Mongo Data Repositories
+:cdi-title: Contexts and Dependency Injection
+:testing-title: Testing
+:appendices-title: Appendices
+// --------------------------------------------- introduction ---------------------------------------------
+ifeval::["{current-entity}" == "introduction"]
+
+[cols="<,^,>",width=100%,frame=none]
+|===
+|
+|<<index.adoc#,*icon:angle-double-up[] {home-title}*>>
+|<<microservice.adoc#,*{microservice-title} icon:angle-double-right[]*>>
+|===
+
+endif::[]
+// --------------------------------------------- microservice ---------------------------------------------
+ifeval::["{current-entity}" == "microservice"]
+
+[cols="<,^,>",width=100%,frame=none]
+|===
+|<<introduction.adoc#,*icon:angle-double-left[] {introduction-title}*>>
+|<<index.adoc#,*icon:angle-double-up[] {home-title}*>>
+|<<quick-start.adoc#,*{quick-start-title}  icon:angle-double-right[]*>>
+|===
+
+endif::[]
+// --------------------------------------------- quick-start ---------------------------------------------
+ifeval::["{current-entity}" == "quick-start"]
+
+[cols="<,^,>",width=100%,frame=none]
+|===
+|<<microservice.adoc#,*icon:angle-double-left[] {microservice-title}*>>
+|<<index.adoc#,*icon:angle-double-up[] {home-title}*>>
+|<<core.adoc#,*{core-title}  icon:angle-double-right[]*>>
+|===
+
+endif::[]
+// --------------------------------------------- core ---------------------------------------------
+ifeval::["{current-entity}" == "core"]
+
+[cols="<,^,>",width=100%,frame=none]
+|===
+|<<quick-start.adoc#,*icon:angle-double-left[] {quick-start-title}*>>
+|<<index.adoc#,*icon:angle-double-up[] {home-title}*>>
+|<<rest-controller.adoc#,*{rest-controller-title}  icon:angle-double-right[]*>>
+|===
+
+endif::[]
+// --------------------------------------------- rest-controller ---------------------------------------------
+ifeval::["{current-entity}" == "rest-controller"]
+
+[cols="<,^,>",width=100%,frame=none]
+|===
+|<<core.adoc#,*icon:angle-double-left[] {core-title}*>>
+|<<index.adoc#,*icon:angle-double-up[] {home-title}*>>
+|<<rest-client.adoc#,*{rest-client-title}  icon:angle-double-right[]*>>
+|===
+
+endif::[]
+// --------------------------------------------- rest-client ---------------------------------------------
+ifeval::["{current-entity}" == "rest-client"]
+
+[cols="<,^,>",width=100%,frame=none]
+|===
+|<<rest-controller.adoc#,*icon:angle-double-left[] {rest-controller-title}*>>
+|<<index.adoc#,*icon:angle-double-up[] {home-title}*>>
+|<<validation.adoc#,*{validation-title}  icon:angle-double-right[]*>>
+|===
+
+endif::[]
+// --------------------------------------------- validation ---------------------------------------------
+ifeval::["{current-entity}" == "validation"]
+
+[cols="<,^,>",width=100%,frame=none]
+|===
+|<<rest-client.adoc#,*icon:angle-double-left[] {rest-client-title}*>>
+|<<index.adoc#,*icon:angle-double-up[] {home-title}*>>
+|<<project-documentation.adoc#,*{project-documentation-title}  icon:angle-double-right[]*>>
+|===
+
+endif::[]
+// --------------------------------------------- project-documentation ---------------------------------------------
+ifeval::["{current-entity}" == "project-documentation"]
+
+[cols="<,^,>",width=100%,frame=none]
+|===
+|<<validation.adoc#,*icon:angle-double-left[] {validation-title}*>>
+|<<index.adoc#,*icon:angle-double-up[] {home-title}*>>
+|<<data-postgresql.adoc#,*{data-postgresql-title}  icon:angle-double-right[]*>>
+|===
+
+endif::[]
+// ------------------------------------------- data-postgresql --------------------------------------------
+ifeval::["{current-entity}" == "data-postgresql"]
+
+[cols="<,^,>",width=100%,frame=none]
+|===
+|<<project-documentation.adoc#,*icon:angle-double-left[] {project-documentation-title}*>>
+|<<index.adoc#,*icon:angle-double-up[] {home-title}*>>
+|<<data-mongo.adoc#,*{data-mongo-title}  icon:angle-double-right[]*>>
+|===
+
+endif::[]
+// ------------------------------------------- data-mongo --------------------------------------------
+ifeval::["{current-entity}" == "data-mongo"]
+
+[cols="<,^,>",width=100%,frame=none]
+|===
+|<<data-postgresql.adoc#,*icon:angle-double-left[] {data-postgresql-title}*>>
+|<<index.adoc#,*icon:angle-double-up[] {home-title}*>>
+|<<cdi.adoc#,*{cdi-title}  icon:angle-double-right[]*>>
+|===
+
+endif::[]
+// --------------------------------------------- cdi ---------------------------------------------
+ifeval::["{current-entity}" == "cdi"]
+
+[cols="<,^,>",width=100%,frame=none]
+|===
+|<<data-mongo.adoc#,*icon:angle-double-left[] {data-mongo-title}*>>
+|<<index.adoc#,*icon:angle-double-up[] {home-title}*>>
+|<<testing.adoc#,*{testing-title}  icon:angle-double-right[]*>>
+|===
+
+endif::[]
+// --------------------------------------------- testing ---------------------------------------------
+ifeval::["{current-entity}" == "testing"]
+
+[cols="<,^,>",width=100%,frame=none]
+|===
+|<<cdi.adoc#,*icon:angle-double-left[] {cdi-title}*>>
+|<<index.adoc#,*icon:angle-double-up[] {home-title}*>>
+|<<appendices.adoc#,*{appendices-title}  icon:angle-double-right[]*>>
+|===
+
+endif::[]
+// --------------------------------------------- appendices ---------------------------------------------
+ifeval::["{current-entity}" == "appendices"]
+
+[cols="<,^,>",width=100%,frame=none]
+|===
+|<<testing.adoc#,*icon:angle-double-left[] {testing-title}*>>
+|<<index.adoc#,*icon:angle-double-up[] {home-title}*>>
+|
+|===
+
+endif::[]
+
+'''

@@ -1,0 +1,34 @@
+[[core-config-java-classes-section]]
+===== Конфигурирование с помощью Java классов
+
+Конфигурирование с помощью Java классов является самым простым и явным способом конфигурирования:
+
+[source,java]
+----
+public static void main(final String[] args) {
+    new Configs.Builder()
+            .withConfigs(new HttpServerConfig()
+                    .setPort(9090)) // <1>
+            .build();
+    startRestServer(MicroService.class);
+}
+----
+<1> Изменение порта HTTP сервера.
+
+[source,text]
+----
+2020-01-02 18:49:58.372 [INFO] io.rxmicro.rest.server.netty.internal.component.NettyServer :
+Server started at 0.0.0.0:9090 using NETTY transport in 500 millis. # <1>
+----
+<1> HTTP сервер запустился на порту `9090` вместо стандартного `8080`.
+
+[IMPORTANT]
+====
+*Главным отличием данного типа конфигурирования от остальных типов является то, что при использовании конфигурирования с помощью Java классов, другие источники конфигураций всегда игнорируются!*
+====
+
+*Поэтому данный тип рекомендуется использовать ТОЛЬКО в тестовых целях!*
+
+(_Для production окружения он не имеет достаточной гибкости!_)
+
+*Для production окружения используйте конфигурирование с помощью аннотаций вместо конфигурирования с помощью Java классов!*

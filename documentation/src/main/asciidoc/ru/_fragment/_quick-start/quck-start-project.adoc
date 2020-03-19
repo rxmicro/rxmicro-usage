@@ -1,0 +1,39 @@
+=== Проект на Github
+
+Проект REST-based микросервиса `HelloWorldMicroService` доступен по ссылке:
+
+{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}quick-start[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}quick-start`^].
+
+[IMPORTANT]
+====
+Конфигурационный файл `pom.xml` является эталонной конфигурацией и может быть скопирован в Ваш следующий проект, использующий фреймворк *RxMicro*.
+
+*НЕ ЗАБУДЬТЕ только удалить ссылку на родительский проект*:
+
+[source,xml]
+----
+<parent>
+    <artifactId>examples</artifactId>
+    <groupId>io.rxmicro</groupId>
+    <version>0.4</version>
+</parent>
+----
+
+*и добавить секцию `properties` с описанием версий используемых библиотек*:
+
+[source,xml]
+----
+<properties>
+    <rxmicro.version>0.1</rxmicro.version><!--1-->
+
+    <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version><!--2-->
+    <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version><!--3-->
+    <maven.dependencies.plugin.version>3.1.1</maven.dependencies.plugin.version><!--4-->
+</properties>
+----
+
+<1> Последняя стабильная версия фреймворка RxMicro.
+<2> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-compiler-plugin[Последняя стабильная версия `maven-compiler-plugin`^].
+<3> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-surefire-plugin[Последняя стабильная версия `maven-surefire-plugin`^].
+<4> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-dependency-plugin[Последняя стабильная версия `maven-dependency-plugin`^].
+====

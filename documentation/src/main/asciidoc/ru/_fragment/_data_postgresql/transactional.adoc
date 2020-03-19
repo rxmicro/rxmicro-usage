@@ -1,0 +1,8 @@
+[[data-postgresql-transactional-section]]
+=== Transactions Support
+
+include::_transactional/transaction.adoc[]
+
+<<<
+
+include::_transactional/concurrent.adoc[]

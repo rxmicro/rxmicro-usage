@@ -1,0 +1,42 @@
+[[testing-rest-based-microservice-tests-section]]
+=== Тестирование REST-based микросервисов
+
+Тест REST-based микросервиса - это обычный Unit тест, который тестирует только исходный код микросервиса.
+Если текущий микросервис зависит от внешних сервисов (например базы данных, других REST-based микросервисов и т.д.), то при его тестировании допускается использовать моки для этих внешних сервисов.
+Если нужно протестировать несколько REST-based микросервисов, то рекомендуется использовать <<testing-integration-tests-section,интеграционное тестирование REST-based микросервисов>>.
+
+Для удобного написания микросервисных тестов RxMicro предоставляет:
+
+. Дополнительную аннотацию {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/RxMicroRestBasedMicroServiceTest.java[`@RxMicroRestBasedMicroServiceTest`^], которая информирует RxMicro о необходимости запустить тестируемый REST-based микросервис и подготовить окружение для выполнения тестовых HTTP запросов.
+. Специальный *блокирующий* HTTP клиент для выполнения HTTP запросов в процессе тестирования:
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^].
+. Интерфейс {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/SystemOut.java[`SystemOut`^] для удобного доступа к консоли.
+
+Для каждого микросервисного теста RxMicro выполняет следующие действия:
+
+. Перед запуском всех тестовых методов в классе:
+.. проверяет тестовый класс на соответствие правилам тестирования REST-based микросервисов, определенных фреймворком RxMicro;
+.. запускает HTTP сервер на случайном свободном порту;
+.. создает объекта типа {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^];
+.. подключает созданный {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^] к запущенному HTTP серверу.
+. Перед запуском каждого тестового метода:
+.. при необходимости вызывает методы, определенные с помощью аннотаций {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/BeforeTest.java[`@BeforeTest`^]
+или {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/BeforeIterationMethodSource.java[`@BeforeIterationMethodSource`^];
+.. при необходимости регистрирует альтернативы RxMicro компонентов в контейнере RxMicro;
+.. регистрирует тестируемый REST-based микросервис в запущенном HTTP сервере;
+.. при необходимости внедряет в REST-based микросервис альтернативы пользовательских компонентов;
+.. внедряет ссылку на объект {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^] в тестовый класс;
+.. при необходимости создает мок `System.out` и внедряет его в тестовый класс.
+. После выполнения каждого тестового метода:
+.. удаляет все зарегистрированные компоненты из контейнера RxMicro;
+.. удаляет все зарегистрированные REST-based микросервисы в запущенном HTTP сервере;
+.. при необходимости восстанавливает `System.out`.
+. После выполнения всех тестов в классе:
+.. очищает ресурсы компонента {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^];
+.. останавливает HTTP сервер и освобождает выделенные ресурсы.
+
+include::_micro-service-test/basic.adoc[]
+
+include::_micro-service-test/alternatives.adoc[]
+
+include::_micro-service-test/execution-test-order.adoc[]
