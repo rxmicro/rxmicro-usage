@@ -26,7 +26,7 @@ final class OwnerComponentTest {
     final OwnerComponent ownerComponent = getBean(OwnerComponent.class);
 
     @Test
-    void Should_delegate_to_NestedComponent(){
+    void Should_delegate_to_NestedComponent() {
         assertEquals(
                 "PRODUCTION",
                 ownerComponent.getValue()

@@ -63,7 +63,7 @@ final class RESTClientTest {
         );
     }
 
-    private void prepareInvalidResponse(){
+    private void prepareInvalidResponse() {
         prepareHttpClientMock(
                 httpClientFactory,
                 new HttpRequestMock.Builder()
@@ -77,7 +77,7 @@ final class RESTClientTest {
 
     @Test
     @BeforeTest(method = "prepareInvalidResponse")
-    void Should_does_not_validate_response(){
+    void Should_does_not_validate_response() {
         final Response response = restClient.get(new Request("welcome@rxmicro.io")).join();
 
         assertEquals("rxmicro.io", response.getEmail());

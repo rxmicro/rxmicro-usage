@@ -24,7 +24,7 @@ public final class OwnerComponent {
     @Inject
     NestedComponent nestedComponent;
 
-    public String getValue(){
+    public String getValue() {
         return nestedComponent.getValue();
     }
 }
