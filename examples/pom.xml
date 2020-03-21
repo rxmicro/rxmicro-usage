@@ -167,6 +167,7 @@
         <module>auto-module-quick-start</module>
         <module>auto-module-documentation-asciidoctor-metadata-annotations</module>
         <module>auto-module-rest-controller-generator</module>
+        <module>auto-module-rest-client-generator</module>
     </modules>
 
     <build>
