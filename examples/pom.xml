@@ -165,6 +165,7 @@
         <module>processor-r2dbc-postgresql</module>
 
         <module>auto-module-quick-start</module>
+        <module>auto-module-documentation-asciidoctor-metadata-annotations</module>
     </modules>
 
     <build>
