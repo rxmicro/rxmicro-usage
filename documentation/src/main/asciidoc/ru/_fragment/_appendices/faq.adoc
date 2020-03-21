@@ -35,3 +35,20 @@ To fix it, please verify that:
 
 Sometimes this issue occurs during the work with java code using IntelliJ IDEA.
 To fix this issue it is necessary to rebuild your project: `Build` -> `Rebuild project`.
+
+==== Why I receive `java.lang.NullPointerException: autoRelease couldn't be null` error during unit testing?
+
+If you declare an alternative of the `HttpClientFactory` mock and don't configure it this error can happen.
+
+To fix this issue it is necessary to configure the `@Mock` annotation:
+
+[source, java]
+----
+@Alternative
+@Mock(answer = Answers.RETURNS_DEEP_STUBS) // <1>
+private HttpClientFactory httpClientFactory;
+----
+<1> Set `Answers.RETURNS_DEEP_STUBS` as answer value.
+
+
+
