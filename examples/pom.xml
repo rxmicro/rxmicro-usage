@@ -168,6 +168,7 @@
         <module>auto-module-documentation-asciidoctor-metadata-annotations</module>
         <module>auto-module-rest-controller-generator</module>
         <module>auto-module-rest-client-generator</module>
+        <module>auto-module-cdi-find-beans</module>
     </modules>
 
     <build>
