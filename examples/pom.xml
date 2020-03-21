@@ -163,6 +163,8 @@
         <module>processor-cdi</module>
         <module>processor-mongo</module>
         <module>processor-r2dbc-postgresql</module>
+
+        <module>auto-module-quick-start</module>
     </modules>
 
     <build>
