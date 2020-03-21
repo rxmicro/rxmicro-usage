@@ -25,6 +25,7 @@ import java.util.Arrays;
 import static io.rxmicro.common.util.Formats.format;
 import static io.rxmicro.util.tests.Settings.MODULE_INFO_JAVA;
 import static io.rxmicro.util.tests.Settings.POM_XML;
+import static io.rxmicro.util.tests.Settings.VIRTUAL_MODULE_INFO_JAVA;
 import static java.util.Objects.requireNonNull;
 import static org.apache.commons.io.FileUtils.forceMkdir;
 
@@ -39,6 +40,10 @@ public final class Copies {
         final File moduleInfo = new File(srcRoot, MODULE_INFO_JAVA);
         if (moduleInfo.exists()) {
             copyFile(moduleInfo, new File(destRootDir, MODULE_INFO_JAVA.replace("-", "")));
+        }
+        final File virtualModuleInfo = new File(srcRoot, VIRTUAL_MODULE_INFO_JAVA);
+        if (virtualModuleInfo.exists()) {
+            copyFile(virtualModuleInfo, new File(destRootDir, VIRTUAL_MODULE_INFO_JAVA));
         }
         copyAllFiles(sourceDir, destRootDir);
     }
@@ -99,8 +104,7 @@ public final class Copies {
         if (rxMicroPackage.exists()) {
             for (final File file : requireNonNull(
                     rxMicroPackage.listFiles(
-                            (dir, name) -> !"$$EnvironmentCustomizer.java".equals(name) &&
-                                    Arrays.stream(excludes).noneMatch(f -> new File(dir, name).getAbsolutePath().contains(f))
+                            (dir, name) -> Arrays.stream(excludes).noneMatch(f -> new File(dir, name).getAbsolutePath().contains(f))
                     ),
                     "Directory not found: " + rxMicroPackage.getAbsolutePath())) {
                 copyFile(file, new File(destRootDir, file.getName()));

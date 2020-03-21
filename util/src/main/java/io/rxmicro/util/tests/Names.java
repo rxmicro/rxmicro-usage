@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static io.rxmicro.util.tests.Settings.MODULE_INFO_JAVA;
+import static io.rxmicro.util.tests.Settings.VIRTUAL_MODULE_INFO_JAVA;
 
 public final class Names {
 
@@ -32,7 +33,8 @@ public final class Names {
 
     private static void defineRootPackage(final List<String> paths,
                                           final File srcRoot) {
-        final File[] files = srcRoot.listFiles((dir, name) -> !MODULE_INFO_JAVA.equals(name));
+        final File[] files = srcRoot.listFiles((dir, name) ->
+                !MODULE_INFO_JAVA.equals(name) && !VIRTUAL_MODULE_INFO_JAVA.equals(name));
         if (files == null || files.length != 1 || !files[0].isDirectory()) {
             return;
         }
