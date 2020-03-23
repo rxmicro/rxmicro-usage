@@ -18,7 +18,7 @@
     <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version> <!--2-->
 </properties>
 ----
-<1> Последняя стабильная версия фреймворка RxMicro.
+<1> {MAVEN-REPO-SEARCH-ROOT}io.rxmicro/rxmicro[Последняя стабильная версия фреймворка RxMicro^].
 <2> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-compiler-plugin[Последняя стабильная версия `maven-compiler-plugin`^].
 
 ==== Добавление необходимых зависимостей:
