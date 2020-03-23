@@ -169,6 +169,7 @@
         <module>auto-module-rest-controller-generator</module>
         <module>auto-module-rest-client-generator</module>
         <module>auto-module-cdi-find-beans</module>
+        <module>auto-module-uber-jar</module>
     </modules>
 
     <build>
