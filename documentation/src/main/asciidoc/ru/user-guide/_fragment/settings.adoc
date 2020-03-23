@@ -15,6 +15,7 @@
 :xrefstyle: full
 :nofooter:
 
+:RXMICRO-VERSION: {rxmicro-version}
 // Maven Repo Root
 :MAVEN-REPO-SEARCH-ROOT: https://mvnrepository.com/artifact/
 // RxMicro Root Links

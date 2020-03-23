@@ -11,17 +11,17 @@
 [[testing-prepare-lib-versions-section]]
 ==== Определение версий используемых библиотек:
 
-[source,xml]
+[source,xml,subs="attributes+"]
 ----
 <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <rxmicro.version>0.1</rxmicro.version> <!--1-->
+    <rxmicro.version>{RXMICRO-VERSION}</rxmicro.version> <!--1-->
 
     <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version> <!--2-->
     <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version><!--3-->
 </properties>
 ----
-<1> Последняя стабильная версия фреймворка RxMicro.
+<1> {MAVEN-REPO-SEARCH-ROOT}io.rxmicro/rxmicro[Последняя стабильная версия фреймворка RxMicro^].
 <2> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-compiler-plugin[Последняя стабильная версия `maven-compiler-plugin`^].
 <3> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-surefire-plugin[Последняя стабильная версия `maven-surefire-plugin`^].
 

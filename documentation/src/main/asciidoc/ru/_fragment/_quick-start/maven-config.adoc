@@ -10,11 +10,11 @@
 
 Для удобства последующего обновления версий библиотек, рекомендуется использовать `maven properties`:
 
-[source,xml]
+[source,xml,subs="attributes+"]
 ----
 <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <rxmicro.version>0.1</rxmicro.version> <!--1-->
+    <rxmicro.version>{RXMICRO-VERSION}</rxmicro.version> <!--1-->
     <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version> <!--2-->
 </properties>
 ----
@@ -92,7 +92,7 @@
 
 После всех указанных выше изменений окончательная версия файла `pom.xml` должна выглядеть следующим образом:
 
-[source,xml]
+[source,xml,subs="attributes+"]
 ----
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -106,7 +106,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <rxmicro.version>0.1</rxmicro.version>
+        <rxmicro.version>{RXMICRO-VERSION}</rxmicro.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
     </properties>
 
