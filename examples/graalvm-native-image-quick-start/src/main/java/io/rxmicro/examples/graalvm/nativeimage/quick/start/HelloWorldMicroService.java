@@ -16,6 +16,7 @@
 // tag::content[]
 package io.rxmicro.examples.graalvm.nativeimage.quick.start;
 
+import io.rxmicro.config.Configs;
 import io.rxmicro.rest.method.GET;
 import io.rxmicro.rest.server.RxMicro;
 
@@ -24,13 +25,16 @@ import java.util.concurrent.CompletableFuture;
 public final class HelloWorldMicroService {
 
     @GET("/")
-    CompletableFuture<Response> sayHelloWorld() {       // <1>
+    CompletableFuture<Response> sayHelloWorld() {
         return CompletableFuture.supplyAsync(() ->
-                new Response("Hello World!"));          // <2>
+                new Response("Hello World!"));
     }
 
-    public static void main(final String[] args) {              // <3>
-        RxMicro.startRestServer(HelloWorldMicroService.class);  // <4>
+    public static void main(final String[] args) {
+        new Configs.Builder()
+                .withDockerConfigLoadSources()
+                .build();
+        RxMicro.startRestServer(HelloWorldMicroService.class);
     }
 }
 // end::content[]
