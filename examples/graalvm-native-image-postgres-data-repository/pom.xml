@@ -146,6 +146,8 @@
                                 <configuration>
                                     <executable>native-image</executable>
                                     <arguments>
+                                        <argument>-H:+ReportExceptionStackTraces</argument>
+                                        <argument>-H:+TraceClassInitialization</argument>
                                         <argument--><!--verbose</argument>
                                         <argument>-jar</argument>
                                         <argument>${project.build.directory}/${project.build.finalName}.jar</argument>
