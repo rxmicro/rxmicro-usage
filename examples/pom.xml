@@ -172,6 +172,7 @@
         <module>auto-module-uber-jar</module>
 
         <module>graalvm-native-image-quick-start</module>
+        <module>graalvm-native-image-postgres-data-repository</module>
     </modules>
 
     <build>
