@@ -19,6 +19,7 @@ package io.rxmicro.examples.graalvm.nativeimage.quick.start;
 import io.rxmicro.config.Configs;
 import io.rxmicro.rest.method.GET;
 import io.rxmicro.rest.server.RxMicro;
+import sun.misc.Signal;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -35,6 +36,7 @@ public final class HelloWorldMicroService {
                 .withDockerConfigLoadSources()
                 .build();
         RxMicro.startRestServer(HelloWorldMicroService.class);
+        Signal.handle(new Signal("INT"), sig -> System.exit(0));
     }
 }
 // end::content[]
