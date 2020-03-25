@@ -42,3 +42,9 @@ Server started at 0.0.0.0:8080 using NETTY transport in 5 millis.
 
 maxRSS 17Mb
 ```
+
+# Using agent
+
+```shell script
+$GRAALVM_HOME/bin/java -agentlib:native-image-agent=config-output-dir=.graal -jar target/HelloWorldMicroService.jar
+```
