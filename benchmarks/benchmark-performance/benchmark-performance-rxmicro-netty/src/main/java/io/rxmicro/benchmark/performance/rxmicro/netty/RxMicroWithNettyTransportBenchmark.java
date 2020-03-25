@@ -16,6 +16,7 @@
 
 package io.rxmicro.benchmark.performance.rxmicro.netty;
 
+import io.netty.util.ResourceLeakDetector;
 import io.rxmicro.benchmark.performance.AbstractPerformanceBenchmark;
 import io.rxmicro.benchmark.performance.rxmicro.netty.code.HelloWorldMicroService;
 import io.rxmicro.rest.server.ServerInstance;
@@ -27,6 +28,10 @@ import org.openjdk.jmh.runner.RunnerException;
 import static io.rxmicro.rest.server.RxMicro.startRestServer;
 
 public class RxMicroWithNettyTransportBenchmark extends AbstractPerformanceBenchmark {
+
+    static {
+        ResourceLeakDetector.setLevel(ResourceLeakDetector.Level.DISABLED);
+    }
 
     private ServerInstance serverInstance;
 
