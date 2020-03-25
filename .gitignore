@@ -43,6 +43,9 @@ tmp.*
 # cache
 *.cache
 
+# GraalVM agent output
+.graal
+
 # examples generated docs
 /examples/documentation-asciidoctor-custom-sections/src/main/asciidoc/*.adoc
 /examples/documentation-asciidoctor-echo/src/main/asciidoc/*.adoc
