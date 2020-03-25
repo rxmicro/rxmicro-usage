@@ -1,3 +1,5 @@
+https://github.com/oracle/graal/blob/master/substratevm/LIMITATIONS.md
+
 # Start DB
 
 ```shell script
