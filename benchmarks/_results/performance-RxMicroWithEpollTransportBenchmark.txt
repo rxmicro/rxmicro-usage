@@ -1,0 +1,4 @@
+Benchmark                                Mode  Cnt  Score   Error   Units
+RxMicroWithEpollTransportBenchmark.get  thrpt   10  3.421 ± 0.118  ops/ms
+RxMicroWithEpollTransportBenchmark.get   avgt   10  0.289 ± 0.006   ms/op
+RxMicroWithEpollTransportBenchmark.get     ss   10  2.885 ± 1.034   ms/op

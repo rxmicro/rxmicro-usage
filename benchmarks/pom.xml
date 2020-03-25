@@ -9,7 +9,16 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>benchmarks</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
+    <modules>
+        <module>benchmark-java-core</module>
+        <module>benchmark-rxmicro-core</module>
+        <module>benchmark-java-startup</module>
+        <module>benchmark-rxmicro-startup</module>
+        <module>benchmark-performance</module>
+    </modules>
 
     <properties>
         <uberjar.name>benchmarks</uberjar.name>
@@ -23,82 +32,13 @@
                     <version>${maven.compiler.plugin.version}</version>
                     <configuration>
                         <release>11</release>
-                        <annotationProcessorPaths>
-                            <annotationProcessorPath>
-                                <groupId>org.openjdk.jmh</groupId>
-                                <artifactId>jmh-generator-annprocess</artifactId>
-                                <version>${jmh.version}</version>
-                            </annotationProcessorPath>
-                            <annotationProcessorPath>
-                                <groupId>io.rxmicro</groupId>
-                                <artifactId>rxmicro-annotation-processor</artifactId>
-                                <version>${rxmicro.version}</version>
-                            </annotationProcessorPath>
-                        </annotationProcessorPaths>
-                        <!--annotationProcessorPaths>
-                            <annotationProcessorPath>
-                                <groupId>io.rxmicro</groupId>
-                                <artifactId>rxmicro-annotation-processor</artifactId>
-                                <version>${rxmicro.version}</version>
-                            </annotationProcessorPath>
-                        </annotationProcessorPaths-->
                     </configuration>
-                    <executions>
-                        <execution>
-                            <id>source-compile</id>
-                            <goals>
-                                <goal>compile</goal>
-                            </goals>
-                            <configuration>
-                                <annotationProcessors>
-                                    <annotationProcessor>
-                                        io.rxmicro.annotation.processor.RxMicroAnnotationProcessor
-                                    </annotationProcessor>
-                                </annotationProcessors>
-                                <generatedSourcesDirectory>
-                                    ${project.build.directory}/generated-sources/
-                                </generatedSourcesDirectory>
-                            </configuration>
-                        </execution>
-                        <execution>
-                            <id>test-compile</id>
-                            <goals>
-                                <goal>testCompile</goal>
-                            </goals>
-                            <configuration>
-                                <annotationProcessors>
-                                    <annotationProcessor>
-                                        io.rxmicro.annotation.processor.RxMicroTestsAnnotationProcessor
-                                    </annotationProcessor>
-                                </annotationProcessors>
-                                <generatedTestSourcesDirectory>
-                                    ${project.build.directory}/generated-test-sources/
-                                </generatedTestSourcesDirectory>
-                            </configuration>
-                        </execution>
-                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
     </build>
 
     <dependencies>
-        <dependency>
-            <groupId>io.rxmicro</groupId>
-            <artifactId>rxmicro-rest-server-netty</artifactId>
-            <version>${rxmicro.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.rxmicro</groupId>
-            <artifactId>rxmicro-rest-server-exchange-json</artifactId>
-            <version>${rxmicro.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.rxmicro</groupId>
-            <artifactId>rxmicro-netty-native-all</artifactId>
-            <version>${rxmicro.version}</version>
-        </dependency>
-
         <dependency>
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-core</artifactId>

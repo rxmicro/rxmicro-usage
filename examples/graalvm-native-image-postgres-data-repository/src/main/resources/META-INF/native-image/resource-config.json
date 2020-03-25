@@ -1,0 +1,9 @@
+{
+  "resources":[
+    {"pattern":"\\QMETA-INF/maven/io.rxmicro/rxmicro-runtime/pom.properties\\E"}, 
+    {"pattern":"\\QMETA-INF/services/io.rxmicro.rest.server.detail.component.HttpResponseBuilder\\E"}, 
+    {"pattern":"\\QMETA-INF/services/io.rxmicro.rest.server.local.component.HttpErrorResponseBodyBuilder\\E"}, 
+    {"pattern":"\\QMETA-INF/services/io.rxmicro.rest.server.local.component.ServerFactory\\E"}
+  ],
+  "bundles":[]
+}

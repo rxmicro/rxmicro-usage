@@ -112,7 +112,7 @@ public final class $$ResponseModelToJsonConverter extends ModelToJsonConverter<R
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}benchmarks/src/main/java/io/rxmicro/bencmark/fields/ReadWriteFieldBenchmark.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}benchmarks/benchmark-java-core/src/main/java/io/rxmicro/benchmark/java/core/fields/ReadWriteFieldBenchmark.java[tag=content,indent=0]
 ----
 
 [[core-encapsulation-benchmark]]
@@ -120,7 +120,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}benchmarks/src/main/java/io/rxmicro/ben
 
 [source,txt]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}benchmarks/results/ReadWriteFieldBenchmark.txt[]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}benchmarks/_results/java-core-ReadWriteFieldBenchmark.txt[]
 ----
 
 [IMPORTANT]

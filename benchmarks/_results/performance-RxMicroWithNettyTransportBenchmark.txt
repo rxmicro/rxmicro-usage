@@ -1,0 +1,4 @@
+Benchmark                                Mode  Cnt  Score   Error   Units
+RxMicroWithNettyTransportBenchmark.get  thrpt   10  3.393 ± 0.204  ops/ms
+RxMicroWithNettyTransportBenchmark.get   avgt   10  0.287 ± 0.008   ms/op
+RxMicroWithNettyTransportBenchmark.get     ss   10  3.392 ± 1.123   ms/op
