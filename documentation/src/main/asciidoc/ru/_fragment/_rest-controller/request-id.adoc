@@ -113,14 +113,14 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-request-id/src
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}benchmarks/src/main/java/io/rxmicro/bencmark/rest/server/RequestIdGeneratorBenchmark.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}benchmarks/benchmark-rxmicro-core/src/main/java/io/rxmicro/benchmark/rxmicro/core/server/RequestIdGeneratorBenchmark.java[tag=content,indent=0]
 ----
 
 Результаты тестирования производительности:
 
 [source,txt]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}benchmarks/results/RequestIdGeneratorBenchmark.txt[]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}benchmarks/_results/rxmicro-core-RequestIdGeneratorBenchmark.txt[]
 ----
 
 [IMPORTANT]

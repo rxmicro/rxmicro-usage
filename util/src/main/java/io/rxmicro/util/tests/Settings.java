@@ -29,6 +29,8 @@ public final class Settings {
 
     public static final String MODULE_INFO_JAVA = "module-info.java";
 
+    public static final String VIRTUAL_MODULE_INFO_JAVA = "ModuleInfo.java";
+
     public static final String POM_XML = "pom.xml";
 
     public static final String DOCUMENTATION_ASCIIDOC = "documentation-asciidoctor";
@@ -38,6 +40,8 @@ public final class Settings {
     public static final String DATA_R2DBC_POSTGRESQL = "data-r2dbc-postgresql";
 
     public static final String DATA_MONGO = "data-mongo";
+
+    public static final String AUTO_MODULE_PREFIX = "auto-module-";
 
     public static final String RX_MICRO_ROOT_DIR_PATH;
 

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2020. http://rxmicro.io
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>benchmark-performance</artifactId>
+        <groupId>io.rxmicro.benchmarks</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.rxmicro.benchmarks.performance</groupId>
+    <artifactId>benchmark-performance-rxmicro-netty</artifactId>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven.compiler.plugin.version}</version>
+                    <configuration>
+                        <release>11</release>
+                        <annotationProcessorPaths>
+                            <annotationProcessorPath>
+                                <groupId>org.openjdk.jmh</groupId>
+                                <artifactId>jmh-generator-annprocess</artifactId>
+                                <version>${jmh.version}</version>
+                            </annotationProcessorPath>
+                            <annotationProcessorPath>
+                                <groupId>io.rxmicro</groupId>
+                                <artifactId>rxmicro-annotation-processor</artifactId>
+                                <version>${rxmicro.version}</version>
+                            </annotationProcessorPath>
+                        </annotationProcessorPaths>
+                        <compilerArgs>
+                            <arg>-ARX_MICRO_ENABLE_AUTOMATIC_MODULE=true</arg>
+                        </compilerArgs>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>source-compile</id>
+                            <goals>
+                                <goal>compile</goal>
+                            </goals>
+                            <configuration>
+                                <annotationProcessors>
+                                    <annotationProcessor>
+                                        io.rxmicro.annotation.processor.RxMicroAnnotationProcessor
+                                    </annotationProcessor>
+                                </annotationProcessors>
+                                <generatedSourcesDirectory>
+                                    ${project.build.directory}/generated-sources/
+                                </generatedSourcesDirectory>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.rxmicro</groupId>
+            <artifactId>rxmicro-rest-server-netty</artifactId>
+            <version>${rxmicro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rxmicro</groupId>
+            <artifactId>rxmicro-rest-server-exchange-json</artifactId>
+            <version>${rxmicro.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rxmicro.benchmarks.performance</groupId>
+            <artifactId>benchmark-performance-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+</project>

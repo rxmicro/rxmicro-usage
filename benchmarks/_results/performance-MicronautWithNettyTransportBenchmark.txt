@@ -1,0 +1,4 @@
+Benchmark                                  Mode  Cnt  Score   Error   Units
+MicronautWithNettyTransportBenchmark.get  thrpt   10  2.630 ± 0.112  ops/ms
+MicronautWithNettyTransportBenchmark.get   avgt   10  0.363 ± 0.013   ms/op
+MicronautWithNettyTransportBenchmark.get     ss   10  5.293 ± 2.855   ms/op

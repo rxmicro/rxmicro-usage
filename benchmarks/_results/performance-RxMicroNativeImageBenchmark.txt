@@ -1,0 +1,4 @@
+Benchmark                         Mode  Cnt  Score   Error   Units
+RxMicroNativeImageBenchmark.get  thrpt   10  2.660 ± 0.051  ops/ms
+RxMicroNativeImageBenchmark.get   avgt   10  0.372 ± 0.012   ms/op
+RxMicroNativeImageBenchmark.get     ss   10  2.472 ± 1.205   ms/op

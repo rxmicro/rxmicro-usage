@@ -7,7 +7,7 @@
 [source,text]
 ----
 java \
-    --add-opens=java.base/jdk.internal.misc=io.netty.common \
+    --add-exports=java.base/jdk.internal.misc=io.netty.common \
     -p ./classes:lib \
     -Dhttp-server.port=9090 \ # <1>
     -m examples.quick.start/io.rxmicro.examples.quick.start.HelloWorldMicroService

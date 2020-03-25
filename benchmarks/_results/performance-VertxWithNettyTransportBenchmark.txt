@@ -1,0 +1,4 @@
+Benchmark                              Mode  Cnt  Score   Error   Units
+VertxWithNettyTransportBenchmark.get  thrpt   10  3.700 ± 0.125  ops/ms
+VertxWithNettyTransportBenchmark.get   avgt   10  0.275 ± 0.018   ms/op
+VertxWithNettyTransportBenchmark.get     ss   10  3.395 ± 0.877   ms/op

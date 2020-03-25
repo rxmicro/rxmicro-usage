@@ -1,0 +1,4 @@
+Benchmark                   Mode  Cnt  Score   Error   Units
+NettyExampleBenchmark.get  thrpt   10  3.772 ± 0.223  ops/ms
+NettyExampleBenchmark.get   avgt   10  0.265 ± 0.007   ms/op
+NettyExampleBenchmark.get     ss   10  3.332 ± 2.624   ms/op

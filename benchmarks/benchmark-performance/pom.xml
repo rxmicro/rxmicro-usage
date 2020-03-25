@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2020. http://rxmicro.io
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>benchmarks</artifactId>
+        <groupId>io.rxmicro</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.rxmicro.benchmarks</groupId>
+    <artifactId>benchmark-performance</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>benchmark-performance-rxmicro-netty</module>
+        <module>benchmark-performance-common</module>
+        <module>benchmark-performance-rxmicro-epoll</module>
+        <module>benchmark-performance-netty-example</module>
+        <module>benchmark-performance-micronaut-netty</module>
+        <module>benchmark-performance-spring-webflux-netty</module>
+        <module>benchmark-performance-vertx-netty</module>
+        <module>benchmark-performance-rxmicro-native</module>
+    </modules>
+
+
+</project>

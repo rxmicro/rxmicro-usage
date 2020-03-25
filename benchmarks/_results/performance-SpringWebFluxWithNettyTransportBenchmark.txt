@@ -1,0 +1,4 @@
+Benchmark                                      Mode  Cnt  Score   Error   Units
+SpringWebFluxWithNettyTransportBenchmark.get  thrpt   10  2.347 ± 0.083  ops/ms
+SpringWebFluxWithNettyTransportBenchmark.get   avgt   10  0.425 ± 0.012   ms/op
+SpringWebFluxWithNettyTransportBenchmark.get     ss   10  3.500 ± 1.567   ms/op

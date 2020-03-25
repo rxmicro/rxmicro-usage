@@ -20,6 +20,8 @@ import io.rxmicro.common.RxMicroException;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import static io.rxmicro.common.util.Formats.format;
@@ -27,6 +29,7 @@ import static io.rxmicro.util.tests.Copies.copyDocs;
 import static io.rxmicro.util.tests.Copies.copyInput;
 import static io.rxmicro.util.tests.Copies.copyOutput;
 import static io.rxmicro.util.tests.Names.defineRootPackage;
+import static io.rxmicro.util.tests.Settings.AUTO_MODULE_PREFIX;
 import static io.rxmicro.util.tests.Settings.CDI;
 import static io.rxmicro.util.tests.Settings.DATA_MONGO;
 import static io.rxmicro.util.tests.Settings.DATA_R2DBC_POSTGRESQL;
@@ -88,7 +91,10 @@ public final class Launcher {
     private static void copyExamples() throws IOException {
         for (final File exampleProject : requireNonNull(new File(EXAMPLES_ROOT_DIR_PATH).listFiles())) {
             for (final Map.Entry<String, String> entry : RX_MICRO_MODULES.entrySet()) {
-                if (exampleProject.getName().startsWith(entry.getKey())) {
+                final String name = exampleProject.getName().startsWith(AUTO_MODULE_PREFIX) ?
+                        exampleProject.getName().substring(AUTO_MODULE_PREFIX.length()) :
+                        exampleProject.getName();
+                if (name.startsWith(entry.getKey())) {
                     if (!new File(exampleProject.getAbsolutePath(), "skip").exists()) {
                         final String srcRoot = format("?/src/main/java", exampleProject.getAbsolutePath());
                         if (new File(srcRoot).exists()) {
@@ -111,17 +117,13 @@ public final class Launcher {
             throw new RxMicroException("Generated source code not found: '?'. Run `mvn compile`", destRoot);
         }
         if (!DOCUMENTATION_ASCIIDOC.equals(entry.getKey())) {
-            final String[] exclude;
+            final List<String> exclude = new ArrayList<>();
             if (DATA_R2DBC_POSTGRESQL.equals(entry.getKey())) {
-                exclude = new String[]{
-                        "$$RepositoryFactoryImpl.java"
-                };
+                exclude.add("$$RepositoryFactoryImpl.java");
             } else if (DATA_MONGO.equals(entry.getKey())) {
-                exclude = new String[]{
-                        "$$RepositoryFactoryImpl.java"
-                };
+                exclude.add("$$RepositoryFactoryImpl.java");
             } else if (CDI.equals(entry.getKey())) {
-                exclude = new String[]{
+                exclude.addAll(List.of(
                         "$$RestControllerAggregatorImpl.java",
                         "$$RestClientFactoryImpl.java",
                         "$$RepositoryFactoryImpl.java",
@@ -129,11 +131,12 @@ public final class Launcher {
                         "Repository.java",
                         "RESTClient.java",
                         "RestClient.java"
-                };
-            } else {
-                exclude = new String[0];
+                ));
             }
-            copyOutput(destRoot, rootPackage, entry.getValue() + "/output", exclude);
+            if (!exampleProject.getName().startsWith(AUTO_MODULE_PREFIX)) {
+                exclude.add("$$EnvironmentCustomizer.java");
+            }
+            copyOutput(destRoot, rootPackage, entry.getValue() + "/output", exclude.toArray(new String[0]));
         }
         final String genDocsRoot = format("?/src/main/asciidoc", exampleProject.getAbsolutePath());
         if (new File(genDocsRoot).exists()) {
