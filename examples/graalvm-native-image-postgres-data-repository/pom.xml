@@ -30,12 +30,6 @@
 
     <build>
         <finalName>PostgresMicroService</finalName>
-        <testSourceDirectory>src/it/java</testSourceDirectory>
-        <testResources>
-            <testResource>
-                <directory>src/it/resources</directory>
-            </testResource>
-        </testResources>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -104,19 +98,6 @@
                                 </filter>
                             </filters>
                         </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>${maven-failsafe-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <phase>integration-test</phase>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
                     </execution>
                 </executions>
             </plugin>
