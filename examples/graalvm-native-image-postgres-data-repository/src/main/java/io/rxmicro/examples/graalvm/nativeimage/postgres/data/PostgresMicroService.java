@@ -35,7 +35,7 @@ public class PostgresMicroService {
         return dataRepository.select().thenApply(Response::new);
     }
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         RxMicro.startRestServer(PostgresMicroService.class);
     }
 }

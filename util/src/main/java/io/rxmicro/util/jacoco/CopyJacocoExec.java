@@ -58,7 +58,7 @@ public final class CopyJacocoExec {
         Files.copy(file.toPath(), Paths.get(REPORT.getAbsolutePath() + "/" + parent.getName() + "-" + file.getName()), REPLACE_EXISTING);
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(final String[] args) throws IOException {
         if (!CACHE.exists()) {
             CACHE.mkdirs();
         }

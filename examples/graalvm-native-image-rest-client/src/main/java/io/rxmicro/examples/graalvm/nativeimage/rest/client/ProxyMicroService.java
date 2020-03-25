@@ -35,7 +35,7 @@ public final class ProxyMicroService {
         return externalMicroService.getMessage();
     }
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         RxMicro.startRestServer(ProxyMicroService.class);
     }
 }

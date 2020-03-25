@@ -31,7 +31,7 @@ public final class HelloWorldMicroService {
         return completedFuture(new Response("Hello World"));
     }
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         // Do not try load any configurations
         new Configs.Builder()
                 .withoutAnyConfigLoadSources()
