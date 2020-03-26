@@ -164,12 +164,12 @@
         <module>processor-mongo</module>
         <module>processor-r2dbc-postgresql</module>
 
-        <module>auto-module-quick-start</module>
-        <module>auto-module-documentation-asciidoctor-metadata-annotations</module>
-        <module>auto-module-rest-controller-generator</module>
-        <module>auto-module-rest-client-generator</module>
-        <module>auto-module-cdi-find-beans</module>
-        <module>auto-module-uber-jar</module>
+        <module>unnamed-module-cdi-find-beans</module>
+        <module>unnamed-module-documentation-asciidoctor-metadata-annotations</module>
+        <module>unnamed-module-quick-start</module>
+        <module>unnamed-module-rest-client-generator</module>
+        <module>unnamed-module-rest-controller-generator</module>
+        <module>unnamed-module-uber-jar</module>
 
         <module>graalvm-native-image-quick-start</module>
         <module>graalvm-native-image-postgres-data-repository</module>

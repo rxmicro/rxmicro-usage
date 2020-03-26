@@ -23,7 +23,6 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
-import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariables;
 
 import java.io.File;
 import java.io.IOException;
@@ -59,7 +58,7 @@ final class HelloWorldMicroService_UsingNativeImage_IT {
     }
 
     @AfterAll
-    static void afterAll(){
+    static void afterAll() {
         process.destroyForcibly();
     }
 }

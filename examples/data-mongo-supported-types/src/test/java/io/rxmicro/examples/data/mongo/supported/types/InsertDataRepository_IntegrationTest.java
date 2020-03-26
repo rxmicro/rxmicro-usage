@@ -38,11 +38,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 final class InsertDataRepository_IntegrationTest {
 
-    @Container
-    private GenericContainer<?> mongoTestDb =
-            new GenericContainer<>("rxmicro/mongo-test-db")
-                    .withExposedPorts(27017);
-
     @WithConfig
     private static MongoConfig mongoConfig = new MongoConfig()
             .setDatabase("rxmicro")
@@ -51,6 +46,11 @@ final class InsertDataRepository_IntegrationTest {
                     .withExtendJavaCodecs()
                     .withExtendMongoCodecs()
             );
+
+    @Container
+    private GenericContainer<?> mongoTestDb =
+            new GenericContainer<>("rxmicro/mongo-test-db")
+                    .withExposedPorts(27017);
 
     private InsertDataRepository dataRepository;
 

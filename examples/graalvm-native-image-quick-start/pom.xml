@@ -51,7 +51,7 @@
                             </annotationProcessorPath>
                         </annotationProcessorPaths>
                         <compilerArgs>
-                            <arg>-ARX_MICRO_ENABLE_AUTOMATIC_MODULE=true</arg>
+                            <arg>-ARX_MICRO_BUILD_UNNAMED_MODULE=true</arg>
                         </compilerArgs>
                     </configuration>
                     <executions>

@@ -60,7 +60,7 @@ final class HelloWorldMicroService_OnJVM_IT {
     }
 
     @AfterAll
-    static void afterAll(){
+    static void afterAll() {
         process.destroyForcibly();
     }
 }

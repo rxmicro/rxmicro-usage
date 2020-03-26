@@ -40,11 +40,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 final class DeleteDataRepository_IntegrationTest {
 
-    @Container
-    private GenericContainer<?> mongoTestDb =
-            new GenericContainer<>("rxmicro/mongo-test-db")
-                    .withExposedPorts(27017);
-
     @WithConfig
     private static MongoConfig mongoConfig = new MongoConfig()
             .setDatabase("rxmicro")
@@ -53,6 +48,11 @@ final class DeleteDataRepository_IntegrationTest {
                     .withExtendJavaCodecs()
                     .withExtendMongoCodecs()
             );
+
+    @Container
+    private GenericContainer<?> mongoTestDb =
+            new GenericContainer<>("rxmicro/mongo-test-db")
+                    .withExposedPorts(27017);
 
     private DeleteDataRepository dataRepository;
 

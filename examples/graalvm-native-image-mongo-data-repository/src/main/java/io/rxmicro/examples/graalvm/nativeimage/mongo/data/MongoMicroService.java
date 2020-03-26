@@ -30,7 +30,7 @@ public final class MongoMicroService {
     private final MongoDataRepository dataRepository = getRepository(MongoDataRepository.class);
 
     @GET("/")
-    CompletableFuture<Response> get(){
+    CompletableFuture<Response> get() {
         return dataRepository.count().thenApply(Response::new);
     }
 

@@ -17,7 +17,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <rxmicro.version>0.2-SNAPSHOT</rxmicro.version>
+        <rxmicro.version>0.2</rxmicro.version>
 
         <jmh.version>1.22</jmh.version>
 

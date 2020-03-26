@@ -26,7 +26,7 @@ public class HelloWorldVerticle extends AbstractVerticle {
     private HttpServer server;
 
     @Override
-    public void start(final Future<Void> startFuture){
+    public void start(final Future<Void> startFuture) {
         server = vertx.createHttpServer().requestHandler(req -> {
             req.response()
                     .putHeader("content-type", "application/json")
@@ -42,9 +42,9 @@ public class HelloWorldVerticle extends AbstractVerticle {
     }
 
     @Override
-    public void stop(final Future<Void> stopFuture){
+    public void stop(final Future<Void> stopFuture) {
         server.close(res -> {
-            if(res.succeeded()) {
+            if (res.succeeded()) {
                 stopFuture.complete();
             } else {
                 stopFuture.fail(res.cause());
