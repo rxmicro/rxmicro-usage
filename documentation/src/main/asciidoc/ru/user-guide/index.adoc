@@ -11,6 +11,7 @@ include::_fragment/preface.adoc[]
 . <<microservice.adoc#,*What microservice is?*>>
 . <<quick-start.adoc#,*Quick Start*>>
 . <<core.adoc#,*Core Concepts*>>
+. <<java-integration.adoc#,*Java EcoSystem Integration*>>
 . <<rest-controller.adoc#,*REST Controller*>>
 . <<rest-client.adoc#,*REST Client*>>
 . <<validation.adoc#,*Validation*>>

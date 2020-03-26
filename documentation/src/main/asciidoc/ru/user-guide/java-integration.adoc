@@ -1,17 +1,17 @@
-[[rest-client-section]]
-= REST Client
+[[java-integration-section]]
+= Java EcoSystem Integration
 include::_fragment/settings.adoc[]
 :guide-kind: section
-:current-entity: rest-client
+:current-entity: java-integration
 :imagesdir: ../../images
 
 :introduction: introduction.adoc
 :microservice: microservice.adoc
 :quick-start: quick-start.adoc
 :core: core.adoc
-:java-integration: java-integration.adoc
+:java-integration:
 :rest-controller: rest-controller.adoc
-:rest-client:
+:rest-client: rest-client.adoc
 :validation: validation.adoc
 :project-documentation: project-documentation.adoc
 :data-postgresql: data-postgresql.adoc
@@ -24,6 +24,6 @@ include::_fragment/nav.adoc[]
 
 include::_fragment/preface.adoc[]
 
-include::../_fragment/rest-client.adoc[leveloffset=-1]
+include::../_fragment/java-integration.adoc[leveloffset=-1]
 
 include::_fragment/nav.adoc[]
