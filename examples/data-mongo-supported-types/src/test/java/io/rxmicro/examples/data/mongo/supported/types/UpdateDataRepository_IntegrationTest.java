@@ -16,6 +16,7 @@
 
 package io.rxmicro.examples.data.mongo.supported.types;
 
+import io.rxmicro.data.mongo.MongoCodecsConfigurator;
 import io.rxmicro.data.mongo.MongoConfig;
 import io.rxmicro.examples.data.mongo.supported.types.model.SupportedTypesDocument;
 import io.rxmicro.examples.data.mongo.supported.types.model.SupportedTypesEntity;
@@ -51,7 +52,12 @@ final class UpdateDataRepository_IntegrationTest {
 
     @WithConfig
     private static MongoConfig mongoConfig = new MongoConfig()
-            .setDatabase("rxmicro");
+            .setDatabase("rxmicro")
+            .setMongoCodecsConfigurator(new MongoCodecsConfigurator()
+                    .withDefaultConfiguration()
+                    .withExtendJavaCodecs()
+                    .withExtendMongoCodecs()
+            );
 
     @BeforeAll
     static void beforeAll() {

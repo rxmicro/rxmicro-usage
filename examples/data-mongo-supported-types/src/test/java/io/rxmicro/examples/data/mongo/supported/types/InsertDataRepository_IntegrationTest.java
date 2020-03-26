@@ -16,6 +16,7 @@
 
 package io.rxmicro.examples.data.mongo.supported.types;
 
+import io.rxmicro.data.mongo.MongoCodecsConfigurator;
 import io.rxmicro.data.mongo.MongoConfig;
 import io.rxmicro.examples.data.mongo.supported.types.model.SupportedTypesEntity;
 import io.rxmicro.test.WithConfig;
@@ -43,8 +44,13 @@ final class InsertDataRepository_IntegrationTest {
                     .withExposedPorts(27017);
 
     @WithConfig
-    private MongoConfig mongoConfig = new MongoConfig()
-            .setDatabase("rxmicro");
+    private static MongoConfig mongoConfig = new MongoConfig()
+            .setDatabase("rxmicro")
+            .setMongoCodecsConfigurator(new MongoCodecsConfigurator()
+                    .withDefaultConfiguration()
+                    .withExtendJavaCodecs()
+                    .withExtendMongoCodecs()
+            );
 
     private InsertDataRepository dataRepository;
 
