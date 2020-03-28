@@ -53,17 +53,18 @@ jobs:
           LATEST_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
           cd ../
           cd documentation/
-          mvn -Drxmicro.version=$LATEST_VERSION -B package --file pom.xml
+          mvn -Drxmicro.version=$LATEST_VERSION -B verify --file pom.xml
 
       - name: Clone `rxmicro.github.io`
         run: git clone https://github.com/rxmicro/rxmicro.github.io
 
       - name: Update `rxmicro.github.io` Repository
         run: |
-          rm -R rxmicro.github.io/doc/latest/
-          mv documentation/target/generated-docs/images rxmicro.github.io/doc/latest
-          mv documentation/target/generated-docs/project-documentation-examples rxmicro.github.io/doc/latest
-          mv documentation/target/generated-docs/ru rxmicro.github.io/doc/latest
+          CURRENT_DIR=$(pwd)
+          rm -R $CURRENT_DIR/rxmicro.github.io/doc/latest/
+          mv -v $CURRENT_DIR/documentation/target/generated-docs/images $CURRENT_DIR/rxmicro.github.io/doc/latest
+          mv -v $CURRENT_DIR/documentation/target/generated-docs/project-documentation-examples $CURRENT_DIR/rxmicro.github.io/doc/latest
+          mv -v $CURRENT_DIR/documentation/target/generated-docs/ru $CURRENT_DIR/rxmicro.github.io/doc/latest
 
       - name: Commit and Push Changes to `rxmicro.github.io` Repository
         run: |
