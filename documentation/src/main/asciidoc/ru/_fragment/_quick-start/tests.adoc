@@ -154,20 +154,20 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/quick-start/src/test/java/io/r
 
 Для запуска тестов необходимо выполнить команду:
 
-[source,txt]
+[source,txt,subs="verbatim,quotes"]
 ----
-mvn clean test
+*mvn* clean test
 ----
 
 После запуска в консоли отобразится следующая информация:
 
-[source,text]
+[source,text,subs="verbatim,quotes"]
 ----
 ...
 [INFO] Compiling 3 source files to ~/examples/quick-start/target/classes
 [INFO]
 [INFO] -------------------------------------------------------
-[INFO]  RX-MICRO ANNOTATIONS PROCESSING # <1>
+[INFO]  *RX-MICRO ANNOTATIONS PROCESSING* # <1>
 [INFO] -------------------------------------------------------
 [INFO] Current environment context is:
   Current module:
@@ -186,7 +186,7 @@ mvn clean test
 [INFO] Compiling 1 source file to ~/examples/quick-start/target/test-classes
 [INFO]
 [INFO] -------------------------------------------------------
-[INFO]  RX-MICRO TEST ANNOTATIONS PROCESSING # <3>
+[INFO]  *RX-MICRO TEST ANNOTATIONS PROCESSING* # <3>
 [INFO] -------------------------------------------------------
 [INFO] Generating java classes...
 [INFO] All java classes generated successful in 0.366 seconds. # <4>
@@ -194,17 +194,17 @@ mvn clean test
 [INFO] Annotations processing completed successful.
 ...
 [INFO] -------------------------------------------------------
-[INFO]  T E S T S
+[INFO]  *T E S T S*
 [INFO] -------------------------------------------------------
-opens rxmicro.runtime/io.rxmicro.runtime.local to ALL-UNNAMED # <5>
-opens rxmicro.runtime/io.rxmicro.runtime.local.error to ALL-UNNAMED # <5>
-opens rxmicro.runtime/io.rxmicro.runtime.local.provider to ALL-UNNAMED # <5>
-opens rxmicro.rest.server/io.rxmicro.rest.server.local.model to ALL-UNNAMED # <5>
-opens rxmicro.rest.server/io.rxmicro.rest.server.local.component to ALL-UNNAMED # <5>
-opens rxmicro.rest.server/io.rxmicro.rest.server.local.component.impl to ALL-UNNAMED
-opens examples.quick.start/io.rxmicro.examples.quick.start to ALL-UNNAMED # <5>
-opens examples.quick.start/rxmicro to ALL-UNNAMED # <5>
-[INFO] Running io.rxmicro.examples.quick.start.HelloWorldMicroServiceTest # <6>
+*opens* rxmicro.runtime/io.rxmicro.runtime.local to ALL-UNNAMED # <5>
+*opens* rxmicro.runtime/io.rxmicro.runtime.local.error to ALL-UNNAMED # <5>
+*opens* rxmicro.runtime/io.rxmicro.runtime.local.provider to ALL-UNNAMED # <5>
+*opens* rxmicro.rest.server/io.rxmicro.rest.server.local.model to ALL-UNNAMED # <5>
+*opens* rxmicro.rest.server/io.rxmicro.rest.server.local.component to ALL-UNNAMED # <5>
+*opens* rxmicro.rest.server/io.rxmicro.rest.server.local.component.impl to ALL-UNNAMED
+*opens* examples.quick.start/io.rxmicro.examples.quick.start to ALL-UNNAMED # <5>
+*opens* examples.quick.start/rxmicro to ALL-UNNAMED # <5>
+[INFO] Running *io.rxmicro.examples.quick.start.HelloWorldMicroServiceTest* # <6>
 [INFO] i.r.r.s.n.i.c.NettyServer : Server started at 0.0.0.0:45853 using NETTY transport. # <7>
 [INFO] i.r.h.c.j.i.JdkHttpClient : JdkHttpClient released # <8>
 [INFO] i.r.r.s.n.i.c.NettyServer : Retrieved shutdown request ...
@@ -212,7 +212,7 @@ opens examples.quick.start/rxmicro to ALL-UNNAMED # <5>
 [INFO]
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0 # <10>
 [INFO]
-[INFO] BUILD SUCCESS
+[INFO] *BUILD SUCCESS*
 [INFO] -------------------------------------------------------
 ----
 

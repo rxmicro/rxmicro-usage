@@ -61,7 +61,7 @@ _(Подробнее об виртуальном дескрипторе можн
 В результате будет создан `uber.jar` со всеми необходимыми зависимостями:
 [source,txt,subs="verbatim,quotes"]
 ----
-> ls -lh
+:$ *ls* -lh
 
 -rw-rw-r-- 1 nedis nedis *1,4M* Mar 28 11:03 *unnamed-module-uber-jar-1.0-SNAPSHOT.jar*          # <1>
 -rw-rw-r-- 1 nedis nedis *9,8K* Mar 28 11:03 original-unnamed-module-uber-jar-1.0-SNAPSHOT.jar # <2>

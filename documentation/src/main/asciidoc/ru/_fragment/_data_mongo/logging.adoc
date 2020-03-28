@@ -14,9 +14,9 @@ org.mongodb.driver.protocol.level=TRACE
 
 ,то в процессе работы Mongo Data Repositories будут генерировать логи запросов к Mongo DB:
 
-[source,text]
+[source,text,subs="verbatim,quotes"]
 ----
-2020-03-08 13:15:03.912 [DEBUG] org.mongodb.driver.protocol.command : Sending command '{"find": "account", "filter": {"_id": 1}, "batchSize": 2147483647, "$db": "rxmicro"}' with request id 6 to database rxmicro on connection [connectionId{localValue:2, serverValue:4}] to server localhost:27017
+2020-03-08 13:15:03.912 [DEBUG] org.mongodb.driver.protocol.command : Sending command *'{"find": "account", "filter": {"_id": 1}, "batchSize": 2147483647, "$db": "rxmicro"}'* with request id 6 to database rxmicro on connection [*connectionId{localValue:2, serverValue:4}*] to server *localhost:27017*
 
 2020-03-08 13:15:03.914 [DEBUG] org.mongodb.driver.protocol.command : Execution of command with request id 6 completed successfully in 3.11 ms on connection [connectionId{localValue:2, serverValue:4}] to server localhost:27017
 ----

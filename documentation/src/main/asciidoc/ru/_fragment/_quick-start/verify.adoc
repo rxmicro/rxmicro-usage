@@ -2,9 +2,9 @@
 
 Для получения сообщения `"Hello World!"` от созданного REST-based микросервиса, выполняем `GET` запрос на `localhost:8080`:
 
-[source,text]
+[source,text,subs="verbatim,quotes"]
 ----
-curl -v localhost:8080
+:$ *curl* -v localhost:8080
 
 * Rebuilt URL to: localhost:8080/
 *   Trying 127.0.0.1...
@@ -25,7 +25,7 @@ curl -v localhost:8080
 < Request-Id: 62jJeu8x1310662
 <
 * Connection #0 to host localhost left intact
-{"message":"Hello World!"} <2>
+*{"message":"Hello World!"}* <2>
 ----
 <1>  HTTP сервер успешно возвращает ответ.
 <2>  В HTTP теле возвращается JSON ответ с сообщением `"Hello World!"`.

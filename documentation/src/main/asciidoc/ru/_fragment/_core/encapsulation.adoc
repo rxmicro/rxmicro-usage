@@ -47,9 +47,9 @@ public final class $$ResponseModelToJsonConverter extends ModelToJsonConverter<R
 Использование `reflection` при конвертации из Java модели в JSON модель при обработке каждого запроса может <<core-encapsulation-benchmark,ухудшить производительность микросервиса>> в том месте, где можно этой проблемы избежать.
 Поэтому при компиляции данного класса `RxMicroAnnotationProcessor` выдает предупреждение:
 
-[source,text]
+[source,text,subs="verbatim,quotes"]
 ----
-[WARNING] Response.java:[27,26] PERFORMANCE WARNING: To read a value from io.rxmicro.example.hello.world.Response.message rxmicro will use the reflection.
+*[WARNING]* Response.java:[27,26] *PERFORMANCE WARNING*: To read a value from io.rxmicro.example.hello.world.Response.message rxmicro will use the reflection.
 It is recommended to add a getter or change the field modifier: from private to default, protected or public.
 ----
 

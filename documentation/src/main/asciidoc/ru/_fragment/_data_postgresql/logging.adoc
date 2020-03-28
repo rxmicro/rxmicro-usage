@@ -14,9 +14,9 @@ io.r2dbc.postgresql.QUERY.level=TRACE
 
 ,то в процессе работы PostgreSQL Data Repositories будут генерировать логи запросов к базе данных:
 
-[source,text]
+[source,text,subs="verbatim,quotes"]
 ----
-[DEBUG] io.r2dbc.postgresql.QUERY : Executing query: SHOW TRANSACTION ISOLATION LEVEL
-[DEBUG] io.r2dbc.postgresql.QUERY : Executing query: SELECT 2+2
-[DEBUG] io.r2dbc.postgresql.QUERY : Executing query: SELECT first_name, last_name FROM account WHERE email = $1
+[DEBUG] io.r2dbc.postgresql.QUERY : Executing query: *SHOW TRANSACTION ISOLATION LEVEL*
+[DEBUG] io.r2dbc.postgresql.QUERY : Executing query: *SELECT 2+2*
+[DEBUG] io.r2dbc.postgresql.QUERY : Executing query: *SELECT first_name, last_name FROM account WHERE email = $1*
 ----

@@ -81,16 +81,16 @@
 
 Если `native transports` был успешно активирован, то в информационном сообщении о старте HTTP сервера, будет отображаться соответствующее тип транспорта.
 
-[source,text]
+[source,text,subs="verbatim,quotes"]
 ----
 2020-02-02 20:14:11.707 [INFO] io.rxmicro.rest.server.netty.internal.component.NettyServer :
-Server started at 0.0.0.0:8080 using EPOLL transport in 500 millis. # <1>
+Server started at 0.0.0.0:8080 using *EPOLL* transport in 500 millis. # <1>
 ----
 <1> Сообщение формата `using EPOLL transport` означает, что `Netty` будет использовать `netty-transport-native-epoll` библиотеку.
 
-[source,text]
+[source,text,subs="verbatim,quotes"]
 ----
 2020-02-02 20:14:11.707 [INFO] io.rxmicro.rest.server.netty.internal.component.NettyServer :
-Server started at 0.0.0.0:8080 using KQUEUE transport in 500 millis. # <1>
+Server started at 0.0.0.0:8080 using *KQUEUE* transport in 500 millis. # <1>
 ----
 <1> Сообщение формата `using KQUEUE transport` означает, что `Netty` будет использовать `netty-transport-native-kqueue` библиотеку.

@@ -11,29 +11,29 @@ io.rxmicro.config.level=DEBUG # <1>
 
 После активации логгера запуск микросервиса с настройками по умолчанию будет следующим:
 
-[source,text]
+[source,text,subs="verbatim,quotes"]
 ----
-[DEBUG] Discovering properties for 'rest-server' namespace from sources: [DEFAULT_CONFIG_VALUES, RXMICRO_CLASS_PATH_RESOURCE, SEPARATE_CLASS_PATH_RESOURCE, ENVIRONMENT_VARIABLES, JAVA_SYSTEM_PROPERTIES]
+[DEBUG] Discovering properties for 'rest-server' namespace from sources: [*DEFAULT_CONFIG_VALUES*, *RXMICRO_CLASS_PATH_RESOURCE*, *SEPARATE_CLASS_PATH_RESOURCE*, *ENVIRONMENT_VARIABLES*, *JAVA_SYSTEM_PROPERTIES*]
 
-[DEBUG] Classpath resource not found: rest-server.properties
+[DEBUG] Classpath resource not found: *rest-server.properties*
 
 [DEBUG] All properties discovered for 'rest-server' namespace # <1>
 
-[DEBUG] Discovering properties for 'http-server' namespace from sources: [DEFAULT_CONFIG_VALUES, RXMICRO_CLASS_PATH_RESOURCE, SEPARATE_CLASS_PATH_RESOURCE, ENVIRONMENT_VARIABLES, JAVA_SYSTEM_PROPERTIES]
+[DEBUG] Discovering properties for 'http-server' namespace from sources: [*DEFAULT_CONFIG_VALUES*, *RXMICRO_CLASS_PATH_RESOURCE*, *SEPARATE_CLASS_PATH_RESOURCE*, *ENVIRONMENT_VARIABLES*, *JAVA_SYSTEM_PROPERTIES*]
 
-[DEBUG] Discovered properties from 'rxmicro.properties' classpath resource: [http-server.port=9090, http-server.host=localhost] # <2>
+[DEBUG] Discovered properties from *'rxmicro.properties'* classpath resource: [http-server.port=9090, http-server.host=localhost] # <2>
 
-[DEBUG] Discovered properties from 'http-server.properties' classpath resource: [port=9876] # <3>
+[DEBUG] Discovered properties from *'http-server.properties'* classpath resource: [port=9876] # <3>
 
 [DEBUG] All properties discovered for 'http-server' namespace
 
-[DEBUG] Discovering properties for 'netty-rest-server' namespace from sources: [DEFAULT_CONFIG_VALUES, RXMICRO_CLASS_PATH_RESOURCE, SEPARATE_CLASS_PATH_RESOURCE, ENVIRONMENT_VARIABLES, JAVA_SYSTEM_PROPERTIES]
+[DEBUG] Discovering properties for 'netty-rest-server' namespace from sources: [*DEFAULT_CONFIG_VALUES*, *RXMICRO_CLASS_PATH_RESOURCE*, *SEPARATE_CLASS_PATH_RESOURCE*, *ENVIRONMENT_VARIABLES*, *JAVA_SYSTEM_PROPERTIES*]
 
-[DEBUG] Classpath resource not found: netty-rest-server.properties
+[DEBUG] Classpath resource not found: *netty-rest-server.properties*
 
 [DEBUG] All properties discovered for 'netty-rest-server' namespace # <4>
 
-[INFO] Server started at 0.0.0.0:9876 using NETTY transport in 500 millis. # <5>
+[INFO] Server started at *0.0.0.0:9876* using NETTY transport in 500 millis. # <5>
 ----
 <1> Кастомизация конфигурации для пространства имен `rest-server` отсутствует, поэтому будет использована конфигурация по умолчанию.
 <2> Считывание конфигурации для пространства имен `http-server` с classpath ресурса 'rxmicro.properties' (Считались значения: `http-server.port=9090`, `http-server.host=localhost`).

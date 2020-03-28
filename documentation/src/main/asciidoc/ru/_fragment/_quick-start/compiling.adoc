@@ -6,9 +6,9 @@
 
 Для компиляции проекта с помощью `maven` откройте терминал в корневой папке проекта и выполните следующую команду:
 
-[source,text]
+[source,text,subs="verbatim,quotes"]
 ----
-mvn clean compile
+*mvn* clean compile
 ----
 
 include::../___notes/run-maven-in-terminal-note.adoc[]
@@ -23,10 +23,10 @@ image::quick-start/maven-panel.jpg[]
 
 После успешного выполнения компиляции в терминале отображается информация о работе `RxMicroAnnotationProcessor`:
 
-[source,text]
+[source,text,subs="verbatim,quotes"]
 ----
 [INFO] -------------------------------------------------------
-[INFO]  RX-MICRO ANNOTATIONS PROCESSING
+[INFO]  *RX-MICRO ANNOTATIONS PROCESSING*
 [INFO] -------------------------------------------------------
 [INFO] Current environment context is:
   Current module:
@@ -36,9 +36,9 @@ image::quick-start/maven-panel.jpg[]
   Include packages: <none>
   Exclude packages: <none>
 [INFO] Found the following REST controllers:
-  GET / -> io.rxmicro.examples.quick.start.HelloWorldMicroService.sayHelloWorld()
+  *GET / -> io.rxmicro.examples.quick.start.HelloWorldMicroService.sayHelloWorld()*
 [INFO] Generating java classes...
-[INFO] All java classes generated successful in 0.313 seconds. # <1>
+[INFO] *All java classes generated successful in 0.313 seconds*. # <1>
 [INFO] -------------------------------------------------------
 [INFO] Annotations processing completed successful.
 ----

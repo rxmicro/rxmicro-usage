@@ -117,16 +117,16 @@ public final class $$ComponentTestFixer {
 
 Перед запуском тестов RxMicro использует сгенерированный класс для конфигурации модульной системы для тестового окружения:
 
-[source,text]
+[source,text,subs="verbatim,quotes"]
 ----
 [INFO] -------------------------------------------------------
-[INFO]  T E S T S
+[INFO]  *T E S T S*
 [INFO] -------------------------------------------------------
-opens examples.testing/io.rxmicro.examples.testing to ALL-UNNAMED # <1>
-opens examples.testing/rxmicro to ALL-UNNAMED
-[INFO] Running io.rxmicro.examples.testing.ParentComponent1Test # <2>
+*opens* examples.testing/io.rxmicro.examples.testing to ALL-UNNAMED # <1>
+*opens* examples.testing/rxmicro to ALL-UNNAMED
+[INFO] Running *io.rxmicro.examples.testing.ParentComponent1Test* # <2>
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.278 s
-[INFO] Running io.rxmicro.examples.testing.ParentComponent2Test
+[INFO] Running *io.rxmicro.examples.testing.ParentComponent2Test*
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.378 s
 [INFO]
 [INFO] Results:
@@ -134,7 +134,7 @@ opens examples.testing/rxmicro to ALL-UNNAMED
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
 [INFO]
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] *BUILD SUCCESS*
 [INFO] ------------------------------------------------------------------------
 ----
 <1> Перед запуском тестов открыты все пакеты текущего модуля.

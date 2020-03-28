@@ -43,9 +43,9 @@ image::quick-start/create-maven-project-step3.jpg[]
 
 Для этого необходимо открыть терминал и выполнить следующую команду:
 
-[source,text]
+[source,text,subs="verbatim,quotes"]
 ----
-mvn archetype:generate -DgroupId=io.rxmicro.examples -DartifactId=quick-start -DinteractiveMode=false
+*mvn* archetype:generate -DgroupId=io.rxmicro.examples -DartifactId=quick-start -DinteractiveMode=false
 ----
 
 include::../___notes/run-maven-in-terminal-note.adoc[]
