@@ -64,7 +64,9 @@ jobs:
           mkdir rxmicro.github.io/doc/latest/
           mv -v documentation/target/generated-docs/images rxmicro.github.io/doc/latest
           mv -v documentation/target/generated-docs/project-documentation-examples rxmicro.github.io/doc/latest
-          mv -v documentation/target/generated-docs/ru rxmicro.github.io/doc/latest
+          mv -v documentation/target/generated-docs/ru/user-guide rxmicro.github.io/doc/latest
+          mv -v documentation/target/generated-docs/ru/user-guide.html rxmicro.github.io/doc/latest
+          mv -v documentation/target/generated-docs/ru/user-guide.pdf rxmicro.github.io/doc/latest
 
       - name: Commit and Push Changes to `rxmicro.github.io` Repository
         run: |
