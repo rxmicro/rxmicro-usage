@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-// tag::content[]
 package io.rxmicro.examples.graalvm.nativeimage.quick.start;
 
 import static java.util.Objects.requireNonNull;
 
+// tag::content[]
 final class Response {
 
     final String message;

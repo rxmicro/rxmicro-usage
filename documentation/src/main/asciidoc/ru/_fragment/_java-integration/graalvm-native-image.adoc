@@ -1,7 +1,5 @@
-:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
-
 [[java-integration-graalvm-native-image]]
-=== Using GraalVM to Build Native Image
+=== Using GraalVM to Build a Native Image
 
 https://www.graalvm.org/[GraalVM^] is a universal virtual machine for running applications written in different languages.
 
@@ -12,10 +10,4 @@ Before build a native image it is necessary to setup GraalVM developer environme
 
 include::graalvm-native-image/setup.adoc[]
 
-
-
-
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}graalvm-native-image-quick-start
-include::../___notes/full-source-code-of-example.adoc[]
-
-include::../___notes/recompile-after-change.adoc[]
+include::graalvm-native-image/project-example.adoc[]

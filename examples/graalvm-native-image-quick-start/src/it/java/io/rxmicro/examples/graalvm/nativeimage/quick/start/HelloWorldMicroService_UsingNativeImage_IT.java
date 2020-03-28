@@ -31,19 +31,17 @@ import java.util.concurrent.TimeUnit;
 import static io.rxmicro.test.json.JsonFactory.jsonObject;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@RxMicroIntegrationTest
 @EnabledIfEnvironmentVariable(named = "GRAALVM_HOME", matches = ".*?")
+// tag::content[]
+@RxMicroIntegrationTest
 final class HelloWorldMicroService_UsingNativeImage_IT {
 
     static Process process;
 
     @BeforeAll
     static void beforeAll() throws IOException, InterruptedException {
-        process = Runtime.getRuntime().exec(
-                new String[]{"./HelloWorldMicroService"},
-                null,
-                new File(".")
-        );
+        final String[] args = {"./HelloWorldMicroService"};
+        process = Runtime.getRuntime().exec(args, null, new File("."));
         process.waitFor(1, TimeUnit.SECONDS);
     }
 
@@ -62,3 +60,4 @@ final class HelloWorldMicroService_UsingNativeImage_IT {
         process.destroyForcibly();
     }
 }
+// end::content[]

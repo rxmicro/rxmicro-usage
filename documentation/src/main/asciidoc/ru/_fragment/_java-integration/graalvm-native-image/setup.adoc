@@ -1,4 +1,4 @@
-==== Setup GraalVM
+==== Setup a GraalVM
 
 GraalVM is distributed as Community Edition and Enterprise Edition.
 Current guide describes a use of the GraalVM Community Edition (GraalVM CE).

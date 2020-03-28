@@ -30,6 +30,7 @@ import java.util.concurrent.TimeUnit;
 import static io.rxmicro.test.json.JsonFactory.jsonObject;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+// tag::content[]
 @RxMicroIntegrationTest
 final class HelloWorldMicroService_OnJVM_IT {
 
@@ -64,3 +65,4 @@ final class HelloWorldMicroService_OnJVM_IT {
         process.destroyForcibly();
     }
 }
+// end::content[]

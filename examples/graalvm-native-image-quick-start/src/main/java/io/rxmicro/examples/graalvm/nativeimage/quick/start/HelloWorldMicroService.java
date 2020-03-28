@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-// tag::content[]
 package io.rxmicro.examples.graalvm.nativeimage.quick.start;
 
 import io.rxmicro.config.Configs;
@@ -23,6 +22,7 @@ import sun.misc.Signal;
 
 import java.util.concurrent.CompletableFuture;
 
+// tag::content[]
 public final class HelloWorldMicroService {
 
     @GET("/")
@@ -33,10 +33,10 @@ public final class HelloWorldMicroService {
 
     public static void main(final String[] args) {
         new Configs.Builder()
-                .withDockerConfigLoadSources()
+                .withDockerConfigLoadSources() // <1>
                 .build();
         RxMicro.startRestServer(HelloWorldMicroService.class);
-        Signal.handle(new Signal("INT"), sig -> System.exit(0));
+        Signal.handle(new Signal("INT"), sig -> System.exit(0)); // <2>
     }
 }
 // end::content[]
