@@ -1,0 +1,98 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../../
+
+[[java-integration-unnamed-module-module-config]]
+==== Module Configuration
+
+Некоторые `rxmicro` модули позволяют задавать общую конфигурацию с помощью `RxMicro Annotations`, которыми аннотируется дескриптор модуля `module-info.java`.
+Но для `unnamed module`, дескриптор модуля `module-info.java` не существует!
+
+В таких случаях необходимо создать виртуальный дескриптор:
+
+[source,java]
+----
+@Retention(SOURCE)
+@Target({})
+public @interface ModuleInfo {
+}
+----
+
+Виртуальным дескриптором является пользовательская аннотация, удовлетворяющая следующим требованиям:
+
+. Имя виртуального дескриптора является фиксированным и равно: `ModuleInfo`.
+. Аннотация должна находится в пакете по-умолчанию (`unnamed package`).
+. Аннотация должна быть доступна только в процессе компиляции: `@Retention(SOURCE)`.
+. Аннотация должна содержать пустой список targets: `@Target({})`.
+
+[TIP]
+====
+Так как виртуальный дескриптор доступен только в процессе компиляции, то в процессе сборки `uber.jar` данную аннотацию можно не включать в результирующий `jar`.
+
+Именно поэтому <<java-integration-unnamed-module-uber-jar-maven-shade-plugin,при настройке `maven-shade-plugin` была добавлена следующая настройка>>:
+[source,xml]
+----
+<filters>
+    <filter>
+        <artifact>*:*</artifact>
+        <excludes>
+            <exclude>ModuleInfo.*</exclude>
+        </excludes>
+    </filter>
+</filters>
+----
+====
+
+===== Конфигурирование процесса генерации кода для Rest Controller
+
+RxMicro предоставляет возможность конфигурировать процесс генерации кода для REST контроллеров.
+Для этих целей необходимо использовать аннотацию `@RestServerGeneratorConfig`, с помощью которой аннотируется
+<<rest-controller#rest-controller-rest-server-generator-config-section,дескриптор модуля `module-info.java`>>.
+
+Для `unnamed module` вместо дескриптора модуля `module-info.java`, используйте аннотацию `ModuleInfo`:
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/unnamed-module-rest-controller-generator/src/main/java/ModuleInfo.java[tags=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}unnamed-module-rest-controller-generator
+include::../../___notes/full-source-code-of-example.adoc[]
+
+include::../../___notes/recompile-after-change.adoc[]
+
+<<<
+
+===== Конфигурирование процесса генерации кода для Rest Client
+
+RxMicro предоставляет возможность конфигурировать процесс генерации кода для REST клиентов.
+Для этих целей необходимо использовать аннотацию `@RestClientGeneratorConfig`, с помощью которой аннотируется
+<<rest-client#rest-client-rest-client-generator-config-section,дескриптор модуля `module-info.java`>>.
+
+Для `unnamed module` вместо дескриптора модуля `module-info.java`, используйте аннотацию `ModuleInfo`:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/unnamed-module-rest-client-generator/src/main/java/ModuleInfo.java[tags=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}unnamed-module-rest-client-generator
+include::../../___notes/full-source-code-of-example.adoc[]
+
+include::../../___notes/recompile-after-change.adoc[]
+
+<<<
+
+===== Customization of Project Generation Process
+
+RxMicro предоставляет возможность конфигурировать процесс генерации проектной документации с помощью аннотаций.
+Данными аннотациями аннотируется <<project-documentation#project-documentation-metadata-annotations-section,дескриптор модуля `module-info.java`>>.
+
+Для `unnamed module` вместо дескриптора модуля `module-info.java`, используйте аннотацию `ModuleInfo`:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/unnamed-module-documentation-asciidoctor-metadata-annotations/src/main/java/ModuleInfo.java[tags=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}unnamed-module-documentation-asciidoctor-metadata-annotations
+include::../../___notes/full-source-code-of-example.adoc[]
+
+include::../../___notes/recompile-after-change.adoc[]

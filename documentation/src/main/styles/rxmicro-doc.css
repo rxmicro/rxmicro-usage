@@ -636,3 +636,6 @@ p.tableblock.header { color: #6d6e71; }
 /* rxmicro */
 .sectionbody a code {text-decoration: underline}
 table.tableblock {width: 100%}
+.example-code-link a > code {white-space:normal !important}
+h1 a > code, h2 a > code, h3 a > code, h4 a > code, h5 a > code, h6 a > code {white-space:normal !important; text-decoration: none !important}
+#toc a > code {white-space:normal !important}

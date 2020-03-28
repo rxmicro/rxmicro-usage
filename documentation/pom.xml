@@ -12,7 +12,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <asciidoctorj.pdf.version>1.5.0</asciidoctorj.pdf.version>
+        <asciidoctorj.pdf.version>1.5.3</asciidoctorj.pdf.version>
     </properties>
 
     <build>

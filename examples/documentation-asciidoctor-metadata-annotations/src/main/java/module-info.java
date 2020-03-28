@@ -40,8 +40,8 @@ import io.rxmicro.documentation.Title;
 )
 @BaseEndpoint("https://api.rxmicro.io")
 @License(
-        name = "MIT License",
-        url = "https://github.com/rxmicro/rxmicro-usage/blob/master/examples/LICENSE"
+        name = "Apache License 2.0",
+        url = "https://github.com/rxmicro/rxmicro/blob/master/LICENSE"
 )
 @DocumentationDefinition(
         introduction = @IntroductionDefinition(

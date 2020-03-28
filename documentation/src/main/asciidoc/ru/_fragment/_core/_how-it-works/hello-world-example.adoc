@@ -272,7 +272,7 @@ public final class $$RestControllerAggregatorImpl extends RestControllerAggregat
 [[core-how-it-works-environment-customizer]]
 ===== Environment Customizer
 
-Java 9 ввела в использование https://www.oracle.com/corporate/features/understanding-java-9-modules.html[модульную систему^].
+Java 9 ввела в использование https://www.oracle.com/corporate/features/understanding-java-9-modules.html[JPMS^].
 
 Данная система требует, чтобы разработчик конфигурировал доступ к пакетам классов в файле *module-info.java* проекта микросервиса.
 

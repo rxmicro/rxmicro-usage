@@ -32,8 +32,8 @@
     <url>https://api.rxmicro.io</url>
     <licenses>
         <license>
-            <name>MIT License</name>
-            <url>https://github.com/rxmicro/rxmicro-usage/blob/master/examples/LICENSE</url>
+            <name>Apache License 2.0</name>
+            <url>https://github.com/rxmicro/rxmicro/blob/master/LICENSE</url>
         </license>
     </licenses>
     <!-- end::content[] -->

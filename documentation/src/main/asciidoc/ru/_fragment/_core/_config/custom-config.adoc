@@ -24,7 +24,7 @@ _(Только те поля, которые будут содержать `sett
 ====
 
 Так как данный класс будет создаваться и инициализироваться классами из модулей `rxmicro.runtime` и `rxmicro.config` автоматически, необходимо экспортировать пакет данным модулям в дескрипторе `module-info.java`. +
-_(Это требования https://www.oracle.com/corporate/features/understanding-java-9-modules.html[модульной системы Java^].)_
+_(Это требования https://www.oracle.com/corporate/features/understanding-java-9-modules.html[JPMS^].)_
 
 [source,java]
 ----

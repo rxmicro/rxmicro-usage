@@ -23,6 +23,7 @@ import java.lang.annotation.Target;
 
 import static java.lang.annotation.RetentionPolicy.SOURCE;
 
+// tag::content[]
 @Retention(SOURCE)
 @Target({})
 @RestClientGeneratorConfig(
@@ -33,3 +34,4 @@ import static java.lang.annotation.RetentionPolicy.SOURCE;
 )
 public @interface ModuleInfo {
 }
+// end::content[]

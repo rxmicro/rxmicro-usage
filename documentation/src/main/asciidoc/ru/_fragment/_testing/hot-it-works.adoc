@@ -1,7 +1,7 @@
 [[testing-how-it-works-section]]
 === How It Works
 
-Java 9 ввела в использование https://www.oracle.com/corporate/features/understanding-java-9-modules.html[модульную систему^].
+Java 9 ввела в использование https://www.oracle.com/corporate/features/understanding-java-9-modules.html[JPMS^].
 
 Данная система требует от разработчика, чтобы он для каждого проекта определял дескриптор `module-info.java`, в котором описывал все зависимости текущего проекта.
 С точки зрения модульной системы Unit тесты, которые нужны для каждого проекта, должны быть огранизованы в виде отдельного модуля, так как зависят от библиотек, которые не должны быть доступны в `runtime`.

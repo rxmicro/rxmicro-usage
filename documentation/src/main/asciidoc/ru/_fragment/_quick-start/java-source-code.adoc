@@ -7,7 +7,7 @@
 
 ==== Дескриптор `module-info.java`
 
-Java 9 ввела в использование https://www.oracle.com/corporate/features/understanding-java-9-modules.html[модульную систему^].
+Java 9 ввела в использование https://www.oracle.com/corporate/features/understanding-java-9-modules.html[JPMS^].
 
 Поэтому *RxMicro*, который нуждается в использовании https://openjdk.java.net/projects/jdk/11/[JDK 11^] или выше, требует наличия дескриптора `module-info.java` для любого Вашего микросервисного проекта.
 
