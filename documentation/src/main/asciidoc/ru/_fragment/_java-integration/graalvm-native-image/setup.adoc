@@ -1,0 +1,125 @@
+==== Setup GraalVM
+
+GraalVM is distributed as Community Edition and Enterprise Edition.
+Current guide describes a use of the GraalVM Community Edition (GraalVM CE).
+
+Setup of the GraalVM CE contains a few simple steps:
+
+. Make a GraalVM Home Directory.
+. Select GraalVM CE Distribution for Your Platform.
+. Download GraalVM CE Distribution.
+. Unzip GraalVM CE Distribution.
+. Set `GRAALVM_HOME` Environment Variable.
+. Install Native Image Module.
+. Add Native Image Tool to `PATH`.
+
+===== Make a GraalVM Home Directory
+
+Make a directory, which will contain a GraalVM distribution:
+
+[source,txt,subs="verbatim,quotes"]
+----
+*mkdir* ~/GraalVM
+----
+
+===== Select GraalVM CE Distribution for Your Platform
+
+Visit the github release page
+https://github.com/graalvm/graalvm-ce-builds/releases[`https://github.com/graalvm/graalvm-ce-builds/releases`^]
+and select a distribution for your platform.
+
+[IMPORTANT]
+====
+*Please select GraalVM CE based on Java 11!*
+
+_GraalVM CE based on Java 8 and is not supported by RxMicro framework!_
+====
+
+===== Download GraalVM CE Distribution
+
+Download a selected GraalVM CE distribution onto the GraalVM home directory:
+
+[source,txt,subs="verbatim,quotes"]
+----
+*wget* -P ~/GraalVM https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-20.0.0/graalvm-ce-java11-linux-amd64-20.0.0.tar.gz
+----
+
+===== Unzip GraalVM CE Distribution
+
+Unzip GraalVM CE distribution onto the GraalVM home directory:
+
+[source,txt,subs="verbatim,quotes"]
+----
+*tar* --strip-components=1 -vzxf ~/GraalVM/graalvm-ce-java11-linux-amd64-20.0.0.tar.gz -C ~/GraalVM
+*rm* ~/GraalVM/graalvm-ce-java11-linux-amd64-20.0.0.tar.gz
+----
+
+===== Set `GRAALVM_HOME` Environment Variable
+
+Set `GRAALVM_HOME` environment variable:
+[source,txt,subs="verbatim,quotes"]
+----
+*export* GRAALVM_HOME=~/GraalVM
+----
+
+and verify installation:
+
+[source,txt,subs="verbatim,quotes"]
+----
+*$GRAALVM_HOME/bin/java* -version
+
+openjdk version *"11.0.6"* 2020-01-14
+OpenJDK Runtime Environment *GraalVM CE* 20.0.0 (build 11.0.6+9-jvmci-20.0-b02)
+OpenJDK 64-Bit Server VM *GraalVM CE* 20.0.0 (build 11.0.6+9-jvmci-20.0-b02, mixed mode, sharing)
+----
+
+[NOTE]
+====
+If You would use the GraalVM CE only, You can add the `$GRAALVM_HOME/bin` path to `PATH` variable!
+
+If You use other version of JDK, add only separate utils to `PATH` variable.
+For example only `gu` or `native-image`!
+====
+
+===== Install Native Image Module
+
+Starting from GraalVM 19.0, Native Image was extracted from the base distribution.
+So *Native Image Tool* must be installed to GraalVM using a GraalVM Updater utility:
+
+[source,txt,subs="verbatim,quotes"]
+----
+*$GRAALVM_HOME/bin/gu* install native-image
+
+Downloading: Component catalog from www.graalvm.org
+Processing Component: Native Image
+Downloading: Component native-image: Native Image  from github.com
+Installing new component: Native Image (org.graalvm.native-image, version 20.0.0)
+----
+
+To verify the installation show a version of the native Native Image Tool:
+
+[source,txt,subs="verbatim,quotes"]
+----
+*$GRAALVM_HOME/bin/native-image* --version
+
+GraalVM Version 20.0.0 CE
+----
+
+===== Add Native Image Tool to `PATH`
+
+In order not to indicate the folder where the *Native Image Tool* was installed, add the *Native Image Tool* to the `PATH`:
+
+[source,txt,subs="verbatim,quotes"]
+----
+*ln* -s $GRAALVM_HOME/bin/native-image ~/bin
+----
+
+After that logout and login to the system again.
+*Native Image Tool* must be available at the terminal:
+
+[source,txt,subs="verbatim,quotes"]
+----
+*native-image* --version
+
+GraalVM Version 20.0.0 CE
+----

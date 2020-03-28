@@ -3,4 +3,19 @@
 [[java-integration-graalvm-native-image]]
 === Using GraalVM to Build Native Image
 
-TODO
+https://www.graalvm.org/[GraalVM^] is a universal virtual machine for running applications written in different languages.
+
+GraalVM contains a https://www.graalvm.org/docs/reference-manual/native-image/[Native Image Tool^], which allows you to ahead-of-time compile Java code to a standalone executable, called a native image.
+
+GraalVM Native Image Tool can be used to build a native image of any RxMicro microservice project.
+Before build a native image it is necessary to setup GraalVM developer environment.
+
+include::graalvm-native-image/setup.adoc[]
+
+
+
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}graalvm-native-image-quick-start
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]
