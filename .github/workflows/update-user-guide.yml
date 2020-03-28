@@ -60,11 +60,11 @@ jobs:
 
       - name: Update `rxmicro.github.io` Repository
         run: |
-          CURRENT_DIR=$(pwd)
-          rm -R $CURRENT_DIR/rxmicro.github.io/doc/latest/
-          mv -v $CURRENT_DIR/documentation/target/generated-docs/images $CURRENT_DIR/rxmicro.github.io/doc/latest
-          mv -v $CURRENT_DIR/documentation/target/generated-docs/project-documentation-examples $CURRENT_DIR/rxmicro.github.io/doc/latest
-          mv -v $CURRENT_DIR/documentation/target/generated-docs/ru $CURRENT_DIR/rxmicro.github.io/doc/latest
+          rm -R rxmicro.github.io/doc/latest/
+          mkdir rxmicro.github.io/doc/latest/
+          mv -v documentation/target/generated-docs/images rxmicro.github.io/doc/latest
+          mv -v documentation/target/generated-docs/project-documentation-examples rxmicro.github.io/doc/latest
+          mv -v documentation/target/generated-docs/ru rxmicro.github.io/doc/latest
 
       - name: Commit and Push Changes to `rxmicro.github.io` Repository
         run: |
