@@ -50,13 +50,6 @@ include::_fragment/core.adoc[]
 
 <<<
 
-[[java-integration-section]]
-== Java EcoSystem Integration
-
-include::_fragment/java-integration.adoc[]
-
-<<<
-
 [[rest-controller-section]]
 == REST Controller
 
@@ -103,6 +96,13 @@ include::_fragment/data-mongo.adoc[]
 == Contexts and Dependency Injection
 
 include::_fragment/cdi.adoc[]
+
+<<<
+
+[[java-integration-section]]
+== Java EcoSystem Integration
+
+include::_fragment/java-integration.adoc[]
 
 <<<
 

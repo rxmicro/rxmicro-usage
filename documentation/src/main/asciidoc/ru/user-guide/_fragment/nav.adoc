@@ -53,17 +53,6 @@ ifeval::["{current-entity}" == "core"]
 |===
 |<<quick-start.adoc#,*icon:angle-double-left[] {quick-start-title}*>>
 |<<index.adoc#,*icon:angle-double-up[] {home-title}*>>
-|<<java-integration.adoc#,*{java-integration-title}  icon:angle-double-right[]*>>
-|===
-
-endif::[]
-// --------------------------------------------- java-integration ---------------------------------------------
-ifeval::["{current-entity}" == "java-integration"]
-
-[cols="<,^,>",width=100%,frame=none]
-|===
-|<<core.adoc#,*icon:angle-double-left[] {core-title}*>>
-|<<index.adoc#,*icon:angle-double-up[] {home-title}*>>
 |<<rest-controller.adoc#,*{rest-controller-title}  icon:angle-double-right[]*>>
 |===
 
@@ -73,7 +62,7 @@ ifeval::["{current-entity}" == "rest-controller"]
 
 [cols="<,^,>",width=100%,frame=none]
 |===
-|<<java-integration.adoc#,*icon:angle-double-left[] {java-integration-title}*>>
+|<<core.adoc#,*icon:angle-double-left[] {core-title}*>>
 |<<index.adoc#,*icon:angle-double-up[] {home-title}*>>
 |<<rest-client.adoc#,*{rest-client-title}  icon:angle-double-right[]*>>
 |===
@@ -141,6 +130,17 @@ ifeval::["{current-entity}" == "cdi"]
 |===
 |<<data-mongo.adoc#,*icon:angle-double-left[] {data-mongo-title}*>>
 |<<index.adoc#,*icon:angle-double-up[] {home-title}*>>
+|<<java-integration.adoc#,*{java-integration-title}  icon:angle-double-right[]*>>
+|===
+
+endif::[]
+// --------------------------------------------- java-integration ---------------------------------------------
+ifeval::["{current-entity}" == "java-integration"]
+
+[cols="<,^,>",width=100%,frame=none]
+|===
+|<<cdi.adoc#,*icon:angle-double-left[] {cdi-title}*>>
+|<<index.adoc#,*icon:angle-double-up[] {home-title}*>>
 |<<testing.adoc#,*{testing-title}  icon:angle-double-right[]*>>
 |===
 
@@ -150,7 +150,7 @@ ifeval::["{current-entity}" == "testing"]
 
 [cols="<,^,>",width=100%,frame=none]
 |===
-|<<cdi.adoc#,*icon:angle-double-left[] {cdi-title}*>>
+|<<java-integration.adoc#,*icon:angle-double-left[] {java-integration-title}*>>
 |<<index.adoc#,*icon:angle-double-up[] {home-title}*>>
 |<<appendices.adoc#,*{appendices-title}  icon:angle-double-right[]*>>
 |===
