@@ -28,23 +28,44 @@ jobs:
         with:
           java-version: '11'
 
+      - name: Install the Last Version of RxMicro
+        run: |
+          git clone https://github.com/rxmicro/rxmicro
+          cd rxmicro/
+          mvn -DskipTests -B install --file pom.xml
+
+      - name: Recompile Examples of Project Documentations
+        run : |
+          cd rxmicro/
+          LATEST_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
+          cd ../
+          mvn -DskipTests -Drxmicro.version=$LATEST_VERSION -B compile --file examples/documentation-asciidoctor-custom-sections/pom.xml
+          mvn -DskipTests -Drxmicro.version=$LATEST_VERSION -B compile --file examples/documentation-asciidoctor-echo/pom.xml
+          mvn -DskipTests -Drxmicro.version=$LATEST_VERSION -B compile --file examples/documentation-asciidoctor-errors/pom.xml
+          mvn -DskipTests -Drxmicro.version=$LATEST_VERSION -B compile --file examples/documentation-asciidoctor-quick-start/pom.xml
+          mvn -DskipTests -Drxmicro.version=$LATEST_VERSION -B compile --file examples/documentation-asciidoctor-validation/pom.xml
+          mvn -DskipTests -Drxmicro.version=$LATEST_VERSION -B compile --file examples/documentation-asciidoctor-metadata-annotations/pom.xml
+          mvn -DskipTests -Drxmicro.version=$LATEST_VERSION -B compile --file examples/documentation-asciidoctor-metadata-pomxml/pom.xml
+
       - name: Build User Guide
         run: |
+          cd rxmicro/
+          LATEST_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
+          cd ../
           cd documentation/
-          mvn -B package --file pom.xml
+          mvn -Drxmicro.version=$LATEST_VERSION -B package --file pom.xml
 
-      - name: Clone rxmicro.github.io
+      - name: Clone `rxmicro.github.io`
         run: git clone https://github.com/rxmicro/rxmicro.github.io
 
-
-      - name: Update rxmicro.github.io repository
+      - name: Update `rxmicro.github.io` Repository
         run: |
-          rm -R rxmicro.github.io/doc/latest/images
-          rm -R rxmicro.github.io/doc/latest/ru
+          rm -R rxmicro.github.io/doc/latest/
           mv documentation/target/generated-docs/images rxmicro.github.io/doc/latest
+          mv documentation/target/generated-docs/project-documentation-examples rxmicro.github.io/doc/latest
           mv documentation/target/generated-docs/ru rxmicro.github.io/doc/latest
 
-      - name: Commit and push changes to rxmicro.github.io repo
+      - name: Commit and Push Changes to `rxmicro.github.io` Repository
         run: |
           cd rxmicro.github.io
           git config user.email "rxmicro.io@gmail.com"
