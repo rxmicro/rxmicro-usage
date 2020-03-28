@@ -39,6 +39,7 @@ nb*.xml
 # temp files
 temp.*
 tmp.*
+test.*
 
 # cache
 *.cache
