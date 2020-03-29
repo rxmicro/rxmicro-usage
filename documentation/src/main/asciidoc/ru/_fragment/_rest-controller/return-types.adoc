@@ -2,10 +2,7 @@
 
 === Возвращаемые типы обработчиков HTTP запроса
 
-Обработчик HTTP запроса поддерживает две категории возвращаемых результатов:
-
-* HTTP ответ без тела;
-* HTTP ответ с телом;
+include::../_rest/___http_handler_return_types.adoc[]
 
 <<<
 
@@ -64,10 +61,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-handlers/src/m
 {RX-JAVA-DOC-ROOT-URL}io/reactivex/Single.html[`Single<MODEL>`^] или
 {RX-JAVA-DOC-ROOT-URL}io/reactivex/Maybe.html[`Maybe<MODEL>`^].
 
-[NOTE]
-====
-*Обратите внимание, что реактивные типы должны быть параметризованы классом модели HTTP ответа!*
-====
+include::../_rest/___note_reactive_parametrized_types.adoc[]
 
 Все указанные выше обработчики возвращают HTTP ответ с телом:
 
