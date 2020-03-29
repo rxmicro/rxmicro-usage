@@ -5,7 +5,10 @@
 
 ==== Базовые правила
 
-TODO
+RxMicro поддерживает работу со служебными данными.
+Благодаря такой поддержки разработчик имеет возможность извлечь дополнительные сведения об HTTP ответе.
+
+Для работы со служебными данными необходимо создать модель ответа:
 
 [source,java]
 ----
@@ -43,3 +46,33 @@ include::../___notes/recompile-after-change.adoc[]
 <<<
 
 ==== Поддерживаемые служебные типы данных
+
+.Поддерживаемые служебные типы данных для модели ответа.
+|===
+|*Java тип*|*RxMicro аннотация*|*Аннотация обязательна?*|*Описание*
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpVersion.java[`HttpVersion`^]
+|Отсутствует
+|-
+|Версия HTTP протокола
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java[`HttpHeaders`^]
+|Отсутствует
+|-
+|Модель HTTP заголовков
+
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Integer.html[`Integer`^]
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ResponseStatusCode.java[`@ResponseStatusCode`^]
+|*Да*
+|HTTP статус код ответа
+
+|`byte[]`
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ResponseBody.java[`@ResponseBody`^]
+|*Да*
+|Содержимое HTTP тела ответа
+|===
+
+[TIP]
+====
+На данный момент поддерживаются только HTTP версии: `1.0` и `1.1`.
+====
