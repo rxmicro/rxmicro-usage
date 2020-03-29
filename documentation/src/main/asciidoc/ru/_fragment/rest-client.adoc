@@ -1,4 +1,19 @@
-TODO
+REST Client - это интерфейс, который содержит хотя бы один декларативный обработчик HTTP запроса.
+
+Для создания REST клиентов, RxMicro предоставляет следующие модули:
+
+* {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest[`rxmicro.rest`^] - базовый модуль, определяющий основные `RxMicro annotations`, необходимые при использовании
+https://en.wikipedia.org/wiki/Representational_state_transfer[`REST`^] архитектуры построения программных систем;
+* {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-client[`rxmicro.rest.client`^] - базовый модуль, предназначенный для создания и запуска REST клиентов;
+* {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-client-jdk[`rxmicro.rest.client.jdk`^] - модуль реализации HTTP сервера построенный на базе https://openjdk.java.net/groups/net/httpclient/intro.html[`Java HTTP Client`^];
+* {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-client-exchange-json[`rxmicro.rest.client.exchange.json`^] - Модуль конвертации Java моделей в https://www.json.org[`JSON`^] формат и наоборот;
+
+[NOTE]
+====
+Из-за транзитивных зависимостей в проект обычно необходимо подключить только два модуля:
+{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-client-jdk[`rxmicro.rest.client.jdk`^] и {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-client-exchange-json[`rxmicro.rest.client.exchange.json`^]. +
+_(Остальные модули подключаться в проект автоматически!)_
+====
 
 <<<
 
