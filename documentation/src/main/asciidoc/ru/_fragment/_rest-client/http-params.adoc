@@ -106,12 +106,18 @@ include::../___notes/recompile-after-change.adoc[]
 [[rest-client-query-params-static]]
 ==== Статические Query параметры
 
-TODO
+Для установки статических query параметров, RxMicro предоставляет аннотации
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/AddQueryParameter.java[`@AddQueryParameter`^] и
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/SetQueryParameter.java[`@SetQueryParameter`^]:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/StaticQueryParametersRestClient.java[tag=content,indent=0]
 ----
+<1> Если статический query параметр установлен для REST контроллера, то он добавляется в HTTP запросы для каждого обработчика.
+<2> Если статический query параметр установлен для обработчика, то он добавляется в HTTP запросы только для этого обработчика.
+
+С точки зрения HTTP протокола, статические query параметры ничем не отличаются от обычных параметров:
 
 [source,java]
 ----
@@ -138,17 +144,24 @@ include::../___notes/recompile-after-change.adoc[]
 [[rest-client-query-params-repeating]]
 ==== Повторяющиеся Query параметры
 
-TODO
+Если статический query параметр HTTP запроса является списком значений, то элементы списка по умолчанию передаются по протоколу HTTP в виде строки, разделенной символом `|`.
+
+Если необходимо, чтобы статический query параметр повторялся для каждого значения, необходимо использовать аннотацию
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RepeatQueryParameter.java[`@RepeatQueryParameter`^]:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/RepeatingQueryParamsRestClient.java[tag=content,indent=0]
 ----
 
+В результате конвертации Java модели в HTTP ответ, результат будет следующим:
+
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/test/java/io/rxmicro/examples/rest/client/params/RepeatingQueryParamsRestClientTest.java[tag=content,indent=0]
 ----
+<1> По умолчанию элементы списка статического query параметра передаются по протоколу HTTP в виде строки, разделенной символом `|`.
+<2> Если поле помещено аннотацией {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RepeatQueryParameter.java[`@RepeatQueryParameter`^], то тогда статический query параметр повторяется для каждого элемента из списка.
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-params
 include::../___notes/full-source-code-of-example.adoc[]

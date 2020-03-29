@@ -54,9 +54,9 @@ final class RepeatingQueryParamsRestClientTest {
                         .setMethod(PUT)
                         .setPath("/")
                         .setQueryParameters(QueryParams.of(
-                                "single_header", "created|approved|rejected",
+                                "single_header", "created|approved|rejected", // <1>
                                 "repeating_header", "created",
-                                "repeating_header", "approved",
+                                "repeating_header", "approved",               // <2>
                                 "repeating_header", "rejected"
                         ))
                         .build(),

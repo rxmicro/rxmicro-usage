@@ -56,8 +56,8 @@ include::../_rest/___header_types.adoc[]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-headers/src/main/java/io/rxmicro/examples/rest/client/headers/StaticHeadersRestClient.java[tag=content,indent=0]
 ----
-<1> Если HTTP заголовок установлен для REST контроллера, то он добавляется в HTTP ответы для каждого обработчика.
-<2> Если HTTP заголовок установлен для обработчика, то он добавляется в HTTP ответы только для этого обработчика.
+<1> Если HTTP заголовок установлен для REST контроллера, то он добавляется в HTTP запросы для каждого обработчика.
+<2> Если HTTP заголовок установлен для обработчика, то он добавляется в HTTP запросы только для этого обработчика.
 
 С точки зрения HTTP протокола, статические заголовки ничем не отличаются от любых других:
 
