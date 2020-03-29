@@ -1,0 +1,22 @@
+Benchmark                                     Mode  Cnt      Score      Error   Units
+ReactiveLibAsyncBenchmark.completable        thrpt   10  21706.631 ±  817.950  ops/ms
+ReactiveLibAsyncBenchmark.completableFuture  thrpt   10     73.548 ±    2.880  ops/ms
+ReactiveLibAsyncBenchmark.flowable           thrpt   10  11014.750 ±  128.017  ops/ms
+ReactiveLibAsyncBenchmark.flux               thrpt   10   6524.213 ±  254.677  ops/ms
+ReactiveLibAsyncBenchmark.maybe              thrpt   10  21611.317 ± 1696.633  ops/ms
+ReactiveLibAsyncBenchmark.mono               thrpt   10   6346.203 ±  208.792  ops/ms
+ReactiveLibAsyncBenchmark.single             thrpt   10  21352.315 ± 1537.052  ops/ms
+ReactiveLibAsyncBenchmark.completable         avgt   10     ≈ 10⁻⁴              ms/op
+ReactiveLibAsyncBenchmark.completableFuture   avgt   10      0.013 ±    0.001   ms/op
+ReactiveLibAsyncBenchmark.flowable            avgt   10     ≈ 10⁻⁴              ms/op
+ReactiveLibAsyncBenchmark.flux                avgt   10     ≈ 10⁻⁴              ms/op
+ReactiveLibAsyncBenchmark.maybe               avgt   10     ≈ 10⁻⁴              ms/op
+ReactiveLibAsyncBenchmark.mono                avgt   10     ≈ 10⁻⁴              ms/op
+ReactiveLibAsyncBenchmark.single              avgt   10     ≈ 10⁻⁴              ms/op
+ReactiveLibAsyncBenchmark.completable           ss   10      0.013 ±    0.011   ms/op
+ReactiveLibAsyncBenchmark.completableFuture     ss   10      0.131 ±    0.220   ms/op
+ReactiveLibAsyncBenchmark.flowable              ss   10      0.019 ±    0.008   ms/op
+ReactiveLibAsyncBenchmark.flux                  ss   10      0.017 ±    0.007   ms/op
+ReactiveLibAsyncBenchmark.maybe                 ss   10      0.015 ±    0.011   ms/op
+ReactiveLibAsyncBenchmark.mono                  ss   10      0.027 ±    0.012   ms/op
+ReactiveLibAsyncBenchmark.single                ss   10      0.013 ±    0.006   ms/op

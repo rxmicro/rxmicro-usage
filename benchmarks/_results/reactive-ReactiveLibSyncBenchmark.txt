@@ -1,0 +1,22 @@
+Benchmark                                    Mode  Cnt       Score       Error   Units
+ReactiveLibSyncBenchmark.completable        thrpt   10   18040.522 ±  4310.035  ops/ms
+ReactiveLibSyncBenchmark.completableFuture  thrpt   10  807662.755 ± 52164.418  ops/ms
+ReactiveLibSyncBenchmark.flowable           thrpt   10   12450.737 ±  1084.268  ops/ms
+ReactiveLibSyncBenchmark.flux               thrpt   10    6866.449 ±   336.361  ops/ms
+ReactiveLibSyncBenchmark.maybe              thrpt   10   24844.312 ±  4427.805  ops/ms
+ReactiveLibSyncBenchmark.mono               thrpt   10  547883.373 ± 70186.878  ops/ms
+ReactiveLibSyncBenchmark.single             thrpt   10   25316.956 ±  1676.384  ops/ms
+ReactiveLibSyncBenchmark.completable         avgt   10      ≈ 10⁻⁴               ms/op
+ReactiveLibSyncBenchmark.completableFuture   avgt   10      ≈ 10⁻⁶               ms/op
+ReactiveLibSyncBenchmark.flowable            avgt   10      ≈ 10⁻⁴               ms/op
+ReactiveLibSyncBenchmark.flux                avgt   10      ≈ 10⁻⁴               ms/op
+ReactiveLibSyncBenchmark.maybe               avgt   10      ≈ 10⁻⁴               ms/op
+ReactiveLibSyncBenchmark.mono                avgt   10      ≈ 10⁻⁶               ms/op
+ReactiveLibSyncBenchmark.single              avgt   10      ≈ 10⁻⁴               ms/op
+ReactiveLibSyncBenchmark.completable           ss   10       0.010 ±     0.007   ms/op
+ReactiveLibSyncBenchmark.completableFuture     ss   10       0.003 ±     0.001   ms/op
+ReactiveLibSyncBenchmark.flowable              ss   10       0.016 ±     0.008   ms/op
+ReactiveLibSyncBenchmark.flux                  ss   10       0.016 ±     0.011   ms/op
+ReactiveLibSyncBenchmark.maybe                 ss   10       0.011 ±     0.006   ms/op
+ReactiveLibSyncBenchmark.mono                  ss   10       0.004 ±     0.003   ms/op
+ReactiveLibSyncBenchmark.single                ss   10       0.009 ±     0.005   ms/op

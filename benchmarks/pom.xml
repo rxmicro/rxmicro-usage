@@ -18,6 +18,7 @@
         <module>benchmark-java-startup</module>
         <module>benchmark-rxmicro-startup</module>
         <module>benchmark-performance</module>
+        <module>benchmark-reactive</module>
     </modules>
 
     <properties>

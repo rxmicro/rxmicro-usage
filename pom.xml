@@ -21,7 +21,7 @@
 
         <jmh.version>1.22</jmh.version>
 
-        <projectreactor.version>3.3.2.RELEASE</projectreactor.version>
+        <projectreactor.version>3.3.4.RELEASE</projectreactor.version>
         <rxjava.version>3.0.0</rxjava.version>
 
         <!-- Maven core plugins -->
