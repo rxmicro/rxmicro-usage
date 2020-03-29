@@ -175,6 +175,8 @@
         <module>graalvm-native-image-postgres-data-repository</module>
         <module>graalvm-native-image-rest-client</module>
         <module>graalvm-native-image-mongo-data-repository</module>
+        <module>rest-client-generator</module>
+        <module>rest-controller-generator</module>
     </modules>
 
     <build>

@@ -1,3 +1,5 @@
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
 [[rest-controller-rest-server-generator-config-section]]
 === Конфигурирование процесса генерации кода
 
@@ -8,17 +10,7 @@ RxMicro предоставляет возможность конфигуриро
 
 [source,java]
 ----
-import io.rxmicro.rest.model.GenerateOption;
-import io.rxmicro.rest.model.ServerExchangeFormatModule;
-import io.rxmicro.rest.server.RestServerGeneratorConfig;
-
-@RestServerGeneratorConfig(
-        exchangeFormat = ServerExchangeFormatModule.AUTO_DETECT, // <1>
-        generateRequestValidators = GenerateOption.AUTO_DETECT,  // <2>
-        generateResponseValidators = GenerateOption.DISABLED     // <3>
-)
-module examples {
-}
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-generator/src/main/java/module-info.java[tags=content,indent=0]
 ----
 <1> Параметр `exchangeFormat` позволяет задавать формат обмена сообщениями с клиентом. +
 _(По умолчанию используется формат обмена сообщениями, который добавлен в дескриптор `module-info.java`.
