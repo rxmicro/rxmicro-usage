@@ -3,29 +3,34 @@
 [[rest-client-headers-basic]]
 === Обработка HTTP заголовков
 
-==== Базовые правила
+include::../_rest/___http_headers_basic_rules.adoc[]
 
-TODO
-
-[source,java]
-----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-headers/src/main/java/io/rxmicro/examples/rest/client/headers/model/Request.java[tag=content,indent=0]
-----
-
-[source,java]
-----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-headers/src/main/java/io/rxmicro/examples/rest/client/headers/model/Response.java[tag=content,indent=0]
-----
+После создания классов моделей, необходимо создать обработчик запросов, использующий данные модели:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-headers/src/main/java/io/rxmicro/examples/rest/client/headers/SimpleUsageRestClient.java[tag=content,indent=0]
 ----
+<1> Если для HTTP запроса был создан отдельный класс модели, то этот класс необходимо передавать параметром метода, обрабатывающего HTTP запрос.
+<2> Кроме поддержки классов модели HTTP запроса, RxMicro поддерживает обработчики запросов, принимающие HTTP заголовки в качестве параметров метода.
+<3> Для определения общей стратегии именования всех HTTP заголовков, которые передаются в качестве параметров метода обработчик запросов должен быть аннотирован аннотацией `@HeaderMappingStrategy`.
+<4> Для того чтобы параметр метода объявить как поле HTTP заголовка, необходимо использовать аннотацию `@Header`.
+<5> С помощью аннотации `@Header` возможно задать имя HTTP заголовка, которое не соответствует используемой стратегии, объявленной с помощью аннотации `@HeaderMappingStrategy`.
+
+include::../___notes/model-class-intead-of-method-parameters-note.adoc[tags=**;!path-variables;!params;!all]
+
+Несмотря на различные подходы к поддержке обработки HTTP заголовков, с точки зрения генерируемого сообщения по протоколу HTTP два вышеуказанных обработчика абсолютно равнозначны:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-headers/src/test/java/io/rxmicro/examples/rest/client/headers/SimpleUsageRestClientTest.java[tag=content,indent=0]
 ----
+<1> При выполнении запроса к разным URL Paths результат одинаковый.
+<2> Имя `Endpoint-Version` соответствует полю `endpointVersion` модели запроса. +
+_(Данное соответствие формируется на основании использования стратегии по умолчанию, задаваемой с помощью аннотации `@HeaderMappingStrategy`.)_
+<3> Имя `UseProxy` соответствует полю `useProxy` модели запроса, так как в аннотации `@Header` задано именно это имя.
+<4> После выполнения запроса в результирующем HTTP ответе заголовки `Endpoint-Version` и `UseProxy` равны соответственно `v1` и `true`.
+_(Обработчик возвращает теже самые значения заголовков, что были им получены из HTTP запроса.)_
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-headers
 include::../___notes/full-source-code-of-example.adoc[]

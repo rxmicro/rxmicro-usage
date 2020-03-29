@@ -3,46 +3,7 @@
 [[rest-controller-params-basic]]
 === Обработка HTTP параметров
 
-==== Базовые правила
-
-RxMicro поддерживает HTTP параметры в моделях запроса и ответа:
-
-[source,java]
-----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-params/src/main/java/io/rxmicro/examples/rest/controller/params/model/Request.java[tag=content,indent=0]
-----
-
-[source,java]
-----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-params/src/main/java/io/rxmicro/examples/rest/controller/params/model/Response.java[tag=content,indent=0]
-----
-<1> Аннотация {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ParameterMappingStrategy.java[`@ParameterMappingStrategy`^]
-позволяет задать общие правила преобразования для всех имен параметров из HTTP формата в Java и наоборот в текущем классе модели.
-_(По умолчанию используется стратегия
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L34[`MappingStrategy.LOWERCASE_WITH_UNDERSCORED`^].
-В качестве базового имени используется имя поля, а затем применяя правила указанной стратегии, формируется имя HTTP параметра.)_
-<2> Для того чтобы поле модели объявить как поле HTTP параметра, необходимо использовать аннотацию
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Parameter.java[`@Parameter`^].
-_(В отличие от аннотации `@Header`, аннотация `@Parameter` опциональная.
-Т.е. если поле модели не помечено ниодной аннотацией, то по умолчанию подразумевается наличие аннотации `@Parameter` над полем модели.)_
-<3>  С помощью аннотации {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Parameter.java[`@Parameter`^]
-возможно задать имя HTTP параметра, которое не соответствует используемой стратегии, объявленной с помощью аннотации
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ParameterMappingStrategy.java[`@ParameterMappingStrategy`^].
-
-Для определения имени HTTP параметра для указанного поля модели RxMicro использует следующий алгоритм:
-
-. Если поле аннотировано аннотацией `@Parameter` с явным указанием имени HTTP параметра используется указанное имя;
-. Если имя HTTP параметра не указано в аннотации `@Parameter`, RxMicro проверяет наличие аннотации `@ParameterMappingStrategy` над классом модели;
-. Если класс модели аннотирован аннотацией `@ParameterMappingStrategy`, то используется указанная стратегия именования.
-_(В качестве базового имени используется имя поля, а затем применяя правила указанной стратегии, формируется имя HTTP параметра.)_
-. Если аннотация `@ParameterMappingStrategy` отсутствует в качестве имени HTTP заголовка используется имя поля.
-
-[IMPORTANT]
-====
-*В отличие от аннотации `@Header`, аннотация `@Parameter` опциональная!*
-
-Т.е. если поле модели не помечено ниодной аннотацией, то *по умолчанию подразумевается наличие аннотации `@Parameter` над полем модели!*
-====
+include::../_rest/___http_params_basic_rules.adoc[]
 
 После создания классов моделей, необходимо создать обработчик HTTP запросов, использующий данные модели:
 

@@ -3,24 +3,28 @@
 [[rest-client-params-basic]]
 === Обработка HTTP параметров
 
-==== Базовые правила
+include::../_rest/___http_params_basic_rules.adoc[]
 
-TODO
-
-[source,java]
-----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/model/Request.java[tag=content,indent=0]
-----
-
-[source,java]
-----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/model/Response.java[tag=content,indent=0]
-----
+После создания классов моделей, необходимо создать обработчик HTTP запросов, использующий данные модели:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/SimpleUsageRestClient.java[tag=content,indent=0]
 ----
+<1> Если для HTTP запроса был создан отдельный класс модели, то этот класс необходимо передавать параметром метода, обрабатывающего HTTP запрос.
+<2> Кроме поддержки классов модели HTTP запроса, RxMicro поддерживает обработчики запросов, принимающие HTTP параметры запросов в качестве параметров метода.
+<3> Для определения общей стратегии именования всех HTTP параметров, которые передаются в качестве параметров метода обработчик запросов должен быть аннотирован аннотацией `@ParameterMappingStrategy`.
+<4> Для того чтобы параметр метода объявить как поле HTTP параметра, не нужно использовать каких-либо дополнительных аннотаций.
+<5> С помощью аннотации `@Parameter` возможно задать имя HTTP параметра, которое не соответствует используемой стратегии, объявленной с помощью аннотации `@ParameterMappingStrategy`.
+
+[IMPORTANT]
+====
+*Обратите внимание, что RxMicro не различает каким способом будут переданы параметры HTTP запроса на обработчик: с помощью стартовой строки или HTTP тела!*
+====
+
+include::../___notes/model-class-intead-of-method-parameters-note.adoc[tags=**;!path-variables;!headers;!all]
+
+Несмотря на различные подходы к поддержке обработки HTTP заголовков, с точки зрения генерируемого сообщения по протоколу HTTP два вышеуказанных обработчика абсолютно равнозначны:
 
 [source,java]
 ----

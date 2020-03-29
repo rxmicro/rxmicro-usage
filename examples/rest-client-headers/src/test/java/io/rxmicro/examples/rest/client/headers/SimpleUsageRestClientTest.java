@@ -62,8 +62,8 @@ final class SimpleUsageRestClientTest {
 
     private void prepare() {
         final HttpHeaders headers = HttpHeaders.of(
-                "Endpoint-Version", ENDPOINT_VERSION,
-                "UseProxy", USE_PROXY
+                "Endpoint-Version", ENDPOINT_VERSION, // <2>
+                "UseProxy", USE_PROXY                 // <3>
         );
         prepareHttpClientMock(
                 httpClientFactory,
@@ -84,10 +84,10 @@ final class SimpleUsageRestClientTest {
     @BeforeTest(method = "prepare")
     void Should_process_HTTP_headers(
             final Function<SimpleUsageRestClient, Response> clientMethod) {
-        final Response response = clientMethod.apply(restClient);
+        final Response response = clientMethod.apply(restClient); // <1>
 
-        assertEquals(ENDPOINT_VERSION, response.getEndpointVersion());
-        assertEquals(USE_PROXY, response.getUseProxy());
+        assertEquals(ENDPOINT_VERSION, response.getEndpointVersion()); // <4>
+        assertEquals(USE_PROXY, response.getUseProxy());               // <4>
     }
 }
 // end::content[]
