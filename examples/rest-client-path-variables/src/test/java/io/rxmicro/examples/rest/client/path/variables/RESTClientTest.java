@@ -57,7 +57,7 @@ final class RESTClientTest {
                 httpClientFactory,
                 new HttpRequestMock.Builder()
                         .setMethod(HttpMethod.GET)
-                        .setPath("/CATEGORY/TYPE-SUB-TYPE")
+                        .setPath("/CATEGORY/TYPE-SUB-TYPE") // <1>
                         .build(),
                 true
         );

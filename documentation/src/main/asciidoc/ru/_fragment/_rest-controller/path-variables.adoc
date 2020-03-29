@@ -3,26 +3,7 @@
 [[rest-controller-path-variables-basic]]
 === Поддержка `path variables`
 
-==== Базовые правила
-
-RxMicro поддерживает `path variables` в моделях запроса:
-
-[source,java]
-----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-path-variables/src/main/java/io/rxmicro/examples/rest/controller/path/variables/model/Request.java[tag=content,indent=0]
-----
-
-<1> Для того чтобы поле модели объявить как `path variable`, необходимо использовать аннотацию
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/PathVariable.java[`@PathVariable`^].
-<2> С помощью аннотации {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/PathVariable.java[`@PathVariable`^] возможно указать имя `path variable`. +
-_(Если имя не указано, то в качестве имени `path variable` используется имя поля модели.)_
-
-[TIP]
-====
-В отличие от HTTP заголовков и параметров, которые доступны и на клиентской стороне, `path variables` доступны *только* внутри обработчиков HTTP запроса.
-
-*Поэтому рекомендуется для простоты всегда использовать имя поля модели в качестве имени `path variable`!*
-====
+include::../_rest/___path_var_basic_rules.adoc[]
 
 После создания классов моделей, необходимо создать обработчик HTTP запросов, использующий данную модель:
 
