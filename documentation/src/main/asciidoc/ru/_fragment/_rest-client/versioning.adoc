@@ -13,17 +13,23 @@ RxMicro поддерживает версионирования of REST Clients 
 
 ==== Версионирования на основании анализа HTTP заголовка
 
-TODO
+RxMicro позволяет создавать одинаковые REST клиенты, отличающиеся только версией:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-versioning-header/src/main/java/io/rxmicro/examples/rest/client/versioning/header/OldRestClient.java[tag=content,indent=0]
 ----
+<1> REST клиент старой версии `v1` с использованием
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L84[`Version.Strategy.HEADER`^] стратегии;
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-versioning-header/src/main/java/io/rxmicro/examples/rest/client/versioning/header/NewRestClient.java[tag=content,indent=0]
 ----
+<1> REST клиент новой версии `v2` с использованием
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L84[`Version.Strategy.HEADER`^] стратегии;
+
+Корректность формирования HTTP запроса для данных REST клиентов может быть проверена с помощью тестов:
 
 [source,java]
 ----
@@ -35,21 +41,32 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-versioning-header/
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-versioning-header/src/test/java/io/rxmicro/examples/rest/client/versioning/header/NewRestClientTest.java[tag=content,indent=0]
 ----
 
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-versioning-header
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]
+
 <<<
 
 ==== Версионирования на основании анализа URL Path фрагмента
 
-TODO
+RxMicro позволяет создавать одинаковые REST клиенты, отличающиеся только версией:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-versioning-url-path/src/main/java/io/rxmicro/examples/rest/client/versioning/url/path/OldRestClient.java[tag=content,indent=0]
 ----
+<1> REST клиент старой версии `v1` с использованием
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L71[`Version.Strategy.URL_PATH`^] стратегии;
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-versioning-url-path/src/main/java/io/rxmicro/examples/rest/client/versioning/url/path/NewRestClient.java[tag=content,indent=0]
 ----
+<1> REST клиент новой версии `v1` с использованием
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L71[`Version.Strategy.URL_PATH`^] стратегии;
+
+Корректность формирования HTTP запроса для данных REST клиентов может быть проверена с помощью тестов:
 
 [source,java]
 ----
@@ -60,3 +77,8 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-versioning-url-pat
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-versioning-url-path/src/test/java/io/rxmicro/examples/rest/client/versioning/url/path/NewRestClientTest.java[tag=content,indent=0]
 ----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-versioning-url-path
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]
