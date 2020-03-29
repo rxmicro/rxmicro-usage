@@ -42,7 +42,7 @@ _(Если в проекте используется модуль <<{cdi}#{cdi-
 . Метод должен быть неабстрактным.
 . Метод должен быть нестатическим.
 . Метод должен быть несинхронизированным.
-. Метод должен быть ненативным;.
+. Метод должен быть ненативным.
 . Метод должен быть аннотирован хотя бы одной из следующих аннотаций:
 .. {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/GET.java[`GET`^];
 .. {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/POST.java[`POST`^];
@@ -62,28 +62,9 @@ _(Если в проекте используется модуль <<{cdi}#{cdi-
 (Вспомогательные типы `java.lang.Void` и `java.util.Optional` также поддерживаются.
 _(см. <<{core}#core-reactive-bussiness-process-reactive-class-mapping-table>>)_).
 
-[NOTE]
-====
-Типы
-{REACTOR-CORE-DOC-ROOT-URL}reactor/core/publisher/Flux.html[`Flux`^] и
-{RX-JAVA-DOC-ROOT-URL}io/reactivex/Flowable.html[`Flowable`^]
-разработаны для работы с потоком данных, который может поступать в течение некоторого времени.
+include::../_rest/___Flux_Flowable_notes.adoc[]
 
-Для таких случаев протокол HTTP предоставляет специальный механизм https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Transfer-Encoding[`Transfer-Encoding`^].
-
-Однако данный механизм не поддерживается фреймворком RxMicro, поэтому типы
-{REACTOR-CORE-DOC-ROOT-URL}reactor/core/publisher/Flux.html[`Flux`^] и
-{RX-JAVA-DOC-ROOT-URL}io/reactivex/Flowable.html[`Flowable`^]
-не могут быть использованы в обработчике HTTP запросов.
-====
-
-RxMicro поддерживает следующие типы параметров для обработчика HTTP запроса:
-
-. Обработчик без параметров. +
-_(Данный тип рекомендован для простейших `stateless` микросервисов без параметров.)_
-. Список примитивных параметров. +
-_(Данный тип рекомендован для микросервисов, поведение которых зависит от 1-2 параметра.)_
-. Пользовательский класс, моделирующий HTTP запрос. +
-_(Данный тип рекомендован для микросервисов, поведение которых зависит от 3 и больше параметров.)_
+:target: микросервисов
+include::../_rest/___requirements_param_types.adoc[]
 
 include::../_rest/___note_reactive_libs.adoc[]

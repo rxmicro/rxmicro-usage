@@ -25,7 +25,7 @@
 </dependencies>
 ----
 <1> {MAVEN-REPO-SEARCH-ROOT}io.projectreactor/reactor-core[Последняя стабильная версия библиотеки `Project Reactor`^].
-<2> {MAVEN-REPO-SEARCH-ROOT}io.reactivex.rxjava2/rxjava[Последняя стабильная версия библиотеки `RxJava`^].
+<2> {MAVEN-REPO-SEARCH-ROOT}io.reactivex.rxjava3/rxjava[Последняя стабильная версия библиотеки `RxJava3`^].
 
 Добавление модулей в `module-info.java`:
 

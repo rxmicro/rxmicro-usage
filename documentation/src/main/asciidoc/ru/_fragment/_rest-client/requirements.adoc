@@ -2,8 +2,66 @@
 
 ==== Требования к интерфейсу REST Client
 
+REST Client - это Java интерфейс, аннотированный аннотацией
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/RestClient.java[`@RestClient`^]:
+
+[source,java]
+----
+import java.util.concurrent.CompletableFuture;
+
+import io.rxmicro.rest.client.RestClient;
+import io.rxmicro.rest.method.GET;
+
+@RestClient
+public interface RESTClient {
+
+    @GET("/")
+    CompletableFuture<Model> getContent();
+}
+----
+
+который должен удовлетворять следующим требованиям:
+
+. Интерфейс должен быть публичным.
+. Интерфейс должен быть аннотирован обязательной аннотацией {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/RestClient.java[`@RestClient`^].
+. Интерфейс не должен наследоваться от других интерфейсов
+. Интерфейс не должен быть вложенным.
+
 <<<
 
 ==== Требования к обработчикам HTTP запроса
+
+Обработчик HTTP запроса - метод, который должен удовлетворять следующим требованиям:
+
+. Метод должен быть неприватным.
+. Метод должен быть абстрактным.
+. Метод должен быть нестатическим.
+. Метод должен быть аннотирован *только* одной из следующих аннотаций:
+.. {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/GET.java[`GET`^];
+.. {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/POST.java[`POST`^];
+.. {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/PUT.java[`PUT`^];
+.. {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/DELETE.java[`DELETE`^];
+.. {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/PATCH.java[`PATCH`^];
+.. {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/HEAD.java[`HEAD`^];
+.. {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/OPTIONS.java[`OPTIONS`^].
+. Метод должен возвращать один из реактивных типов:
+.. {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[`CompletableFuture`^];
+.. {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletionStage.html[`CompletionStage`^];
+.. {REACTOR-CORE-DOC-ROOT-URL}reactor/core/publisher/Mono.html[`Mono`^];
+.. {RX-JAVA-DOC-ROOT-URL}io/reactivex/Completable.html[`Completable`^];
+.. {RX-JAVA-DOC-ROOT-URL}io/reactivex/Single.html[`Single`^].
+. Если метод возвращает реактивный тип, то данный тип должен быть параметризован классом модели ответа.
+(Вспомогательный тип `java.lang.Void` также поддерживаются для реактивных типов `CompletableFuture`, `CompletionStage` и `Mono`.
+_(см. <<{core}#core-reactive-bussiness-process-reactive-class-mapping-table>>)_).
+
+[IMPORTANT]
+====
+REST Client может содержать статические, приватные и неабстрактные методы, но такие методы не могут быть обработчикам HTTP запроса!
+====
+
+include::../_rest/___Flux_Flowable_notes.adoc[]
+
+:target: REST клиентов
+include::../_rest/___requirements_param_types.adoc[]
 
 include::../_rest/___note_reactive_libs.adoc[]
