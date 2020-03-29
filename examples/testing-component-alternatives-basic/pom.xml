@@ -69,7 +69,8 @@
                     <configuration>
                         <argLine>
                             @{argLine}
-                            --add-opens examples.testing.component.alternatives.basic/io.rxmicro.examples.testing.component.alternatives.basic=ALL-UNNAMED
+                            --add-opens
+                            examples.testing.component.alternatives.basic/io.rxmicro.examples.testing.component.alternatives.basic=ALL-UNNAMED
                         </argLine>
                         <properties>
                             <!-- https://junit.org/junit5/docs/5.5.1/api/org/junit/jupiter/api/Timeout.html -->

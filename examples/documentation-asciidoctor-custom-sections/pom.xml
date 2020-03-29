@@ -134,7 +134,7 @@
                         <phase>clean</phase>
                         <configuration>
                             <tasks>
-                                <delete >
+                                <delete>
                                     <fileset dir="${basedir}/src/main/asciidoc/">
                                         <exclude name="_fragment/*.asciidoc"/>
                                     </fileset>

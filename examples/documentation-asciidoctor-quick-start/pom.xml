@@ -134,7 +134,7 @@
                         <phase>clean</phase>
                         <configuration>
                             <tasks>
-                                <delete dir="${basedir}/src/main/asciidoc/" />
+                                <delete dir="${basedir}/src/main/asciidoc/"/>
                             </tasks>
                         </configuration>
                         <goals>

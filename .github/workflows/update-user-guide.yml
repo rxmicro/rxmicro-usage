@@ -35,7 +35,7 @@ jobs:
           mvn -DskipTests -B install --file pom.xml
 
       - name: Recompile Examples of Project Documentations
-        run : |
+        run: |
           cd rxmicro/
           LATEST_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
           cd ../

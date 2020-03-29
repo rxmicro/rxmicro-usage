@@ -25,6 +25,7 @@ include::../___notes/model-class-intead-of-method-parameters-note.adoc[tags=**;!
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-headers/src/test/java/io/rxmicro/examples/rest/controller/headers/SimpleUsageMicroServiceTest.java[tag=content,indent=0]
 ----
+
 `<1> При выполнении запроса к разным URL Paths результат одинаковый.
 <2> Имя `Endpoint-Version` соответствует полю `endpointVersion` модели запроса. +
 _(Данное соответствие формируется на основании использования стратегии по умолчанию, задаваемой с помощью аннотации `@HeaderMappingStrategy`.)_

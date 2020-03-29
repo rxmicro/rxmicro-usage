@@ -42,7 +42,7 @@ If you declare an alternative of the `HttpClientFactory` mock and don't configur
 
 To fix this issue it is necessary to configure the `@Mock` annotation:
 
-[source, java]
+[source,java]
 ----
 @Alternative
 @Mock(answer = Answers.RETURNS_DEEP_STUBS) // <1>

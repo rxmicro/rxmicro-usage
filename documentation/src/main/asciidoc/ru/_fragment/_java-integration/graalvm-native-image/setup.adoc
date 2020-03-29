@@ -57,6 +57,7 @@ Unzip GraalVM CE distribution onto the GraalVM home directory:
 ===== Set `GRAALVM_HOME` Environment Variable
 
 Set `GRAALVM_HOME` environment variable:
+
 [source,txt,subs="verbatim,quotes"]
 ----
 *export* GRAALVM_HOME=~/GraalVM

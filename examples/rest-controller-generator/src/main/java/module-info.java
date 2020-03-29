@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 // tag::content[]
 import io.rxmicro.rest.model.GenerateOption;
 import io.rxmicro.rest.model.ServerExchangeFormatModule;

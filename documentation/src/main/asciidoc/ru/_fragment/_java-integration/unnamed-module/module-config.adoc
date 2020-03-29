@@ -28,6 +28,7 @@ public @interface ModuleInfo {
 Так как виртуальный дескриптор доступен только в процессе компиляции, то в процессе сборки `uber.jar` данную аннотацию можно не включать в результирующий `jar`.
 
 Именно поэтому <<java-integration-unnamed-module-uber-jar-maven-shade-plugin,при настройке `maven-shade-plugin` была добавлена следующая настройка>>:
+
 [source,xml]
 ----
 <filters>
@@ -48,6 +49,7 @@ RxMicro предоставляет возможность конфигуриро
 <<rest-controller#rest-controller-rest-server-generator-config-section,дескриптор модуля `module-info.java`>>.
 
 Для `unnamed module` вместо дескриптора модуля `module-info.java`, используйте аннотацию `ModuleInfo`:
+
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/unnamed-module-rest-controller-generator/src/main/java/ModuleInfo.java[tags=content,indent=0]
