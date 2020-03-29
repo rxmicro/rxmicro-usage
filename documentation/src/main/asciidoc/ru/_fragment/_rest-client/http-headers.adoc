@@ -48,12 +48,18 @@ include::../_rest/___header_types.adoc[]
 [[rest-client-headers-static]]
 ==== Статические HTTP заголовки
 
-TODO
+Для установки статических заголовков, RxMicro предоставляет аннотации
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/AddHeader.java[`@AddHeader`^] и
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/SetHeader.java[`@SetHeader`^]:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-headers/src/main/java/io/rxmicro/examples/rest/client/headers/StaticHeadersRestClient.java[tag=content,indent=0]
 ----
+<1> Если HTTP заголовок установлен для REST контроллера, то он добавляется в HTTP ответы для каждого обработчика.
+<2> Если HTTP заголовок установлен для обработчика, то он добавляется в HTTP ответы только для этого обработчика.
+
+С точки зрения HTTP протокола, статические заголовки ничем не отличаются от любых других:
 
 [source,java]
 ----
@@ -80,17 +86,31 @@ include::../___notes/recompile-after-change.adoc[]
 [[rest-client-headers-repeating]]
 ==== Повторяющиеся HTTP заголовки
 
-TODO
+Если HTTP заголовок HTTP запроса является списком значений, то элементы списка по умолчанию передаются по протоколу HTTP в виде строки, разделенной символом `|`.
+
+Если необходимо, чтобы HTTP заголовок повторялся для каждого значения, необходимо использовать аннотацию
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RepeatHeader.java[`@RepeatHeader`^]:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-headers/src/main/java/io/rxmicro/examples/rest/client/headers/RepeatingHeadersRestClient.java[tag=content,indent=0]
 ----
 
+[NOTE]
+====
+*Использование аннотации {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RepeatHeader.java[`@RepeatHeader`^] поддерживается только для моделей запроса!*
+
+Для моделей ответа она не имеет смысла, так как фреймворк RxMicro конвертирует в список значений любой из поддерживаемых форматов.
+====
+
+В результате конвертации Java модели в HTTP ответ, результат будет следующим:
+
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-headers/src/test/java/io/rxmicro/examples/rest/client/headers/RepeatingHeadersRestClientTest.java[tag=content,indent=0]
 ----
+<1> По умолчанию элементы списка HTTP заголовка передаются по протоколу HTTP в виде строки, разделенной символом `|`.
+<2> Если поле помещено аннотацией {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RepeatHeader.java[`@RepeatHeader`^], то тогда заголовок повторяется для каждого элемента из списка.
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-headers
 include::../___notes/full-source-code-of-example.adoc[]

@@ -54,9 +54,9 @@ final class RepeatingHeadersRestClientTest {
                         .setMethod(PUT)
                         .setPath("/")
                         .setHeaders(HttpHeaders.of(
-                                "Single-Header", "created|approved|rejected",
+                                "Single-Header", "created|approved|rejected", // <1>
                                 "Repeating-Header", "created",
-                                "Repeating-Header", "approved",
+                                "Repeating-Header", "approved",               // <2>
                                 "Repeating-Header", "rejected"
                         ))
                         .build(),
