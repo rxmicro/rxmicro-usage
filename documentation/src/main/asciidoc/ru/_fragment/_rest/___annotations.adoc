@@ -45,7 +45,7 @@ ifeval::["{rest-kind}" == "controller"]
 |Объявляет <<rest-controller-headers-basic,стратегию формирования имен заголовков на основании анализа имен полей Java модели>>.
 
 _(По умолчанию используется стратегия
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L58[`CAPITALIZE_WITH_HYPHEN`^].
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L59[`CAPITALIZE_WITH_HYPHEN`^].
 Таким образом благодаря использованию данной стратегии заголовок `Header-Name` соответствует названию поля `headerName`.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/AddHeader.java[`@AddHeader`^]
@@ -66,7 +66,7 @@ _(Данная аннотация применима только к поля с
 |Объявляет <<rest-controller-params-basic,стратегию формирования имен параметров на основании анализа имен полей Java модели>>.
 
 _(По умолчанию используется стратегия
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L33[`LOWERCASE_WITH_UNDERSCORED`^].
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L34[`LOWERCASE_WITH_UNDERSCORED`^].
 Таким образом благодаря использованию данной стратегии параметр `important_parameter` соответствует названию поля `importantParameter`.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/PathVariable.java[`@PathVariable`^]
@@ -124,7 +124,7 @@ ifeval::["{rest-kind}" == "client"]
 |Объявляет <<rest-client-headers-basic,стратегию формирования имен заголовков на основании анализа имен полей Java модели>>.
 
 _(По умолчанию используется стратегия
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L58[`CAPITALIZE_WITH_HYPHEN`^].
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L59[`CAPITALIZE_WITH_HYPHEN`^].
 Таким образом благодаря использованию данной стратегии заголовок `Header-Name` соответствует названию поля `headerName`.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/AddHeader.java[`@AddHeader`^]
@@ -145,7 +145,7 @@ _(Данная аннотация применима только к поля с
 |Объявляет <<rest-client-params-basic,стратегию формирования имен параметров на основании анализа имен полей Java модели>>.
 
 _(По умолчанию используется стратегия
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L33[`LOWERCASE_WITH_UNDERSCORED`^].
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L34[`LOWERCASE_WITH_UNDERSCORED`^].
 Таким образом благодаря использованию данной стратегии параметр `important_parameter` соответствует названию поля `importantParameter`.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/AddQueryParameter.java[`@AddQueryParameter`^]
@@ -169,7 +169,7 @@ _(Данная аннотация применима только к поля с
 |Указывает фреймворку RxMicro на то, что необходимо <<rest-client-internals-basic-section,считать тело HTTP ответа, который был получен от сервера>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RequestId.java[`@RequestId`^]
-|Объявляет поле Java модели полем, куда необходимо внедрить <<rest-client-rqeuest-id-section,уникальный идентификатор запроса>>.
+|Объявляет поле Java модели полем, куда необходимо внедрить <<rest-controller#rest-controller-rqeuest-id-section,уникальный идентификатор запроса>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/PartialImplementation.java[`@PartialImplementation`^]
 |Позволяет <<rest-client-partial-implementation-section,задавать класс с частичной реализацией для REST клиента>>.
