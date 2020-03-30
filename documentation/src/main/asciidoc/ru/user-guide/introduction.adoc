@@ -3,7 +3,7 @@
 include::_fragment/settings.adoc[]
 :guide-kind: section
 :current-entity: introduction
-:imagesdir: ../../images
+:imagesdir: ../images
 
 :introduction:
 :microservice: microservice.adoc

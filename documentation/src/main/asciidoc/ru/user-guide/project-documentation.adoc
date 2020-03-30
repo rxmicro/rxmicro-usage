@@ -3,8 +3,8 @@
 include::_fragment/settings.adoc[]
 :guide-kind: section
 :current-entity: project-documentation
-:imagesdir: ../../images
-:project-documentation-examples-root: ../../project-documentation-examples
+:imagesdir: ../images
+:project-documentation-examples-root: ../project-documentation-examples
 
 :introduction: introduction.adoc
 :microservice: microservice.adoc

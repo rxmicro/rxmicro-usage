@@ -2,7 +2,7 @@
 = RxMicro User Guide
 include::user-guide/_fragment/settings.adoc[]
 :guide-kind: full
-:imagesdir: ../images
+:imagesdir: images
 :project-documentation-examples-root: ../project-documentation-examples
 
 :introduction:

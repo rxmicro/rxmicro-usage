@@ -3,7 +3,7 @@
 include::../user-guide/_fragment/settings.adoc[]
 :guide-kind: index
 :current-entity: appendices
-:imagesdir: ../../images
+:imagesdir: ../images
 
 include::_fragment/preface.adoc[]
 
