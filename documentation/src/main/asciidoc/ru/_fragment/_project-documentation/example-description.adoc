@@ -3,6 +3,14 @@
 [[project-documentation-example-description-section]]
 === `@Example` and `@Description` Usage
 
+С помощью аннотации
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/Example.java[`@Example`^]
+разработчик может указать данные максимально приближенные к реальным, которые будут использоваться при построении примеров использования в проектной документации.
+
+С помощью аннотации
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/Description.java[`@Description`^]
+разработчик может указать подробное описание отдельных полей модели, которые будут использоваться при построении проектной документации.
+
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-echo/src/main/java/io/rxmicro/examples/documentation/asciidoctor/echo/Echo.java[tags=content]

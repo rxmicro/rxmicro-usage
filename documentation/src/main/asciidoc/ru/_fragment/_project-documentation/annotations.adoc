@@ -1,7 +1,7 @@
 [[project-documentation-annotations-section]]
 === `RxMicro Annotations`
 
-RxMicro поддерживает следующие `RxMicro annotations`, которые используются для настроек генерации проектной документации.
+RxMicro поддерживает следующие `RxMicro annotations`, которые используются для настроек процесса генерации проектной документации.
 
 .`RxMicro Annotations` for Customization of Project Documentation.
 [cols="1,3"]
