@@ -20,6 +20,11 @@
 |результирующая директория <<{project-documentation}#project-documentation-section,для сгенерированной документации>>.
 |`String`
 |Asciidoc: `./src/main/asciidoc`
+
+|`RX_MICRO_BUILD_UNNAMED_MODULE`
+|Поддержка <<{java-integration}#java-integration-unnamed-module,`unnamed module`>> для микросервисного проекта.
+|`boolean`
+|`false`
 |===
 
 Данные опции задаются с помощью аргументов компилятора в `maven-compiler-plugin`:
@@ -34,7 +39,8 @@
         <compilerArgs>
             <arg>-ARX_MICRO_MAX_JSON_NESTED_DEPTH=20</arg>
             <arg>-ARX_MICRO_LOG_LEVEL=INFO</arg>
-            <arg>-ARX_MICRO_DOC_DESTINATION_DIR=target/doc</arg>
+            <arg>-ARX_MICRO_DOC_DESTINATION_DIR=./src/main/asciidoc</arg>
+            <arg>-ARX_MICRO_BUILD_UNNAMED_MODULE=false</arg>
         </compilerArgs>
     </configuration>
 </plugin>
