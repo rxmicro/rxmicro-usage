@@ -3,44 +3,59 @@
 [[project-documentation-basic-usage-section]]
 === Default Project Documentation
 
-[source,java]
-----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-quick-start/src/main/java/module-info.java[tags=content]
-----
+Найстройки по-умолчанию позволяют генерировать документацию по проекту, используя минимальные конфигурации. +
+_(Данное преимущество достигается за счет тесной интеграции с другими RxMicro модулями.)_
+
+==== Min Settings
+
+Для генерирования проектной документации в формате http://asciidoc.org/[`AsciiDoc`] в процессе компиляции микросервисного проекта, необходимо выполнить два шага:
+
+* Подключить зависимость `rxmicro-documentation-asciidoctor` в `pom.xml` микросервисного проекта:
 
 [source,xml]
 ----
 <dependency>
     <groupId>io.rxmicro</groupId>
-    <artifactId>rxmicro-documentation-asciidoctor</artifactId> <!--1-->
+    <artifactId>rxmicro-documentation-asciidoctor</artifactId>
     <version>${rxmicro.version}</version>
 </dependency>
 ----
 
-[source,xml]
+* Добавить модуль `rxmicro.documentation.asciidoctor` в дескриптор `module-info.java` текущего микросервисного проекта:
+
+[source,java]
 ----
-<plugin>
-    <artifactId>maven-dependency-plugin</artifactId>
-    <version>${maven.dependencies.plugin.version}</version>
-    <executions>
-        <execution>
-            <id>copy-dependencies</id>
-            <phase>package</phase>
-            <goals>
-                <goal>copy-dependencies</goal>
-            </goals>
-            <configuration>
-                <outputDirectory>${project.build.directory}/lib</outputDirectory>
-                <includeScope>compile</includeScope>
-                <excludeArtifactIds> <!--1-->
-                    rxmicro-documentation,
-                    rxmicro-documentation-asciidoctor
-                </excludeArtifactIds>
-            </configuration>
-        </execution>
-    </executions>
-</plugin>
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-quick-start/src/main/java/module-info.java[tags=content]
 ----
+
+<1> Модуль `rxmicro.documentation.asciidoctor` должен быть подключен, используя модификатор `static`. +
+_(Данный модификатор позволяет не использовать классы и аннотации из указанного модуля в `runtime`.)_
+
+После выполнения данных шагов в процессе компиляции микросервисного проекта, `RxMicro Annotation Processor` сгененрирует файл `ExamplesDocumentationAsciidoctorQuickStartDocumentation.adoc`.
+Сгенерированный файл будет содержать проектную документацию в формате http://asciidoc.org/[`AsciiDoc`]  и по-умолчанию будет находится в папке: `$ROOT/src/main/asciidoc`.
+
+[NOTE]
+====
+По-умолчанию папка `$ROOT/src/main/asciidoc` с точки зрения системы контроля версий является исходным кодом и поэтому будет контроллироваться данной системой.
+Поэтому, если предполагается динамически генерировать документацию по проекту, то необходимо:
+
+* или указать, что файлы в папке `$ROOT/src/main/asciidoc` должны игнорироваться системой контроля версий;
+* или настроить модуль `rxmicro.documentation.asciidoctor` таким образом, чтобы он генерировал проектную документацию в другую папку, например в `target/docs`. +
+_(Для настройки результирующей папки обратитесь к <<core#rxmicro_annotation_processor_options>>.)_
+
+Выбор папки `$ROOT/src/main/asciidoc` по-умолчанию предоставляет следующие преимущества:
+
+* Maven плагин `asciidoctor-maven-plugin`, который конвертирует формат http://asciidoc.org/[`AsciiDoc`] в HTML или PDF, по-умолчанию считывает файлы с папки `$ROOT/src/main/asciidoc`.
+* Генерация проектной документации может быть использована в качестве начальной версии документа, а затем генерация может быть отключена и все изменения в документацию будут вносится вручную и сохраняться в системе контроля версий.
+* Более эффективный способ поддержки проектной документации в актуальном состоянии по сравнению с предыдущим вариантом, заключается в том, чтобы всю документацию разбить на фрагменты.
+Статические фрагменты (описания бизнес задачи, диаграммы и рисунки) будут создаваться разработчиком вручную.
+А динамические фрагменты будут генерироваться by `RxMicro Annotation Processor` при каждой компиляции проекта.
+В результате из данных типов фрагментов будет собираться актуальная и человеко читаемая документация.
+====
+
+==== `asciidoctor-maven-plugin` Settings
+
+Плагин `asciidoctor-maven-plugin` позволяет конвертировать документацию в формате http://asciidoc.org/[`AsciiDoc`] в HTML, PDF и другие форматы.
 
 [source,xml]
 ----
@@ -70,10 +85,58 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-quic
     </executions>
 </plugin>
 ----
-
 <1> {MAVEN-REPO-SEARCH-ROOT}org.asciidoctor/asciidoctor-maven-plugin[Последняя стабильная версия `asciidoctor-maven-plugin`^].
+<2> `asciidoctor-maven-plugin` должен конвертировать проектную документацию на фазе `package`. +
+_(Главное чтобы фаза запуска данного плагина была после фазы `compile`, так как именно на этой фазе создается документ в формате http://asciidoc.org/[`AsciiDoc`] by `RxMicro Annotation Processor`.
+А для успешной конвертации, необходим исходный файл в формате http://asciidoc.org/[`AsciiDoc`].)_
+<3> С помощью директивы `backend` указывается в какой формат необходимо конвертировать http://asciidoc.org/[`AsciiDoc`] документ.
+<4> Если http://asciidoc.org/[`AsciiDoc`] документ содержит примеры исходного кода на каком-либо языке программирования, необходимо подключить js библиотеку для подсветки синтаксиса данного языка.
+<5> С помощью директивы `attributes` возможно переопределить аттрибуты   http://asciidoc.org/[`AsciiDoc`] документа.
 
-https://asciidoctor.org/docs/asciidoctor-maven-plugin/
+[NOTE]
+====
+Для получения дополнительных сведений о возможностях плагина `asciidoctor-maven-plugin`. рекомендуем обратиться к документации:
+https://asciidoctor.org/docs/asciidoctor-maven-plugin/[`https://asciidoctor.org/docs/asciidoctor-maven-plugin/`^]
+====
+
+==== `asciidoctor-dependency-plugin` Settings
+
+Так как проектная документация генерируется в процессе копмиляции, то из списка требуемых RxMicro библиотек в процессе выполнения микросервиса необходимо исключить артефакты, которые относятся к описанию проектной документации.
+
+[source,xml]
+----
+<plugin>
+    <artifactId>maven-dependency-plugin</artifactId>
+    <version>${maven.dependencies.plugin.version}</version>
+    <executions>
+        <execution>
+            <id>copy-dependencies</id>
+            <phase>package</phase>
+            <goals>
+                <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+                <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                <includeScope>compile</includeScope>
+                <excludeArtifactIds> <!--1-->
+                    rxmicro-documentation,
+                    rxmicro-documentation-asciidoctor
+                </excludeArtifactIds>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+----
+
+<1> Артефакты `rxmicro-documentation` и `rxmicro-documentation-asciidoctor` необходимы *только* в процессе компиляции.
+
+[IMPORTANT]
+====
+Обратите внимание на то, что так как мы исключаем артефакты относящиеся к постороению проектной документации из библиотек, необходимых для успешного запуска микросервисного проекта,
+обязательно нужно использовать модификатор `static` в дескрипторе `module-info.java`: `requires static rxmicro.documentation.asciidoctor;`.
+
+Без данного модификатора в процессе выполнения микросервисного проекта будет ошибка: `Module rxmicro.documentation.asciidoctor not found`!
+====
 
 :project-documentation-file: ExamplesDocumentationAsciidoctorQuickStartDocumentation.html
 include::../___notes/generated-project-documentation.adoc[]
