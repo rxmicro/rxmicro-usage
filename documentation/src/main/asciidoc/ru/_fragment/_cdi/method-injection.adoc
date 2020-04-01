@@ -3,22 +3,17 @@
 [[cdi-method-injection-section]]
 === Method Injection
 
-TODO
-
-[source,java]
-----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-method-injection/src/main/java/io/rxmicro/examples/cdi/method/injection/BusinessService.java[tag=content,indent=0]
-----
-
-[source,java]
-----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-method-injection/src/main/java/io/rxmicro/examples/cdi/method/injection/BusinessServiceImpl.java[tag=content,indent=0]
-----
+Фреймворк RxMicro поддерживает также внедрение с помощью https://www.w3schools.com/java/java_encapsulation.asp[`setters` (method injection)^]:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-method-injection/src/main/java/io/rxmicro/examples/cdi/method/injection/BusinessServiceFacade.java[tag=content,indent=0]
 ----
+<1> Для активации внедрения с помощью https://www.w3schools.com/java/java_encapsulation.asp[`setters`^], необходимо создать `setter` и аннотировать его аннотацией
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@Inject`^] или
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Autowired.java[`@Autowired`^].
+
+При использовании механизма внедрения с помощью https://www.w3schools.com/java/java_encapsulation.asp[`setters`^], данный метод вызывается фреймворком RxMicro автоматически:
 
 [source,java]
 ----
