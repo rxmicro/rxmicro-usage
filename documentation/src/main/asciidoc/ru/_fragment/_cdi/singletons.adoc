@@ -3,9 +3,20 @@
 [[cdi-singletons-section]]
 === All Beans are Singletons!
 
-Все CDI компоненты являются singletons!
+Фреймворк RxMicro ориентирован на создание микросервисных проектов.
+Одним из ключевых особенностей микросервисов является их простота.
+Именно поэтому в качестве основной и единственной scope был выбран `singleton` scope.
 
-TODO
+Таким образом *все CDI компоненты являются `singletons`!*
+
+Это означает что в момент запуска микросервисного проекта создается *только один объект* класса реализации компонента и внедряется во все необходимые точки внедрения.
+
+[NOTE]
+====
+Если необходимо в каждую точку внедрения внедрять отдельный объект класса реализации (`prototype` scope), то в этом случае необходимо использовать <<cdi-factory-class-section, фабрику, создающую объекты заданного класса>>!
+====
+
+Данное поведение может быть проверено с помощью следующего кода:
 
 [source,java]
 ----
@@ -21,6 +32,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-singletons/src/main/java/i
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-singletons/src/test/java/io/rxmicro/examples/cdi/singletons/BusinessServiceFacadeTest.java[tag=content,indent=0]
 ----
+<1> Так как класс `BusinessServiceImpl` реализует два интерфейса, то при внедрении разных с точки зрения интерфейсов типов внедряется один и тотже объект реализации!
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-singletons
 include::../___notes/full-source-code-of-example.adoc[]

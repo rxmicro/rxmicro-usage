@@ -38,7 +38,7 @@ _(Является синонимом аннотации {RX-MICRO-SRC-ROOT-BLOB
 _(По своей семантике полностью соответсвует анотации https://docs.oracle.com/javaee/7/api/javax/annotation/PostConstruct.html[`@PostConstruct`^].)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Factory.java[`@Factory`^]
-|Указывает на <<cdi-factory-method-section, фабричный метод>> или <<cdi-factory-class-section, фабрику создания объектов заданного класса>>.
+|Указывает на <<cdi-factory-method-section, фабричный метод>> или <<cdi-factory-class-section, фабрику, создающую объекты заданного класса>>.
 
 // ---------------------------------------------------------------------------------------------------------------------
 |===
