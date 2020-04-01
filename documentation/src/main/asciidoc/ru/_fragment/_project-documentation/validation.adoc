@@ -3,6 +3,9 @@
 [[project-documentation-validation-section]]
 === Integration with `rxmicro.validation` Module
 
+Модуль `rxmicro.documentation.asciidoctor` интегрирован с модулем `rxmicro.validation`.
+Благодаря данной интеграции при построении проектной документации анализируются все доступные built-in constraints для автоматической генерации описания полей модели.
+
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-validation/src/main/java/module-info.java[tags=content]
@@ -12,6 +15,12 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-vali
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-validation/src/main/java/io/rxmicro/examples/documentation/asciidoctor/validation/MicroService.java[tags=content]
 ----
+<1> Поле `phone` должно валидироваться с помощью phone built-in constraints.
+
+Данная информация используется чтобы при построении проектной документации автоматически сформировать описание к данному полю:
+
+.Описание поля `phone`, сформированное на основании анализа built-in constraints
+image::project-documentation/validation-integration.jpg[]
 
 :project-documentation-file: ExamplesDocumentationAsciidoctorValidationDocumentation.html
 include::../___notes/generated-project-documentation.adoc[]
