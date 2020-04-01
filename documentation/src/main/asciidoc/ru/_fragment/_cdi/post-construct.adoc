@@ -3,27 +3,49 @@
 [[cdi-post-construct-section]]
 === `@PostConstruct`
 
-TODO
+Если необходимо выполнить какой-либо код в процессе создания объекта класса, Java для этих целей предоставляет специальный метод: конструктор.
+Однако при использовании механизмов внедрения зависимостей, сами зависимости внедряются уже после создания объекта и соответсвенно после вызова конструктора.
+_(За исключением механизма внедрения с помощью конструктора, конечно же!)_
+Для того, чтобы выполнить какой-либо код в процессе создания объекта, но уже после внедрения всех зависимостей в данный объект, фреймворк RxMicro предоставляет специальную аннотацию
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/PostConstruct.java[`@PostConstruct`^].
+
+Таким образом если в классе сущесвует метод, аннотированный аннотацией {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/PostConstruct.java[`@PostConstruct`^],
+то этот метод автоматически вызывается после внедрения всех зависимостей в созданный объект данного класса.
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-post-construct/src/main/java/io/rxmicro/examples/cdi/post/construct/BusinessService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-post-construct/src/main/java/io/rxmicro/examples/cdi/post/construct/BusinessService2Facade.java[tag=content,indent=0]
 ----
+<1> После внедрения объекта класса реализации в поле `businessService`, фреймворк RxMicro автоматически вызовет метод `anyName`, так как данный метод аннотирован аннотацией
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/PostConstruct.java[`@PostConstruct`^].
 
-[source,java]
-----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-post-construct/src/main/java/io/rxmicro/examples/cdi/post/construct/BusinessServiceImpl.java[tag=content,indent=0]
-----
+Для удобства разработчиков RxMicro вводит дополнительное соглашение:
+
+*Если в классе присутсвует метод с именем `postConstruct`, то данный метод можно не аннотировать аннотацией {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/PostConstruct.java[`@PostConstruct`^]!*
+
+Метод с указанным именем будет вызываться автоматически после внедрения всех зависимостей:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-post-construct/src/main/java/io/rxmicro/examples/cdi/post/construct/BusinessService1Facade.java[tag=content,indent=0]
 ----
 
-[source,java]
-----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-post-construct/src/main/java/io/rxmicro/examples/cdi/post/construct/BusinessService2Facade.java[tag=content,indent=0]
-----
+Таким образом чтобы любой метод в классе определялся фреймворком RxMicro как метод, который должен быть вызван автоматически после внедрения всех зависимостей, необходимо:
+
+* чтобы данный метод был аннотирован аннотацией {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/PostConstruct.java[`@PostConstruct`^];
+* или имел предопределенное имя: `postConstruct`.
+
+Метод `postConstruct` должен удовлетворять следующим требованиям:
+
+* Данный метод должен быть единственным в классе.
+* Метод должен быть нестатическим.
+* Метод должен быть неабстрактным.
+* Метод должен быть ненативным.
+* Метод должен быть несинхронизированным.
+* Метод не должен содержать параметры.
+* Метод должен возвращать тип `void`.
+
+Факты вызовов методов `postConstruct` и `anyName` могут быть проверены с помощью следующих тестов:
 
 [source,java]
 ----
@@ -42,5 +64,11 @@ include::../___notes/recompile-after-change.adoc[]
 
 [NOTE]
 ====
-PreDestroy -> AutoRelease
+Во многих фреймворках, реализующих шаблон проектирования https://en.wikipedia.org/wiki/Dependency_injection[*Dependency Injection*^],
+кроме методов `postConstruct` существуют методы `preDestroy`.
+Данные методы вызываются автоматически и обычно очищают ресурсы при удалении объекта из CDI контейнера.
+
+Для микросервисного проекта, который использует фреймворк RxMicro необходимость в методах `preDestroy` отсутсвует.
+Так как объекты удаляются из CDI контейнера когда завершается java процесс.
+А при завершении любого процесса в операционной системе, операционная система автоматически освобождает *все* занятые ресурсы!
 ====
