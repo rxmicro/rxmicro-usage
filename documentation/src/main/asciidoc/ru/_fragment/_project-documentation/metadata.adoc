@@ -2,26 +2,24 @@
 
 === Project Metadata Configuration
 
-[[project-documentation-metadata-annotations-section]]
-==== Using Annotations
+Для получения метаданных в процессе построения проектной документации, фреймворк RxMicro может использовать:
 
-[source,java]
-----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-metadata-annotations/src/main/java/module-info.java[tags=content]
-----
+* Файл `pom.xml`;
+* Аннотации модуля `rxmicro.documentation`.
 
-:project-documentation-file: MetadataAnnotationsDocumentation.html
-include::../___notes/generated-project-documentation.adoc[]
+Метаданными для проектной документации программного обеспечения являются:
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}documentation-asciidoctor-metadata-annotations
-include::../___notes/full-source-code-of-example.adoc[]
-
-include::../___notes/recompile-after-change.adoc[]
-
-<<<
+* название программного обеспечения;
+* описание программного обеспечения;
+* версия программного обеспечения;
+* список лиценций, под которыми распростаняется данное программное обеспечение;
+* список разработчиков программного обеспечения;
+* базовый endpoint для всех REST-based микросервисов.
 
 [[project-documentation-metadata-pomxml-section]]
 ==== Using `pom.xml`
+
+Для указания метаданных для проектной документации программного обеспечения можно использовать файл: `pom.xml`
 
 [source,xml]
 ----
@@ -34,6 +32,26 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-meta
 include::../___notes/generated-project-documentation.adoc[]
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}documentation-asciidoctor-metadata-pomxml
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]
+
+<<<
+
+[[project-documentation-metadata-annotations-section]]
+==== Using Annotations
+
+Для указания метаданных для проектной документации программного обеспечения можно использовать аннотации модуля `rxmicro.documentation`.
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-metadata-annotations/src/main/java/module-info.java[tags=content]
+----
+
+:project-documentation-file: MetadataAnnotationsDocumentation.html
+include::../___notes/generated-project-documentation.adoc[]
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}documentation-asciidoctor-metadata-annotations
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]
