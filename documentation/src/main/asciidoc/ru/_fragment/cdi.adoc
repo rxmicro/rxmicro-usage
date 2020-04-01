@@ -1,4 +1,4 @@
-TODO
+Модуль `rxmicro.cdi` является реализацией шаблона проектирования https://en.wikipedia.org/wiki/Dependency_injection[*Dependency Injection*^] интегрированного во фреймворк RxMicro.
 
 <<<
 

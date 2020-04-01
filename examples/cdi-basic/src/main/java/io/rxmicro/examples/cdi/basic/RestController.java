@@ -23,7 +23,8 @@ import io.rxmicro.rest.method.PATCH;
 public final class RestController {
 
     @Inject
-    BusinessService businessService; // <1>
+    // <1>
+    BusinessService businessService;
 
     @PATCH("/")
     void handle() {

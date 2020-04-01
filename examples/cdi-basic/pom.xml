@@ -113,7 +113,7 @@
         <!-- tag::content[] -->
         <dependency>
             <groupId>io.rxmicro</groupId>
-            <artifactId>rxmicro-cdi</artifactId> <!--1-->
+            <artifactId>rxmicro-cdi</artifactId>
             <version>${rxmicro.version}</version>
         </dependency>
         <!-- end::content[] -->

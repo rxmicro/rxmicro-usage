@@ -22,7 +22,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 // tag::content[]
-// <1>
 @RxMicroComponentTest(BusinessServiceFacade.class)
 final class BusinessServiceFacadeTest {
 
