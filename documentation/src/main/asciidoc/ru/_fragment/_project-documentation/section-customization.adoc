@@ -19,7 +19,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-cust
 
 [NOTE]
 ====
-Кроме генерации финального http://asciidoc.org/[`AsciiDoc`] документа, `RxMicro Annotation Processor` позволяет генерировать отдельные динамические фрагменты.
+Кроме генерации финального http://asciidoc.org/[`AsciiDoc`^] документа, `RxMicro Annotation Processor` позволяет генерировать отдельные динамические фрагменты.
 
 Для получения подробной информации о данной возможности рекомендуем обратиться к примеру:
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}documentation-asciidoctor-custom-sections[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}documentation-asciidoctor-custom-sections`^]

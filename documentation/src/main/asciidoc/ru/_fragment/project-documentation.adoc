@@ -5,7 +5,7 @@
 * https://swagger.io/specification/[OpenAPI Specification^].
 * https://github.com/apiaryio/api-blueprint/blob/master/API%20Blueprint%20Specification.md[API Blueprint Specification^].
 
-На текущий момент фреймворк RxMicro поддерживает только специализированный формат документирования на базе формата http://asciidoc.org/[`AsciiDoc`].
+На текущий момент фреймворк RxMicro поддерживает только специализированный формат документирования на базе формата http://asciidoc.org/[`AsciiDoc`^].
 _(Данный формат похож на формат `API Blueprint Specification`, но предоставляет более свободное описание.)_
 
 <<<
