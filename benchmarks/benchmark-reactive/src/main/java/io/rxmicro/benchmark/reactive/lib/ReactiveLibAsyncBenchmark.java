@@ -85,6 +85,6 @@ public class ReactiveLibAsyncBenchmark {
 
     @Benchmark
     public void flowable() {
-        Flowable.defer(()-> Flowable.just(DATA)).blockingFirst();
+        Flowable.defer(() -> Flowable.just(DATA)).blockingFirst();
     }
 }

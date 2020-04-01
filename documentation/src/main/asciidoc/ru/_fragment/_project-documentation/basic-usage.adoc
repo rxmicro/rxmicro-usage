@@ -133,8 +133,7 @@ https://asciidoctor.org/docs/asciidoctor-maven-plugin/[`https://asciidoctor.org/
 
 [IMPORTANT]
 ====
-Обратите внимание на то, что так как мы исключаем артефакты относящиеся к постороению проектной документации из библиотек, необходимых для успешного запуска микросервисного проекта,
-обязательно нужно использовать модификатор `static` в дескрипторе `module-info.java`: `requires static rxmicro.documentation.asciidoctor;`.
+Обратите внимание на то, что так как мы исключаем артефакты относящиеся к постороению проектной документации из библиотек, необходимых для успешного запуска микросервисного проекта, обязательно нужно использовать модификатор `static` в дескрипторе `module-info.java`: `requires static rxmicro.documentation.asciidoctor;`.
 
 Без данного модификатора в процессе выполнения микросервисного проекта будет ошибка: `Module rxmicro.documentation.asciidoctor not found`!
 ====
