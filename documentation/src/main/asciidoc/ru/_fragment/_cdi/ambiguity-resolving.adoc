@@ -33,6 +33,7 @@ include::../___notes/recompile-after-change.adoc[]
 
 <<<
 
+[[cdi-named]]
 ==== Использование аннотации `@Named` (`@Qualifier`)
 
 TODO
