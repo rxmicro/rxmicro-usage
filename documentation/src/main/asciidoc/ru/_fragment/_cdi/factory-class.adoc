@@ -3,22 +3,35 @@
 [[cdi-factory-class-section]]
 === Factory Class
 
-TODO
+Фреймворк RxMicro поддерживает создание классов-фабрик, которые могут использоваться для создания объектов других типов.
 
-[source,java]
-----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-factory-class/src/main/java/io/rxmicro/examples/cdi/factoryclass/BusinessService.java[tag=content,indent=0]
-----
+Используя классы-фабрики возможно получить следующие преимущества:
+
+* Создавать динамические классы.
+_(Например, используя класс {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/reflect/Proxy.html[`Proxy`^].)_
+* Реализовать `prototype` scope.
+
+Для создания класса-фабрики необходимо:
+
+* Создать класс, реализующий интерфейс {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/function/Supplier.html[`Supplier`^].
+* Аннотировать данный класс аннотацией {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Factory.java[`@Factory`^].
+* Реализовать метод `get`, который должен вернуть объект создаваемого класса.
+
+Например для создания динамического класса, необходимо использовать следующий класс-фабрику:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-factory-class/src/main/java/io/rxmicro/examples/cdi/factoryclass/BusinessServiceFactoryImpl.java[tag=content,indent=0]
 ----
 
+Внедрение объекта, создаваемого классом-фабрикой ничем не отличается от создания объекта фреймворком RxMicro:
+
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-factory-class/src/main/java/io/rxmicro/examples/cdi/factoryclass/BusinessServiceFacade.java[tag=content,indent=0]
 ----
+
+При вызове метода `getValue` динамический класс возвращает предопределенное значение:
 
 [source,java]
 ----
