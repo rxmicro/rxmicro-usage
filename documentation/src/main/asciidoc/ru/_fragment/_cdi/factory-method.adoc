@@ -3,17 +3,37 @@
 [[cdi-factory-method-section]]
 === Factory Method
 
-TODO
+При использовании механизмов внедрения зависимостей, фреймворк RxMicro самостоятельно создает объекты заданных классов и внедряет ссылки на них в точки внедрения.
+Для успешной реализации данного поведения необходимо, чтобы каждый класс, объект которого должен быть внедрен содержал доступный конструктор без параметров или конструктор аннотированный аннотацией
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@Inject`^] или
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Autowired.java[`@Autowired`^].
+
+Т.е. фреймворк RxMicro определяет объект какого класса должен быть создан и создает этот объект автоматически при старте CDI контейнера.
+Если необходимо получить больший контроль над созданием объекта реализации, необходимо использовать шаблон Factory Method:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-factory-method/src/main/java/io/rxmicro/examples/cdi/factory/method/BusinessServiceFacade.java[tag=content,indent=0]
 ----
+<1> Класс должен содержать статический метод, аннотированный аннотацией {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Factory.java[`@Factory`^]
+<2> Приватный конструктор ограничивает возможность создания объекта данного класса извне.
+Таким образом объект данного класса может быть создан только используя фабричный метод `create()`.
+
+Если фреймворк RxMicro обнаруживает метод в классе, аннотированный аннотацией {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Factory.java[`@Factory`^],
+то при создании объект данного класса использует именно этот метод, а не констуктор:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-factory-method/src/test/java/io/rxmicro/examples/cdi/factory/method/BusinessServiceFacadeTest.java[tag=content,indent=0]
 ----
+
+Фабричный метод должен удовлетворять следующим требованиям:
+
+* Метод должен быть статическим.
+* Метод должен быть ненативным.
+* Метод должен быть несинхронизируемым.
+* Метод должен возвращать объект класса, в котором он объявлен.
+* Метод не должен содержать параметры.
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-factory-method
 include::../___notes/full-source-code-of-example.adoc[]
