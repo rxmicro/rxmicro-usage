@@ -3,12 +3,11 @@
 [[cdi-multibindings-section]]
 === Multibindings
 
-TODO
+Фреймворк RxMicro поддерживает *Multibindings*.
 
-[source,java]
-----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-multibinder/src/main/java/io/rxmicro/examples/cdi/multibinder/BusinessService.java[tag=content,indent=0]
-----
+*Multibindings* - это функция CDI контейнера, которая позволяет найти все реализации данного типа и внедрить их.
+
+Например, если сущесвует два класса реализации интерфейса `BusinessService`:
 
 [source,java]
 ----
@@ -20,10 +19,14 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-multibinder/src/main/java/
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-multibinder/src/main/java/io/rxmicro/examples/cdi/multibinder/impl/DevelopmentBusinessService.java[tag=content,indent=0]
 ----
 
+то данные классы могут быть внедрены фреймворком RxMicro в поле типа {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/Set.html[`java.util.Set`^]:
+
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-multibinder/src/main/java/io/rxmicro/examples/cdi/multibinder/BusinessServiceFacade.java[tag=content,indent=0]
 ----
+
+После успешного внедрения поле `businessServices` будет содержать объекты классов `ProductionBusinessService` и `DevelopmentBusinessService`:
 
 [source,java]
 ----
