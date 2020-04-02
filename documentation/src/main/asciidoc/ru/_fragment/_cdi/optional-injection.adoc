@@ -3,17 +3,27 @@
 [[cdi-optional-injection-section]]
 === Optional Injection
 
-TODO
+По-умолчанию все точки внедрения являются обязательными.
+Это означает, что если в процессе внедрения зависимостей фреймворк RxMicro не обнаружит подходящего объекта, то возникнет ошибка.
 
-[source,java]
-----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-optional-injection/src/main/java/io/rxmicro/examples/cdi/optional/injection/BusinessService.java[tag=content,indent=0]
-----
+Если в текущем проекте допускается ситуация, когда подходящий объект может отсутсвовать, то тогда необходимо использовать режим `optional injection`:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-optional-injection/src/main/java/io/rxmicro/examples/cdi/optional/injection/BusinessServiceFacade.java[tag=content,indent=0]
 ----
+<1> При использовании аннотации {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@Inject`^] для активации режима `optional injection`
+необходимо установить параметр `optional = true`.
+<2> При использовании аннотации {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Autowired.java[`@Autowired`^] для активации режима `optional injection`
+необходимо установить параметр `required = false`.
+
+В случае активации режима `optional injection` фреймворк RxMicro использует следующий алгоритм для внедрения:
+
+. Если зависимость найдена, то она будет внедрена успешно.
+. Если зависимость отсутсвует, то ничего не происходит. +
+ _(В данном случае поведение такое, как будто поле вообще не аннотировано никакой аннотацией!)_
+
+Корректность данного алгоритма может быть проверена с помощью теста:
 
 [source,java]
 ----
