@@ -41,7 +41,7 @@ public final class Settings {
 
     public static final String DATA_MONGO = "data-mongo";
 
-    public static final String AUTO_MODULE_PREFIX = "auto-module-";
+    public static final String UNNAMED_MODULE_PREFIX = "unnamed-module-";
 
     public static final String RX_MICRO_ROOT_DIR_PATH;
 

@@ -29,7 +29,7 @@ import static io.rxmicro.util.tests.Copies.copyDocs;
 import static io.rxmicro.util.tests.Copies.copyInput;
 import static io.rxmicro.util.tests.Copies.copyOutput;
 import static io.rxmicro.util.tests.Names.defineRootPackage;
-import static io.rxmicro.util.tests.Settings.AUTO_MODULE_PREFIX;
+import static io.rxmicro.util.tests.Settings.UNNAMED_MODULE_PREFIX;
 import static io.rxmicro.util.tests.Settings.CDI;
 import static io.rxmicro.util.tests.Settings.DATA_MONGO;
 import static io.rxmicro.util.tests.Settings.DATA_R2DBC_POSTGRESQL;
@@ -91,8 +91,8 @@ public final class Launcher {
     private static void copyExamples() throws IOException {
         for (final File exampleProject : requireNonNull(new File(EXAMPLES_ROOT_DIR_PATH).listFiles())) {
             for (final Map.Entry<String, String> entry : RX_MICRO_MODULES.entrySet()) {
-                final String name = exampleProject.getName().startsWith(AUTO_MODULE_PREFIX) ?
-                        exampleProject.getName().substring(AUTO_MODULE_PREFIX.length()) :
+                final String name = exampleProject.getName().startsWith(UNNAMED_MODULE_PREFIX) ?
+                        exampleProject.getName().substring(UNNAMED_MODULE_PREFIX.length()) :
                         exampleProject.getName();
                 if (name.startsWith(entry.getKey())) {
                     if (!new File(exampleProject.getAbsolutePath(), "skip").exists()) {
@@ -133,7 +133,7 @@ public final class Launcher {
                         "RestClient.java"
                 ));
             }
-            if (!exampleProject.getName().startsWith(AUTO_MODULE_PREFIX)) {
+            if (!exampleProject.getName().startsWith(UNNAMED_MODULE_PREFIX)) {
                 exclude.add("$$EnvironmentCustomizer.java");
             }
             copyOutput(destRoot, rootPackage, entry.getValue() + "/output", exclude.toArray(new String[0]));
