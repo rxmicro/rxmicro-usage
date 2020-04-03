@@ -10,7 +10,7 @@ RxMicro поддерживает перенаправление запроса:
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-redirect/src/main/java/io/rxmicro/examples/rest/controller/redirect/MicroService.java[tag=content,indent=0]
 ----
 <1> Для перенаправления запроса, необходимо вернуть объект `PermanentRedirectException` с указанием нового URL Path.
-<2> После возврата HTTP ответа с перенаправлением запроса HTTP клиент автоматически повторит запрос на новый URL Path.
+<2> После возврата HTTP ответа с перенаправлением запроса HTTP client автоматически повторит запрос на новый URL Path.
 
 [NOTE]
 ====
@@ -30,7 +30,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/308[`308`^].
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-redirect/src/test/java/io/rxmicro/examples/rest/controller/redirect/MicroServiceTest.java[tag=content,indent=0]
 ----
-<1> По умолчанию встроенный HTTP клиент, который используется для выполнения тестовых запросов к микросервису не поддерживает перенаправление.
+<1> По умолчанию встроенный HTTP client, который используется для выполнения тестовых запросов к микросервису не поддерживает перенаправление.
 Поэтому необходимо активировать автоматическое перенаправление с помощью настройки `@BlockingHttpClientSettings(followRedirects = ENABLED)`.
 <2> Выполняется `PUT` запрос на URL Path: `/put1`.
 <3> В результате автоматически выполняется обработчик `MicroService.put` после обработчика `MicroService.redirect`.

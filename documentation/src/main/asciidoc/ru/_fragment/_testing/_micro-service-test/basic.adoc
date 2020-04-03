@@ -18,7 +18,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-microservice-basic/src
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-microservice-basic/src/main/java/io/rxmicro/examples/testing/microservice/basic/MicroService.java[tag=content,indent=0]
 ----
 
-Процесс тестирования REST-based микросервиса заключается в том, чтобы после того как RxMicro запустит тестируемый микросервис на HTTP сервере выполнить HTTP запрос.
+Процесс тестирования REST-based микросервиса заключается в том, чтобы после того как the RxMicro framework запустит тестируемый микросервис на HTTP сервере выполнить HTTP запрос.
 После получения ответа от микросервиса, данный ответ сравнивается с ожидаемым ответом:
 
 [source,java]
@@ -28,9 +28,9 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-microservice-basic/src
 <1> Для запуска HTTP сервера и регистрации тестируемого REST-based микросервиса, необходимо тестовый класс аннотировать аннотацией
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/RxMicroRestBasedMicroServiceTest.java[`@RxMicroRestBasedMicroServiceTest`^].
 В параметре данной аннотации указывается какой именно класс REST-based микросервиса будет тестироваться в текущем тесте.
-<2> Для выполнения *блокирующих* HTTP запросов, RxMicro поддерживает специальный компонент:
+<2> Для выполнения *блокирующих* HTTP запросов, the RxMicro framework поддерживает специальный компонент:
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^].
-Разработчик должен объявить ссылку на данный компонент и в процессе запуска теста, фреймворк RxMicro автоматически внедрит созданный объект класса
+Разработчик должен объявить ссылку на данный компонент и в процессе запуска теста, the RxMicro framework автоматически внедрит созданный объект класса
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^], используя механизм `reflection`.
 <3> Получив от микросервиса HTTP ответ, в тесте разработчик должен сравнить тело ответа с ожидаемым результатом.
 

@@ -3,7 +3,7 @@
 [[cdi-method-injection-section]]
 === Method Injection
 
-Фреймворк RxMicro поддерживает также внедрение с помощью https://www.w3schools.com/java/java_encapsulation.asp[`setters` (method injection)^]:
+The RxMicro framework поддерживает также внедрение с помощью https://www.w3schools.com/java/java_encapsulation.asp[`setters` (method injection)^]:
 
 [source,java]
 ----
@@ -13,7 +13,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-method-injection/src/main/
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@Inject`^] или
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Autowired.java[`@Autowired`^].
 
-При использовании механизма внедрения с помощью https://www.w3schools.com/java/java_encapsulation.asp[`setters`^], данный метод вызывается фреймворком RxMicro автоматически:
+При использовании механизма внедрения с помощью https://www.w3schools.com/java/java_encapsulation.asp[`setters`^], данный метод вызывается by the RxMicro framework автоматически:
 
 [source,java]
 ----

@@ -2,13 +2,13 @@
 
 === Маршрутизация запросов
 
-RxMicro поддерживает маршрутизацию запросов на основании HTTP метода, URL Path и HTTP тела:
+The RxMicro framework поддерживает маршрутизацию запросов на основании HTTP метода, URL Path и HTTP тела:
 
 <<<
 
 ==== Маршрутизации запросов на основании HTTP метода
 
-RxMicro позволяет обрабатывать одинаковые HTTP запросы, отличающиеся *только* HTTP методом разными обработчиками:
+The RxMicro framework позволяет обрабатывать одинаковые HTTP запросы, отличающиеся *только* HTTP методом разными обработчиками:
 
 [source,java]
 ----
@@ -29,13 +29,13 @@ include::../___notes/recompile-after-change.adoc[]
 
 ==== Маршрутизации запросов на основании URL Path
 
-RxMicro позволяет обрабатывать HTTP запросы на разные URL Paths разными обработчиками:
+The RxMicro framework позволяет обрабатывать HTTP запросы на разные URL Paths разными обработчиками:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-routing/src/main/java/io/rxmicro/examples/rest/controller/routing/RoutingUsingUrlPath.java[tag=content,indent=0]
 ----
-<1> Кроме статических URL Paths, RxMicro также поддерживает и <<rest-controller-path-variables-basic,`path variables`.>>
+<1> Кроме статических URL Paths, the RxMicro framework также поддерживает и <<rest-controller-path-variables-basic,`path variables`.>>
 
 [source,java]
 ----
@@ -53,7 +53,7 @@ include::../___notes/recompile-after-change.adoc[]
 
 Некоторые HTTP методы позволяют передавать параметры запроса как в стартовой строке так и в теле запроса.
 
-Поэтому RxMicro кроме стандартных типов маршрутизации также поддерживает маршрутизацию на основании наличия HTTP тела:
+Поэтому the RxMicro framework кроме стандартных типов маршрутизации также поддерживает маршрутизацию на основании наличия HTTP тела:
 
 [source,java]
 ----

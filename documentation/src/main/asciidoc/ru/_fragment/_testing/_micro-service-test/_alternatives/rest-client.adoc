@@ -33,7 +33,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-microservice-alternati
 .Отчет покрытия тестами при использовании альтернативы-мока REST клиента.
 image::testing/microservice/alternative/rest-client/jacoco-business-logic-only.jpg[]
 
-Такой результат связан с тем, что создав альтернативу-мок для компонента `ExternalMicroService`, в процессе тестирования не используются сгенерированные фреймворком RxMicro классы для работы REST клиента.
+Такой результат связан с тем, что создав альтернативу-мок для компонента `ExternalMicroService`, в процессе тестирования не используются сгенерированные by the RxMicro framework классы для работы REST клиента.
 
 Если такой результат не является допустимым, то необходимо:
 

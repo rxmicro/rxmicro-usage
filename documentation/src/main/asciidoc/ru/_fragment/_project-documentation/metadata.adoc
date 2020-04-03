@@ -1,8 +1,8 @@
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
 
-=== Project Metadata Configuration
+=== REST-based Microservice Metadata Configuration
 
-Для получения метаданных в процессе построения REST-based microservice documentation, фреймворк RxMicro может использовать:
+Для получения метаданных в процессе построения REST-based microservice documentation, the RxMicro framework может использовать:
 
 * Файл `pom.xml`;
 * Аннотации модуля `rxmicro.documentation`.
@@ -41,7 +41,7 @@ include::../___notes/recompile-after-change.adoc[]
 [[project-documentation-metadata-annotations-section]]
 ==== Using Annotations
 
-Для указания метаданных, необходимых для генерации REST-based microservice documentation можно использовать аннотации модуля `rxmicro.documentation`.
+Для указания метаданных, необходимых для генерации REST-based microservice documentation можно использовать аннотации из модуля `rxmicro.documentation`.
 
 [source,java]
 ----

@@ -11,7 +11,7 @@
 
 Для получения дополнительных сведений, рекомендуем ознакомиться со следующими примерами:
 
-. Особенности тестирования компонентов, использующих REST клиент:
+. Особенности тестирования компонентов, использующих REST client:
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-rest-client[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-rest-client`^];
 . Особенности тестирования компонентов, использующих mongo репозитории:
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-mongo-repository[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-mongo-repository`^];

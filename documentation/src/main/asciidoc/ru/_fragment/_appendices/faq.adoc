@@ -3,21 +3,21 @@
 
 This section covers a list of possible questions that you can ask yourself when you use the RxMicro framework.
 
-==== Does RxMicro modify my byte code?
+==== Does the RxMicro framework modify my byte code?
 
 No.
 Your classes are your classes.
-RxMicro does not transform classes or modify the Java byte code you write.
-RxMicro produces additional classes only.
+The RxMicro framework does not transform classes or modify the Java byte code you write.
+The RxMicro framework produces additional classes only.
 
-==== Can RxMicro be used for purposes other than Microservices?
+==== Can the RxMicro framework be used for purposes other than microservices?
 
 Yes.
-RxMicro is very modular and you can choose to use any module you need.
+The RxMicro framework is very modular and you can choose to use any module you need.
 
 ==== Why I receive `class not found` error?
 
-When you use RxMicro framework you can receive one of the following errors:
+When you use the RxMicro framework you can receive one of the following errors:
 
 * `Class rxmicro.$$RestControllerAggregatorImpl not found`;
 * `Class rxmicro.$$RestClientFactoryImpl not found`;

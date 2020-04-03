@@ -31,15 +31,15 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-client-basic/src/ma
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-client-basic/src/test/java/io/rxmicro/examples/validation/client/basic/RESTClientTest.java[tags=content]
 ----
-<1> Если REST клиент будет получать валидный HTTP ответ, то никаких ошибок не возникнет.
-<2> Если поле `email` будет некорректным в HTTP ответе, то REST клиент вернет сигнал ошибки.
+<1> Если REST client будет получать валидный HTTP ответ, то никаких ошибок не возникнет.
+<2> Если поле `email` будет некорректным в HTTP ответе, то REST client вернет сигнал ошибки.
 <3> В случае некорректности HTTP ответа, возвращается исключение класса `UnexpectedResponseException` с детальным текстовым сообщением.
 <4> *Так как `CompletableFuture` в случае получения сигнала об ошибке ВСЕГДА возвращает исключение класса `CompletionException`, то для получения исходного класса исключения, который был выброшен в процессе отложенного вычисления необходимо использовать утилитный метод
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-common/src/main/java/io/rxmicro/common/util/Exceptions.java#L79[`Exceptions.getRealThrowable`^]!*
 
 [NOTE]
 ====
-Для ознакомления с возможностями фреймворка RxMicro для валидации HTTP запросов в REST клиентах, рекомендуем обратится к примеру:
+Для ознакомления с возможностями of the RxMicro framework для валидации HTTP запросов в REST клиентах, рекомендуем обратится к примеру:
 
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}validation-client-all-types[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}validation-client-all-types`^]
 ====

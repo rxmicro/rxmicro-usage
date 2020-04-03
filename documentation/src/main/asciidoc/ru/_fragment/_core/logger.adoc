@@ -4,7 +4,7 @@
 
 https://en.wikipedia.org/wiki/Data_logger[*Логгер*^] - неотъемлемый компонент любой программной системы.
 
-RxMicro предоставляет модуль `rxmicro.logger` для логирования важных событий в процессе работы микросервисов.
+The RxMicro framework предоставляет модуль `rxmicro.logger` для логирования важных событий в процессе работы микросервисов.
 
 Создание и использование логгера в исходном коде ничем не отличается от http://www.java-logging.com/[других логирующих фреймворков^]:
 
@@ -45,7 +45,7 @@ io.rxmicro.config.level=DEBUG
 Модуль `rxmicro.logger` поддерживает все уровни логирования из множест: `{OFF, ERROR, WARN, INFO, DEBUG, TRACE, ALL}` и `{OFF, SEVERE, CONFIG, INFO, FINE, FINEST, ALL}`.
 
 Поэтому в конфигурационном файле `jul.properties` Вы можете использовать любой уровень логирования.
-При активации `java.logging` логгера, RxMicro автоматически преобразует уровни из множества `{OFF, ERROR, WARN, INFO, DEBUG, TRACE, ALL}` в `{OFF, SEVERE, CONFIG, INFO, FINE, FINEST, ALL}`.
+При активации `java.logging` логгера, the RxMicro framework автоматически преобразует уровни из множества `{OFF, ERROR, WARN, INFO, DEBUG, TRACE, ALL}` в `{OFF, SEVERE, CONFIG, INFO, FINE, FINEST, ALL}`.
 
 Данная опция позволяет использовать для `java.logging` логгера неподдерживаемые, но широко используемые в других логирующих фреймворках уровни логирования.
 ====

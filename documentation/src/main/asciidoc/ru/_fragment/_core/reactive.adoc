@@ -1,6 +1,6 @@
 === Reactive Libraries Support
 
-*RxMicro* поддерживает следующие библиотеки реактивного программирования:
+The RxMicro framework поддерживает следующие библиотеки реактивного программирования:
 
 - {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/package-summary.html[*java.util.concurrent*^]:
 {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[CompletableFuture^],
@@ -62,7 +62,7 @@ CompletionStage<List<MODEL>>
 
 ==== Рекомендации по выбору библиотеки
 
-Общая рекомендация по выбору библиотеки реактивного программирования при использовании фреймворка *RxMicro*:
+Общая рекомендация по выбору библиотеки реактивного программирования при использовании of the RxMicro framework:
 
 . Если Ваш микросервис содержит простую логику, Вы можете использовать легковесную и поставляемую вместе с Java библиотеку
 {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/package-summary.html[*java.util.concurrent*^], представляемую классом
@@ -74,7 +74,7 @@ http://reactivex.io/documentation/operators.html[сложные оператор
 .. Если Вам необходимы реактивные SQL репозитории на базе `r2dbc` (модуль `rxmicro.data.sql.r2dbc`), то используйте *Project Reactor*. +
 _(Так как `r2dbc` драйвера уже используют *Project Reactor*.)_
 
-Таким образом при написании микросервисов с помощью фреймворка *RxMicro*, Вы можете использовать любую библиотеку реактивного программирования на Java, которая Вам больше нравиться!
+Таким образом при написании микросервисов via the RxMicro framework, Вы можете использовать любую библиотеку реактивного программирования на Java, которая Вам больше нравиться!
 
 [NOTE]
 ====

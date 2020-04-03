@@ -1,6 +1,6 @@
 RxMicro поддерживает следующие `RxMicro annotations`, которые используются для создания и настройки {rest-title}.
 
-.`RxMicro Annotations` for {rest-title}.
+.Supported `RxMicro Annotations`.
 [cols="1,3"]
 |===
 |*Аннотация*|*Описание*
@@ -89,10 +89,10 @@ _(Данная возможность полезна при логировани
 |Объявляет поле Java модели полем, куда необходимо внедрить <<rest-controller-internals-basic-section,тело полученного запроса>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ResponseStatusCode.java[`@ResponseStatusCode`^]
-|Указывает фреймворку RxMicro на то, что необходимо использовать значение поля Java модели в качестве <<rest-controller-internals-basic-section,статус кода, который должен быть отправлен клиенту>>.
+|Указывает to the RxMicro framework на то, что необходимо использовать значение поля Java модели в качестве <<rest-controller-internals-basic-section,статус кода, который должен быть отправлен клиенту>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ResponseBody.java[`@ResponseBody`^]
-|Указывает фреймворку RxMicro на то, что необходимо использовать значение поля Java модели в качестве <<rest-controller-internals-basic-section,тела, которое должно быть отправлено клиенту>>.
+|Указывает to the RxMicro framework на то, что необходимо использовать значение поля Java модели в качестве <<rest-controller-internals-basic-section,тела, которое должно быть отправлено клиенту>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RequestId.java[`@RequestId`^]
 |Объявляет поле Java модели полем, куда необходимо внедрить <<rest-controller-rqeuest-id-section,уникальный идентификатор запроса>>.

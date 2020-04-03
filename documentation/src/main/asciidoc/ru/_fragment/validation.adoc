@@ -1,4 +1,4 @@
-RxMicro поддерживает валидацию HTTP запросов и ответов.
+The RxMicro framework поддерживает валидацию HTTP запросов и ответов.
 
 Все классы и аннотации необходимые для валидации данных доступны в модуле
 {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-validation[`rxmicro.validation`^].

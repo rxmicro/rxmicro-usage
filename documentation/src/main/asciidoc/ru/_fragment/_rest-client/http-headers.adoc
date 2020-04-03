@@ -100,7 +100,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-headers/src/main/j
 ====
 *Использование аннотации {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RepeatHeader.java[`@RepeatHeader`^] поддерживается только для моделей запроса!*
 
-Для моделей ответа она не имеет смысла, так как фреймворк RxMicro конвертирует в список значений любой из поддерживаемых форматов.
+Для моделей ответа она не имеет смысла, так как the RxMicro framework конвертирует в список значений любой из поддерживаемых форматов.
 ====
 
 В результате конвертации Java модели в HTTP ответ, результат будет следующим:

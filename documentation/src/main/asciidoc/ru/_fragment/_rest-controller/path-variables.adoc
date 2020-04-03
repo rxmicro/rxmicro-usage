@@ -12,7 +12,7 @@ include::../_rest/___path-var-basic-rules.adoc[]
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-path-variables/src/main/java/io/rxmicro/examples/rest/controller/path/variables/MicroService.java[tag=content,indent=0]
 ----
 <1> При использовании `path variables` в моделях запроса обязательно использовать *все* `path variables` в URL Path.
-_(На основании анализа URL Path с учетом значений всех `path variables` RxMicro выбирает необходимый обработчик HTTP запроса.)_
+_(На основании анализа URL Path с учетом значений всех `path variables` the RxMicro framework выбирает необходимый обработчик HTTP запроса.)_
 <2> Для того чтобы параметр метода объявить как `path variable`, необходимо использовать аннотацию `@PathVariable`.
 <3> С помощью аннотации `@PathVariable` возможно задать имя `path variable`, которое не соответствует имени параметра метода.
 

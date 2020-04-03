@@ -19,14 +19,14 @@ RxMicro позволяет создавать одинаковые REST клие
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-versioning-header/src/main/java/io/rxmicro/examples/rest/client/versioning/header/OldRestClient.java[tag=content,indent=0]
 ----
-<1> REST клиент старой версии `v1` с использованием
+<1> REST client старой версии `v1` с использованием
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L84[`Version.Strategy.HEADER`^] стратегии;
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-versioning-header/src/main/java/io/rxmicro/examples/rest/client/versioning/header/NewRestClient.java[tag=content,indent=0]
 ----
-<1> REST клиент новой версии `v2` с использованием
+<1> REST client новой версии `v2` с использованием
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L84[`Version.Strategy.HEADER`^] стратегии;
 
 Корректность формирования HTTP запроса для данных REST клиентов может быть проверена с помощью тестов:
@@ -56,14 +56,14 @@ RxMicro позволяет создавать одинаковые REST клие
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-versioning-url-path/src/main/java/io/rxmicro/examples/rest/client/versioning/url/path/OldRestClient.java[tag=content,indent=0]
 ----
-<1> REST клиент старой версии `v1` с использованием
+<1> REST client старой версии `v1` с использованием
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L71[`Version.Strategy.URL_PATH`^] стратегии;
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-versioning-url-path/src/main/java/io/rxmicro/examples/rest/client/versioning/url/path/NewRestClient.java[tag=content,indent=0]
 ----
-<1> REST клиент новой версии `v1` с использованием
+<1> REST client новой версии `v1` с использованием
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L71[`Version.Strategy.URL_PATH`^] стратегии;
 
 Корректность формирования HTTP запроса для данных REST клиентов может быть проверена с помощью тестов:

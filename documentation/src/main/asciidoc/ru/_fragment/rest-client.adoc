@@ -1,6 +1,6 @@
 REST Client - это интерфейс, который содержит хотя бы один декларативный обработчик HTTP запроса.
 
-Для создания REST клиентов, RxMicro предоставляет следующие модули:
+Для создания REST клиентов, the RxMicro framework предоставляет следующие модули:
 
 * {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest[`rxmicro.rest`^] - базовый модуль, определяющий основные `RxMicro annotations`, необходимые при использовании
 https://en.wikipedia.org/wiki/Representational_state_transfer[`REST`^] архитектуры построения программных систем;

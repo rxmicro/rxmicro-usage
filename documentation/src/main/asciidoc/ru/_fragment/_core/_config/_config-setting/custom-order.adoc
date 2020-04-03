@@ -37,14 +37,14 @@ Server started at localhost:9090 using NETTY transport in 500 millis. # <1>
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L118[`Configs.Builder.withOrderedConfigLoadSources`^]
 позволяет не только изменять порядок считывания источников конфигураций, но еще и активировать/деактивировать источники.
 
-*В приведенном выше примере RxMicro будет игнорировать любые источники конфигураций кроме classpath ресурсов!*
+*В приведенном выше примере the RxMicro framework будет игнорировать любые источники конфигураций кроме classpath ресурсов!*
 ====
 
 Метод
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L118[`Configs.Builder.withOrderedConfigLoadSources`^]
 - универсальный.
 
-RxMicro также предоставляет другие дополнительные методы:
+The RxMicro framework также предоставляет другие дополнительные методы:
 
 * {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L124[`Configs.Builder.withAllConfigLoadSources`^] - активации всех типов конфигурирования в порядке заданном перечислением:
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/ConfigLoadSource.java[`ConfigLoadSource`^]
@@ -87,5 +87,5 @@ public static void main(final String[] args) {
 ====
 *Если Вы точно знаете какие источники конфигурации должны использоваться микросервисом, ВСЕГДА указывайте их явно!*
 
-*При таком подходе при старте микросервиса RxMicro не будет пытаться искать несуществующие источники, тратя драгоценные микросекунды!*
+*При таком подходе при старте микросервиса the RxMicro framework не будет пытаться искать несуществующие источники, тратя драгоценные микросекунды!*
 ====

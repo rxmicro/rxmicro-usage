@@ -10,9 +10,9 @@ _(You still need a Java runtime, and an underlying operating system, of course.)
 
 Для сборки микросервисного проекта в виде `uber.jar`, необходимо активировать режим `unnamed module` и настроить `maven-shade-plugin`.
 
-===== Enable `unnamed module` mode
+===== Enable the `unnamed module` Mode
 
-To enable `unnamed module` mode, add the `RX_MICRO_BUILD_UNNAMED_MODULE` compiler argument to `maven-compiler-plugin`:
+To enable the `unnamed module` mode, add the `RX_MICRO_BUILD_UNNAMED_MODULE` compiler option to `maven-compiler-plugin`:
 
 [source,xml]
 ----
@@ -30,9 +30,9 @@ To enable `unnamed module` mode, add the `RX_MICRO_BUILD_UNNAMED_MODULE` compile
 </plugin>
 ----
 
-<1> `RxMicro Annotation Processor` will use `unnamed module` mode for current microservice project.
+<1> `RxMicro Annotation Processor` will use the `unnamed module` mode for the current microservice project.
 
-===== Configure `maven-shade-plugin`
+===== Configuration of `maven-shade-plugin`
 
 [[java-integration-unnamed-module-uber-jar-maven-shade-plugin]]
 [source,xml]
@@ -41,12 +41,12 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/unnamed-module-uber-jar/pom.xm
 ----
 <1> Необходимо указать класс с методом `main`, который будет использоваться как точка входа в микросервис.
 <2> Результирующий `uber.jar` не должен содержать виртуальный дескриптор модуля, так как данный дескриптор необходим только на уровне компиляции.
-_(Подробнее об виртуальном дескрипторе можно ознакомится в разделе <<java-integration-unnamed-module-module-config>>.)_
+_(Подробнее об виртуальном дескрипторе можно ознакомится в <<java-integration-unnamed-module-module-config>>.)_
 <3> Результирующий `uber.jar` может быть уменьшен за счет исключения не используемых классов и пакетов.
 
 [TIP]
 ====
-Плагин `maven-shade-plugin` автоматически удаляет из результирующего `uber.jar` все `module-info.class`, поэтому все rxmicro модули будут работать в режиме `unnamed module`!
+Плагин `maven-shade-plugin` автоматически удаляет из результирующего `uber.jar` все `module-info.class`, поэтому все RxMicro модули будут работать в режиме `unnamed module`!
 ====
 
 ===== Rebuild Project
@@ -70,7 +70,7 @@ _(Подробнее об виртуальном дескрипторе можн
 <1> Размер `uber.jar` равен *1,4 MB*.
 <2> Размер оригинального jar файла равен *9.8 KB*.
 
-`uber.jar` содержит исходный код микросервисного проекта, код фреймворков RxMicro и Netty:
+`uber.jar` содержит исходный код микросервисного проекта, код of the RxMicro and the Netty frameworks:
 
 .Содержимое `uber.jar` для простого микросервисного проекта
 image::java-integration/uber-jar-content.jpg[]
@@ -91,7 +91,7 @@ Server started at 0.0.0.0:8080 using NETTY transport in 500 millis # <1>
 
 [NOTE]
 ====
-To run a modularized micro service project java requires more arguments:
+To run a modularized micro service project the java requires more arguments:
 
 [source,txt,subs="verbatim,quotes"]
 ----

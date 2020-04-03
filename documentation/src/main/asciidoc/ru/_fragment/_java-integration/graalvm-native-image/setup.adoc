@@ -1,17 +1,18 @@
 ==== Setup a GraalVM
 
 GraalVM is distributed as Community Edition and Enterprise Edition.
-Current guide describes a use of the GraalVM Community Edition (GraalVM CE).
+
+*Current guide describes a use of the GraalVM Community Edition (GraalVM CE)!*
 
 Setup of the GraalVM CE contains a few simple steps:
 
 . Make a GraalVM Home Directory.
-. Select GraalVM CE Distribution for Your Platform.
-. Download GraalVM CE Distribution.
-. Unzip GraalVM CE Distribution.
-. Set `GRAALVM_HOME` Environment Variable.
-. Install Native Image Module.
-. Add Native Image Tool to `PATH`.
+. Select a GraalVM CE Distribution for Your Platform.
+. Download the GraalVM CE Distribution.
+. Unzip the GraalVM CE Distribution.
+. Set a `GRAALVM_HOME` Environment Variable.
+. Install a Native Image Module.
+. Add the Native Image Tool to `PATH`.
 
 ===== Make a GraalVM Home Directory
 
@@ -22,31 +23,31 @@ Make a directory, which will contain a GraalVM distribution:
 *mkdir* ~/GraalVM
 ----
 
-===== Select GraalVM CE Distribution for Your Platform
+===== Select a GraalVM CE Distribution for Your Platform
 
 Visit the github release page
 https://github.com/graalvm/graalvm-ce-builds/releases[`https://github.com/graalvm/graalvm-ce-builds/releases`^]
-and select a distribution for your platform.
+and select a distribution for Your platform.
 
 [IMPORTANT]
 ====
-*Please select GraalVM CE based on Java 11!*
+*Please select a GraalVM CE based on Java 11!*
 
-_GraalVM CE based on Java 8 and is not supported by RxMicro framework!_
+_A GraalVM CE based on Java 8 is not supported by the RxMicro framework!_
 ====
 
-===== Download GraalVM CE Distribution
+===== Download the GraalVM CE Distribution
 
-Download a selected GraalVM CE distribution onto the GraalVM home directory:
+Download the selected GraalVM CE distribution onto the GraalVM home directory:
 
 [source,txt,subs="verbatim,quotes"]
 ----
 *wget* -P ~/GraalVM https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-20.0.0/graalvm-ce-java11-linux-amd64-20.0.0.tar.gz
 ----
 
-===== Unzip GraalVM CE Distribution
+===== Unzip the GraalVM CE Distribution
 
-Unzip GraalVM CE distribution onto the GraalVM home directory:
+Unzip the GraalVM CE distribution onto the GraalVM home directory:
 
 [source,txt,subs="verbatim,quotes"]
 ----
@@ -54,16 +55,16 @@ Unzip GraalVM CE distribution onto the GraalVM home directory:
 *rm* ~/GraalVM/graalvm-ce-java11-linux-amd64-20.0.0.tar.gz
 ----
 
-===== Set `GRAALVM_HOME` Environment Variable
+===== Set a `GRAALVM_HOME` Environment Variable
 
-Set `GRAALVM_HOME` environment variable:
+Set a `GRAALVM_HOME` environment variable:
 
 [source,txt,subs="verbatim,quotes"]
 ----
 *export* GRAALVM_HOME=~/GraalVM
 ----
 
-and verify installation:
+and verify the installation:
 
 [source,txt,subs="verbatim,quotes"]
 ----
@@ -76,16 +77,16 @@ OpenJDK 64-Bit Server VM *GraalVM CE* 20.0.0 (build 11.0.6+9-jvmci-20.0-b02, mix
 
 [NOTE]
 ====
-If You would use the GraalVM CE only, You can add the `$GRAALVM_HOME/bin` path to `PATH` variable!
+If You would use the GraalVM CE only, You can add the `$GRAALVM_HOME/bin` path to the `PATH` variable!
 
-If You use other version of JDK, add only separate utils to `PATH` variable.
+If You use any other version of JDK, add only the separate utils to `PATH` variable.
 For example only `gu` or `native-image`!
 ====
 
-===== Install Native Image Module
+===== Install a Native Image Module
 
 Starting from GraalVM 19.0, Native Image was extracted from the base distribution.
-So *Native Image Tool* must be installed to GraalVM using a GraalVM Updater utility:
+So the *Native Image Tool* must be installed to GraalVM using a GraalVM Updater utility:
 
 [source,txt,subs="verbatim,quotes"]
 ----
@@ -106,9 +107,9 @@ To verify the installation show a version of the native Native Image Tool:
 GraalVM Version 20.0.0 CE
 ----
 
-===== Add Native Image Tool to `PATH`
+===== Add the Native Image Tool to `PATH`
 
-In order not to indicate the folder where the *Native Image Tool* was installed, add the *Native Image Tool* to the `PATH`:
+In order not to indicate the folder where the *Native Image Tool* was installed, add the *Native Image Tool* to the `PATH` variable:
 
 [source,txt,subs="verbatim,quotes"]
 ----
@@ -116,7 +117,7 @@ In order not to indicate the folder where the *Native Image Tool* was installed,
 ----
 
 After that logout and login to the system again.
-*Native Image Tool* must be available at the terminal:
+The *Native Image Tool* must be available at the terminal:
 
 [source,txt,subs="verbatim,quotes"]
 ----

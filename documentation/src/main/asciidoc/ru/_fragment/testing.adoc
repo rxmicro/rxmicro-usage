@@ -1,4 +1,4 @@
-Для эффективного написания тестов RxMicro предоставляет следующие модули:
+Для эффективного написания тестов the RxMicro framework предоставляет следующие модули:
 
 * {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test[`rxmicro.test`^] - базовый модуль, предназначенный для написания тестов, используя любой современный фреймворк для тестирования;
 * {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test-junit[`rxmicro.test.junit`^] - модуль интеграции с фреймворком https://junit.org/junit5/[JUnit 5^];

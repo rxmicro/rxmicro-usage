@@ -38,7 +38,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-microservice-alternati
 .Отчет покрытия тестами при использовании альтернативы-мока для Mongo репозитория.
 image::testing/microservice/alternative/mongo-repo/jacoco-business-logic-only.jpg[]
 
-Такой результат связан с тем, что создав альтернативу-мок для компонента `DataRepository`, в процессе тестирования не используются сгенерированные фреймворком RxMicro классы для работы mongo репозитория.
+Такой результат связан с тем, что создав альтернативу-мок для компонента `DataRepository`, в процессе тестирования не используются сгенерированные the RxMicro framework классы для работы mongo репозитория.
 
 Если такой результат не является допустимым, то необходимо:
 

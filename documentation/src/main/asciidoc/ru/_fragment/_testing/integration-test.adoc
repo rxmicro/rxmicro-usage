@@ -5,8 +5,8 @@
 
 Для удобного написания интеграционных тестов REST-based микросервисов RxMicro предоставляет:
 
-. Дополнительную аннотацию {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/RxMicroIntegrationTest.java[`@RxMicroIntegrationTest`^], которая информирует RxMicro о необходимости создать HTTP клиент и внедрить его в тестируемый класс.
-. Специальный *блокирующий* HTTP клиент для выполнения HTTP запросов в процессе тестирования:
+. Дополнительную аннотацию {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/RxMicroIntegrationTest.java[`@RxMicroIntegrationTest`^], которая информирует RxMicro о необходимости создать HTTP client и внедрить его в тестируемый класс.
+. Специальный *блокирующий* HTTP client для выполнения HTTP запросов в процессе тестирования:
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^].
 . Интерфейс {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/SystemOut.java[`SystemOut`^] для удобного доступа к консоли.
 

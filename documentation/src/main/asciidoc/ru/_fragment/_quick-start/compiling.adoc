@@ -21,7 +21,7 @@ include::../___notes/run-maven-in-terminal-note.adoc[]
 .Maven панель в IntelliJ IDEA
 image::quick-start/maven-panel.jpg[]
 
-После успешного выполнения компиляции в терминале отображается информация о работе `RxMicroAnnotationProcessor`:
+После успешного выполнения компиляции в терминале отображается информация о работе `RxMicro Annotation Processor`:
 
 [source,text,subs="verbatim,quotes"]
 ----
@@ -48,7 +48,7 @@ image::quick-start/maven-panel.jpg[]
 ====
 В папочке `target` Вы можете найти все сгенерированные и скомпилированные классы микросервисного проекта.
 
-Для понимания процесса работы фреймворка RxMicro рекомендуется перейти в раздел: <<{core}#core-how-it-works-section>>.
+Для понимания процесса работы of the RxMicro framework рекомендуется перейти в раздел: <<{core}#core-how-it-works-section>>.
 ====
 
 ==== Компиляция c помощью `IntelliJ IDEA`

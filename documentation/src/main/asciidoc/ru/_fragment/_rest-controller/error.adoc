@@ -17,15 +17,15 @@
 
 Т.е. каждый обработчик запроса может вернуть только один успешный результат и несколько результатов с ошибками.
 
-Поэтому RxMicro вводит понятие `ошибка`.
+Поэтому the RxMicro framework вводит понятие `ошибка`.
 Под ошибкой подразумевается любой неуспешный результат.
 
-*Для упрощенной обработки ошибок RxMicro рекомендует использовать HTTP статус коды для каждой категории ошибок!*
+*Для упрощенной обработки ошибок the RxMicro framework рекомендует использовать HTTP статус коды для каждой категории ошибок!*
 
-В случае если HTTP статус кода не достаточно, RxMicro рекомендует использовать дополнительное текстовое описание.
+В случае если HTTP статус кода не достаточно, the RxMicro framework рекомендует использовать дополнительное текстовое описание.
 
 [[rest-controller-errors-model-inline]]
-Для этих целей RxMicro определяет стандартную JSON модель, которая возвращается при любой возникшей ошибки:
+Для этих целей the RxMicro framework определяет стандартную JSON модель, которая возвращается при любой возникшей ошибки:
 
 [source,json]
 ----
@@ -34,14 +34,14 @@
 }
 ----
 
-Таким образом в случае возникновения ошибки клиент определяет категорию ошибки на основании анализа HTTP статус кода.
+Таким образом в случае возникновения ошибки client определяет категорию ошибки на основании анализа HTTP статус кода.
 А для получения дополнительных сведений он может проанализировать текстовое сообщение.
 
 <<<
 
 ==== Базовый класс исключений
 
-RxMicro определяет базовый класс исключений при обработке HTTP запроса:
+the RxMicro framework определяет базовый класс исключений при обработке HTTP запроса:
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/error/HttpErrorException.java[`HttpErrorException`^].
 
 *Все пользовательские типы исключений должны наследоваться от этого базового класса!*
@@ -73,10 +73,10 @@ _(Если Вы хотите возвращать клиенту только HT
 
 [TIP]
 ====
-*RxMicro не поддерживает `null` в качестве бизнес значения!*
+*The RxMicro framework не поддерживает `null` в качестве бизнес значения!*
 
-Поэтому если в конструктор исключения в качестве сообщения будет передан `null` значение, то RxMicro вернет HTTP ответ без тела сообщения! +
-_(т.е. конструкции `new CustomNotFoundException(null)` и `new CustomNotFoundException()` с точки зрения фреймворка RxMicro идентичны!)_
+Поэтому если в конструктор исключения в качестве сообщения будет передан `null` значение, то the RxMicro framework вернет HTTP ответ без тела сообщения! +
+_(т.е. конструкции `new CustomNotFoundException(null)` и `new CustomNotFoundException()` с точки зрения of the RxMicro framework идентичны!)_
 ====
 
 Для возвращения HTTP статус кода, отличного от успешного можно использовать два варианта:
@@ -142,7 +142,7 @@ include::../___notes/recompile-after-change.adoc[]
 
 ==== Предопределенные классы исключений
 
-Для поддержки своей работоспособности фреймворк RxMicro определяет следующие классы исключений:
+Для поддержки своей работоспособности the RxMicro framework определяет следующие классы исключений:
 
 .Список предопределенных классов исключений.
 [cols="3,1,6"]
@@ -165,7 +165,7 @@ _(Вместо использования базового класса реко
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/error/ValidationException.java[`ValidationException`^]
 |https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400[`400`^]
-|Класс, сигнализирующий о том, что клиент передал <<{validation}#validation-section,некорректный запрос на выполнение.>>
+|Класс, сигнализирующий о том, что client передал <<{validation}#validation-section,некорректный запрос на выполнение.>>
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/error/InternalHttpErrorException.java[`InternalHttpErrorException`^]
 |https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500[`500`^]
@@ -177,6 +177,6 @@ _(Вместо использования базового класса реко
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http-client/src/main/java/io/rxmicro/http/client/HttpClientTimeoutException.java[`HttpClientTimeoutException`^]
 |https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504[`504`^]
-|Класс, сигнализирующий о том, что HTTP клиент не смог получить ответ от сервера за отведенный промежуток времени.
+|Класс, сигнализирующий о том, что HTTP client не смог получить ответ от сервера за отведенный промежуток времени.
 
 |===

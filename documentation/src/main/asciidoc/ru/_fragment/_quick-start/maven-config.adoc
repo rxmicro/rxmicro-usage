@@ -18,7 +18,7 @@
     <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version> <!--2-->
 </properties>
 ----
-<1> {MAVEN-REPO-SEARCH-ROOT}io.rxmicro/rxmicro[Последняя стабильная версия фреймворка RxMicro^].
+<1> {MAVEN-REPO-SEARCH-ROOT}io.rxmicro/rxmicro[Последняя стабильная версия of the RxMicro framework^].
 <2> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-compiler-plugin[Последняя стабильная версия `maven-compiler-plugin`^].
 
 ==== Добавление необходимых зависимостей:
@@ -46,7 +46,7 @@
 [[quick-start-maven-compiler-plugin-settings-section]]
 ==== Конфигурирование `maven-compiler-plugin`
 
-Так как фреймворк RxMicro использует {JDK-JAVA-COMPILER-DOC-ROOT-URL}javax/annotation/processing/Processor.html[Java annotation processors^], необходимо настроить `maven-compiler-plugin`:
+Так как the RxMicro framework использует {JDK-JAVA-COMPILER-DOC-ROOT-URL}javax/annotation/processing/Processor.html[Java annotation processors^], необходимо настроить `maven-compiler-plugin`:
 
 [source,xml]
 ----
@@ -83,7 +83,7 @@
     </executions>
 </plugin>
 ----
-<1> `<release>11</release>` - фреймворк RxMicro требует наличия Java компилятора версии 11 или выше;
+<1> `<release>11</release>` - the RxMicro framework требует наличия Java компилятора версии 11 или выше;
 <2> `rxmicro-annotation-processor` - библиотека процессора аннотаций, которая будет обрабатывать все `RxMicro annotations`;
 <3> `io.rxmicro.annotation.processor.RxMicroAnnotationProcessor` - класс процессора аннотаций, который обрабатывает конфигурацию запуска;
 <4> `${project.build.directory}/generated-sources/` - местоположение генерируемых Java классов процессором аннотаций;

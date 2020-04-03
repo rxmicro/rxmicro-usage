@@ -7,7 +7,7 @@
 
 Для таких случаев протокол HTTP предоставляет специальный механизм https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Transfer-Encoding[`Transfer-Encoding`^].
 
-Однако данный механизм еще не поддерживается фреймворком RxMicro, поэтому типы
+Однако данный механизм еще не поддерживается by the RxMicro framework, поэтому типы
 {REACTOR-CORE-DOC-ROOT-URL}reactor/core/publisher/Flux.html[`Flux`^] и
 {RX-JAVA-DOC-ROOT-URL}io/reactivex/Flowable.html[`Flowable`^]
 не могут быть использованы в обработчике HTTP запросов.

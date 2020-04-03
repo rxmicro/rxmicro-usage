@@ -1,6 +1,6 @@
 === RxMicro benefits
 
-*RxMicro* обладает следующими преимуществами:
+The RxMicro framework обладает следующими преимуществами:
 
 * Declarative programming using annotations.
 * CDI by demand.

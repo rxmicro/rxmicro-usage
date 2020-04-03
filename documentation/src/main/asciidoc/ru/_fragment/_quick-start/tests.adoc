@@ -2,7 +2,7 @@
 
 === Автоматизированный тест
 
-*RxMicro* предоставляет модули для эффективного написания <<{testing}#tesing-section,любых видов тестов>>.
+The RxMicro framework предоставляет модули для эффективного написания <<{testing}#tesing-section,любых видов тестов>>.
 Из всех поддерживаемых видов тестов, для текущего проекта необходим тест REST-based микросервиса.
 
 ==== Конфигурирование проекта
@@ -51,7 +51,7 @@ _(Именно поэтому в `maven` зависимости необходи
 
 ===== Конфигурирование `maven-compiler-plugin`
 
-Так как фреймворк RxMicro использует {JDK-JAVA-COMPILER-DOC-ROOT-URL}javax/annotation/processing/Processor.html[Java annotation processors^], необходимо настроить `maven-compiler-plugin`:
+Так как the RxMicro framework использует {JDK-JAVA-COMPILER-DOC-ROOT-URL}javax/annotation/processing/Processor.html[Java annotation processors^], необходимо настроить `maven-compiler-plugin`:
 
 [source,xml]
 ----

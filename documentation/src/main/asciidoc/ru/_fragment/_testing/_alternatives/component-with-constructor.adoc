@@ -12,7 +12,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives
 _(Данная зависимость указана явно в исходном коде.)_
 <2> При создании объекта класса `ParentComponent` в конструкторе необходимо передать значение параметра `prefix`.
 
-то RxMicro не сможет создать объект данного класса.
+то the RxMicro framework не сможет создать объект данного класса.
 
 *Поэтому разработчик должен создать объект данного класса самостоятельно в одном из методов
 {JUNIT5-DOC-ROOT-URL}api/org.junit.jupiter.api/org/junit/jupiter/api/BeforeEach.html[`@BeforeEach`^],

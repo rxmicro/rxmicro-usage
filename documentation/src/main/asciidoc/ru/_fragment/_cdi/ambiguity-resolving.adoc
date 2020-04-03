@@ -2,8 +2,8 @@
 
 === Разрешение неоднозначностей
 
-Если в текущем модуле проекта присутсвует два и больше реализаций одного и того же интерфейса, то в процессе внедрения может возникнуть проблема разрешения неоднозначностей.
-Данная проблема возникает из-за того, что в поле с типом интерфейса потенциально может быть внедрена реализация любого из классов наследников данного интерфейса.
+Если в текущем модуле проекта присутсвует два и больше реализаций одного и того же интерфейса, то в процессе of dependencies injection может возникнуть проблема разрешения неоднозначностей.
+Данная проблема возникает из-за того, что в поле с типом интерфейса потенциально can be injected an implementation of любого из классов наследников данного интерфейса.
 
 Для однозначного решения такого рода проблем, RxMicro использует алгоритм разрешения неоднозначностей по-умолчанию.
 
@@ -61,7 +61,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-by-impl
 ====
 Если в текущем модуле существует *только один класс реализация*, то независимо от имен полей классов или параметров методов, объект данного класса будет внедрен успешно!
 
-Т.е. алгоритм разрешения неоднозначностей по-умолчанию активируется *только при наличии таких однозначностей!*
+Т.е. алгоритм разрешения неоднозначностей по-умолчанию активируется *только при наличии таких неоднозначностей!*
 ====
 
 [source,java]
@@ -99,11 +99,11 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-by-impl
 <1> Для внедрения в поле `businessService1` объекта класса `ProductionBusinessService`, необходимо в параметре аннотации
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Named.java[`@Named`^]
 указать имя `productionBusinessService`. +
-_(Это неявное имя, которое задается фреймворком RxMicro для класса `ProductionBusinessService`!)_
+_(Это неявное имя, которое задается by the RxMicro framework для класса `ProductionBusinessService`!)_
 <2> Для внедрения в поле `businessService2` объекта класса `DevelopmentBusinessService`, необходимо в параметре аннотации
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Named.java[`@Named`^]
 указать имя `developmentBusinessService`. +
-_(Это неявное имя, которое задается фреймворком RxMicro для класса `DevelopmentBusinessService`!)_
+_(Это неявное имя, которое задается by the RxMicro framework для класса `DevelopmentBusinessService`!)_
 
 Данное поведение может быть проверено с помощью теста:
 
@@ -133,7 +133,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-by-Name
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-by-Named-implementation-and-Named-field/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/named/impl/named/field/impl/DevelopmentBusinessService.java[tag=content,indent=0]
 ----
 
-При использовании явных имен для классов реализаций, в качестве квалификатора точки внедрения необходимо указывать именно эти явные имена:
+При использовании явных имен для классов реализаций, в качестве квалификатора of an injection point необходимо указывать именно эти явные имена:
 
 [source,java]
 ----
@@ -159,7 +159,7 @@ include::../___notes/recompile-after-change.adoc[]
 
 ==== Использование пользовательских аннотаций
 
-При использовании строковых имен для классов реализаций и точек внедрения разработчик может допустить ошибку.
+При использовании строковых имен для классов реализаций и injection points разработчик может допустить ошибку.
 Так как компилятор не проверяет указанные имена, то ошибку удасться обнаружить только в процессе выполнения.
 
 Если такая ситуация недопустима, то необходимо в качестве квалификаторов использовать пользовательские аннотации:
@@ -168,10 +168,10 @@ include::../___notes/recompile-after-change.adoc[]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-using-custom-Named-annotation/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/using/custom/named/annotation/EnvironmentType.java[tag=content,indent=0]
 ----
-<1> Для того, чтобы пользовательская аннотация определялась фреймворком RxMicro как квалификатор, необходимо ее аннотировать аннотацией
+<1> Для того, чтобы пользовательская аннотация определялась by the RxMicro framework как квалификатор, необходимо ее аннотировать аннотацией
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Named.java[`@Named`^] или
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Qualifier.java[`@Qualifier`^] с пустым строковым значением.
-<2> Для контроля над именами классов и точек внедрения компилятором, рекомендуется использовать перечисления.
+<2> Для контроля над именами компонентов компилятором, рекомендуется использовать перечисления.
 
 После создания пользовательской аннотации, которая является квалификатором, необходимо аннотировать ею классы реализации
 
@@ -185,7 +185,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-using-c
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-using-custom-Named-annotation/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/using/custom/named/annotation/impl/DevelopmentBusinessService.java[tag=content,indent=0]
 ----
 
-и точки внедрения:
+and injection points:
 
 [source,java]
 ----

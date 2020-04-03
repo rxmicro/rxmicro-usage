@@ -2,27 +2,25 @@
 
 ==== RxMicro Project Configuration
 
-First release of GraalVM based on Java 11 is https://www.graalvm.org/docs/release-notes/19_3/#1930[*19.3.0* (2019-11-19)^].
-But unfortunately GraalVM Native Image Tool does not support JPMS yet.
+The first release of GraalVM based on Java 11 is https://www.graalvm.org/docs/release-notes/19_3/#1930[*19.3.0* (2019-11-19)^].
+But unfortunately the GraalVM Native Image Tool does not support JPMS yet.
 
-Thus we need to use a `unnamed module` for RxMicro project.
+Thus we need to use the `unnamed module` mode for RxMicro project.
 
 ===== Setup `pom.xml`
 
 ====== Using `RX_MICRO_BUILD_UNNAMED_MODULE` Option
 
-To activate `unnamed module` mode, it is necessary to add `RX_MICRO_BUILD_UNNAMED_MODULE` Option to the `maven-compiler-plugin`:
+To enable the `unnamed module` mode, it is necessary to add `RX_MICRO_BUILD_UNNAMED_MODULE` option to the `maven-compiler-plugin`:
 
 [source,xml]
 ----
 <plugin>
     <artifactId>maven-compiler-plugin</artifactId>
-    <version>${maven.compiler.plugin.version}</version>
     <configuration>
-        <release>11</release>
         <!-- ... -->
         <compilerArgs>
-            <arg>-ARX_MICRO_BUILD_UNNAMED_MODULE=true</arg> <!--1-->
+            <arg>-ARX_MICRO_BUILD_UNNAMED_MODULE=true</arg>
         </compilerArgs>
     </configuration>
     <!-- ... -->
@@ -31,7 +29,7 @@ To activate `unnamed module` mode, it is necessary to add `RX_MICRO_BUILD_UNNAME
 
 ====== `maven-shade-plugin` Configuration
 
-To build native image we need a `uber jar`.
+To build a native image we need a `uber jar`.
 For that it is necessary to add `maven-shade-plugin`:
 
 [source,xml]
@@ -93,16 +91,16 @@ To build a native image from `maven` it is necessary to use `exec-maven-plugin`:
 </plugin>
 ----
 
-<1> Execute `native-image` with specified arguments.
+<1> An executable will be the `native-image` tool with specified arguments.
 
 [TIP]
 ====
-Native Image Tool (`native-image`) must be available via `PATH` variable!
+The Native Image Tool (`native-image`) must be available via `PATH` variable!
 ====
 
 ===== Microservice Source Code
 
-Microservice source code contains two classes:
+A microservice source code contains two classes only:
 
 [source,java]
 ----
@@ -113,20 +111,22 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/graalvm-native-image-quick-sta
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/graalvm-native-image-quick-start/src/main/java/io/rxmicro/examples/graalvm/nativeimage/quick/start/HelloWorldMicroService.java[tags=content,indent=0]
 ----
-<1> Enable annotations configuration and configuration via environment variables only
-<2> Register SIGTERM handler manually.
+<1> Docker based configuration activates the configuration via annotations and environment variables only.
+<2> Registration the SIGTERM handler manually.
 _(Read more about it: https://github.com/oracle/graal/issues/1592[`https://github.com/oracle/graal/issues/1592`^].)_
 
 ===== Classpath Resources
 
-RxMicro logger is configured using `jul.properties` classpath resource:
+A RxMicro logger is configured using `jul.properties` classpath resource.
+
+`jul.properties` contains the following content:
 
 [source,properties]
 ----
 io.rxmicro.rest.server.level=TRACE
 ----
 
-Native image is configured using `META-INF/native-image` classpath directory with two files:
+A native image is configured using `META-INF/native-image` classpath directory with two files:
 
 * `native-image.properties`
 * `resource-config.json`
@@ -154,7 +154,7 @@ Args = --no-fallback \
 }
 ----
 
-==== Creation of Native Image
+==== Creation of the Native Image
 
 To build a native image run:
 
@@ -169,13 +169,14 @@ The built native image executable will be available at the project home director
 ----
 *ls* -lh
 
-drwxrwxr-x 5 nedis nedis 4,0K Mar 25 20:44 src
-drwxrwxr-x 8 nedis nedis 4,0K Mar 28 21:30 target
--rw-rw-r-- 1 nedis nedis 8,8K Mar 28 21:02 pom.xml
-*-rwxrwxr-x 1 nedis nedis  17M Mar 28 21:32 HelloWorldMicroService*
+drwxrwxr-x 5 nedis nedis 4,0K Mar 25 20:44 *src*
+drwxrwxr-x 8 nedis nedis 4,0K Mar 28 21:30 *target*
+-rw-rw-r-- 1 nedis nedis 8,8K Mar 28 21:02 *pom.xml*
+*-rwxrwxr-x 1 nedis nedis  17M Mar 28 21:32 HelloWorldMicroService* # <1>
 ----
+<1> The built native image executable
 
-==== Verification of Native Image
+==== Verification of the Native Image
 
 To verify the built native image run:
 

@@ -3,7 +3,7 @@ REST Controller - это класс, который содержит хотя б
 Каждый проект REST-based микросервиса должен содержать хотя бы один REST Controller. +
 _(Именно REST Controller является точкой входа для клиента.)_
 
-Для создания REST контроллеров, RxMicro предоставляет следующие модули:
+Для создания REST контроллеров, the RxMicro framework предоставляет следующие модули:
 
 * {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest[`rxmicro.rest`^] - базовый модуль, определяющий основные `RxMicro annotations`, необходимые при использовании
 https://en.wikipedia.org/wiki/Representational_state_transfer[`REST`^] архитектуры построения программных систем;

@@ -3,7 +3,7 @@
 [[java-integration-unnamed-module-module-config]]
 ==== Module Configuration
 
-Некоторые `rxmicro` модули позволяют задавать общую конфигурацию с помощью `RxMicro Annotations`, которыми аннотируется дескриптор модуля `module-info.java`.
+Некоторые RxMicro модули позволяют задавать общую конфигурацию с помощью `RxMicro Annotations`, которыми аннотируется дескриптор модуля `module-info.java`.
 Но для `unnamed module`, дескриптор модуля `module-info.java` не существует!
 
 В таких случаях необходимо создать виртуальный дескриптор:
@@ -82,9 +82,9 @@ include::../../___notes/recompile-after-change.adoc[]
 
 <<<
 
-===== Customization of Project Generation Process
+===== REST-based Microservice Metadata Configuration
 
-RxMicro предоставляет возможность конфигурировать процесс генерации проектной документации с помощью аннотаций.
+The RxMicro framework предоставляет возможность конфигурировать процесс генерации REST-based microservice documentation с помощью аннотаций.
 Данными аннотациями аннотируется <<project-documentation#project-documentation-metadata-annotations-section,дескриптор модуля `module-info.java`>>.
 
 Для `unnamed module` вместо дескриптора модуля `module-info.java`, используйте аннотацию `ModuleInfo`:

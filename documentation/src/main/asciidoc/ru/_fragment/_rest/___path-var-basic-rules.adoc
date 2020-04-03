@@ -2,7 +2,7 @@
 
 ==== Базовые правила
 
-RxMicro поддерживает `path variables` в моделях запроса:
+The RxMicro framework поддерживает `path variables` в моделях запроса:
 
 [source,java]
 ----

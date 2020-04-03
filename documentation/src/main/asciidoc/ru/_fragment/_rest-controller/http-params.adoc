@@ -72,7 +72,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-params/src/tes
 <7> Все указанные типы значений для HTTP параметра, который является списком значений, передаются в виде типа `java.lang.Object`.
 _(Компонент {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^]
 автоматически их преобразует в строку, разделенной запятыми и отправляет по протоколу HTTP.)_
-<8> Фреймворк RXMicro преобразует разные типы в список перечислений и отображает его в консоль.
+<8> The RxMicro framework преобразует разные типы в список перечислений и отображает его в консоль.
 
 <<<
 

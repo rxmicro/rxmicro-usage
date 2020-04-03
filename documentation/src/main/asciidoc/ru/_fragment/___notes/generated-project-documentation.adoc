@@ -1,3 +1,3 @@
-В процессе компиляции проекта RxMicro с учетом заданных в данной секции настроек модуля `rxmicro.documentation.asciidoctor` сгенерирует следующую проектную документацию:
+В процессе компиляции проекта the RxMicro framework с учетом заданных в данной секции настроек модуля `rxmicro.documentation.asciidoctor` сгенерирует следующую проектную документацию:
 
 link:{project-documentation-examples-root}/{project-documentation-file}[`{project-documentation-file}`^]

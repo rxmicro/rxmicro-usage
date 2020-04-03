@@ -1,10 +1,10 @@
 [[validation-std-constraints-section]]
 === Built-in Сonstraints.
 
-RxMicro предоставляет следующие built-in constraints, которые доступны в пакете
+The RxMicro framework supports the following built-in constraints, which are available at the package
 {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint[`io.rxmicro.validation.constraint`^]:
 
-.Built-in Сonstraints Description.
+.Supported Built-in Сonstraints.
 |===
 |*Annotation*|*Supported Type*|*Description*
 

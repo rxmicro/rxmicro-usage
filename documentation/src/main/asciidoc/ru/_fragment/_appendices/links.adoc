@@ -1,5 +1,5 @@
 [[appendices-links-section]]
-=== Appendix B: RxMicro Links
+=== Appendix B: Useful Links
 
 * https://github.com/rxmicro/rxmicro[RxMicro Source Code Repository^];
 * https://github.com/rxmicro/rxmicro-usage/tree/master/documentation[RxMicro Documentation Repository^];

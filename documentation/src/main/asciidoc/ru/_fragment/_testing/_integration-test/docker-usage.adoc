@@ -22,7 +22,7 @@ https://hub.docker.com/repository/docker/rxmicro/simple-hello-world[`rxmicro/sim
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-integration-docker/src/it/java/io/rxmicro/examples/testing/integration/docker/HelloWorldMicroService_IT.java[tag=content,indent=0]
 ----
 <1> Аннотация {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/RxMicroIntegrationTest.java[`@RxMicroIntegrationTest`^]
-информирует фреймворк RxMicro о том, что данный тест является интеграционным тестом.
+информирует the RxMicro framework о том, что данный тест является интеграционным тестом.
 <2> Аннотация {TESTCONTAINERS-JUNIT-DOC-ROOT-URL}org/testcontainers/junit/jupiter/Testcontainers.java[`@Testcontainers`^]
 активирует запуск и остановку `docker` контейнеров, которые будут использоваться в данном тесте.
 <3> Аннотация {TESTCONTAINERS-JUNIT-DOC-ROOT-URL}org/testcontainers/junit/jupiter/Container.java[`@Container`^]

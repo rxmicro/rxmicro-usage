@@ -5,9 +5,9 @@
 
 ==== Basic Usage
 
-Кроме пользовательских классов фреймворк RxMicro поддерживает возможность внедрения of RxMicro components.
+Кроме пользовательских классов the RxMicro framework поддерживает возможность внедрения of the RxMicro components.
 
-Например, если в проекте объявлен декларативный REST клиент:
+Например, если в проекте объявлен декларативный REST client:
 
 [source,java]
 ----
@@ -22,7 +22,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-rxmicro-component/src/main
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-rxmicro-component/src/main/java/io/rxmicro/examples/cdi/rxmicro/component/BusinessServiceFacade.java[tag=content,indent=0]
 ----
 <1> Для получения ссылки на класс-реализацию REST клиента, разработчик может использовать аннотацию {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@Inject`^].
-<2> Кроме внедрения REST клиентов, фреймворк RxMicro поддерживает также внедрение конфигураций. +
+<2> Кроме внедрения REST клиентов, the RxMicro framework поддерживает также внедрение конфигураций. +
 _(Список всех поддерживаемых RxMicro компонентов, которые могут быть внедрены описаны в <<cdi-rx-micro-component-injection-all-supported-components-section>>.)_
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-rxmicro-component

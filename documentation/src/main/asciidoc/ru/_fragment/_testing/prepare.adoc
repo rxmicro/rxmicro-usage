@@ -1,7 +1,7 @@
 [[testing-prepare-section]]
 === Подготовительные шаги
 
-Перед написанием тестов, используя фреймворк RxMicro необходимо выполнить следующие шаги:
+Перед написанием тестов, используя the RxMicro framework необходимо выполнить следующие шаги:
 
 . Определить версии используемых библиотек.
 . Добавить необходимые зависимости в `pom.xml`.
@@ -21,7 +21,7 @@
     <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version><!--3-->
 </properties>
 ----
-<1> {MAVEN-REPO-SEARCH-ROOT}io.rxmicro/rxmicro[Последняя стабильная версия фреймворка RxMicro^].
+<1> {MAVEN-REPO-SEARCH-ROOT}io.rxmicro/rxmicro[Последняя стабильная версия of the RxMicro framework^].
 <2> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-compiler-plugin[Последняя стабильная версия `maven-compiler-plugin`^].
 <3> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-surefire-plugin[Последняя стабильная версия `maven-surefire-plugin`^].
 

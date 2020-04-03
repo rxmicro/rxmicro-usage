@@ -3,23 +3,23 @@
 [[cdi-basic-section]]
 === Basic Usage
 
-Для активации модуля `rxmicro.cdi`, необходимо выполнить два шага:
+Для использования модуля `rxmicro.cdi` в проекте, необходимо выполнить два шага:
 
-* Подключить зависимость `rxmicro-cdi` в `pom.xml` микросервисного проекта:
+* Подключить зависимость `rxmicro-cdi` в файл `pom.xml`:
 
 [source,xml]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-basic/pom.xml[tag=content,indent=0]
 ----
 
-* Добавить модуль `rxmicro.cdi` в дескриптор `module-info.java` текущего проекта:
+* Добавить модуль `rxmicro.cdi` в дескриптор `module-info.java`:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-basic/src/main/java/module-info.java[tag=content,indent=0]
 ----
 
-После активации модуля `rxmicro.cdi` можно создавать бизнес сервис:
+После подключения модуля `rxmicro.cdi` можно создавать бизнес сервис:
 
 [source,java]
 ----
@@ -39,11 +39,11 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-basic/src/main/java/io/rxm
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-basic/src/main/java/io/rxmicro/examples/cdi/basic/RestController.java[tag=content,indent=0]
 ----
 <1> Использование аннотации {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@io.rxmicro.cdi.Inject`^]
-ничем принципиальным не отличается от
+ничем принципиальным не отличается от использования аннотаций
 https://docs.oracle.com/javaee/6/api/javax/inject/Inject.html[`@javax.inject.Inject`^] или
-https://google.github.io/guice/api-docs/latest/javadoc/index.html?com/google/inject/Inject.html[`com.google.inject.Inject`^].
+https://google.github.io/guice/api-docs/latest/javadoc/index.html?com/google/inject/Inject.html[`@com.google.inject.Inject`^].
 
-Корректность внедрения зависимости может быть проверена с помощью <<testing#testing-rest-based-microservice-tests-section, теста REST-based микросервиса>>:
+Корректность внедрения может быть проверена с помощью <<testing#testing-rest-based-microservice-tests-section, теста REST-based микросервиса>>:
 
 [source,java]
 ----

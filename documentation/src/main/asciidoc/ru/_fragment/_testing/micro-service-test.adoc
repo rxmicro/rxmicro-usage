@@ -8,14 +8,14 @@
 Для удобного написания микросервисных тестов RxMicro предоставляет:
 
 . Дополнительную аннотацию {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/RxMicroRestBasedMicroServiceTest.java[`@RxMicroRestBasedMicroServiceTest`^], которая информирует RxMicro о необходимости запустить тестируемый REST-based микросервис и подготовить окружение для выполнения тестовых HTTP запросов.
-. Специальный *блокирующий* HTTP клиент для выполнения HTTP запросов в процессе тестирования:
+. Специальный *блокирующий* HTTP client для выполнения HTTP запросов в процессе тестирования:
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^].
 . Интерфейс {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/SystemOut.java[`SystemOut`^] для удобного доступа к консоли.
 
 Для каждого микросервисного теста RxMicro выполняет следующие действия:
 
 . Перед запуском всех тестовых методов в классе:
-.. проверяет тестовый класс на соответствие правилам тестирования REST-based микросервисов, определенных фреймворком RxMicro;
+.. проверяет тестовый класс на соответствие правилам тестирования REST-based микросервисов, определенных by the RxMicro framework;
 .. запускает HTTP сервер на случайном свободном порту;
 .. создает объекта типа {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^];
 .. подключает созданный {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^] к запущенному HTTP серверу.

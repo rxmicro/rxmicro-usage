@@ -3,8 +3,8 @@
 [[cdi-optional-injection-section]]
 === Optional Injection
 
-По-умолчанию все точки внедрения являются обязательными.
-Это означает, что если в процессе внедрения зависимостей фреймворк RxMicro не обнаружит подходящего объекта, то возникнет ошибка.
+По-умолчанию all injection points являются обязательными.
+Это означает, что если в процессе of dependencies injection the RxMicro framework не обнаружит подходящего объекта, то возникнет ошибка.
 
 Если в текущем проекте допускается ситуация, когда подходящий объект может отсутсвовать, то тогда необходимо использовать режим `optional injection`:
 
@@ -17,7 +17,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-optional-injection/src/mai
 <2> При использовании аннотации {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Autowired.java[`@Autowired`^] для активации режима `optional injection`
 необходимо установить параметр `required = false`.
 
-В случае активации режима `optional injection` фреймворк RxMicro использует следующий алгоритм для внедрения:
+В случае активации режима `optional injection` the RxMicro framework использует следующий алгоритм для внедрения:
 
 . Если зависимость найдена, то она будет внедрена успешно.
 . Если зависимость отсутсвует, то ничего не происходит. +

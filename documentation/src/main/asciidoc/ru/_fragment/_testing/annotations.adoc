@@ -17,7 +17,7 @@ RxMicro поддерживает два типа аннотаций:
 *Поэтому при написании тестов будьте внимательны и не используйте `RxMicro annotations`, т.к. они недоступны тестовому фреймворку!*
 ====
 
-.Описание `RxMicro Test annotations`
+.Supported `RxMicro Test Annotations`
 [cols="1,1,3"]
 |===
 |*Аннотация*|*Модуль*|*Описание*
@@ -77,13 +77,13 @@ _RxMicro поддерживает компонент `BlockingHttpClient` тол
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/BeforeTest.java[`@BeforeTest`^]
 |{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test-junit[`rxmicro.test.junit`^]
-|Используется для указания метода, который должен быть вызван фреймворком RxMicro <<{testing}#testing-before-test-section,перед выполнением тестового метода>>.
+|Используется для указания метода, который должен быть вызван by the RxMicro framework <<{testing}#testing-before-test-section,перед выполнением тестового метода>>.
 
 _RxMicro поддерживает аннотацию `@BeforeTest` только для <<{testing}#testing-rest-based-microservice-tests-section,тестов REST-based микросервиса>> и <<{testing}#testing-component-tests-section,модульных тестов компонента>>._
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/BeforeIterationMethodSource.java[`@BeforeIterationMethodSource`^]
 |{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test-junit[`rxmicro.test.junit`^]
-|Используется для указания методов, которые должны быть вызваны фреймворком RxMicro перед <<{testing}#testing-before-test-section,выполнением каждой итерации параметризованного теста>>.
+|Используется для указания методов, которые должны быть вызваны by the RxMicro framework перед <<{testing}#testing-before-test-section,выполнением каждой итерации параметризованного теста>>.
 
 _RxMicro поддерживает аннотацию `@BeforeIterationMethodSource` только <<{testing}#testing-rest-based-microservice-tests-section,для тестов REST-based микросервиса>> и <<{testing}#testing-component-tests-section,модульных тестов компонента>>._
 
