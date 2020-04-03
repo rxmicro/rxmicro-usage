@@ -3,7 +3,7 @@
 [[rest-client-partial-implementation-section]]
 === Partial Implementation
 
-Если генерируемый REST client by `RxMicro Annotation Processor` содержит ошибки, некорректную или неоптимизированную логику, то разработчик может воспользоваться `Partial Implementation` feature.
+Если генерируемый by `RxMicro Annotation Processor` REST client содержит ошибки, некорректную или неоптимизированную логику, то разработчик может использовать the `Partial Implementation` feature.
 
 Данная feature позволяет реализовывать обработчики HTTP запроса для REST клиента самостоятельно, вместо того, чтобы они были сгененированы by the RxMicro framework.
 

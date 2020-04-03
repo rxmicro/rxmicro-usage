@@ -22,7 +22,7 @@ Unnamed modules disable the JPMS and allow to run any code which does not suppor
 Для поддержки совместимости с библиотеками, которые не поддерживают JPMS, Java 9 предоставляет механизм `unnamed modules`.
 
 Особенностью данного механизма является то, что код, написанный на Java 9 и выше не использует дескриптор модуля `module-info.java` и использует `class-path` вместо `module-path`.
-Для интеграции с библиотеками, которые не поддерживают JPMS, the RxMicro framework позволяет активировать режим `unnamed module` для `RxMicro Annotation Processor`.
+Для интеграции с библиотеками, которые не поддерживают JPMS, the RxMicro framework позволяет активировать режим `unnamed module` для the `RxMicro Annotation Processor`.
 
 Для активации данного режима, необходимо в настройках `maven-compiler-plugin` добавить конфигурационный параметр `RX_MICRO_BUILD_UNNAMED_MODULE`:
 
@@ -42,7 +42,7 @@ Unnamed modules disable the JPMS and allow to run any code which does not suppor
 </plugin>
 ----
 
-<1> `RxMicro Annotation Processor` will use the `unnamed module` mode for the current microservice project.
+<1> The `RxMicro Annotation Processor` will use the `unnamed module` mode for the current microservice project.
 
 <<<
 

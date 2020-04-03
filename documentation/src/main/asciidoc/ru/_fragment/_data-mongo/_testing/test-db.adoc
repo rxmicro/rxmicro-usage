@@ -12,6 +12,7 @@ image::data-mongo/mongo-test-db.jpg[]
 ====
 Скрипты для создания тестовой базы данных доступны по ссылке:
 
+[.example-code-link]
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}docker-image-mongo-test-db/src/main/js[`{RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}docker-image-mongo-test-db/src/main/js/`^]
 ====
 

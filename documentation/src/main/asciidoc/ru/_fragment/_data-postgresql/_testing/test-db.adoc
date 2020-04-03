@@ -12,6 +12,7 @@ image::data-postgresql/rxmicro-test-db-er-diagram.jpg[]
 ====
 SQL скрипты для создания тестовой базы данных доступны по ссылке:
 
+[.example-code-link]
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}docker-image-postgres-test-db/src/main/sql[`{RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}docker-image-postgres-test-db/src/main/sql/`^]
 ====
 

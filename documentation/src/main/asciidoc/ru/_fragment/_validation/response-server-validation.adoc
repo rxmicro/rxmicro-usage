@@ -17,7 +17,7 @@ _(Валидация HTTP ответов может быть полезна дл
 
 *По умолчанию RxMicro не генерирует валидаторы ответов!*
 
-Что информировать `RxMicro Annotation Processor` о необходимости генерации валидаторов HTTP ответа, необходимо использовать аннотацию <<{rest-controller}#rest-controller-rest-server-generator-config-section,`@RestServerGeneratorConfig`>>:
+Чтобы информировать the `RxMicro Annotation Processor` о необходимости генерации валидаторов HTTP ответа, необходимо использовать аннотацию <<{rest-controller}#rest-controller-rest-server-generator-config-section,`@RestServerGeneratorConfig`>>:
 
 [source,java]
 ----
@@ -25,7 +25,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-response/src
 ----
 <1> Параметр `generateResponseValidators` позволяет включать/отключать опцию генерации валидаторов HTTP ответа для всех обработчиков в проекте. +
 _(Значение `AUTO_DETECT` означает, что валидаторы будут сгенерированы только в том случае, если разработчик добавит модуль `rxmicro.validation` в дескриптор `module-info.java`.
-Так как данный модуль добавлен, то `RxMicro Annotation Processor` сгенерирует валидаторы для HTTP ответа.)_
+Так как данный модуль добавлен, то the `RxMicro Annotation Processor` сгенерирует валидаторы для HTTP ответа.)_
 
 Класс модели HTTP ответа может содержать любые built-in or custom constraint annotations:
 

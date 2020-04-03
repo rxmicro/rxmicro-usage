@@ -24,7 +24,7 @@ When you use the RxMicro framework you can receive one of the following errors:
 * `Class rxmicro.$$RepositoryFactoryImpl not found`;
 * `Class rxmicro.$$BeanFactoryImpl not found`;
 
-These errors mean that `RxMicro Annotation Processor` does not generate the required additional classes.
+These errors mean that the `RxMicro Annotation Processor` does not generate the required additional classes.
 
 To fix it, please verify that:
 

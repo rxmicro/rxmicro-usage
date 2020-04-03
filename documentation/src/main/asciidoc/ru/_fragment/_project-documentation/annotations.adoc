@@ -50,7 +50,7 @@ _(Позволяет переоределить версию of REST-based micro
 _(Позволяет переоределить лицензию of REST-based microservice, указанную в директиве `license` в `pom.xml`.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/ModelExceptionErrorResponse.java[`@ModelExceptionErrorResponse`^]
-|Указывает на exception class, который должен быть проанализирован by `RxMicro Annotation Processor` для <<project-documentation-errors-section, формирования описания неуспешного HTTP ответа REST-based микросервиса>>.
+|Указывает на exception class, который должен быть проанализирован by the `RxMicro Annotation Processor` для <<project-documentation-errors-section, формирования описания неуспешного HTTP ответа REST-based микросервиса>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/ResourceDefinition.java[`@ResourceDefinition`^]
 |Композиционная аннотация задающая <<project-documentation-section-customization-section,настройки генерации секции `ResourceDefinition`>>.

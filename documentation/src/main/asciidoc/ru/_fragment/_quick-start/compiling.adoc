@@ -21,7 +21,7 @@ include::../___notes/run-maven-in-terminal-note.adoc[]
 .Maven панель в IntelliJ IDEA
 image::quick-start/maven-panel.jpg[]
 
-После успешного выполнения компиляции в терминале отображается информация о работе `RxMicro Annotation Processor`:
+После успешного выполнения компиляции в терминале отображается информация о работе the `RxMicro Annotation Processor`:
 
 [source,text,subs="verbatim,quotes"]
 ----

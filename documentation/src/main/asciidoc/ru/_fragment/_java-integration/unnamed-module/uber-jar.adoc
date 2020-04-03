@@ -30,7 +30,7 @@ To enable the `unnamed module` mode, add the `RX_MICRO_BUILD_UNNAMED_MODULE` com
 </plugin>
 ----
 
-<1> `RxMicro Annotation Processor` will use the `unnamed module` mode for the current microservice project.
+<1> The `RxMicro Annotation Processor` will use the `unnamed module` mode for the current microservice project.
 
 ===== Configuration of `maven-shade-plugin`
 

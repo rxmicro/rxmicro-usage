@@ -14,7 +14,7 @@ image::core/how-it-work/micro-src.jpg[]
 @GET("/")
 ----
 
-Так как в maven настроен `RxMicro Annotation Processor`:
+Так как в maven настроен the `RxMicro Annotation Processor`:
 
 [source,xml]
 ----

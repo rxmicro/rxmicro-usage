@@ -45,7 +45,7 @@ public final class $$ResponseModelToJsonConverter extends ModelToJsonConverter<R
 <2> Считывание значения поля `message` из модели ответа.
 
 Использование `reflection` при конвертации из Java модели в JSON модель при обработке каждого запроса может <<core-encapsulation-benchmark,ухудшить производительность микросервиса>> в том месте, где можно этой проблемы избежать.
-Поэтому при компиляции данного класса `RxMicro Annotation Processor` выдает предупреждение:
+Поэтому при компиляции данного класса the `RxMicro Annotation Processor` выдает предупреждение:
 
 [source,text,subs="verbatim,quotes"]
 ----
@@ -138,7 +138,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}benchmarks/_results/java-core-ReadWrite
 . Если поле объявлено с модификатором `private` и разработчик создал `getter`/`setter`, сгенерированный конвертер использует вызов `getter`/`setter` для получения или записи значения поля;
 . Если поле объявлено с модификатором `private` без объявления `getter`/`setter`, сгенерированный конвертер использует
 `reflection` для доступа к полю модели. +
-_(В процессе генерации такого типа конвертера `RxMicro Annotation Processor` информирует разработчика о `PERFORMANCE WARNING`.)_
+_(В процессе генерации такого типа конвертера the `RxMicro Annotation Processor` информирует разработчика о `PERFORMANCE WARNING`.)_
 ====
 
 Для использования преимуществ инкапсуляции при проектировании микросервисов via the RxMicro framework следуйте следующим рекомендациям:

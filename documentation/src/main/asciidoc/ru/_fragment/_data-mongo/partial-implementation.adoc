@@ -3,17 +3,38 @@
 [[data-mongo-partial-implementation-section]]
 === Partial Implementation
 
-TODO
+Если генерируемый by the `RxMicro Annotation Processor` Mongo data repository содержит ошибки, некорректную или неоптимизированную логику, то разработчик может использовать the `Partial Implementation` feature.
+
+Данная feature позволяет реализовывать методы обработки данных для Mongo data repository самостоятельно, вместо того, чтобы они были сгененированы by the RxMicro framework.
+
+Для активации данной feature необходимо с помощью аннотации
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/PartialImplementation.java[`@PartialImplementation`^]
+указать абстрактный класс, который содержит реализацию методов обработки данных для Mongo data repository:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-partial-implementation/src/main/java/io/rxmicro/examples/data/mongo/partial/implementation/DataRepository.java[tag=content,indent=0]
 ----
+<1> C помощью аннотации
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/PartialImplementation.java[`@PartialImplementation`^]
+указывается абстрактный класс `AbstractDataRepository`.
+
+Абстрактный класс `AbstractDataRepository` содержит следующий контент:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-partial-implementation/src/main/java/io/rxmicro/examples/data/mongo/partial/implementation/AbstractDataRepository.java[tag=content,indent=0]
 ----
+
+и должен удовлетворять следующим требованиям:
+
+. Класс должен быть абстрактным.
+. Класс должен наследоваться от класса
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/detail/AbstractMongoRepository.java[`AbstractMongoRepository`^].
+. Класс должен реализовывать интерфейс of the Mongo data repository.
+. Класс должен содержать реализацию всех методов, которые не генерируются автоматически.
+
+С точки зрения инфраструктуры генерируемые и определенные разработчиком методы обработки данных для Mongo data repository ничем не отличаются:
 
 [source,java]
 ----
