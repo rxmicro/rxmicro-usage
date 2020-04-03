@@ -47,7 +47,7 @@ public final class WordCount {
             entry("rest-controller", "REST Controller"),
             entry("rest-client", "REST Client"),
             entry("validation", "Validation"),
-            entry("project-documentation", "Project Documentation"),
+            entry("project-documentation", "REST-based microservice documentation"),
             entry("data-postgresql", "Postgre SQL Data Repositories"),
             entry("data-mongo", "Mongo Data Repositories"),
             entry("cdi", "Contexts and Dependency Injection"),

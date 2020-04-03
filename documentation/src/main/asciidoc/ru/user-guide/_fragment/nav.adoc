@@ -7,7 +7,7 @@
 :rest-controller-title: REST Controller
 :rest-client-title: REST Client
 :validation-title: Validation
-:project-documentation-title: Project Documentation
+:project-documentation-title: REST-based Microservice Documentation
 :data-postgresql-title: Postgre SQL Data Repositories
 :data-mongo-title: Mongo Data Repositories
 :cdi-title: Contexts and Dependency Injection

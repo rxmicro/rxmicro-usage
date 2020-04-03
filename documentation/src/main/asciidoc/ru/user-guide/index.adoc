@@ -14,7 +14,7 @@ include::_fragment/preface.adoc[]
 . <<rest-controller.adoc#,*REST Controller*>>
 . <<rest-client.adoc#,*REST Client*>>
 . <<validation.adoc#,*Validation*>>
-. <<project-documentation.adoc#,*Project Documentation*>>
+. <<project-documentation.adoc#,*REST-based Microservice Documentation*>>
 . <<data-postgresql.adoc#,*Postgre SQL Data Repositories*>>
 . <<data-mongo.adoc#,*Mongo Data Repositories*>>
 . <<cdi.adoc#,*Contexts and Dependency Injection*>>

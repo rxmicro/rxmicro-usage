@@ -34,7 +34,7 @@ jobs:
           cd rxmicro/
           mvn -DskipTests -B install --file pom.xml
 
-      - name: Recompile Examples of Project Documentations
+      - name: Recompile Examples of REST-based microservice documentations
         run: |
           cd rxmicro/
           LATEST_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)

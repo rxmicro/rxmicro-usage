@@ -2,24 +2,24 @@
 
 === Project Metadata Configuration
 
-Для получения метаданных в процессе построения проектной документации, фреймворк RxMicro может использовать:
+Для получения метаданных в процессе построения REST-based microservice documentation, фреймворк RxMicro может использовать:
 
 * Файл `pom.xml`;
 * Аннотации модуля `rxmicro.documentation`.
 
-Метаданными для проектной документации программного обеспечения являются:
+Метаданными of REST-based microservice являются:
 
-* название программного обеспечения;
-* описание программного обеспечения;
-* версия программного обеспечения;
-* список лиценций, под которыми распростаняется данное программное обеспечение;
-* список разработчиков программного обеспечения;
-* базовый endpoint для всех REST-based микросервисов.
+* название of REST-based microservice;
+* описание of REST-based microservice;
+* версия of REST-based microservice;
+* список лиценций, под которыми распростаняется REST-based microservice;
+* список разработчиков of REST-based microservice;
+* базовый endpoint of REST-based microservice.
 
 [[project-documentation-metadata-pomxml-section]]
 ==== Using `pom.xml`
 
-Для указания метаданных для проектной документации программного обеспечения можно использовать файл: `pom.xml`
+Для указания метаданных, необходимых для генерации REST-based microservice documentation можно использовать файл: `pom.xml`
 
 [source,xml]
 ----
@@ -41,7 +41,7 @@ include::../___notes/recompile-after-change.adoc[]
 [[project-documentation-metadata-annotations-section]]
 ==== Using Annotations
 
-Для указания метаданных для проектной документации программного обеспечения можно использовать аннотации модуля `rxmicro.documentation`.
+Для указания метаданных, необходимых для генерации REST-based microservice documentation можно использовать аннотации модуля `rxmicro.documentation`.
 
 [source,java]
 ----

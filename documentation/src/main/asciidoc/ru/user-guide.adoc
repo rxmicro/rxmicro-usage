@@ -72,7 +72,7 @@ include::_fragment/validation.adoc[]
 <<<
 
 [[project-documentation-section]]
-== Project Documentation
+== REST-based Microservice Documentation
 
 include::_fragment/project-documentation.adoc[]
 

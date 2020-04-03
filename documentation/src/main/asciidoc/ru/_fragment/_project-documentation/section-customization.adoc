@@ -10,7 +10,7 @@
 * {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/ResourceGroupDefinition.java[`@ResourceGroupDefinition`^];
 * {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/ResourceDefinition.java[`@ResourceDefinition`^]
 
-разработчик может перегрупировывать стандартные секции проектной документации, а также подключать свои собственные фрагменты в качестве разделов.
+разработчик может перегрупировывать стандартные секции REST-based microservice documentation, а также подключать свои собственные фрагменты в качестве секций.
 
 [source,java]
 ----
@@ -22,6 +22,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-cust
 Кроме генерации финального http://asciidoc.org/[`AsciiDoc`^] документа, `RxMicro Annotation Processor` позволяет генерировать отдельные динамические фрагменты.
 
 Для получения подробной информации о данной возможности рекомендуем обратиться к примеру:
+[.example-code-link]
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}documentation-asciidoctor-custom-sections[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}documentation-asciidoctor-custom-sections`^]
 ====
 
