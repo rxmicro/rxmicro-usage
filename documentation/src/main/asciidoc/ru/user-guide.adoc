@@ -15,6 +15,7 @@ include::user-guide/_fragment/settings.adoc[]
 :data-postgresql:
 :data-mongo:
 :cdi:
+:java-integration:
 :testing:
 :appendices:
 

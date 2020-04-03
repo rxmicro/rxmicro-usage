@@ -9,7 +9,6 @@ include::_fragment/settings.adoc[]
 :microservice: microservice.adoc
 :quick-start: quick-start.adoc
 :core: core.adoc
-:java-integration: java-integration.adoc
 :rest-controller:
 :rest-client: rest-client.adoc
 :validation: validation.adoc
@@ -17,6 +16,7 @@ include::_fragment/settings.adoc[]
 :data-postgresql: data-postgresql.adoc
 :data-mongo: data-mongo.adoc
 :cdi: cdi.adoc
+:java-integration: java-integration.adoc
 :testing: testing.adoc
 :appendices: appendices.adoc
 
