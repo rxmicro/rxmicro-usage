@@ -22,8 +22,4 @@ include::_data-mongo/partial-implementation.adoc[]
 
 <<<
 
-include::_data-mongo/data-repository-generator-config.adoc[]
-
-<<<
-
 include::_data-mongo/logging.adoc[]

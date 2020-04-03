@@ -43,6 +43,7 @@
         <module>rest-controller-set-status-code</module>
         <module>rest-controller-model-fields</module>
         <module>rest-controller-complex-model</module>
+        <module>rest-controller-generator</module>
 
         <module>rest-client-handlers</module>
         <module>rest-client-headers</module>
@@ -55,6 +56,7 @@
         <module>rest-client-versioning-url-path</module>
         <module>rest-client-versioning-header</module>
         <module>rest-client-model-fields</module>
+        <module>rest-client-generator</module>
 
         <module>validation-all</module>
         <module>validation-server-basic</module>
@@ -175,8 +177,6 @@
         <module>graalvm-native-image-postgres-data-repository</module>
         <module>graalvm-native-image-rest-client</module>
         <module>graalvm-native-image-mongo-data-repository</module>
-        <module>rest-client-generator</module>
-        <module>rest-controller-generator</module>
     </modules>
 
     <build>

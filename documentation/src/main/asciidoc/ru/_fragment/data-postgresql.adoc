@@ -34,8 +34,4 @@ include::_data-postgresql/partial-implementation.adoc[]
 
 <<<
 
-include::_data-postgresql/data-repository-generator-config.adoc[]
-
-<<<
-
 include::_data-postgresql/logging.adoc[]
