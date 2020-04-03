@@ -2,7 +2,7 @@
 
 === Возвращаемые типы обработчиков HTTP запроса
 
-include::../_rest/___http_handler_return_types.adoc[]
+include::../_rest/___http-handler-return-types.adoc[]
 
 <<<
 
@@ -61,7 +61,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-handlers/src/m
 {RX-JAVA-DOC-ROOT-URL}io/reactivex/Single.html[`Single<MODEL>`^] или
 {RX-JAVA-DOC-ROOT-URL}io/reactivex/Maybe.html[`Maybe<MODEL>`^].
 
-include::../_rest/___note_reactive_parametrized_types.adoc[]
+include::../_rest/___note-reactive-parametrized-types.adoc[]
 
 Все указанные выше обработчики возвращают HTTP ответ с телом:
 

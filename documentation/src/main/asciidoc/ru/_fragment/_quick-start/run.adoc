@@ -51,7 +51,7 @@ Server started at 0.0.0.0:8080 using NETTY transport in 500 millis # <1>
 * Для Windows систем: `M2_REPO` = `C:\Documents and Settings\%USERNAME%\.m2\repository`.
 ====
 
-include::__note_run_on_windows.adoc[]
+include::__note-run-on-windows.adoc[]
 
 После запуска в консоли отобразится следующая информация:
 
@@ -137,4 +137,4 @@ _(Вместо перечисления всех библиотек указат
 *java* --add-exports=java.base/jdk.internal.misc=io.netty.common -p ./classes:lib -m *examples.quick.start/io.rxmicro.examples.quick.start.HelloWorldMicroService*
 ----
 
-include::__note_run_on_windows.adoc[]
+include::__note-run-on-windows.adoc[]

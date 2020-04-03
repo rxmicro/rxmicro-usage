@@ -2,40 +2,40 @@ TODO
 
 <<<
 
-include::_data_postgresql/basic.adoc[]
+include::_data-postgresql/basic.adoc[]
 
 <<<
 
-include::_data_postgresql/annotations.adoc[]
+include::_data-postgresql/annotations.adoc[]
 
 <<<
 
-include::_data_postgresql/testing.adoc[]
+include::_data-postgresql/testing.adoc[]
 
 <<<
 
-include::_data_postgresql/operations.adoc[]
+include::_data-postgresql/operations.adoc[]
 
 <<<
 
-include::_data_postgresql/variables.adoc[]
+include::_data-postgresql/variables.adoc[]
 
 <<<
 
-include::_data_postgresql/primary-keys.adoc[]
+include::_data-postgresql/primary-keys.adoc[]
 
 <<<
 
-include::_data_postgresql/transactional.adoc[]
+include::_data-postgresql/transactional.adoc[]
 
 <<<
 
-include::_data_postgresql/partial-implementation.adoc[]
+include::_data-postgresql/partial-implementation.adoc[]
 
 <<<
 
-include::_data_postgresql/data-repository-generator-config.adoc[]
+include::_data-postgresql/data-repository-generator-config.adoc[]
 
 <<<
 
-include::_data_postgresql/logging.adoc[]
+include::_data-postgresql/logging.adoc[]

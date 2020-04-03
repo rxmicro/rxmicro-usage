@@ -16,6 +16,6 @@ RxMicro поддерживает следующие Java типы, которы�
 * `? extends Object`;
 * `java.util.List<? extends Object>`;
 
-include::../___notes/note_use_big_decimal.adoc[]
+include::../___notes/note-use-big-decimal.adoc[]
 
 а также тип `java.util.List<T>`, параметризован любым из выше перечисленных примитивных типов (кроме `? extends Object` и `java.util.List<? extends Object>`).

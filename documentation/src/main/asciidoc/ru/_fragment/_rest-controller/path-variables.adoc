@@ -3,7 +3,7 @@
 [[rest-controller-path-variables-basic]]
 === Поддержка `path variables`
 
-include::../_rest/___path_var_basic_rules.adoc[]
+include::../_rest/___path-var-basic-rules.adoc[]
 
 После создания классов моделей, необходимо создать обработчик HTTP запросов, использующий данную модель:
 
@@ -34,4 +34,4 @@ include::../___notes/recompile-after-change.adoc[]
 
 ==== Поддерживаемые типы данных
 
-include::../_rest/___path_variables_types.adoc[]
+include::../_rest/___path-variables-types.adoc[]

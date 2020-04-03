@@ -3,7 +3,7 @@
 [[rest-controller-params-basic]]
 === Обработка HTTP параметров
 
-include::../_rest/___http_params_basic_rules.adoc[]
+include::../_rest/___http-params-basic-rules.adoc[]
 
 После создания классов моделей, необходимо создать обработчик HTTP запросов, использующий данные модели:
 
@@ -49,7 +49,7 @@ include::../___notes/recompile-after-change.adoc[]
 
 ==== Поддерживаемые типы данных
 
-include::../_rest/___param_types.adoc[]
+include::../_rest/___param-types.adoc[]
 
 [source,java]
 ----

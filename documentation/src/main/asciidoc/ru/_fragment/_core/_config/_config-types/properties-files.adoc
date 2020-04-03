@@ -64,7 +64,7 @@ Server started at 0.0.0.0:9090 using NETTY transport in 500 millis. # <1>
 ----
 <1> HTTP сервер запустился на порту `9090` вместо стандартного `8080`.
 
-include::___tip_namespace.adoc[]
+include::___tip-namespace.adoc[]
 
 ====== Конфигурирование с помощью общего properties файла
 
@@ -85,8 +85,8 @@ Server started at 0.0.0.0:9090 using NETTY transport in 500 millis. # <1>
 ----
 <1> HTTP сервер запустился на порту `9090` вместо стандартного `8080`.
 
-include::___tip_rxmicro_resource.adoc[]
+include::___tip-rxmicro-resource.adoc[]
 
 Так как файл `rxmicro.properties` является общим файлом для *любой* конфигурации, необходимо при указании настроек, указывать пространство имен.
 
-include::___note_common_and_special_resource_difference.adoc[]
+include::___note-common-and-special-resource-difference.adoc[]

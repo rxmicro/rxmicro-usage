@@ -7,7 +7,7 @@ https://openjdk.java.net/projects/jdk9/[21 September 2017] Java 9 ввела в 
 ====
 There are four types of modules in the JPMS:
 
-* *System Modules* – There are the Java SE and JDK modules. +
+* *System Modules* - There are the Java SE and JDK modules. +
 _(For example `java.base`, `java.logging`, `java.net.http`, etc)_
 * *Application Modules* - The default modules, which are built using JPMS. +
 They are `named` and defined in the compiled `module-info.class` file included in the assembled JAR.

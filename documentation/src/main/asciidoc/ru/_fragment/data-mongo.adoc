@@ -2,28 +2,28 @@ TODO
 
 <<<
 
-include::_data_mongo/basic.adoc[]
+include::_data-mongo/basic.adoc[]
 
 <<<
 
-include::_data_mongo/annotations.adoc[]
+include::_data-mongo/annotations.adoc[]
 
 <<<
 
-include::_data_mongo/testing.adoc[]
+include::_data-mongo/testing.adoc[]
 
 <<<
 
-include::_data_mongo/operations.adoc[]
+include::_data-mongo/operations.adoc[]
 
 <<<
 
-include::_data_mongo/partial-implementation.adoc[]
+include::_data-mongo/partial-implementation.adoc[]
 
 <<<
 
-include::_data_mongo/data-repository-generator-config.adoc[]
+include::_data-mongo/data-repository-generator-config.adoc[]
 
 <<<
 
-include::_data_mongo/logging.adoc[]
+include::_data-mongo/logging.adoc[]

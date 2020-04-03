@@ -59,6 +59,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-microservice-with-conf
 
 Исходный код проекта, использующего аннотацию `@WithConfig`, доступен по ссылке:
 
+[.example-code-link]
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-microservice-with-config[`https://github.com/rxmicro/rxmicro-usage/tree/master/examples/testing-microservice-with-config`^]
 ====
 

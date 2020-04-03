@@ -87,7 +87,7 @@ To run `uber.jar` it is necessary to provider jar file only:
 Server started at 0.0.0.0:8080 using NETTY transport in 500 millis # <1>
 ----
 
-<1> Сообщение формата `Server started in …​ millis` означает, что RxMicro HTTP сервер успешно запустился.
+<1> Сообщение формата `Server started in ... millis` означает, что RxMicro HTTP сервер успешно запустился.
 
 [NOTE]
 ====

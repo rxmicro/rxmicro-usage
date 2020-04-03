@@ -2,7 +2,7 @@
 
 === Возвращаемые типы обработчиков HTTP запроса
 
-include::../_rest/___http_handler_return_types.adoc[]
+include::../_rest/___http-handler-return-types.adoc[]
 
 <<<
 
@@ -52,7 +52,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-handlers/src/main/
 <4> При использовании библиотеки {RX-JAVA-USER-GUIDE}[*RxJava*^] только тип
 {RX-JAVA-DOC-ROOT-URL}io/reactivex/Single.html[`Single<MODEL>`^] может быть использован.
 
-include::../_rest/___note_reactive_parametrized_types.adoc[]
+include::../_rest/___note-reactive-parametrized-types.adoc[]
 
 Все указанные выше обработчики возвращают объект класса `Response` с сообщением `Hello World!`:
 

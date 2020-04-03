@@ -29,7 +29,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-versioning-hea
 <1> REST контроллер новой версии `v2` с использованием
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L84[`Version.Strategy.HEADER`^] стратегии;
 
-include::../___notes/note_same_request_handlers_with_diff_versions.adoc[]
+include::../___notes/note-same-request-handlers-with-diff-versions.adoc[]
 
 Корректность выбора обработчика правильного REST контроллера может быть проверена с помощью теста:
 
@@ -42,7 +42,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-versioning-hea
 <3> Для указания версии обработчика используется стандартный HTTP заголовок
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java#L193[`Api-Version`^].
 
-include::../___notes/note_blocking_http_client_version.adoc[]
+include::../___notes/note-blocking-http-client-version.adoc[]
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-controller-versioning-header
 include::../___notes/full-source-code-of-example.adoc[]
@@ -69,7 +69,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-versioning-url
 <1> REST контроллер новой версии `v2` с использованием
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L71[`Version.Strategy.URL_PATH`^] стратегии;
 
-include::../___notes/note_same_request_handlers_with_diff_versions.adoc[]
+include::../___notes/note-same-request-handlers-with-diff-versions.adoc[]
 
 Корректность выбора обработчика правильного REST контроллера может быть проверена с помощью теста:
 
@@ -80,7 +80,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-versioning-url
 <1> Аннотация <<{testing}#testing-rest-based-microservice-tests-section,`@RxMicroRestBasedMicroServiceTest`>> позволяет запускать в тестовом режиме несколько REST контроллеров.
 <2> В тесте выполняется `PATCH` запрос к разным URL Paths;
 
-include::../___notes/note_blocking_http_client_version.adoc[]
+include::../___notes/note-blocking-http-client-version.adoc[]
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-controller-versioning-url-path
 include::../___notes/full-source-code-of-example.adoc[]

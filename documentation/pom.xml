@@ -55,7 +55,7 @@
                                 <toclevels>3</toclevels>
                                 <guide-format>pdf</guide-format>
                                 <project-documentation-examples-root>
-                                    http://html.nedis.net.ua/project-documentation-examples
+                                    https://rxmicro.io/doc/latest/project-documentation-examples
                                 </project-documentation-examples-root>
                             </attributes>
                         </configuration>

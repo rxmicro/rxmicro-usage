@@ -3,7 +3,7 @@
 [[rest-client-headers-basic]]
 === Обработка HTTP заголовков
 
-include::../_rest/___http_headers_basic_rules.adoc[]
+include::../_rest/___http-headers-basic-rules.adoc[]
 
 После создания классов моделей, необходимо создать обработчик запросов, использующий данные модели:
 
@@ -41,7 +41,7 @@ include::../___notes/recompile-after-change.adoc[]
 
 ==== Поддерживаемые типы данных
 
-include::../_rest/___header_types.adoc[]
+include::../_rest/___header-types.adoc[]
 
 <<<
 

@@ -62,9 +62,9 @@ _(Если в проекте используется модуль <<{cdi}#{cdi-
 (Вспомогательные типы `java.lang.Void` и `java.util.Optional` также поддерживаются.
 _(см. <<{core}#core-reactive-bussiness-process-reactive-class-mapping-table>>)_).
 
-include::../_rest/___note_Flux_Flowable.adoc[]
+include::../_rest/___note-Flux-Flowable.adoc[]
 
 :target: микросервисов
-include::../_rest/___requirements_param_types.adoc[]
+include::../_rest/___requirements-param-types.adoc[]
 
-include::../_rest/___note_reactive_libs.adoc[]
+include::../_rest/___note-reactive-libs.adoc[]
