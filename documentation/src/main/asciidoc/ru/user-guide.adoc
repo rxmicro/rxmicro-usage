@@ -2,8 +2,8 @@
 = RxMicro User Guide
 include::user-guide/_fragment/settings.adoc[]
 :guide-kind: full
-:imagesdir: images
-:project-documentation-examples-root: ../project-documentation-examples
+:imagesdir: {RESOURCE-PARENT-DIR}images
+:project-documentation-examples-root: {RESOURCE-PARENT-DIR}project-documentation-examples
 
 :introduction:
 :quick-start:

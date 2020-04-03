@@ -3,7 +3,7 @@
 include::_fragment/settings.adoc[]
 :guide-kind: section
 :current-entity: data-postgresql
-:imagesdir: ../images
+:imagesdir: {RESOURCE-PARENT-DIR}../images
 
 :introduction: introduction.adoc
 :microservice: microservice.adoc

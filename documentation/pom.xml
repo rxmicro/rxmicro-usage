@@ -35,6 +35,7 @@
                             <attributes>
                                 <toclevels>3</toclevels>
                                 <guide-format>html</guide-format>
+                                <rxmicro-environment>${env.RXMICRO_ENVIRONMENT}</rxmicro-environment>
                                 <stylesheet>${basedir}/src/main/styles/rxmicro-doc.css</stylesheet>
                             </attributes>
                         </configuration>
@@ -54,6 +55,7 @@
                             <attributes>
                                 <toclevels>3</toclevels>
                                 <guide-format>pdf</guide-format>
+                                <imagesdir>../images</imagesdir>
                                 <project-documentation-examples-root>
                                     https://rxmicro.io/doc/latest/project-documentation-examples
                                 </project-documentation-examples-root>

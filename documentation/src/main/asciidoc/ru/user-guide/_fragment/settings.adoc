@@ -14,7 +14,14 @@
 :description: RxMicro is a modern, JVM-based, full-stack framework designed to develop distributed reactive applications, using a microservice architecture.
 :xrefstyle: full
 :nofooter:
-
+//------------------------------------------------------------------------------------------------------------------------------------------
+ifeval::["{rxmicro-environment}" == "DEV"]
+:RESOURCE-PARENT-DIR: ../
+endif::[]
+ifeval::["{rxmicro-environment}" != "DEV"]
+:RESOURCE-PARENT-DIR:
+endif::[]
+//------------------------------------------------------------------------------------------------------------------------------------------
 :RXMICRO-VERSION: {rxmicro-version}
 // Maven Repo Root
 :MAVEN-REPO-SEARCH-ROOT: https://mvnrepository.com/artifact/
