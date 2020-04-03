@@ -3,7 +3,7 @@
 [[data-mongo-estimated-document-count-section]]
 ==== `@EstimatedDocumentCount`
 
-TODO
+The `rxmicro.data.mongo` module supports the https://docs.mongodb.com/manual/reference/method/db.collection.estimatedDocumentCount/[`db.collection.estimatedDocumentCount()`^] operation:
 
 [source,java]
 ----
@@ -12,7 +12,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-estimated-document-
 
 [NOTE]
 ====
-Для получения дополнительных сведений, рекомендуем ознакомиться со следующими примерами:
+For more information, we recommend that you familiarize yourself with the following examples:
 
 * {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}data-mongo-all-operations/src/main/java/io/rxmicro/examples/data/mongo/all/operations/EstimatedDocumentCountDataRepository.java[All Supported Return Types^].
 ====

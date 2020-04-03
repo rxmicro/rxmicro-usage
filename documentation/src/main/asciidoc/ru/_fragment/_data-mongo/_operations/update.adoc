@@ -3,7 +3,7 @@
 [[data-mongo-update-section]]
 ==== `@Update`
 
-TODO
+The `rxmicro.data.mongo` module supports the https://docs.mongodb.com/manual/reference/method/db.collection.updateOne/[`db.collection.updateOne()`^] operation:
 
 [source,java]
 ----
@@ -12,7 +12,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-update/src/main/jav
 
 [NOTE]
 ====
-Для получения дополнительных сведений, рекомендуем ознакомиться со следующими примерами:
+For more information, we recommend that you familiarize yourself with the following examples:
 
 * {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}data-mongo-all-operations/src/main/java/io/rxmicro/examples/data/mongo/all/operations/UpdateDataRepository.java[All Supported Return Types^];
 * {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}data-mongo-supported-types/src/main/java/io/rxmicro/examples/data/mongo/supported/types/UpdateDataRepository.java[All Supported Parameter Types^].

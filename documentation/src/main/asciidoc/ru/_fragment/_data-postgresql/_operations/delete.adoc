@@ -12,7 +12,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-delete/s
 
 [NOTE]
 ====
-Для получения дополнительных сведений, рекомендуем ознакомиться со следующими примерами:
+For more information, we recommend that you familiarize yourself with the following examples:
 
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-r2dbc-postgresql-return-types/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/returntypes/delete[All Supported Return Types^]
 ====

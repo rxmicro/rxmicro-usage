@@ -3,7 +3,7 @@
 [[data-mongo-insert-section]]
 ==== `@Insert`
 
-TODO
+The `rxmicro.data.mongo` module supports the https://docs.mongodb.com/manual/reference/method/db.collection.insertOne/[`db.collection.insertOne()`^] operation:
 
 [source,java]
 ----
@@ -12,7 +12,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-insert/src/main/jav
 
 [NOTE]
 ====
-Для получения дополнительных сведений, рекомендуем ознакомиться со следующими примерами:
+For more information, we recommend that you familiarize yourself with the following examples:
 
 * {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}data-mongo-all-operations/src/main/java/io/rxmicro/examples/data/mongo/all/operations/InsertDataRepository.java[All Supported Return Types^].
 ====

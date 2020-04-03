@@ -9,7 +9,7 @@
 
 Особенности тестирования сложных компонентов, использующих альтернативы такие же как и <<testing-rest-based-microservice-tests-complex-alternative-usage-section, при тестировании REST-based микросервисов>>.
 
-Для получения дополнительных сведений, рекомендуем ознакомиться со следующими примерами:
+For more information, we recommend that you familiarize yourself with the following examples:
 
 . Особенности тестирования компонентов, использующих REST client:
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-rest-client[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-rest-client`^];
