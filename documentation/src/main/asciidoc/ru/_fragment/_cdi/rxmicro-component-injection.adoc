@@ -15,8 +15,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-rxmicro-component/src/main
 ----
 
 то вместо явного получения ссылки на объект класса реализации с помощью
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/RestClientFactory.java#L35[`RestClientFactory.getRestClient`^],
-разработчик может использовать механиз внедрения зависимостей:
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/RestClientFactory.java#L35[`RestClientFactory.getRestClient`^], разработчик может использовать механиз внедрения зависимостей:
 
 [source,java]
 ----
