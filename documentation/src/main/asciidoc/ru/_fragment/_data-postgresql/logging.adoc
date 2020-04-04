@@ -6,6 +6,7 @@ include::../___fragment-settings.adoc[]
 
 PostgreSQL Data Repositories use the {POSTGRESQL-R2DBC-GITHUB-ROOT}#reactive-relational-database-connectivity-postgresql-implementation--[*R2DBC PostgreSQL Driver*^], поэтому для активации логирования запросов к базе данных, необходимо конфигурировать *R2DBC PostgreSQL Driver Logger*:
 
+[.example-code-link]
 {POSTGRESQL-R2DBC-GITHUB-ROOT}#logging[`{POSTGRESQL-R2DBC-GITHUB-ROOT}#logging`^].
 
 Например, если в `classpath` текущего проекта добавить ресурс <<core#core-logger-config-file-inline, `jul.properties`>>:

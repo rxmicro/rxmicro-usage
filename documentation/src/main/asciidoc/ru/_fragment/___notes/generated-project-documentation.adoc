@@ -3,4 +3,5 @@ include::../___fragment-settings.adoc[]
 
 В процессе компиляции проекта the RxMicro framework с учетом заданных в данной секции настроек модуля `rxmicro.documentation.asciidoctor` сгенерирует следующую проектную документацию:
 
+[.example-code-link]
 link:{project-documentation-examples-root}/{project-documentation-file}[`{project-documentation-file}`^]

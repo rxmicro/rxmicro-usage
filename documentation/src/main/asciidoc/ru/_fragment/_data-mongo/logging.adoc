@@ -6,6 +6,7 @@ include::../___fragment-settings.adoc[]
 
 Mongo Data Repositories use the {MONGO-ASYNC-DRIVER_DOC}[*MongoDB Async Driver*^], поэтому для активации логирования запросов к Mongo DB, необходимо конфигурировать *MongoDB Async Driver Logger*:
 
+[.example-code-link]
 {MONGO-ASYNC-DRIVER_DOC}reference/logging/[`{MONGO-ASYNC-DRIVER_DOC}reference/logging/`^].
 
 Например, если в classpath текущего проекта добавить ресурс <<core#core-logger-config-file-inline, `jul.properties`>>:

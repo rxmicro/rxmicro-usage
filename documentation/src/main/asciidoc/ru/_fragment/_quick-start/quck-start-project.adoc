@@ -5,6 +5,7 @@ include::../___fragment-settings.adoc[]
 
 Проект REST-based микросервиса `HelloWorldMicroService` доступен по ссылке:
 
+[.example-code-link]
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}quick-start[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}quick-start`^].
 
 [IMPORTANT]
