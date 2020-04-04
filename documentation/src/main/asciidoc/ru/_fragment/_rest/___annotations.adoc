@@ -110,7 +110,7 @@ _(Данная возможность полезна при логировани
 |Позволяет <<rest-controller-rest-server-generator-config-section,конфигурировать процесс генерации кода процессором аннотаций для REST контроллеров>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/feature/EnableCrossOriginResourceSharing.java[`@EnableCrossOriginResourceSharing`^]
-|Активирует <<rest-controller-cors-section,`Cross Origin Resource Sharing (CORS)` для всех обработчиков запросов в REST контроллере>>.
+|Активирует <<rest-controller-cors-section,`Cross Origin Resource Sharing` для всех обработчиков запросов в REST контроллере>>.
 endif::[]
 // ---------------------------------------------------------------------------------------------------------------------
 ifdef::rest-kind-client,fragment-document[]

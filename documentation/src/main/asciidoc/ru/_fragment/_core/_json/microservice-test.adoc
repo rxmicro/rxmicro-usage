@@ -78,9 +78,9 @@ final class MicroServiceTest {
 }
 ----
 <1>  Метод `ClientHttpResponse.body()` возвращает тело HTTP ответа.
-Так как REST-based микросервис возвращает JSON объект, то данный метод возвращает результат в виде объекта <<core-json-type-mapping,`java.util.Map<java.lang.String, java.lang.Object>`>>.
+Так как REST-based микросервис возвращает JSON объект, то данный метод возвращает результат в виде объекта <<core-json-type-mapping,`java.util.Map<String, Object>`>>.
 
-Поэтому, чтобы сравнить JSON объекты, необходимо создать объект `java.util.Map<java.lang.String, java.lang.Object>`, содержащий ожидаемые свойства JSON объекта:
+Поэтому, чтобы сравнить JSON объекты, необходимо создать объект `java.util.Map<String, Object>`, содержащий ожидаемые свойства JSON объекта:
 
 [source,java]
 ----
@@ -149,7 +149,7 @@ final class MicroServiceTest {
 
 *Таким образом порядок JSON свойств всегда соответствует порядку полей в Java модели!*
 
-Благодаря этому Вы можете сравнивать JSON объекты представленные в виде `java.util.Map<java.lang.String, java.lang.Object>` с помощью метода
+Благодаря этому Вы можете сравнивать JSON объекты представленные в виде `java.util.Map<String, Object>` с помощью метода
 {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Object.html#equals(java.lang.Object)[`java.lang.Object.equals()`^].
 ====
 

@@ -14,11 +14,19 @@ include::../___fragment-settings.adoc[]
 
 For more information, we recommend that you familiarize yourself with the following examples:
 
-. Особенности тестирования компонентов, использующих REST client:
+* Особенности тестирования компонентов, использующих REST client:
+
+[.example-code-link]
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-rest-client[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-rest-client`^];
-. Особенности тестирования компонентов, использующих mongo репозитории:
+
+* Особенности тестирования компонентов, использующих mongo репозитории:
+
+[.example-code-link]
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-mongo-repository[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-mongo-repository`^];
-. Особенности тестирования компонентов, использующих postgres репозитории:
+
+* Особенности тестирования компонентов, использующих postgres репозитории:
+
+[.example-code-link]
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-postgres-repository[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-postgres-repository`^];
 
 <<<

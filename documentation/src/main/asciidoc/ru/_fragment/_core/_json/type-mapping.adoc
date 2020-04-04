@@ -13,10 +13,10 @@ include::../../___fragment-settings.adoc[]
 |*JSON type*|*Java type*
 
 |`object`
-|{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/Map.html[`java.util.Map<java.lang.String, java.lang.Object>`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/Map.html[`java.util.Map<String, Object>`^]
 
 |`array`
-|{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/List.html[`java.util.List<java.lang.Object>`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/List.html[`java.util.List<Object>`^]
 
 |`boolean`
 |{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Boolean.html[`java.lang.Boolean`^]
@@ -35,10 +35,10 @@ include::../../___fragment-settings.adoc[]
 |===
 |*Java type*|*JSON type*
 
-|{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/Map.html[`java.util.Map<java.lang.String, java.lang.Object>`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/Map.html[`java.util.Map<String, Object>`^]
 |`object`
 
-|{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/List.html[`java.util.List<java.lang.Object>`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/List.html[`java.util.List<Object>`^]
 |`array`
 
 |{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Boolean.html[`java.lang.Boolean`^]

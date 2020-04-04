@@ -43,6 +43,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-client-basic/src/te
 ====
 Для ознакомления с возможностями of the RxMicro framework для валидации HTTP запросов в REST клиентах, рекомендуем обратится к примеру:
 
+[.example-code-link]
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}validation-client-all-types[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}validation-client-all-types`^]
 ====
 

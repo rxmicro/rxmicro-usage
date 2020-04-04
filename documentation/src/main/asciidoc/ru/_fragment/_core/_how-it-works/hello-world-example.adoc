@@ -294,7 +294,7 @@ module examples.quick.start {
 
 Однако пакет `rxmicro` создается автоматически и после удаления всех сгенерированных файлов, скомпилировать `module-info.java` не получиться из-за ошибки:
 
-`Error:(25,13) java: package is empty or does not exist: rxmicro`.
+`package is empty or does not exist: rxmicro`.
 
 Для решения данной проблемы RxMicro генерирует класс `rxmicro.$$EnvironmentCustomizer`:
 

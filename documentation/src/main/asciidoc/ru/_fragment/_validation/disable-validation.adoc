@@ -33,10 +33,10 @@ include::../___fragment-settings.adoc[]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-all/src/main/java/module-info.java[tag=content,indent=0]
 ----
-<1> Если `@RestServerGeneratorConfig.generateRequestValidators == GenerateOption.DISABLED`, то валидаторы для всех моделей HTTP запросов в текущем проекте не будут сгенерированы.
-<2> Если `@RestServerGeneratorConfig.generateResponseValidators == GenerateOption.DISABLED`, то валидаторы для всех моделей HTTP ответов в текущем проекте не будут сгенерированы.
-<3> Если `@RestClientGeneratorConfig.generateRequestValidators == GenerateOption.DISABLED`, то валидаторы для всех моделей HTTP запросов в текущем проекте не будут сгенерированы.
-<4> Если `@RestClientGeneratorConfig.generateResponseValidators == GenerateOption.DISABLED`, то валидаторы для всех моделей HTTP ответов в текущем проекте не будут сгенерированы.
+<1> Валидаторы для всех моделей HTTP запросов в текущем проекте не будут сгенерированы.
+<2> Валидаторы для всех моделей HTTP ответов в текущем проекте не будут сгенерированы.
+<3> Валидаторы для всех моделей HTTP запросов в текущем проекте не будут сгенерированы.
+<4> Валидаторы для всех моделей HTTP ответов в текущем проекте не будут сгенерированы.
 
 [IMPORTANT]
 ====
