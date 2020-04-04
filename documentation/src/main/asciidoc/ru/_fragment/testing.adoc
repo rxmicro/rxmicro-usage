@@ -1,3 +1,6 @@
+:FRAGMENT_RELATIVE_DIR:
+include::___fragment-settings.adoc[]
+
 Для эффективного написания тестов the RxMicro framework предоставляет следующие модули:
 
 * {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test[`rxmicro.test`^] - базовый модуль, предназначенный для написания тестов, используя любой современный фреймворк для тестирования;

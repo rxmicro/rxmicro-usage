@@ -1,3 +1,6 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
 === Requirements
 
 The RxMicro framework для своей работы требует https://openjdk.java.net/projects/jdk/11/[JDK 11 LTS^] или выше.

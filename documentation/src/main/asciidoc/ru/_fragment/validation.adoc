@@ -1,3 +1,6 @@
+:FRAGMENT_RELATIVE_DIR:
+include::___fragment-settings.adoc[]
+
 The RxMicro framework поддерживает валидацию HTTP запросов и ответов.
 
 Все классы и аннотации необходимые для валидации данных доступны в модуле

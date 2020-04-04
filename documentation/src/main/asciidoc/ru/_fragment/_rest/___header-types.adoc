@@ -1,3 +1,6 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
 The RxMicro framework поддерживает следующие Java типы, которые могут быть HTTP заголовками модели запроса:
 
 * `? extends Enum<?>`;

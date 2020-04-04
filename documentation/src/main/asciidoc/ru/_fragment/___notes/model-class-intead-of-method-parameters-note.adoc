@@ -1,26 +1,29 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
 [NOTE]
 ====
 The RxMicro framework рекомендует для обработчиков запросов, зависящих от 3 и более
 // tag::headers[]
-HTTP заголовков
+HTTP headers
 // end::headers[]
 // tag::params[]
-HTTP параметров
+HTTP parameters
 // end::params[]
 // tag::path-variables[]
 `path variables`
 // end::path-variables[]
 // tag::all[]
-HTTP заголовков, HTTP параметров или `path variables`
+HTTP headers, HTTP parameters or `path variables`
 // end::all[]
 создавать отдельные классы модели запроса.
 
 *При внедрении*
 // tag::headers[]
-*HTTP заголовков*
+*HTTP headers*
 // end::headers[]
 // tag::params[]
-*HTTP параметров*
+*HTTP parameters*
 // end::params[]
 // tag::path-variables[]
 *`path variables`*

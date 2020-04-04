@@ -1,3 +1,6 @@
+:FRAGMENT_RELATIVE_DIR: ../../../
+include::../../../___fragment-settings.adoc[]
+
 ===== Конфигурирование с помощью classpath ресурсов
 
 The RxMicro framework поддерживает общий и отдельные classpath ресурсы для внешней по отношении к исходному коду микросервиса конфигурации.

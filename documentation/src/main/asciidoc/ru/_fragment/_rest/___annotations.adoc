@@ -1,3 +1,6 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
 RxMicro поддерживает следующие `RxMicro annotations`, которые используются для создания и настройки {rest-title}.
 
 .Supported `RxMicro Annotations`.
@@ -5,7 +8,7 @@ RxMicro поддерживает следующие `RxMicro annotations`, ко�
 |===
 |*Аннотация*|*Описание*
 
-ifeval::["{rest-kind}" == "client"]
+ifdef::rest-kind-client,fragment-document[]
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/RestClient.java[`@RestClient`^]
 |Объявляет интерфейс REST клиентом.
 endif::[]
@@ -31,7 +34,7 @@ endif::[]
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/OPTIONS.java[`@OPTIONS`^]
 |Обозначает метод, который должен обрабатывать `OPTIONS` запрос.
 // ---------------------------------------------------------------------------------------------------------------------
-ifeval::["{rest-kind}" == "controller"]
+ifdef::rest-kind-controller,fragment-document[]
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/BaseUrlPath.java[`@BaseUrlPath`^]
 |Обозначает <<rest-controller-base-url-path-section,базовый URL path для всех обработчиков запросов в REST контроллере>>.
 
@@ -110,7 +113,7 @@ _(Данная возможность полезна при логировани
 |Активирует <<rest-controller-cors-section,`Cross Origin Resource Sharing (CORS)` для всех обработчиков запросов в REST контроллере>>.
 endif::[]
 // ---------------------------------------------------------------------------------------------------------------------
-ifeval::["{rest-kind}" == "client"]
+ifdef::rest-kind-client,fragment-document[]
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/BaseUrlPath.java[`@BaseUrlPath`^]
 |Обозначает <<rest-client-base-url-path-section,базовый URL path для всех методов отправляющих запросы в REST клиенте>>.
 

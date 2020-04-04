@@ -1,5 +1,9 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
 [[rest-client-annotations-section]]
 === `RxMicro Annotations`
 
+:rest-kind-client:
 :rest-title: REST Clients
 include::../_rest/___annotations.adoc[]

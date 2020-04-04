@@ -1,3 +1,6 @@
+:FRAGMENT_RELATIVE_DIR: ../../../
+include::../../../___fragment-settings.adoc[]
+
 [NOTE]
 ====
 Именно поэтому при указании порта HTTP сервера, необходимо в файле `rxmicro.properties` указывать префикс `http-server.`

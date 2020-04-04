@@ -1,3 +1,6 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
 Для успешного запуска тестов в процессе сборки проекта с помощью `maven`, необходимо обновить `maven-surefire-plugin`:
 
 [source,xml]

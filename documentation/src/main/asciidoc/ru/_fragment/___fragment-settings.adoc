@@ -1,0 +1,15 @@
+:icons: font
+:sectanchors:
+:sectlinks:
+:idprefix:
+:sectnums:
+:sectnumlevels: 6
+:linkattrs:
+:xrefstyle: full
+:nofooter:
+:fragment-document:
+ifndef::full-document[]
+:imagesdir: {FRAGMENT_RELATIVE_DIR}../../images
+endif::[]
+// -----------------------------------------------------------------------------------------------------------------------------------------
+include::../user-guide/_fragment/external-links.adoc[]

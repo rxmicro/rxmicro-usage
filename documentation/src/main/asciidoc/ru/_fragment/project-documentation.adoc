@@ -1,3 +1,6 @@
+:FRAGMENT_RELATIVE_DIR:
+include::___fragment-settings.adoc[]
+
 REST-based microservice documentation описывает правила взаимодействия с REST-based микросервисами для быстрой и простой интеграции c ними.
 
 На текущий момент the RxMicro framework поддерживает только специализированный формат документирования на базе формата http://asciidoc.org/[`AsciiDoc`^].

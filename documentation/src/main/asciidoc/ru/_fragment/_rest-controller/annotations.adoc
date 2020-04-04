@@ -1,5 +1,9 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
 [[rest-controller-annotations-section]]
 === `RxMicro Annotations`
 
+:rest-kind-controller:
 :rest-title: REST Controllers
 include::../_rest/___annotations.adoc[]

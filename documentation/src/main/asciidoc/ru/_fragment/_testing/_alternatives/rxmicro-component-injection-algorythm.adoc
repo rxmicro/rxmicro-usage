@@ -1,3 +1,6 @@
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../___fragment-settings.adoc[]
+
 ==== Алгоритм внедрения альтернативы of the RxMicro component
 
 Для внедрения альтернативы of the RxMicro component the RxMicro framework использует следующий алгоритм:

@@ -1,3 +1,6 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
 [IMPORTANT]
 ====
 В процессе компиляции the RxMicro framework ищет `RxMicro Annotations` в исходном коде и генерирует дополнительные классы, необходимые для целостной работы микросервиса.

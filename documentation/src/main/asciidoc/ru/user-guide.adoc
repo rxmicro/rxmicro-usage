@@ -26,9 +26,9 @@ include::user-guide/_fragment/preface.adoc[]
 [[introduction-section]]
 == Introduction
 
-<<<
-
 include::_fragment/introduction.adoc[]
+
+<<<
 
 [[microservice-section]]
 == What are microservices?

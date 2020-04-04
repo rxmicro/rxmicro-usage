@@ -1,3 +1,6 @@
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../___fragment-settings.adoc[]
+
 ==== Генерируемые вспомогательные классы
 
 Рассмотрим <<core-how-it-works-core-schema,общую схему работы фреймворка RxMicro>>, на примере проекта REST-based микросервиса, который отображает сообщение `"Hello World!"` в JSON формате. +

@@ -1,3 +1,6 @@
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../___fragment-settings.adoc[]
+
 ==== Использование отладки
 
 Для лучшего ознакомления с тем как the RxMicro framework работает, возможно использовать режим отладки.

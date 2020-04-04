@@ -1,3 +1,6 @@
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../___fragment-settings.adoc[]
+
 ==== Типы конфигурирования
 
 The RxMicro framework поддерживает следующие типы конфигурирования:
