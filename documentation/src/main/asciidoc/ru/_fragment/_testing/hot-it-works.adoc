@@ -100,21 +100,21 @@ public final class $$ComponentTestFixer {
 
 [NOTE]
 ====
-При запуске разных видов тестов иногда необходима различная конфигурация модульной системы Java, поэтому для каждого вида тестов RxMicro создает отдельный класс:
+При запуске разных видов тестов иногда необходима различная конфигурация модульной системы Java, поэтому для каждого вида тестов RxMicro создает отдельный класс в системном пакете `rxmicro`:
 
-.Названия генерируемых классов для каждого вида теста
+.Названия генерируемых классов
 [cols="1,1"]
 |===
 |*Вид теста*|*Название генерируемого класса*
 
 |Тест REST-based микросервиса
-|`rxmicro.$$RestBasedMicroServiceTestFixer`
+|`$$RestBasedMicroServiceTestFixer`
 
 |Модульный тест компонента
-|`rxmicro.$$ComponentTestFixer`
+|`$$ComponentTestFixer`
 
 |Интеграционный тест REST-based микросервисов
-|`rxmicro.$$IntegrationTestFixer`
+|`$$IntegrationTestFixer`
 |===
 ====
 

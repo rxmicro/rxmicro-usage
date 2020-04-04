@@ -21,19 +21,17 @@ RxMicro поддерживает два типа аннотаций:
 ====
 
 .Supported `RxMicro Test Annotations`
-[cols="1,1,3"]
+[cols="1,3"]
 |===
-|*Аннотация*|*Модуль*|*Описание*
+|*Аннотация*|*Описание*
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/Alternative.java[`@Alternative`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test[`rxmicro.test`^]
 |Объявляет поле тестового класса <<{testing}#testing-alternatives-section,альтернативой>>.
 
 _RxMicro поддерживает альтернативы только для <<{testing}#testing-rest-based-microservice-tests-section,тестов REST-based микросервиса>> и <<{testing}#testing-component-tests-section,модульных тестов компонента>>._
 
 [[testing-annotations-WithConfig-inline]]
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/WithConfig.java[`@WithConfig`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test[`rxmicro.test`^]
 |Объявляет *статическое* поле тестового класса конфигурацией, которую перед запуском теста необходимо зарегистрировать в менеджере конфигураций.
 
 _Данная аннотация позволяет объявлять конфигурацию с <<{core}#core-config-java-classes-section,помощью Java классов>>._
@@ -47,7 +45,6 @@ _RxMicro поддерживает тестовую конфигурацию то
 
 [[testing-annotations-SetConfigValue-inline]]
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/SetConfigValue.java[`@SetConfigValue`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test[`rxmicro.test`^]
 |Прозволяет переопределить значение по умолчанию для любой конфигурации, доступной только для тестового окружения.
 
 _Данная аннотация позволяет объявлять конфигурацию с <<{core}#core-config-annotations-section,помощью аннотаций>>._
@@ -57,7 +54,6 @@ _(Определенная таким образом конфигурация д
 _RxMicro поддерживает тестовую конфигурацию только для <<{testing}#testing-rest-based-microservice-tests-section,тестов REST-based микросервиса>> и <<{testing}#testing-component-tests-section,модульных тестов компонента>>._
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClientSettings.java[`@BlockingHttpClientSettings`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test[`rxmicro.test`^]
 |Позволяет <<{testing}#testing-BlockingHttpClient-settings-section,настраивать компонент>>
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^] для выполнения HTTP запросов в тестах.
 
@@ -67,31 +63,25 @@ _(Данная аннотация применима только к полям 
 _RxMicro поддерживает компонент `BlockingHttpClient` только для <<{testing}#testing-rest-based-microservice-tests-section,тестов REST-based микросервиса>> и <<{testing}#RxMicroIntegrationTest-Section,интеграционных тестов REST-based микросервисов>>._
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/RxMicroRestBasedMicroServiceTest.java[`@RxMicroRestBasedMicroServiceTest`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test-junit[`rxmicro.test.junit`^]
 |Объявляет тестовый класс <<{testing}#testing-rest-based-microservice-tests-section,тестом REST-based микросервиса>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/RxMicroComponentTest.java[`@RxMicroComponentTest`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test-junit[`rxmicro.test.junit`^]
 |Объявляет тестовый класс <<{testing}#testing-component-tests-section,модульным тестом компонента>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/RxMicroIntegrationTest.java[`@RxMicroIntegrationTest`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test-junit[`rxmicro.test.junit`^]
 |Объявляет тестовый класс <<{testing}#testing-integration-tests-section,интеграционным тестом REST-based микросервисов>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/BeforeTest.java[`@BeforeTest`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test-junit[`rxmicro.test.junit`^]
 |Используется для указания метода, который должен быть вызван by the RxMicro framework <<{testing}#testing-before-test-section,перед выполнением тестового метода>>.
 
 _RxMicro поддерживает аннотацию `@BeforeTest` только для <<{testing}#testing-rest-based-microservice-tests-section,тестов REST-based микросервиса>> и <<{testing}#testing-component-tests-section,модульных тестов компонента>>._
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/BeforeIterationMethodSource.java[`@BeforeIterationMethodSource`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test-junit[`rxmicro.test.junit`^]
 |Используется для указания методов, которые должны быть вызваны by the RxMicro framework перед <<{testing}#testing-before-test-section,выполнением каждой итерации параметризованного теста>>.
 
 _RxMicro поддерживает аннотацию `@BeforeIterationMethodSource` только <<{testing}#testing-rest-based-microservice-tests-section,для тестов REST-based микросервиса>> и <<{testing}#testing-component-tests-section,модульных тестов компонента>>._
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-mockito-junit/src/main/java/io/rxmicro/test/mockito/junit/InitMocks.java[`@InitMocks`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test-mockito-junit[`rxmicro.test.mockito.junit`^]
 |Информирует тестовый фреймворк о необходимости <<{testing}#InitMocks-inline,создать моки и внедрить их в поля тестового класса>>, аннотированные с помощью аннотации
 {MOCKITO-DOC-ROOT-URL}org/mockito/Mock.html[`@Mock`^].
 

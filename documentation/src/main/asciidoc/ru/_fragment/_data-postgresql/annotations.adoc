@@ -7,87 +7,68 @@ include::../___fragment-settings.adoc[]
 The RxMicro framework supports the following `RxMicro annotations`:
 
 .Supported `RxMicro Annotations`.
-[cols="1,1,3"]
+[cols="1,3"]
 |===
-|*Аннотация*|*Модуль*|*Описание*
+|*Аннотация*|*Описание*
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data/src/main/java/io/rxmicro/data/Column.java[`@Column`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-data[`rxmicro.data`^]
 |
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data/src/main/java/io/rxmicro/data/ColumnMappingStrategy.java[`@ColumnMappingStrategy`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-data[`rxmicro.data`^]
 |
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data/src/main/java/io/rxmicro/data/DataRepositoryGeneratorConfig.java[`@DataRepositoryGeneratorConfig`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-data[`rxmicro.data`^]
 |
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data/src/main/java/io/rxmicro/data/RepeatParameter.java[`@RepeatParameter`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-data[`rxmicro.data`^]
 |
 
 // ---------------------------------------------------------------------------------------------------------------------
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/operation/Select.java[`@Select`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-data-sql[`rxmicro.data.sql`^]
 |
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/operation/CustomSelect.java[`@CustomSelect`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-data-sql[`rxmicro.data.sql`^]
 |
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/operation/Insert.java[`@Insert`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-data-sql[`rxmicro.data.sql`^]
 |
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/operation/Update.java[`@Update`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-data-sql[`rxmicro.data.sql`^]
 |
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/operation/Delete.java[`@Delete`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-data-sql[`rxmicro.data.sql`^]
 |
 
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/Cast.java[`@Cast`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-data-sql[`rxmicro.data.sql`^]
 |
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/NotInsertable.java[`@NotInsertable`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-data-sql[`rxmicro.data.sql`^]
 |
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/NotUpdatable.java[`@NotUpdatable`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-data-sql[`rxmicro.data.sql`^]
 |
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/PrimaryKey.java[`@PrimaryKey`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-data-sql[`rxmicro.data.sql`^]
 |
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/Schema.java[`@Schema`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-data-sql[`rxmicro.data.sql`^]
 |
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/SequenceGenerator.java[`@SequenceGenerator`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-data-sql[`rxmicro.data.sql`^]
 |
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/Table.java[`@Table`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-data-sql[`rxmicro.data.sql`^]
 |
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/VariableValues.java[`@VariableValues`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-data-sql[`rxmicro.data.sql`^]
 |
 // ---------------------------------------------------------------------------------------------------------------------
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql-r2dbc-postgresql/src/main/java/io/rxmicro/data/sql/r2dbc/postgresql/PostgreSQLRepository.java[`@PostgreSQLRepository`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-data-sql-r2dbc-postgresql[`rxmicro.data.sql.r2dbc.postgresql`^]
 |
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql-r2dbc-postgresql/src/main/java/io/rxmicro/data/sql/r2dbc/postgresql/PartialImplementation.java[`@PartialImplementation`^]
-|{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-data-sql-r2dbc-postgresql[`rxmicro.data.sql.r2dbc.postgresql`^]
 |
 // ---------------------------------------------------------------------------------------------------------------------
 |===

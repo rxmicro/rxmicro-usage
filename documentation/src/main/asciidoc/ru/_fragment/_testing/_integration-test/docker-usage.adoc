@@ -15,6 +15,7 @@ https://hub.docker.com/repository/docker/rxmicro/simple-hello-world[`rxmicro/sim
 ====
 Исходный код проекта, на базе которого был собран данный `docker` образ, доступен по ссылке:
 
+[.example-code-link]
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}docker-image-hello-world-microservice[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}docker-image-hello-world-microservice`^]
 ====
 

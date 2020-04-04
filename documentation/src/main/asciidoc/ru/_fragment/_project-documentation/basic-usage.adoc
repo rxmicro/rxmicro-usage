@@ -69,7 +69,7 @@ https://html.spec.whatwg.org/[`HTML`^], https://www.adobe.com/content/dam/acom/e
 <plugin>
     <groupId>org.asciidoctor</groupId>
     <artifactId>asciidoctor-maven-plugin</artifactId> <!--1-->
-    <version>${asciidoctor.maven.plugin.version}</version>
+    <version>${asciidoctor-maven-plugin.version}</version>
     <executions>
         <execution>
             <id>output-html5</id>
@@ -100,7 +100,9 @@ https://html.spec.whatwg.org/[`HTML`^], https://www.adobe.com/content/dam/acom/e
 
 [NOTE]
 ====
-Для получения дополнительных сведений о возможностях плагина `asciidoctor-maven-plugin`. рекомендуем обратиться к документации:
+Для получения дополнительных сведений о возможностях плагина `asciidoctor-maven-plugin`, рекомендуем обратиться к документации:
+
+[.example-code-link]
 https://asciidoctor.org/docs/asciidoctor-maven-plugin/[`https://asciidoctor.org/docs/asciidoctor-maven-plugin/`^]
 ====
 
@@ -114,7 +116,7 @@ REST-based microservice documentation генерируется в процесс
 ----
 <plugin>
     <artifactId>maven-dependency-plugin</artifactId>
-    <version>${maven.dependencies.plugin.version}</version>
+    <version>${maven-dependency-plugin.version}</version>
     <executions>
         <execution>
             <id>copy-dependencies</id>

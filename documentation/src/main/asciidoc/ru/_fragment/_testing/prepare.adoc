@@ -20,8 +20,8 @@ include::../___fragment-settings.adoc[]
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <rxmicro.version>{RXMICRO-VERSION}</rxmicro.version> <!--1-->
 
-    <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version> <!--2-->
-    <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version><!--3-->
+    <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version> <!--2-->
+    <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version><!--3-->
 </properties>
 ----
 <1> {MAVEN-REPO-SEARCH-ROOT}io.rxmicro/rxmicro[Последняя стабильная версия of the RxMicro framework^].
@@ -85,7 +85,7 @@ include::../___fragment-settings.adoc[]
 ----
 <plugin>
     <artifactId>maven-compiler-plugin</artifactId>
-    <version>${maven.compiler.plugin.version}</version> <!--1-->
+    <version>${maven-compiler-plugin.version}</version> <!--1-->
     <configuration>
         <release>11</release>
         <annotationProcessorPaths>

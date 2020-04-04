@@ -49,9 +49,12 @@ Server started at 0.0.0.0:8080 using NETTY transport in 500 millis # <1>
 Подразумевается, что на Вашем компьютере установлена переменная окружения `M2_REPO`.
 Данная переменная должна указывать на локальный репозиторий maven.
 
-* Для Linux систем: `M2_REPO` = `/home/$USER/.m2/repository`.
-* Для Osx систем: `M2_REPO` = `/Users/$USER/.m2/repository`.
-* Для Windows систем: `M2_REPO` = `C:\Documents and Settings\%USERNAME%\.m2\repository`.
+По-умолчанию локальный репозиторий находится в папке: `$HOME/.m2/repository`
+, где `$HOME` - это домашний каталог пользователя:
+
+* Для Linux систем: `$HOME` = `/home/$USER`.
+* Для Osx систем: `$HOME` = `/Users/$USER`.
+* Для Windows систем: `$HOME` = `C:\Documents and Settings\%USERNAME%`.
 ====
 
 include::__note-run-on-windows.adoc[]
@@ -97,7 +100,7 @@ Server started at 0.0.0.0:8080 using NETTY transport in 500 millis # <1>
 ----
 <plugin>
     <artifactId>maven-dependency-plugin</artifactId>
-    <version>${maven.dependencies.plugin.version}</version><!--1-->
+    <version>${maven-dependency-plugin.version}</version><!--1-->
     <executions>
         <execution>
             <id>copy-dependencies</id>

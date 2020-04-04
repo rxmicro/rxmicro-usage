@@ -18,9 +18,9 @@ Java 9 ввела в использование https://www.oracle.com/corporate
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/quick-start/src/main/java/module-info.java[tag=content]
 ----
-<1> `rxmicro.rest.server.netty` - модуль построения REST-based микросервисов на базе HTTP сервера, использующего
+<1> Модуль построения REST-based микросервисов на базе HTTP сервера, использующего
 https://netty.io/[Netty^], со всеми необходимыми транзитивными зависимостями.
-<2> `rxmicro.rest.server.exchange.json` - модуль конвертации Java модели в https://www.json.org/[JSON^]
+<2> Модуль конвертации Java модели в https://www.json.org/[JSON^]
 формат и наоборот, со всеми необходимыми транзитивными зависимостями.
 
 [TIP]
@@ -31,17 +31,6 @@ https://netty.io/[Netty^], со всеми необходимыми транзи
 
 _Благодаря транзитивным зависимостям of the RxMicro framework количество необходимых модулей сильно сокращено_. +
 _Необходимо указывать только базовые RxMicro модули!_
-
-.Соответствие между maven artifactId и название RxMicro модуля
-|===
-|*Maven dependency artifact*|*Required module name*
-
-|*artifactId* = `rxmicro-rest-server-netty`
-|*requires* `rxmicro.rest.server.netty`;
-
-|*artifactId* = `rxmicro-rest-server-exchange-json`
-|*requires* `rxmicro.rest.server.exchange.json`;
-|===
 ====
 
 ==== Класс модели ответа

@@ -36,7 +36,7 @@ include::../___fragment-settings.adoc[]
 ----
 <plugin>
     <artifactId>maven-compiler-plugin</artifactId>
-    <version>${maven.compiler.plugin.version}</version>
+    <version>${maven-compiler-plugin.version}</version>
     <configuration>
         <release>11</release>
         <compilerArgs>

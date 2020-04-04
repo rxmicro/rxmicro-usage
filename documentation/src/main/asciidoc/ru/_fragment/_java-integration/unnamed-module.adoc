@@ -33,7 +33,7 @@ Unnamed modules disable the JPMS and allow to run any code which does not suppor
 ----
 <plugin>
     <artifactId>maven-compiler-plugin</artifactId>
-    <version>${maven.compiler.plugin.version}</version>
+    <version>${maven-compiler-plugin.version}</version>
     <configuration>
         <release>11</release>
         <!-- ... -->

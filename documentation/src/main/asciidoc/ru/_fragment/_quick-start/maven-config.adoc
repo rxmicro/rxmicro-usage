@@ -18,7 +18,7 @@ include::../___fragment-settings.adoc[]
 <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <rxmicro.version>{RXMICRO-VERSION}</rxmicro.version> <!--1-->
-    <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version> <!--2-->
+    <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version> <!--2-->
 </properties>
 ----
 <1> {MAVEN-REPO-SEARCH-ROOT}io.rxmicro/rxmicro[Последняя стабильная версия of the RxMicro framework^].
@@ -43,8 +43,8 @@ include::../___fragment-settings.adoc[]
     </dependency>
 </dependencies>
 ----
-<1> `rxmicro-rest-server-netty` - библиотека построения REST-based микросервисов на базе HTTP сервера, использующего https://netty.io/[Netty^];
-<2> `rxmicro-rest-server-exchange-json` - библиотека конвертации Java модели в https://www.json.org/[JSON^] формат и наоборот;
+<1> Библиотека построения REST-based микросервисов на базе HTTP сервера, использующего https://netty.io/[Netty^];
+<2> Библиотека конвертации Java модели в https://www.json.org/[JSON^] формат и наоборот;
 
 [[quick-start-maven-compiler-plugin-settings-section]]
 ==== Конфигурирование `maven-compiler-plugin`
@@ -55,7 +55,7 @@ include::../___fragment-settings.adoc[]
 ----
 <plugin>
     <artifactId>maven-compiler-plugin</artifactId>
-    <version>${maven.compiler.plugin.version}</version>
+    <version>${maven-compiler-plugin.version}</version>
     <configuration>
         <release>11</release> <!--1-->
         <annotationProcessorPaths>
@@ -86,10 +86,10 @@ include::../___fragment-settings.adoc[]
     </executions>
 </plugin>
 ----
-<1> `<release>11</release>` - the RxMicro framework требует наличия Java компилятора версии 11 или выше;
-<2> `rxmicro-annotation-processor` - библиотека процессора аннотаций, которая будет обрабатывать все `RxMicro annotations`;
-<3> `io.rxmicro.annotation.processor.RxMicroAnnotationProcessor` - класс процессора аннотаций, который обрабатывает конфигурацию запуска;
-<4> `${project.build.directory}/generated-sources/` - местоположение генерируемых Java классов процессором аннотаций;
+<1> The RxMicro framework требует наличия Java компилятора версии 11 или выше;
+<2> Библиотека процессора аннотаций, которая будет обрабатывать все `RxMicro annotations`;
+<3> Класс процессора аннотаций, который обрабатывает конфигурацию запуска;
+<4> Местоположение генерируемых Java классов процессором аннотаций;
 
 ==== Окончательная версия файла `pom.xml`
 
@@ -110,7 +110,7 @@ include::../___fragment-settings.adoc[]
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <rxmicro.version>{RXMICRO-VERSION}</rxmicro.version>
-        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
     </properties>
 
     <build>
@@ -118,7 +118,7 @@ include::../___fragment-settings.adoc[]
             <plugins>
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>${maven.compiler.plugin.version}</version>
+                    <version>${maven-compiler-plugin.version}</version>
                     <configuration>
                         <release>11</release>
                         <annotationProcessorPaths>

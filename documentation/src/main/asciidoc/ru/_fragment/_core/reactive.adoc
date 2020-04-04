@@ -24,7 +24,7 @@ The RxMicro framework поддерживает следующие библиот
 При написании бизнес сервиса с использованием реактивных библиотек, рекомендуется следовать следующим соглашениям:
 
 [[core-reactive-bussiness-process-reactive-class-mapping-table]]
-.Соответствие между результатом бизнес процесса и рекомендуемым классом из реактивной библиотеки.
+.Which class from a reactive library must be selected?
 |===
 |*Reactive Library*|*java.util.concurrent* |*Project Reactor* |*RxJava3*
 
