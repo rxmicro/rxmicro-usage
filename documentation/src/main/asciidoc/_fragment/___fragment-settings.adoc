@@ -1,4 +1,3 @@
-:icons: font
 :sectanchors:
 :sectlinks:
 :idprefix:
@@ -7,9 +6,10 @@
 :linkattrs:
 :xrefstyle: full
 :nofooter:
+:icons: font
 :fragment-document:
 ifndef::full-document[]
-:imagesdir: {FRAGMENT_RELATIVE_DIR}../../images
+:imagesdir: {FRAGMENT_RELATIVE_DIR}../images
 endif::[]
 // -----------------------------------------------------------------------------------------------------------------------------------------
 include::../user-guide/_fragment/external-links.adoc[]

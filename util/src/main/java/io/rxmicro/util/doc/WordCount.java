@@ -73,7 +73,7 @@ public final class WordCount {
         for (final File file : files) {
             if (file.isFile()) {
                 final String name = file.getName().replace(".adoc", "");
-                if(!"___fragment-settings".equals(name)) {
+                if (!"___fragment-settings".equals(name)) {
                     final List<File> adocFiles = findAdocFiles(name, true);
                     map.put(name, adocFiles);
                 }

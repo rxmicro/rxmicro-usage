@@ -1,11 +1,10 @@
 [[project-documentation-section]]
 = REST-based Microservice Documentation
-include::_fragment/settings.adoc[]
 :guide-kind: section
 :current-entity: project-documentation
 :imagesdir: ../images
+:stylesdir: ../styles/
 :project-documentation-examples-root: ../project-documentation-examples
-
 :introduction: introduction.adoc
 :microservice: microservice.adoc
 :quick-start: quick-start.adoc
@@ -20,6 +19,7 @@ include::_fragment/settings.adoc[]
 :java-integration: java-integration.adoc
 :testing: testing.adoc
 :appendices: appendices.adoc
+include::_fragment/settings.adoc[]
 
 include::_fragment/nav.adoc[]
 

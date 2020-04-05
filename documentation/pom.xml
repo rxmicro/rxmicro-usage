@@ -33,9 +33,9 @@
                             <backend>html5</backend>
                             <relativeBaseDir>true</relativeBaseDir>
                             <attributes>
+                                <icons>font</icons>
                                 <toclevels>3</toclevels>
                                 <guide-format>html</guide-format>
-                                <stylesheet>${basedir}/src/main/styles/rxmicro-doc.css</stylesheet>
                             </attributes>
                         </configuration>
                     </execution>
@@ -63,7 +63,6 @@
                     <sourceHighlighter>highlight.js</sourceHighlighter>
                     <preserveDirectories>true</preserveDirectories>
                     <attributes>
-                        <icons>font</icons>
                         <pagenums/>
                         <rxmicro-version>${rxmicro.version}</rxmicro-version>
                     </attributes>
@@ -82,6 +81,33 @@
                 <configuration>
                     <release>11</release>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.samaxes.maven</groupId>
+                <artifactId>minify-maven-plugin</artifactId>
+                <version>${minify-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>minify-css</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>minify</goal>
+                        </goals>
+                        <configuration>
+                            <verbose>true</verbose>
+                            <!-- Sources -->
+                            <webappSourceDir>${basedir}/src/main/resources/</webappSourceDir>
+                            <cssSourceDir>styles/</cssSourceDir>
+                            <cssSourceFiles>
+                                <cssSourceFile>rxmicro-doc.css</cssSourceFile>
+                            </cssSourceFiles>
+                            <!-- Targets -->
+                            <webappTargetDir>${basedir}/target/generated-docs/</webappTargetDir>
+                            <cssTargetDir>styles/</cssTargetDir>
+                            <cssFinalFile>rxmicro-doc.css</cssFinalFile>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

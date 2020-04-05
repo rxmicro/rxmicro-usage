@@ -1,1 +1,5 @@
+:linkcss:
+:stylesheet: rxmicro-doc.css
+:stylesdir: ../styles/
+
 include::../../../../../examples/documentation-asciidoctor-metadata-annotations/src/main/asciidoc/MetadataAnnotationsDocumentation.adoc[]

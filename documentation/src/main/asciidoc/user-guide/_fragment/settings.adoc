@@ -2,7 +2,6 @@
 :email: rxmicro.io@gmail.com
 :revnumber: {rxmicro-version}
 :revdate: {docdatetime}
-:icons: font
 :sectanchors:
 :sectlinks:
 :idprefix:
@@ -14,7 +13,12 @@
 :description: RxMicro is a modern, JVM-based, full-stack framework designed to develop distributed reactive applications, using a microservice architecture.
 :xrefstyle: full
 :nofooter:
+:icons: font
 :full-document:
+ifeval::["{guide-format}" == "html"]
+:linkcss:
+:stylesheet: rxmicro-doc.min.css
+endif::[]
 //------------------------------------------------------------------------------------------------------------------------------------------
 :RXMICRO-VERSION: {rxmicro-version}
 //------------------------------------------------------------------------------------------------------------------------------------------

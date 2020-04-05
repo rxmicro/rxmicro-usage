@@ -1,1 +1,5 @@
+:linkcss:
+:stylesheet: rxmicro-doc.css
+:stylesdir: ../styles/
+
 include::../../../../../examples/documentation-asciidoctor-echo/src/main/asciidoc/ExamplesDocumentationAsciidoctorEchoDocumentation.adoc[]

@@ -1,10 +1,9 @@
 [[appendices-section]]
 = Appendices
-include::_fragment/settings.adoc[]
 :guide-kind: section
 :current-entity: appendices
 :imagesdir: ../images
-
+:stylesdir: ../styles/
 :introduction: introduction.adoc
 :microservice: microservice.adoc
 :quick-start: quick-start.adoc
@@ -19,6 +18,7 @@ include::_fragment/settings.adoc[]
 :java-integration: java-integration.adoc
 :testing: testing.adoc
 :appendices:
+include::_fragment/settings.adoc[]
 
 include::_fragment/nav.adoc[]
 
