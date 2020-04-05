@@ -1,5 +1,5 @@
 :linkcss:
-:stylesheet: rxmicro-doc.css
+:stylesheet: rxmicro-doc.min.css
 :stylesdir: ../styles/
 
 include::../../../../../examples/documentation-asciidoctor-errors/src/main/asciidoc/ExamplesDocumentationAsciidoctorErrorsDocumentation.adoc[]
