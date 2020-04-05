@@ -1,0 +1,39 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
+
+[[rest-client-rest-client-generator-config-section]]
+=== Конфигурирование процесса генерации кода
+
+RxMicro предоставляет возможность конфигурировать процесс генерации кода для REST клиента.
+Для этих целей необходимо использовать аннотацию
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/RestClientGeneratorConfig.java[`@RestClientGeneratorConfig`^]
+, с помощью которой аннотируется дескриптор модуля `module-info.java`:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-generator/src/main/java/module-info.java[tags=content,indent=0]
+----
+<1> Параметр `exchangeFormat` позволяет задавать формат обмена сообщениями с сервером. +
+_(По умолчанию используется формат обмена сообщениями, который добавлен в дескриптор `module-info.java`.
+Если в дескриптор `module-info.java` добавлены несколько модулей, поддерживающих формат обмена сообщениями, то с помощью параметра `exchangeFormat` необходимо указать, какой именно модуль нужно использовать для REST клиентов.)_
+<2> Параметр `generateRequestValidators` позволяет включать/отключать опцию генерации валидаторов HTTP запроса для всех методов REST клиента в проекте. +
+_(Значение `DISABLED` означает, что валидаторы не будут генерироваться процессором аннотаций.)_
+<3> Параметр `generateResponseValidators` позволяет включать/отключать опцию генерации валидаторов HTTP ответа для всех методов REST клиента в проекте. +
+_(Значение `AUTO_DETECT` означает, что валидаторы будут сгенерированы только в том случае, если разработчик добавит модуль <<{validation}#validation-section, `rxmicro.validation`>> в дескриптор `module-info.java`.)_
+<4> Параметр `requestValidationMode` определяет каким образом необходимо проверять параметры HTTP запроса.
+
+Если параметр `requestValidationMode` равен `RETURN_ERROR_SIGNAL`, то обработка ошибок должна быть выполнена в реактивном стиле:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-generator/src/main/java/io/rxmicro/examples/request/validaton/pseudo/code/BusinessService.java[tags=RETURN_ERROR_SIGNAL,indent=0]
+----
+
+Если параметр `requestValidationMode` равен `THROW_EXCEPTION`, то необходимо перехватывать исключение:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-generator/src/main/java/io/rxmicro/examples/request/validaton/pseudo/code/BusinessService.java[tags=THROW_EXCEPTION,indent=0]
+----

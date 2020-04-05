@@ -38,7 +38,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 public final class VerifyAllDocLinks {
 
     public static void main(final String[] args) throws IOException, URISyntaxException, InterruptedException {
-        final Document document = Jsoup.parse(new File("documentation/target/generated-docs/ru/user-guide.html"), UTF_8.name());
+        final Document document = Jsoup.parse(new File("documentation/target/generated-docs/user-guide.html"), UTF_8.name());
         final Set<String> links = new HashSet<>();
         for (final Element a : document.select("a")) {
             final String href = a.attr("href");

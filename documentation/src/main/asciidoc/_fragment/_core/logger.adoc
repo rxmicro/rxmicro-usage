@@ -1,0 +1,65 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
+
+=== Logger
+
+https://en.wikipedia.org/wiki/Data_logger[*Логгер*^] - неотъемлемый компонент любой программной системы.
+
+The RxMicro framework предоставляет модуль `rxmicro.logger` для логирования важных событий в процессе работы микросервисов.
+
+Создание и использование логгера в исходном коде ничем не отличается от http://www.java-logging.com/[других логирующих фреймворков^]:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/logger/src/main/java/io/rxmicro/examples/logger/MicroService.java[tag=content,indent=0]
+----
+<1>  создание логгера для текущего класса микросервиса;
+<2>  логирование сообщения с уровнем `INFO`;
+
+Интерфейс {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-logger/src/main/java/io/rxmicro/logger/Logger.java[`Logger`^] является абстракцией над реальным логгером.
+
+На данный момент существует только единственная реализация данного интерфейса, которая делегирует логирование
+https://docs.oracle.com/javase/10/core/java-logging-overview.htm[`java.logging`^] модулю.
+
+[[core-logger-config-file-inline]]
+Основным конфигурационным файлом `java.logging` логгера является classpath ресурс `jul.properties`.
+
+[NOTE]
+====
+Если в classpath присутствует ресурс `jul.test.properties`, то данный ресурс переопределяет *все* конфигурации ресурса `jul.properties`.
+
+Данная функция позволяет конфигурировать логгер для тестового окружения.
+====
+
+Сlasspath ресурс `jul.properties` должен содержать конфигурацию http://tutorials.jenkov.com/java-logging/configuration.html[в стандартном для `java.logging` модуля формате^].
+
+Пример конфигурации логгера:
+
+[source,properties]
+----
+.level=INFO
+io.rxmicro.config.level=DEBUG
+----
+
+[IMPORTANT]
+====
+Модуль `rxmicro.logger` поддерживает все уровни логирования из множест: `{OFF, ERROR, WARN, INFO, DEBUG, TRACE, ALL}` и `{OFF, SEVERE, CONFIG, INFO, FINE, FINEST, ALL}`.
+
+Поэтому в конфигурационном файле `jul.properties` Вы можете использовать любой уровень логирования.
+При активации `java.logging` логгера, the RxMicro framework автоматически преобразует уровни из множества `{OFF, ERROR, WARN, INFO, DEBUG, TRACE, ALL}` в `{OFF, SEVERE, CONFIG, INFO, FINE, FINEST, ALL}`.
+
+Данная опция позволяет использовать для `java.logging` логгера неподдерживаемые, но широко используемые в других логирующих фреймворках уровни логирования.
+====
+
+По умолчанию для логера активируется уровень логирования `INFO` и `ConsoleHandler` appender, выводящий всю отладочную информацию в `System.out`.
+
+[TIP]
+====
+Модуль `rxmicro.logger` содержит только базовые функции, необходимые для логирования.
+
+Если данных функций недостаточно Вы можете использовать любой другой логирующий фреймворк:
+http://logback.qos.ch/[`Logback`^],
+https://logging.apache.org/log4j/2.x/[`Apache Log4j 2`^] и др.
+====

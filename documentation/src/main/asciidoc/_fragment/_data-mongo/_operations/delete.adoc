@@ -1,0 +1,28 @@
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[data-mongo-delete-section]]
+==== `@Delete`
+
+The `rxmicro.data.mongo` module supports the https://docs.mongodb.com/manual/reference/method/db.collection.deleteOne/[`db.collection.deleteOne()`^]
+and https://docs.mongodb.com/manual/reference/method/db.collection.deleteMany/[`db.collection.deleteMany()`] operations:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-delete/src/main/java/io/rxmicro/examples/data/mongo/delete/DataRepository.java[tag=content,indent=0]
+----
+
+[NOTE]
+====
+For more information, we recommend that you familiarize yourself with the following examples:
+
+* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}data-mongo-all-operations/src/main/java/io/rxmicro/examples/data/mongo/all/operations/DeleteDataRepository.java[All Supported Return Types^];
+* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}data-mongo-supported-types/src/main/java/io/rxmicro/examples/data/mongo/supported/types/DeleteDataRepository.java[All Supported Parameter Types^].
+====
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-mongo-delete
+include::../../___notes/full-source-code-of-example.adoc[]
+
+include::../../___notes/recompile-after-change.adoc[]

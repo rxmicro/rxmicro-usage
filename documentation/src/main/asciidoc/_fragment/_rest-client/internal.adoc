@@ -1,0 +1,81 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
+
+[[rest-client-internals-basic-section]]
+=== Поддержка служебных типов данных
+
+==== Базовые правила
+
+RxMicro поддерживает работу со служебными данными.
+Благодаря такой поддержки разработчик имеет возможность извлечь дополнительные сведения об HTTP ответе.
+
+Для работы со служебными данными необходимо создать модель ответа:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-internals/src/main/java/io/rxmicro/examples/rest/client/internals/model/Response.java[tag=content,indent=0]
+----
+<1> Для переопределения HTTP статус кода необходимо использовать аннотацию
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ResponseStatusCode.java[`@ResponseStatusCode`^].
+<2> Для установки версии протокола HTTP, необходимо использовать тип
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpVersion.java[`HttpVersion`^]. +
+_(На данный момент поддерживаются только HTTP версии: `1.0` и `1.1`.)_
+<3> Для установки всех HTTP заголовков, необходимо использовать тип
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java[`HttpHeaders`^].
+<4> Для установки содержимого тела ответа в виде массива байт, необходимо использовать аннотацию
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ResponseBody.java[`@ResponseBody`^].
+
+После создания классов моделей, необходимо создать метод REST клиента, использующий данные модели:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-internals/src/main/java/io/rxmicro/examples/rest/client/internals/RESTClient.java[tag=content,indent=0]
+----
+
+После создания REST клиента, проверяем что все работает:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-internals/src/test/java/io/rxmicro/examples/rest/client/internals/RESTClientTest.java[tag=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-controller-internals
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]
+
+<<<
+
+==== Поддерживаемые служебные типы данных
+
+.Поддерживаемые служебные типы данных для модели ответа.
+|===
+|*Java тип*|*RxMicro аннотация*|*Аннотация обязательна?*|*Описание*
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpVersion.java[`HttpVersion`^]
+|Отсутствует
+|-
+|Версия HTTP протокола
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java[`HttpHeaders`^]
+|Отсутствует
+|-
+|Модель HTTP заголовков
+
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Integer.html[`Integer`^]
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ResponseStatusCode.java[`@ResponseStatusCode`^]
+|*Да*
+|HTTP статус код ответа
+
+|`byte[]`
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ResponseBody.java[`@ResponseBody`^]
+|*Да*
+|Содержимое HTTP тела ответа
+|===
+
+[TIP]
+====
+На данный момент поддерживаются только HTTP версии: `1.0` и `1.1`.
+====

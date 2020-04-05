@@ -1,0 +1,155 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
+
+[[core-encapsulation]]
+=== Инкапсуляция
+
+При проектировании Java моделей запросов и ответов возникает необходимость
+https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)[защищать данные от неправомерного изменения^].
+
+==== Использование модификатора `private`
+
+Стандартным решение данной проблемы в Java является использование модификатора `private`:
+
+[source,java]
+----
+final class Response {
+
+    private final String message; // <1>
+
+    Response(final String message) {
+        this.message = requireNonNull(message);
+    }
+}
+----
+<1>  Объявляя поле `message` как `private`, разработчик разрешает доступ к этом у полю только изнутри класса.
+
+Для нарушения принципов инкапсуляции в тех случаях когда это необходимо, Java предоставляет мощный механизм: `reflection`.
+
+The RxMicro framework знает об этом механизме и поэтому при генерации конвертера, использует его:
+
+[source,java]
+----
+import static rxmicro.$$Reflections.getFieldValue; // <1>
+
+public final class $$ResponseModelToJsonConverter extends ModelToJsonConverter<Response> {
+
+    @Override
+    public Map<String, Object> toJsonObject(final Response model) {
+        return new JsonObjectBuilder()
+                .put("message", getFieldValue(model, "message")) // <2>
+                .build();
+    }
+}
+----
+<1> Статический импорт метода, позволяющего считывать значение поля с помощью `reflection`.
+<2> Считывание значения поля `message` из модели ответа.
+
+Использование `reflection` при конвертации из Java модели в JSON модель при обработке каждого запроса может <<core-encapsulation-benchmark,ухудшить производительность микросервиса>> в том месте, где можно этой проблемы избежать.
+Поэтому при компиляции данного класса the `RxMicro Annotation Processor` выдает предупреждение:
+
+[source,text,subs="verbatim,quotes"]
+----
+*[WARNING]* Response.java:[27,26] *PERFORMANCE WARNING*: To read a value from io.rxmicro.example.hello.world.Response.message rxmicro will use the reflection.
+It is recommended to add a getter or change the field modifier: from private to default, protected or public.
+----
+
+==== Использование отдельного пакета
+
+Лучшим и *рекомендуемым* решением данной проблемы, является создание отдельного пакета (например `model`) и объявление всех полей классов модели без какого-либо модификатора доступа (т.е. `default/package`).
+При таком подходе доступ к полям возможен *только* из классов того же самого пакета.
+А в пакете находятся *только* классы моделей без какой-либо бизнес логике:
+
+.Рекомендуемая структура для поддержки инкапсуляции в Java моделях.
+image::core/encapsulation/model-package.jpg[]
+
+*Использование полей классов модели без какого-либо модификатора доступа (т.е. `default/package`) позволяет сгенерировать конвертер, умеющий считывать или записывать значение, используя прямой доступ к полю с помощью оператора `.`*
+
+==== Использование `getters`
+
+Если необходима простейшая логика при считывании значения с поля модели, можно использовать `getter`.
+
+Для этого необходимо поле объявить `private` и добавить `getter`:
+
+[source,java]
+----
+public final class Response {
+
+    private final String message;
+
+    public Response(final String message) {
+        this.message = requireNonNull(message);
+    }
+
+    public String getMessage() {
+        if (message.isEmpty()) {
+            return "<Empty>";
+        } else {
+            return message;
+        }
+    }
+}
+----
+
+В этом случае в сгенерированном конвертере будет использоваться `getter` для получения результата:
+
+[source,java]
+----
+public final class $$ResponseModelToJsonConverter extends ModelToJsonConverter<Response> {
+
+    @Override
+    public Map<String, Object> toJsonObject(final Response model) {
+        return new JsonObjectBuilder()
+                .put("message", model.getMessage()) //<1>
+                .build();
+    }
+}
+----
+<1>  Вызов `getter` для получения значения поля модели ответа.
+
+==== Сравнение производительности подходов
+
+Исходный код теста производительности:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}benchmarks/benchmark-java-core/src/main/java/io/rxmicro/benchmark/java/core/fields/ReadWriteFieldBenchmark.java[tag=content,indent=0]
+----
+
+[[core-encapsulation-benchmark]]
+Результаты тестирования производительности:
+
+[source,txt]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}benchmarks/_results/java-core-ReadWriteFieldBenchmark.txt[]
+----
+
+[IMPORTANT]
+====
+Результаты тестирования показывают, что чтение/запись по прямой ссылке или с помощью `getter`/`setter` выполняются *в 28/17 раз быстрее*, чем при использовании `reflection`!
+====
+
+==== Рекомендации по выбору подхода
+
+[TIP]
+====
+Таким образом the RxMicro framework использует следующий алгоритм считывание (записи) с полей java модели:
+
+. Если поле объявлено с модификаторами: `public`, `protected` или `default/package`, сгенерированный конвертер использует прямое обращение к полю с помощью оператора `.`;
+. Если поле объявлено с модификатором `private` и разработчик создал `getter`/`setter`, сгенерированный конвертер использует вызов `getter`/`setter` для получения или записи значения поля;
+. Если поле объявлено с модификатором `private` без объявления `getter`/`setter`, сгенерированный конвертер использует
+`reflection` для доступа к полю модели. +
+_(В процессе генерации такого типа конвертера the `RxMicro Annotation Processor` информирует разработчика о `PERFORMANCE WARNING`.)_
+====
+
+Для использования преимуществ инкапсуляции при проектировании микросервисов via the RxMicro framework следуйте следующим рекомендациям:
+
+*При создании моделей запросов и ответов используйте отдельный пакет и `default/package` модификатор доступа!*
+
+*В случае необходимости простейшей логики считывания (записи) значения поля модели, используйте `getter` (`setter`) и
+`private` модификатор доступа к полю.*
+
+*Не используйте `private` модификатор доступа к полю модели без `getter` (`setter`)!* +
+*Данный подход не имеет никаких преимуществ!*

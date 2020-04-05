@@ -1,0 +1,34 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
+
+[[project-documentation-validation-section]]
+=== Integration with `rxmicro.validation` Module
+
+Модуль `rxmicro.documentation.asciidoctor` интегрирован с модулем `rxmicro.validation`.
+Благодаря данной интеграции при построении REST-based microservice documentation the RxMicro framework анализирует все доступные built-in constraints для автоматической генерации описания полей модели.
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-validation/src/main/java/module-info.java[tags=content]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-validation/src/main/java/io/rxmicro/examples/documentation/asciidoctor/validation/MicroService.java[tags=content]
+----
+<1> The `phone` parameter must be validated via RxMicro built-in constraint for phones.
+
+Таким образом при построении REST-based microservice documentation the RxMicro framework автоматически сформирует описание for the `phone` parameter:
+
+.Описание поля `phone`, сформированное на основании анализа built-in constraints
+image::project-documentation/validation-integration.jpg[]
+
+:project-documentation-file: ExamplesDocumentationAsciidoctorValidationDocumentation.html
+include::../___notes/generated-project-documentation.adoc[]
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}documentation-asciidoctor-validation
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]

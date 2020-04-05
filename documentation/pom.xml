@@ -35,7 +35,6 @@
                             <attributes>
                                 <toclevels>3</toclevels>
                                 <guide-format>html</guide-format>
-                                <rxmicro-environment>${env.RXMICRO_ENVIRONMENT}</rxmicro-environment>
                                 <stylesheet>${basedir}/src/main/styles/rxmicro-doc.css</stylesheet>
                             </attributes>
                         </configuration>
@@ -48,14 +47,11 @@
                         </goals>
                         <configuration>
                             <backend>pdf</backend>
-                            <sourceDirectory>${basedir}/src/main/asciidoc/ru</sourceDirectory>
                             <sourceDocumentName>user-guide.adoc</sourceDocumentName>
-                            <outputDirectory>${basedir}/target/generated-docs/ru/</outputDirectory>
                             <outputFile>user-guide.pdf</outputFile>
                             <attributes>
                                 <toclevels>3</toclevels>
                                 <guide-format>pdf</guide-format>
-                                <imagesdir>../images</imagesdir>
                                 <project-documentation-examples-root>
                                     https://rxmicro.io/doc/latest/project-documentation-examples
                                 </project-documentation-examples-root>

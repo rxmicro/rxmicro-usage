@@ -62,7 +62,7 @@ public final class WordCount {
         throw new RxMicroException("System variable '?' not defined", RX_MICRO_HOME);
     });
 
-    private static final File DOC_ROOT = new File(format("?/rxmicro-usage/documentation/src/main/asciidoc/ru/_fragment/", RX_MICRO_HOME_VALUE));
+    private static final File DOC_ROOT = new File(format("?/rxmicro-usage/documentation/src/main/asciidoc/_fragment/", RX_MICRO_HOME_VALUE));
 
     private static Map<String, List<File>> resolveDocSections() {
         final Map<String, List<File>> map = new LinkedHashMap<>();
@@ -73,15 +73,18 @@ public final class WordCount {
         for (final File file : files) {
             if (file.isFile()) {
                 final String name = file.getName().replace(".adoc", "");
-                final List<File> adocFiles = findAdocFiles(name, true);
-                map.put(name, adocFiles);
+                if(!"___fragment-settings".equals(name)) {
+                    final List<File> adocFiles = findAdocFiles(name, true);
+                    map.put(name, adocFiles);
+                }
             }
         }
         map.put("common", findAdocFiles("common", false));
         return map;
     }
 
-    private static List<File> findAdocFiles(final String name, final boolean withOwner) {
+    private static List<File> findAdocFiles(final String name,
+                                            final boolean withOwner) {
         final List<File> files = new ArrayList<>();
         if (withOwner) {
             files.add(new File(DOC_ROOT, name + ".adoc"));
@@ -109,7 +112,8 @@ public final class WordCount {
         }
     }
 
-    private static void addFilesFromDirs(final List<File> dirs, final List<File> files) {
+    private static void addFilesFromDirs(final List<File> dirs,
+                                         final List<File> files) {
         for (final File dir : dirs) {
             for (final File file : Objects.requireNonNull(dir.listFiles(), "Dir not found: " + dir.getAbsolutePath())) {
                 if (file.isDirectory()) {

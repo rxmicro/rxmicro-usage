@@ -1,0 +1,66 @@
+:FRAGMENT_RELATIVE_DIR: ../../../
+include::../../../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../../
+
+[[data-postgresql-select-projection-section]]
+===== Selected Projections
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-select-projection/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/select/projection/SelectProjectionDataRepository.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+public final class $$AccountEntityFromDBConverter
+        extends EntityFromDBConverter<Row, RowMetadata, Account> {
+
+    public Account fromDB(final Row dbRow,
+                          final RowMetadata metadata) {
+        final Account model = new Account();
+        model.id = dbRow.get(0, Long.class);
+        model.email = dbRow.get(1, String.class);
+        model.firstName = dbRow.get(2, String.class);
+        model.lastName = dbRow.get(3, String.class);
+        model.balance = dbRow.get(4, BigDecimal.class);
+        model.role = toEnum(Role.class, dbRow.get(5, String.class), "role");
+        return model;
+    }
+
+    public Account fromDBFirst_nameLast_name(final Row dbRow,
+                                             final RowMetadata metadata) {
+        final Account model = new Account();
+        model.firstName = dbRow.get(0, String.class);
+        model.lastName = dbRow.get(1, String.class);
+        return model;
+    }
+
+    public Account fromDBIdEmailFirst_nameLast_nameBalance(final Row dbRow,
+                                                           final RowMetadata metadata) {
+        final Account model = new Account();
+        model.id = dbRow.get(0, Long.class);
+        model.email = dbRow.get(1, String.class);
+        model.firstName = dbRow.get(2, String.class);
+        model.lastName = dbRow.get(3, String.class);
+        model.balance = dbRow.get(4, BigDecimal.class);
+        return model;
+    }
+
+    public Account fromDBIdEmailLast_nameFirst_nameBalance(final Row dbRow,
+                                                           final RowMetadata metadata) {
+        final Account model = new Account();
+        model.id = dbRow.get(0, Long.class);
+        model.email = dbRow.get(1, String.class);
+        model.lastName = dbRow.get(2, String.class);
+        model.firstName = dbRow.get(3, String.class);
+        model.balance = dbRow.get(4, BigDecimal.class);
+        return model;
+    }
+}
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-r2dbc-postgresql-select-projection
+include::../../../___notes/full-source-code-of-example.adoc[]
+
+include::../../../___notes/recompile-after-change.adoc[]

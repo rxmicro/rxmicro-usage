@@ -1,0 +1,120 @@
+[[index-section]]
+= RxMicro User Guide
+include::user-guide/_fragment/settings.adoc[]
+:guide-kind: full
+:imagesdir: images
+:project-documentation-examples-root: project-documentation-examples
+
+:introduction:
+:quick-start:
+:core:
+:rest-controller:
+:rest-client:
+:validation:
+:project-documentation:
+:data-postgresql:
+:data-mongo:
+:cdi:
+:java-integration:
+:testing:
+:appendices:
+
+include::user-guide/_fragment/preface.adoc[]
+
+<<<
+
+[[introduction-section]]
+== Introduction
+
+include::_fragment/introduction.adoc[]
+
+<<<
+
+[[microservice-section]]
+== What are microservices?
+
+include::_fragment/microservice.adoc[]
+
+<<<
+
+[[quick-start-section]]
+== Quick Start
+
+include::_fragment/quick-start.adoc[]
+
+<<<
+
+[[core-section]]
+== Core Concepts
+
+include::_fragment/core.adoc[]
+
+<<<
+
+[[rest-controller-section]]
+== REST Controller
+
+include::_fragment/rest-controller.adoc[]
+
+<<<
+
+[[rest-client-section]]
+== REST Client
+
+include::_fragment/rest-client.adoc[]
+
+<<<
+
+[[validation-section]]
+== Validation
+
+include::_fragment/validation.adoc[]
+
+<<<
+
+[[project-documentation-section]]
+== REST-based Microservice Documentation
+
+include::_fragment/project-documentation.adoc[]
+
+<<<
+
+[[data-postgresql-section]]
+== Postgre SQL Data Repositories
+
+include::_fragment/data-postgresql.adoc[]
+
+<<<
+
+[[data-mongo-section]]
+== Mongo Data Repositories
+
+include::_fragment/data-mongo.adoc[]
+
+<<<
+
+[[cdi-section]]
+== Contexts and Dependency Injection
+
+include::_fragment/cdi.adoc[]
+
+<<<
+
+[[java-integration-section]]
+== Java EcoSystem Integration
+
+include::_fragment/java-integration.adoc[]
+
+<<<
+
+[[tesing-section]]
+== Testing
+
+include::_fragment/testing.adoc[]
+
+<<<
+
+[[appendices-section]]
+== Appendices
+
+include::_fragment/appendices.adoc[]

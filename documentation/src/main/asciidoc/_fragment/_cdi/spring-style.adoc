@@ -1,0 +1,44 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
+
+[[cdi-spring-style-section]]
+=== Dependency Injection Using Spring Style
+
+Разработчики, которые имеют богатый опыт использования Spring в своих предыдущих проектах могут вместо аннотаций:
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@Inject`^] и
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Named.java[`@Named`^]
+использовать соответсвенно аннотации
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Autowired.java[`@Autowired`^] и
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Qualifier.java[`@Qualifier`^], которые абсолютно аналогичные по возможностям:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-spring-style/src/main/java/io/rxmicro/examples/cdi/spring/style/impl/ProductionBusinessService.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-spring-style/src/main/java/io/rxmicro/examples/cdi/spring/style/impl/DevelopmentBusinessService.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-spring-style/src/main/java/io/rxmicro/examples/cdi/spring/style/BusinessServiceFacade.java[tag=content,indent=0]
+----
+<1> Для внедрения в поле `businessService1` объекта класса `ProductionBusinessService`, необходимо в параметре аннотации
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Qualifier.java[`@Qualifier`^]
+указать имя `Production`. +
+_(Это имя, которое задается явно для класса `ProductionBusinessService` с помощью аннотации
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Qualifier.java[`@Qualifier`^]!)_
+<2> Для внедрения в поле `businessService2` объекта класса `DevelopmentBusinessService`, необходимо в параметре аннотации
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Qualifier.java[`@Qualifier`^]
+указать имя `Development`. +
+_(Это имя, которое задается явно для класса `DevelopmentBusinessService` с помощью аннотации
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Qualifier.java[`@Qualifier`^]!)_
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-spring-style
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]

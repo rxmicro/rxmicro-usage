@@ -1,0 +1,22 @@
+:FRAGMENT_RELATIVE_DIR: ../../../../
+include::../../../../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../../../
+
+[[data-postgresql-select-return-reactive-types-section]]
+====== Reactive Types Support
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-select-return-reactive-types/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/select/returnreactivetypes/SelectSingleDataRepository.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-select-return-reactive-types/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/select/returnreactivetypes/SelectManyDataRepository.java[tag=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-r2dbc-postgresql-select-return-reactive-types
+include::../../../../___notes/full-source-code-of-example.adoc[]
+
+include::../../../../___notes/recompile-after-change.adoc[]

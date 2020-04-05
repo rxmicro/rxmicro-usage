@@ -1,0 +1,81 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
+
+=== Создание исходного кода
+
+Исходный код простейшего REST-based микросервиса состоит из одного модуля, одного пакета и двух классов.
+Ниже описан исходный код каждого из указанных компонентов.
+
+==== Дескриптор `module-info.java`
+
+Java 9 ввела в использование https://www.oracle.com/corporate/features/understanding-java-9-modules.html[JPMS^].
+
+Поэтому the RxMicro framework, который нуждается в использовании https://openjdk.java.net/projects/jdk/11/[JDK 11^] или выше, требует наличия дескриптора `module-info.java` для любого Вашего микросервисного проекта.
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/quick-start/src/main/java/module-info.java[tag=content]
+----
+<1> Модуль построения REST-based микросервисов на базе HTTP сервера, использующего
+https://netty.io/[Netty^], со всеми необходимыми транзитивными зависимостями.
+<2> Модуль конвертации Java модели в https://www.json.org/[JSON^]
+формат и наоборот, со всеми необходимыми транзитивными зависимостями.
+
+[TIP]
+====
+Обычно `module-info.java` зависит от всех RxMicro модулей, перечисленных в разделе `dependencies` в файле `pom.xml`
+любого Вашего микросервисного проекта.
+Поэтому достаточно продублировать все зависимости в `module-info.java`.
+
+_Благодаря транзитивным зависимостям of the RxMicro framework количество необходимых модулей сильно сокращено_. +
+_Необходимо указывать только базовые RxMicro модули!_
+====
+
+==== Класс модели ответа
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/quick-start/src/main/java/io/rxmicro/examples/quick/start/Response.java[tag=content]
+----
+
+[TIP]
+====
+Согласно https://json-schema.org/understanding-json-schema/reference/type.html[спецификации^], JSON формат поддерживает следующие типы данных: объект, массив и примитивы: строки, логический тип, числовой тип и `null`.
+
+Для упрощения коммуникации между REST-based микросервисами, the RxMicro framework поддерживает только *JSON объект* в качестве возвращаемого типа любого REST-based микросервиса.
+Таким образом любой REST-based микросервис, построенный via the RxMicro framework может возвращать *только JSON объекты*.
+В случае если нужно вернуть примитив или массив, *необходимо создавать класс оболочку*.
+
+Именно поэтому для отображения строки `"Hello World!"` необходимо создать класс оболочку `Response`, который является оберткой над строковым типом данных.
+====
+
+==== Класс REST-based микросервиса
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/quick-start/src/main/java/io/rxmicro/examples/quick/start/HelloWorldMicroService.java[tag=content]
+----
+
+<1> REST-based микросервис содержит обработчик HTTP метода GET: `sayHelloWorld`, который не принимает никаких параметров и возвращает реактивный тип
+{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[`CompletableFuture`^].
+<2> Для создания объекта класса `CompletableFuture` используется статический метод, создающий отложенное вычисление:
+{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html#supplyAsync(U)[`CompletableFuture.supplyAsync()`].
+<3> Для запуска REST-based микросервиса используется метод `main`.
+<4> Запуск осуществляется с помощью статического метода
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/RxMicro.java#L59[`RxMicro.startRestServer()`^], который в качестве параметров принимает класс REST-based микросервиса.
+
+[NOTE]
+====
+Обратите внимание, что метод обработчика HTTP запроса не обязательно должен быть `public`.
+
+Модификаторы `protected` и `<default>` также поддерживаются by the RxMicro framework.
+====
+
+==== Структура микросервисного проекта
+
+Описанные выше компоненты микросервисного проекта должны быть расположены в проекте, согласно следующему снимку экрана:
+
+.Структура микросервисного проекта
+image::quick-start/project-structure.jpg[]

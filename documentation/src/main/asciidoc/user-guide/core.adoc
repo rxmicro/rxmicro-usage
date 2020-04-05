@@ -1,0 +1,29 @@
+[[core-section]]
+= Core Concepts
+include::_fragment/settings.adoc[]
+:guide-kind: section
+:current-entity: core
+:imagesdir: ../images
+
+:introduction: introduction.adoc
+:microservice: microservice.adoc
+:quick-start: quick-start.adoc
+:core:
+:rest-controller: rest-controller.adoc
+:rest-client: rest-client.adoc
+:validation: validation.adoc
+:project-documentation: project-documentation.adoc
+:data-postgresql: data-postgresql.adoc
+:data-mongo: data-mongo.adoc
+:cdi: cdi.adoc
+:java-integration: java-integration.adoc
+:testing: testing.adoc
+:appendices: appendices.adoc
+
+include::_fragment/nav.adoc[]
+
+include::_fragment/preface.adoc[]
+
+include::../_fragment/core.adoc[leveloffset=-1]
+
+include::_fragment/nav.adoc[]

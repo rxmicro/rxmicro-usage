@@ -1,0 +1,155 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
+
+[[project-documentation-basic-usage-section]]
+=== Basic Usage
+
+Найстройки по-умолчанию позволяют генерировать REST-based microservice documentation, используя минимальные конфигурации. +
+_(Данное преимущество достигается за счет тесной интеграции с другими RxMicro модулями.)_
+
+==== Min Settings
+
+Для генерации REST-based microservice documentation в процессе компиляции микросервисного проекта, необходимо выполнить два шага:
+
+* Подключить зависимость `rxmicro-documentation-asciidoctor` в `pom.xml` микросервисного проекта:
+
+[source,xml]
+----
+<dependency>
+    <groupId>io.rxmicro</groupId>
+    <artifactId>rxmicro-documentation-asciidoctor</artifactId>
+    <version>${rxmicro.version}</version>
+</dependency>
+----
+
+* Добавить модуль `rxmicro.documentation.asciidoctor` в дескриптор `module-info.java` микросервисного проекта:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-quick-start/src/main/java/module-info.java[tags=content]
+----
+
+<1> Модуль `rxmicro.documentation.asciidoctor` должен быть подключен, используя модификатор `static`. +
+_(Для получения подробной информации о преимуществах модификатора `static` обратитесь к <<project-documentation-basic-usage-maven-dependency-plugin>>.)_
+
+После выполнения данных шагов в процессе компиляции микросервисного проекта, the `RxMicro Annotation Processor` сгенерирует файл `ExamplesDocumentationAsciidoctorQuickStartDocumentation.adoc`.
+Сгенерированный файл будет содержать REST-based microservice documentation в формате http://asciidoc.org/[`AsciiDoc`^] и по-умолчанию будет находится в папке: `./src/main/asciidoc`.
+
+[NOTE]
+====
+С точки зрения системы контроля версий папка `./src/main/asciidoc` является исходным кодом и поэтому будет контроллироваться данной системой.
+Поэтому, если предполагается динамически генерировать REST-based microservice documentation, то необходимо:
+
+* или указать, что файлы в папке `./src/main/asciidoc` должны игнорироваться системой контроля версий;
+* или настроить модуль `rxmicro.documentation.asciidoctor` таким образом, чтобы он генерировал REST-based microservice documentation в другую папку, например в `target/docs`. +
+_(Для настройки папки, в которую должна быть сгенерирована REST-based microservice documentation, обратитесь к <<core#rxmicro_annotation_processor_options>>.)_
+
+Использование папки `./src/main/asciidoc` по-умолчанию предоставляет следующие преимущества:
+
+* `asciidoctor-maven-plugin`, который конвертирует формат http://asciidoc.org/[`AsciiDoc`^] в https://html.spec.whatwg.org/[`HTML`^] или https://www.adobe.com/content/dam/acom/en/devnet/pdf/pdfs/PDF32000_2008.pdf[`PDF`^]
+, по-умолчанию считывает файлы именно с папки `./src/main/asciidoc`.
+* Автоматическое построение REST-based microservice documentation может быть использовано в качестве начальной версии документа.
+После формирования начальной версии генерация может быть отключена и все изменения в документацию будут вносится вручную разработчиком и сохраняться в системе контроля версий.
+* Более эффективный способ поддержки REST-based microservice documentation в актуальном состоянии по сравнению с предыдущим вариантом, заключается в том, чтобы всю документацию разбить на фрагменты.
+Статические фрагменты (описание бизнес задачи, диаграммы и рисунки) будут создаваться разработчиком вручную.
+Динамические фрагменты будут генерироваться by the `RxMicro Annotation Processor` при каждой компиляции проекта.
+В результате из данных фрагментов будет собираться финальный документ, содержащий статические и динамические фрагменты. +
+_(При использовании данного подхода незабудьте добавить все динамические фрагменты в список файлов, которые должны игнорироваться системой контроля версий.)_
+====
+
+==== `Asciidoctor-maven-plugin` Settings
+
+Плагин `asciidoctor-maven-plugin` позволяет конвертировать документацию из формата http://asciidoc.org/[`AsciiDoc`^] в
+https://html.spec.whatwg.org/[`HTML`^], https://www.adobe.com/content/dam/acom/en/devnet/pdf/pdfs/PDF32000_2008.pdf[`PDF`^] и другие форматы.
+
+[source,xml]
+----
+<plugin>
+    <groupId>org.asciidoctor</groupId>
+    <artifactId>asciidoctor-maven-plugin</artifactId> <!--1-->
+    <version>${asciidoctor-maven-plugin.version}</version>
+    <executions>
+        <execution>
+            <id>output-html5</id>
+            <phase>package</phase> <!--2-->
+            <goals>
+                <goal>process-asciidoc</goal>
+            </goals>
+            <configuration>
+                <backend>html5</backend> <!--3-->
+                <sourceHighlighter>highlight.js</sourceHighlighter> <!--4-->
+                <preserveDirectories>true</preserveDirectories>
+                <relativeBaseDir>true</relativeBaseDir>
+                <attributes> <!--5-->
+                    <icons>font</icons>
+                    <pagenums/>
+                    <toclevels>3</toclevels>
+                </attributes>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+----
+<1> {MAVEN-REPO-SEARCH-ROOT}org.asciidoctor/asciidoctor-maven-plugin[Последняя стабильная версия `asciidoctor-maven-plugin`^].
+<2> `asciidoctor-maven-plugin` должен конвертировать REST-based microservice documentation на фазе `package`.
+<3> С помощью директивы `backend` указывается в какой формат необходимо конвертировать http://asciidoc.org/[`AsciiDoc`^] документ.
+<4> Если http://asciidoc.org/[`AsciiDoc`^] документ содержит примеры исходного кода на каком-либо языке программирования, необходимо подключить js библиотеку для подсветки синтаксиса данного языка.
+<5> С помощью директивы `attributes` возможно переопределить аттрибуты   http://asciidoc.org/[`AsciiDoc`^] документа.
+
+[NOTE]
+====
+Для получения дополнительных сведений о возможностях плагина `asciidoctor-maven-plugin`, рекомендуем обратиться к документации:
+
+[.example-code-link]
+https://asciidoctor.org/docs/asciidoctor-maven-plugin/[`https://asciidoctor.org/docs/asciidoctor-maven-plugin/`^]
+====
+
+[[project-documentation-basic-usage-maven-dependency-plugin]]
+==== `Asciidoctor-dependency-plugin` Settings
+
+REST-based microservice documentation генерируется в процессе компиляции, следовательно библиотеки, с помощью которых конфигурируется процесс генерации REST-based microservice documentation, не нужны в `runtime`.
+Именно поэтому `maven-dependency-plugin` не должен копировать в папку `lib` артефакты, относящиеся к генерации REST-based microservice documentation:
+
+[source,xml]
+----
+<plugin>
+    <artifactId>maven-dependency-plugin</artifactId>
+    <version>${maven-dependency-plugin.version}</version>
+    <executions>
+        <execution>
+            <id>copy-dependencies</id>
+            <phase>package</phase>
+            <goals>
+                <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+                <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                <includeScope>compile</includeScope>
+                <excludeArtifactIds> <!--1-->
+                    rxmicro-documentation,
+                    rxmicro-documentation-asciidoctor
+                </excludeArtifactIds>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+----
+
+<1> Артефакты `rxmicro-documentation` и `rxmicro-documentation-asciidoctor` необходимы *только* в процессе компиляции.
+
+[IMPORTANT]
+====
+Для того чтобы в `runtime` не возникали ошибки при исключении артефактов, необходимых для генерации REST-based microservice documentation, обязательно нужно использовать модификатор `static` в дескрипторе `module-info.java`: `requires static rxmicro.documentation.asciidoctor;`.
+
+Без данного модификатора при запуске микросервиса возникнет ошибка: `Module rxmicro.documentation.asciidoctor not found`!
+====
+
+:project-documentation-file: ExamplesDocumentationAsciidoctorQuickStartDocumentation.html
+include::../___notes/generated-project-documentation.adoc[]
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}documentation-asciidoctor-quick-start
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]

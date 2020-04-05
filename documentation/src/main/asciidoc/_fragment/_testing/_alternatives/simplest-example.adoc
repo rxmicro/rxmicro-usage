@@ -1,0 +1,66 @@
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[testing-alternatives-usage-section]]
+==== Использование альтернативы
+
+Механизм альтернатив является универсальным инструментом и может быть применен к простейшему проекту, не использующему `RxMicro annotations`. +
+Рассмотрим проект состоящий из двух компонентов: интерфейса `ChildComponent` и класса `ParentComponent`:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives-simplest/src/main/java/io/rxmicro/examples/testing/component/alternatives/simplest/ChildComponent.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives-simplest/src/main/java/io/rxmicro/examples/testing/component/alternatives/simplest/ParentComponent.java[tag=content,indent=0]
+----
+<1>  класс `ParentComponent` зависит от компонента `ChildComponent`. +
+_(Данная зависимость указана явно в исходном коде.)_
+
+При написании модульного теста для компонента `ParentComponent` возникает необходимость заменить реальный компонент `ChildComponent` на мок.
+Иначе это уже будет не модульный тест, а интеграционный.
+
+Для данной замены удобнее всего использовать альтернативу:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives-simplest/src/test/java/io/rxmicro/examples/testing/component/alternatives/simplest/ParentComponent1Test.java[tag=content,indent=0]
+----
+<1> Альтернативы поддерживаются by the RxMicro framework только при тестировании компонентов или REST-based микросервисов.
+Поэтому необходимо объявить, что данный тест является тестом компонента `ParentComponent`.
+<2> Объект тестируемого компонента будет создан by the RxMicro framework автоматически.
+_(Объект создается с помощью механизма `reflection`, поэтому тестируемый класс должен содержать доступный конструктор без параметров.)_ Чтобы иметь возможность вызвать какой-либо метод тестируемого компонента, необходима ссылка на данный компонент.
+Поэтому RxMicro требует, чтобы разработчик объявил неинициализированное поле тестируемого компонента.
+После запуска теста в это поле будет внедрена ссылка на объекта тестируемого компонента, используя механизм `reflection`.
+<3> Для внедрения альтернативы, необходимо объявить данную альтернативу с помощью аннотации
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/Alternative.java[`@Alternative`^];.
+<4> Альтернатива - это тестовый компонент с заранее определенным поведением.
+Поэтому необходимо определить какое значение должно быть возвращено при вызове метода `getValue`.
+<5> При тестировании метода `getEnvironment` вызывается метод из альтернативы вместо реального компонента.
+
+При использовании альтернатив очень удобно использовать динамический класс с программируемым поведением.
+Для этих целей очень удобно использовать фреймворк https://site.mockito.org/[Mockito^]:
+
+[source,java]
+[[InitMocks-inline]]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives-simplest/src/test/java/io/rxmicro/examples/testing/component/alternatives/simplest/ParentComponent2Test.java[tag=content,indent=0]
+----
+
+<1> Для создания объекта мока, необходимо использовать аннотацию {MOCKITO-DOC-ROOT-URL}org/mockito/Mock.html[`@Mock`^].
+<2> Для того чтобы JUnit перед вызовом тестовых методов обработал все поля аннотированные аннотацией {MOCKITO-DOC-ROOT-URL}org/mockito/Mock.html[`@Mock`^], необходимо тестовый класс аннотировать аннотацией {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-mockito-junit/src/main/java/io/rxmicro/test/mockito/junit/InitMocks.java[`@InitMocks`^].
+<3> Перед тестированием необходимо запрограммировать поведение метода `getValue` объявленного мока.
+<4> При тестировании метода `getEnvironment` вызывается метод из альтернативы вместо реального компонента.
+
+[IMPORTANT]
+====
+При создании альтернатив-моков аннотация {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-mockito-junit/src/main/java/io/rxmicro/test/mockito/junit/InitMocks.java[`@InitMocks`^]
+должна быть над аннотацией `@RxMicroComponentTest` (или `@RxMicroRestBasedMicroServiceTest` при написании тестов REST-based микросервиса), иначе *внедрение альтернативы будет выполняться до создания объекта мока, т.е. внедрение `null` объектов, что приведет к ошибке!*
+====
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-simplest
+include::../../___notes/full-source-code-of-example.adoc[]

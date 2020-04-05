@@ -1,0 +1,41 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
+
+[[project-documentation-errors-section]]
+=== Документирование ошибок
+
+Для описания неуспешных HTTP ответов, модуль `rxmicro.documentation` предоставляет две аннотации:
+
+* {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/SimpleErrorResponse.java[`@SimpleErrorResponse`^];
+* {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/ModelExceptionErrorResponse.java[`@ModelExceptionErrorResponse`^].
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-errors/src/main/java/io/rxmicro/examples/documentation/asciidoctor/errors/ProxyMicroService.java[tags=content]
+----
+<1> Аннотация {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/SimpleErrorResponse.java[`@SimpleErrorResponse`^] позволяет указать описание HTTP ответа явным образом.
+<2> Параметр `status` описывает HTTP статус код.
+<3> Параметр `description` описывает текстовое описание.
+<4> Параметр `exampleErrorMessage` указывает на значение, которое используется в качестве примера в генерируемой REST-based microservice documentation.
+<5> Аннотация {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/ModelExceptionErrorResponse.java[`@ModelExceptionErrorResponse`^] позволяет указать an exception class of стандартного
+<6> или пользовательского типов.
+
+При использовании пользовательского типа исключения, данный класс содержит все необходимые параметры для построения REST-based microservice documentation:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-errors/src/main/java/io/rxmicro/examples/documentation/asciidoctor/errors/model/NotAcceptableException.java[tags=content]
+----
+<1> Обязательное статическое поле `STATUS_CODE` описывает HTTP статус код.
+<2> Аннотация {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/Description.java[`@Description`^] описывает текстовое описание.
+<3> Аннотация {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/Example.java[`@Example`^] описывает значение, которое используется в качестве примера в генерируемой REST-based microservice documentation.
+
+:project-documentation-file: ExamplesDocumentationAsciidoctorErrorsDocumentation.html
+include::../___notes/generated-project-documentation.adoc[]
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}documentation-asciidoctor-errors
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]

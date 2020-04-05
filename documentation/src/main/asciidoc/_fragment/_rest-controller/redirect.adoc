@@ -1,0 +1,64 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
+
+[[rest-controller-redirect-section]]
+=== Перенаправление запроса
+
+RxMicro поддерживает перенаправление запроса:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-redirect/src/main/java/io/rxmicro/examples/rest/controller/redirect/MicroService.java[tag=content,indent=0]
+----
+<1> Для перенаправления запроса, необходимо вернуть объект `PermanentRedirectException` с указанием нового URL Path.
+<2> После возврата HTTP ответа с перенаправлением запроса HTTP client автоматически повторит запрос на новый URL Path.
+
+[NOTE]
+====
+*Если необходимо временное перенаправление, то нужно использовать класс `TemporaryRedirectException` вместо `PermanentRedirectException`!*
+====
+
+[IMPORTANT]
+====
+Встроенные классы перенаправления возвращают HTTP статусы
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/307[`307`^] и
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/308[`308`^].
+
+*Согласно правилам протокола HTTP, при таком перенаправлении сохраняется HTTP метод!*
+====
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-redirect/src/test/java/io/rxmicro/examples/rest/controller/redirect/MicroServiceTest.java[tag=content,indent=0]
+----
+<1> По умолчанию встроенный HTTP client, который используется для выполнения тестовых запросов к микросервису не поддерживает перенаправление.
+Поэтому необходимо активировать автоматическое перенаправление с помощью настройки `@BlockingHttpClientSettings(followRedirects = ENABLED)`.
+<2> Выполняется `PUT` запрос на URL Path: `/put1`.
+<3> В результате автоматически выполняется обработчик `MicroService.put` после обработчика `MicroService.redirect`.
+
+[NOTE]
+====
+Кроме использования исключений `PermanentRedirectException`/`TemporaryRedirectException` для перенаправления можно использовать пользовательский класс модели или композицию аннотаций
+<<rest-controller-set-status-code-section,`@SetStatusCode`>> и <<rest-controller-headers-static,`@SetHeader`>>:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-redirect/src/main/java/io/rxmicro/examples/rest/controller/redirect/MicroService2.java[tag=content,indent=0]
+----
+<1> Использование пользовательского класса модели с заголовком `Location`.
+<2> Использование композиции аннотаций <<rest-controller-set-status-code-section,`@SetStatusCode`>> и <<rest-controller-headers-static,`@SetHeader`>>.
+
+*FYI:* Класс модели `RedirectResponse`:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-redirect/src/main/java/io/rxmicro/examples/rest/controller/redirect/model/RedirectResponse.java[tag=content,indent=0]
+----
+====
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-controller-redirect
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]

@@ -1,0 +1,38 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
+
+[[project-documentation-section-customization-section]]
+=== Sections Customization
+
+С помощью композиционных аннотаций:
+
+* {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/DocumentationDefinition.java[`@DocumentationDefinition`^];
+* {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/IncludeDescription.java[`@IncludeDescription`^];
+* {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/ResourceGroupDefinition.java[`@ResourceGroupDefinition`^];
+* {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/ResourceDefinition.java[`@ResourceDefinition`^]
+
+разработчик может перегрупировывать стандартные секции REST-based microservice documentation, а также подключать свои собственные фрагменты в качестве секций.
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-custom-sections/src/main/java/module-info.java[tag=content,indent=0]
+----
+
+[NOTE]
+====
+Кроме генерации финального http://asciidoc.org/[`AsciiDoc`^] документа, the `RxMicro Annotation Processor` позволяет генерировать отдельные динамические фрагменты.
+
+Для получения подробной информации о данной возможности рекомендуем обратиться к примеру:
+[.example-code-link]
+{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}documentation-asciidoctor-custom-sections[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}documentation-asciidoctor-custom-sections`^]
+====
+
+:project-documentation-file: ExamplesDocumentationAsciidoctorCustomSectionsDocumentation.html
+include::../___notes/generated-project-documentation.adoc[]
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}documentation-asciidoctor-custom-sections
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]

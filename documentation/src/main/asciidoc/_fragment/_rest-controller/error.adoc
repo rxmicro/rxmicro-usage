@@ -1,0 +1,185 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
+
+[[rest-controller-errors-section]]
+=== Использование исключений
+
+Каждый реактивный тип возвращаемого результата обработчика запроса поддерживает два состояния:
+
+* Сигнал успешного завершения.
+* Сигнал завершения с ошибкой.
+
+Особенность сигнала успешного завершения заключается в том, что он уникальный, т.е. если данный сигнал возник, то гарантируется что поставленная задача успешно выполнена.
+Особенность сигнала завершения с ошибкой заключается в том, что в процессе выполнения поставленной задачи могут возникнуть разные типы ошибок:
+
+* ошибка валидации;
+* ошибка подключения к источнику данных;
+* ошибка алгоритма вычисления и т.д.
+
+Т.е. каждый обработчик запроса может вернуть только один успешный результат и несколько результатов с ошибками.
+
+Поэтому the RxMicro framework вводит понятие `ошибка`.
+Под ошибкой подразумевается любой неуспешный результат.
+
+*Для упрощенной обработки ошибок the RxMicro framework рекомендует использовать HTTP статус коды для каждой категории ошибок!*
+
+В случае если HTTP статус кода не достаточно, the RxMicro framework рекомендует использовать дополнительное текстовое описание.
+
+[[rest-controller-errors-model-inline]]
+Для этих целей the RxMicro framework определяет стандартную JSON модель, которая возвращается при любой возникшей ошибки:
+
+[source,json]
+----
+{
+  "message": "Not Found"
+}
+----
+
+Таким образом в случае возникновения ошибки client определяет категорию ошибки на основании анализа HTTP статус кода.
+А для получения дополнительных сведений он может проанализировать текстовое сообщение.
+
+<<<
+
+==== Базовый класс исключений
+
+the RxMicro framework определяет базовый класс исключений при обработке HTTP запроса:
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/error/HttpErrorException.java[`HttpErrorException`^].
+
+*Все пользовательские типы исключений должны наследоваться от этого базового класса!*
+
+[IMPORTANT]
+====
+Для всех классов наследников от `HttpErrorException` при создании объекта исключения *не заполняется stack trace*, так как данная информация является избыточной.
+
+_(Такое поведение достигается за счет использования защищенного конструктора:
+{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/RuntimeException.html#%3Cinit%3E(java.lang.String,java.lang.Throwable,boolean,boolean)[`protected RuntimeException(String, Throwable, boolean, boolean)`^].)_
+====
+
+<<<
+
+==== Использование пользовательских исключений
+
+В случае, если обработчик запросов должен возвращать какой-либо HTTP статус код, отличный от успешного, необходимо создавать отдельный класс исключения:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-errors/src/main/java/io/rxmicro/examples/rest/controller/errors/CustomNotFoundException.java[tag=content,indent=0]
+----
+
+<1> Пользовательский класс исключения должен наследоваться от `HttpErrorException`.
+<2> Каждый пользовательский класс ошибки должен определить статическое поле `int STATUS_CODE` с присвоением статус кода, который идентифицирует категорию ошибки.
+_(Данное имя константное и используется модулем <<{project-documentation}#project-documentation-section,`rxmicro.documentation`>> при построении документации по проекту.)_
+<3> Если необходимо отображать клиенту детальное сообщение, нужно добавить параметр конструктора. +
+_(Если Вы хотите возвращать клиенту только HTTP статус без HTTP тела, создавайте конструктор без параметров.)_
+
+[TIP]
+====
+*The RxMicro framework не поддерживает `null` в качестве бизнес значения!*
+
+Поэтому если в конструктор исключения в качестве сообщения будет передан `null` значение, то the RxMicro framework вернет HTTP ответ без тела сообщения! +
+_(т.е. конструкции `new CustomNotFoundException(null)` и `new CustomNotFoundException()` с точки зрения of the RxMicro framework идентичны!)_
+====
+
+Для возвращения HTTP статус кода, отличного от успешного можно использовать два варианта:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-errors/src/main/java/io/rxmicro/examples/rest/controller/errors/MicroService.java[tag=content,indent=0]
+----
+
+<1> Использовать метод реактивного типа для генерации сигнала об ошибочном завершении.
+<2> Создать и выбросить объект исключения.
+
+С точки зрения клиента два вышеуказанных варианта, абсолютно одинаковые:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-errors/src/test/java/io/rxmicro/examples/rest/controller/errors/MicroServiceTest.java[tag=content,indent=0]
+----
+<1> В качестве детального сообщения об ошибке возвращается сообщение переданное в конструктор исключения. +
+_(Утилитный метод `jsonErrorObject("...")` синоним методу `jsonObject("message", "...")`.)_
+<2> Возвращаемый статус код равен статус коду, определенному в классе исключения в поле `int STATUS_CODE`.
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-controller-errors
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]
+
+<<<
+
+==== Методы генерации сигнала об ошибке
+
+Для возвращения HTTP ответа с ошибкой необходимо использовать соответствующий метод реактивного типа для генерации сигнала об ошибке.
+
+.Методы генерации сигнала об ошибке.
+|===
+|*Реактивный тип*|*Статический метод*
+
+|`CompletableFuture`
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html#failedFuture(java.lang.Throwable)[`CompletableFuture.failedFuture`^]
+
+|`CompletionStage`
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html#failedStage(java.lang.Throwable)[`CompletableFuture.failedStage`^]
+
+|`Mono`
+|{REACTOR-CORE-DOC-ROOT-URL}reactor/core/publisher/Mono.html#error-java.lang.Throwable-[`Mono.error`^]
+
+|`Completable`
+|{RX-JAVA-DOC-ROOT-URL}io/reactivex/Completable.html#error-java.lang.Throwable-[`Completable.error`^]
+
+|`Single`
+|{RX-JAVA-DOC-ROOT-URL}io/reactivex/Single.html#error-java.lang.Throwable-[`Single.error`^]
+
+|`Maybe`
+|{RX-JAVA-DOC-ROOT-URL}io/reactivex/Maybe.html#error-java.lang.Throwable-[`Maybe.error`^]
+|===
+
+[TIP]
+====
+Использование метода генерации сигнала об ошибке вместо выбрасывания объекта исключения требует написания большего количества кода, но экономит процессорные ресурсы!
+
+Поэтому Вы сами должны определить какой способ Вам использовать в Вашем проекте!
+====
+
+==== Предопределенные классы исключений
+
+Для поддержки своей работоспособности the RxMicro framework определяет следующие классы исключений:
+
+.Список предопределенных классов исключений.
+[cols="3,1,6"]
+|===
+|*Класс исключения*|*Статус код*|*Описание*
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/error/RedirectException.java[`RedirectException`^]
+|`300..399`
+|Базовый класс для информирования клиента, о необходимости выполнить `redirect`.
+
+_(Вместо использования базового класса рекомендуется использовать один из классов наследников: `TemporaryRedirectException` или `PermanentRedirectException`.)_
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/error/TemporaryRedirectException.java[`TemporaryRedirectException`^]
+|https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/307[`307`^]
+|Класс, сигнализирующий о необходимости выполнить <<rest-controller-redirect-section,`Temporary Redirect`.>>
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/error/PermanentRedirectException.java[`PermanentRedirectException`^]
+|https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/308[`308`^]
+|Класс, сигнализирующий о необходимости выполнить <<rest-controller-redirect-section,`Permanent Redirect`.>>
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/error/ValidationException.java[`ValidationException`^]
+|https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400[`400`^]
+|Класс, сигнализирующий о том, что client передал <<{validation}#validation-section,некорректный запрос на выполнение.>>
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/error/InternalHttpErrorException.java[`InternalHttpErrorException`^]
+|https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500[`500`^]
+|Класс, сигнализирующий о том, что в процессе выполнения возникла внутрення ошибка.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/UnexpectedResponseException.java[`UnexpectedResponseException`^]
+|https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500[`500`^]
+|Класс, сигнализирующий о том, что сформированный обработчиком запросов <<{validation}#validation-response-section,HTTP ответ, содержит ошибки валидации.>>
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http-client/src/main/java/io/rxmicro/http/client/HttpClientTimeoutException.java[`HttpClientTimeoutException`^]
+|https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504[`504`^]
+|Класс, сигнализирующий о том, что HTTP client не смог получить ответ от сервера за отведенный промежуток времени.
+
+|===

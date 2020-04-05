@@ -1,0 +1,195 @@
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+==== RxMicro Project Configuration
+
+The first release of GraalVM based on Java 11 is https://www.graalvm.org/docs/release-notes/19_3/#1930[*19.3.0* (2019-11-19)^].
+But unfortunately the GraalVM Native Image Tool does not support JPMS yet.
+
+Thus we need to use the `unnamed module` mode for RxMicro project.
+
+===== Setup `pom.xml`
+
+====== Using `RX_MICRO_BUILD_UNNAMED_MODULE` Option
+
+To enable the `unnamed module` mode, it is necessary to add `RX_MICRO_BUILD_UNNAMED_MODULE` option to the `maven-compiler-plugin`:
+
+[source,xml]
+----
+<plugin>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <configuration>
+        <!-- ... -->
+        <compilerArgs>
+            <arg>-ARX_MICRO_BUILD_UNNAMED_MODULE=true</arg>
+        </compilerArgs>
+    </configuration>
+    <!-- ... -->
+</plugin>
+----
+
+====== `maven-shade-plugin` Configuration
+
+To build a native image we need a `uber jar`.
+For that it is necessary to add `maven-shade-plugin`:
+
+[source,xml]
+----
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-shade-plugin</artifactId>
+    <version>${maven-shade-plugin.version}</version>
+    <executions>
+        <execution>
+            <phase>package</phase>
+            <goals>
+                <goal>shade</goal>
+            </goals>
+            <configuration>
+                <createDependencyReducedPom>false</createDependencyReducedPom>
+                <transformers>
+                    <transformer implementation=
+                        "org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                        <manifestEntries>
+                            <Main-Class>
+                        io.rxmicro.examples.graalvm.nativeimage.quick.start.HelloWorldMicroService
+                            </Main-Class>
+                        </manifestEntries>
+                    </transformer>
+                </transformers>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+----
+
+====== `exec-maven-plugin` Configuration
+
+To build a native image from `maven` it is necessary to use `exec-maven-plugin`:
+
+[source,xml]
+----
+<plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>exec-maven-plugin</artifactId>
+    <version>${exec-maven-plugin.version}</version>
+    <executions>
+        <execution>
+            <phase>package</phase>
+            <goals>
+                <goal>exec</goal>
+            </goals>
+            <configuration>
+                <executable>native-image</executable> <!--1-->
+                <arguments>
+                    <argument>--verbose</argument>
+                    <argument>-jar</argument>
+                    <argument>${project.build.directory}/${project.build.finalName}.jar</argument>
+                </arguments>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+----
+
+<1> An executable will be the `native-image` tool with specified arguments.
+
+[TIP]
+====
+The Native Image Tool (`native-image`) must be available via `PATH` variable!
+====
+
+===== Microservice Source Code
+
+A microservice source code contains two classes only:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/graalvm-native-image-quick-start/src/main/java/io/rxmicro/examples/graalvm/nativeimage/quick/start/Response.java[tags=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/graalvm-native-image-quick-start/src/main/java/io/rxmicro/examples/graalvm/nativeimage/quick/start/HelloWorldMicroService.java[tags=content,indent=0]
+----
+<1> Docker based configuration activates the configuration via annotations and environment variables only.
+<2> Registration the SIGTERM handler manually.
+_(Read more about it: https://github.com/oracle/graal/issues/1592[`https://github.com/oracle/graal/issues/1592`^].)_
+
+===== Classpath Resources
+
+A RxMicro logger is configured using `jul.properties` classpath resource.
+
+`jul.properties` contains the following content:
+
+[source,properties]
+----
+io.rxmicro.rest.server.level=TRACE
+----
+
+A native image is configured using `META-INF/native-image` classpath directory with two files:
+
+* `native-image.properties`
+* `resource-config.json`
+
+_(Read more about native image configuration: https://www.graalvm.org/docs/reference-manual/native-image/#native-image-configuration[https://www.graalvm.org/docs/reference-manual/native-image/#native-image-configuration^])_
+
+`native-image.properties` contains the following content:
+
+[source,properties]
+----
+Args = --no-fallback \
+       --allow-incomplete-classpath \
+       -H:ResourceConfigurationResources=${.}/resource-config.json
+----
+
+`resource-config.json` contains the following content:
+
+[source,json]
+----
+{
+  "resources":[
+    {"pattern":"\\Qjul.properties\\E"}
+  ],
+  "bundles":[]
+}
+----
+
+==== Creation of the Native Image
+
+To build a native image run:
+
+[source,txt,subs="verbatim,quotes"]
+----
+*mvn* clean package
+----
+
+The built native image executable will be available at the project home directory:
+
+[source,txt,subs="verbatim,quotes"]
+----
+*ls* -lh
+
+drwxrwxr-x 5 nedis nedis 4,0K Mar 25 20:44 *src*
+drwxrwxr-x 8 nedis nedis 4,0K Mar 28 21:30 *target*
+-rw-rw-r-- 1 nedis nedis 8,8K Mar 28 21:02 *pom.xml*
+*-rwxrwxr-x 1 nedis nedis  17M Mar 28 21:32 HelloWorldMicroService* # <1>
+----
+<1> The built native image executable
+
+==== Verification of the Native Image
+
+To verify the built native image run:
+
+[source,txt,subs="verbatim,quotes"]
+----
+*./HelloWorldMicroService*
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}graalvm-native-image-quick-start
+include::../../___notes/full-source-code-of-example.adoc[]
+
+include::../../___notes/recompile-after-change.adoc[]
+

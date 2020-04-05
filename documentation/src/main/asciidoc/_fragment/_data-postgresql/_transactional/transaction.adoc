@@ -1,0 +1,45 @@
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[data-postgresql-transactional-transaction-section]]
+==== RxMicro Transactions
+
+TODO
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-transactional/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/transactional/TransactionTemplate.java[tag=content,indent=0]
+----
+
+Доступные Transaction:
+
+* {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/model/reactor/Transaction.java[*Spring Reactor Transaction*^];
+* {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/model/rxjava3/Transaction.java[*RxJava 3 Transaction*^];
+* {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/model/completablefuture/Transaction.java[*Completable Future Transaction*^];
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-transactional/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/transactional/TransactionUsageRepository.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-transactional/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/transactional/BeginReactorTransactionRepository.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-transactional/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/transactional/BeginRxJava3TransactionRepository.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-transactional/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/transactional/BeginCompletableFutureTransactionRepository.java[tag=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-r2dbc-postgresql-transactional
+include::../../___notes/full-source-code-of-example.adoc[]
+
+include::../../___notes/recompile-after-change.adoc[]

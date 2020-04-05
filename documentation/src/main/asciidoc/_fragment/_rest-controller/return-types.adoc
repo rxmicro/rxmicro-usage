@@ -1,0 +1,80 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
+
+=== Возвращаемые типы обработчиков HTTP запроса
+
+include::../_rest/___http-handler-return-types.adoc[]
+
+<<<
+
+==== Поддерживаемые типы возвращаемого результата для HTTP ответа без тела
+
+RxMicro поддерживает следующие типы возвращаемого результата для HTTP ответа без тела:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-handlers/src/main/java/io/rxmicro/examples/rest/controller/handlers/RestControllerWithoutBody.java[tag=content,indent=0]
+----
+<1> Тип `void` поддерживается в основном для тестовых целей. +
+_(Тип `void` может быть также применим в случаях, когда обработчик запросов не использует никаких IO операций.
+Для случаев когда обработчик запросов использует IO операции, необходимо вместо типа `void` использовать один из реактивных типов.)_
+<2> Тип {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[`CompletableFuture<Void>`^]
+рекомендуется при использовании библиотеки {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/package-summary.html[*java.util.concurrent*^].
+<3> Вместо {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[`CompletableFuture<Void>`^] может быть использован также тип
+{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletionStage.html[`CompletionStage<Void>`^].
+<4> При использовании библиотеки {REACTOR-CORE-DOC-USER_GUIDE}[*Project Reactor*^] только тип
+{REACTOR-CORE-DOC-ROOT-URL}reactor/core/publisher/Mono.html[`Mono<Void>`^] может быть использован.
+<5> При использовании библиотеки {RX-JAVA-USER-GUIDE}[*RxJava*^] только тип
+{RX-JAVA-DOC-ROOT-URL}io/reactivex/Completable.html[`Completable`^] может быть использован.
+
+Все указанные выше обработчики возвращают HTTP ответ без тела:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-handlers/src/test/java/io/rxmicro/examples/rest/controller/handlers/RestControllerWithoutBodyTest.java[tag=content,indent=0]
+----
+<1> При тестировании всех обработчиков класса `RestControllerWithoutBody` каждый обработчик возвращает HTTP ответ без тела.
+
+include::../___notes/model-class-intead-of-method-parameters-note.adoc[tags=**;!path-variables;!headers;!params]
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-controller-handlers
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]
+
+<<<
+
+==== Поддерживаемые типы возвращаемого результата для HTTP ответа с телом
+
+RxMicro поддерживает следующие типы возвращаемого результата для HTTP ответа с телом:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-handlers/src/main/java/io/rxmicro/examples/rest/controller/handlers/RestControllerWithBody.java[tag=content,indent=0]
+----
+<1> Тип {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[`CompletableFuture<MODEL>`^]
+рекомендуется при использовании библиотеки {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/package-summary.html[*java.util.concurrent*^].
+<2> Вместо {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[`CompletableFuture<MODEL>`^] может быть использован также тип
+{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletionStage.html[`CompletionStage<MODEL>`^].
+<3> При использовании библиотеки {REACTOR-CORE-DOC-USER_GUIDE}[*Project Reactor*^] только тип
+{REACTOR-CORE-DOC-ROOT-URL}reactor/core/publisher/Mono.html[`Mono<MODEL>`^] может быть использован.
+<4> При использовании библиотеки {RX-JAVA-USER-GUIDE}[*RxJava*^] могут быть использованы
+{RX-JAVA-DOC-ROOT-URL}io/reactivex/Single.html[`Single<MODEL>`^] или
+{RX-JAVA-DOC-ROOT-URL}io/reactivex/Maybe.html[`Maybe<MODEL>`^].
+
+include::../_rest/___note-reactive-parametrized-types.adoc[]
+
+Все указанные выше обработчики возвращают HTTP ответ с телом:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-handlers/src/test/java/io/rxmicro/examples/rest/controller/handlers/RestControllerWithBodyTest.java[tag=content,indent=0]
+----
+<1> При тестировании всех обработчиков класса `RestControllerWithBody` каждый обработчик возвращает HTTP ответ содержащий JSON объект, с сообщением `Hello World!`.
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-controller-handlers
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]

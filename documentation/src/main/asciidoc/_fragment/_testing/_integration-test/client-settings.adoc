@@ -1,0 +1,26 @@
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[testing-BlockingHttpClient-settings-section]]
+==== Настройки `BlockingHttpClient`
+
+Компонент {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^], который используется при написании тестов REST-based микросервисов и интеграционных, конфигурируется с помощью аннотации
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClientSettings.java[`@BlockingHttpClientSettings`^]:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-integration-basic/src/test/java/io/rxmicro/examples/testing/integration/basic/MicroServiceIntegrationTestSettings.java[tag=content,indent=0]
+----
+<1> Параметр `schema` позволяет указать схему HTTP протокола.
+<2> Параметр `host` позволяет указать удаленный host, на котором запущен микросервис. +
+_(Данный параметр позволяет выполнять интеграционное тестирование для удаленных микросервисов.)_
+<3> Параметр `port` позволяет указать статический порт подключения.
+<4> Параметр `randomPortProvider` позволяет указать динамический порт подключения. +
+_(Порт будет считан из статической финальной переменной текущего класса с именем `SERVER_PORT`.)_ +
+_(Параметры `port` и `randomPortProvider` взаимоисключающиеся.)_
+<5> Параметр `versionValue` позволяет указать <<{rest-controller}#rest-controller-versioning-section,версию микросервиса>>.
+<6> Параметр `versionStrategy` позволяет указать <<{rest-controller}#rest-controller-versioning-section,стратегию версионирования>>, которая используется в тестируемом микросервисе.
+<7> Параметр `requestTimeout`позволяет указать таймаут запросов.
+

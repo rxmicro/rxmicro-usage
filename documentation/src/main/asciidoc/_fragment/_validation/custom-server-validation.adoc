@@ -1,0 +1,57 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
+
+=== Creating Custom Constraints
+
+Если built-in constraints не достаточно, разработчик может создать custom constraint.
+Для этого необходимо выполнить следующие шаги:
+
+. Create a constraint annotation.
+. Implement a validator.
+
+Валидирующая аннотация - это аннотация, удовлетворяющая следующим требованиям:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-custom/src/main/java/io/rxmicro/examples/validation/server/custom/ExpectedZero.java[tag=content,indent=0]
+----
+<1> Аннотация доступна только на уровне компиляции.
+<2> С помощью данной аннотации можно валидировать поля класса, методы класса (`setters` и `getters`) и параметры метода.
+<3> С помощью аннотации
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/base/ConstraintRule.java[`@ConstraintRule`^] указывается:
+<4> тип данных;
+<5> класс валидатора.
+<6> Каждая constraint annotation должна иметь обязательный параметр `boolean off() default false;`, который позволяет деактивировать валидатор. +
+_(Данная функция полезна при наследовании моделей, когда параметр из класса наследника не должен валидироваться, а параметр из родительского класса должен!)_
+
+Валидатор - это класс, удовлетворяющий следующим требованиям:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-custom/src/main/java/io/rxmicro/examples/validation/server/custom/ExpectedZeroConstraintValidator.java[tag=content,indent=0]
+----
+<1> Класс валидатора должен реализовать интерфейс
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/ConstraintValidator.java[`ConstraintValidator`^] параметризованный типом данных. +
+_(Если constraint annotation может быть применена к разным типам данных, то для каждого типа данных должен быть создан отдельный класс валидатора.)_
+<2> Валидатор должен игнорировать `null` значения. +
+_(Для проверки на `null` существует предопределенный валидатор.)_
+<3> Если параметр некорректный, необходимо выбросить исключение
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/error/ValidationException.java[`ValidationException`^] с однозначным сообщением об ошибке.
+
+Использование пользовательского валидатора ничем не отличается от использования предопределенного:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-custom/src/main/java/io/rxmicro/examples/validation/server/custom/MicroService.java[tag=content,indent=0]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-custom/src/test/java/io/rxmicro/examples/validation/server/custom/MicroServiceTest.java[tag=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}validation-server-custom
+include::../___notes/full-source-code-of-example.adoc[]
+
+include::../___notes/recompile-after-change.adoc[]
