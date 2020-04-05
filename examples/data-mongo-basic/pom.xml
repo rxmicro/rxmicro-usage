@@ -84,12 +84,12 @@
         <!-- tag::content[] -->
         <dependency>
             <groupId>io.rxmicro</groupId>
-            <artifactId>rxmicro-data-mongo</artifactId> <!--1-->
+            <artifactId>rxmicro-data-mongo</artifactId>
             <version>${rxmicro.version}</version>
         </dependency>
         <dependency>
             <groupId>io.projectreactor</groupId>
-            <artifactId>reactor-core</artifactId> <!--2-->
+            <artifactId>reactor-core</artifactId> <!--1-->
             <version>${projectreactor.version}</version>
         </dependency>
         <!-- end::content[] -->

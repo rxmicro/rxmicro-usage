@@ -1,7 +1,9 @@
 :FRAGMENT_RELATIVE_DIR:
 include::___fragment-settings.adoc[]
 
-TODO
+The RxMicro framework поддерживает создание динамических репозиторией для взаимодействия с базами данных.
+
+Для взаимодействия с https://www.mongodb.com/[`Mongo DB`^] the RxMicro framework предоставляет модуль `rxmicro.data.mongo`.
 
 <<<
 

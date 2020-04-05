@@ -6,17 +6,34 @@ include::../___fragment-settings.adoc[]
 [[data-mongo-basic-section]]
 === Basic Usage
 
-TODO
+Для использования модуля `rxmicro.data.mongo` в проекте, необходимо выполнить два шага:
+
+* Подключить зависимость `rxmicro.data.mongo` в файл pom.xml:
 
 [source,xml]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-basic/pom.xml[tag=content,indent=0]
 ----
+<1> Кроме зависимости `rxmicro.data.mongo` также рекомендуется подключить библиотеку реактивного программирования.
+
+[NOTE]
+====
+Вместо подключения сторонней библиотеки реактивного программирования можно также использовать встроенную в JDK библиотеку
+{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/package-summary.html[*java.util.concurrent*^], но на практике очень часто возможностей библиотеки
+{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/package-summary.html[*java.util.concurrent*^] не хватает.
+
+Поэтому рекомендуется использовать {REACTOR-CORE-DOC-USER_GUIDE}[*Project Reactor*^] или {RX-JAVA-USER-GUIDE}[*RxJava*^] библиотеку!
+====
+
+* Добавить модуль `rxmicro.data.mongo` в дескриптор `module-info.java`:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-basic/src/main/java/module-info.java[tag=content,indent=0]
 ----
+<1> При использовании сторонней библиотеки реактивного программирования, незабудьте подключить соответсвующий модуль.
+
+После подключения модуля `rxmicro.data.mongo` можно создавать класс модели хранения данных и динамический репозиторий:
 
 [source,java]
 ----
@@ -27,6 +44,20 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-basic/src/main/java
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-basic/src/main/java/io/rxmicro/examples/data/mongo/basic/DataRepository.java[tag=content,indent=0]
 ----
+<1> Для того, чтобы обычный интерфейс распознавался by the RxMicro framework как динамический репозиторий для взаимодействия с https://www.mongodb.com/[`Mongo DB`^]
+необходимо данный интерфейс аннотировать аннотацией {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/MongoRepository.java[`@MongoRepository`^].
+<2> Внутри динамического репозитория могут находиться методы запроса данных из https://www.mongodb.com/[`Mongo DB`^].
+_(Запрос на получения данных описывается в JSON формате (Специализированный формат запросов для https://www.mongodb.com/[`Mongo DB`^]) и указывается в параметрах аннотации.
+Для каждой операции, поддерживаемой by https://www.mongodb.com/[`Mongo DB`^], the RxMicro framework определяет отдельную аннотацию:
+Аннотация {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/operation/Find.java[`@Find`^] описывает операцию
+https://docs.mongodb.com/manual/reference/method/db.collection.find/[`db.collection.find()`^].)_
+
+Т.к. динамический репозиторий является полноценным RxMicro компонентом, то для его тестирования необходимо использовать <<testing#testing-component-tests-section,подход к тестированию компонентов микросервиса>>:
+
+[NOTE]
+====
+Общий подход, рекомендуемый для тестирования динамических репозиториев, которые взаимодействуют с https://www.mongodb.com/[`Mongo DB`^] описан в <<data-mongo-test-templates-section>>.
+====
 
 [source,java]
 ----
