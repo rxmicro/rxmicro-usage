@@ -27,3 +27,5 @@
 :POSTGRESQL-R2DBC-GITHUB-ROOT: https://github.com/r2dbc/r2dbc-postgresql
 :MONGO-ASYNC-DRIVER_DOC: http://mongodb.github.io/mongo-java-driver/3.12/driver-async/
 :MONGO-ASYNC-REACTIVE_DOC: http://mongodb.github.io/mongo-java-driver-reactivestreams/1.9/javadoc/
+
+:RX-MICRO-DOCKER_HUB_ROOT: https://hub.docker.com/r/rxmicro/

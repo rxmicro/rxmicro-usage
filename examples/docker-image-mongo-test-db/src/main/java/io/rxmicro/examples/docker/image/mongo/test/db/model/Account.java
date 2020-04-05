@@ -37,8 +37,8 @@ public class Account {
     BigDecimal balance;
 
     Role role;
-
     // end::content[]
+
     public Account() {
     }
 

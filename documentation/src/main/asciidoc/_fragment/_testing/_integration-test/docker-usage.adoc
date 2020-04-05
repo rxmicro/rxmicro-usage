@@ -8,8 +8,7 @@ include::../../___fragment-settings.adoc[]
 
 Для выполнения интеграционного тестирования микросервисов удобно использовать `docker`.
 
-Данный демонстрационный пример использует `docker` образ:
-https://hub.docker.com/repository/docker/rxmicro/simple-hello-world[`rxmicro/simple-hello-world`^].
+Данный демонстрационный пример использует `docker` образ: {RX-MICRO-DOCKER_HUB_ROOT}simple-hello-world[`rxmicro/simple-hello-world`^].
 
 [TIP]
 ====

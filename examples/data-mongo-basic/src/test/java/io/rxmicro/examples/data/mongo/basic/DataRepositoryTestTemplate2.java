@@ -17,10 +17,10 @@
 package io.rxmicro.examples.data.mongo.basic;
 
 import io.rxmicro.data.mongo.MongoConfig;
+import io.rxmicro.data.sql.r2dbc.postgresql.PostgreSQLConfig;
 import io.rxmicro.test.WithConfig;
 import io.rxmicro.test.junit.RxMicroComponentTest;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
@@ -30,7 +30,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 @Testcontainers
 // <2>
 @RxMicroComponentTest(DataRepository.class)
-final class DataRepositoryTestTemplate1 {
+final class DataRepositoryTestTemplate2 {
 
     // <3>
     @Container
@@ -43,21 +43,15 @@ final class DataRepositoryTestTemplate1 {
     private static MongoConfig mongoConfig = new MongoConfig()
             .setDatabase("rxmicro"); // <6>
 
-    @BeforeAll
-    static void beforeAll() {
-        mongoTestDb.start(); // <7>
+    private DataRepository dataRepository; // <7>
+
+    @BeforeEach
+    void beforeEach() {
         mongoConfig
                 .setHost(mongoTestDb.getContainerIpAddress()) // <8>
                 .setPort(mongoTestDb.getFirstMappedPort());
     }
 
-    private DataRepository dataRepository; // <9>
-
     // ... test methods must be here
-
-    @AfterAll
-    static void afterAll() {
-        mongoTestDb.stop(); // <10>
-    }
 }
 // end::content[]

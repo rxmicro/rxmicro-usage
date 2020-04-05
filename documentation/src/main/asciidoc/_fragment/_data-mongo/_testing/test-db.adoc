@@ -6,7 +6,8 @@ include::../../___fragment-settings.adoc[]
 [[data-mongo-test-database-section]]
 ==== Test Database
 
-TODO
+Для тестирования возможностей модуля `rxmicro.data.mongo`, которые описываются в данном разделе была создана тестовая база данных.
+Тестовая база данных состоит из одной коллекции `account`, которая содержит 6 документов, описывающих учетные данные тестовых пользователей:
 
 .Mongo Test Database
 image::data-mongo/mongo-test-db.jpg[]
@@ -19,6 +20,8 @@ image::data-mongo/mongo-test-db.jpg[]
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}docker-image-mongo-test-db/src/main/js[`{RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}docker-image-mongo-test-db/src/main/js/`^]
 ====
 
+Созданным документам в тестовой базе данных соответсвуют следующие классы Java моделей:
+
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/docker-image-mongo-test-db/src/main/java/io/rxmicro/examples/docker/image/mongo/test/db/model/Account.java[tag=content,indent=0]
@@ -28,3 +31,13 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/docker-image-mongo-test-db/src
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/docker-image-mongo-test-db/src/main/java/io/rxmicro/examples/docker/image/mongo/test/db/model/Role.java[tag=content,indent=0]
 ----
+
+[NOTE]
+====
+Для удобства изучения модуля `rxmicro.data.mongo`, Вы можете использовать готовый образ https://www.mongodb.com/[`Mongo DB`^] с тестовой базой данных: {RX-MICRO-DOCKER_HUB_ROOT}mongo-test-db[`rxmicro/mongo-test-db`^].
+
+Исходный код проекта, на базе которого был собран данный `docker` образ, доступен по ссылке:
+
+[.example-code-link]
+{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}docker-image-mongo-test-db[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}docker-image-mongo-test-db`^]
+====
