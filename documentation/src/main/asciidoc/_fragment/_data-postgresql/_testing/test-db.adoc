@@ -6,7 +6,9 @@ include::../../___fragment-settings.adoc[]
 [[data-postgresql-test-database-section]]
 ==== Test Database
 
-TODO
+Для тестирования возможностей модуля `rxmicro.data.sql.r2dbc.postgresql`, которые описываются в данном разделе была создана тестовая база данных.
+
+Тестовая база данных состоит из трех таблиц: `account`, `product` и `order`:
 
 .ER-Diagram for Test Database
 image::data-postgresql/rxmicro-test-db-er-diagram.jpg[]
@@ -18,6 +20,8 @@ SQL скрипты для создания тестовой базы данны�
 [.example-code-link]
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}docker-image-postgres-test-db/src/main/sql[`{RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}docker-image-postgres-test-db/src/main/sql/`^]
 ====
+
+Созданным таблицам в тестовой базе данных соответсвуют следующие классы Java моделей:
 
 [source,java]
 ----
@@ -38,3 +42,13 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/docker-image-postgres-test-db/
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/docker-image-postgres-test-db/src/main/java/io/rxmicro/examples/docker/image/postgres/test/db/Role.java[tag=content,indent=0]
 ----
+
+[NOTE]
+====
+Для удобства изучения модуля `rxmicro.data.sql.r2dbc.postgresql`, Вы можете использовать готовый образ https://www.postgresql.org/[`PostgreSQL DB`^] с тестовой базой данных: {RX-MICRO-DOCKER_HUB_ROOT}postgres-test-db[`rxmicro/postgres-test-db`^].
+
+Исходный код проекта, на базе которого был собран данный `docker` образ, доступен по ссылке:
+
+[.example-code-link]
+{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}docker-image-postgres-test-db[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}docker-image-postgres-test-db`^]
+====

@@ -53,6 +53,6 @@ final class DataRepositoryTestTemplate2 {
                 .setPort(postgresqlTestDb.getFirstMappedPort());
     }
 
-    // ... test methods must be here // <9>
+    // ... test methods must be here
 }
 // end::content[]

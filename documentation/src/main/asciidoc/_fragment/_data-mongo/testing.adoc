@@ -4,10 +4,9 @@ include::../___fragment-settings.adoc[]
 [[data-mongo-testing-section]]
 === Repositories Testing
 
-Для успешного функционального тестирования динамических репозиториев, которые взаимодействуют с https://www.mongodb.com/[`Mongo DB`^] необходимо:
-
-* Наличие скрипта создающего тестовую базу данных.
-* Механизм подготовки базы данных к тестированию: создание базы данных перед запуском теста и удаление базы данных после завершения тестирования.
+:link: https://www.mongodb.com/
+:name: Mongo DB
+include::../_data/___repository-testing-intro.adoc[]
 
 include::_testing/test-db.adoc[]
 

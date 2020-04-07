@@ -1,68 +1,14 @@
 :FRAGMENT_RELATIVE_DIR: ../../
 include::../../___fragment-settings.adoc[]
 
-:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
-
 [[data-mongo-test-templates-section]]
 ==== Test Templates
 
-В качестве механизма подготовки базы данных к тестированию (создание базы данных перед запуском теста и удаление базы данных после завершения тестирования) удобнее всего использовать https://www.docker.com/[`docker`^].
-
-Для запуска `docker` контейнеров в функциональном тесте удобно использовать Java библиотеку https://www.testcontainers.org/[`Testcontainers`^]:
-
-[source,java]
-----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-basic/src/test/java/io/rxmicro/examples/data/mongo/basic/DataRepositoryTestTemplate1.java[tag=content,indent=0]
-----
-<1> Аннотация {TESTCONTAINERS-JUNIT-DOC-ROOT-URL}org/testcontainers/junit/jupiter/Testcontainers.java[`@Testcontainers`^]
-активирует запуск и остановку `docker` контейнеров, которые будут использоваться в данном тесте.
-<2> Т.к. динамический репозиторий является полноценным RxMicro компонентом, то для его тестирования необходимо использовать <<testing#testing-component-tests-section,подход к тестированию компонентов микросервиса>>.
-<3> Аннотация {TESTCONTAINERS-JUNIT-DOC-ROOT-URL}org/testcontainers/junit/jupiter/Container.java[`@Container`^]
-указывает на `docker` контейнер, который будет использован в данном тесте.
-В качестве образа на базе которого необходимо создать `docker` контейнер используется готовый образ https://www.mongodb.com/[`Mongo DB`^] с тестовой базой данных:
-{RX-MICRO-DOCKER_HUB_ROOT}mongo-test-db[`rxmicro/mongo-test-db`^].
-<4> При старте `docker` контейнера необходимо открыть стандартны порт для https://www.mongodb.com/[`Mongo DB`^].
-<5> С помощью аннотации {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/WithConfig.java[`@WithConfig`^]
-объявляется конфигурация доступная только в процессе выполнения теста.
-<6> Установка имени тестовой базы данных.
-<7> Перед запуском всех тестов необходимо запустить `docker` контейнер.
-<8> После запуска `docker` контейнер, необходимо считать случайный IP address и порт, которые будут использоваться при подключении к запущенному `docker` контейнеру.
-<9> При тестировании <<testing#testing-component-tests-section,компонентов микросервиса>> необходимо указать ссылку на компонент, в которую the RxMicro framework внедрит тестируемый компонент.
-<10> После завершения всех тестов, необходимо остановить `docker` контейнер.
-
-Основное преимущество данного шаблона заключается в скорости тестирования.
-Т.к. `docker` контейнер создается один раз перед запуском *всех* тестовых методов, то суммарное время выполнения всех тестовых методов уменьшается.
-Основной недостаток данного шаблона заключается в том, что если какой-либо тестовый метод изменит состояние https://www.mongodb.com/[`Mongo DB`^], то следующий тестовый метод может завершится с ошибкой.
-
-*Поэтому данный шаблон функционального теста рекомендуется использовать при запросах к https://www.mongodb.com/[`Mongo DB`^], которые не изменяют состояния базы данных!*
-
-Если необходимо тестировать методы, которые изменяют состояние https://www.mongodb.com/[`Mongo DB`^], то следует использовать другой шаблон:
-
-[source,java]
-----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-basic/src/test/java/io/rxmicro/examples/data/mongo/basic/DataRepositoryTestTemplate2.java[tag=content,indent=0]
-----
-<1> Аннотация {TESTCONTAINERS-JUNIT-DOC-ROOT-URL}org/testcontainers/junit/jupiter/Testcontainers.java[`@Testcontainers`^]
-активирует запуск и остановку `docker` контейнеров, которые будут использоваться в данном тесте.
-<2> Т.к. динамический репозиторий является полноценным RxMicro компонентом, то для его тестирования необходимо использовать <<testing#testing-component-tests-section,подход к тестированию компонентов микросервиса>>
-<3> Аннотация {TESTCONTAINERS-JUNIT-DOC-ROOT-URL}org/testcontainers/junit/jupiter/Container.java[`@Container`^]
-указывает на `docker` контейнер, который будет использован в данном тесте.
-В качестве образа на базе которого необходимо создать `docker` контейнер используется готовый образ https://www.mongodb.com/[`Mongo DB`^] с тестовой базой данных:
-{RX-MICRO-DOCKER_HUB_ROOT}mongo-test-db[`rxmicro/mongo-test-db`^].
-<4> При старте `docker` контейнера необходимо открыть стандартны порт для https://www.mongodb.com/[`Mongo DB`^].
-<5> С помощью аннотации {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/WithConfig.java[`@WithConfig`^]
-объявляется конфигурация доступная только в процессе выполнения теста.
-<6> Установка имени тестовой базы данных.
-<7> При тестировании <<testing#testing-component-tests-section,компонентов микросервиса>> необходимо указать ссылку на компонент, в которую the RxMicro framework внедрит тестируемый компонент.
-<8> После запуска `docker` контейнер, необходимо считать случайный IP address и порт, которые будут использоваться при подключении к запущенному `docker` контейнеру.
-
-Данный шаблон *для каждого тестового метода* будет создавть и останавливать `docker` контейнер, что может увеличить суммарное время выполнения всех тестовых методов.
-
-*Поэтому выбирайте наиболее подходящий шаблон функционального теста исходя из требований к тестируемому функционалу!*
-
-[IMPORTANT]
-====
-Библиотека https://www.testcontainers.org/[`Testcontainers`^] запускает `docker` контейнер перед запуском теста и останавливает `docker` контейнер после выполнения теста автоматически!
-
-Поэтому запускать и останавливать `docker` контейнер нужно вручную только, если Вы хотите использовать один `docker` контейнер для *всех* тестовых методов!
-====
+:test-template-owner:
+:db-link: https://www.mongodb.com/
+:db-name: Mongo DB
+:docker-test-db-link: {RX-MICRO-DOCKER_HUB_ROOT}mongo-test-db
+:docker-test-db-name: rxmicro/mongo-test-db
+:shared-template-source-code: ../../../../../../examples/data-mongo-basic/src/test/java/io/rxmicro/examples/data/mongo/basic/DataRepositoryTestTemplate1.java
+:personal-template-source-code: ../../../../../../examples/data-mongo-basic/src/test/java/io/rxmicro/examples/data/mongo/basic/DataRepositoryTestTemplate2.java
+include::../../_data/___repository-testing-docker.adoc[]

@@ -100,6 +100,11 @@ public final class WordCount {
                     new File(DOC_ROOT.getAbsolutePath() + "/___notes"),
                     new File(DOC_ROOT.getAbsolutePath() + "/___shared")
             );
+        } else if ("data-mongo".equals(name)) {
+            return List.of(
+                    new File(DOC_ROOT.getAbsolutePath() + "/_data"),
+                    new File(DOC_ROOT.getAbsolutePath() + "/_" + name)
+            );
         } else if ("rest-controller".equals(name)) {
             return List.of(
                     new File(DOC_ROOT.getAbsolutePath() + "/_rest"),

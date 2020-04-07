@@ -55,11 +55,11 @@ final class DataRepositoryTestTemplate1 {
 
     private DataRepository dataRepository; // <9>
 
-    // ... test methods must be here // <10>
+    // ... test methods must be here
 
     @AfterAll
     static void afterAll() {
-        postgresqlTestDb.stop(); // <11>
+        postgresqlTestDb.stop(); // <10>
     }
 }
 // end::content[]

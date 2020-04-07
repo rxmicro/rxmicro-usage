@@ -4,12 +4,12 @@ include::../___fragment-settings.adoc[]
 [[data-postgresql-testing-section]]
 === Repositories Testing
 
-TODO
+:link: https://www.postgresql.org/
+:name: PostgreSQL DB
+include::../_data/___repository-testing-intro.adoc[]
 
 include::_testing/test-db.adoc[]
 
 <<<
-
-TODO
 
 include::_testing/test-templates.adoc[]

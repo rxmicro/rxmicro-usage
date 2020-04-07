@@ -1,19 +1,14 @@
 :FRAGMENT_RELATIVE_DIR: ../../
 include::../../___fragment-settings.adoc[]
 
-:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
-
 [[data-postgresql-test-templates-section]]
 ==== Test Templates
 
-TODO
-
-[source,java]
-----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-basic/src/test/java/io/rxmicro/examples/data/r2dbc/postgresql/basic/DataRepositoryTestTemplate1.java[tag=content,indent=0]
-----
-
-[source,java]
-----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-basic/src/test/java/io/rxmicro/examples/data/r2dbc/postgresql/basic/DataRepositoryTestTemplate2.java[tag=content,indent=0]
-----
+:test-template-owner:
+:db-link: https://www.postgresql.org/
+:db-name: PostgreSQL DB
+:docker-test-db-link: {RX-MICRO-DOCKER_HUB_ROOT}postgres-test-db
+:docker-test-db-name: rxmicro/postgres-test-db
+:shared-template-source-code: ../../../../../../examples/data-r2dbc-postgresql-basic/src/test/java/io/rxmicro/examples/data/r2dbc/postgresql/basic/DataRepositoryTestTemplate1.java
+:personal-template-source-code: ../../../../../../examples/data-r2dbc-postgresql-basic/src/test/java/io/rxmicro/examples/data/r2dbc/postgresql/basic/DataRepositoryTestTemplate2.java
+include::../../_data/___repository-testing-docker.adoc[]
