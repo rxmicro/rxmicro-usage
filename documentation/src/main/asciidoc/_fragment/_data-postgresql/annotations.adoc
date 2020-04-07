@@ -12,63 +12,69 @@ The RxMicro framework supports the following `RxMicro annotations`:
 |*Аннотация*|*Описание*
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data/src/main/java/io/rxmicro/data/Column.java[`@Column`^]
-|
+|Устанавливает mapping между именем столбца в таблице `PostgreSQL DB` и именем поля класса Java модели.
+
+_(По-умолчанию the RxMicro framework использует имя поля класса Java модели в качестве имени столбца в таблице `PostgreSQL DB`.
+Если имя по каким-либо причина должно отличаться, (например в качестве имени столбца в таблице `PostgreSQL DB` используется ключевое слово Java), то необходимо его указать используя данную аннотацию!)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data/src/main/java/io/rxmicro/data/ColumnMappingStrategy.java[`@ColumnMappingStrategy`^]
-|
+|Устанавливает стратегию формирования имен столбцов в таблице `PostgreSQL DB`, на основании анализа имен полей класса Java модели.
+
+_(Если данной аннотацией аннотирован класс Java модели, то будет использоваться установленная стратегия для *всех* полей в данном классе.
+Например, если будет установлена стратегия по-умолчанию: {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L34[`LOWERCASE_WITH_UNDERSCORED`^],
+то полю `parentId` в Java классе будет соответствовать столбец `parent_id` в таблице `PostgreSQL DB`.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data/src/main/java/io/rxmicro/data/DataRepositoryGeneratorConfig.java[`@DataRepositoryGeneratorConfig`^]
-|
+|Позволяет конфигурировать процесс генерации репозиториев.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data/src/main/java/io/rxmicro/data/RepeatParameter.java[`@RepeatParameter`^]
-|
+|Позволяет установить <<data-postgres-repeat-parameter-section, mapping между одним параметром метода, помеченным данной аннотацией и нескольким универсальными placeholders, которые используются в запросе к `PostgreSQL DB`>>.
 
 // ---------------------------------------------------------------------------------------------------------------------
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/operation/Select.java[`@Select`^]
-|
+|Denotes a repository method that must execute <<data-postgresql-select-section,a `SELECT` SQL operation>>
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/operation/CustomSelect.java[`@CustomSelect`^]
-|
+|Denotes a <<data-postgresql-select-custom-section,string parameter of repository method, the value of that must be used as custom SELECT.>>
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/operation/Insert.java[`@Insert`^]
-|
+|Denotes a repository method that must execute <<data-postgresql-insert-section,a `INSERT` SQL operation>>
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/operation/Update.java[`@Update`^]
-|
+|Denotes a repository method that must execute <<data-postgresql-update-section,a `UPDATE` SQL operation>>
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/operation/Delete.java[`@Delete`^]
-|
+|Denotes a repository method that must execute <<data-postgresql-delete-section,a `DELETE` SQL operation>>
 
-
-|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/Cast.java[`@Cast`^]
-|
+//|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/Cast.java[`@Cast`^]
+//|
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/NotInsertable.java[`@NotInsertable`^]
-|
+|Denotes a model field, the value of that ignored during `INSERT` SQL operation.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/NotUpdatable.java[`@NotUpdatable`^]
-|
+|Denotes a model field, the value of that ignored during `UPDATE` SQL operation.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/PrimaryKey.java[`@PrimaryKey`^]
-|
+|Denotes <<data-postgresql-primary-keys-section,a model field that must be used as primary key.>>
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/Schema.java[`@Schema`^]
-|
+|Denotes a schema of a database table.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/SequenceGenerator.java[`@SequenceGenerator`^]
-|
+|Denotes https://www.postgresql.org/docs/12/functions-sequence.html[a sequence that must be used to get the next unique value for model field^].
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/Table.java[`@Table`^]
-|
+|Denotes a table name for entity.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/VariableValues.java[`@VariableValues`^]
-|
+|Denotes a <<data-postgresql-variables-section,storage with the values of the predefined variables>>.
 // ---------------------------------------------------------------------------------------------------------------------
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql-r2dbc-postgresql/src/main/java/io/rxmicro/data/sql/r2dbc/postgresql/PostgreSQLRepository.java[`@PostgreSQLRepository`^]
-|
+|Denotes that an interface is a dynamic generated PostgreSQL data repository.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql-r2dbc-postgresql/src/main/java/io/rxmicro/data/sql/r2dbc/postgresql/PartialImplementation.java[`@PartialImplementation`^]
-|
+|Denotes an abstract class that contains <<data-postgresql-partial-implementation-section,a partial implementation of the annotated PostgreSQL Data Repository interface>>.
 // ---------------------------------------------------------------------------------------------------------------------
 |===

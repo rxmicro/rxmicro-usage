@@ -4,7 +4,7 @@ include::../___fragment-settings.adoc[]
 [[validation-std-constraints-section]]
 === Built-in Сonstraints.
 
-The RxMicro framework supports the following built-in constraints, which are available at the package
+The RxMicro framework supports the following built-in constraints, that are available at the package
 {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint[`io.rxmicro.validation.constraint`^]:
 
 .Supported Built-in Сonstraints.

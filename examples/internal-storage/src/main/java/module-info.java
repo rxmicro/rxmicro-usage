@@ -16,5 +16,6 @@
 
 module examples.internal.storage {
     requires rxmicro.data.mongo;
+    requires rxmicro.data.sql.r2dbc.postgresql;
     requires reactor.core;
 }

@@ -23,6 +23,14 @@ include::_data-postgresql/models.adoc[]
 
 <<<
 
+include::_data-postgresql/universal-placeholder.adoc[]
+
+<<<
+
+include::_data-postgresql/repeat-parameter.adoc[]
+
+<<<
+
 include::_data-postgresql/operations.adoc[]
 
 <<<

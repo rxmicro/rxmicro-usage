@@ -1,0 +1,25 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
+
+[[data-postgres-repeat-parameter-section]]
+=== `@RepeatParameter` Annotation
+
+The universal placeholder (`?`) is the simplest type of placeholders.
+
+But unfortunately, it has one disadvantage: if a query parameter must be repeated, a developer must define a copy of this parameter:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/internal-storage/src/main/java/io/rxmicro/examples/internal/storage/postgres/PostgreSQLRepeatParameterRepository.java[tag=problem,indent=0]
+----
+
+The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data/src/main/java/io/rxmicro/data/RepeatParameter.java[`@RepeatParameter`^] annotation fixes this disadvantage.
+
+The following code is an equivalent to the code with copies of `name` parameters:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/internal-storage/src/main/java/io/rxmicro/examples/internal/storage/postgres/PostgreSQLRepeatParameterRepository.java[tag=solution,indent=0]
+----

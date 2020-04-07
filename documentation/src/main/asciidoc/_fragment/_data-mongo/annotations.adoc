@@ -56,12 +56,12 @@ _(Если данной аннотацией аннотирован класс J
 |Denotes a repository method that must execute <<data-mongo-delete-section,a `db.collection.deleteOne()` operation>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/DocumentId.java[`@DocumentId`^]
-|Denotes a field of Java model class that must be used as https://docs.mongodb.com/manual/core/data-modeling-introduction/[document unique identifier^].
+|Denotes a model field that must be used as https://docs.mongodb.com/manual/core/data-modeling-introduction/[document unique identifier^].
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/MongoRepository.java[`@MongoRepository`^]
 |Denotes that an interface is a dynamic generated Mongo data repository.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/PartialImplementation.java[`@PartialImplementation`^]
-|Позволяет <<data-mongo-partial-implementation-section,задавать класс с частичной реализацией для Mongo Data Repository>>.
+|Denotes an abstract class that contains <<data-mongo-partial-implementation-section,a partial implementation of the annotated Mongo Data Repository interface>>.
 // ---------------------------------------------------------------------------------------------------------------------
 |===

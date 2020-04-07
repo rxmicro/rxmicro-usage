@@ -19,7 +19,7 @@ Setup of the GraalVM CE contains a few simple steps:
 
 ===== Make a GraalVM Home Directory
 
-Make a directory, which will contain a GraalVM distribution:
+Make a directory, that will contain a GraalVM distribution:
 
 [source,txt,subs="verbatim,quotes"]
 ----

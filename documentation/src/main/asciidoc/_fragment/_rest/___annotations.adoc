@@ -178,7 +178,7 @@ _(Данная аннотация применима только к поля с
 |Позволяет <<rest-client-partial-implementation-section,задавать класс с частичной реализацией для REST клиента>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/RestClientGeneratorConfig.java[`@RestClientGeneratorConfig`^]
-|Позволяет <<rest-client-rest-client-generator-config-section,конфигурировать процесс генерации кода процессором аннотаций для REST клиента>>.
+|Denotes an abstract class that contains <<rest-client-rest-client-generator-config-section,a partial implementation of the annotated REST client interface>>.
 endif::[]
 // ---------------------------------------------------------------------------------------------------------------------
 |===

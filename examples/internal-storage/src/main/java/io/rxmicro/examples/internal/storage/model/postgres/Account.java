@@ -14,4 +14,14 @@
  * limitations under the License.
  */
 
-package io.rxmicro.examples.internal.storage.model;
+package io.rxmicro.examples.internal.storage.model.postgres;
+
+import io.rxmicro.data.ColumnMappingStrategy;
+
+@ColumnMappingStrategy
+public class Account {
+
+    String firstName;
+
+    String lastName;
+}

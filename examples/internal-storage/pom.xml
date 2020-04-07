@@ -74,6 +74,11 @@
             <version>${rxmicro.version}</version>
         </dependency>
         <dependency>
+            <groupId>io.rxmicro</groupId>
+            <artifactId>rxmicro-data-sql-r2dbc-postgresql</artifactId>
+            <version>${rxmicro.version}</version>
+        </dependency>
+        <dependency>
             <groupId>io.projectreactor</groupId>
             <artifactId>reactor-core</artifactId>
             <version>${projectreactor.version}</version>

@@ -12,12 +12,12 @@ There are four types of modules in the JPMS:
 
 * *System Modules* - There are the Java SE and JDK modules. +
 _(For example `java.base`, `java.logging`, `java.net.http`, etc)_
-* *Application Modules* - The default modules, which are built using JPMS. +
+* *Application Modules* - The default modules, that are built using JPMS. +
 They are `named` and defined in the compiled `module-info.class` file included in the assembled JAR.
-* *Automatic Modules* - The modules which are created automatically from all unmodularized jar files at the module path.
+* *Automatic Modules* - The modules that are created automatically from all unmodularized jar files at the module path.
 The name of the modules will be derived from the name of the appropriate JAR files.
-* *Unnamed Modules* - The modules which are created automatically if JAR files are loaded onto the classpath instead of the module path.
-Unnamed modules disable the JPMS and allow to run any code which does not support the JPMS on Java 9 or higher.
+* *Unnamed Modules* - The modules that are created automatically if JAR files are loaded onto the classpath instead of the module path.
+Unnamed modules disable the JPMS and allow to run any code that does not support the JPMS on Java 9 or higher.
 ====
 
 Однако на сегодняшний день большая часть существующих фреймворком и библиотек ориентированы на https://openjdk.java.net/projects/jdk8/[JDK 8] и не поддерживают JPMS.
