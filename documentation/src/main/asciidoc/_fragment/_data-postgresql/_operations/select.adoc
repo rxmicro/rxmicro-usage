@@ -4,7 +4,7 @@ include::../../___fragment-settings.adoc[]
 [[data-postgresql-select-section]]
 ==== `@Select`
 
-TODO
+The `rxmicro.data.sql.r2dbc.postgresql` module supports the https://www.postgresql.org/docs/current/sql-select.html[`SELECT`^] SQL operation.
 
 include::_select/return.adoc[]
 

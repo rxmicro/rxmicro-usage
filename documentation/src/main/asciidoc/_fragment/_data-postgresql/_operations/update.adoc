@@ -6,12 +6,14 @@ include::../../___fragment-settings.adoc[]
 [[data-postgresql-update-section]]
 ==== `@Update`
 
-TODO
+The `rxmicro.data.sql.r2dbc.postgresql` module supports the https://www.postgresql.org/docs/current/sql-update.html[`UPDATE`^] SQL operation:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-update/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/update/DataRepository.java[tag=content,indent=0]
 ----
+<1> The variable values are used to resolve predefined variables at the SQL query. +
+_(Read more about the algorithm of the variables resolving at <<data-postgresql-variables-section>>.)_
 
 [NOTE]
 ====
