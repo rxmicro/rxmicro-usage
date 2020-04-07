@@ -6,27 +6,53 @@ include::../___fragment-settings.adoc[]
 [[data-postgresql-basic-section]]
 === Basic Usage
 
-TODO
+Для использования модуля `rxmicro.data.sql.r2dbc.postgresql` в проекте, необходимо выполнить два шага:
+
+* Подключить зависимость `rxmicro.data.sql.r2dbc.postgresql` в файл pom.xml:
 
 [source,xml]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-basic/pom.xml[tag=content,indent=0]
 ----
 
+* Добавить модуль `rxmicro.data.sql.r2dbc.postgresql` в дескриптор `module-info.java`:
+
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-basic/src/main/java/module-info.java[tag=content,indent=0]
 ----
 
+[IMPORTANT]
+====
+По-умолчанию https://github.com/r2dbc/r2dbc-postgresql[реактивный R2DBC PostgreSQL драйвер^] использует библиотеку {REACTOR-CORE-DOC-USER_GUIDE}[*Project Reactor*^],
+поэтому при подключении модуля `rxmicro.data.sql.r2dbc.postgresql` автоматически подключается модуль `reactor.core`!
+====
+
+После подключения модуля `rxmicro.data.sql.r2dbc.postgresql` можно создавать класс модели хранения данных и динамический репозиторий:
+
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-basic/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/basic/entity/Account.java[tag=content,indent=0]
 ----
+<1> Аннотация {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data/src/main/java/io/rxmicro/data/ColumnMappingStrategy.java[`@ColumnMappingStrategy`^]
+устанавливает стратегию формирования имен столбцов таблицы реляционной базы данных на основании анализа имен полей класса Java модели. +
+_(Таким образом полю `firstName` соответсвует столбец `first_name`, а полю `lastName` - столбец `last_name`.)_
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-basic/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/basic/DataRepository.java[tag=content,indent=0]
 ----
+<1> Для того, чтобы обычный интерфейс распознавался by the RxMicro framework как динамический репозиторий для взаимодействия с https://www.postgresql.org/[`PostgreSQL DB`^]
+необходимо данный интерфейс аннотировать аннотацией {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql-r2dbc-postgresql/src/main/java/io/rxmicro/data/sql/r2dbc/postgresql/PostgreSQLRepository.java[`@PostgreSQLRepository`^].
+<2> Внутри динамического репозитория могут находиться методы запроса данных из https://www.postgresql.org/[`PostgreSQL DB`^]. +
+_(Запрос на получения данных описывается c помощью https://en.wikipedia.org/wiki/SQL[`SQL`^] и указывается в параметрах аннотации.)_
+
+Т.к. динамический репозиторий является полноценным RxMicro компонентом, то для его тестирования необходимо использовать <<testing#testing-component-tests-section,подход к тестированию компонентов микросервиса>>:
+
+[NOTE]
+====
+Общий подход, рекомендуемый для тестирования динамических репозиториев, которые взаимодействуют с https://www.postgresql.org/[`PostgreSQL DB`^] описан в <<data-postgresql-test-templates-section>>.
+====
 
 [source,java]
 ----

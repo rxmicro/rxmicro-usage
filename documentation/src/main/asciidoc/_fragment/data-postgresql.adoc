@@ -1,7 +1,9 @@
 :FRAGMENT_RELATIVE_DIR:
 include::___fragment-settings.adoc[]
 
-TODO
+The RxMicro framework поддерживает создание динамических репозиторией для взаимодействия с базами данных.
+
+Для взаимодействия с https://www.postgresql.org/[`PostgreSQL DB`^] используя https://github.com/r2dbc/r2dbc-postgresql[реактивный R2DBC PostgreSQL драйвер^] the RxMicro framework предоставляет модуль `rxmicro.data.sql.r2dbc.postgresql`.
 
 <<<
 

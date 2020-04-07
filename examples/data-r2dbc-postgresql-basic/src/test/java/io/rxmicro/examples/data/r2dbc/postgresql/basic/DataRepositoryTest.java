@@ -26,6 +26,7 @@ import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+import static java.util.Objects.requireNonNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 // tag::content[]
@@ -55,8 +56,9 @@ final class DataRepositoryTest {
 
     @Test
     void Should_find_account() {
-        final Account account =
-                dataRepository.findByEmail("richard.hendricks@piedpiper.com").join();
+        final Account account = requireNonNull(
+                dataRepository.findByEmail("richard.hendricks@piedpiper.com").block()
+        );
 
         assertEquals("Richard", account.getFirstName());
         assertEquals("Hendricks", account.getLastName());
