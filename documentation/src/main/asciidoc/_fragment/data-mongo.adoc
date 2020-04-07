@@ -19,6 +19,14 @@ include::_data-mongo/testing.adoc[]
 
 <<<
 
+include::_data-mongo/universal-placeholder.adoc[]
+
+<<<
+
+include::_data-mongo/repeat-parameter.adoc[]
+
+<<<
+
 include::_data-mongo/operations.adoc[]
 
 <<<

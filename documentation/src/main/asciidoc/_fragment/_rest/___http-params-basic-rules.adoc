@@ -19,7 +19,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-params/src/mai
 <1> Аннотация {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ParameterMappingStrategy.java[`@ParameterMappingStrategy`^]
 позволяет задать общие правила преобразования для всех имен параметров из HTTP формата в Java и наоборот в текущем классе модели.
 _(По умолчанию используется стратегия
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L34[`MappingStrategy.LOWERCASE_WITH_UNDERSCORED`^].
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L34[`LOWERCASE_WITH_UNDERSCORED`^].
 В качестве базового имени используется имя поля, а затем применяя правила указанной стратегии, формируется имя HTTP параметра.)_
 <2> Для того чтобы поле модели объявить как поле HTTP параметра, необходимо использовать аннотацию
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Parameter.java[`@Parameter`^].

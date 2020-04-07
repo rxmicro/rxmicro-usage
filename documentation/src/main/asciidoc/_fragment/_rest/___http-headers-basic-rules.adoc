@@ -19,7 +19,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-headers/src/ma
 <1> Аннотация {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/HeaderMappingStrategy.java[`@HeaderMappingStrategy`^]
 позволяет задать общие правила преобразования для всех имен заголовков из HTTP формата в Java и наоборот в текущем классе модели. +
 _(По умолчанию используется стратегия
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L59[`MappingStrategy.CAPITALIZE_WITH_HYPHEN`^].
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L59[`CAPITALIZE_WITH_HYPHEN`^].
 В качестве базового имени используется имя поля, а затем применяя правила указанной стратегии, формируется имя HTTP заголовка.)_
 <2> Для того, чтобы поле модели объявить как поле HTTP заголовка, необходимо использовать аннотацию
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Header.java[`@Header`^].

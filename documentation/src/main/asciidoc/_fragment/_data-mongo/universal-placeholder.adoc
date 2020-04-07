@@ -1,0 +1,23 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
+
+[[data-mongo-universal-placeholder-section]]
+=== Universal Placeholder
+
+The RxMicro framework recommends to the use universal placeholder (`?`) for the mapping between `Mongo DB` queries and parameters of the repository method:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/internal-storage/src/main/java/io/rxmicro/examples/internal/storage/mongo/MongoRepeatParameterRepository.java[tag=paramMappingExample,indent=0]
+----
+
+[TIP]
+====
+If this method invoked with the following parameter: +
+`repository.findByEmail("welcome@rxmicro.io");`,
+
+the RxMicro framework will generate the following `Mongo DB` query: +
+`{email: "welcome@rxmicro.io"}`.
+====
