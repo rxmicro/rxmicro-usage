@@ -6,17 +6,50 @@ include::../___fragment-settings.adoc[]
 [[data-postgresql-variables-section]]
 === Variables Support
 
-TODO
+При построении SQL запросов, иногда возникает необходимость указывать название таблицы в виде строковой константы.
+Такая возможность предоставляет разработчику большую гибкость: для разных окружений название таблиц может быть разным.
+
+Для улучшенной читаемости SQL запроса the RxMicro framework рекомендует использовать предопределенные переменные вместо конкатенации строк:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-variables/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/variables/DataRepository.java[tag=content,indent=0]
 ----
+<1> Строковая константа с именем таблицы.
+<2> При конкатенации строк читаемость целого SQL запроса ухудшается.
+<3> Вместо конкатенации строк the RxMicro framework рекомендует использовать предопределенные переменные.
+
+Все предопределенные переменные, поддерживаемые by the RxMicro framework объявлены в классе {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/SupportedVariables.java[`SupportedVariables`^]
+
+Для определения значения предопределенной переменной, которая используется в запросе указанном для repository method, the RxMicro framework использует следующий алгоритм:
+
+. Если the repository method возвращает или принимает в качестве параметра модель сущности, то для определения значения переменной используется класс модели сущности.
+. Иначе the RxMicro framework анализирует опциональный параметр `entityClass`, опредеенный в аннотациях
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/operation/Select.java[`@Select`^],
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/operation/Insert.java[`@Insert`^],
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/operation/Update.java[`@Update`^] и
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/operation/Delete.java[`@Delete`^].
+. Если опциональный параметр `entityClass` задан, то для определения значения переменной используется класс указанный в данном параметре.
+. Если опциональный параметр `entityClass` отсутсвует, то the RxMicro framework пытается извлечь значение переменной из аннотации
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/VariableValues.java[`@VariableValues`^], которой аннотирован данный repository method.
+. Если the repository method не аннотирован аннотацией {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/VariableValues.java[`@VariableValues`^]
+или аннотация {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/VariableValues.java[`@VariableValues`^]
+не содержит значения предопределенной переменной, то то the RxMicro framework пытается извлечь значение этой переменной из аннотации
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/VariableValues.java[`@VariableValues`^], которой аннотирован интерфейс репозитория.
+. Если во всех указанных местах значение переменной неопределено, то the RxMicro framework информирует разработчика об ошибке.
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-variables/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/variables/SelectDataRepository.java[tag=content,indent=0]
 ----
+<1> Значение переменной `${table}` будет равно `entity_table`. +
+_(Значение переменной считывается из класса `Entity`, который возвращается данным методом.)_
+<2> Значение переменной `${table}` будет равно `entity_table`. +
+_(Значение переменной считывается из класса `Entity`, т.к. данный класс указан в параметре `entityClass`.)_
+<3> Значение переменной `${table}` будет равно `global_table`. +
+_(Значение переменной считывается из аннотации `@VariableValues`, которой аннотирован интерфейс репозитория.)_
+<4> Значение переменной `${table}` будет равно `local_table`. +
+_(Значение переменной считывается из аннотации `@VariableValues`, которой аннотирован repository method.)_
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-r2dbc-postgresql-variables
 include::../___notes/full-source-code-of-example.adoc[]
