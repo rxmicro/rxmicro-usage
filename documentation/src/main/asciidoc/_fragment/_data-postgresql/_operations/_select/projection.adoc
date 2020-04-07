@@ -6,16 +6,25 @@ include::../../../___fragment-settings.adoc[]
 [[data-postgresql-select-projection-section]]
 ===== Selected Projections
 
+The `rxmicro.data.sql.r2dbc.postgresql` module supports projections from selected table(s).
+
+To use projections, developer must specify required columns at `SELECT` query:
+
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-select-projection/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/select/projection/SelectProjectionDataRepository.java[tag=content,indent=0]
 ----
+
+For each nonstandard projection, the RxMicro framework generates a separate converter method.
+
+For example for `SelectProjectionDataRepository` the RxMicro framework generates the following converter:
 
 [source,java]
 ----
 public final class $$AccountEntityFromDBConverter
         extends EntityFromDBConverter<Row, RowMetadata, Account> {
 
+    // <1>
     public Account fromDB(final Row dbRow,
                           final RowMetadata metadata) {
         final Account model = new Account();
@@ -59,6 +68,9 @@ public final class $$AccountEntityFromDBConverter
     }
 }
 ----
+<1> It is standard converter example. +
+_(This converter is a standard one, because an order of the selected columns is defined by the order of fields of Java model class.
+(`Account` class for current example.))_
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-r2dbc-postgresql-select-projection
 include::../../../___notes/full-source-code-of-example.adoc[]
