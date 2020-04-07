@@ -3,7 +3,7 @@ include::../../___fragment-settings.adoc[]
 
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
 
-[[data-mongo-estimated-document-count-section]]
+[[data-mongo-estimatedDocumentCount-section]]
 ==== `@EstimatedDocumentCount`
 
 The `rxmicro.data.mongo` module supports the https://docs.mongodb.com/manual/reference/method/db.collection.estimatedDocumentCount/[`db.collection.estimatedDocumentCount()`^] operation:

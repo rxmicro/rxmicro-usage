@@ -12,50 +12,56 @@ The RxMicro framework supports the following `RxMicro annotations`:
 |*Аннотация*|*Описание*
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data/src/main/java/io/rxmicro/data/Column.java[`@Column`^]
-|
+|Устанавливает mapping между именем поля в `Mongo DB` документе и именем поля класса Java модели.
+
+_(По-умолчанию the RxMicro framework использует имя поля класса Java модели в качестве имени поля в `Mongo DB` документе.
+Если имя по каким-либо причина должно отличаться, (например в качестве имени поля `Mongo DB` документа используется ключевое слово Java), то необходимо его указать используя данную аннотацию!)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data/src/main/java/io/rxmicro/data/ColumnMappingStrategy.java[`@ColumnMappingStrategy`^]
-|
+|Устанавливает стратегию формирования имен полей в `Mongo DB` документе, на основании анализа имен полей класса Java модели.
+
+_(Если данной аннотацией аннотирован класс Java модели, то будет использоваться установленная стратегия для *всех* полей в данном классе.
+Например, если будет установлена стратегия по-умолчанию: {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L34[`LOWERCASE_WITH_UNDERSCORED`^],
+то полю `parentId` в Java классе будет соответствовать поле `parent_id` в `Mongo DB` документе.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data/src/main/java/io/rxmicro/data/DataRepositoryGeneratorConfig.java[`@DataRepositoryGeneratorConfig`^]
-|
+|Позволяет конфигурировать процесс генерации репозиториев.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data/src/main/java/io/rxmicro/data/RepeatParameter.java[`@RepeatParameter`^]
-|
+|Позволяет установить <<data-mongo-repeat-parameter-section, mapping между одним параметром метода, помеченным данной аннотацией и нескольким универсальными placeholders, которые используются в запросе к `Mongo DB`>>.
 
 // ---------------------------------------------------------------------------------------------------------------------
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/operation/Find.java[`@Find`^]
-|
+|Denotes a repository method that must execute <<data-mongo-find-section,a `db.collection.find()` operation>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/operation/Aggregate.java[`@Aggregate`^]
-|
+|Denotes a repository method that must execute <<data-mongo-aggregate-section,a `db.collection.aggregate()` operation>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/operation/Distinct.java[`@Distinct`^]
-|
+|Denotes a repository method that must execute <<data-mongo-distinct-section,a `db.collection.distinct()` operation>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/operation/CountDocuments.java[`@CountDocuments`^]
-|
+|Denotes a repository method that must execute <<data-mongo-countDocuments-section,a `db.collection.countDocuments()` operation>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/operation/EstimatedDocumentCount.java[`@EstimatedDocumentCount`^]
-|
+|Denotes a repository method that must execute <<data-mongo-estimatedDocumentCount-section,a `db.collection.estimatedDocumentCount()` operation>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/operation/Insert.java[`@Insert`^]
-|
+|Denotes a repository method that must execute <<data-mongo-insert-section,a `db.collection.insertOne()` operation>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/operation/Update.java[`@Update`^]
-|
+|Denotes a repository method that must execute <<data-mongo-update-section,a `db.collection.updateOne()` operation>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/operation/Delete.java[`@Delete`^]
-|
-
+|Denotes a repository method that must execute <<data-mongo-delete-section,a `db.collection.deleteOne()` operation>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/DocumentId.java[`@DocumentId`^]
-|
+|Denotes a field of Java model class that must be used as https://docs.mongodb.com/manual/core/data-modeling-introduction/[document unique identifier^].
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/MongoRepository.java[`@MongoRepository`^]
-|
+|Denotes that an interface is a dynamic generated Mongo data repository.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/PartialImplementation.java[`@PartialImplementation`^]
-|
+|Позволяет <<data-mongo-partial-implementation-section,задавать класс с частичной реализацией для Mongo Data Repository>>.
 // ---------------------------------------------------------------------------------------------------------------------
 |===
