@@ -6,10 +6,30 @@ include::../../../___fragment-settings.adoc[]
 [[data-postgresql-select-custom-section]]
 ===== Custom Select
 
+The `rxmicro.data.sql.r2dbc.postgresql` module introduces a {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/operation/CustomSelect.java[`@CustomSelect`^]
+annotation that allows to work with a `Custom SELECT`.
+
+The `Custom SELECT` is a string parameter that sends to a repository method and contains a SQL, built dynamically during an execution of a microservice:
+
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-select-custom/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/select/custom/CustomSelectRepository.java[tag=content,indent=0]
 ----
+<1> This is example of a repository method that can execute any `SELECT` query.
+<2> This repository method selects all columns defined at `Account` entity. +
+_(Disabling of universal placeholder means that developer must use postgres specific placeholder (`$1`, `$2`, etc) instead of universal placeholder (`?`).
+Otherwise error will be thrown!)_
+<3> This repository method selects only selected columns (`first_name` and `last_name`) from `account` table. +
+_(This method supports universal placeholder!)_
+<4> This repository method selects only selected columns (`last_name` and `first_name`) from `account` table. +
+_(This method supports universal placeholder!)_
+
+[IMPORTANT]
+====
+Using of the `Custom SELECT` feature requires that dynamic built SQL contains the predefined selected columns, otherwise the model converter will convert a table row to the instance of Java class incorrectly!
+====
+
+The following test describes how the `Custom SELECT` feature can be tested:
 
 [source,java]
 ----

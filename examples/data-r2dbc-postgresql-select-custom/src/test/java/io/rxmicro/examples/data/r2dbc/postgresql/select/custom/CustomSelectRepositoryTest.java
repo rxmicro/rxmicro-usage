@@ -64,7 +64,7 @@ final class CustomSelectRepositoryTest {
     @Test
     void findAll() {
         final List<EntityFieldMap> entityFieldMaps = dataRepository.findAll(
-                "SELECT email, first_name, last_name FROM account WHERE id = 1" // <1>
+                "SELECT email, first_name, last_name FROM account WHERE id = 1"
         ).join();
         assertEquals(
                 List.of(
@@ -81,7 +81,7 @@ final class CustomSelectRepositoryTest {
     @Test
     void findAccount() {
         final Optional<Account> optionalAccount = dataRepository.findAccount(
-                "SELECT * FROM account WHERE first_name = $1", // <2>
+                "SELECT * FROM account WHERE first_name = $1",
                 "Richard"
         ).join();
         assertEquals(
@@ -101,7 +101,7 @@ final class CustomSelectRepositoryTest {
     @Test
     void findFirstAndLastName() {
         final Optional<Account> optionalAccount = dataRepository.findFirstAndLastName(
-                "SELECT first_name, last_name FROM account WHERE first_name = ?", // <3>
+                "SELECT first_name, last_name FROM account WHERE first_name = ?",
                 "Richard"
         ).join();
         assertEquals(
@@ -113,7 +113,7 @@ final class CustomSelectRepositoryTest {
     @Test
     void findLastAndFirstName() {
         final Optional<Account> optionalAccount = dataRepository.findLastAndFirstName(
-                "SELECT last_name, first_name FROM account WHERE first_name = ?", // <4>
+                "SELECT last_name, first_name FROM account WHERE first_name = ?",
                 "Richard"
         ).join();
         assertEquals(
