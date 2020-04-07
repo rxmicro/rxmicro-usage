@@ -6,22 +6,34 @@ include::../___fragment-settings.adoc[]
 [[data-postgresql-primary-keys-section]]
 === Primary Keys Support
 
-TODO
+The `rxmicro.data.sql.r2dbc.postgresql` module supports four types of the primary keys:
 
-[source,java]
-----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-primary-keys/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/primary/keys/model/Account.java[tag=content,indent=0]
-----
+* Auto generated primary key. (https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL[`SERIAL` type.^]) +
+_(A uniqueness of this type of primary key is controlled by the database server!)_:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-primary-keys/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/primary/keys/model/Order.java[tag=content,indent=0]
 ----
 
+* Auto generated primary key that uses https://www.postgresql.org/docs/12/functions-sequence.html[a sequence to get the next unique value^]. +
+_(A uniqueness of this type of primary key is controlled by the database server!)_:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-primary-keys/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/primary/keys/model/Account.java[tag=content,indent=0]
+----
+
+* Manually set primary key. +
+_(A developer must control a uniqueness of this type of primary key!)_:
+
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-primary-keys/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/primary/keys/model/Product.java[tag=content,indent=0]
 ----
+
+* Complex primary key: +
+_(A developer must control a uniqueness of this type of primary key!)_:
 
 [source,java]
 ----
