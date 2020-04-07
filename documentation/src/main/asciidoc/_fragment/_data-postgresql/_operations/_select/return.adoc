@@ -4,8 +4,6 @@ include::../../../___fragment-settings.adoc[]
 [[data-postgresql-select-return-section]]
 ===== Returning Types Support
 
-TODO
-
 include::_return/return-reactive-types.adoc[]
 
 <<<
