@@ -35,6 +35,14 @@ public final class ConcurrentBusinessService {
 
     private final ConcurrentRepository repository = getRepository(ConcurrentRepository.class);
 
+    /**
+     * @return order id if purchase is successful or
+     *         error signal if:
+     *                  - account not found or
+     *                  - product not found or
+     *                  - products ran out or
+     *                  - money ran out
+     */
     public Mono<Long> tryToBuy(final long idAccount,
                                final int idProduct,
                                final int count) {
@@ -44,7 +52,9 @@ public final class ConcurrentBusinessService {
                                 .flatMap(product ->
                                         tryToBuy(transaction, account, product, count))
                                 .switchIfEmpty(Mono.error(() ->
+                                        // product not found
                                         new ProductNotFoundException(idProduct))))
+                        // account not found
                         .switchIfEmpty(Mono.error(() -> new AccountNotFoundException(idAccount)))
                         .onErrorResume((e) -> transaction.rollback()
                                 .then(Mono.error(e)))
@@ -60,13 +70,16 @@ public final class ConcurrentBusinessService {
             if (cost.compareTo(account.getBalance()) <= 0) {
                 return buy(transaction, account, product, count, cost);
             } else {
+                // money ran out
                 return Mono.error(new NotEnoughFundsException(cost, account.getBalance()));
             }
         } else {
+            // products ran out
             return Mono.error(new NotEnoughProductCountException(count, product.getCount()));
         }
     }
 
+    // purchase is successful, returns order id
     private Mono<Long> buy(final Transaction transaction,
                            final Account account,
                            final Product product,

@@ -4,9 +4,9 @@ include::../../___fragment-settings.adoc[]
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
 
 [[data-postgresql-transactional-concurrent-section]]
-==== Concurrent Example
+==== Concurrent Access Example
 
-TODO
+The following example demonstrates how developer can use the RxMicro framework to build microservice that requires concurrent access:
 
 [source,java]
 ----
