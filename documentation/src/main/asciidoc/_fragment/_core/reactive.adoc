@@ -1,6 +1,7 @@
 :FRAGMENT_RELATIVE_DIR: ../
 include::../___fragment-settings.adoc[]
 
+[[core-reactive-libraries-support]]
 === Reactive Libraries Support
 
 The RxMicro framework поддерживает следующие библиотеки реактивного программирования:

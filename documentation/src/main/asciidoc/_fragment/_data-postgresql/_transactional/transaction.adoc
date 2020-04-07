@@ -4,35 +4,44 @@ include::../../___fragment-settings.adoc[]
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
 
 [[data-postgresql-transactional-transaction-section]]
-==== RxMicro Transactions
+==== DataBase Transactions
 
-TODO
+To work with database transactions the RxMicro framework introduces a basic transaction model:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-transactional/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/transactional/TransactionTemplate.java[tag=content,indent=0]
 ----
 
-Доступные Transaction:
+where `ReactiveType` can be {REACTOR-CORE-DOC-ROOT-URL}reactor/core/publisher/Mono.html[`Mono<Void>`^],
+{RX-JAVA-DOC-ROOT-URL}io/reactivex/Completable.html[`Completable`^] or {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[`CompletableFuture<Void>`^].
 
-* {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/model/reactor/Transaction.java[*Spring Reactor Transaction*^];
-* {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/model/rxjava3/Transaction.java[*RxJava 3 Transaction*^];
-* {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/model/completablefuture/Transaction.java[*Completable Future Transaction*^];
+This basic transaction model has adaptation for <<core#core-reactive-libraries-support,all supported reactive libraries>>:
 
-[source,java]
-----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-transactional/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/transactional/TransactionUsageRepository.java[tag=content,indent=0]
-----
+* If You want to use the {REACTOR-CORE-DOC-USER_GUIDE}[*Project Reactor*^] library:
+** `ReactiveType` will be a {REACTOR-CORE-DOC-ROOT-URL}reactor/core/publisher/Mono.html[`Mono<Void>`^].
+** You must use the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/model/reactor/Transaction.java[`io.rxmicro.data.sql.model.reactor.Transaction`^] interface.
+** A repository method that creates a new transaction must return `Mono<io.rxmicro.data.sql.model.reactor.Transaction>` reactive type:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-transactional/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/transactional/BeginReactorTransactionRepository.java[tag=content,indent=0]
 ----
 
+* If You want to use the {RX-JAVA-USER-GUIDE}[*RxJava*^] library:
+** `ReactiveType` will be a {RX-JAVA-DOC-ROOT-URL}io/reactivex/Completable.html[`Completable`^].
+** You must use the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/model/rxjava3/Transaction.java[`io.rxmicro.data.sql.model.rxjava3.Transaction`^] interface.
+** A repository method that creates a new transaction must return `Single<io.rxmicro.data.sql.model.rxjava3.Transaction>` reactive type:
+
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-transactional/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/transactional/BeginRxJava3TransactionRepository.java[tag=content,indent=0]
 ----
+
+* If You want to use the {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/package-summary.html[*java.util.concurrent*^] library:
+** `ReactiveType` will be a {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[`CompletableFuture<Void>`^].
+** You must use the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/model/completablefuture/Transaction.java[`io.rxmicro.data.sql.model.completablefuture.Transaction`^] interface.
+** A repository method that creates a new transaction must return `CompletableFuture<io.rxmicro.data.sql.model.completablefuture.Transaction>` reactive type:
 
 [source,java]
 ----
