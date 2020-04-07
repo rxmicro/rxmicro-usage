@@ -16,5 +16,56 @@
 
 package io.rxmicro.util.doc;
 
+import io.rxmicro.common.RxMicroException;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.function.ToIntFunction;
+
+import static io.rxmicro.common.util.Formats.format;
+import static io.rxmicro.util.doc.WordUtils.getWords;
+
 public class WordStatistics {
+
+    private static final String RX_MICRO_HOME = "RX_MICRO_HOME";
+
+    private static final String RX_MICRO_HOME_VALUE = Optional.ofNullable(System.getenv(RX_MICRO_HOME)).orElseThrow(() -> {
+        throw new RxMicroException("System variable '?' not defined", RX_MICRO_HOME);
+    });
+
+    private static final File DOC_ROOT = new File(format("?/rxmicro-usage/documentation/src/main/asciidoc/_fragment/", RX_MICRO_HOME_VALUE));
+
+
+    public static void main(final String[] args) throws IOException {
+        final List<String> lines = new ArrayList<>();
+        findAllLines(DOC_ROOT, lines);
+        final Map<String, Integer> map = new HashMap<>();
+        for (final String line : lines) {
+            for (final String word : getWords(line)) {
+                map.merge(word, 1, Integer::sum);
+            }
+        }
+        map.entrySet().stream()
+                .sorted(Comparator.comparingInt((ToIntFunction<Map.Entry<String, Integer>>) Map.Entry::getValue)
+                        .thenComparing(Map.Entry::getKey))
+                .forEach(e -> System.out.println(e.getKey()+" = " + e.getValue()));
+    }
+
+    private static void findAllLines(final File dir, final List<String> allLines) throws IOException {
+        for (final File file : Objects.requireNonNull(dir.listFiles())) {
+            if(file.isDirectory()){
+                findAllLines(file, allLines);
+            } else {
+                allLines.addAll(Files.readAllLines(file.toPath()));
+            }
+        }
+    }
 }

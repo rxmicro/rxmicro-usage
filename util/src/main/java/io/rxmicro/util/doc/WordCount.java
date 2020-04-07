@@ -31,6 +31,7 @@ import java.util.stream.Collectors;
 
 import static io.rxmicro.common.util.ExCollectors.toOrderedMap;
 import static io.rxmicro.common.util.Formats.format;
+import static io.rxmicro.util.doc.WordUtils.getWords;
 import static java.util.Map.entry;
 import static java.util.stream.Collectors.joining;
 
@@ -177,34 +178,6 @@ public final class WordCount {
             }
         }
         return entry(list, lines.stream().flatMap(l -> getWords(l).stream()).collect(Collectors.toList()));
-    }
-
-    private static List<String> getWords(final String line) {
-        final List<String> words = new ArrayList<>();
-        final StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < line.length(); i++) {
-            final char ch = line.charAt(i);
-            if (" ;:.,/?|~`!@#$%^&*()_+=-{}[]<>\\\"'\n\t\r".indexOf(ch) != -1) {
-                if (sb.length() > 0) {
-                    addWord(sb.toString(), words);
-                    sb.delete(0, sb.length());
-                }
-            } else {
-                sb.append(ch);
-            }
-        }
-        return words;
-    }
-
-    private static void addWord(final String word,
-                                final List<String> words) {
-        for (int i = 0; i < word.length(); i++) {
-            final char ch = word.charAt(i);
-            if (ch > 127) {
-                words.add(word);
-                return;
-            }
-        }
     }
 
     public static void main(final String[] args) {
