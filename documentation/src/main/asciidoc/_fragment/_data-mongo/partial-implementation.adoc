@@ -22,20 +22,20 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-partial-implementat
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/PartialImplementation.java[`@PartialImplementation`^]
 указывается абстрактный класс `AbstractDataRepository`.
 
-Абстрактный класс `AbstractDataRepository` содержит следующий контент:
+An `AbstractDataRepository` contains the following content:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-partial-implementation/src/main/java/io/rxmicro/examples/data/mongo/partial/implementation/AbstractDataRepository.java[tag=content,indent=0]
 ----
 
-и должен удовлетворять следующим требованиям:
+An abstract class that contains a partial implementation must meet the following requirements:
 
-. Класс должен быть абстрактным.
-. Класс должен наследоваться от класса
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/detail/AbstractMongoRepository.java[`AbstractMongoRepository`^].
-. Класс должен реализовывать интерфейс of the Mongo data repository.
-. Класс должен содержать реализацию всех методов, которые не генерируются автоматически.
+. The class must be an `abstract` one.
+. The class must extend the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/detail/AbstractMongoRepository.java[`AbstractMongoRepository`^] one.
+. The class must implement the Mongo data repository interface.
+. The class must contain an implementation of all methods that are not generated automatically.
 
 С точки зрения инфраструктуры генерируемые и определенные разработчиком методы обработки данных для Mongo data repository ничем не отличаются:
 

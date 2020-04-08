@@ -1,11 +1,11 @@
 :FRAGMENT_RELATIVE_DIR: ../
 include::../___fragment-settings.adoc[]
 
-=== Создание проекта
+=== Creating a Project
 
 Для создания проекта, рекомендуется использовать современную IDE, например https://www.jetbrains.com/idea/[IntelliJ IDEA^]
 
-==== Создание проекта в `IntelliJ IDEA`
+==== Using the `IntelliJ IDEA`
 
 Для создания нового проекта выбираем: `File` -> `New` -> `Project` или `Create a New Project`.
 
@@ -35,7 +35,7 @@ image::quick-start/create-maven-project-step3.jpg[]
 В результате Ваш шаблон должен полностью соответствовать шаблону: <<image-basic-project-template-inline>>.
 ====
 
-==== Создание проекта с помощью терминала
+==== Using the Terminal
 
 Создать новый maven проект возможно и без использования IDE.
 
@@ -64,7 +64,7 @@ include::../___notes/run-maven-in-terminal-note.adoc[]
 В результате Ваш шаблон должен полностью соответствовать шаблону: <<image-basic-project-template-inline>>.
 ====
 
-==== Создание проекта в других IDE
+==== Using Other IDE
 
 Создание простейшего проекта с помощью других IDE мало чем отличается от его создания с помощью IntelliJ IDEA. При создании необходимо также указать `maven archetype, groupId, artifactId и version`.
 

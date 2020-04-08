@@ -1,9 +1,9 @@
 :FRAGMENT_RELATIVE_DIR: ../
 include::../___fragment-settings.adoc[]
 
-=== Запуск микросервиса
+=== Starting the Microservice
 
-==== Запуск используя IDE:
+==== Using the IDE:
 
 Запустить REST-based микросервис можно используя контекстное меню запуска IntelliJ IDEA
 
@@ -35,7 +35,7 @@ Server started at 0.0.0.0:8080 using NETTY transport in 500 millis # <1>
 Если произошла ошибка в процессе запуска, в консоли будет отображен stack trace возникшей ошибки.
 ====
 
-==== Запуск с помощью терминала:
+==== Using the Terminal:
 
 Перейдите в папку `target` микросервисного проекта, запустите терминал в этой папке и выполните следующую команду:
 

@@ -62,6 +62,6 @@ _(Если данной аннотацией аннотирован класс J
 |Denotes that an interface is a dynamic generated Mongo data repository.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/PartialImplementation.java[`@PartialImplementation`^]
-|Denotes an abstract class that contains <<data-mongo-partial-implementation-section,a partial implementation of the annotated Mongo Data Repository interface>>.
+|Denotes an abstract class that contains <<data-mongo-partial-implementation-section,a partial implementation of the annotated by this annotation a Mongo Data Repository interface>>.
 // ---------------------------------------------------------------------------------------------------------------------
 |===

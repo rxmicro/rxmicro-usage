@@ -2,7 +2,7 @@
 include::../../../___fragment-settings.adoc[]
 
 [[core-config-order-default-section]]
-===== Порядок считывания источников конфигурации по умолчанию
+===== Default Reading Order of Config Sources.
 
 По умолчанию RxMicro считывание источники конфигураций
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L42[в таком порядке^]:

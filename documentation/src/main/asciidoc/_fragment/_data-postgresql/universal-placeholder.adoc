@@ -6,7 +6,7 @@ include::../___fragment-settings.adoc[]
 [[data-postgres-universal-placeholder-section]]
 === Universal Placeholder
 
-The RxMicro framework recommends to the use universal placeholder (`?`) for the mapping between `PostgreSQL DB` queries and parameters of the repository method:
+The RxMicro framework recommends using the universal placeholder (`?`) as parameter value placeholder in the SQL queries:
 
 [source,java]
 ----
@@ -19,5 +19,5 @@ If this method invoked with the following parameter: +
 `repository.findByEmail("welcome@rxmicro.io");`,
 
 the RxMicro framework will generate the following `PostgreSQL DB` query: +
-`SELECT first_name, last_name FROM account WHERE email='welcome@rxmicro.io'`.
+`SELECT * FROM account WHERE email='welcome@rxmicro.io'`.
 ====

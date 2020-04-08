@@ -75,6 +75,6 @@ _(Если данной аннотацией аннотирован класс J
 |Denotes that an interface is a dynamic generated PostgreSQL data repository.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql-r2dbc-postgresql/src/main/java/io/rxmicro/data/sql/r2dbc/postgresql/PartialImplementation.java[`@PartialImplementation`^]
-|Denotes an abstract class that contains <<data-postgresql-partial-implementation-section,a partial implementation of the annotated PostgreSQL Data Repository interface>>.
+|Denotes an abstract class that contains <<data-postgresql-partial-implementation-section,a partial implementation of the annotated by this annotation a PostgreSQL Data Repository interface>>.
 // ---------------------------------------------------------------------------------------------------------------------
 |===

@@ -3,7 +3,7 @@ include::../___fragment-settings.adoc[]
 
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
 
-=== Форматирование строк
+=== Formatting Strings
 
 В процессе разработки программного продукта возникает необходимость форматировать строки.
 

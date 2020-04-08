@@ -3,13 +3,13 @@ include::../___fragment-settings.adoc[]
 
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
 
-=== Возвращаемые типы обработчиков HTTP запроса
+=== Return Types
 
 include::../_rest/___http-handler-return-types.adoc[]
 
 <<<
 
-==== Поддерживаемые типы возвращаемого результата для HTTP ответа без тела
+==== Supported Return Types for HTTP Response without Body
 
 RxMicro поддерживает следующие типы возвращаемого результата для HTTP ответа без тела:
 
@@ -46,7 +46,7 @@ include::../___notes/recompile-after-change.adoc[]
 
 <<<
 
-==== Поддерживаемые типы возвращаемого результата для HTTP ответа с телом
+==== Supported Return Types for HTTP Response with Body
 
 RxMicro поддерживает следующие типы возвращаемого результата для HTTP ответа с телом:
 

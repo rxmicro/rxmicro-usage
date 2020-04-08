@@ -4,7 +4,7 @@ include::../___fragment-settings.adoc[]
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
 
 [[rest-controller-set-status-code-section]]
-=== Переопределение статус кода
+=== Overriding the Status Code
 
 По умолчанию, если в процессе обработки HTTP запроса не возникает ошибок, HTTP сервер возвращает статус код `200`.
 Если необходимо изменить статус код, возвращаемый по умолчанию, необходимо использовать аннотацию

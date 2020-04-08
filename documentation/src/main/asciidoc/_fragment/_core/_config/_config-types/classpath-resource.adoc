@@ -1,13 +1,13 @@
 :FRAGMENT_RELATIVE_DIR: ../../../
 include::../../../___fragment-settings.adoc[]
 
-===== Конфигурирование с помощью classpath ресурсов
+===== Configuration Using `classpath` Resources.
 
 The RxMicro framework поддерживает общий и отдельные classpath ресурсы для внешней по отношении к исходному коду микросервиса конфигурации.
 
 Единственным поддерживаемым форматом classpath ресурса является формат `properties` файлов.
 
-====== Конфигурирование с помощью отдельного classpath ресурса
+====== Configuration Using Separate `classpath` Resource.
 
 Если в classpath текущего проекта находится ресурс `http-server.properties` с содержимым:
 
@@ -28,7 +28,7 @@ Server started at 0.0.0.0:9090 using NETTY transport in 500 millis. # <1>
 
 include::___tip-namespace.adoc[]
 
-====== Конфигурирование с помощью общего classpath ресурса
+====== Configuration Using Shared `classpath` Resource.
 
 Если в classpath текущего проекта находится ресурс `rxmicro.properties` с содержимым:
 

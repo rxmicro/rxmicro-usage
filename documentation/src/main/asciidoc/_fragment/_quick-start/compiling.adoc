@@ -1,11 +1,11 @@
 :FRAGMENT_RELATIVE_DIR: ../
 include::../___fragment-settings.adoc[]
 
-=== Компиляция проекта
+=== Compiling the Project
 
 Так как любая современная IDE для Java содержит встроенный `maven`, то компилировать микросервисный проект рекомендуется именно с помощью `maven`.
 
-==== Компиляция c помощью `maven`
+==== Using the `maven`
 
 Для компиляции проекта с помощью `maven` откройте терминал в корневой папке проекта и выполните следующую команду:
 
@@ -54,7 +54,7 @@ image::quick-start/maven-panel.jpg[]
 Для понимания процесса работы of the RxMicro framework рекомендуется перейти в раздел: <<{core}#core-how-it-works-section>>.
 ====
 
-==== Компиляция c помощью `IntelliJ IDEA`
+==== Using the `IntelliJ IDEA`
 
 Среда разработки IntelliJ IDEA позволяет автоматически запускать процессоры аннотаций в момент сборки проекта.
 Поэтому если Вы желаете компилировать микросервисный проект с помощью IntelliJ IDEA, а не `maven`, необходимо настроить секцию `Annotation Processors` в IntelliJ IDEA.
@@ -75,7 +75,7 @@ image::quick-start/idea-annotation-processing.jpg[]
 Внимательно проверьте чтобы *все* Ваши настройки секции `Annotation Processors` соответствовали настройкам, описанным на рисунке выше.
 ====
 
-===== Пересборка проекта
+===== Rebuilding the Project
 
 После настройки секции `Annotation Processors` необходимо пересобрать проект.
 Для этого выполняем следующую команду из главного меню: `Build` -> `Rebuild project`.

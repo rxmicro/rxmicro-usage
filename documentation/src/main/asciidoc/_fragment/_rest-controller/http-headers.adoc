@@ -4,7 +4,7 @@ include::../___fragment-settings.adoc[]
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
 
 [[rest-controller-headers-basic]]
-=== Обработка HTTP заголовков
+=== HTTP Headers Support
 
 include::../_rest/___http-headers-basic-rules.adoc[]
 
@@ -43,7 +43,7 @@ include::../___notes/recompile-after-change.adoc[]
 
 <<<
 
-==== Поддерживаемые типы данных
+==== Supported Data Types
 
 include::../_rest/___header-types.adoc[]
 

@@ -3,7 +3,7 @@ include::../../___fragment-settings.adoc[]
 
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
 
-==== Базовая структура модуля конфигурации
+==== Basic Structure of the Config Module
 
 Любой класс, реализующий абстрактный класс
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Config.java[`Config`^]

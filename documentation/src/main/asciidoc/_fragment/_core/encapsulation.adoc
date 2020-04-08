@@ -4,12 +4,12 @@ include::../___fragment-settings.adoc[]
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
 
 [[core-encapsulation]]
-=== Инкапсуляция
+=== Encapsulation
 
 При проектировании Java моделей запросов и ответов возникает необходимость
 https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)[защищать данные от неправомерного изменения^].
 
-==== Использование модификатора `private`
+==== A `private` Modifier Usage
 
 Стандартным решение данной проблемы в Java является использование модификатора `private`:
 
@@ -56,7 +56,7 @@ public final class $$ResponseModelToJsonConverter extends ModelToJsonConverter<R
 It is recommended to add a getter or change the field modifier: from private to default, protected or public.
 ----
 
-==== Использование отдельного пакета
+==== A Separate Package Usage
 
 Лучшим и *рекомендуемым* решением данной проблемы, является создание отдельного пакета (например `model`) и объявление всех полей классов модели без какого-либо модификатора доступа (т.е. `default/package`).
 При таком подходе доступ к полям возможен *только* из классов того же самого пакета.
@@ -67,7 +67,7 @@ image::core/encapsulation/model-package.jpg[]
 
 *Использование полей классов модели без какого-либо модификатора доступа (т.е. `default/package`) позволяет сгенерировать конвертер, умеющий считывать или записывать значение, используя прямой доступ к полю с помощью оператора `.`*
 
-==== Использование `getters`
+==== A `getters` Usage
 
 Если необходима простейшая логика при считывании значения с поля модели, можно использовать `getter`.
 
@@ -109,7 +109,7 @@ public final class $$ResponseModelToJsonConverter extends ModelToJsonConverter<R
 ----
 <1>  Вызов `getter` для получения значения поля модели ответа.
 
-==== Сравнение производительности подходов
+==== Performance Comparison
 
 Исходный код теста производительности:
 
@@ -131,7 +131,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}benchmarks/_results/java-core-ReadWrite
 Результаты тестирования показывают, что чтение/запись по прямой ссылке или с помощью `getter`/`setter` выполняются *в 28/17 раз быстрее*, чем при использовании `reflection`!
 ====
 
-==== Рекомендации по выбору подхода
+==== Approach Selection Recommendations
 
 [TIP]
 ====

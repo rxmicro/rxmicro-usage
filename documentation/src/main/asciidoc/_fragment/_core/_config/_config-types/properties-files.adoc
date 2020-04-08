@@ -2,7 +2,7 @@
 include::../../../___fragment-settings.adoc[]
 
 [[core-config-properties-files-section]]
-===== Конфигурирование с помощью properties файлов
+===== Configuration Using `properties` Files.
 
 По аналогии с classpath ресурсами the RxMicro framework также поддерживает общий и отдельные `properties` файлы для внешней по отношении к исходному коду микросервиса конфигурации.
 
@@ -48,7 +48,7 @@ new Configs.Builder()
 Для получения подробностей как это сделать перейдите к подразделу <<core-config-order-settings>>.
 ====
 
-====== Конфигурирование с помощью отдельного properties файла
+====== Configuration Using Separate `properties` File.
 
 Если в текущей или в `$HOME` директории находится файл `http-server.properties` с содержимым
 
@@ -69,7 +69,7 @@ Server started at 0.0.0.0:9090 using NETTY transport in 500 millis. # <1>
 
 include::___tip-namespace.adoc[]
 
-====== Конфигурирование с помощью общего properties файла
+====== Configuration Using Shared `properties` File.
 
 Если в текущей или в `$HOME` директории находится файл `rxmicro.properties` с содержимым
 

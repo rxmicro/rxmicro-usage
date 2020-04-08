@@ -3,13 +3,13 @@ include::../___fragment-settings.adoc[]
 
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
 
-=== Маршрутизация запросов
+=== Routing of Requests
 
 The RxMicro framework поддерживает маршрутизацию запросов на основании HTTP метода, URL Path и HTTP тела:
 
 <<<
 
-==== Маршрутизации запросов на основании HTTP метода
+==== Routing of Requests Based on HTTP Method
 
 The RxMicro framework позволяет обрабатывать одинаковые HTTP запросы, отличающиеся *только* HTTP методом разными обработчиками:
 
@@ -30,7 +30,7 @@ include::../___notes/recompile-after-change.adoc[]
 
 <<<
 
-==== Маршрутизации запросов на основании URL Path
+==== Routing of Requests Based on URL Path
 
 The RxMicro framework позволяет обрабатывать HTTP запросы на разные URL Paths разными обработчиками:
 
@@ -52,7 +52,7 @@ include::../___notes/recompile-after-change.adoc[]
 
 <<<
 
-==== Маршрутизации запросов на основании наличия HTTP тела
+==== Routing of Requests Based on HTTP Body
 
 Некоторые HTTP методы позволяют передавать параметры запроса как в стартовой строке так и в теле запроса.
 

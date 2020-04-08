@@ -1,11 +1,11 @@
 :FRAGMENT_RELATIVE_DIR: ../
 include::../___fragment-settings.adoc[]
 
-=== Требования к реализации REST Controller
+=== REST Controller Implementation Requirements.
 
-==== Требования к классу REST Controller
+==== REST Controller Class Requirements.
 
-REST Controller - это Java класс:
+REST Controller is a Java class:
 
 [source,java]
 ----
@@ -20,33 +20,32 @@ final class MicroService {
 }
 ----
 
-который должен удовлетворять следующим требованиям:
+that must meet the following requirements:
 
-. Класс должен наследоваться от `java.lang.Object`.
-. Класс не должен быть абстрактным.
-. Класс не должен быть вложенным.
-. Класс должен содержать публичный конструктор без параметров. +
-_(Если в проекте используется модуль <<{cdi}#{cdi-section},`rxmicro.cdi`>> данное требование неактуально!)_
+. The class must extend the `java.lang.Object` one.
+. The class couldn't be an `abstract` one.
+. The class couldn't be a nested one.
+. The class must contain an accessible (not private) constructor without parameters. +
+_(The last requirement can be ignored if your project depends on <<{cdi}#{cdi-section},`rxmicro.cdi`>> module.)_
 
 [TIP]
 ====
-Класс REST Controller должен быть `public` только если содержит метод: `public static void main(final String[] args)`.
-
-В противном случае класс может быть непубличным.
+A REST Controller class must be a public one, only if it contains the method: `public static void main(final String[] args)`.
+Otherwise, a REST Controller class can be nonpublic.
 ====
 
 <<<
 
-==== Требования к обработчикам HTTP запроса
+==== HTTP Request Handler Requirements.
 
-Обработчик HTTP запроса - метод, который должен удовлетворять следующим требованиям:
+HTTP request handler is a method, that must meet the following requirements:
 
-. Метод должен быть неприватным.
-. Метод должен быть неабстрактным.
-. Метод должен быть нестатическим.
-. Метод должен быть несинхронизированным.
-. Метод должен быть ненативным.
-. Метод должен быть аннотирован хотя бы одной из следующих аннотаций:
+. The method couldn't be a `private` one.
+. The method couldn't be an `abstract` one.
+. The method couldn't be a `synchronized` one.
+. The method couldn't be a `static` one.
+. The method couldn't be a `native` one.
+. The method must be annotated by at least one of the following annotations:
 .. {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/GET.java[`GET`^];
 .. {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/POST.java[`POST`^];
 .. {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/PUT.java[`PUT`^];
@@ -54,16 +53,16 @@ _(Если в проекте используется модуль <<{cdi}#{cdi-
 .. {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/PATCH.java[`PATCH`^];
 .. {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/HEAD.java[`HEAD`^];
 .. {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/OPTIONS.java[`OPTIONS`^].
-. Метод должен возвращать тип `void` или один из реактивных типов:
+. The method must return a `void` type or one of the following reactive types:
 .. {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[`CompletableFuture`^];
 .. {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletionStage.html[`CompletionStage`^];
 .. {REACTOR-CORE-DOC-ROOT-URL}reactor/core/publisher/Mono.html[`Mono`^];
 .. {RX-JAVA-DOC-ROOT-URL}io/reactivex/Completable.html[`Completable`^];
 .. {RX-JAVA-DOC-ROOT-URL}io/reactivex/Single.html[`Single`^];
 .. {RX-JAVA-DOC-ROOT-URL}io/reactivex/Maybe.html[`Maybe`^].
-. Если метод возвращает реактивный тип, то данный тип должен быть параметризован классом модели ответа.
-(Вспомогательные типы `java.lang.Void` и `java.util.Optional` также поддерживаются.
-_(см. <<{core}#core-reactive-bussiness-process-reactive-class-mapping-table>>)_).
+. If the method returns a reactive type, that this type must be parametrized by a HTTP response model type.
+(The additional types such as `java.lang.Void` and `java.util.Optional` are supported also.
+_(Read more: <<{core}#core-reactive-bussiness-process-reactive-class-mapping-table>>)_).
 
 include::../_rest/___note-Flux-Flowable.adoc[]
 

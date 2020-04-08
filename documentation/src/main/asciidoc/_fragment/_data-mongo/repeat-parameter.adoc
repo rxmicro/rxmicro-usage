@@ -17,7 +17,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/internal-storage/src/main/java
 
 The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data/src/main/java/io/rxmicro/data/RepeatParameter.java[`@RepeatParameter`^] annotation fixes this disadvantage.
 
-The following code is an equivalent to the code with copies of `name` parameters:
+The following code is an equivalent to the code with a copy of the `name` parameter:
 
 [source,java]
 ----

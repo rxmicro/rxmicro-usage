@@ -3,7 +3,7 @@ include::../../___fragment-settings.adoc[]
 
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
 
-==== Пользовательские конфигурации
+==== User Defined Configurations
 
 Разработчик может использовать модуль конфигурации для пользовательских конфигураций.
 

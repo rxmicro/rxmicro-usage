@@ -2,7 +2,7 @@
 include::../___fragment-settings.adoc[]
 
 [[core-dont-block-current-thread]]
-=== Don’t block current thread!
+=== Don’t Block Current Thread!
 
 В современной архитектуре компьютера IO операции являются самыми медленными.
 В результате чего при использовании
@@ -20,7 +20,7 @@ The most popular Java framework, который использует Event-drive
 The RxMicro framework is a framework, который функционирует на базе Netty.
 Поэтому все требования к приложениям, использующим Netty, распространяются и на the RxMicro framework.
 
-==== Запрещенные операции
+==== Prohibited Operations
 
 Поэтому при написании микросервисных приложений на базе the RxMicro framework, *запрещены* следующие операции:
 
@@ -31,7 +31,7 @@ The RxMicro framework is a framework, который функционирует 
 * Перевод потока в режим сна (`Thread.sleep`, `TimeUnit.sleep`).
 * любые другие https://en.wikipedia.org/wiki/Blocking_(computing)[*блокирующие операции*^].
 
-==== Рекомендуемый подход
+==== Recommended Approach
 
 Отсутствие блокирующих операций в микросервисе позволяет обслуживать огромное количество конкурентных соединений, используя небольшое количество потоков и как следствие эффективно использовать аппаратные ресурсы компьютера.
 

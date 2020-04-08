@@ -2,7 +2,7 @@
 include::../../../___fragment-settings.adoc[]
 
 [[core-config-java-classes-section]]
-===== Конфигурирование с помощью Java классов
+===== Configuration Using Java Classes.
 
 Конфигурирование с помощью Java классов является самым простым и явным способом конфигурирования:
 

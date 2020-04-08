@@ -6,7 +6,7 @@ include::../___fragment-settings.adoc[]
 [[data-mongo-universal-placeholder-section]]
 === Universal Placeholder
 
-The RxMicro framework recommends to the use universal placeholder (`?`) for the mapping between `Mongo DB` queries and parameters of the repository method:
+The RxMicro framework recommends using the universal placeholder (`?`) as parameter value placeholder in the `Mongo DB` queries:
 
 [source,java]
 ----

@@ -1,7 +1,7 @@
 :FRAGMENT_RELATIVE_DIR: ../
 include::../___fragment-settings.adoc[]
 
-=== RxMicro annotation processor options
+=== `RxMicro Annotation Processor` Options
 
 Процессор аннотаций RxMicro поддерживает следующие опции:
 

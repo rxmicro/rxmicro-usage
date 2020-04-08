@@ -1,16 +1,16 @@
 :FRAGMENT_RELATIVE_DIR: ../../
 include::../../___fragment-settings.adoc[]
 
-==== Типы конфигурирования
+==== Configuration Types
 
-The RxMicro framework поддерживает следующие типы конфигурирования:
+The RxMicro framework supports the following configuration types:
 
-. Конфигурирование с помощью `classpath` ресурсов;
-. Конфигурирование с помощью `properties` файлов;
-. Конфигурирование с помощью переменных окружения;
-. Конфигурирование с помощью Java системных переменных;
-. Конфигурирование с помощью Java классов;
-. Конфигурирование с помощью аннотаций;
+. Configuration using `classpath` resources.
+. Configuration using `properties` files.
+. Configuration using environment variables.
+. Configuration using Java system properties.
+. Configuration using Java classes.
+. Configuration using Java annotations.
 
 include::_config-types/classpath-resource.adoc[]
 

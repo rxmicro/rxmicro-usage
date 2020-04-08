@@ -3,12 +3,12 @@ include::../___fragment-settings.adoc[]
 
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
 
-=== Создание исходного кода
+=== Creating the Source Code
 
 Исходный код простейшего REST-based микросервиса состоит из одного модуля, одного пакета и двух классов.
 Ниже описан исходный код каждого из указанных компонентов.
 
-==== Дескриптор `module-info.java`
+==== A `module-info.java` Descriptor
 
 Java 9 ввела в использование https://www.oracle.com/corporate/features/understanding-java-9-modules.html[JPMS^].
 
@@ -29,11 +29,11 @@ https://netty.io/[Netty^], со всеми необходимыми транзи
 любого Вашего микросервисного проекта.
 Поэтому достаточно продублировать все зависимости в `module-info.java`.
 
-_Благодаря транзитивным зависимостям of the RxMicro framework количество необходимых модулей сильно сокращено_. +
+_Благодаря транзитивным зависимостям of the RxMicro framework количество необходимых модулей сильно сокращено_.
 _Необходимо указывать только базовые RxMicro модули!_
 ====
 
-==== Класс модели ответа
+==== An HTTP Response Model Class
 
 [source,java]
 ----
@@ -51,7 +51,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/quick-start/src/main/java/io/r
 Именно поэтому для отображения строки `"Hello World!"` необходимо создать класс оболочку `Response`, который является оберткой над строковым типом данных.
 ====
 
-==== Класс REST-based микросервиса
+==== A REST-Based Microservice Class
 
 [source,java]
 ----
@@ -73,7 +73,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/quick-start/src/main/java/io/r
 Модификаторы `protected` и `<default>` также поддерживаются by the RxMicro framework.
 ====
 
-==== Структура микросервисного проекта
+==== A Structure of the Microservice Project
 
 Описанные выше компоненты микросервисного проекта должны быть расположены в проекте, согласно следующему снимку экрана:
 

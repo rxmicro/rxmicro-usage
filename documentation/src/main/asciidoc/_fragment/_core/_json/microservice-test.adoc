@@ -3,7 +3,7 @@ include::../../___fragment-settings.adoc[]
 
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
 
-==== Применение знаний о модуле `rxmicro.json`
+==== `rxmicro.json` Module Usage
 
 Для корректного написания <<{testing}#testing-section,тестов>> необходимо общее представление о модуле `rxmicro.json`.
 

@@ -13,7 +13,7 @@ The RxMicro framework поддерживает следующие библиот
 - {RX-JAVA-USER-GUIDE}[*RxJava*: Completable, Single, Maybe, Flowable^];
 
 [[core-reactive-bussiness-process-result-types-section]]
-==== Ожидаемые результаты бизнес процессов
+==== Expected Business Process Results
 
 При написании реактивных программ возможны 4 следующих ожидаемых результатов любого бизнес процесса:
 
@@ -64,7 +64,7 @@ CompletionStage<List<MODEL>>
 обработчик результата вызывается *только* после того как *все* данные будут получены из источника данных!
 ====
 
-==== Рекомендации по выбору библиотеки
+==== Libraries Selection Recommendations
 
 Общая рекомендация по выбору библиотеки реактивного программирования при использовании of the RxMicro framework:
 

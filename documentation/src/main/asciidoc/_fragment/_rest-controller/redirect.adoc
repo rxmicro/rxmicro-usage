@@ -4,7 +4,7 @@ include::../___fragment-settings.adoc[]
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
 
 [[rest-controller-redirect-section]]
-=== Перенаправление запроса
+=== Redirecting of Requests
 
 RxMicro поддерживает перенаправление запроса:
 

@@ -1,7 +1,7 @@
 :FRAGMENT_RELATIVE_DIR: ../
 include::../___fragment-settings.adoc[]
 
-=== Конфигурирование проекта
+=== Configuring the Project
 
 Перед написанием кода REST-based микросервиса, необходимо сконфигурировать `pom.xml` Вашего проекта, выполнив следующие шаги:
 
@@ -9,7 +9,7 @@ include::../___fragment-settings.adoc[]
 . Добавить необходимые зависимости в `pom.xml`.
 . Сконфигурировать `maven-compiler-plugin`.
 
-==== Определение версий используемых библиотек
+==== Definition the Versions of the Used Libraries
 
 Для удобства последующего обновления версий библиотек, рекомендуется использовать `maven properties`:
 
@@ -24,7 +24,7 @@ include::../___fragment-settings.adoc[]
 <1> {MAVEN-REPO-SEARCH-ROOT}io.rxmicro/rxmicro[Последняя стабильная версия of the RxMicro framework^].
 <2> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-compiler-plugin[Последняя стабильная версия `maven-compiler-plugin`^].
 
-==== Добавление необходимых зависимостей:
+==== Adding the Required Dependencies
 
 Перед использованием RxMicro модулей, необходимо в проект добавить следующие зависимости:
 
@@ -47,7 +47,7 @@ include::../___fragment-settings.adoc[]
 <2> Библиотека конвертации Java модели в https://www.json.org/[JSON^] формат и наоборот;
 
 [[quick-start-maven-compiler-plugin-settings-section]]
-==== Конфигурирование `maven-compiler-plugin`
+==== Configuring the `maven-compiler-plugin`
 
 Так как the RxMicro framework использует {JDK-JAVA-COMPILER-DOC-ROOT-URL}javax/annotation/processing/Processor.html[Java annotation processors^], необходимо настроить `maven-compiler-plugin`:
 
@@ -91,7 +91,7 @@ include::../___fragment-settings.adoc[]
 <3> Класс процессора аннотаций, который обрабатывает конфигурацию запуска;
 <4> Местоположение генерируемых Java классов процессором аннотаций;
 
-==== Окончательная версия файла `pom.xml`
+==== The Final Version of `pom.xml` File
 
 После всех указанных выше изменений окончательная версия файла `pom.xml` должна выглядеть следующим образом:
 

@@ -22,20 +22,19 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-partial-implementa
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/PartialImplementation.java[`@PartialImplementation`^]
 указывается абстрактный класс `AbstractRESTClient`.
 
-Абстрактный класс `AbstractRESTClient` содержит следующий контент:
+An `AbstractRESTClient` contains the following content:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-partial-implementation/src/main/java/io/rxmicro/examples/rest/client/partial/implementation/AbstractRESTClient.java[tag=content,indent=0]
 ----
 
-и должен удовлетворять следующим требованиям:
+An abstract class that contains a partial implementation must meet the following requirements:
 
-. Класс должен быть абстрактным.
-. Класс должен наследоваться от класса
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/detail/AbstractRestClient.java[`AbstractRestClient`^].
-. Класс должен реализовывать интерфейс REST клиента.
-. Класс должен содержать реализацию всех методов, которые не генерируются автоматически.
+. The class must be an `abstract` one.
+. The class must extend the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/detail/AbstractRestClient.java[`AbstractRestClient`^] one.
+. The class must implement the REST client interface.
+. The class must contain an implementation of all methods that are not generated automatically.
 
 С точки зрения инфраструктуры генерируемые и определенные разработчиком обработчики HTTP запросов для REST клиента ничем не отличаются:
 

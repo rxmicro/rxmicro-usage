@@ -10,29 +10,29 @@ RxMicro поддерживает следующие `RxMicro annotations`, ко�
 
 ifdef::rest-kind-client,fragment-document[]
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/RestClient.java[`@RestClient`^]
-|Объявляет интерфейс REST клиентом.
+|Denotes that an interface is a dynamic generated REST client.
 endif::[]
 // ---------------------------------------------------------------------------------------------------------------------
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/GET.java[`@GET`^]
-|Обозначает метод, который должен обрабатывать `GET` запрос.
+|Denotes a method, that must handle a `GET` HTTP request.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/POST.java[`@POST`^]
-|Обозначает метод, который должен обрабатывать `POST` запрос.
+|Denotes a method, that must handle a `POST` HTTP request.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/PUT.java[`@PUT`^]
-|Обозначает метод, который должен обрабатывать `PUT` запрос.
+|Denotes a method, that must handle a `PUT` HTTP request.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/DELETE.java[`@DELETE`^]
-|Обозначает метод, который должен обрабатывать `DELETE` запрос.
+|Denotes a method, that must handle a `DELETE` HTTP request.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/PATCH.java[`@PATCH`^]
-|Обозначает метод, который должен обрабатывать `PATCH` запрос.
+|Denotes a method, that must handle a `PATCH` HTTP request.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/HEAD.java[`@HEAD`^]
-|Обозначает метод, который должен обрабатывать `HEAD` запрос.
+|Denotes a method, that must handle a `HEAD` HTTP request.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/OPTIONS.java[`@OPTIONS`^]
-|Обозначает метод, который должен обрабатывать `OPTIONS` запрос.
+|Denotes a method, that must handle a `OPTIONS` HTTP request.
 // ---------------------------------------------------------------------------------------------------------------------
 ifdef::rest-kind-controller,fragment-document[]
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/BaseUrlPath.java[`@BaseUrlPath`^]
@@ -178,7 +178,7 @@ _(Данная аннотация применима только к поля с
 |Позволяет <<rest-client-partial-implementation-section,задавать класс с частичной реализацией для REST клиента>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/RestClientGeneratorConfig.java[`@RestClientGeneratorConfig`^]
-|Denotes an abstract class that contains <<rest-client-rest-client-generator-config-section,a partial implementation of the annotated REST client interface>>.
+|Denotes an abstract class that contains <<rest-client-rest-client-generator-config-section,a partial implementation of the annotated by this annotation REST client interface>>.
 endif::[]
 // ---------------------------------------------------------------------------------------------------------------------
 |===

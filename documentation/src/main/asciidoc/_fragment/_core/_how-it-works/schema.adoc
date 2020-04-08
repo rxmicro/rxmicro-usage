@@ -2,7 +2,7 @@
 include::../../___fragment-settings.adoc[]
 
 [[core-how-it-works-core-schema]]
-==== Общая схема работы
+==== A Common Work Schema
 
 Схематически Общая схема работы может быть представлена следующим образом:
 

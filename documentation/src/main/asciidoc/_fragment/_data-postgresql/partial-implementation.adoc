@@ -22,20 +22,20 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-partial-
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql-r2dbc-postgresql/src/main/java/io/rxmicro/data/sql/r2dbc/postgresql/PartialImplementation.java[`@PartialImplementation`^]
 указывается абстрактный класс `AbstractDataRepository`.
 
-Абстрактный класс `AbstractDataRepository` содержит следующий контент:
+An `AbstractDataRepository` contains the following content:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-partial-implementation/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/partial/implementation/AbstractDataRepository.java[tag=content,indent=0]
 ----
 
-и должен удовлетворять следующим требованиям:
+An abstract class that contains a partial implementation must meet the following requirements:
 
-. Класс должен быть абстрактным.
-. Класс должен наследоваться от класса
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql-r2dbc-postgresql/src/main/java/io/rxmicro/data/sql/r2dbc/postgresql/detail/AbstractPostgreSQLRepository.java[`AbstractPostgreSQLRepository`^].
-. Класс должен реализовывать интерфейс of the PostgreSQL data repository.
-. Класс должен содержать реализацию всех методов, которые не генерируются автоматически.
+. The class must be an `abstract` one.
+. The class must extend the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql-r2dbc-postgresql/src/main/java/io/rxmicro/data/sql/r2dbc/postgresql/detail/AbstractPostgreSQLRepository.java[`AbstractPostgreSQLRepository`^] one.
+. The class must implement the PostgreSQL data repository interface.
+. The class must contain an implementation of all methods that are not generated automatically.
 
 С точки зрения инфраструктуры генерируемые и определенные разработчиком методы обработки данных для PostgreSQL data repository ничем не отличаются:
 

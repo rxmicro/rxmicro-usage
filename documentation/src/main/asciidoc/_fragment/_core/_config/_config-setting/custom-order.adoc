@@ -2,7 +2,7 @@
 include::../../../___fragment-settings.adoc[]
 
 [[core-config-order-settings]]
-===== Изменение порядка считывания источников конфигураций
+===== Custom Reading Order of Config Sources.
 
 Для изменения порядка считывания конфигураций необходимо использовать метод:
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L118[`Configs.Builder.withOrderedConfigLoadSources`^]:

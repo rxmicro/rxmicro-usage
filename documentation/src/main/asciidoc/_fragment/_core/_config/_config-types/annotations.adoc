@@ -4,7 +4,7 @@ include::../../../___fragment-settings.adoc[]
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../../
 
 [[core-config-annotations-section]]
-===== Конфигурирование с помощью аннотаций
+===== Configuration Using Java Annotations.
 
 Для переопределения значения по умолчанию RxMicro предоставляет аннотацию
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/DefaultConfigValue.java[`DefaultConfigValue`^].

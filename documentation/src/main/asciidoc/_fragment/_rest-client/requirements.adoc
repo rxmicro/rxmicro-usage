@@ -5,8 +5,8 @@ include::../___fragment-settings.adoc[]
 
 ==== Требования к интерфейсу REST Client
 
-REST Client - это Java интерфейс, аннотированный аннотацией
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/RestClient.java[`@RestClient`^]:
+REST Client is a Java interface that annotated by the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/RestClient.java[`@RestClient`^] annotation:
 
 [source,java]
 ----
@@ -23,23 +23,23 @@ public interface RESTClient {
 }
 ----
 
-который должен удовлетворять следующим требованиям:
+that must meet the following requirements:
 
-. Интерфейс должен быть публичным.
-. Интерфейс должен быть аннотирован обязательной аннотацией {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/RestClient.java[`@RestClient`^].
-. Интерфейс не должен наследоваться от других интерфейсов
-. Интерфейс не должен быть вложенным.
+. The interface must be a `public` one.
+. The interface must be annotated by the required {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/RestClient.java[`@RestClient`^] annotation.
+. The interface couldn't extend any other interfaces.
+. The interface couldn't be a nested one.
 
 <<<
 
 ==== Требования к обработчикам HTTP запроса
 
-Обработчик HTTP запроса - метод, который должен удовлетворять следующим требованиям:
+HTTP request handler is a method, that must meet the following requirements:
 
-. Метод должен быть неприватным.
-. Метод должен быть абстрактным.
-. Метод должен быть нестатическим.
-. Метод должен быть аннотирован *только* одной из следующих аннотаций:
+. The method couldn't be a `private` one.
+. The method couldn't be an `abstract` one.
+. The method couldn't be a `static` one.
+. The method must be annotated by *only one* of the following annotations:
 .. {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/GET.java[`GET`^];
 .. {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/POST.java[`POST`^];
 .. {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/PUT.java[`PUT`^];
@@ -47,19 +47,19 @@ public interface RESTClient {
 .. {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/PATCH.java[`PATCH`^];
 .. {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/HEAD.java[`HEAD`^];
 .. {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/method/OPTIONS.java[`OPTIONS`^].
-. Метод должен возвращать один из реактивных типов:
+. The method must return one of the following reactive types:
 .. {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[`CompletableFuture`^];
 .. {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletionStage.html[`CompletionStage`^];
 .. {REACTOR-CORE-DOC-ROOT-URL}reactor/core/publisher/Mono.html[`Mono`^];
 .. {RX-JAVA-DOC-ROOT-URL}io/reactivex/Completable.html[`Completable`^];
 .. {RX-JAVA-DOC-ROOT-URL}io/reactivex/Single.html[`Single`^].
-. Если метод возвращает реактивный тип, то данный тип должен быть параметризован классом модели ответа.
-(Вспомогательный тип `java.lang.Void` также поддерживаются для реактивных типов `CompletableFuture`, `CompletionStage` и `Mono`.
-_(см. <<{core}#core-reactive-bussiness-process-reactive-class-mapping-table>>)_).
+. If the method returns a reactive type, that this type must be parametrized by a HTTP response model type.
+(The additional types such as `java.lang.Void` and `java.util.Optional` are supported also.
+_(Read more: <<{core}#core-reactive-bussiness-process-reactive-class-mapping-table>>)_).
 
 [IMPORTANT]
 ====
-REST Client может содержать статические, приватные и неабстрактные методы, но такие методы не могут быть обработчикам HTTP запроса!
+A REST client can contain `static`, `private` and `default` methods, but such methods couldn't be HTTP request handlers!
 ====
 
 include::../_rest/___note-Flux-Flowable.adoc[]

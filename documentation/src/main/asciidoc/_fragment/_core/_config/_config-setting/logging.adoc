@@ -1,7 +1,7 @@
 :FRAGMENT_RELATIVE_DIR: ../../../
 include::../../../___fragment-settings.adoc[]
 
-===== Логирование процесса считывания конфигураций
+===== Logging the Config Reading Process
 
 Для отладки процесса считывания конфигураций Вы можете активировать <<core-logger-config-file-inline,логгер>>:
 
