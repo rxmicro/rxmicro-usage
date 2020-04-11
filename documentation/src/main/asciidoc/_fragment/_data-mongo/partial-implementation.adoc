@@ -6,21 +6,13 @@ include::../___fragment-settings.adoc[]
 [[data-mongo-partial-implementation-section]]
 === Partial Implementation
 
-Если генерируемый by the `RxMicro Annotation Processor` Mongo data repository содержит ошибки, некорректную или неоптимизированную логику, то разработчик может использовать the `Partial Implementation` feature.
-
-Данная feature позволяет реализовывать методы обработки данных для Mongo data repository самостоятельно, вместо того, чтобы они были сгененированы by the RxMicro framework.
-
-Для активации данной feature необходимо с помощью аннотации
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/PartialImplementation.java[`@PartialImplementation`^]
-указать абстрактный класс, который содержит реализацию методов обработки данных для Mongo data repository:
+TODO
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-partial-implementation/src/main/java/io/rxmicro/examples/data/mongo/partial/implementation/DataRepository.java[tag=content,indent=0]
 ----
-<1> C помощью аннотации
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/PartialImplementation.java[`@PartialImplementation`^]
-указывается абстрактный класс `AbstractDataRepository`.
+<1> TODO.
 
 An `AbstractDataRepository` contains the following content:
 
@@ -37,7 +29,7 @@ An abstract class that contains a partial implementation must meet the following
 . The class must implement the Mongo data repository interface.
 . The class must contain an implementation of all methods that are not generated automatically.
 
-С точки зрения инфраструктуры генерируемые и определенные разработчиком методы обработки данных для Mongo data repository ничем не отличаются:
+TODO
 
 [source,java]
 ----

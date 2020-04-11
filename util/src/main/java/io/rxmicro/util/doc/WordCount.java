@@ -37,7 +37,7 @@ import static java.util.stream.Collectors.joining;
 
 public final class WordCount {
 
-    private static final double FORMULA = 67.7 / 1_000.;
+    private static final double FORMULA = 68.1 / 1_000.;
 
     private static final List<Map.Entry<String, String>> SECTION_ORDER = List.of(
             entry("common", "<shared-fragments>"),
