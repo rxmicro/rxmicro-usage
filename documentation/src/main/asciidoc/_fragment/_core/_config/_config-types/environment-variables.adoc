@@ -11,7 +11,7 @@ include::../../../___fragment-settings.adoc[]
 ----
 *export* http-server.port=9090 # <1>
 
-*java* --add-exports=java.base/jdk.internal.misc=io.netty.common -p ./classes:lib -m *examples.quick.start/io.rxmicro.examples.quick.start.HelloWorldMicroService*
+*java* -p ./classes:lib -m *examples.quick.start/io.rxmicro.examples.quick.start.HelloWorldMicroService*
 2020-01-02 18:49:58.372 [INFO] io.rxmicro.rest.server.netty.internal.component.NettyServer :
 Server started at 0.0.0.0:9090 using NETTY transport in 500 millis. # <2>
 ----

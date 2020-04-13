@@ -98,7 +98,7 @@ To run a modularized micro service project the java requires more arguments:
 
 [source,txt,subs="verbatim,quotes"]
 ----
-*java* --add-exports=java.base/jdk.internal.misc=io.netty.common -p ./classes:lib -m *examples.quick.start/io.rxmicro.examples.quick.start.HelloWorldMicroService*
+*java* -p ./classes:lib -m *examples.quick.start/io.rxmicro.examples.quick.start.HelloWorldMicroService*
 ----
 
 ====

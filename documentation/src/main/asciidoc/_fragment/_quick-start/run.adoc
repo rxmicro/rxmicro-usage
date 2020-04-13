@@ -41,7 +41,7 @@ Server started at 0.0.0.0:8080 using NETTY transport in 500 millis # <1>
 
 [source,text,subs="verbatim,quotes,attributes+"]
 ----
-*java* --add-exports=java.base/jdk.internal.misc=io.netty.common -Dfile.encoding=UTF-8 -p ./classes:$M2_REPO/io/rxmicro/rxmicro-rest-server-netty/{RXMICRO-VERSION}/rxmicro-rest-server-netty-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-rest-server/{RXMICRO-VERSION}/rxmicro-rest-server-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-rest/{RXMICRO-VERSION}/rxmicro-rest-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-model/{RXMICRO-VERSION}/rxmicro-model-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-http/{RXMICRO-VERSION}/rxmicro-http-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-logger/{RXMICRO-VERSION}/rxmicro-logger-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-common/{RXMICRO-VERSION}/rxmicro-common-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-config/{RXMICRO-VERSION}/rxmicro-config-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-runtime/{RXMICRO-VERSION}/rxmicro-runtime-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-files/{RXMICRO-VERSION}/rxmicro-files-{RXMICRO-VERSION}.jar:$M2_REPO/io/netty/netty-codec-http/4.1.44.Final/netty-codec-http-4.1.44.Final.jar:$M2_REPO/io/netty/netty-common/4.1.44.Final/netty-common-4.1.44.Final.jar:$M2_REPO/io/netty/netty-buffer/4.1.44.Final/netty-buffer-4.1.44.Final.jar:$M2_REPO/io/netty/netty-codec/4.1.44.Final/netty-codec-4.1.44.Final.jar:$M2_REPO/io/netty/netty-handler/4.1.44.Final/netty-handler-4.1.44.Final.jar:$M2_REPO/io/netty/netty-transport/4.1.44.Final/netty-transport-4.1.44.Final.jar:$M2_REPO/io/netty/netty-resolver/4.1.44.Final/netty-resolver-4.1.44.Final.jar:$M2_REPO/io/rxmicro/rxmicro-rest-server-exchange-json/{RXMICRO-VERSION}/rxmicro-rest-server-exchange-json-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-exchange-json/{RXMICRO-VERSION}/rxmicro-exchange-json-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-json/{RXMICRO-VERSION}/rxmicro-json-{RXMICRO-VERSION}.jar -m *examples.quick.start/io.rxmicro.examples.quick.start.HelloWorldMicroService*
+*java* -p ./classes:$M2_REPO/io/rxmicro/rxmicro-rest-server-netty/{RXMICRO-VERSION}/rxmicro-rest-server-netty-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-rest-server/{RXMICRO-VERSION}/rxmicro-rest-server-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-rest/{RXMICRO-VERSION}/rxmicro-rest-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-model/{RXMICRO-VERSION}/rxmicro-model-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-http/{RXMICRO-VERSION}/rxmicro-http-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-logger/{RXMICRO-VERSION}/rxmicro-logger-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-common/{RXMICRO-VERSION}/rxmicro-common-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-config/{RXMICRO-VERSION}/rxmicro-config-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-runtime/{RXMICRO-VERSION}/rxmicro-runtime-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-files/{RXMICRO-VERSION}/rxmicro-files-{RXMICRO-VERSION}.jar:$M2_REPO/io/netty/netty-codec-http/4.1.44.Final/netty-codec-http-4.1.44.Final.jar:$M2_REPO/io/netty/netty-common/4.1.44.Final/netty-common-4.1.44.Final.jar:$M2_REPO/io/netty/netty-buffer/4.1.44.Final/netty-buffer-4.1.44.Final.jar:$M2_REPO/io/netty/netty-codec/4.1.44.Final/netty-codec-4.1.44.Final.jar:$M2_REPO/io/netty/netty-handler/4.1.44.Final/netty-handler-4.1.44.Final.jar:$M2_REPO/io/netty/netty-transport/4.1.44.Final/netty-transport-4.1.44.Final.jar:$M2_REPO/io/netty/netty-resolver/4.1.44.Final/netty-resolver-4.1.44.Final.jar:$M2_REPO/io/rxmicro/rxmicro-rest-server-exchange-json/{RXMICRO-VERSION}/rxmicro-rest-server-exchange-json-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-exchange-json/{RXMICRO-VERSION}/rxmicro-exchange-json-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-json/{RXMICRO-VERSION}/rxmicro-json-{RXMICRO-VERSION}.jar -m *examples.quick.start/io.rxmicro.examples.quick.start.HelloWorldMicroService*
 ----
 
 [TIP]
@@ -63,8 +63,7 @@ include::__note-run-on-windows.adoc[]
 
 [source,text,subs="verbatim,quotes,attributes+"]
 ----
-*java* --add-exports=java.base/jdk.internal.misc=io.netty.common \
-    -p ./classes: \
+*java* -p ./classes: \
         $M2_REPO/io/rxmicro/rxmicro-rest-server-netty/{RXMICRO-VERSION}/rxmicro-rest-server-netty-{RXMICRO-VERSION}.jar: \
         $M2_REPO/io/rxmicro/rxmicro-rest-server/{RXMICRO-VERSION}/rxmicro-rest-server-{RXMICRO-VERSION}.jar: \
         $M2_REPO/io/rxmicro/rxmicro-rest/{RXMICRO-VERSION}/rxmicro-rest-{RXMICRO-VERSION}.jar: \
@@ -140,7 +139,7 @@ _(Вместо перечисления всех библиотек указат
 
 [source,text,subs="verbatim,quotes"]
 ----
-*java* --add-exports=java.base/jdk.internal.misc=io.netty.common -p ./classes:lib -m *examples.quick.start/io.rxmicro.examples.quick.start.HelloWorldMicroService*
+*java* -p ./classes:lib -m *examples.quick.start/io.rxmicro.examples.quick.start.HelloWorldMicroService*
 ----
 
 include::__note-run-on-windows.adoc[]

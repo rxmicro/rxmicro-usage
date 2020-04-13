@@ -2,8 +2,8 @@
 # docker build -t rxmicro/native-hello-world .
 #
 # Run:
-# docker run -it --rm --name rxmicro-native-hello-world -p 8080:8080 -e PRINT_ENV=true rxmicro/native-hello-world
-# docker run -it --rm --name rxmicro-native-hello-world -p 8080:8080 -e PRINT_ENV=true rxmicro/native-hello-world sh
+# docker run -it --rm --name rxmicro-native-hello-world -p 8080:8080 -e RX_MICRO_PRINT_RUNTIME=true rxmicro/native-hello-world
+# docker run -it --rm --name rxmicro-native-hello-world -p 8080:8080 -e RX_MICRO_PRINT_RUNTIME=true rxmicro/native-hello-world sh
 #
 # Push:
 # docker push rxmicro/native-hello-world

@@ -2,8 +2,8 @@
 # docker build -t rxmicro/simple-hello-world .
 #
 # Run:
-# docker run -it --rm --name rxmicro-simple-hello-world -p 8080:8080 -e PRINT_ENV=true rxmicro/simple-hello-world
-# docker run -it --rm --name rxmicro-simple-hello-world -p 8080:8080 -e PRINT_ENV=true rxmicro/simple-hello-world sh
+# docker run -it --rm --name rxmicro-simple-hello-world -p 8080:8080 -e RX_MICRO_PRINT_RUNTIME=true rxmicro/simple-hello-world
+# docker run -it --rm --name rxmicro-simple-hello-world -p 8080:8080 -e RX_MICRO_PRINT_RUNTIME=true rxmicro/simple-hello-world sh
 #
 # Push:
 # docker push rxmicro/simple-hello-world
