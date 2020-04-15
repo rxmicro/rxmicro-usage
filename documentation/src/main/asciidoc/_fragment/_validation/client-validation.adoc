@@ -4,44 +4,44 @@ include::../___fragment-settings.adoc[]
 
 === HTTP Responses Client Validation
 
-После активации модуля `rxmicro.validation` в дескрипторе `module-info.java`
+After activation of the `rxmicro.validation` module in the `module-info.java` descriptor
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-client-basic/src/main/java/module-info.java[tags=content]
 ----
-<1> `rxmicro.validation` - модуль валидации запросов и ответов.
+<1> `rxmicro.validation` is a module for request and response validation.
 
-разработчик может использовать <<validation-std-constraints-section, built-in constraints>> для валидации полей HTTP ответа:
+the developer can use <<validation-std-constraints-section, built-in constraints>> to validate HTTP request parameters:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-client-basic/src/main/java/io/rxmicro/examples/validation/client/basic/model/Response.java[tags=content]
 ----
-<1> Параметр `email` аннотирован аннотацией `@Email`.
+<1> The `email` parameter is annotated by the `@Email` annotation.
 
-После настройки класса модели, данную модель необходимо использовать в REST клиенте:
+After setting up the model class, this model must be used in the REST client:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-client-basic/src/main/java/io/rxmicro/examples/validation/client/basic/RESTClient.java[tags=content]
 ----
 
-В процессе преобразования содержимого HTTP ответа в объект класса `Response`, автоматически будет вызываться валидатор:
+When converting the content of an HTTP response to the `Response` class object, the validator will be invoked automatically:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-client-basic/src/test/java/io/rxmicro/examples/validation/client/basic/RESTClientTest.java[tags=content]
 ----
-<1> Если REST client будет получать валидный HTTP ответ, то никаких ошибок не возникнет.
-<2> Если поле `email` будет некорректным в HTTP ответе, то REST client вернет сигнал ошибки.
-<3> В случае некорректности HTTP ответа, возвращается исключение класса `UnexpectedResponseException` с детальным текстовым сообщением.
-<4> *Так как `CompletableFuture` в случае получения сигнала об ошибке ВСЕГДА возвращает исключение класса `CompletionException`, то для получения исходного класса исключения, который был выброшен в процессе отложенного вычисления необходимо использовать утилитный метод
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-common/src/main/java/io/rxmicro/common/util/Exceptions.java#L79[`Exceptions.getRealThrowable`^]!*
+<1> If the REST client receives a valid HTTP response, no errors will occur.
+<2> If the `email` field is incorrect in the HTTP response, the REST client will return an error signal.
+<3> If the HTTP response is incorrect, the `UnexpectedResponseException` class exception is returned with a detailed text message.
+<4> *Since `CompletableFuture` when receiving an error signal ALWAYS returns the `CompletionException` class exception, to get the original exception class, which was thrown during the lazy evaluation, it is necessary to use the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-common/src/main/java/io/rxmicro/common/util/Exceptions.java#L79[`Exceptions.getRealThrowable`^] utility method!*
 
 [NOTE]
 ====
-Для ознакомления с возможностями of the RxMicro framework для валидации HTTP запросов в REST клиентах, рекомендуем обратится к примеру:
+Check out the following example to find out the features of the RxMicro framework for HTTP request validation in REST clients:
 
 [.example-code-link]
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}validation-client-all-types[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}validation-client-all-types`^]

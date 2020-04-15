@@ -2,16 +2,16 @@
 include::../___fragment-settings.adoc[]
 
 [[validation-prepare-section]]
-=== Подготовительные шаги
+=== Preparatory steps
 
-Для активации модуля валидации в микросервисном проекте, необходимо выполнить следующие шаги:
+To activate the validation module in a microservices project, the following steps must be taken:
 
-. Добавить необходимые зависимости в `pom.xml`.
-. Добавить модуль `rxmicro.validation` в `module-info.java`.
+. Add the required dependencies to `pom.xml`.
+. Add the `rxmicro.validation` module to `module-info.java`.
 
-==== Добавление необходимых зависимостей:
+==== Adding the required dependencies:
 
-Для активации модуля валидации в микросервисном проекте, необходимо добавить библиотеку `rxmicro-validation`:
+To activate the validation module in a microservices project, it is necessary to add the `rxmicro-validation` library:
 
 [source,xml]
 ----
@@ -24,7 +24,7 @@ include::../___fragment-settings.adoc[]
 </dependencies>
 ----
 
-==== Добавление модуля `rxmicro.validation` в `module-info.java`
+==== Adding the `rxmicro.validation` module to `module-info.java`
 
 [source,java]
 ----
@@ -32,4 +32,4 @@ module example {
     requires rxmicro.validation; // <1>
 }
 ----
-<1> Добавление модуля валидации запросов и ответов.
+<1> Adding the request and response validation module.

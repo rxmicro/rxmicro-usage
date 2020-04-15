@@ -6,49 +6,49 @@ include::../___fragment-settings.adoc[]
 [[validation-response-section]]
 === HTTP Responses Server Validation
 
-Кроме валидации HTTP запросов RxMicro также предоставляет возможность валидировать HTTP ответы.
+In addition to validating HTTP requests, RxMicro also provides the option to validate HTTP responses.
 
-_(Валидация HTTP ответов может быть полезна для выявления ошибок в алгоритмах реализации бизнес задачи.
-Например вместо возвращения клиенту некорректной модели ответа микросервис будет выбрасывать ошибку.
-При таком подходе увеличивается скорость поиска ошибок и отладки исходного кода, выполняющего бизнес задачу.)_
+_(HTTP response validation can be useful for identifying errors in business task implementation algorithms.
+For example, instead of returning an incorrect response model to a client, the microservice will throw an error.
+This approach increases the speed of error search and debugging of the source code that performs the business task.)_
 
 [IMPORTANT]
 ====
-Если текущая реализация бизнес задачи не содержит каких-либо ошибок, то валидация HTTP ответов будет бессмысленно расходовать вычислительные ресурсы.
-В таком случае валидация HTTP ответов должна быть деактивирована!
+If current implementation of the business task doesn't contain any errors, then HTTP response validation will consume computing resources senselessly.
+In this case, HTTP response validation must be disabled!
 ====
 
-*По умолчанию RxMicro не генерирует валидаторы ответов!*
+*By default, RxMicro does not generate response validators!*
 
-Чтобы информировать the `RxMicro Annotation Processor` о необходимости генерации валидаторов HTTP ответа, необходимо использовать аннотацию <<{rest-controller}#rest-controller-rest-server-generator-config-section,`@RestServerGeneratorConfig`>>:
+To inform the `RxMicro Annotation Processor` about the need to generate HTTP response validators, it is necessary to use the <<{rest-controller}#rest-controller-rest-server-generator-config-section,`@RestServerGeneratorConfig`>> annotation:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-response/src/main/java/module-info.java[tag=content,indent=0]
 ----
-<1> Параметр `generateResponseValidators` позволяет включать/отключать опцию генерации валидаторов HTTP ответа для всех обработчиков в проекте. +
-_(Значение `AUTO_DETECT` означает, что валидаторы будут сгенерированы только в том случае, если разработчик добавит модуль `rxmicro.validation` в дескриптор `module-info.java`.
-Так как данный модуль добавлен, то the `RxMicro Annotation Processor` сгенерирует валидаторы для HTTP ответа.)_
+<1> The `generateResponseValidators` parameter allows you to enable/disable the option of generating HTTP response validators for all handlers in the project. +
+_(The `AUTO_DETECT` value means that validators will be generated only if the developer adds the `rxmicro.validation` module to the `module-info.java` descriptor.
+Since this module has been added, the `RxMicro Annotation Processor` will generate validators for HTTP response.)_
 
-Класс модели HTTP ответа может содержать любые built-in or custom constraint annotations:
+The HTTP response model class can contain any built-in or custom constraint annotations:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-response/src/main/java/io/rxmicro/examples/validation/server/response/model/Response.java[tag=content,indent=0]
 ----
-<1> В данном примере поле `message` не содержит никаких constraint annotations явно.
-Но из-за того что в дескрипторе `module-info.java` добавлен модуль `rxmicro.validation`, то все поля модели не помеченные аннотацией
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Nullable.java[`@Nullable`^] автоматически являются обязательными.
-_(Т.е. такие поля неявно помечаются виртуальной constraint annotation `@Required`.)_
+<1> In this example, the `message` field doesn't explicitly contain any constraint annotations.
+But since to the `module-info.java` descriptor was added the `rxmicro.validation` module, then all model fields not marked with the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Nullable.java[`@Nullable`^] annotation are automatically required.
+_(In other words, such fields are implicitly marked by a virtual constraint annotation `@Required`.)_
 
-Для эмуляции некорректного бизнес значения, в обработчике запроса передается `null` значение в поле `message`:
+To emulate an incorrect business value, `null` value is passed in the request handler to the `message` field:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-response/src/main/java/io/rxmicro/examples/validation/server/response/MicroService.java[tag=content,indent=0]
 ----
 
-В случае невалидности HTTP ответа, RxMicro возвращает HTTP ответ со статусом `500` и <<{rest-controller}#rest-controller-errors-model-inline, стандартной моделью ошибки>>:
+In case of invalid HTTP response, RxMicro returns HTTP response with a status `500` and <<{rest-controller}#rest-controller-errors-model-inline, standard error model>>:
 
 [source,java]
 ----

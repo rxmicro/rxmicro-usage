@@ -1,10 +1,10 @@
 :FRAGMENT_RELATIVE_DIR:
 include::___fragment-settings.adoc[]
 
-The RxMicro framework поддерживает валидацию HTTP запросов и ответов.
+The RxMicro framework supports validation of HTTP requests and responses.
 
-Все классы и аннотации необходимые для валидации данных доступны в модуле
-{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-validation[`rxmicro.validation`^].
+All classes and annotations required for data validation are available in the
+{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-validation[`rxmicro.validation`^] module.
 
 <<<
 

@@ -4,8 +4,8 @@ include::../___fragment-settings.adoc[]
 [[validation-std-constraints-section]]
 === Built-in Сonstraints.
 
-The RxMicro framework supports the following built-in constraints, that are available at the package
-{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint[`io.rxmicro.validation.constraint`^]:
+The RxMicro framework supports the following built-in constraints, that are available at the
+{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint[`io.rxmicro.validation.constraint`^] package:
 
 .Supported Built-in Сonstraints.
 |===
@@ -233,7 +233,7 @@ _(See https://en.wikipedia.org/wiki/Uniform_Resource_Identifier[Uniform Resource
 
 [IMPORTANT]
 ====
-RxMicro анализирует built-in constraints при <<{project-documentation}#project-documentation-section,построении проектной документации.>>
+The RxMicro framework analyzes built-in constraints when <<{project-documentation}#project-documentation-section, drawing up the project documentation.>>
 
-*Поэтому правильно выбранная аннотация кроме своего основного предназначения позволяет также автоматически сгенерировать более точную проектную документацию!*
+*Therefore, a properly selected annotation, in addition to its main purpose, makes it possible to automatically generate more accurate project documentation!*
 ====

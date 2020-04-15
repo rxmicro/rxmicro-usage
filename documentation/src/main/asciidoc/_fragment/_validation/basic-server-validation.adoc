@@ -4,35 +4,35 @@ include::../___fragment-settings.adoc[]
 
 === HTTP Requests Server Validation
 
-После активации модуля `rxmicro.validation` в дескрипторе `module-info.java`
+After activation of the `rxmicro.validation` module in the `module-info.java` descriptor
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-basic/src/main/java/module-info.java[tag=content,indent=0]
 ----
-<1> `rxmicro.validation` - модуль валидации запросов и ответов.
+<1> `rxmicro.validation` is a module for request and response validation.
 
-разработчик может использовать <<validation-std-constraints-section, built-in constraints>> для валидации параметров HTTP запроса:
+the developer can use <<validation-std-constraints-section, built-in constraints>> to validate HTTP request parameters:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-basic/src/main/java/io/rxmicro/examples/validation/server/basic/MicroService.java[tag=content,indent=0]
 ----
-<1> Параметр `email` аннотирован аннотацией `@Email`.
+<1> The `email` parameter is annotated by the `@Email` annotation.
 
-Благодаря данной аннотации процессор аннотаций автоматически сгенерирует валидатор для HTTP параметра `email`:
+Due to this annotation the annotation processor will automatically generate a validator for `email` HTTP parameter:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-basic/src/test/java/io/rxmicro/examples/validation/server/basic/MicroServiceTest.java[tag=content,indent=0]
 ----
-<1> При активации модуля `rxmicro.validation` все параметры запроса автоматически считаются обязательными. +
-_(Поэтому the `RxMicro Annotation Processor` автоматически добавляет `required` валидатор для каждого параметра.
-Если параметр должен быть `optional`, необходимо поле модели аннотировать аннотацией
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Nullable.java[`@Nullable`^].)_
-<2> Если параметры запросы некорректные, HTTP сервер автоматически возвращает статус код `400` и JSON объект <<{rest-controller}#rest-controller-errors-model-inline,стандартной структуры с детальным описанием ошибки.>>
-<3> При возникновении ошибки валидации HTTP запроса, обработчик запроса из REST контроллера не вызывается.
-<4> Если параметры запроса корректные, то управление передается обработчику запросов из REST контроллера.
+<1> When activating the `rxmicro.validation` module, all query parameters are automatically considered as required. +
+_(Therefore the `RxMicro Annotation Processor` automatically adds a `required` validator for each parameter.
+If the parameter should be `optional`, the model field should be annotated with the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Nullable.java[`@Nullable`^] annotation.)_
+<2> If request parameters are invalid, HTTP server automatically returns a status code `400` and JSON object of <<{rest-controller}#rest-controller-errors-model-inline,standard structure with detailed error description.>>
+<3> If an HTTP request validation error occurs, the request handler isn't invoked from the REST controller.
+<4> If the request parameters are valid, control is transferred to the request handler from the REST controller.
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}validation-server-basic
 include::../___notes/full-source-code-of-example.adoc[]

@@ -4,42 +4,42 @@ include::../___fragment-settings.adoc[]
 
 === Creating Custom Constraints
 
-Если built-in constraints не достаточно, разработчик может создать custom constraint.
-Для этого необходимо выполнить следующие шаги:
+If built-in constraints are not enough, the developer can create custom constraint.
+To do so, the following steps must be taken:
 
 . Create a constraint annotation.
 . Implement a validator.
 
-Валидирующая аннотация - это аннотация, удовлетворяющая следующим требованиям:
+A validation annotation is an annotation that meets the following requirements:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-custom/src/main/java/io/rxmicro/examples/validation/server/custom/ExpectedZero.java[tag=content,indent=0]
 ----
-<1> Аннотация доступна только на уровне компиляции.
-<2> С помощью данной аннотации можно валидировать поля класса, методы класса (`setters` и `getters`) и параметры метода.
-<3> С помощью аннотации
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/base/ConstraintRule.java[`@ConstraintRule`^] указывается:
-<4> тип данных;
-<5> класс валидатора.
-<6> Каждая constraint annotation должна иметь обязательный параметр `boolean off() default false;`, который позволяет деактивировать валидатор. +
-_(Данная функция полезна при наследовании моделей, когда параметр из класса наследника не должен валидироваться, а параметр из родительского класса должен!)_
+<1> The annotation is only available at the compilation level.
+<2> This annotation allows to validate class fields, class methods (`setters` and `getters`) and method parameters.
+<3> The
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/base/ConstraintRule.java[`@ConstraintRule`^] annotation is used to indicate:
+<4> data type;
+<5> validator class.
+<6> Each constraint annotation requires a required `boolean off() default false;` parameter, that allows you to disable the validator. +
+_(This feature is useful for model inheritance when a parameter from a child class should not be validated and a parameter from a parent class should be validated!)_
 
-Валидатор - это класс, удовлетворяющий следующим требованиям:
+Validator is a class that meets the following requirements:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-custom/src/main/java/io/rxmicro/examples/validation/server/custom/ExpectedZeroConstraintValidator.java[tag=content,indent=0]
 ----
-<1> Класс валидатора должен реализовать интерфейс
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/ConstraintValidator.java[`ConstraintValidator`^] параметризованный типом данных. +
-_(Если constraint annotation может быть применена к разным типам данных, то для каждого типа данных должен быть создан отдельный класс валидатора.)_
-<2> Валидатор должен игнорировать `null` значения. +
-_(Для проверки на `null` существует предопределенный валидатор.)_
-<3> Если параметр некорректный, необходимо выбросить исключение
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/error/ValidationException.java[`ValidationException`^] с однозначным сообщением об ошибке.
+<1> The validator class must implement the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/ConstraintValidator.java[`ConstraintValidator`^] interface parameterized by the data type. +
+_(If constraint annotation can be applied to different data types, a separate validator class must be created for each data type.)_
+<2> Validator must ignore `null` values. +
+_(To check for `null` there is a predefined validator.)_
+<3> If the parameter is incorrect, the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/error/ValidationException.java[`ValidationException`^] exception with a clear error message must be thrown.
 
-Использование пользовательского валидатора ничем не отличается от использования предопределенного:
+Using a custom validator is no different from using a predefined validator:
 
 [source,java]
 ----
