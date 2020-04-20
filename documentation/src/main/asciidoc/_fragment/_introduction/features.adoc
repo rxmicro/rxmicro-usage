@@ -65,7 +65,7 @@ RxMicro provides the following feature set:
 ... Possibility to customize a standard repository implementation.
 ... Access to a low-level API.
 . Testing.
-.. Modular component testing.
+.. Component testing.
 .. REST-based microservices testing.
 .. Integration testing.
 .. Support for alternatives and mocks.

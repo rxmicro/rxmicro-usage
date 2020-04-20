@@ -20,7 +20,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-concurre
 
 [NOTE]
 ====
-For more information, we recommend that you familiarize yourself with the following examples:
+For more information, we recommend that You familiarize yourself with the following examples:
 
 * {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-r2dbc-postgresql-concurrent-reactor[*Concurrent Example Using Spring Reactor Library*^];
 * {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-r2dbc-postgresql-concurrent-rxjava3[*Concurrent Example Using RxJava 3 Library*^];

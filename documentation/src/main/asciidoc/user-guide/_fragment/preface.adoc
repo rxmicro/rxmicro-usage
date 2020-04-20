@@ -3,9 +3,9 @@ Free use of this software is granted under the terms of the {RX-MICRO-SRC-ROOT-B
 
 [NOTE]
 ====
-Copies of this entity may be made for your own use and for distribution to others, provided that you do not charge any fee for such copies and further provided that each copy contains this Copyright Notice, whether distributed in print or electronically.
+Copies of this entity may be made for Your own use and for distribution to others, provided that You do not charge any fee for such copies and further provided that each copy contains this Copyright Notice, whether distributed in print or electronically.
 
-If you find errors or omissions in this entity, please don’t hesitate to submit an
+If You find errors or omissions in this entity, please don’t hesitate to submit an
 https://github.com/rxmicro/rxmicro-usage/issues[*issue*^] or open https://github.com/rxmicro/rxmicro-usage/pulls[*a pull request*^] with a fix.
 ====
 

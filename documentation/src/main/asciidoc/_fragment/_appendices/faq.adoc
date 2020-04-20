@@ -4,23 +4,23 @@ include::../___fragment-settings.adoc[]
 [[appendices-faq-section]]
 === Appendix A: FAQ
 
-This section covers a list of possible questions that you can ask yourself when you use the RxMicro framework.
+This section covers a list of possible questions that You can ask yourself when You use the RxMicro framework.
 
 ==== Does the RxMicro framework modify my byte code?
 
 No.
-Your classes are your classes.
-The RxMicro framework does not transform classes or modify the Java byte code you write.
+Your classes are Your classes.
+The RxMicro framework does not transform classes or modify the Java byte code You write.
 The RxMicro framework produces additional classes only.
 
 ==== Can the RxMicro framework be used for purposes other than microservices?
 
 Yes.
-The RxMicro framework is very modular and you can choose to use any module you need.
+The RxMicro framework is very modular and You can choose to use any module You need.
 
 ==== Why I receive `class not found` error?
 
-When you use the RxMicro framework you can receive one of the following errors:
+When You use the RxMicro framework You can receive one of the following errors:
 
 * `Class rxmicro.$$RestControllerAggregatorImpl not found`;
 * `Class rxmicro.$$RestClientFactoryImpl not found`;
@@ -31,17 +31,17 @@ These errors mean that the `RxMicro Annotation Processor` does not generate the 
 
 To fix it, please verify that:
 
-. `pom.xml` for your project contains <<{quick-start}#quick-start-maven-compiler-plugin-settings-section,the valid settings for `maven-compiler-plugin`>> and
+. `pom.xml` for Your project contains <<{quick-start}#quick-start-maven-compiler-plugin-settings-section,the valid settings for `maven-compiler-plugin`>> and
 . You executed command: `mvn clean compile`!
 
 ==== Why I receive `The Kotlin standard library is not found in the module graph` error?
 
 Sometimes this issue occurs during the work with java code using IntelliJ IDEA.
-To fix this issue it is necessary to rebuild your project: `Build` -> `Rebuild project`.
+To fix this issue it is necessary to rebuild Your project: `Build` -> `Rebuild project`.
 
 ==== Why I receive `java.lang.NullPointerException: autoRelease couldn't be null` error during unit testing?
 
-If you declare an alternative of the `HttpClientFactory` mock and don't configure it this error can happen.
+If You declare an alternative of the `HttpClientFactory` mock and don't configure it this error can happen.
 
 To fix this issue it is necessary to configure the `@Mock` annotation:
 

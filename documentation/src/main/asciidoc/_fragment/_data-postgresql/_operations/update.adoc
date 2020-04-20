@@ -17,7 +17,7 @@ _(Read more about the algorithm of the variables resolving at <<data-postgresql-
 
 [NOTE]
 ====
-For more information, we recommend that you familiarize yourself with the following examples:
+For more information, we recommend that You familiarize yourself with the following examples:
 
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-r2dbc-postgresql-return-types/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/returntypes/update[All Supported Return Types^]
 ====

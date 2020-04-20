@@ -6,7 +6,7 @@ include::../___fragment-settings.adoc[]
 
 https://www.graalvm.org/[GraalVM^] is a universal virtual machine for running applications written in different languages.
 
-GraalVM contains a https://www.graalvm.org/docs/reference-manual/native-image/[Native Image Tool^], that allows you to ahead-of-time compile Java code to a standalone executable, called a native image.
+GraalVM contains a https://www.graalvm.org/docs/reference-manual/native-image/[Native Image Tool^], that allows You to ahead-of-time compile Java code to a standalone executable, called a native image.
 
 The GraalVM Native Image Tool can be used to build a native image of any RxMicro microservice project.
 Before build a native image it is necessary to setup a GraalVM developer environment.

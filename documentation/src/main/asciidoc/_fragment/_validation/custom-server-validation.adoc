@@ -22,7 +22,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-custom/src/m
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/base/ConstraintRule.java[`@ConstraintRule`^] annotation is used to indicate:
 <4> data type;
 <5> validator class.
-<6> Each constraint annotation requires a required `boolean off() default false;` parameter, that allows you to disable the validator. +
+<6> Each constraint annotation requires a required `boolean off() default false;` parameter, that allows You to disable the validator. +
 _(This feature is useful for model inheritance when a parameter from a child class should not be validated and a parameter from a parent class should be validated!)_
 
 Validator is a class that meets the following requirements:

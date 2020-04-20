@@ -5,7 +5,7 @@ include::../___fragment-settings.adoc[]
 [[validation-disable-section]]
 === Disabling Validation
 
-To disable the generation of validators, you must perform one of the following steps:
+To disable the generation of validators, You must perform one of the following steps:
 
 . Delete the `rxmicro.validation` module from the `module-info.java` descriptor.
 . Use `GenerateOption.DISABLED` options to disable specific categories of validators.

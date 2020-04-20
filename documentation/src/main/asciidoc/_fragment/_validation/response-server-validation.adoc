@@ -26,7 +26,7 @@ To inform the `RxMicro Annotation Processor` about the need to generate HTTP res
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-response/src/main/java/module-info.java[tag=content,indent=0]
 ----
-<1> The `generateResponseValidators` parameter allows you to enable/disable the option of generating HTTP response validators for all handlers in the project. +
+<1> The `generateResponseValidators` parameter allows You to enable/disable the option of generating HTTP response validators for all handlers in the project. +
 _(The `AUTO_DETECT` value means that validators will be generated only if the developer adds the `rxmicro.validation` module to the `module-info.java` descriptor.
 Since this module has been added, the `RxMicro Annotation Processor` will generate validators for HTTP response.)_
 

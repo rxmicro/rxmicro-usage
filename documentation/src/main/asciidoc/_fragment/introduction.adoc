@@ -16,7 +16,7 @@ The RxMicro framework is a framework that uses https://en.wikipedia.org/wiki/Rea
 [IMPORTANT]
 ====
 When developing a project using the RxMicro framework, use only *non-blocking drivers* to interact with databases, network connections and files.
-Otherwise your project will work *too slow*, and won't be able to process a large number of clients' requests.
+Otherwise Your project will work *too slow*, and won't be able to process a large number of clients' requests.
 ====
 
 <<<
