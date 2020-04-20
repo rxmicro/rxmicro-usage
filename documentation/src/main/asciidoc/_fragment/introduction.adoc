@@ -1,22 +1,22 @@
 :FRAGMENT_RELATIVE_DIR:
 include::___fragment-settings.adoc[]
 
-*RxMicro* - это современный, JVM-based, full stack framework, спроектированный для разработки распределенных реактивных приложений, использующих микросервисную архитектуру.
+*RxMicro* is a modern, JVM-based, full stack framework designed to develop distributed reactive applications that use a microservice architecture.
 
-The RxMicro framework предоставляет разработчикам удобный инструмент, который позволяет сконцентрироваться на написании бизнес логики приложения.
-А рутинные и стандартные операции без которых запуск приложения невозможен делегировать фреймворку.
+The RxMicro framework provides developers with a convenient tool to focus on writing an application business logic.
+Meanwhile, routine and standard operations, which are the prerequisite for launching an application, are delegated to the framework.
 
-The RxMicro framework - маленький и легковесный.
-Несмотря на то что the RxMicro framework разработан для создания микросервисов, разработчик может с легкостью использовать отдельные *RxMicro* модули для разработки любого типа приложения используя реактивный подход.
+The RxMicro framework is small and lightweight.
+Even though the RxMicro framework is designed to create microservices, a developer can easily use separate *RxMicro* modules to develop any type of application using a reactive approach.
 
-The RxMicro framework - фреймворк, который использует https://en.wikipedia.org/wiki/Reactive_programming[реактивный подход к программированию^] в качестве основного и *единственного* подхода при проектировании микросервисов.
+The RxMicro framework is a framework that uses https://en.wikipedia.org/wiki/Reactive_programming[reactive programming^] as the main and *only* approach when designing microservices.
 
-*Какие-либо блокирующие операции не поддерживаются!*
+*Any blocking operations are not supported!*
 
 [IMPORTANT]
 ====
-При разработке проекта via the RxMicro framework, используйте только *неблокирующие драйверы* для взаимодействия с базами данных, сетевыми соединениями и файлами.
-В противном случае Ваш проект будет работать *очень медленно* и не сможет обслужить огромное число запросов от клиентов.
+When developing a project using the RxMicro framework, use only *non-blocking drivers* to interact with databases, network connections and files.
+Otherwise your project will work *too slow*, and won't be able to process a large number of clients' requests.
 ====
 
 <<<

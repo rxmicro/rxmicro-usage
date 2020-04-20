@@ -3,72 +3,72 @@ include::../___fragment-settings.adoc[]
 
 === RxMicro features
 
-RxMicro предоставляет следующий набор возможностей:
+RxMicro provides the following feature set:
 
-. Декларативное программирование, используя https://docs.oracle.com/javase/tutorial/java/annotations/[аннотации^].
-. Реактивное программирование, используя распространенные библиотеки:
+. Declarative programming using https://docs.oracle.com/javase/tutorial/java/annotations/[annotations^].
+. Reactive programming using common libraries:
 .. {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/package-summary.html[*java.util.concurrent*^]:
 {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[CompletableFuture^],
 {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletionStage.html[CompletionStage^].
 .. {REACTOR-CORE-DOC-USER_GUIDE}[*Project Reactor*: Mono, Flux^].
 .. {RX-JAVA-USER-GUIDE}[*RxJava*: Completable,Single, Maybe, Flowable^].
-. Конфигурирование с помощью java конфигурации, аннотаций, файлов, системных свойств и переменных окружения.
-. Декларативные обработчики HTTP запросов к микросервису.
-.. Маршрутизация запросов на основании анализа HTTP метода, URL path и HTTP тела.
-.. Обработка HTTP заголовков.
-.. Обработка HTTP параметров.
-.. Поддержка path переменных.
-.. Автоматическая конвертация данных запроса в Java модель и наоборот.
-.. Встроенная валидация запросов и ответов.
-.. Поддержка статической конфигурации.
-.. Поддержка версионирования обработчиков.
-.. Поддержка https://developer.mozilla.org/ru/docs/Web/HTTP/CORS[Cross-Origin Resource Sharing (CORS)^].
-.. Поддержка идентификации запроса при межсервисном взаимодействии.
-. Декларативный REST client.
-.. Обработка HTTP заголовков.
-.. Обработка HTTP параметров.
-.. Поддержка path переменных.
-.. Автоматическая конвертация данных запроса в Java модель и наоборот.
-.. Встроенная валидация запросов и ответов.
-.. Поддержка статической конфигурации.
-.. Поддержка версионирования REST клиента.
-.. Таймаут запросов.
-.. Поддержка автоматического перенаправления.
-.. Возможность кастомизации стандартной реализации клиента.
+. Configuring using java configuration, annotations, files, system properties and environment variables.
+. Declarative handlers of HTTP requests to the microservice.
+.. Request routing based on HTTP method, URL path and HTTP body analysis.
+.. HTTP header processing.
+.. HTTP parameter processing.
+.. Path variable support.
+.. Automatic conversion of request data into Java model and vice versa.
+.. Built-in validation of requests and responses.
+.. Static configuration support.
+.. Handler versioning support.
+.. https://developer.mozilla.org/ru/docs/Web/HTTP/CORS[`Cross-Origin Resource Sharing (CORS)`^] support.
+.. Support for request identification during inter-service interaction.
+. Declarative REST client.
+.. HTTP header processing.
+.. HTTP parameter processing.
+.. Path variable support.
+.. Automatic conversion of request data into Java model and vice versa.
+.. Built-in validation of requests and responses.
+.. Static configuration support.
+.. REST client versioning support.
+.. Request timeout.
+.. Automatic redirection support.
+.. Customization option for standard client implementation.
 . Contexts and Dependency Injection (CDI).
-.. Возможность управления зависимостями явно без использования CDI.
-.. Внедрение зависимостей с помощью полей, методов и конструкторов.
-.. Поддержка квалификаторов.
-.. Поддержка фабричных методов.
-.. Поддержка фабрик классов.
+.. Dependencies can be explicitly managed without using CDI.
+.. Dependency injection by fields, methods and constructors.
+.. Qualifier support.
+.. Factory method support.
+.. Class factory support.
 .. Optional injection.
 .. Multibinder support.
-.. Внедрение зависимостей в стиле JEE и Spring.
-. Генерация of REST-based microservice documentation.
-.. Документирование с помощью аннотаций.
-.. Поддержка https://asciidoctor.org/[asciidoc^] (широко используемого и многофункционального формата документирования).
-.. Возможность конфигурирования стандартных секций проектной документации.
+.. Dependency injection using JEE and Spring style.
+. Generation of REST-based microservice documentation.
+.. Documenting with annotations.
+.. https://asciidoctor.org/[asciidoc^] support (widely used and multifunctional documenting format).
+.. Configuration of the project documentation standard sections.
 . Data Repositories.
 .. Postgre SQL Data Repositories.
-... Поддержка SELECT, INSERT, UPDATE, DELETE операций.
-... Поддержка автогенерируемых первичных ключей.
-... Поддержка составных первичных ключей.
-... Поддержка транзакций.
-... Поддержка переменных в SQL запросе.
-... Поддержка кастомизированных SELECT запросов.
-... Возможность кастомизации стандартной реализации репозитория.
-... Доступ к низкоуровневому API.
+... `SELECT`, `INSERT`, `UPDATE`, `DELETE` operation support.
+... Auto-generated primary key support.
+... Composite primary key support.
+... Transaction support.
+... Variable support in SQL query.
+... Customized `SELECT` queries support.
+... Possibility to customize a standard repository implementation.
+... Access to a low-level API.
 .. Mongo Data Repositories.
-... Поддержка find, aggregate, distinct, insert, update, delete, countDocuments и estimatedDocumentCount операций.
-... Поддержка автогенерируемых entity id.
-... Логирование параметров запроса.
-... Возможность кастомизации стандартной реализации репозитория.
-... Доступ к низкоуровневому API.
-. Тестирование.
-.. Модульное тестирование компонентов.
-.. Тестирование REST-based микросервисов.
-.. Интеграционное тестирование.
-.. Поддержка альтернатив и моков.
-.. Интеграция с фреймворками https://junit.org/junit5/[JUnit 5^] и https://site.mockito.org/[Mockito^].
-. Интеграция с другими Java библиотеками и фреймворками.
+... `find`, `aggregate`, `distinct`, `insert`, `update`, `delete`, `countDocuments` and `estimatedDocumentCount` operation support.
+... Auto-generated entity id support.
+... Query parameter logging.
+... Possibility to customize a standard repository implementation.
+... Access to a low-level API.
+. Testing.
+.. Modular component testing.
+.. REST-based microservices testing.
+.. Integration testing.
+.. Support for alternatives and mocks.
+.. Integration with https://junit.org/junit5/[JUnit 5^] and https://site.mockito.org/[Mockito^] frameworks.
+. Integration with other Java libraries and frameworks.
 .. https://www.graalvm.org/docs/reference-manual/native-image/[A GraalVM native image^] support.

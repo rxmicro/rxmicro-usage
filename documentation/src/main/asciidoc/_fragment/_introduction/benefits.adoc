@@ -3,7 +3,7 @@ include::../___fragment-settings.adoc[]
 
 === RxMicro benefits
 
-The RxMicro framework обладает следующими преимуществами:
+The RxMicro framework provides the following benefits:
 
 * Declarative programming using annotations.
 * CDI by demand.
@@ -13,9 +13,9 @@ The RxMicro framework обладает следующими преимущест
 * Fast startup time.
 * Reduced memory footprint.
 
-Данные преимущества достигаются за счет:
+These benefits are gained due to:
 
-* использования {JDK-JAVA-COMPILER-DOC-ROOT-URL}javax/annotation/processing/Processor.html[*Java annotation processors*^], который генерирует стандартный код на основании `RxMicro annotations`;
-* замены стандартных Java библиотек, которые требуют для своей работы `reflection`, на аналоги не нуждающиеся в `reflection`;
-* использования https://netty.io/[*Netty*^] в качестве основного NIO фреймворка для *асинхронных неблокирующих IO операций*;
-* генерации низкоуровневого кода, без использования лишних абстракций и прокси.
+* using of {JDK-JAVA-COMPILER-DOC-ROOT-URL}javax/annotation/processing/Processor.html[*Java annotation processors*^], which generates standard code based on `RxMicro annotations`;
+* replacing standard Java libraries that require `reflection` for their work with analogs that do not need `reflection`;
+* using of https://netty.io/[*Netty*^] as the primary NIO framework for *non-blocking asynchronous IO operations*;
+* generation of low-level code avoiding unnecessary abstractions and proxies.
