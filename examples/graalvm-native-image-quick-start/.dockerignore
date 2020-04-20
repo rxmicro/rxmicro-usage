@@ -1,0 +1,50 @@
+# https://docs.docker.com/engine/reference/builder/#dockerignore-file
+
+# Maven source resources
+src
+pom.xml
+
+# Maven target resources
+target
+
+# IntelliJ IDEA configurations
+.idea
+.idea_modules
+*.iml
+*.iws
+*.ipr
+*.eml
+.shelf
+
+# Readme
+README.md
+
+# Eclipse configurations
+.project
+.classpath
+.settings
+.metadata
+bin/
+
+# NetBeans configurations
+nb*.xml
+
+# Mac-specific directory that no other operating system needs.
+.DS_Store
+
+# Git
+.git
+
+# docker environment file
+.env
+
+# attach pid files
+.*pid*
+
+# logs
+*.log
+
+# temp files
+temp.*
+tmp.*
+test.*
