@@ -5,20 +5,20 @@ include::../___fragment-settings.adoc[]
 
 === Automated test
 
-The RxMicro framework предоставляет модули для эффективного написания <<{testing}#tesing-section,любых видов тестов>>.
-Из всех поддерживаемых видов тестов, для текущего проекта необходим тест REST-based микросервиса.
+The RxMicro framework provides modules for effective writing of <<{testing}#tesing-section,any type of tests>>.
+Among all supported test types, a REST-based microservice test is required for the current project.
 
 ==== Configuring the Project
 
-Перед написанием теста REST-based микросервиса, необходимо сконфигурировать `pom.xml` Вашего проекта, выполнив следующие шаги:
+Before writing a REST-based microservice test, You need to configure `pom.xml` of Your project by performing the following steps:
 
-. Добавить необходимые зависимости в `pom.xml`.
-. Сконфигурировать `maven-compiler-plugin`.
-. Сконфигурировать `maven-surefire-plugin`.
+. Add the required dependencies to `pom.xml`.
+. Configure the `maven-compiler-plugin`.
+. Configure the `maven-surefire-plugin`.
 
 ===== Adding the Required Dependencies
 
-Перед использованием RxMicro модулей для тестирования, необходимо в проект добавить следующие зависимости:
+Before using RxMicro modules for testing, You need to add the following dependencies to the project:
 
 [source,xml]
 ----
@@ -43,18 +43,18 @@ The RxMicro framework предоставляет модули для эффек�
     </dependency>
 </dependencies>
 ----
-<1> Библиотека модульного тестирования на базе фреймворка https://junit.org/junit5/[JUnit 5^]
-<2> Библиотека http клиента на базе JDK модуля https://developer.oracle.com/java/jdk-http-client.html[`java.net.http`^];
-<3> Библиотека конвертации Java модели в https://www.json.org/[JSON^] формат и наоборот на стороне HTTP клиента;
+<1> Unit testing library based on the https://junit.org/junit5/[JUnit 5^] framework
+<2> HTTP client library based on the https://developer.oracle.com/java/jdk-http-client.html[`java.net.http`^] JDK module;
+<3> Library for Java model conversion to https://www.json.org/[JSON^] format and vice versa on the HTTP client side;
 
-Процесс тестирования REST-based микросервиса заключается в том, что в процессе теста запускается REST-based микросервис и с помощью HTTP клиента отправляется запрос на него. +
-_(Именно поэтому в `maven` зависимости необходимо подключить библиотеку HTTP клиента (`rxmicro-http-client-jdk`) и библиотеку поддерживающую https://www.json.org/[JSON^]
-формат на стороне HTTP клиента (`rxmicro-rest-client-exchange-json`))_. +
-После получения ответа от микросервиса, данный ответ сравнивается с ожидаемым ответом.
+The REST-based microservice testing process consists in launching the REST-based microservice and sending a request to the microservice via HTTP client. +
+_(Therefore, in `maven` dependencies it's necessary to add the HTTP client library (`rxmicro-http-client-jdk`) and the library supporting the https://www.json.org/[JSON^]
+format on the HTTP client side (`rxmicro-rest-client-exchange-json`))_. +
+After receiving a response from the microservice, the response is compared to the expected one.
 
 ===== Configuring the `maven-compiler-plugin`
 
-Так как the RxMicro framework использует {JDK-JAVA-COMPILER-DOC-ROOT-URL}javax/annotation/processing/Processor.html[Java annotation processors^], необходимо настроить `maven-compiler-plugin`:
+Since the RxMicro framework uses the {JDK-JAVA-COMPILER-DOC-ROOT-URL}javax/annotation/processing/Processor.html[Java annotation processors^], You need to configure `maven-compiler-plugin`:
 
 [source,xml]
 ----
@@ -107,13 +107,13 @@ _(Именно поэтому в `maven` зависимости необходи
     </executions>
 </plugin>
 ----
-<1> Для тестов необходима отдельная конфигурация, поэтому необходимо добавить новый `execution`.
-<2> Класс процессора аннотаций, который обрабатывает тестовую конфигурацию.
-<3> Местоположение генерируемых Java классов процессором тестовых аннотаций.
+<1> The tests require a separate configuration, so a new `execution` must be added.
+<2> The annotation processor class that handles test configuration.
+<3> Location of Java-generated classes by the test annotation processor.
 
 [NOTE]
 ====
-Для получения дополнительных знаний о том, как работает процессор аннотаций для тестового окружения, рекомендуется перейти в раздел: <<{testing}#testing-how-it-works-section>>.
+To learn more about how the annotation processor works in the test environment, please go to the following section: <<{testing}#testing-how-it-works-section>>.
 ====
 
 ===== Configuring the `maven-surefire-plugin`
@@ -122,47 +122,47 @@ include::../___shared/maven-surefire-plugin-configuration.adoc[]
 
 ==== Creating a Test Class
 
-Тест REST-based микросервиса - один класс, содержащий один тестовый метод:
+REST-based microservice test is a one class containing one test method:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/quick-start/src/test/java/io/rxmicro/examples/quick/start/HelloWorldMicroServiceTest.java[tag=content]
 ----
-<1> RxMicro тестовая аннотация, указывающая какой микросервис необходимо запустить для теста.
-<2> {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^] - базовый интерфейс HTTP клиента, разработанный для использования в тестах.
-Данный интерфейс позволяет выполнять *блокирующие* вызовы к микросервису по протоколу `HTTP`.
-Данное поле инициализируется автоматически при выполнении теста с помощью `reflection` и после инициализации ссылается на тестовый HTTP сервер, который был запущен для теста автоматически.
-<3> Блокирующий запрос на микросервис.
-<4> Сравнение содержимого HTTP воду с предопределенным значением.
-<5> Сравнение HTTP кода состояния.
+<1> The RxMicro test annotation indicating which microservice should be run for testing.
+<2> The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^] is a basic HTTP client interface designed for use in tests.
+This interface allows to execute *blocking* requests to the microservice via the `HTTP` protocol.
+This field is initialized automatically when running the test with `reflection`. Upon initialization it refers to the test HTTP server that was automatically started for the test.
+<3> Blocking request to the microservice.
+<4> Comparing the contents of an HTTP body with an expected value.
+<5> Comparing the HTTP status code with an expected value.
 
 [NOTE]
 ====
-Для низкоуровневой и эффективной работы с JSON форматом, RxMicro предоставляет отдельный модуль `rxmicro.json`.
+For low-level and effective work with JSON format, RxMicro provides a separate `rxmicro.json` module.
 
-Для получения общего представления о возможностях данного модуля, которые необходимы при написании тестов, рекомендуется перейти в раздел: <<{core}#core-rx-micro-json-section>>.
+To get a general idea of the capabilities of this module, which are required when writing tests, go to the following section: <<{core}#core-rx-micro-json-section>>.
 ====
 
-*В микросервисных тестах рекомендуется сравнивать тело HTTP запроса перед сравнением HTTP статуса в том случае, когда микросервис всегда возвращает текстовое сообщение о возникшей ошибке!
-(При таком подходе легче будет понять в чем ошибка, если она возникла во время тестирования.)*
+*In microservice tests it is recommended to compare the HTTP request body before comparing the HTTP status, when the microservice constantly returns a text error message!
+(This will make it easier to understand the error in case it occurred during the testing.)*
 
-*Если микросервис возвращает ТОЛЬКО статус при возникновении ошибки, то сравнение HTTP тела необходимо пропустить!*
+*If the microservice returns ONLY the status when an error occurs, the HTTP body comparison should be skipped!*
 
 [NOTE]
 ====
-Для получения дополнительных знаний о том, как тестировать REST-based микросервисы, рекомендуется перейти в раздел: <<{testing}#testing-rest-based-microservice-tests-section>>.
+For further information on how to test REST-based microservices, go to the following section: <<{testing}#testing-rest-based-microservice-tests-section>>.
 ====
 
 ==== Starting the Test Class
 
-Для запуска тестов необходимо выполнить команду:
+To start the tests, You need to run the command:
 
 [source,txt,subs="verbatim,quotes"]
 ----
 *mvn* clean test
 ----
 
-После запуска в консоли отобразится следующая информация:
+After starting, the console will display the following information:
 
 [source,text,subs="verbatim,quotes"]
 ----
@@ -219,17 +219,17 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/quick-start/src/test/java/io/r
 [INFO] -------------------------------------------------------
 ----
 
-<1> Запуск `RxMicro Annotation Processor`.
-<2> `RxMicro Annotation Processor` успешно отработал.
-<3> Запуск `RxMicro Tests Annotation Processor`.
-<4> `RxMicro Tests Annotation Processor` успешно отработал.
-<5> Для тестовой конфигурации автоматически добавились недостающие экспорты, используя возможности класса {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Module.html[`java.lang.Module`^].
-<6> Запуск теста REST-based микросервиса.
-<7> Автоматически запустился HTTP сервер на случайном свободном порту.
-<8> Ресурсы компонента `BlockingHttpClient` были освобождены.
-<9> HTTP сервер успешно остановился.
+<1> Starting of the `RxMicro Annotation Processor`.
+<2> `RxMicro Annotation Processor` has successfully completed its work.
+<3> Starting of the `RxMicro Tests Annotation Processor`.
+<4> `RxMicro Tests Annotation Processor` has successfully completed its work.
+<5> For the test configuration, missing exports were automatically added using the capabilities of the {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Module.html[`java.lang.Module`^] class.
+<6> REST-based microservice test starting.
+<7> HTTP server has started automatically on random free port.
+<8> The resources of the `BlockingHttpClient` component have been released.
+<9> HTTP server has stopped successfully.
 
 [NOTE]
 ====
-Для получения дополнительных знаний о том, как работает процессор аннотаций для тестового окружения, рекомендуется перейти в раздел: <<{testing}#testing-how-it-works-section>>.
+For further information on how the annotation processor works for the test environment, go to the following section: <<{testing}#testing-how-it-works-section>>.
 ====

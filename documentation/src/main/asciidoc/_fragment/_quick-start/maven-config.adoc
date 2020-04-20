@@ -3,15 +3,15 @@ include::../___fragment-settings.adoc[]
 
 === Configuring the Project
 
-Перед написанием кода REST-based микросервиса, необходимо сконфигурировать `pom.xml` Вашего проекта, выполнив следующие шаги:
+Before writing the code of a REST-based microservice, You should configure `pom.xml` of Your project by performing the following steps:
 
-. Определить версии используемых библиотек.
-. Добавить необходимые зависимости в `pom.xml`.
-. Сконфигурировать `maven-compiler-plugin`.
+. Define the versions of used libraries.
+. Add the required dependencies to `pom.xml`.
+. Configure the `maven-compiler-plugin`.
 
 ==== Definition the Versions of the Used Libraries
 
-Для удобства последующего обновления версий библиотек, рекомендуется использовать `maven properties`:
+To make further updating of library versions convenient, it is recommended to use `maven properties`:
 
 [source,xml,subs="attributes+"]
 ----
@@ -21,12 +21,12 @@ include::../___fragment-settings.adoc[]
     <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version> <!--2-->
 </properties>
 ----
-<1> {MAVEN-REPO-SEARCH-ROOT}io.rxmicro/rxmicro[Последняя стабильная версия of the RxMicro framework^].
-<2> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-compiler-plugin[Последняя стабильная версия `maven-compiler-plugin`^].
+<1> {MAVEN-REPO-SEARCH-ROOT}io.rxmicro/rxmicro[The latest stable version of the RxMicro framework^].
+<2> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-compiler-plugin[The latest stable version of the `maven-compiler-plugin`^].
 
 ==== Adding the Required Dependencies
 
-Перед использованием RxMicro модулей, необходимо в проект добавить следующие зависимости:
+Before using RxMicro modules, the following dependencies must be added to the project:
 
 [source,xml]
 ----
@@ -43,13 +43,13 @@ include::../___fragment-settings.adoc[]
     </dependency>
 </dependencies>
 ----
-<1> Библиотека построения REST-based микросервисов на базе HTTP сервера, использующего https://netty.io/[Netty^];
-<2> Библиотека конвертации Java модели в https://www.json.org/[JSON^] формат и наоборот;
+<1> Library for building REST-based microservices based on HTTP server that uses https://netty.io/[Netty^];
+<2> Library for converting Java model to https://www.json.org/[JSON^] format and vice versa;
 
 [[quick-start-maven-compiler-plugin-settings-section]]
 ==== Configuring the `maven-compiler-plugin`
 
-Так как the RxMicro framework использует {JDK-JAVA-COMPILER-DOC-ROOT-URL}javax/annotation/processing/Processor.html[Java annotation processors^], необходимо настроить `maven-compiler-plugin`:
+Since the RxMicro framework uses the {JDK-JAVA-COMPILER-DOC-ROOT-URL}javax/annotation/processing/Processor.html[Java annotation processors^], You need to set up `maven-compiler-plugin`:
 
 [source,xml]
 ----
@@ -86,14 +86,14 @@ include::../___fragment-settings.adoc[]
     </executions>
 </plugin>
 ----
-<1> The RxMicro framework требует наличия Java компилятора версии 11 или выше;
-<2> Библиотека процессора аннотаций, которая будет обрабатывать все `RxMicro annotations`;
-<3> Класс процессора аннотаций, который обрабатывает конфигурацию запуска;
-<4> Местоположение генерируемых Java классов процессором аннотаций;
+<1> The RxMicro framework requires a Java compiler of v11 or higher;
+<2> The annotation processor library, that will handle all `RxMicro annotations`;
+<3> The annotation processor class, that handles the launch configuration;
+<4> Location of the generated Java classes by the `RxMicro Annotation Processor`;
 
 ==== The Final Version of `pom.xml` File
 
-После всех указанных выше изменений окончательная версия файла `pom.xml` должна выглядеть следующим образом:
+After all the above changes, the final version of the `pom.xml` file should look like:
 
 [source,xml,subs="attributes+"]
 ----

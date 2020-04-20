@@ -1,24 +1,24 @@
 :FRAGMENT_RELATIVE_DIR:
 include::___fragment-settings.adoc[]
 
-В данном разделе будут подробно описаны шаги, которые необходимо выполнить, чтобы via the RxMicro framework создать REST-based микросервис возвращающий сообщение `"Hello World!"`.
+This section describes in detail the steps to be taken in order to create the REST-based microservice that returns the `"Hello World!"` message, using the RxMicro framework.
 
-Для успешного выполнения указанных инструкции необходимо, чтобы на Вашем компьютере была установлена
-https://openjdk.java.net/projects/jdk/11/[JDK 11 LTS^] или выше.
-Для удобства также рекомендуется использовать современную IDE, например https://www.jetbrains.com/idea/[IntelliJ IDEA^].
+In order to successfully execute these instructions, You need to install
+https://openjdk.java.net/projects/jdk/11/[JDK 11 LTS^] or higher on Your computer.
+For Your convenience it is also recommended to use a modern IDE, for example https://www.jetbrains.com/idea/[IntelliJ IDEA^].
 
 [NOTE]
 ====
-Возможностей версии *IntelliJ IDEA Community Edition* достаточно для полноценной и удобной работы над проектом, использующим the RxMicro framework.
+The features of the *IntelliJ IDEA Community Edition* version are enough for a complete and convenient work on a project that uses the RxMicro framework.
 ====
 
-The RxMicro framework состоит из нескольких десятков модулей, поэтому для удобства управления ими рекомендуется, чтобы на Вашем компьютере был также установлен https://maven.apache.org/[`maven`^].
+The RxMicro framework consists of several dozens of modules, so for convenient handling it is recommended to install https://maven.apache.org/[`maven`^] on Your computer.
 
 [IMPORTANT]
 ====
-Любая современная IDE для Java (`IntelliJ IDEA, Eclipse, NetBeans`) уже содержит в себе встроенный `maven`, поэтому дополнительно устанавливать его на Ваш компьютер не обязательно.
+Any modern IDE for Java (`IntelliJ IDEA, Eclipse, NetBeans`) already contains a built-in `maven`, so there is no need in its additional installation on Your computer.
 
-Для выполнения `maven` команд, можно использовать Вашу IDE, вместо терминала.
+To run `maven` commands, You can use Your IDE instead of the terminal.
 ====
 
 include::_quick-start/create-simple-project.adoc[]

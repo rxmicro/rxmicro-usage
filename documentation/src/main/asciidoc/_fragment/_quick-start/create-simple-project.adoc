@@ -3,48 +3,48 @@ include::../___fragment-settings.adoc[]
 
 === Creating a Project
 
-Для создания проекта, рекомендуется использовать современную IDE, например https://www.jetbrains.com/idea/[IntelliJ IDEA^]
+For creating a project, it is recommended to use a modern IDE, for example https://www.jetbrains.com/idea/[IntelliJ IDEA^]
 
 ==== Using the `IntelliJ IDEA`
 
-Для создания нового проекта выбираем: `File` -> `New` -> `Project` или `Create a New Project`.
+To create a new project, proceed as follows: `File` -> `New` -> `Project` or `Create a New Project`.
 
-.Создание простейшего проекта в IntelliJ IDEA: Выбор типа проекта.
+.Creating the simplest project in IntelliJ IDEA: Choosing a project type.
 image::quick-start/create-maven-project-step1.jpg[]
 
-В открывшемся диалоговом окне выбираем тип `Maven`, убеждаемся что будет использоваться `Project SDK` версии 11 или выше, убираем галочку `Create from archetype` и нажимаем `Next`.
+In the appeared dialog box select the `Maven` type, make sure that `Project SDK` version 11 or higher will be used, remove the `Create from archetype` checkbox and click `Next`.
 
-.Создание простейшего проекта в IntelliJ IDEA: Базовые настройки.
+.Creating the simplest project in IntelliJ IDEA: Basic settings.
 image::quick-start/create-maven-project-step2.jpg[]
 
-В открывшемся диалоговом окне указываем `Name`, `Location` (если значение по умолчанию некорректное) и `GroupId`
-(если значение по умолчанию некорректное) и нажимаем `Finish`.
+In the appeared dialog box type `Name`, `Location` (if the default value is wrong) and `GroupId`
+(if the default value is wrong), and click `Finish`.
 
-В результате IntelliJ IDEA используя maven настройки сгенерирует следующий шаблон проекта:
+As a result, IntelliJ IDEA will generate the following project template using maven settings:
 
 [[image-basic-project-template-inline]]
-.Создание простейшего проекта в IntelliJ IDEA: Базовый шаблон проекта.
+.Creating the simplest project in IntelliJ IDEA: Basic project template.
 image::quick-start/create-maven-project-step3.jpg[]
 
-После создания стандартного шаблона активируем опцию `Enable Auto-Import`.
+After creating the standard template, activate the `Enable Auto-Import` option.
 
 [IMPORTANT]
 ====
-Если по какой-либо причине `IntelliJ IDEA` или другая IDE, которую Вы используете для написания кода на Java (например `Eclipse` или `NetBeans`) сгенерировала другой шаблон проекта, удалите ненужные файлы, создайте несозданные папки и оставьте в `pom.xml` только секции: `modelVersion, groupId, artifactId, version`.
+If for some reason the `IntelliJ IDEA` or another IDE You use for Java coding (e.g. `Eclipse` or `NetBeans`) has generated another project template, delete unnecessary files, create un-created folders and leave only the following sections in `pom.xml`: `modelVersion, groupId, artifactId, version`.
 
-В результате Ваш шаблон должен полностью соответствовать шаблону: <<image-basic-project-template-inline>>.
+As a result, Your template should fully match the template: <<image-basic-project-template-inline>>.
 ====
 
 ==== Using the Terminal
 
-Создать новый maven проект возможно и без использования IDE.
+It is possible to create a new maven project without using the IDE.
 
 [IMPORTANT]
 ====
-Если Вы не планируете писать исходный код проекта в блокноте, а использовать IDE для этого, то рекомендуется сразу же создавать maven проект c помощью IDE.
+If You don't intend to write the source code of a project in notepad, but rather use the IDE to do this, You should directly create a maven project using the IDE.
 ====
 
-Для этого необходимо открыть терминал и выполнить следующую команду:
+To do this, open the terminal and run the following command:
 
 [source,text,subs="verbatim,quotes"]
 ----
@@ -53,19 +53,19 @@ image::quick-start/create-maven-project-step3.jpg[]
 
 include::../___notes/run-maven-in-terminal-note.adoc[]
 
-В результате выполнения в текущей папке будет создана папка `quick-start` с базовым шаблоном проекта.
-После этого созданный проект необходимо импортировать в IDE.
+As a result, the `quick-start` folder with the basic project template will be created in the current folder.
+After that, the created project must be imported into the IDE.
 
 [IMPORTANT]
 ====
-По умолчанию `mvn archetype:generate` генерирует не пустой проект, а проект с двумя классами `App` и `AppTest`, а также подключенной библиотекой junit версии `3.8.1` в `pom.xml`.
-Указанные классы и зависимости необходимо удалить перед выполнением следующих шагов данного руководства.
+By default, `mvn archetype:generate` doesn't generate an empty project, but a project with two `App` and `AppTest` classes, as well as a connected junit library of `3.8.1` version in `pom.xml`.
+The specified classes and dependencies should be deleted before performing the following steps of this guide.
 
-В результате Ваш шаблон должен полностью соответствовать шаблону: <<image-basic-project-template-inline>>.
+As a result, Your template should fully match the template: <<image-basic-project-template-inline>>.
 ====
 
 ==== Using Other IDE
 
-Создание простейшего проекта с помощью других IDE мало чем отличается от его создания с помощью IntelliJ IDEA. При создании необходимо также указать `maven archetype, groupId, artifactId и version`.
+Creating the simplest project with other IDEs does not differ much from creating it with IntelliJ IDEA. When creating, You should also specify `maven archetype, groupId, artifactId and version`.
 
-Самое главное чтобы после создания *Ваш шаблон проекта полностью соответствовал шаблону: <<image-basic-project-template-inline>>*.
+The main thing is that after creation *Your project template should fully match the template: <<image-basic-project-template-inline>>*.

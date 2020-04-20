@@ -3,19 +3,19 @@ include::../___fragment-settings.adoc[]
 
 [IMPORTANT]
 ====
-Приведенный выше пример запуска микросервисного проекта с помощью терминала не будет работать на операционных системах `Windows`.
+The above example of launching a microservice project using a terminal won't work on `Windows` OS.
 
-Причина неработоспособности заключается в использовании платформами Unix (Linux and Osx) и Windows разных специальных символов:
+Inoperability is caused by the use of different special symbols on Unix (Linux and Osx) and Windows platforms:
 
 * {JDK-JAVA-BASE-DOC-ROOT-URL}java/io/File.html#pathSeparatorChar[`Path separator`^]:
-** Unix использует символ `:`.
-** Windows использует символ `;`.
+** Unix uses the `:` symbol.
+** Windows uses the `;` symbol.
 * {JDK-JAVA-BASE-DOC-ROOT-URL}java/io/File.html#separatorChar[`Path name separator`^]:
-** Unix использует символ `/`.
-** Windows использует символ `\`.
-* Обращение к https://en.wikipedia.org/wiki/PATH_(variable)[переменной окружения с именем `M2_REPO`^]:
-** Unix использует выражение `$M2_REPO`.
-** Windows использует выражение `%M2_REPO%`.
+** Unix uses the `/` symbol.
+** Windows uses the `\` symbol.
+* Address to https://en.wikipedia.org/wiki/PATH_(variable)[environment variable with the `M2_REPO` name^]:
+** Unix uses the `$M2_REPO` expression.
+** Windows uses the `%M2_REPO%` expression.
 
-Поэтому для запуска микросервисного проекта на операционной системе `Windows`, необходимо заменить все спец символы.
+Therefore, in order to launch a microservice project on the `Windows` OS, it is necessary to replace all special symbols.
 ====

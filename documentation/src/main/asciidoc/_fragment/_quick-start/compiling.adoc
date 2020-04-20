@@ -3,11 +3,9 @@ include::../___fragment-settings.adoc[]
 
 === Compiling the Project
 
-Так как любая современная IDE для Java содержит встроенный `maven`, то компилировать микросервисный проект рекомендуется именно с помощью `maven`.
-
 ==== Using the `maven`
 
-Для компиляции проекта с помощью `maven` откройте терминал в корневой папке проекта и выполните следующую команду:
+To compile a project using the `maven`, open the terminal in the project root folder and proceed with the following command:
 
 [source,text,subs="verbatim,quotes"]
 ----
@@ -16,15 +14,16 @@ include::../___fragment-settings.adoc[]
 
 include::../___notes/run-maven-in-terminal-note.adoc[]
 
-Компилировать проект с помощью `maven` возможно и без использования терминала.
-Для этого необходимо открыть `maven панель`
-и выполнять указанные команды с помощью манипулятора типа мышь или touchpad.
-Например `maven панель` в IntelliJ IDEA выглядит следующим образом:
+It is possible to compile the project with `maven` even without using the terminal.
+Since any modern IDE for Java contains built-in `maven`, You can use this built-in `maven` tool.
 
-.Maven панель в IntelliJ IDEA
+To do this, open the `maven panel` and execute the specified commands with a mouse or touchpad manipulator.
+For example, the `maven panel` in IntelliJ IDEA looks like:
+
+.Maven panel in IntelliJ IDEA
 image::quick-start/maven-panel.jpg[]
 
-После успешного выполнения компиляции в терминале отображается информация о работе the `RxMicro Annotation Processor`:
+After successful compilation, the `RxMicro Annotation Processor` work results are displayed in the terminal:
 
 [source,text,subs="verbatim,quotes"]
 ----
@@ -45,37 +44,34 @@ image::quick-start/maven-panel.jpg[]
 [INFO] -------------------------------------------------------
 [INFO] Annotations processing completed successful.
 ----
-<1> Указанная информация свидетельствует о том, что все необходимые файлы для запуска микросервиса были сгенерированы.
+<1> The given information indicates that all files needed to run the microservice have been generated.
 
 [TIP]
 ====
-В папочке `target` Вы можете найти все сгенерированные и скомпилированные классы микросервисного проекта.
+In the `target` folder You can find all generated and compiled classes of the microservice project.
 
-Для понимания процесса работы of the RxMicro framework рекомендуется перейти в раздел: <<{core}#core-how-it-works-section>>.
+To understand how the RxMicro framework works, please go to <<{core}#core-how-it-works-section>> section.
 ====
 
 ==== Using the `IntelliJ IDEA`
 
-Среда разработки IntelliJ IDEA позволяет автоматически запускать процессоры аннотаций в момент сборки проекта.
-Поэтому если Вы желаете компилировать микросервисный проект с помощью IntelliJ IDEA, а не `maven`, необходимо настроить секцию `Annotation Processors` в IntelliJ IDEA.
+The IntelliJ IDEA allows annotation processors to be launched automatically when building a project.
+So if You want to compile a microservice project using IntelliJ IDEA rather than `maven`, You need to set up the `Annotation Processors` section in the IntelliJ IDEA.
 
 ===== Enable Annotation Processing
 
-Чтобы активировать обработку аннотаций в процессе сборки проекта с помощью IntelliJ IDEA необходимо настроить секцию
-`Annotation Processors`.
-Для этого открываем меню: `File` -> `Settings`.
-И переходим на нужную вкладку:
-`Build, Execution, Deployment` -> `Compiler` -> `Annotation Processors`.
+To enable annotation processing while building a project with IntelliJ IDEA, You need to set up the `Annotation Processors` section.
+To do so, open the menu: `File` -> `Settings` and get to the tab:`Build, Execution, Deployment` -> `Compiler` -> `Annotation Processors`.
 
-.Необходимые настройки Annotation Processing
+.Required Annotation Processing settings
 image::quick-start/idea-annotation-processing.jpg[]
 
 [WARNING]
 ====
-Внимательно проверьте чтобы *все* Ваши настройки секции `Annotation Processors` соответствовали настройкам, описанным на рисунке выше.
+Make sure that *all* Your settings of the `Annotation Processors` section correspond to the settings shown in the figure above.
 ====
 
 ===== Rebuilding the Project
 
-После настройки секции `Annotation Processors` необходимо пересобрать проект.
-Для этого выполняем следующую команду из главного меню: `Build` -> `Rebuild project`.
+After setting up the `Annotation Processors` section, the project must be rebuilt.
+To do so, run the following command from the main menu: `Build` -> `Rebuild project`.

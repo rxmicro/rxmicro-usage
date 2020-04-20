@@ -1,9 +1,9 @@
 :FRAGMENT_RELATIVE_DIR: ../
 include::../___fragment-settings.adoc[]
 
-=== Checking the Microservice
+=== Verifying the Microservice
 
-Для получения сообщения `"Hello World!"` от созданного REST-based микросервиса, выполняем `GET` запрос на `localhost:8080`:
+To receive the `"Hello World!"` message from the created REST-based microservice, execute `GET` request to `localhost:8080` endpoint:
 
 [source,text,subs="verbatim,quotes"]
 ----
@@ -14,13 +14,13 @@ include::../___fragment-settings.adoc[]
 * TCP_NODELAY set
 * Connected to localhost (127.0.0.1) port 8080 (#0)
 
-> GET / HTTP/1.1
+> GET / HTTP/1.1 <1>
 > Host: localhost:8080
 > User-Agent: curl/7.58.0
 > Accept: */*
 >
 
-< HTTP/1.1 200 OK <1>
+< HTTP/1.1 200 OK <2>
 < Server: RxMicro-NettyServer/0.4
 < Date: Thu, 2 Jan 2020 11:48:13 GMT
 < Content-Type: application/json
@@ -28,14 +28,15 @@ include::../___fragment-settings.adoc[]
 < Request-Id: 62jJeu8x1310662
 <
 * Connection #0 to host localhost left intact
-*{"message":"Hello World!"}* <2>
+*{"message":"Hello World!"}* <3>
 ----
-<1>  HTTP сервер успешно возвращает ответ.
-<2>  В HTTP теле возвращается JSON ответ с сообщением `"Hello World!"`.
+<1> *curl* sends a GET request.
+<2> HTTP server successfully returns a response.
+<3> The HTTP body contains a JSON response with the `"Hello World!"` message.
 
-Следовательно, созданный REST-based микросервис работает корректно!
+Therefore, the created REST-based microservice works correctly!
 
 [NOTE]
 ====
-Вы также можете использовать свой любимый браузер вместо `curl` для проверки корректности работы REST-based микросервиса.
+You can also use Your favorite browser instead of `curl` to verify if the REST-based microservice is working correctly.
 ====

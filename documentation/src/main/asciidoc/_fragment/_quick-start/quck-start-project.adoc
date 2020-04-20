@@ -3,16 +3,16 @@ include::../___fragment-settings.adoc[]
 
 === The Project at the Github
 
-Проект REST-based микросервиса `HelloWorldMicroService` доступен по ссылке:
+The REST-based `HelloWorldMicroService` microservice project is available at the following link:
 
 [.example-code-link]
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}quick-start[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}quick-start`^].
 
 [IMPORTANT]
 ====
-Конфигурационный файл `pom.xml` является эталонной конфигурацией и может быть скопирован в Ваш следующий проект, использующий the RxMicro framework.
+The `pom.xml` configuration file is a reference configuration and can be copied to Your next project using the RxMicro framework.
 
-*НЕ ЗАБУДЬТЕ только удалить ссылку на родительский проект*:
+*DON'T FORGET to remove the link to the parent project*:
 
 [source,xml]
 ----
@@ -23,7 +23,7 @@ include::../___fragment-settings.adoc[]
 </parent>
 ----
 
-*и добавить секцию `properties` с описанием версий используемых библиотек*:
+*and add the `properties` section describing the versions of the libraries used*:
 
 [source,xml,subs="attributes+"]
 ----
@@ -36,8 +36,8 @@ include::../___fragment-settings.adoc[]
 </properties>
 ----
 
-<1> {MAVEN-REPO-SEARCH-ROOT}io.rxmicro/rxmicro[Последняя стабильная версия of the RxMicro framework^].
-<2> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-compiler-plugin[Последняя стабильная версия `maven-compiler-plugin`^].
-<3> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-surefire-plugin[Последняя стабильная версия `maven-surefire-plugin`^].
-<4> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-dependency-plugin[Последняя стабильная версия `maven-dependency-plugin`^].
+<1> {MAVEN-REPO-SEARCH-ROOT}io.rxmicro/rxmicro[The latest stable version of the RxMicro framework^].
+<2> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-compiler-plugin[The latest stable version of the `maven-compiler-plugin`^].
+<3> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-surefire-plugin[The latest stable version of the `maven-surefire-plugin`^].
+<4> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-dependency-plugin[The latest stable version of the `maven-dependency-plugin`^].
 ====
