@@ -3,7 +3,7 @@ include::../___fragment-settings.adoc[]
 
 [IMPORTANT]
 ====
-В процессе компиляции the RxMicro framework ищет `RxMicro Annotations` в исходном коде и генерирует дополнительные классы, необходимые для целостной работы микросервиса.
+When compiling, the RxMicro framework searches for `RxMicro Annotations` in the source code and generates additional classes necessary for the integral work of the microservice.
 
-*Поэтому при изменении of `RxMicro Annotations` в исходном коде, НЕ ЗАБЫВАЙТЕ перекомпилировать ВЕСЬ исходный код, а не только измененный файл, иначе изменения не вступят в силу:* `mvn clean compile`.
+*When changing the `RxMicro Annotations` in the source code, DON'T FORGET to recompile the ENTIRE source code, not just the changed file, for the changes to take effect:* `mvn clean compile`.
 ====

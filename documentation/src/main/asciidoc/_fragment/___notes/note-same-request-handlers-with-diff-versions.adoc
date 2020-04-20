@@ -3,5 +3,5 @@ include::../___fragment-settings.adoc[]
 
 [IMPORTANT]
 ====
-*Обратите внимание что правила определения обработчика одинаковые для двух разных классов!*
+*Note that the rules for defining a handler are the same for two different classes!*
 ====

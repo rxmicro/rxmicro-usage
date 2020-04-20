@@ -3,7 +3,7 @@ include::../___fragment-settings.adoc[]
 
 [TIP]
 ====
-В конце каждого подраздела описывающего какую-либо возможность of the RxMicro framework приводится ссылка на проект, исходные коды которого использовались в этом подразделе.
+At the end of each subsection describing any RxMicro framework feature, there is a link to the project, the source codes of which were used in this subsection.
 
-Используйте данные ссылки для получения доступа к работающему примеру, демонстрирующему описанную возможность of the RxMicro framework!
+Use these links to access a working example demonstrating the RxMicro framework feature described above!
 ====

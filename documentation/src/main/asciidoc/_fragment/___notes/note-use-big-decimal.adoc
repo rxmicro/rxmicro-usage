@@ -3,8 +3,8 @@ include::../___fragment-settings.adoc[]
 
 [IMPORTANT]
 ====
-Для чисел с плавающей точкой рекомендуется использовать тип `java.math.BigDecimal` вместо `java.lang.Float` или `java.lang.Double`.
+For floating point numbers, it is suggested to use the `java.math.BigDecimal` type instead of `java.lang.Float` or `java.lang.Double`.
 
-Использование `java.math.BigDecimal` позволяет исключить погрешности представления числа в десятичной форме.
-*Особенно это важно, если десятичное число используется для представления данных связанных с валютами!*
+Using the `java.math.BigDecimal` allows excluding errors of decimal number notation.
+*This is particularly important if the decimal number is used to represent currency-related data!*
 ====

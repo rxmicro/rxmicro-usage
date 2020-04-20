@@ -3,7 +3,7 @@ include::../___fragment-settings.adoc[]
 
 [TIP]
 ====
-Исходный код проекта, используемого в текущем подразделе, доступен по ссылке:
+The project source code used in the current subsection is available at the following link:
 
 [.example-code-link]
 {link}[`{link}`^]

@@ -3,11 +3,11 @@ include::../___fragment-settings.adoc[]
 
 [NOTE]
 ====
-Для того чтобы выполнять команды `maven` в терминале необходимо:
+In order to run `maven` commands in the terminal it is necessary to:
 
-* Установленные `JDK` и `maven` на Вашем компьютере;
-* Установленная переменная окружения `JAVA_HOME`;
-* Добавленный путь к папке `$MAVEN_HOME/bin` в переменную окружения `$PATH`.
+* Install `JDK` and `maven` on Your computer;
+* Set the `JAVA_HOME` environment variable;
+* Add the path to `$MAVEN_HOME/bin` folder to the `$PATH` environment variable.
 
-_С детальной инструкцией по установке `maven` для последующего его использования в терминале можно ознакомиться по ссылке: https://maven.apache.org/install.html[`Installing Apache Maven`^]._
+_A detailed instruction on the `maven` installation for its further use in the terminal can be found at the following link: https://maven.apache.org/install.html[`Installing Apache Maven`^]._
 ====

@@ -1,7 +1,7 @@
 :FRAGMENT_RELATIVE_DIR: ../
 include::../___fragment-settings.adoc[]
 
-Для успешного запуска тестов в процессе сборки проекта с помощью `maven`, необходимо обновить `maven-surefire-plugin`:
+For a successful tests launch while building a project with `maven` it is necessary to update `maven-surefire-plugin`:
 
 [source,xml]
 ----
@@ -20,12 +20,12 @@ include::../___fragment-settings.adoc[]
     </configuration>
 </plugin>
 ----
-<1> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-surefire-plugin[Последняя стабильная версия `maven-surefire-plugin`^]. +
-_(Версия плагина должна быть `2.22.1` или выше, иначе `maven` будет игнорировать тесты!.)_
-<2> В случае возникновения ошибки в коде, который использует реактивное программирование, возможен случай бесконечного выполнения функции.
-Для того, чтобы отлавливать такие случаи необходимо установить глобальный timeout для всех методов в тестах.
-_(По-умолчанию timeout задается в секундах.
-Подробная информация о конфигурации timeouts доступна {JUNIT5-DOC-ROOT-URL}user-guide/#writing-tests-declarative-timeouts[в официальной документации JUnit5^].)_
-<3> В процессе отладки, timeouts могут быть отключены.
-<4> Данное свойство удобно для отладки тестов из IDE или `maven`. +
-_(При установке данного свойства скорость выполнения тестов уменьшится, поэтому используйте данное свойство только для отладки!)_
+<1> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-surefire-plugin[Last stable version of `maven-surefire-plugin`^]. +
+_(The plugin version must be `2.22.1` or higher, otherwise `maven` will ignore the tests!.)_
+<2> In case of an error in the code which uses reactive programming, an infinite function execution may occur.
+In order to detect such cases, it is necessary to set a global timeout for all methods in the tests.
+_(By default, timeout is set in seconds.
+More detailed information on timeouts configuration is available {JUNIT5-DOC-ROOT-URL}user-guide/#writing-tests-declarative-timeouts[in official JUnit5 documentation^].)_
+<3> While debugging, timeouts can be turned off.
+<4> This property is useful for the tests debugging from IDE or `maven`. +
+_(By setting this property the speed of test performance will decrease, so use this property for debugging only!)_

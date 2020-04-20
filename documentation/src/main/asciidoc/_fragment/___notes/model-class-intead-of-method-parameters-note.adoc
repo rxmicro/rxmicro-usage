@@ -3,7 +3,7 @@ include::../___fragment-settings.adoc[]
 
 [NOTE]
 ====
-The RxMicro framework рекомендует для обработчиков запросов, зависящих от 3 и более
+The RxMicro framework recommends for request handlers that depend on 3 or more
 // tag::headers[]
 HTTP headers
 // end::headers[]
@@ -16,9 +16,9 @@ HTTP parameters
 // tag::all[]
 HTTP headers, HTTP parameters or `path variables`
 // end::all[]
-создавать отдельные классы модели запроса.
+to create separate classes of request model.
 
-*При внедрении*
+*Upon implementation of*
 // tag::headers[]
 *HTTP headers*
 // end::headers[]
@@ -29,7 +29,7 @@ HTTP headers, HTTP parameters or `path variables`
 *`path variables`*
 // end::path-variables[]
 // tag::all[]
-*HTTP заголовков, HTTP параметров или `path variables`*
+*HTTP headers, HTTP parameters or `path variables`*
 // end::all[]
-*непосредственно в обработчик, код становится трудночитаемым!*
+*directly into the handler, the code becomes hard to read!*
 ====

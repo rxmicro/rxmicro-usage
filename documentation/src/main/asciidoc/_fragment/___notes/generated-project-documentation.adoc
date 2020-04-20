@@ -1,7 +1,7 @@
 :FRAGMENT_RELATIVE_DIR: ../
 include::../___fragment-settings.adoc[]
 
-В процессе компиляции проекта the RxMicro framework с учетом заданных в данной секции настроек модуля `rxmicro.documentation.asciidoctor` сгенерирует следующую проектную документацию:
+When compiling a project, the RxMicro framework will generate the following project documentation according to the settings of the `rxmicro.documentation.asciidoctor` module defined in this section:
 
 [.example-code-link]
 link:{project-documentation-examples-root}/{project-documentation-file}[`{project-documentation-file}`^]
