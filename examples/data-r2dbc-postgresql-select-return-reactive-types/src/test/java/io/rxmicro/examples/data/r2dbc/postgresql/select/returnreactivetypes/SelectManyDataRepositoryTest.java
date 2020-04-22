@@ -91,14 +91,15 @@ final class SelectManyDataRepositoryTest {
     @Test
     void findAll5_should_return_all_accounts() {
         final List<Account> actualAccounts = dataRepository.findAll5()
-                .collect(ArrayList::new, (BiConsumer<List<Account>, Account>) List::add)
                 .blockingGet();
         assertEquals(EXPECTED_ACCOUNTS, actualAccounts);
     }
 
     @Test
     void findAll6_should_return_all_accounts() {
-        final List<Account> actualAccounts = dataRepository.findAll6().blockingGet();
+        final List<Account> actualAccounts = dataRepository.findAll6()
+                .collect(ArrayList::new, (BiConsumer<List<Account>, Account>) List::add)
+                .blockingGet();
         assertEquals(EXPECTED_ACCOUNTS, actualAccounts);
     }
 
