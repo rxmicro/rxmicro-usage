@@ -26,8 +26,6 @@ import io.rxmicro.test.junit.RxMicroIntegrationTest;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import static io.rxmicro.rest.server.RxMicro.startRestServer;
 import static io.rxmicro.test.HttpServers.getRandomFreePort;
@@ -62,13 +60,9 @@ final class MicroServiceTest {
         assertEquals(200, response.statusCode());
     }
 
-    @ParameterizedTest
-    @ValueSource(strings = {
-            "/base/health", // per controller
-            "/health"       // per module
-    })
-    void Should_support_health_checks(final String url) {
-        final ClientHttpResponse response = blockingHttpClient.get(url);
+    @Test
+    void Should_support_health_checks() {
+        final ClientHttpResponse response = blockingHttpClient.get("/http-health-check");
 
         assertTrue(response.isBodyEmpty(), "Body not empty: " + response.body());
         assertEquals(200, response.statusCode());
