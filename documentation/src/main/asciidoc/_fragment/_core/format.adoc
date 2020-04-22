@@ -3,33 +3,33 @@ include::../___fragment-settings.adoc[]
 
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
 
-=== Formatting Strings
+=== Strings Formatting
 
-В процессе разработки программного продукта возникает необходимость форматировать строки.
+While developing a software product it is necessary to format strings.
 
-Для этих целей Java предоставляет разные подходы:
+For this purpose, Java provides different approaches:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/format/src/main/java/io/rxmicro/examples/format/Problem.java[tag=content,indent=0]
 ----
-<1> Для формирования SQL запроса необходимо использовать `$1` placeholder. +
-_(Данный placeholder зависит от используемого {R2DBC-SPEC-ROOT-URL}#statements.parameterized[R2DBC драйвера^].
-Для postgresql это символ `$1`.)_
-<2> Для формирования логирующего сообщения необходимо использовать `{}` placeholder. +
-_(Данный placeholder зависит от используемой библиотеки логирования.
-Для SLF4J это символ `{}`.)_
-<3> Для формирования сообщения об ошибке необходимо использовать `%s` placeholder из отдельного утилитного класса, например
+<1> To generate an SQL query, You need to use `$1` placeholder. +
+_(This placeholder depends on the used {R2DBC-SPEC-ROOT-URL}#statements.parameterized[R2DBC driver^].
+For postgresql, it's a `$1` symbol.)_
+<2> To generate a logging message, You need to use `{}` placeholder. +
+_(This placeholder depends on the logging library used.
+For SLF4J, it's a `{}` symbol.)_
+<3> To generate an error message, You need to use `%s` placeholder from a separate utility class, for example
 {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html#format(java.lang.String,java.lang.Object...)[`String.format`^].
 
-В процессе написания кода, разработчик может легко перепутать нужный placeholder.
+While writing the code, a developer can easily confuse the required placeholder.
 
-*Чтобы избежать подобной проблемы RxMicro рекомендует использовать универсальный placeholder: `?`*
+*To avoid such a problem, the RxMicro recommends using the universal `?` placeholder*
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/format/src/main/java/io/rxmicro/examples/format/Solution.java[tag=content,indent=0]
 ----
-<1> Для формирования SQL запроса необходимо использовать `?` placeholder.
-<2> Для формирования логирующего сообщения необходимо использовать `?` placeholder.
-<3> Для формирования сообщения об ошибке необходимо использовать `?` placeholder.
+<1> To generate an SQL query, You need to use `?` placeholder.
+<2> To generate a logging message, You need to use `?` placeholder.
+<3> To generate an error message, You need to use `?` placeholder.

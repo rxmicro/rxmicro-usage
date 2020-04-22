@@ -5,45 +5,45 @@ include::../../___fragment-settings.adoc[]
 
 ==== Basic Structure of the Config Module
 
-Любой класс, реализующий абстрактный класс
+Each class that extends the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Config.java[`Config`^]
-является конфигурационным классом.
+abstract class is a configuration class.
 
-Каждый конфигурационный класс определяет свое пространство имен.
-Каждое пространство имен однозначно определяет конфигурационный класс, который ему соответствует.
-Пространство имен необходимо, чтобы задавать настройки полей конфигурационных классов в текстовом виде.
-(_Подробнее об этом будет описано ниже._)
+Each configuration class defines its own namespace.
+Each namespace clearly defines the corresponding configuration class.
+The namespace is necessary to set the settings of the configuration class fields in text form.
+(_Further details will be described below._)
 
-Для работы с конфигурациями, RxMicro предоставляет менеджер конфигураций:
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java[`Configs`^].
+To work with configurations, RxMicro provides the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java[`Configs`^] configuration manager.
 
-Для считывания текущих настроек, необходимо использовать метод
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L73[`Configs.getConfig`^]:
+To read the current settings, You must use the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L73[`Configs.getConfig`^] method:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/config-basic/src/main/java/io/rxmicro/examples/config/basic/ReadConfigMicroService.java[tag=content,indent=0]
 ----
-<1> Получение текущей конфигурации HTTP сервера, используя статический метод `Configs.getConfig`.
+<1> Getting the current HTTP server configuration using the `Configs.getConfig` static method.
 
-Для изменения стандартных настроек конфигурации необходимо использовать класс:
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L85[`Configs.Builder`^]:
+To change the standard configuration settings, You must use the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L85[`Configs.Builder`^] class:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/config-basic/src/main/java/io/rxmicro/examples/config/basic/CustomizeConfigMicroService.java[tag=content,indent=0]
 ----
-<1> Установка кастомного порта HTTP сервера.
-<2> Создание объекта менеджера конфигураций.
-<3> Запуск REST-based микросервиса должен выполняться после настроек менеджера конфигураций, иначе изменения не вступят в силу.
+<1> Setting the HTTP server custom port.
+<2> Creating the configuration manager object.
+<3> REST-based microservice should be started after configuration manager settings, otherwise changes will not take effect.
 
 [IMPORTANT]
 ====
-Каждый последующий вызов метода `Configs.Builder.build()` переопределяет все настройки менеджера конфигураций.
-_(В любом микросервисном проекте существует только один объект менеджера конфигураций!)_
+Each subsequent invocation of the `Configs.Builder.build()` method overrides all configuration manager settings.
+_(In any microservice project there is only one configuration manager object!)_
 
-Это значит, что если разработчик создаст несколько объектов `Configs.Builder` то именно последний вызов метода `build`
-будет иметь значение, остальные будут проигнорированы.
+It means that if the developer creates several `Configs.Builder` instances, it will be the last invocation of the `build`
+method that matters, the others will be ignored.
 ====
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}config-basic
@@ -53,6 +53,6 @@ include::../../___notes/recompile-after-change.adoc[]
 
 [NOTE]
 ====
-Кастомизация настроек с помощью `Configs.Builder.build()` является одним из типов конфигурирования.
-Данный тип конфигурирования называется <<core-config-java-classes-section,конфигурирование с помощью Java классов>>.
+Settings customization via the `Configs.Builder.build()` is one of the types of configuration.
+This type of configuration is called <<core-config-java-classes-section,configuration using Java classes>>.
 ====

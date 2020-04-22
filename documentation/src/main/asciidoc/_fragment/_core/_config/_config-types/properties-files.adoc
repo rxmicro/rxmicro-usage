@@ -4,19 +4,21 @@ include::../../../___fragment-settings.adoc[]
 [[core-config-properties-files-section]]
 ===== Configuration Using `properties` Files.
 
-По аналогии с classpath ресурсами the RxMicro framework также поддерживает общий и отдельные `properties` файлы для внешней по отношении к исходному коду микросервиса конфигурации.
+Similar to classpath resources, the RxMicro framework also supports shared and separate `properties` files for the external configuration in relation to the microservice source code.
 
-Конфигурационные файлы могут находиться:
+Configuration files can be located:
 
-* в текущей по отношению к микросервису директории;
-* в `$HOME` директории:
-** для Linux платформы: `/home/${USER-NAME}`;
-** для MacOS платформы: `/Users/${USER-NAME}`;
-** для Windows платформы: `C:\Documents and Settings\${USER-NAME}`.
+* in the current directory in relation to the microservice;
+* in the `$HOME` directory:
+** for Linux platform: `/home/${USER-NAME}`;
+** for MacOS platform: `/Users/${USER-NAME}`;
+** for Windows platform: `C:\Documents and Settings\${USER-NAME}`.
+* in the default rxmicro config directory: `$HOME/.rxmicro/` (predefined name and location). +
+_(Using `$HOME/.rxmicro/` directory instead of `$HOME` one allows to configure this directory as https://www.docker.com/[docker^] or https://kubernetes.io/[kubernetes^] volume.)_
 
 [TIP]
 ====
-Для того, чтобы узнать местоположение `$HOME` директории на Вашем компьютере с помощью Java запустите следующую утилиту:
+To find out the location of the `$HOME` directory on Your computer using Java, start the following program:
 
 [source,java]
 ----
@@ -29,9 +31,9 @@ public final class GetHomeDirectory {
 ----
 ====
 
-*По умолчанию функция поиска и считывания конфигурационных файлов отключена в the RxMicro framework!*
+*By default, the function of searching and reading configuration files is disabled in the RxMicro framework!*
 
-Чтобы активировать данную функцию, необходимо использовать класс `Configs.Builder`:
+To activate this function, You must use the `Configs.Builder` class:
 
 [source,java]
 ----
@@ -39,57 +41,57 @@ new Configs.Builder()
         .withAllConfigLoadSources() // <1>
         .build();
 ----
-<1> Активация всех доступных источников конфигурации для текущего микросервиса.
+<1> Activation of all available configuration sources for the current microservice.
 
 [TIP]
 ====
-Кроме активации всех доступных источников, возможно активировать только конфигурационные файлы в заданной локации.
+Besides activating all available sources, it is possible to activate only configuration files in a given location.
 
-Для получения подробностей как это сделать перейдите к подразделу <<core-config-order-settings>>.
+For details on how to do this, go to the <<core-config-order-settings>>.
 ====
 
 ====== Configuration Using Separate `properties` File.
 
-Если в текущей или в `$HOME` директории находится файл `http-server.properties` с содержимым
+If the current directory (or `$HOME`, or `$HOME/.rxmicro/`) directory contains the `http-server.properties` file with the following content
 
 [source,properties]
 ----
 port=9090 # <1>
 ----
-<1> Пользовательский порт для HTTP сервера.
+<1> Custom port for HTTP server.
 
-то the RxMicro framework при считывании конфигурации класса `HttpServerConfig` считает данный файл:
+then the RxMicro framework when reading the `HttpServerConfig` class configuration will read this file:
 
 [source,text]
 ----
 2020-01-11 12:44:27.518 [INFO] io.rxmicro.rest.server.netty.internal.component.NettyServer :
 Server started at 0.0.0.0:9090 using NETTY transport in 500 millis. # <1>
 ----
-<1> HTTP сервер запустился на порту `9090` вместо стандартного `8080`.
+<1> The HTTP server has started at the `9090` port instead of the standard `8080` port.
 
 include::___tip-namespace.adoc[]
 
 ====== Configuration Using Shared `properties` File.
 
-Если в текущей или в `$HOME` директории находится файл `rxmicro.properties` с содержимым
+If the current directory (or `$HOME`, or `$HOME/.rxmicro/`) directory contains the `rxmicro.properties` file with the following content
 
 [source,properties]
 ----
 http-server.port=9090 # <1>
 ----
-<1> Пользовательский порт для HTTP сервера.
+<1> Custom port for HTTP server.
 
-то the RxMicro framework при считывании конфигурации класса `HttpServerConfig` считает данный ресурс:
+then the RxMicro framework when reading the `HttpServerConfig` class configuration will read this resource:
 
 [source,text]
 ----
 2020-01-11 12:44:27.518 [INFO] io.rxmicro.rest.server.netty.internal.component.NettyServer :
 Server started at 0.0.0.0:9090 using NETTY transport in 500 millis. # <1>
 ----
-<1> HTTP сервер запустился на порту `9090` вместо стандартного `8080`.
+<1> The HTTP server has started at the `9090` port instead of the standard `8080` port.
 
 include::___tip-rxmicro-resource.adoc[]
 
-Так как файл `rxmicro.properties` является общим файлом для *любой* конфигурации, необходимо при указании настроек, указывать пространство имен.
+Since the `rxmicro.properties` file is a shared file for *any* configuration, You must specify a namespace when specifying the settings.
 
 include::___note-common-and-special-resource-difference.adoc[]

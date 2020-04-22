@@ -3,9 +3,9 @@ include::../../___fragment-settings.adoc[]
 
 ==== Config Sources Setting
 
-The RxMicro framework позволяет настраивать порядок считывания источников конфигураций.
+The RxMicro framework allows You to customize the order in which the configuration sources are read.
 
-Благодаря данной возможности, the RxMicro framework автоматически поддерживает наследование и переопределение конфигураций запуска.
+With this feature, the RxMicro framework automatically supports inheritance and redefinition of launch configurations.
 
 include::_config-setting/load-order.adoc[]
 

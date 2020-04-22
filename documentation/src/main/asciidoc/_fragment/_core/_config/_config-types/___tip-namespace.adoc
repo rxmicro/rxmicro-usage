@@ -3,9 +3,9 @@ include::../../../___fragment-settings.adoc[]
 
 [TIP]
 ====
-Имя `http-server` является пространством имен по умолчанию для класса `HttpServerConfig`.
-Именно поэтому данные настройки автоматически применяются при запросе конфигурации класса `HttpServerConfig`.
+The `http-server` name is the default namespace for the `HttpServerConfig` class.
+That's why these settings are automatically applied when requesting the `HttpServerConfig` class configuration.
 
-Пространство имен по умолчанию для конфигурационного класса вычисляется с помощью метода
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Config.java#L32[`Config.getDefaultNameSpace`^],
+The default namespace for the configuration class is calculated using the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Config.java#L32[`Config.getDefaultNameSpace`^] method,
 ====

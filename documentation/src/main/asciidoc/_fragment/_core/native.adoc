@@ -3,10 +3,10 @@ include::../___fragment-settings.adoc[]
 
 === Native Transports
 
-Для выполнения асинхронных неблокирующих IO операций RxMicro использует https://netty.io/[`Netty`^].
-Для увеличения производительности `Netty` позволяет использовать https://netty.io/wiki/native-transports.html[`native transports`^].
+RxMicro uses https://netty.io/[`Netty`^] to perform asynchronous non-blocking IO operations.
+To increase productivity, `Netty` allows the use of https://netty.io/wiki/native-transports.html[`native transports`^].
 
-Чтобы подключить `native transports`, добавьте одну из следующих зависимостей:
+To enable `native transports` feature, add one of the following dependencies:
 
 [source,xml]
 ----
@@ -44,17 +44,17 @@ include::../___fragment-settings.adoc[]
 </dependency>
 ----
 
-* `rxmicro-netty-native-linux` зависимость добавляет `netty-transport-native-epoll` artifact;
-* `rxmicro-netty-native-osx` зависимость добавляет `netty-transport-native-kqueue` artifact;
-* `rxmicro-netty-native` зависимость активирует `native transports` для текущей платформы:
-** если текущая платформа `Linux`, то добавляется `netty-transport-native-epoll` artifact;
-** если текущая платформа `OSX`, то добавляется `netty-transport-native-kqueue` artifact;
-** иначе `native transports` не активируется для текущей платформы;
-* `rxmicro-netty-native-all` зависимость добавляет `netty-transport-native-epoll` и `netty-transport-native-kqueue` artifacts.
+* The `rxmicro-netty-native-linux` dependency adds the `netty-transport-native-epoll` artifact;
+* The `rxmicro-netty-native-osx` dependency adds the `netty-transport-native-kqueue` artifact;
+* The `rxmicro-netty-native` dependency activates `native transports` for the current platform:
+** in case of the `Linux` current platform, the `netty-transport-native-epoll` artifact is added;
+** in case of the `OSX` current platform, the `netty-transport-native-kqueue` artifact is added;
+** otherwise `native transports` is not activated for the current platform;
+* the `rxmicro-netty-native-all` dependency adds the `netty-transport-native-epoll` and `netty-transport-native-kqueue` artifacts.
 
 [TIP]
 ====
-Подключение в микросервисный проект зависимости:
+Adding a dependency to the microservice project:
 
 [source,xml]
 ----
@@ -65,7 +65,7 @@ include::../___fragment-settings.adoc[]
 </dependency>
 ----
 
-вместо
+instead of
 
 [source,xml]
 ----
@@ -77,23 +77,23 @@ include::../___fragment-settings.adoc[]
 </dependency>
 ----
 
-позволяет использовать версию библиотеки `Netty native transports` совместимую со всеми остальными `Netty` библиотеками, которые используются by the RxMicro framework.
+allows to use the `Netty native transports` library version compatible with all other `Netty` libraries used by the RxMicro framework.
 
-Таким образом *модули `rxmicro-netty-native-...` не содержат никакой логики.* *Они только подключают `Netty native transports` библиотеки корректной версии.*
+Therefore, the *`rxmicro-netty-native-...` modules don't contain any logic.* *They just add `Netty native transports` libraries of the correct version.*
 ====
 
-Если `native transports` был успешно активирован, то в информационном сообщении о старте HTTP сервера, будет отображаться соответствующее тип транспорта.
+If `native transports` has been successfully activated, the information message about the start of the HTTP server will display the corresponding type of transport.
 
 [source,text,subs="verbatim,quotes"]
 ----
 2020-02-02 20:14:11.707 [INFO] io.rxmicro.rest.server.netty.internal.component.NettyServer :
 Server started at 0.0.0.0:8080 using *EPOLL* transport in 500 millis. # <1>
 ----
-<1> Сообщение формата `using EPOLL transport` означает, что `Netty` будет использовать `netty-transport-native-epoll` библиотеку.
+<1> The `using EPOLL transport` message format means that `Netty` will use the `netty-transport-native-epoll` library.
 
 [source,text,subs="verbatim,quotes"]
 ----
 2020-02-02 20:14:11.707 [INFO] io.rxmicro.rest.server.netty.internal.component.NettyServer :
 Server started at 0.0.0.0:8080 using *KQUEUE* transport in 500 millis. # <1>
 ----
-<1> Сообщение формата `using KQUEUE transport` означает, что `Netty` будет использовать `netty-transport-native-kqueue` библиотеку.
+<1> The `using KQUEUE transport` message format means that `Netty` will use the `netty-transport-native-kqueue` library.

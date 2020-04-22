@@ -4,8 +4,8 @@ include::../../../___fragment-settings.adoc[]
 [[core-config-order-settings]]
 ===== Custom Reading Order of Config Sources.
 
-Для изменения порядка считывания конфигураций необходимо использовать метод:
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L118[`Configs.Builder.withOrderedConfigLoadSources`^]:
+To change the order of the configuration reading it is necessary to use the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L121[`Configs.Builder.withOrderedConfigLoadSources`^] method:
 
 [source,java]
 ----
@@ -19,49 +19,49 @@ public static void main(final String[] args) {
     start(MicroService.class, args);
 }
 ----
-<1> Сначала необходимо считывать конфигурацию с classpath ресурса `${name-space}.properties` (В нашем случае это `http-server.properties`)
-<2> а затем уже с classpath ресурса `rxmicro.properties`.
+<1> First, it is necessary to read the configuration from the `${name-space}.properties` classpath resource (In our case, it's a `http-server.properties`)
+<2> and then from the `rxmicro.properties` classpath resource.
 
-Т.е. порядок считывания конфигурация с classpath ресурсов изменен по сравнению с
-<<core-config-order-default-section, порядком по умолчанию>>.
+Thus, the order of the configuration reading from classpath resources has been changed in comparison with the
+<<core-config-order-default-section, default order>>.
 
-При запуске микросервиса настройки с classpath ресурса `http-server.properties` будут перезаписаны настройками с classpath ресурса `rxmicro.properties`:
+When starting the microservice, the settings from the `http-server.properties` classpath resource will be overwritten by the settings from the `rxmicro.properties` classpath resource:
 
 [source,text]
 ----
 2020-01-11 16:52:26.797 [INFO] io.rxmicro.rest.server.netty.internal.component.NettyServer :
 Server started at localhost:9090 using NETTY transport in 500 millis. # <1>
 ----
-<1> HTTP сервер запустился на `localhost:9090`.
+<1> HTTP server has started at `localhost:9090`.
 
 [IMPORTANT]
 ====
-Метод
+The
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L118[`Configs.Builder.withOrderedConfigLoadSources`^]
-позволяет не только изменять порядок считывания источников конфигураций, но еще и активировать/деактивировать источники.
+method allows not only to change the order of reading the configuration sources, but also to activate/deactivate the sources.
 
-*В приведенном выше примере the RxMicro framework будет игнорировать любые источники конфигураций кроме classpath ресурсов!*
+*In the above example, the RxMicro framework will ignore any configuration sources except classpath resources!*
 ====
 
-Метод
+The
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L118[`Configs.Builder.withOrderedConfigLoadSources`^]
-- универсальный.
+method is universal.
 
-The RxMicro framework также предоставляет другие дополнительные методы:
+The RxMicro framework also provides other additional methods:
 
-* {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L124[`Configs.Builder.withAllConfigLoadSources`^] - активации всех типов конфигурирования в порядке заданном перечислением:
+* {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L124[`Configs.Builder.withAllConfigLoadSources`^] - activation of all configuration types in the order given by the list:
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/ConfigLoadSource.java[`ConfigLoadSource`^]
 
-* {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L129[`Configs.Builder.withDockerConfigLoadSources`^] - активация конфигураций с помощью аннотаций (которые позволяют переопределить значения по умолчанию) и с помощью переменных окружения.
-Данная комбинация рекомендована для микросервисов работающих в https://www.docker.com/[docker^] контейнерах.
+* {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L129[`Configs.Builder.withContainerConfigSources`^] -
+this combination is recommended for microservices operating in https://www.docker.com/[docker^] or https://kubernetes.io/[kubernetes^].
 
 [TIP]
 ====
-Метод
+The
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L124[`Configs.Builder.withAllConfigLoadSources`^]
-использовался для активации считывания конфигураций с properties файлов в подразделе <<core-config-properties-files-section>>.
+method was used to activate the reading of configurations from properties files in the <<core-config-properties-files-section>> subsection.
 
-Если планируется использовать только `properties` файлы, рекомендуется указывать только эти типы, исключив все остальные:
+If You plan to use only `properties` files, it is recommended to specify only these types, excluding all other types:
 
 [source,java]
 ----
@@ -77,18 +77,18 @@ public static void main(final String[] args) {
     start(MicroService.class, args);
 }
 ----
-<1> Активация считывания конфигурации с файла `$HOME/rxmicro.properties`.
-<2> Активация считывания конфигурации с файла `rxmicro.properties` в текущей директории.
-<3> Активация считывания конфигурации с файлов `$HOME/${name-space}.properties` (например `http-server.properties`).
-<4> Активация считывания конфигурации с файлов `${name-space}.properties` (например `http-server.properties`) в текущей директории.
+<1> Activation of configuration reading from the `$HOME/rxmicro.properties` file.
+<2> Activation of configuration reading from the `rxmicro.properties` file in the current directory.
+<3> Activation of configuration reading from the `$HOME/${name-space}.properties` files (for example, `http-server.properties`).
+<4> ctivation of configuration reading from the `${name-space}.properties` files (for example, `http-server.properties`) in the current directory.
 
-*Порядок считывания задается порядком аргументов метода
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L118[`Configs.Builder.withOrderedConfigLoadSources`^]*
+*The order of reading is set by the argument order of the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L118[`Configs.Builder.withOrderedConfigLoadSources`^]* method
 ====
 
 [IMPORTANT]
 ====
-*Если Вы точно знаете какие источники конфигурации должны использоваться микросервисом, ВСЕГДА указывайте их явно!*
+*If You know exactly which configuration sources should be used by the microservice, ALWAYS specify them explicitly!*
 
-*При таком подходе при старте микросервиса the RxMicro framework не будет пытаться искать несуществующие источники, тратя драгоценные микросекунды!*
+*With this approach, at the microservice starting, the RxMicro framework won't try to search for non-existent sources, spending precious microseconds!*
 ====

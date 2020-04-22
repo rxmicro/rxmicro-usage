@@ -3,7 +3,7 @@ include::../../../___fragment-settings.adoc[]
 
 ===== Configuration Using Environment Variables.
 
-При использовании переменных окружения, формат конфигураций соответствует формату:
+When using environment variables, the format of configurations matches the following format:
 
 `export ${name-space}.${property-name} = ${value}`:
 
@@ -16,13 +16,18 @@ include::../../../___fragment-settings.adoc[]
 Server started at 0.0.0.0:9090 using NETTY transport in 500 millis. # <2>
 ----
 
-<1> Установка переменной окружения `http-server.port` = 9090 (пользовательский порт для HTTP сервера).
-<2> HTTP сервер запустился на порту `9090` вместо стандартного `8080`.
+<1> Setting the `http-server.port` environment variable = 9090 (custom port for HTTP server).
+<2> The HTTP server has started at the `9090` port instead of the standard `8080` port.
 
 [TIP]
 ====
-Таким образом формат конфигураций с помощью переменных окружения соответствует формату общего файла или classpath ресурса
-`rxmicro.properties`.
+Thus, the format of configurations using environment variables corresponds to the format of `rxmicro.properties` file or classpath resource.
 ====
 
-*Конфигурирование с помощью переменных окружения очень удобно при использовании https://www.docker.com/[docker^] контейнеров!*
+*Configuring with environment variables is very convenient when using https://www.docker.com/[docker^] containers!*
+
+[IMPORTANT]
+====
+To protect Your secret data, use configuration via properties files instead of environment variables.
+The config directory with secret config files (for example `$HOME/.rxmicro/`) must be mount as external volume using https://en.wikipedia.org/wiki/Tmpfs[`tmpfs`^] file system.
+====

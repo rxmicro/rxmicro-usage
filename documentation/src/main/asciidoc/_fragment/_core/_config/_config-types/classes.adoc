@@ -4,7 +4,7 @@ include::../../../___fragment-settings.adoc[]
 [[core-config-java-classes-section]]
 ===== Configuration Using Java Classes.
 
-Конфигурирование с помощью Java классов является самым простым и явным способом конфигурирования:
+Configuring with Java classes is the easiest and most explicit configuration method:
 
 [source,java]
 ----
@@ -16,22 +16,22 @@ public static void main(final String[] args) {
     startRestServer(MicroService.class);
 }
 ----
-<1> Изменение порта HTTP сервера.
+<1> Changing the HTTP server port.
 
 [source,text]
 ----
 2020-01-02 18:49:58.372 [INFO] io.rxmicro.rest.server.netty.internal.component.NettyServer :
 Server started at 0.0.0.0:9090 using NETTY transport in 500 millis. # <1>
 ----
-<1> HTTP сервер запустился на порту `9090` вместо стандартного `8080`.
+<1> The HTTP server has started at the `9090` port instead of the standard `8080` port.
 
 [IMPORTANT]
 ====
-*Главным отличием данного типа конфигурирования от остальных типов является то, что при использовании конфигурирования с помощью Java классов, другие источники конфигураций всегда игнорируются!*
+*The main difference between this type of configuration and the others is that when using Java classes, other configuration sources are always ignored!*
 ====
 
-*Поэтому данный тип рекомендуется использовать ТОЛЬКО в тестовых целях!*
+*Therefore this type is recommended to be used ONLY for test purposes!*
 
-(_Для production окружения он не имеет достаточной гибкости!_)
+(_It does not have enough flexibility for the production environment!_)
 
-*Для production окружения используйте конфигурирование с помощью аннотаций вместо конфигурирования с помощью Java классов!*
+*For the production environment, use the configuration with annotations instead of the configuration with Java classes!*

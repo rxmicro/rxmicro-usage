@@ -3,13 +3,13 @@ include::../___fragment-settings.adoc[]
 
 === Configuration
 
-The RxMicro framework предоставляет модуль `rxmicro.config` позволяющий гибко настраивать микросервисы под любое окружение.
-Данный модуль предоставляет следующие возможности:
+The RxMicro framework provides the `rxmicro.config` module for flexible configuration of microservices to any environment.
+This module provides the following features:
 
-* Поддержка различных типов источников конфигурирования: файлы, classpath ресурсы, переменные окружения и т.д.;
-* Возможность наследования и переопределения настроек из различных источников конфигурации;
-* Возможность изменения порядка считывания конфигураций источников конфигураций;
-* Конфигурация с помощью аннотаций и Java классов.
+* Support for different types of configuration sources: files, classpath resources, environment variables, command line arguments, etc.;
+* Inheritance and redefinition of settings from different configuration sources;
+* Changing the order in which the configuration sources are read;
+* Configuration using annotations and Java classes.
 
 <<<
 

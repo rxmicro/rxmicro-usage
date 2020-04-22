@@ -14,20 +14,19 @@
  * limitations under the License.
  */
 
-package io.rxmicro.examples.monitoring.heathcheck;
+import io.rxmicro.config.DefaultConfigValueSupplier;
+import io.rxmicro.examples.config.annotations.supplier.CustomStaticResponseHeaderSupplier;
+import io.rxmicro.rest.server.RestServerConfig;
 
-import io.rxmicro.rest.BaseUrlPath;
-import io.rxmicro.rest.method.GET;
+@DefaultConfigValueSupplier(
+        configClass = RestServerConfig.class,
+        name = "staticResponseHeaders",
+        supplier = CustomStaticResponseHeaderSupplier.class
+)
+module examples.config.annotations.supplier {
+    requires rxmicro.rest.server.netty;
+    requires rxmicro.rest.server.exchange.json;
 
-import java.util.concurrent.CompletionStage;
-
-import static java.util.concurrent.CompletableFuture.completedStage;
-
-@BaseUrlPath("base")
-public final class MicroService {
-
-    @GET("/test")
-    CompletionStage<Response> test() {
-        return completedStage(new Response("Hello World!"));
-    }
+    exports io.rxmicro.examples.config.annotations.supplier to 
+            rxmicro.runtime;
 }

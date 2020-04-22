@@ -6,67 +6,91 @@ include::../../../___fragment-settings.adoc[]
 [[core-config-annotations-section]]
 ===== Configuration Using Java Annotations.
 
-Для переопределения значения по умолчанию RxMicro предоставляет аннотацию
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/DefaultConfigValue.java[`DefaultConfigValue`^].
+To override the default value, the RxMicro provides the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/DefaultConfigValue.java[`@DefaultConfigValue`^] annotation.
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/config-annotations/src/main/java/module-info.java[tag=content,indent=0]
 ----
 
-<1> При переопределении конфигурационного значения, необходимо указать конфигурационный класс.
-<2> Если конфигурационный класс указан, то пространство имен можно не указывать. +
-_(Подразумевается поле указанного конфигурационного класса.)_
-<3> Если конфигурационный класс не задан, то имя *обязательно* должно содержать пространство имен. +
-_(Пространство имен позволяет однозначно определить к какому конфигурационному классу относится указанная настройка.)_
-<4> При конфигурировании микросервисного проекта аннотацию необходимо указывать на дескрипторе `module-info.java`. +
-_(В микросервисном проекте может содержаться несколько классов REST контроллеров, поэтому общие настройки конфигурируются, используя дескриптор `module-info.java`, а не класс REST контроллера.)_
+<1> When overriding the configuration value, You must specify the configuration class.
+<2> If the configuration class is specified, the namespace may not be specified. +
+_(It means the field of the specified configuration class.)_
+<3> If no configuration class is specified, the name *must* contain a namespace. +
+_(The namespace allows You to clearly define to which configuration class the specified setting belongs.)_
+<4> When configuring a microservice project, the annotation must be specified on the `module-info.java` descriptor. +
+_(A microservice project may contain several classes of REST controllers, so the general settings are configured using the `module-info.java` descriptor rather than the REST controller class.)_
 
 [WARNING]
 ====
-*При переопределении значения по умолчанию с помощью аннотаций будьте внимательны!*
+*Please, pay attention when overriding the default value with the annotations!*
 
-Если Вы ошибетесь при указании имени настройки (это относится к пространству имен и имени поля), то ошибки при запуске не возникнет!
-Переопределенное значение будет просто *проигнорировано*!
+If You make a mistake when specifying a setting name (this refers to the namespace and field name), no error will occur upon starting!
+The overridden value will be simply *ignored*!
 ====
 
-Переопределив значения по умолчанию с помощью дескриптора `module-info.java`, можно запустить микросервис на выполнение.
-В процессе считывании конфигурации класса `HttpServerConfig` RxMicro считает значения по умолчанию, заданные с помощью аннотаций:
+By overriding the default values using the `module-info.java` descriptor, You can start the microservice.
+While reading the configuration of the `HttpServerConfig` class, the RxMicro reads the default values set with annotations:
 
 [source,text]
 ----
 2020-01-13 13:09:44.236 [INFO] io.rxmicro.rest.server.netty.internal.component.NettyServer :
-Server started at 0.0.0.0:9090 using NETTY transport in 500 millis. # <1>
+Server started at localhost:9090 using NETTY transport in 500 millis. # <1>
 ----
 
-<1>  HTTP сервер запустился на `localhost:9090`
+<1>  HTTP server started on `localhost:9090`
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}config-annotations
+include::../../../___notes/full-source-code-of-example.adoc[]
 
 [IMPORTANT]
 ====
-Главное отличие конфигурирования с помощью аннотаций от конфигурирования с помощью Java классов, является поддержка *наследования и переопределения настроек*.
+The main difference between configuring with annotations and configuring with Java classes is support of the *settings inheritance and overriding*.
 
-Т.е. при использовании конфигурирование с помощью аннотаций, RxMicro может считывать и другие источники конфигурации.
+In other words, when using configuration via annotations, the RxMicro can also read other configuration sources.
 
-При использовании конфигурирование с помощью Java классов другие источники конфигурации *всегда игнорируются*.
+When using configuration via Java classes, other configuration sources *are always ignored*.
 ====
 
 [NOTE]
 ====
-Только для тестового окружения RxMicro предоставляет специальную аннотацию <<{testing}#testing-annotations-WithConfig-inline,`@WithConfig`>>.
-С помощью данной аннотации удобно конфигурировать менеджер конфигураций для тестового окружения:
+For the test environment only, RxMicro provides special <<{testing}#testing-annotations-WithConfig-inline,`@WithConfig`>> annotation.
+Using this annotation it is convenient to configure the configuration manager for the test environment:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-microservice-with-config/src/test/java/io/rxmicro/examples/testing/microservice/with/config/MicroServiceTest.java[tags=WithConfig,indent=0]
 ----
 
-Исходный код проекта, использующего аннотацию `@WithConfig`, доступен по ссылке:
+The source code of the project using the <<{testing}#testing-annotations-WithConfig-inline,`@WithConfig`>> annotation is available at the following link:
 
 [.example-code-link]
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-microservice-with-config[`https://github.com/rxmicro/rxmicro-usage/tree/master/examples/testing-microservice-with-config`^]
 ====
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}config-annotations
-include::../../../___notes/full-source-code-of-example.adoc[]
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/DefaultConfigValue.java[`@DefaultConfigValue`^]
+annotation can be applied to override primitive values only:
+
+* `string`,
+* `boolean`,
+* `numbers`,
+* `dates`,
+* `times`,
+* `enums`.
+
+If You need to override a complex value, it is necessary to use
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/DefaultConfigValueSupplier.java[`@DefaultConfigValueSupplier`^]
+annotation instead.
+
+[TIP]
+====
+The source code of the project using the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/DefaultConfigValueSupplier.java[`@DefaultConfigValueSupplier`^]
+annotation is available at the following link:
+
+[.example-code-link]
+{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}config-annotations-supplier[`https://github.com/rxmicro/rxmicro-usage/tree/master/examples/config-annotations-supplier`^]
+====
 
 include::../../../___notes/recompile-after-change.adoc[]

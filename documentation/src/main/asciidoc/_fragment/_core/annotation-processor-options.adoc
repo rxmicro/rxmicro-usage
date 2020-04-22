@@ -3,34 +3,34 @@ include::../___fragment-settings.adoc[]
 
 === `RxMicro Annotation Processor` Options
 
-Процессор аннотаций RxMicro поддерживает следующие опции:
+The `RxMicro Annotation Processor` supports the following options:
 
-.Поддерживаемые опции процессором аннотаций RxMicro.
+.Options supported by the `RxMicro Annotation Processor`.
 |===
-|*Опция*|*Описание* |*Тип* |*Значение по умолчанию*
+|*Option*|*Description* |*Type* |*Default value*
 
 |`RX_MICRO_MAX_JSON_NESTED_DEPTH`
-|максимальный размер стека для рекурсивных вызовов при анализе моделей, содержащих вложенные JSON объекты.
+|maximum stack size for recursive invocations when analyzing models containing JSON nested objects.
 |`positive int`
 |`20`
 
 |`RX_MICRO_LOG_LEVEL`
-|уровень логирования процессора аннотаций RxMicro.
+|`RxMicro Annotation Processor` logging level.
 |Enum {`OFF`, `INFO`, `DEBUG`}
 |`INFO`
 
 |`RX_MICRO_DOC_DESTINATION_DIR`
-|результирующая директория <<{project-documentation}#project-documentation-section,для сгенерированной документации>>.
+|the resulting directory <<{project-documentation}#project-documentation-section,for generated documentation>>.
 |`String`
 |Asciidoc: `./src/main/asciidoc`
 
 |`RX_MICRO_BUILD_UNNAMED_MODULE`
-|Поддержка <<{java-integration}#java-integration-unnamed-module,`unnamed module`>> для микросервисного проекта.
+|the <<{java-integration}#java-integration-unnamed-module,`unnamed module`>> support for a microservice project.
 |`boolean`
 |`false`
 |===
 
-Данные опции задаются с помощью аргументов компилятора в `maven-compiler-plugin`:
+These options are set using the compiler arguments in `maven-compiler-plugin`:
 
 [source,xml]
 ----
@@ -51,8 +51,8 @@ include::../___fragment-settings.adoc[]
 
 [IMPORTANT]
 ====
-Обратите внимание, что необходимо добавлять префикс `-A` перед установкой значения опции.
+Note that it is necessary to add the `-A` prefix before setting the value of the option.
 
-Общий формат следующий: `-A${name}=${value}`.
-Например: `-ARX_MICRO_LOG_LEVEL=OFF`
+The general format is as follows: `-A${name}=${value}`.
+For example: `-ARX_MICRO_LOG_LEVEL=OFF`
 ====

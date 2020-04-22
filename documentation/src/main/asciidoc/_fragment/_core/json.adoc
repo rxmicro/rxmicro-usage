@@ -4,17 +4,17 @@ include::../___fragment-settings.adoc[]
 [[core-rx-micro-json-section]]
 === JSON
 
-https://www.json.org/[*JSON*^] - широко распространенный формат обмена сообщениями для распределенных приложений.
+https://www.json.org/[*JSON*^] is a widely used message exchange format for distributed applications.
 
-RxMicro предоставляет модуль `rxmicro.json` для низкоуровневой и эффективной работы с этим форматом.
+RxMicro provides the `rxmicro.json` module for low-level and efficient work with this format.
 
 [IMPORTANT]
 ====
-The RxMicro framework использует классы из модуля `rxmicro.json` при автоматической конвертации Java моделей в JSON формат и наоборот.
+The RxMicro framework uses classes from the `rxmicro.json` module when automatically converting Java models to JSON format and vice versa.
 
-*Поэтому явно использовать данный модуль разработчик не должен!*
+*Therefore, a developer should not explicitly use this module!*
 
-_Однако общее представление о возможностях данного модуля необходимо для корректного написания тестов!_
+_However, the general idea about the capabilities of this module is needed for correct test writing!_
 ====
 
 <<<

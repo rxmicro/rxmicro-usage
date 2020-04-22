@@ -4,7 +4,7 @@ include::../___fragment-settings.adoc[]
 [[core-reactive-libraries-support]]
 === Reactive Libraries Support
 
-The RxMicro framework поддерживает следующие библиотеки реактивного программирования:
+The RxMicro framework supports the following reactive programming libraries:
 
 - {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/package-summary.html[*java.util.concurrent*^]:
 {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[CompletableFuture^],
@@ -15,17 +15,17 @@ The RxMicro framework поддерживает следующие библиот
 [[core-reactive-bussiness-process-result-types-section]]
 ==== Expected Business Process Results
 
-При написании реактивных программ возможны 4 следующих ожидаемых результатов любого бизнес процесса:
+When writing reactive programs, the following 4 expected results of any business process are possible:
 
-. Важен факт завершения бизнес процесса, но получаемый результат отсутствует или неважен.
-. Бизнес процесс возвращает результат в единственном экземпляре или ничего.
-. Бизнес процесс возвращает обязательный результат в единственном экземпляре.
-. Бизнес процесс возвращает результат в виде потока объектов `(0 .. n)`.
+. It is important to complete the business process, but the result is missing or unimportant.
+. The business process returns the result in a single instance or nothing.
+. The business process returns the required result in a single instance.
+. The business process returns the result as `(0 .. n)` object stream.
 
-При написании бизнес сервиса с использованием реактивных библиотек, рекомендуется следовать следующим соглашениям:
+When writing a business service using reactive libraries, it is recommended to comply with the following agreements:
 
 [[core-reactive-bussiness-process-reactive-class-mapping-table]]
-.Which class from a reactive library must be selected?
+.Which class from a reactive library must be choose?
 |===
 |*Reactive Library*|*java.util.concurrent* |*Project Reactor* |*RxJava3*
 
@@ -56,33 +56,33 @@ CompletionStage<List<MODEL>>
 
 [TIP]
 ====
-*Типы результатов `Flux<MODEL>` и `Mono<List<MODEL>>`, а также `Flowable<MODEL>`, `Single<List<MODEL>>` не являются абсолютно равнозначными!*
+*The following types of results `Flux<MODEL>` and `Mono<List<MODEL>>`, as well as `Flowable<MODEL>`, `Single<List<MODEL>>` are not absolutely equivalent!*
 
-Для типов `Flux<MODEL>` и `Flowable<MODEL>` обработчик результата может вызываться раньше чем все данные будут получены из источника данных, например из базы данных.
+For the `Flux<MODEL>` and `Flowable<MODEL>` types, the result handler can be invoked before all data is received from a data source, e.g. from a database.
 
-В то время как для `Mono<List<MODEL>>` и `Single<List<MODEL>>`
-обработчик результата вызывается *только* после того как *все* данные будут получены из источника данных!
+Whereas for `Mono<List<MODEL>>` and `Single<List<MODEL>>`
+the result handler is invoked *only* after *all* the data is received from the data source!
 ====
 
-==== Libraries Selection Recommendations
+==== Recommendations for Choosing a Library
 
-Общая рекомендация по выбору библиотеки реактивного программирования при использовании of the RxMicro framework:
+General recommendation for choosing a reactive programming library when using the RxMicro framework:
 
-. Если Ваш микросервис содержит простую логику, Вы можете использовать легковесную и поставляемую вместе с Java библиотеку
-{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/package-summary.html[*java.util.concurrent*^], представляемую классом
-{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[`CompletableFuture`^] и интерфейсом {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletionStage.html[`CompletionStage`^].
-. Если Ваш микросервис содержит более сложную логику, для описания которой необходимо использовать
-http://reactivex.io/documentation/operators.html[сложные операторы^], рекомендуется выбирать *Project Reactor* или *RxJava*.
-. При выборе между *Project Reactor* и *RxJava* следует следовать рекомендациям:
-.. Если Вы лучше разбираетесь в *Project Reactor* используйте его, иначе используйте *RxJava*.
-.. Если Вам необходимы реактивные SQL репозитории на базе `r2dbc` (модуль `rxmicro.data.sql.r2dbc`), то используйте *Project Reactor*. +
-_(Так как `r2dbc` драйвера уже используют *Project Reactor*.)_
+. If Your microservice contains simple logic, You can use the lightweight and Java-provided
+{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/package-summary.html[*java.util.concurrent*^] library, represented by the
+{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[`CompletableFuture`^] class and the {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletionStage.html[`CompletionStage`^] interface.
+. If Your microservice contains more complex logic, to describe which You need to use
+http://reactivex.io/documentation/operators.html[complex operators^], it is recommended to choose *Project Reactor* or *RxJava*.
+. When choosing between the *Project Reactor* and *RxJava* follow the recommendations:
+.. If You are more familiar with the *Project Reactor*, then use it, otherwise use *RxJava*.
+.. If You need `r2dbc` based reactive SQL repositories (`rxmicro.data.sql.r2dbc` module), then use the *Project Reactor*. +
+_(Since `r2dbc` drivers already use the *Project Reactor*.)_
 
-Таким образом при написании микросервисов via the RxMicro framework, Вы можете использовать любую библиотеку реактивного программирования на Java, которая Вам больше нравиться!
+Thus, when writing microservices via the RxMicro framework, You can use any Java reactive programming library that You prefer!
 
 [NOTE]
 ====
-*FYI* Все библиотеки поддерживают блокирующее получение результата:
+*FYI* All libraries support a blocking getting of the result:
 
 [source,java]
 ----
@@ -109,6 +109,6 @@ public final class BlockingGetResult {
 }
 ----
 
-Основная необходимость в блокирующем получении результата, используя реактивное программирование, возникает при реализации модульного тестирования.
-Так как основные популярные фреймворки для модульного тестирования (https://junit.org/junit5/[`JUnit`^], https://testng.org/[`TestNG`^] и др.) используют обычную поточную (блокирующую) модель программирования.
+The main need in blocking getting of the result, using reactive programming, arises at Unit testing implementation.
+Since the main popular frameworks for unit testing (https://junit.org/junit5/[`JUnit`^], https://testng.org/[`TestNG`^], etc.) use the usual thread (blocking) programming model.
 ====

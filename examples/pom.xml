@@ -178,6 +178,7 @@
         <module>graalvm-native-image-rest-client</module>
         <module>graalvm-native-image-mongo-data-repository</module>
         <module>internal-storage</module>
+        <module>config-annotations-supplier</module>
     </modules>
 
     <build>

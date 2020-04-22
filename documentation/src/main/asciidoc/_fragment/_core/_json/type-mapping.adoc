@@ -4,11 +4,11 @@ include::../../___fragment-settings.adoc[]
 [[core-json-type-mapping]]
 ==== A Mapping Between JSON and Java Types
 
-Так как данный модуль используется автоматически, он оптимизирован под машинные операции.
-Именно поэтому данный модуль не предоставляет отдельные классы для JSON типов.
-Вместо этого используются стандартные Java классы:
+Since this module is used automatically, it is optimized for machine operations.
+Therefore, this module doesn't provide separate classes for JSON types.
+Instead, standard Java classes are used:
 
-.Таблица соответствия между JSON и Java типами.
+.Mapping table between JSON and Java types.
 |===
 |*JSON type*|*Java type*
 
@@ -31,7 +31,7 @@ include::../../___fragment-settings.adoc[]
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-json/src/main/java/io/rxmicro/json/JsonNumber.java[`io.rxmicro.json.JsonNumber`^]
 |===
 
-.Таблица соответствия между Java и JSON типами.
+.Mapping table between Java and JSON types.
 |===
 |*Java type*|*JSON type*
 
@@ -59,8 +59,8 @@ include::../../___fragment-settings.adoc[]
 
 [TIP]
 ====
-Класс {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-json/src/main/java/io/rxmicro/json/JsonNumber.java[`io.rxmicro.json.JsonNumber`^]
-наследует класс {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Number.html[`java.lang.Number`^].
+The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-json/src/main/java/io/rxmicro/json/JsonNumber.java[`io.rxmicro.json.JsonNumber`^]
+class extends the {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Number.html[`java.lang.Number`^] class.
 
-Поэтому *для работы с числовыми типами данных Вы можете использовать тип `java.lang.Number` вместо `io.rxmicro.json.JsonNumber`*!
+Therefore, *to work with numeric data types, You can use the `java.lang.Number` type instead of `io.rxmicro.json.JsonNumber`*!
 ====

@@ -3,7 +3,7 @@ include::../../../___fragment-settings.adoc[]
 
 ===== Configuration Using Java System Properties
 
-При использовании `Java System Properties`, формат конфигураций соответствует формату:
+When using the `Java System Properties`, the format of configurations matches the following format:
 
 `${name-space}.${property-name} = ${value}`:
 
@@ -16,10 +16,10 @@ include::../../../___fragment-settings.adoc[]
 2020-01-02 18:49:58.372 [INFO] io.rxmicro.rest.server.netty.internal.component.NettyServer :
 Server started at 0.0.0.0:9090 using NETTY transport in 500 millis. # <2>
 ----
-<1> Установка Java системной переменной `http-server.port` = 9090 (пользовательский порт для HTTP сервера).
-<2> HTTP сервер запустился на порту `9090` вместо стандартного `8080`.
+<1> Setting the `http-server.port` Java system variable = 9090 (custom port for HTTP server).
+<2> The HTTP server has started at the `9090` port instead of the standard `8080` port.
 
 [TIP]
 ====
-Таким образом формат конфигураций с помощью Java системных переменных соответствует формату конфигурирование с помощью переменных окружения, а также общего файла или classpath ресурса `rxmicro.properties`.
+Thus, the format of configurations using Java system variables corresponds to the format of configuration using environment variables, and also to the format of `rxmicro.properties` file or classpath resource.
 ====

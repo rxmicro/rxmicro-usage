@@ -34,7 +34,7 @@ public final class HelloWorldMicroService {
     public static void main(final String[] args) {
         // Do not try load any configurations
         new Configs.Builder()
-                .withoutAnyConfigLoadSources()
+                .withoutAnyConfigSources()
                 .build();
         RxMicro.startRestServer(HelloWorldMicroService.class);
         System.exit(0);

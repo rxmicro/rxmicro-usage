@@ -3,52 +3,52 @@ include::../../../___fragment-settings.adoc[]
 
 ===== Configuration Using `classpath` Resources.
 
-The RxMicro framework поддерживает общий и отдельные classpath ресурсы для внешней по отношении к исходному коду микросервиса конфигурации.
+The RxMicro framework supports shared and separate classpath resources for the external configuration in relation to the microservice source code.
 
-Единственным поддерживаемым форматом classpath ресурса является формат `properties` файлов.
+The only supported classpath resource format is the `properties` file format.
 
 ====== Configuration Using Separate `classpath` Resource.
 
-Если в classpath текущего проекта находится ресурс `http-server.properties` с содержимым:
+If the classpath of the current project contains the `http-server.properties` resource with the following content:
 
 [source,properties]
 ----
 port=9090 # <1>
 ----
-<1> Пользовательский порт для HTTP сервера.
+<1> Custom port for HTTP server.
 
-то the RxMicro framework при считывании конфигурации класса `HttpServerConfig` считает данный ресурс:
+then the RxMicro framework when reading the `HttpServerConfig` class configuration will read this resource:
 
 [source,text]
 ----
 2020-01-11 12:44:27.518 [INFO] io.rxmicro.rest.server.netty.internal.component.NettyServer :
 Server started at 0.0.0.0:9090 using NETTY transport in 500 millis. # <1>
 ----
-<1> HTTP сервер запустился на порту `9090` вместо стандартного `8080`.
+<1> The HTTP server has started at the `9090` port instead of the standard `8080` port.
 
 include::___tip-namespace.adoc[]
 
 ====== Configuration Using Shared `classpath` Resource.
 
-Если в classpath текущего проекта находится ресурс `rxmicro.properties` с содержимым:
+If the classpath of the current project contains the `rxmicro.properties` resource with the following content:
 
 [source,properties]
 ----
 http-server.port=9090 # <1>
 ----
-<1> Пользовательский порт для HTTP сервера.
+<1> Custom port for HTTP server.
 
-то the RxMicro framework при считывании конфигурации класса `HttpServerConfig` считает данный ресурс:
+then the RxMicro framework when reading the `HttpServerConfig` class configuration will read this resource:
 
 [source,text]
 ----
 2020-01-11 12:44:27.518 [INFO] io.rxmicro.rest.server.netty.internal.component.NettyServer :
 Server started at 0.0.0.0:9090 using NETTY transport in 500 millis. # <1>
 ----
-<1> HTTP сервер запустился на порту `9090` вместо стандартного `8080`.
+<1> The HTTP server has started at the `9090` port instead of the standard `8080` port.
 
 include::___tip-rxmicro-resource.adoc[]
 
-Так как ресурс `rxmicro.properties` является общим ресурсом для *любой* конфигурации, необходимо при указании настроек, указывать пространство имен.
+Since the `rxmicro.properties` resource is a shared resource for *any* configuration, You must specify a namespace when specifying the settings.
 
 include::___note-common-and-special-resource-difference.adoc[]

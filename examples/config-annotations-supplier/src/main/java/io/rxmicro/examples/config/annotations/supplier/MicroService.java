@@ -14,20 +14,22 @@
  * limitations under the License.
  */
 
-package io.rxmicro.examples.monitoring.heathcheck;
+package io.rxmicro.examples.config.annotations.supplier;
 
-import io.rxmicro.rest.BaseUrlPath;
 import io.rxmicro.rest.method.GET;
 
-import java.util.concurrent.CompletionStage;
+import static io.rxmicro.rest.server.RxMicro.startRestServer;
 
-import static java.util.concurrent.CompletableFuture.completedStage;
-
-@BaseUrlPath("base")
+// tag::content[]
 public final class MicroService {
 
-    @GET("/test")
-    CompletionStage<Response> test() {
-        return completedStage(new Response("Hello World!"));
+    @GET("/")
+    void test() {
+        // do something
+    }
+
+    public static void main(final String[] args) {
+        startRestServer(MicroService.class);
     }
 }
+// end::content[]

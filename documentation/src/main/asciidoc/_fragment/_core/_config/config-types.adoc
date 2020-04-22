@@ -11,6 +11,7 @@ The RxMicro framework supports the following configuration types:
 . Configuration using Java system properties.
 . Configuration using Java classes.
 . Configuration using Java annotations.
+. Configuration using command line arguments.
 
 include::_config-types/classpath-resource.adoc[]
 
@@ -23,3 +24,5 @@ include::_config-types/system-properties.adoc[]
 include::_config-types/classes.adoc[]
 
 include::_config-types/annotations.adoc[]
+
+include::_config-types/command-line-args.adoc[]

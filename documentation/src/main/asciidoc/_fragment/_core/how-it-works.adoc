@@ -4,15 +4,15 @@ include::../___fragment-settings.adoc[]
 [[core-how-it-works-section]]
 === How It Works?
 
-The RxMicro framework использует
-{JDK-JAVA-COMPILER-DOC-ROOT-URL}javax/annotation/processing/Processor.html[Java annotation processor^], который генерирует стандартный код на основании `RxMicro annotations`.
+The RxMicro framework uses the
+{JDK-JAVA-COMPILER-DOC-ROOT-URL}javax/annotation/processing/Processor.html[Java annotation processor^], which generates standard code using `RxMicro annotations`.
 
-Таким образом the RxMicro framework является фреймворком декларативного программирования.
+Thus, the RxMicro framework is a framework of declarative programming.
 
-Разработчик, используя the RxMicro framework концентрируется на написании бизнес логики микросервиса.
-Затем с помощью `RxMicro annotations` конфигурирует желаемое стандартное поведение.
-В момент компиляции проекта процессор аннотаций RxMicro генерирует вспомогательные классы.
-Генерируемые классы содержат стандартную логику обеспечивающую работоспособность созданного микросервиса.
+Using the RxMicro framework, the developer focuses on writing the business logic of a microservice.
+Then he configures the desired standard behavior with `RxMicro annotations`.
+When compiling a project, the `RxMicro Annotation Processor` generates additional classes.
+Generated classes contain a standard logic that ensures the functionality of the created microservice.
 
 <<<
 

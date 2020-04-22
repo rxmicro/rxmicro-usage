@@ -33,7 +33,7 @@ public final class HelloWorldMicroService {
 
     public static void main(final String[] args) {
         new Configs.Builder()
-                .withDockerConfigLoadSources() // <1>
+                .withContainerConfigSources() // <1>
                 .build();
         RxMicro.startRestServer(HelloWorldMicroService.class);
         Signal.handle(new Signal("INT"), sig -> System.exit(0)); // <2>

@@ -1,7 +1,7 @@
 :FRAGMENT_RELATIVE_DIR:
 include::___fragment-settings.adoc[]
 
-В данном разделе будут описаны базовые концепции работы of the RxMicro framework.
+This section will describe the basic working concepts of the RxMicro framework.
 
 include::_core/how-it-works.adoc[]
 

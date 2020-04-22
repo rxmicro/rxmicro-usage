@@ -5,9 +5,9 @@ include::../../___fragment-settings.adoc[]
 
 ==== User Defined Configurations
 
-Разработчик может использовать модуль конфигурации для пользовательских конфигураций.
+The developer can use the configuration module for custom configurations.
 
-Для этого необходимо создать отдельный класс:
+To do this, it is necessary to create a separate class:
 
 [source,java]
 ----
@@ -16,34 +16,34 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/config-custom/src/main/java/io
 
 [IMPORTANT]
 ====
-Пользовательский класс конфигураций должен удовлетворять следующим требованиям:
+The custom configuration class must meet the following requirements:
 
-. Класс должен быть публичным.
-. Класс должен содержать публичный конструктор без параметров.
-. Класс должен наследовать абстрактный класс
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Config.java[`Config`^].
-. Для установки значений свойств класс должен содержать https://www.w3schools.com/java/java_encapsulation.asp[`setters`^]. +
-_(Только те поля, которые будут содержать `setters` могут быть проинициализированы!)_
+. The class must be public.
+. The class must contain a public constructor without parameters.
+. The class must extend the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Config.java[`Config`^] abstract class.
+. To set property values, the class must contain https://www.w3schools.com/java/java_encapsulation.asp[`setters`^]. +
+_(Only those fields that contain `setters` can be initialized!)_
 ====
 
-Так как данный класс будет создаваться и инициализироваться классами из модулей `rxmicro.runtime` и `rxmicro.config` автоматически, необходимо экспортировать пакет данным модулям в дескрипторе `module-info.java`. +
-_(Это требования https://www.oracle.com/corporate/features/understanding-java-9-modules.html[JPMS^].)_
+Since this class will be created and initialized by the classes from `rxmicro.runtime` and `rxmicro.config` modules automatically, it is necessary to export the package to these modules in the `module-info.java` descriptor. +
+_(These are the https://www.oracle.com/corporate/features/understanding-java-9-modules.html[JPMS^] requirements.)_
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/config-custom/src/main/java/module-info.java[tag=content,indent=0]
 ----
-<1> Разрешаем доступ к публичным классам из пакета `io.rxmicro.example.config.custom` модулю `rxmicro.runtime`.
-<2> Разрешаем доступ к публичным классам из пакета `io.rxmicro.example.config.custom` модулю `rxmicro.config`.
+<1> Allow the `rxmicro.runtime` module access to public classes from the `io.rxmicro.example.config.custom` package.
+<2> Allow the `rxmicro.config` module access to public classes from the `io.rxmicro.example.config.custom` package.
 
-После указанных изменений класс пользовательских конфигураций доступен для использования:
+After these changes, a class of custom configurations is available for use:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/config-custom/src/main/java/io/rxmicro/examples/config/custom/MicroService.java[tag=content,indent=0]
 ----
 
-Флаг `production` теперь может быть установлен используя любой тип конфигурирования, например с помощью classpath ресурса `business-service.properties`:
+The `production` flag can now be set using any type of configuration, for example using the classpath of the `business-service.properties` resource:
 
 [source,properties]
 ----

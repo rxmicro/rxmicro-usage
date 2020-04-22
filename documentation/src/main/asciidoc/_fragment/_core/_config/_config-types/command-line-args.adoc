@@ -1,0 +1,43 @@
+:FRAGMENT_RELATIVE_DIR: ../../../
+include::../../../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../../
+
+[[core-config-command-line-args-section]]
+===== Configuration Using Command Line Arguments.
+
+To override configs You can use command line arguments.
+
+This type of configuration has *the highest priority and overrides all other types*.
+_(Except of configuration using Java classes.)_
+
+*Configuration using command line arguments is disabled by default.*
+
+To enable it is necessary to configure the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java[`Configs`^] configuration manager:
+
+[source,java]
+----
+public static void main(final String[] args) {
+    new Configs.Builder()
+            .withCommandLineArguments(args) // <1>
+            .build();
+    start(MicroService.class);
+}
+----
+<1> Use `withCommandLineArguments(args)` method to enable the configuration using command line arguments.
+
+For example, If You want to start HTTP server at `9191` port, You can pass the following command line argument:
+
+[source,text,subs="verbatim,quotes"]
+----
+java -p ./classes:lib -m examples.quick.start/io.rxmicro.examples.quick.start.HelloWorldMicroService *http-server.port=9191*
+----
+
+Result:
+
+[source,text,subs="verbatim,quotes"]
+----
+2020-01-02 18:49:58.372 [INFO] io.rxmicro.rest.server.netty.internal.component.NettyServer :
+Server started at 0.0.0.0: *9191* using NETTY transport in 500 millis.
+----

@@ -4,41 +4,41 @@ include::../___fragment-settings.adoc[]
 [[core-dont-block-current-thread]]
 === Don’t Block Current Thread!
 
-В современной архитектуре компьютера IO операции являются самыми медленными.
-В результате чего при использовании
-https://en.wikipedia.org/wiki/Multithreading_(computer_architecture)[потокового программирования^]
-CPU и RAM используются крайне неэффективно.
-Для однопользовательского монолитного приложения данная неэффективность незаметна.
-Однако в случае многопользовательского распределенного приложения, где количество IO операций на порядок выше, данная проблема порождает огромные финансовые затраты на дополнительное аппаратное обеспечение и координацию между клиентскими потоками данных (https://en.wikipedia.org/wiki/C10k_problem[C10k problem^]).
+In modern computer architecture, IO operations are the slowest ones.
+As a result, when using
+https://en.wikipedia.org/wiki/Multithreading_(computer_architecture)[multithreading programming model^],
+the use of CPU and RAM is extremely inefficient.
+For a single-user monolithic application such inefficiency is imperceptible.
+But for a multi-user distributed application with a much higher number of IO operations, this problem generates huge financial costs for additional hardware and coordination between client data streams (Read more: https://en.wikipedia.org/wiki/C10k_problem[C10k problem^]).
 
-Поэтому для эффективного использования аппаратных ресурсов многопользовательского распределенного приложения в настоящее время используется https://en.wikipedia.org/wiki/Event-driven_architecture[Event-driven architecture (EDA)^].
+Therefore, the https://en.wikipedia.org/wiki/Event-driven_architecture[Event-driven architecture (EDA)^] is used for efficient use of the hardware resources of a multi-user distributed application.
 
-The most popular Java framework, который использует Event-driven architecture для IO операций является https://netty.io[Netty^].
-Для написания эффективных программ с помощью Netty, необходимо следовать определенным правилам и ограничениям.
-Самым главным из них является требование: *Don’t block current thread!*
+The most popular Java framework that uses Event-driven architecture for IO operations is https://netty.io[Netty^].
+To write efficient programs using Netty, it is necessary to comply with certain rules and restrictions.
+The most important of these is the following requirement: *Don’t block current thread!*
 
-The RxMicro framework is a framework, который функционирует на базе Netty.
-Поэтому все требования к приложениям, использующим Netty, распространяются и на the RxMicro framework.
+The RxMicro framework is a framework that runs on Netty.
+Therefore, all requirements for applications that utilize Netty also cover the RxMicro framework.
 
 ==== Prohibited Operations
 
-Поэтому при написании микросервисных приложений на базе the RxMicro framework, *запрещены* следующие операции:
+Consequently, when writing microservice applications based on the RxMicro framework, the following operations are *prohibited*:
 
-* Чтение данных из сокета или файла в блокирующем стиле, используя `java.io.InputStream` и классы наследники.
-* Запись данных в сокета или в файл в блокирующем стиле, используя `java.io.OutputStream` и классы наследники.
-* Взаимодействие с базой данных с помощью блокирующего драйвера (все `JDBC` драйверы).
-* Ожидание на локе или мониторе (`java.util.concurrent.locks.Lock`, `Object.wait`).
-* Перевод потока в режим сна (`Thread.sleep`, `TimeUnit.sleep`).
-* любые другие https://en.wikipedia.org/wiki/Blocking_(computing)[*блокирующие операции*^].
+* Data reading from a socket or file in a blocking style using `java.io.InputStream` and child classes.
+* Data writing to a socket or file in a blocking style using `java.io.OutputStream` and child classes.
+* Interaction with a database using of the blocking driver (all `JDBC` drivers).
+* Waiting on a lock or a monitor (`java.util.concurrent.locks.Lock`, `Object.wait`).
+* Putting the thread into sleep mode (`Thread.sleep`, `TimeUnit.sleep`).
+* Any other https://en.wikipedia.org/wiki/Blocking_(computing)[*blocking operations*^].
 
 ==== Recommended Approach
 
-Отсутствие блокирующих операций в микросервисе позволяет обслуживать огромное количество конкурентных соединений, используя небольшое количество потоков и как следствие эффективно использовать аппаратные ресурсы компьютера.
+The absence of blocking operations in the microservice allows to handle many concurrent connections, using a small number of threads and, as a result, to effectively use hardware resources of the computer.
 
-Поэтому при проектировании микросервисов via the RxMicro framework необходимо следовать следующему правилу:
+Therefore, when designing microservices via the RxMicro framework, You must follow by the following rule:
 
-*При реализации микросервиса если результат может быть получен немедленно, он должен быть возвращен немедленно.*
+*When implementing a microservice, if the result can be obtained immediately, it must be returned immediately.*
 
-*В противном случае необходимо возвратить
+*Otherwise, You must return
 https://github.com/reactive-streams/reactive-streams-jvm/blob/v1.0.3/README.md#specification[Publisher^] or
-{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[CompletableFuture^], которые сгенерируют результат позже.*
+{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[CompletableFuture^], which will generate the result later.*

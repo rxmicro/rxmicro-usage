@@ -5,29 +5,29 @@ include::../../___fragment-settings.adoc[]
 
 ==== `rxmicro.json` Module Usage
 
-Для корректного написания <<{testing}#testing-section,тестов>> необходимо общее представление о модуле `rxmicro.json`.
+To write <<{testing}#testing-section,tests>> correctly, it is necessary to have a general idea about the `rxmicro.json` module.
 
-Рассмотрим пример микросервиса, возвращающего результат в формате JSON объекта:
+Let's look at a microservice that returns the result in JSON object format:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/json/src/main/java/io/rxmicro/examples/json/MicroService.java[tag=content,indent=0]
 ----
 
-Класс `Response` - Java модель HTTP ответа в JSON формате:
+The `Response` class - Java model of HTTP response in JSON format:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/json/src/main/java/io/rxmicro/examples/json/Response.java[tag=content,indent=0]
 ----
-<1> Вложенный JSON объект.
-<2> JSON массив числового типа.
-<3> Строковый тип данных.
-<4> Числовой тип данных целого типа.
-<5> Числовой тип данных типа с плавающей точкой.
-<6> Логический тип данных.
+<1> Nested JSON object.
+<2> JSON numeric array.
+<3> String data type.
+<4> Integer numeric data type.
+<5> Floating-point numeric data type.
+<6> Logical data type.
 
-Класс `Child` - Java модель вложенного JSON объекта:
+The `Child` class - Java model of the nested JSON object:
 
 [source,java]
 ----
@@ -36,10 +36,10 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/json/src/main/java/io/rxmicro/
 
 [TIP]
 ====
-Для упрощения каждое поле модели ответа, сразу же инициализируется тестовыми данными.
+For simplicity, each response model field is immediately initialized with test data.
 ====
 
-В результате микросервис возвращает следующий JSON объект:
+As a result, the microservice returns the following JSON object:
 
 [source,json]
 ----
@@ -60,9 +60,9 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/json/src/main/java/io/rxmicro/
 }
 ----
 
-В процессе написания <<{testing}#testing-rest-based-microservice-tests-section,теста REST-based микросервиса>> или <<{testing}#testing-integration-tests-basic-section,интеграционного теста>> необходимо сравнить ожидаемый JSON ответ с тем, что возвращает REST-based микросервис.
-_(Возвращаемый микросервисом ответ доступен с помощью метода:
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http-client/src/main/java/io/rxmicro/http/client/ClientHttpResponse.java#L38[`ClientHttpResponse.body()`^])_:
+While writing <<{testing}#testing-rest-based-microservice-tests-section,REST-based microservice test>> or <<{testing}#testing-integration-tests-basic-section,integration test>>, it is necessary to compare the expected JSON response with the one returned by REST-based microservice.
+_(The response returned by the microservice is available through the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http-client/src/main/java/io/rxmicro/http/client/ClientHttpResponse.java#L38[`ClientHttpResponse.body()`^]method)_:
 
 [source,java]
 ----
@@ -77,10 +77,10 @@ final class MicroServiceTest {
     }
 }
 ----
-<1>  Метод `ClientHttpResponse.body()` возвращает тело HTTP ответа.
-Так как REST-based микросервис возвращает JSON объект, то данный метод возвращает результат в виде объекта <<core-json-type-mapping,`java.util.Map<String, Object>`>>.
+<1>  The `ClientHttpResponse.body()` method returns the HTTP response body.
+Since the REST-based microservice returns a JSON object, this method returns the result as the <<core-json-type-mapping,`java.util.Map<String, Object>`>> object.
 
-Поэтому, чтобы сравнить JSON объекты, необходимо создать объект `java.util.Map<String, Object>`, содержащий ожидаемые свойства JSON объекта:
+Therefore, to compare JSON objects, You need to create the `java.util.Map<String, Object>` object containing the expected properties of the JSON object:
 
 [source,java]
 ----
@@ -114,16 +114,16 @@ final class MicroServiceTest {
     }
 }
 ----
-<1> Возвращаемый микросервисом JSON объект.
-<2> Ожидаемый JSON объект.
-<3> Сравнение JSON объектов с помощью метода
-{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Object.html#equals(java.lang.Object)[`java.lang.Object.equals()`^].
+<1> A JSON object returned by microservice.
+<2> Expected JSON object.
+<3> Comparison of JSON objects using the
+{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Object.html#equals(java.lang.Object)[`java.lang.Object.equals()`^] method.
 
 [IMPORTANT]
 ====
-Согласно https://tools.ietf.org/html/rfc7159#page-6[JSON спецификации^], в JSON объекте порядок свойств неопределен.
+According to the https://tools.ietf.org/html/rfc7159#page-6[JSON specification^], the property order in JSON object is undefined.
 
-Т.е. JSON объекты:
+Thus, the following JSON objects:
 
 [source,json]
 ----
@@ -143,44 +143,44 @@ final class MicroServiceTest {
 }
 ----
 
-считаются одинаковыми.
+are considered to be the same.
 
-*RxMicro всегда упорядочивает свойства JSON объекта!*
+*RxMicro always arranges JSON object properties!*
 
-*Таким образом порядок JSON свойств всегда соответствует порядку полей в Java модели!*
+*Thus, the order of JSON properties always corresponds to the order of fields in the Java model!*
 
-Благодаря этому Вы можете сравнивать JSON объекты представленные в виде `java.util.Map<String, Object>` с помощью метода
-{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Object.html#equals(java.lang.Object)[`java.lang.Object.equals()`^].
+This allows You to compare JSON objects in the form of  `java.util.Map<String, Object>` using the
+{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Object.html#equals(java.lang.Object)[`java.lang.Object.equals()`^] method.
 ====
 
-Для удобства создания ожидаемого JSON объекта, рекомендуется использовать утилитный класс
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/json/JsonFactory.java[`JsonFactory`^].
-Данный класс упорядочивает JSON свойства и автоматически конвертирует все
-{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Number.html[`java.lang.Number`^] типы в тип
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-json/src/main/java/io/rxmicro/json/JsonNumber.java[`io.rxmicro.json.JsonNumber`^]:
+For convenient creation of the expected JSON object, it is recommended to use the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/json/JsonFactory.java[`JsonFactory`^] utility class.
+This class arranges JSON properties and automatically converts all
+{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Number.html[`java.lang.Number`^] types into the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-json/src/main/java/io/rxmicro/json/JsonNumber.java[`io.rxmicro.json.JsonNumber`^] type:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/json/src/test/java/io/rxmicro/examples/json/MicroServiceTest.java[tag=content,indent=0]
 ----
-<1> Возвращаемый микросервисом JSON объект.
-<2> Ожидаемый JSON объект.
-<3> Сравнение JSON объектов с помощью метода
-{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Object.html#equals(java.lang.Object)[`java.lang.Object.equals()`^].
-<4> Для создания JSON объекта, рекомендуется использовать метод:
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/json/JsonFactory.java[`JsonFactory.jsonObject`^].
-<5> Для создания JSON массива, рекомендуется использовать метод:
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/json/JsonFactory.java[`JsonFactory.jsonArray`^].
+<1> A JSON object returned by microservice.
+<2> Expected JSON object.
+<3> Comparison of JSON objects using the
+{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Object.html#equals(java.lang.Object)[`java.lang.Object.equals()`^] method.
+<4> To create JSON object, it is recommended to use the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/json/JsonFactory.java[`JsonFactory.jsonObject`^] method.
+<5> To create JSON array, it is recommended to use the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/json/JsonFactory.java[`JsonFactory.jsonArray`^] method.
 
 [NOTE]
 ====
-Интерфейс {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http-client/src/main/java/io/rxmicro/http/client/ClientHttpResponse.java[`ClientHttpResponse`^]
-кроме метода `body()` также содержит методы `bodyAsBytes()` и `bodyAsString()`.
+The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http-client/src/main/java/io/rxmicro/http/client/ClientHttpResponse.java[`ClientHttpResponse`^]
+interface besides `body()` method also contains `bodyAsBytes()` and `bodyAsString()` ones.
 
-Поэтому в тесте Вы можете сравнивать JSON объекты, сравнивая их строковое представление или используя стороннюю Java библиотеку, поддерживающую JSON формат.
-(Например https://github.com/stleary/JSON-java[`JSON-java`^], https://javaee.github.io/jsonp/[`Java API for JSON Processing`^], и др.)
+Therefore in the test You can compare JSON objects by comparing their string representation or using a third-party Java library that supports the JSON format.
+(For example, https://github.com/stleary/JSON-java[`JSON-java`^], https://javaee.github.io/jsonp/[`Java API for JSON Processing`^], etc.)
 
-*Таким образом RxMicro рекомендует использовать модуль `rxmicro.json` для сравнения JSON объектов, но в тоже же время предоставляет Вам возможность использовать любом другой JSON фреймворк!*
+*Thus, RxMicro recommends using the `rxmicro.json` module to compare JSON objects, but at the same time provides an opportunity to use any other JSON framework!*
 ====
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}json

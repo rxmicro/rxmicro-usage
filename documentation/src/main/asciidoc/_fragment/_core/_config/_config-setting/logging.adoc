@@ -3,16 +3,16 @@ include::../../../___fragment-settings.adoc[]
 
 ===== Logging the Config Reading Process
 
-Для отладки процесса считывания конфигураций Вы можете активировать <<core-logger-config-file-inline,логгер>>:
+To debug the configuration reading process You can activate the <<core-logger-config-file-inline,logger>>:
 
 [source,properties]
 ----
 .level=INFO
 io.rxmicro.config.level=DEBUG # <1>
 ----
-<1> Для всех классов и подпакетов пакета `io.rxmicro.config` активировать уровень логирования `DEBUG`(`FINE`).
+<1> For all classes and subpackages of the `io.rxmicro.config` package activate the `DEBUG`(`FINE`) logging level.
 
-После активации логгера запуск микросервиса с настройками по умолчанию будет следующим:
+After activating the logger, the start of the microservice with default settings will be as follows:
 
 [source,text,subs="verbatim,quotes"]
 ----
@@ -38,10 +38,10 @@ io.rxmicro.config.level=DEBUG # <1>
 
 [INFO] Server started at *0.0.0.0:9876* using NETTY transport in 500 millis. # <5>
 ----
-<1> Кастомизация конфигурации для пространства имен `rest-server` отсутствует, поэтому будет использована конфигурация по умолчанию.
-<2> Считывание конфигурации для пространства имен `http-server` с classpath ресурса 'rxmicro.properties' (Считались значения: `http-server.port=9090`, `http-server.host=localhost`).
-<3> Считывание конфигурации для пространства имен `http-server` с classpath ресурса 'http-server.properties' (Считалось значение: `port=9876`).
-<4> Кастомизация конфигурации для пространства имен `netty-rest-server` отсутствует, поэтому будет использована конфигурация по умолчанию.
-<5> HTTP сервер запустился на `localhost:9876`.
+<1> There is no configuration customization for the `rest-server` namespace, so the default configuration will be used.
+<2> Configuration reading for the `http-server` namespace from the `rxmicro.properties` classpath resource (Read values: `http-server.port=9090`, `http-server.host=localhost`).
+<3> Configuration reading for the `http-server` namespace from the `http-server.properties` classpath resource (Read value: `port=9876`).
+<4> There is no configuration customization for the `netty-rest-server` namespace, so the default configuration will be used.
+<5> HTTP server has started at `localhost:9876`.
 
-*Дополнительная отладочная информация отобразит порядок считывания источников конфигураций и переопределения значений конфигурационных параметров!*
+*Additional debugging information will show the order of reading the configuration sources and overriding the configuration parameter values!*
