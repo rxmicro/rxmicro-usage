@@ -5,7 +5,7 @@ services:
     ports:
       - 8080:8080
     healthcheck:
-      test: wget http://localhost:8080/health || exit 1
+      test: wget http://localhost:8080/http-health-check || exit 1
       interval: 30s
       timeout: 10s
       retries: 3

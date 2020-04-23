@@ -44,7 +44,7 @@ final class HelloWorldMicroService_IT {
                     .withLocalCompose(true)
                     .withPull(false)
                     .withTailChildContainers(true)
-                    .waitingFor("rxmicro-hello-world", Wait.forHttp("/health"));
+                    .waitingFor("rxmicro-hello-world", Wait.forHttp("/http-health-check"));
 
     private BlockingHttpClient blockingHttpClient;
 

@@ -10,7 +10,7 @@
 # Documentation links
 # Docker:  https://docs.docker.com/engine/reference/run/
 # ----------------------------------------------------------------------------------------------------------------
-FROM mongo:4.2.3-bionic
+FROM mongo:4.2.6-bionic
 
 COPY ./src/main/js/test-db-init.js    /docker-entrypoint-initdb.d/db-init.js
 

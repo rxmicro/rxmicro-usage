@@ -15,6 +15,8 @@
         <module>microservices</module>
 
         <module>quick-start</module>
+        <module>internal-storage</module>
+
         <module>docker-image-hello-world-microservice</module>
         <module>docker-image-postgres-test-db</module>
         <module>docker-image-mongo-test-db</module>
@@ -22,6 +24,7 @@
         <module>config-basic</module>
         <module>config-custom</module>
         <module>config-annotations</module>
+        <module>config-annotations-supplier</module>
         <module>format</module>
         <module>json</module>
         <module>logger</module>
@@ -177,8 +180,6 @@
         <module>graalvm-native-image-postgres-data-repository</module>
         <module>graalvm-native-image-rest-client</module>
         <module>graalvm-native-image-mongo-data-repository</module>
-        <module>internal-storage</module>
-        <module>config-annotations-supplier</module>
     </modules>
 
     <build>

@@ -1,23 +1,23 @@
 # https://docs.docker.com/engine/reference/builder/#dockerignore-file
+.dockerignore
 
 # Maven source resources
 src/main/java
 src/main/resources
-src/test/java
-src/test/resources
+src/test
 pom.xml
 
 # Maven target resources
 target/classes
 target/generated-sources
-
 target/test-classes
 target/generated-test-sources
 target/surefire-reports
 target/jacoco.exec
-
 target/maven-archiver
 target/maven-status
+target/docker
+target/*-docker-info.jar
 
 # IntelliJ IDEA configurations
 .idea
