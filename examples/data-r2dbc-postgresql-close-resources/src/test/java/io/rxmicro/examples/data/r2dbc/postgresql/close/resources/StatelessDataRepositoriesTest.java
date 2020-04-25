@@ -41,12 +41,12 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 final class StatelessDataRepositoriesTest {
 
     @Container
-    static GenericContainer<?> postgresqlTestDb =
+    final static GenericContainer<?> POSTGRESQL_TEST_DB =
             new GenericContainer<>("rxmicro/postgres-test-db")
                     .withExposedPorts(5432);
 
     @WithConfig
-    static PostgreSQLConfig config = new PostgreSQLConfig()
+    final static PostgreSQLConfig CONFIG = new PostgreSQLConfig()
             .setDatabase("rxmicro")
             .setUser("rxmicro")
             .setPassword("password")
@@ -54,15 +54,15 @@ final class StatelessDataRepositoriesTest {
 
     @BeforeAll
     static void beforeAll() {
-        postgresqlTestDb.start();
-        config
-                .setHost(postgresqlTestDb.getContainerIpAddress())
-                .setPort(postgresqlTestDb.getFirstMappedPort());
+        POSTGRESQL_TEST_DB.start();
+        CONFIG
+                .setHost(POSTGRESQL_TEST_DB.getContainerIpAddress())
+                .setPort(POSTGRESQL_TEST_DB.getFirstMappedPort());
     }
 
     @AfterAll
     static void afterAll() {
-        postgresqlTestDb.stop();
+        POSTGRESQL_TEST_DB.stop();
     }
 
     // -----------------------------------------------------------------------------------------------------------------

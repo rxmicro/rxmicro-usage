@@ -34,23 +34,23 @@ final class DataRepositoryTestTemplate1 {
 
     // <3>
     @Container
-    private static GenericContainer<?> postgresqlTestDb =
+    private static final GenericContainer<?> POSTGRESQL_TEST_DB =
             new GenericContainer<>("rxmicro/postgres-test-db")
                     .withExposedPorts(5432); // <4>
 
     // <5>
     @WithConfig
-    private static PostgreSQLConfig config = new PostgreSQLConfig()
+    private static final PostgreSQLConfig CONFIG = new PostgreSQLConfig()
             .setDatabase("rxmicro")
             .setUser("rxmicro")
             .setPassword("password"); // <6>
 
     @BeforeAll
     static void beforeAll() {
-        postgresqlTestDb.start(); // <7>
-        config
-                .setHost(postgresqlTestDb.getContainerIpAddress()) // <8>
-                .setPort(postgresqlTestDb.getFirstMappedPort());
+        POSTGRESQL_TEST_DB.start(); // <7>
+        CONFIG
+                .setHost(POSTGRESQL_TEST_DB.getContainerIpAddress()) // <8>
+                .setPort(POSTGRESQL_TEST_DB.getFirstMappedPort());
     }
 
     private DataRepository dataRepository; // <9>
@@ -59,7 +59,7 @@ final class DataRepositoryTestTemplate1 {
 
     @AfterAll
     static void afterAll() {
-        postgresqlTestDb.stop(); // <10>
+        POSTGRESQL_TEST_DB.stop(); // <10>
     }
 }
 // end::content[]

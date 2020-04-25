@@ -40,22 +40,22 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 final class CustomSelectRepositoryTest {
 
     @Container
-    private static GenericContainer<?> postgresqlTestDb =
+    private static final GenericContainer<?> POSTGRESQL_TEST_DB =
             new GenericContainer<>("rxmicro/postgres-test-db")
                     .withExposedPorts(5432);
 
     @WithConfig
-    private static PostgreSQLConfig config = new PostgreSQLConfig()
+    private static final PostgreSQLConfig CONFIG = new PostgreSQLConfig()
             .setDatabase("rxmicro")
             .setUser("rxmicro")
             .setPassword("password");
 
     @BeforeAll
     static void beforeAll() {
-        postgresqlTestDb.start();
-        config
-                .setHost(postgresqlTestDb.getContainerIpAddress())
-                .setPort(postgresqlTestDb.getFirstMappedPort());
+        POSTGRESQL_TEST_DB.start();
+        CONFIG
+                .setHost(POSTGRESQL_TEST_DB.getContainerIpAddress())
+                .setPort(POSTGRESQL_TEST_DB.getFirstMappedPort());
     }
 
     private CustomSelectRepository dataRepository;
@@ -125,6 +125,6 @@ final class CustomSelectRepositoryTest {
 
     @AfterAll
     static void afterAll() {
-        postgresqlTestDb.stop();
+        POSTGRESQL_TEST_DB.stop();
     }
 }

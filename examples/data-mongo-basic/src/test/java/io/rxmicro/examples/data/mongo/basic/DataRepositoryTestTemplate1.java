@@ -34,21 +34,21 @@ final class DataRepositoryTestTemplate1 {
 
     // <3>
     @Container
-    private static GenericContainer<?> mongoTestDb =
+    private static final GenericContainer<?> MONGO_TEST_DB =
             new GenericContainer<>("rxmicro/mongo-test-db")
                     .withExposedPorts(27017); // <4>
 
     // <5>
     @WithConfig
-    private static MongoConfig mongoConfig = new MongoConfig()
+    private static final MongoConfig MONGO_CONFIG = new MongoConfig()
             .setDatabase("rxmicro"); // <6>
 
     @BeforeAll
     static void beforeAll() {
-        mongoTestDb.start(); // <7>
-        mongoConfig
-                .setHost(mongoTestDb.getContainerIpAddress()) // <8>
-                .setPort(mongoTestDb.getFirstMappedPort());
+        MONGO_TEST_DB.start(); // <7>
+        MONGO_CONFIG
+                .setHost(MONGO_TEST_DB.getContainerIpAddress()) // <8>
+                .setPort(MONGO_TEST_DB.getFirstMappedPort());
     }
 
     private DataRepository dataRepository; // <9>
@@ -57,7 +57,7 @@ final class DataRepositoryTestTemplate1 {
 
     @AfterAll
     static void afterAll() {
-        mongoTestDb.stop(); // <10>
+        MONGO_TEST_DB.stop(); // <10>
     }
 }
 // end::content[]

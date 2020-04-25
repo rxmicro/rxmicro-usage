@@ -46,12 +46,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 final class UpdateDataRepository_IntegrationTest {
 
     @Container
-    private static GenericContainer<?> mongoTestDb =
+    private static final GenericContainer<?> MONGO_TEST_DB =
             new GenericContainer<>("rxmicro/mongo-test-db")
                     .withExposedPorts(27017);
 
     @WithConfig
-    private static MongoConfig mongoConfig = new MongoConfig()
+    private static final MongoConfig MONGO_CONFIG = new MongoConfig()
             .setDatabase("rxmicro")
             .setMongoCodecsConfigurator(new MongoCodecsConfigurator()
                     .withDefaultConfiguration()
@@ -61,10 +61,10 @@ final class UpdateDataRepository_IntegrationTest {
 
     @BeforeAll
     static void beforeAll() {
-        mongoTestDb.start();
-        mongoConfig
-                .setHost(mongoTestDb.getContainerIpAddress())
-                .setPort(mongoTestDb.getFirstMappedPort());
+        MONGO_TEST_DB.start();
+        MONGO_CONFIG
+                .setHost(MONGO_TEST_DB.getContainerIpAddress())
+                .setPort(MONGO_TEST_DB.getFirstMappedPort());
     }
 
     private UpdateDataRepository dataRepository;
@@ -106,6 +106,6 @@ final class UpdateDataRepository_IntegrationTest {
 
     @AfterAll
     static void afterAll() {
-        mongoTestDb.stop();
+        MONGO_TEST_DB.stop();
     }
 }

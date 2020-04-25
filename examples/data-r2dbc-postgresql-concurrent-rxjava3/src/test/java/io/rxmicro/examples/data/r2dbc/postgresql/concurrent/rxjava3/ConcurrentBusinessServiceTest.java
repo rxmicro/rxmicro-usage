@@ -59,12 +59,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 final class ConcurrentBusinessServiceTest {
 
     @Container
-    private static GenericContainer<?> postgresqlTestDb =
+    private static final GenericContainer<?> POSTGRESQL_TEST_DB =
             new GenericContainer<>("rxmicro/postgres-test-db")
                     .withExposedPorts(5432);
 
     @WithConfig
-    private static PostgreSQLConfig config = new PostgreSQLConfig()
+    private static final PostgreSQLConfig CONFIG = new PostgreSQLConfig()
             .setDatabase("rxmicro")
             .setUser("rxmicro")
             .setPassword("password")
@@ -72,10 +72,10 @@ final class ConcurrentBusinessServiceTest {
 
     @BeforeAll
     static void beforeAll() {
-        postgresqlTestDb.start();
-        config
-                .setHost(postgresqlTestDb.getContainerIpAddress())
-                .setPort(postgresqlTestDb.getFirstMappedPort());
+        POSTGRESQL_TEST_DB.start();
+        CONFIG
+                .setHost(POSTGRESQL_TEST_DB.getContainerIpAddress())
+                .setPort(POSTGRESQL_TEST_DB.getFirstMappedPort());
     }
 
     private ConcurrentBusinessService service;
@@ -198,7 +198,7 @@ final class ConcurrentBusinessServiceTest {
 
     @AfterAll
     static void afterAll() {
-        postgresqlTestDb.stop();
+        POSTGRESQL_TEST_DB.stop();
     }
 
     private static final class BeforeState {

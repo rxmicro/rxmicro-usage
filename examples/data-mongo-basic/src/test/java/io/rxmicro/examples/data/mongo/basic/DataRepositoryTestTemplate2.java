@@ -17,7 +17,6 @@
 package io.rxmicro.examples.data.mongo.basic;
 
 import io.rxmicro.data.mongo.MongoConfig;
-import io.rxmicro.data.sql.r2dbc.postgresql.PostgreSQLConfig;
 import io.rxmicro.test.WithConfig;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import org.junit.jupiter.api.BeforeEach;
@@ -34,13 +33,13 @@ final class DataRepositoryTestTemplate2 {
 
     // <3>
     @Container
-    private static GenericContainer<?> mongoTestDb =
+    private final GenericContainer<?> mongoTestDb =
             new GenericContainer<>("rxmicro/mongo-test-db")
                     .withExposedPorts(27017); // <4>
 
     // <5>
     @WithConfig
-    private static MongoConfig mongoConfig = new MongoConfig()
+    private final MongoConfig mongoConfig = new MongoConfig()
             .setDatabase("rxmicro"); // <6>
 
     private DataRepository dataRepository; // <7>

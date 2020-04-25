@@ -43,12 +43,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 final class GetDataRepository_IntegrationTest extends AbstractDataRepositoryIntegrationTest {
 
     @Container
-    private static GenericContainer<?> mongoTestDb =
+    private static final GenericContainer<?> MONGO_TEST_DB =
             new GenericContainer<>("rxmicro/mongo-test-db")
                     .withExposedPorts(27017);
 
     @WithConfig
-    private static MongoConfig mongoConfig = new MongoConfig()
+    private static final MongoConfig MONGO_CONFIG = new MongoConfig()
             .setDatabase("rxmicro")
             .setMongoCodecsConfigurator(new MongoCodecsConfigurator()
                     .withDefaultConfiguration()
@@ -58,10 +58,10 @@ final class GetDataRepository_IntegrationTest extends AbstractDataRepositoryInte
 
     @BeforeAll
     static void beforeAll() {
-        mongoTestDb.start();
-        mongoConfig
-                .setHost(mongoTestDb.getContainerIpAddress())
-                .setPort(mongoTestDb.getFirstMappedPort());
+        MONGO_TEST_DB.start();
+        MONGO_CONFIG
+                .setHost(MONGO_TEST_DB.getContainerIpAddress())
+                .setPort(MONGO_TEST_DB.getFirstMappedPort());
     }
 
     private GetDataRepository dataRepository;
@@ -82,6 +82,6 @@ final class GetDataRepository_IntegrationTest extends AbstractDataRepositoryInte
 
     @AfterAll
     static void afterAll() {
-        mongoTestDb.stop();
+        MONGO_TEST_DB.stop();
     }
 }

@@ -35,12 +35,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 final class DataRepositoryTest {
 
     @Container
-    private GenericContainer<?> postgresqlTestDb =
+    private final GenericContainer<?> postgresqlTestDb =
             new GenericContainer<>("rxmicro/postgres-test-db")
                     .withExposedPorts(5432);
 
     @WithConfig
-    private PostgreSQLConfig config = new PostgreSQLConfig()
+    private final PostgreSQLConfig config = new PostgreSQLConfig()
             .setDatabase("rxmicro")
             .setUser("rxmicro")
             .setPassword("password");

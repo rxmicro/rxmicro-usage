@@ -41,7 +41,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 final class DeleteDataRepository_IntegrationTest {
 
     @WithConfig
-    private static MongoConfig mongoConfig = new MongoConfig()
+    private static final MongoConfig MONGO_CONFIG = new MongoConfig()
             .setDatabase("rxmicro")
             .setMongoCodecsConfigurator(new MongoCodecsConfigurator()
                     .withDefaultConfiguration()
@@ -50,7 +50,7 @@ final class DeleteDataRepository_IntegrationTest {
             );
 
     @Container
-    private GenericContainer<?> mongoTestDb =
+    private final GenericContainer<?> mongoTestDb =
             new GenericContainer<>("rxmicro/mongo-test-db")
                     .withExposedPorts(27017);
 
@@ -80,7 +80,7 @@ final class DeleteDataRepository_IntegrationTest {
 
     @BeforeEach
     void beforeEach() {
-        mongoConfig
+        MONGO_CONFIG
                 .setHost(mongoTestDb.getContainerIpAddress())
                 .setPort(mongoTestDb.getFirstMappedPort());
     }

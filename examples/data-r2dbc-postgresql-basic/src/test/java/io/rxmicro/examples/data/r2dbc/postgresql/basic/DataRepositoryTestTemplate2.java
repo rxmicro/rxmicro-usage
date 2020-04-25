@@ -33,13 +33,13 @@ final class DataRepositoryTestTemplate2 {
 
     // <3>
     @Container
-    private GenericContainer<?> postgresqlTestDb =
+    private final GenericContainer<?> postgresqlTestDb =
             new GenericContainer<>("rxmicro/postgres-test-db")
                     .withExposedPorts(5432); // <4>
 
     // <5>
     @WithConfig
-    private PostgreSQLConfig config = new PostgreSQLConfig()
+    private final PostgreSQLConfig config = new PostgreSQLConfig()
             .setDatabase("rxmicro")
             .setUser("rxmicro")
             .setPassword("password"); // <6>

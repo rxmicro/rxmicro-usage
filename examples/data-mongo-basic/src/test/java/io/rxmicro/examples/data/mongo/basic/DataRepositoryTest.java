@@ -20,8 +20,7 @@ import io.rxmicro.data.mongo.MongoConfig;
 import io.rxmicro.examples.data.mongo.basic.model.Account;
 import io.rxmicro.test.WithConfig;
 import io.rxmicro.test.junit.RxMicroComponentTest;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.junit.jupiter.Container;
@@ -35,17 +34,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 final class DataRepositoryTest {
 
     @Container
-    private static GenericContainer<?> mongoTestDb =
+    private final GenericContainer<?> mongoTestDb =
             new GenericContainer<>("rxmicro/mongo-test-db")
                     .withExposedPorts(27017);
 
     @WithConfig
-    private static MongoConfig mongoConfig = new MongoConfig()
+    private final MongoConfig mongoConfig = new MongoConfig()
             .setDatabase("rxmicro");
 
-    @BeforeAll
-    static void beforeAll() {
-        mongoTestDb.start();
+    @BeforeEach
+    void beforeEach() {
         mongoConfig
                 .setHost(mongoTestDb.getContainerIpAddress())
                 .setPort(mongoTestDb.getFirstMappedPort());
@@ -62,11 +60,6 @@ final class DataRepositoryTest {
 
         assertEquals("Richard", account.getFirstName());
         assertEquals("Hendricks", account.getLastName());
-    }
-
-    @AfterAll
-    static void afterAll() {
-        mongoTestDb.stop();
     }
 }
 // end::content[]
