@@ -27,7 +27,22 @@
     <dependencies>
         <dependency>
             <groupId>io.rxmicro</groupId>
-            <artifactId>rxmicro-common</artifactId>
+            <artifactId>rxmicro-data-mongo</artifactId>
+            <version>${rxmicro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rxmicro</groupId>
+            <artifactId>rxmicro-data-sql-r2dbc-postgresql</artifactId>
+            <version>${rxmicro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rxmicro</groupId>
+            <artifactId>rxmicro-rest-server-netty</artifactId>
+            <version>${rxmicro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rxmicro</groupId>
+            <artifactId>rxmicro-rest-client-jdk</artifactId>
             <version>${rxmicro.version}</version>
         </dependency>
 

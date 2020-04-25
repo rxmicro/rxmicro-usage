@@ -19,4 +19,8 @@ module rxmicro.examples.util {
     requires commons.io;
     requires org.jsoup;
     requires java.net.http;
+    requires rxmicro.data.mongo;
+    requires rxmicro.data.sql.r2dbc.postgresql;
+    requires rxmicro.rest.server.netty;
+    requires rxmicro.rest.client.jdk;
 }
