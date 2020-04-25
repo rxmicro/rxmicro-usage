@@ -180,6 +180,7 @@
         <module>graalvm-native-image-postgres-data-repository</module>
         <module>graalvm-native-image-rest-client</module>
         <module>graalvm-native-image-mongo-data-repository</module>
+        <module>data-mongo-slf4j</module>
     </modules>
 
     <build>
