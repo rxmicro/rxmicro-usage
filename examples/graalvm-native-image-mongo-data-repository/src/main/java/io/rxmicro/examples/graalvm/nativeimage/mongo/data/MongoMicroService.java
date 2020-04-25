@@ -16,6 +16,8 @@
 
 package io.rxmicro.examples.graalvm.nativeimage.mongo.data;
 
+import io.rxmicro.config.Configs;
+import io.rxmicro.config.WaitFor;
 import io.rxmicro.examples.graalvm.nativeimage.mongo.data.model.Response;
 import io.rxmicro.examples.graalvm.nativeimage.mongo.data.repository.MongoDataRepository;
 import io.rxmicro.rest.method.GET;
@@ -25,6 +27,9 @@ import java.util.concurrent.CompletableFuture;
 
 import static io.rxmicro.data.RepositoryFactory.getRepository;
 
+/**
+ * docker run -it --rm --name=mongo-test-db -p 27017:27017 rxmicro/mongo-test-db
+ */
 public final class MongoMicroService {
 
     private final MongoDataRepository dataRepository = getRepository(MongoDataRepository.class);
@@ -35,6 +40,10 @@ public final class MongoMicroService {
     }
 
     public static void main(final String[] args) {
+        new Configs.Builder()
+                .withCommandLineArguments(args)
+                .build();
+        new WaitFor(args).start();
         RxMicro.startRestServer(MongoMicroService.class);
     }
 }

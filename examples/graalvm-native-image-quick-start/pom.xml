@@ -166,6 +166,23 @@
                             <tag>latest</tag>
                         </configuration>
                     </plugin>
+                    <plugin>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>${maven-antrun-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <phase>clean</phase>
+                                <configuration>
+                                    <tasks>
+                                        <delete file="${basedir}/HelloWorldMicroService"/>
+                                    </tasks>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
                 </plugins>
             </build>
         </profile>

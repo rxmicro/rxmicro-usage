@@ -16,6 +16,8 @@
 
 package io.rxmicro.examples.graalvm.nativeimage.postgres.data;
 
+import io.rxmicro.config.Configs;
+import io.rxmicro.config.WaitFor;
 import io.rxmicro.examples.graalvm.nativeimage.postgres.data.model.Response;
 import io.rxmicro.examples.graalvm.nativeimage.postgres.data.repository.PostgresDataRepository;
 import io.rxmicro.rest.method.GET;
@@ -25,6 +27,9 @@ import java.util.concurrent.CompletableFuture;
 
 import static io.rxmicro.data.RepositoryFactory.getRepository;
 
+/**
+ * docker run -it --rm --name=postgres-test-db -p 5432:5432 rxmicro/postgres-test-db
+ */
 public class PostgresMicroService {
 
     private final PostgresDataRepository dataRepository =
@@ -36,6 +41,10 @@ public class PostgresMicroService {
     }
 
     public static void main(final String[] args) {
+        new Configs.Builder()
+                .withCommandLineArguments(args)
+                .build();
+        new WaitFor(args).start();
         RxMicro.startRestServer(PostgresMicroService.class);
     }
 }

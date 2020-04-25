@@ -21,7 +21,7 @@ import io.rxmicro.data.mongo.operation.CountDocuments;
 
 import java.util.concurrent.CompletableFuture;
 
-@MongoRepository(collection = "test")
+@MongoRepository(collection = "account")
 public interface MongoDataRepository {
 
     @CountDocuments

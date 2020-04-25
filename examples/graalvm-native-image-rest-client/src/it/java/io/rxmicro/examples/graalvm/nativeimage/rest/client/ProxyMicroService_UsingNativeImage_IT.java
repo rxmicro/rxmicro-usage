@@ -16,8 +16,10 @@
 
 package io.rxmicro.examples.graalvm.nativeimage.rest.client;
 
+import io.rxmicro.config.WaitFor;
 import io.rxmicro.http.client.ClientHttpResponse;
 import io.rxmicro.test.BlockingHttpClient;
+import io.rxmicro.test.TestedProcessBuilder;
 import io.rxmicro.test.junit.RxMicroIntegrationTest;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -26,7 +28,6 @@ import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 import static io.rxmicro.test.json.JsonFactory.jsonObject;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -39,10 +40,12 @@ final class ProxyMicroService_UsingNativeImage_IT {
     static Process process;
 
     @BeforeAll
-    static void beforeAll() throws IOException, InterruptedException {
-        final String[] args = {"./ProxyMicroService"};
-        process = Runtime.getRuntime().exec(args, null, new File("."));
-        process.waitFor(1, TimeUnit.SECONDS);
+    static void beforeAll() throws IOException{
+        process = new TestedProcessBuilder()
+                .setCommandWithArgs("./ProxyMicroService")
+                .setWorkingDir(new File("."))
+                .build();
+        new WaitFor("wait-for localhost:8080").start();
     }
 
     private BlockingHttpClient blockingHttpClient;
