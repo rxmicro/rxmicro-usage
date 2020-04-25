@@ -36,7 +36,7 @@ final class MicroService_UnitTest {
     private static ServerInstance serverInstance;
 
     @BeforeAll
-    static void beforeAll(){
+    static void beforeAll() {
         System.setProperty("Custom-Static-Header-Value", "System-Value");
         serverInstance = startRestServer(MicroService.class);
     }

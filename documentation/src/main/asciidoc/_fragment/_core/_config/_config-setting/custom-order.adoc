@@ -52,8 +52,7 @@ The RxMicro framework also provides other additional methods:
 * {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L124[`Configs.Builder.withAllConfigLoadSources`^] - activation of all configuration types in the order given by the list:
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/ConfigLoadSource.java[`ConfigLoadSource`^]
 
-* {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L129[`Configs.Builder.withContainerConfigSources`^] -
-this combination is recommended for microservices operating in https://www.docker.com/[docker^] or https://kubernetes.io/[kubernetes^].
+* {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L129[`Configs.Builder.withContainerConfigSources`^] - this combination is recommended for microservices operating in https://www.docker.com/[docker^] or https://kubernetes.io/[kubernetes^].
 
 [TIP]
 ====

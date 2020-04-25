@@ -22,7 +22,7 @@
         <jmh.version>1.22</jmh.version>
 
         <projectreactor.version>3.3.4.RELEASE</projectreactor.version>
-        <rxjava.version>3.0.0</rxjava.version>
+        <rxjava.version>3.0.2</rxjava.version>
 
         <!-- Maven core plugins -->
         <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>

@@ -165,7 +165,8 @@ The code of the `$$ResponseModelWriter` generated class depends on the response 
 
 Since the format of message exchange with the client is set in `module-info.java` of the project (`requires rxmicro.rest.server.exchange.json;`), and is the configuration for all REST controllers and all their handlers, then within the current project, the `$$ResponseModelWriter` will depend only on the response model class structure.
 
-Therefore, if several handlers from different REST controllers will return the `Response` class model, only one `$$ResponseModelWriter` class will be generated. As a result, in each additional REST controller class, the instance of this class will be used.
+Therefore, if several handlers from different REST controllers will return the `Response` class model, only one `$$ResponseModelWriter` class will be generated.
+As a result, in each additional REST controller class, the instance of this class will be used.
 ====
 
 [source,java]

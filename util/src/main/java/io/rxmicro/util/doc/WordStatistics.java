@@ -43,6 +43,15 @@ public class WordStatistics {
 
     private static final File DOC_ROOT = new File(format("?/rxmicro-usage/documentation/src/main/asciidoc/_fragment/", RX_MICRO_HOME_VALUE));
 
+    private static void findAllLines(final File dir, final List<String> allLines) throws IOException {
+        for (final File file : Objects.requireNonNull(dir.listFiles())) {
+            if (file.isDirectory()) {
+                findAllLines(file, allLines);
+            } else {
+                allLines.addAll(Files.readAllLines(file.toPath()));
+            }
+        }
+    }
 
     public static void main(final String[] args) throws IOException {
         final List<String> lines = new ArrayList<>();
@@ -56,16 +65,6 @@ public class WordStatistics {
         map.entrySet().stream()
                 .sorted(Comparator.comparingInt((ToIntFunction<Map.Entry<String, Integer>>) Map.Entry::getValue)
                         .thenComparing(Map.Entry::getKey))
-                .forEach(e -> System.out.println(e.getKey()+" = " + e.getValue()));
-    }
-
-    private static void findAllLines(final File dir, final List<String> allLines) throws IOException {
-        for (final File file : Objects.requireNonNull(dir.listFiles())) {
-            if(file.isDirectory()){
-                findAllLines(file, allLines);
-            } else {
-                allLines.addAll(Files.readAllLines(file.toPath()));
-            }
-        }
+                .forEach(e -> System.out.println(e.getKey() + " = " + e.getValue()));
     }
 }

@@ -112,6 +112,7 @@
         <module>data-mongo-partial-implementation</module>
         <module>data-mongo-model-fields</module>
         <module>data-mongo-supported-types</module>
+        <module>data-mongo-slf4j</module>
 
         <module>cdi-basic</module>
         <module>cdi-ambiguty-resolving-by-impl-classname-and-field-name</module>
@@ -180,7 +181,6 @@
         <module>graalvm-native-image-postgres-data-repository</module>
         <module>graalvm-native-image-rest-client</module>
         <module>graalvm-native-image-mongo-data-repository</module>
-        <module>data-mongo-slf4j</module>
     </modules>
 
     <build>

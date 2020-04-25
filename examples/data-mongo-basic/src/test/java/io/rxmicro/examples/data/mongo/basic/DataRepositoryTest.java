@@ -42,14 +42,14 @@ final class DataRepositoryTest {
     private final MongoConfig mongoConfig = new MongoConfig()
             .setDatabase("rxmicro");
 
+    private DataRepository dataRepository;
+
     @BeforeEach
     void beforeEach() {
         mongoConfig
                 .setHost(mongoTestDb.getContainerIpAddress())
                 .setPort(mongoTestDb.getFirstMappedPort());
     }
-
-    private DataRepository dataRepository;
 
     @Test
     void Should_find_account() {

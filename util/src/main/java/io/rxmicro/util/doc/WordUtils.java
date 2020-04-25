@@ -49,6 +49,6 @@ public final class WordUtils {
         }
     }
 
-    private WordUtils(){
+    private WordUtils() {
     }
 }

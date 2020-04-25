@@ -6,8 +6,7 @@ include::../___fragment-settings.adoc[]
 
 In modern computer architecture, IO operations are the slowest ones.
 As a result, when using
-https://en.wikipedia.org/wiki/Multithreading_(computer_architecture)[multithreading programming model^],
-the use of CPU and RAM is extremely inefficient.
+https://en.wikipedia.org/wiki/Multithreading_(computer_architecture)[multithreading programming model^], the use of CPU and RAM is extremely inefficient.
 For a single-user monolithic application such inefficiency is imperceptible.
 But for a multi-user distributed application with a much higher number of IO operations, this problem generates huge financial costs for additional hardware and coordination between client data streams (Read more: https://en.wikipedia.org/wiki/C10k_problem[C10k problem^]).
 

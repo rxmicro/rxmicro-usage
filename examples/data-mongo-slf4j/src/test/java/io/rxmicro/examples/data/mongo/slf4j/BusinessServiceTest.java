@@ -52,7 +52,7 @@ final class BusinessServiceTest {
     }
 
     @Test
-    void Should_find_admin_account(){
+    void Should_find_admin_account() {
         final Account adminAccount = businessService.getAdminAccount();
 
         assertEquals("Richard", adminAccount.getFirstName());

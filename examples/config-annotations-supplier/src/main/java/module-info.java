@@ -27,6 +27,6 @@ module examples.config.annotations.supplier {
     requires rxmicro.rest.server.netty;
     requires rxmicro.rest.server.exchange.json;
 
-    exports io.rxmicro.examples.config.annotations.supplier to 
+    exports io.rxmicro.examples.config.annotations.supplier to
             rxmicro.runtime;
 }
