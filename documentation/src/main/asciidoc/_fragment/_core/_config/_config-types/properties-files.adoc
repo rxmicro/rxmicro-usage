@@ -1,6 +1,8 @@
 :FRAGMENT_RELATIVE_DIR: ../../../
 include::../../../___fragment-settings.adoc[]
 
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../../
+
 [[core-config-properties-files-section]]
 ===== Configuration Using `properties` Files.
 
@@ -37,9 +39,7 @@ To activate this function, You must use the `Configs.Builder` class:
 
 [source,java]
 ----
-new Configs.Builder()
-        .withAllConfigLoadSources() // <1>
-        .build();
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/config/all/Main.java[tag=content,indent=0]
 ----
 <1> Activation of all available configuration sources for the current microservice.
 

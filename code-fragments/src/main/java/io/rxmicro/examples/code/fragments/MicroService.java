@@ -14,11 +14,16 @@
  * limitations under the License.
  */
 
-package io.rxmicro.examples.internal.storage.model.mongo;
+package io.rxmicro.examples.code.fragments;
 
-public class Account {
+import io.rxmicro.rest.method.GET;
 
-    String firstName;
+public class MicroService {
 
-    String lastName;
+    // tag::get-annotation[]
+    @GET("/")
+    // end::get-annotation[]
+    void test() {
+
+    }
 }

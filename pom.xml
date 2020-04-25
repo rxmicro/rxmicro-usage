@@ -13,6 +13,7 @@
         <module>benchmarks</module>
         <module>documentation</module>
         <module>util</module>
+        <module>code-fragments</module>
     </modules>
 
     <properties>

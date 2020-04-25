@@ -14,14 +14,18 @@
  * limitations under the License.
  */
 
-package io.rxmicro.examples.internal.storage.model.postgres;
+package io.rxmicro.examples.code.fragments;
 
-import io.rxmicro.data.ColumnMappingStrategy;
+import io.rxmicro.http.client.HttpClientFactory;
+import io.rxmicro.test.Alternative;
+import org.mockito.Answers;
+import org.mockito.Mock;
 
-@ColumnMappingStrategy
-public class Account {
+public class NullPointerExceptionAutoReleaseFix {
 
-    String firstName;
-
-    String lastName;
+    // tag::content[]
+    @Alternative
+    @Mock(answer = Answers.RETURNS_DEEP_STUBS) // <1>
+    private HttpClientFactory httpClientFactory;
+    // end::content[]
 }

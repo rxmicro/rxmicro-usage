@@ -1,6 +1,8 @@
 :FRAGMENT_RELATIVE_DIR: ../../../
 include::../../../___fragment-settings.adoc[]
 
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../../
+
 [[core-config-java-classes-section]]
 ===== Configuration Using Java Classes.
 
@@ -8,13 +10,7 @@ Configuring with Java classes is the easiest and most explicit configuration met
 
 [source,java]
 ----
-public static void main(final String[] args) {
-    new Configs.Builder()
-            .withConfigs(new HttpServerConfig()
-                    .setPort(9090)) // <1>
-            .build();
-    startRestServer(MicroService.class);
-}
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/config/java_config/Main.java[tag=content,indent=0]
 ----
 <1> Changing the HTTP server port.
 

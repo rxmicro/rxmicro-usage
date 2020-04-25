@@ -1,3 +1,4 @@
+// suppress inspection "AsciiDocLinkResolve" for whole file
 :FRAGMENT_RELATIVE_DIR: ../../
 include::../../___fragment-settings.adoc[]
 

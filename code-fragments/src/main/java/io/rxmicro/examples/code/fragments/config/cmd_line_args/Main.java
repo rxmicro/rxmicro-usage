@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. https://rxmicro.io
+ * Copyright (c) 2020. http://rxmicro.io
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,8 +14,21 @@
  * limitations under the License.
  */
 
-module examples.internal.storage {
-    requires rxmicro.data.mongo;
-    requires rxmicro.data.sql.r2dbc.postgresql;
-    requires reactor.core;
+package io.rxmicro.examples.code.fragments.config.cmd_line_args;
+
+import io.rxmicro.config.Configs;
+import io.rxmicro.examples.code.fragments.MicroService;
+
+import static io.rxmicro.rest.server.RxMicro.startRestServer;
+
+public final class Main {
+
+    // tag::content[]
+    public static void main(final String[] args) {
+        new Configs.Builder()
+                .withCommandLineArguments(args) // <1>
+                .build();
+        startRestServer(MicroService.class);
+    }
+    // end::content[]
 }

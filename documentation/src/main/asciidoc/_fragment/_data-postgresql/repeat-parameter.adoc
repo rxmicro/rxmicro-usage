@@ -12,7 +12,7 @@ But unfortunately, it has one disadvantage: if a query parameter must be repeate
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/internal-storage/src/main/java/io/rxmicro/examples/internal/storage/postgres/PostgreSQLRepeatParameterRepository.java[tag=problem,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/postgres/PostgreSQLRepeatParameterRepository.java[tag=problem,indent=0]
 ----
 
 The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data/src/main/java/io/rxmicro/data/RepeatParameter.java[`@RepeatParameter`^] annotation fixes this disadvantage.
@@ -21,5 +21,5 @@ The following code is an equivalent to the code with a copy of the `name` parame
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/internal-storage/src/main/java/io/rxmicro/examples/internal/storage/postgres/PostgreSQLRepeatParameterRepository.java[tag=solution,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/postgres/PostgreSQLRepeatParameterRepository.java[tag=solution,indent=0]
 ----

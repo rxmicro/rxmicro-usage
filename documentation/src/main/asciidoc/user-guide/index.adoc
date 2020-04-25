@@ -8,17 +8,17 @@ include::../user-guide/_fragment/settings.adoc[]
 
 include::_fragment/preface.adoc[]
 
-. <<introduction.adoc#,*Introduction*>>
-. <<microservice.adoc#,*What microservice is?*>>
-. <<quick-start.adoc#,*Quick Start*>>
-. <<core.adoc#,*Core Concepts*>>
-. <<rest-controller.adoc#,*REST Controller*>>
-. <<rest-client.adoc#,*REST Client*>>
-. <<validation.adoc#,*Validation*>>
-. <<project-documentation.adoc#,*REST-based Microservice Documentation*>>
-. <<data-postgresql.adoc#,*Postgre SQL Data Repositories*>>
-. <<data-mongo.adoc#,*Mongo Data Repositories*>>
-. <<cdi.adoc#,*Contexts and Dependency Injection*>>
-. <<java-integration.adoc#,*Java EcoSystem Integration*>>
-. <<testing.adoc#,*Testing*>>
-. <<appendices.adoc#,*Appendices*>>
+. <<introduction.adoc#introduction-section,*Introduction*>>
+. <<microservice.adoc#microservice-section,*What microservice is?*>>
+. <<quick-start.adoc#quick-start-section,*Quick Start*>>
+. <<core.adoc#core-section,*Core Concepts*>>
+. <<rest-controller.adoc#rest-controller-section,*REST Controller*>>
+. <<rest-client.adoc#rest-client-section,*REST Client*>>
+. <<validation.adoc#validation-section,*Validation*>>
+. <<project-documentation.adoc#project-documentation-section,*REST-based Microservice Documentation*>>
+. <<data-postgresql.adoc#data-postgresql-section,*Postgre SQL Data Repositories*>>
+. <<data-mongo.adoc#data-mongo-section,*Mongo Data Repositories*>>
+. <<cdi.adoc#cdi-section,*Contexts and Dependency Injection*>>
+. <<java-integration.adoc#java-integration-section,*Java EcoSystem Integration*>>
+. <<testing.adoc#tesing-section,*Testing*>>
+. <<appendices.adoc#appendices-section,*Appendices*>>

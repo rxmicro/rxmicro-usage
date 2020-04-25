@@ -1,23 +1,17 @@
 :FRAGMENT_RELATIVE_DIR: ../../../
 include::../../../___fragment-settings.adoc[]
 
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../../
+
 [[core-config-order-settings]]
 ===== Custom Reading Order of Config Sources.
 
 To change the order of the configuration reading it is necessary to use the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L121[`Configs.Builder.withOrderedConfigLoadSources`^] method:
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L121[`Configs.Builder.withOrderedConfigSources`^] method:
 
 [source,java]
 ----
-public static void main(final String[] args) {
-    new Configs.Builder()
-            .withOrderedConfigLoadSources(
-                    SEPARATE_CLASS_PATH_RESOURCE, // <1>
-                    RXMICRO_CLASS_PATH_RESOURCE   // <2>
-            )
-            .build();
-    start(MicroService.class, args);
-}
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/config/custom_order/WithOrderedConfigSourcesUsageExample.java[tag=content,indent=0]
 ----
 <1> First, it is necessary to read the configuration from the `${name-space}.properties` classpath resource (In our case, it's a `http-server.properties`)
 <2> and then from the `rxmicro.properties` classpath resource.
@@ -64,17 +58,7 @@ If You plan to use only `properties` files, it is recommended to specify only th
 
 [source,java]
 ----
-public static void main(final String[] args) {
-    new Configs.Builder()
-            .withOrderedConfigLoadSources(
-                    RXMICRO_FILE_AT_THE_HOME_DIR,    // <1>
-                    RXMICRO_FILE_AT_THE_CURRENT_DIR, // <2>
-                    SEPARATE_FILE_AT_THE_HOME_DIR,   // <3>
-                    SEPARATE_FILE_AT_THE_CURRENT_DIR // <4>
-            )
-            .build();
-    start(MicroService.class, args);
-}
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/config/custom_order/UsePropertiesFilesOnlyExample.java[tag=content,indent=0]
 ----
 <1> Activation of configuration reading from the `$HOME/rxmicro.properties` file.
 <2> Activation of configuration reading from the `rxmicro.properties` file in the current directory.

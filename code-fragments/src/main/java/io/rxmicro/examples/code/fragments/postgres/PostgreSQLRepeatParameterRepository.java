@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package io.rxmicro.examples.internal.storage.postgres;
+package io.rxmicro.examples.code.fragments.postgres;
 
 import io.rxmicro.data.RepeatParameter;
 import io.rxmicro.data.sql.operation.Select;
 import io.rxmicro.data.sql.r2dbc.postgresql.PostgreSQLRepository;
-import io.rxmicro.examples.internal.storage.model.postgres.Account;
+import io.rxmicro.examples.code.fragments.model.postgres.Account;
 import reactor.core.publisher.Mono;
 
 @PostgreSQLRepository

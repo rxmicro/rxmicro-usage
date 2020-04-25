@@ -1,6 +1,8 @@
 :FRAGMENT_RELATIVE_DIR: ../
 include::../___fragment-settings.adoc[]
 
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
+
 [[appendices-faq-section]]
 === Appendix A: FAQ
 
@@ -47,9 +49,7 @@ To fix this issue it is necessary to configure the `@Mock` annotation:
 
 [source,java]
 ----
-@Alternative
-@Mock(answer = Answers.RETURNS_DEEP_STUBS) // <1>
-private HttpClientFactory httpClientFactory;
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/test/java/io/rxmicro/examples/code/fragments/NullPointerExceptionAutoReleaseFix.java[tag=content,indent=0]
 ----
 <1> Set `Answers.RETURNS_DEEP_STUBS` as answer value.
 

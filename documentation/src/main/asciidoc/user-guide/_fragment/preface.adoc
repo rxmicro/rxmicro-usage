@@ -11,6 +11,7 @@ https://github.com/rxmicro/rxmicro-usage/issues[*issue*^] or open https://github
 
 ifeval::["{guide-kind}" == "full"]
 ifeval::["{guide-format}" == "html"]
+// suppress inspection "AsciiDocLinkResolve"
 This entity is also available as a link:user-guide.pdf[PDF download^].
 endif::[]
 endif::[]

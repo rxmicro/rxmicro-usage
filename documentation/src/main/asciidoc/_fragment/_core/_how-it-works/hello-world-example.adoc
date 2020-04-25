@@ -1,6 +1,8 @@
 :FRAGMENT_RELATIVE_DIR: ../../
 include::../../___fragment-settings.adoc[]
 
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
 ==== Generating of Additional Classes.
 
 Let's have a look at the <<core-how-it-works-core-schema,RxMicro framework common work schema>>, by the example of the REST-based microservice project, which displays the `"Hello World!"` message in JSON format. +
@@ -14,14 +16,13 @@ In order to inform the RxMicro framework about the need to generate additional c
 
 [source,java]
 ----
-@GET("/")
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/MicroService.java[tag=get-annotation,indent=0]
 ----
 
 Since the `RxMicro Annotation Processor` is configured in maven:
 
 [source,xml]
 ----
-...
 <configuration>
     <annotationProcessors>
         <annotationProcessor>
@@ -29,7 +30,6 @@ Since the `RxMicro Annotation Processor` is configured in maven:
         </annotationProcessor>
     </annotationProcessors>
 </configuration>
-...
 ----
 
 then when compiling a project this processor handles the source code of the REST-based microservice and generates the `Micro service generated code` additional classes:

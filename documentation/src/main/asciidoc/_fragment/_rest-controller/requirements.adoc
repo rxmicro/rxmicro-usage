@@ -26,7 +26,7 @@ that must meet the following requirements:
 . The class couldn't be an `abstract` one.
 . The class couldn't be a nested one.
 . The class must contain an accessible (not private) constructor without parameters. +
-_(The last requirement can be ignored if Your project depends on <<{cdi}#{cdi-section},`rxmicro.cdi`>> module.)_
+_(The last requirement can be ignored if Your project depends on <<{cdi}#cdi-section,`rxmicro.cdi`>> module.)_
 
 [TIP]
 ====

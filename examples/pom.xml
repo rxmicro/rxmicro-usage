@@ -13,9 +13,7 @@
 
     <modules>
         <module>microservices</module>
-
         <module>quick-start</module>
-        <module>internal-storage</module>
 
         <module>docker-image-hello-world-microservice</module>
         <module>docker-image-postgres-test-db</module>

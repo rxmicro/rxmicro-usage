@@ -10,7 +10,7 @@ The RxMicro framework recommends using the universal placeholder (`?`) as parame
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/internal-storage/src/main/java/io/rxmicro/examples/internal/storage/postgres/PostgreSQLRepeatParameterRepository.java[tag=paramMappingExample,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/postgres/PostgreSQLRepeatParameterRepository.java[tag=paramMappingExample,indent=0]
 ----
 
 [TIP]

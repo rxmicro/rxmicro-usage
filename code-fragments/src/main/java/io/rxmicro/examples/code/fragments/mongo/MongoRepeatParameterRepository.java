@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package io.rxmicro.examples.internal.storage.mongo;
+package io.rxmicro.examples.code.fragments.mongo;
 
 import io.rxmicro.data.RepeatParameter;
 import io.rxmicro.data.mongo.MongoRepository;
 import io.rxmicro.data.mongo.operation.Find;
-import io.rxmicro.examples.internal.storage.model.mongo.Account;
+import io.rxmicro.examples.code.fragments.model.mongo.Account;
 import reactor.core.publisher.Mono;
 
 @MongoRepository(collection = "account")

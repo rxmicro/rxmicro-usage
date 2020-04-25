@@ -18,12 +18,7 @@ To enable it is necessary to configure the
 
 [source,java]
 ----
-public static void main(final String[] args) {
-    new Configs.Builder()
-            .withCommandLineArguments(args) // <1>
-            .build();
-    start(MicroService.class);
-}
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/config/cmd_line_args/Main.java[tag=content,indent=0]
 ----
 <1> Use `withCommandLineArguments(args)` method to enable the configuration using command line arguments.
 

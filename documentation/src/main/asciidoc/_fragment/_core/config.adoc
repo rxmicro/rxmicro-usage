@@ -1,6 +1,7 @@
 :FRAGMENT_RELATIVE_DIR: ../
 include::../___fragment-settings.adoc[]
 
+[[configuration-section]]
 === Configuration
 
 The RxMicro framework provides the `rxmicro.config` module for flexible configuration of microservices to any environment.

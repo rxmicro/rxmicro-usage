@@ -60,7 +60,7 @@ _RxMicro поддерживает тестовую конфигурацию то
 _(Данная аннотация применима только к полям с типом
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^].)_
 
-_RxMicro поддерживает компонент `BlockingHttpClient` только для <<{testing}#testing-rest-based-microservice-tests-section,тестов REST-based микросервиса>> и <<{testing}#RxMicroIntegrationTest-Section,интеграционных тестов REST-based микросервисов>>._
+_RxMicro поддерживает компонент `BlockingHttpClient` только для <<{testing}#testing-rest-based-microservice-tests-section,тестов REST-based микросервиса>> и <<{testing}#testing-integration-tests-section,интеграционных тестов REST-based микросервисов>>._
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/RxMicroRestBasedMicroServiceTest.java[`@RxMicroRestBasedMicroServiceTest`^]
 |Объявляет тестовый класс <<{testing}#testing-rest-based-microservice-tests-section,тестом REST-based микросервиса>>.

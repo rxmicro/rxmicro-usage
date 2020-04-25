@@ -35,7 +35,6 @@ include::../___fragment-settings.adoc[]
 [source,java]
 ----
 module example {
-    ...
     requires reactor.core; // <1>
     requires io.reactivex.rxjava3; // <2>
 }

@@ -1,4 +1,4 @@
-[[tesing-section]]
+[[testing-section]]
 = Testing
 :guide-kind: section
 :current-entity: testing
