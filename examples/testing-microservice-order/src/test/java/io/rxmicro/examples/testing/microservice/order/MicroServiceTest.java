@@ -29,6 +29,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
+@SuppressWarnings("EmptyMethod")
 // tag::content[]
 @InitMocks
 @RxMicroRestBasedMicroServiceTest(MicroService.class)

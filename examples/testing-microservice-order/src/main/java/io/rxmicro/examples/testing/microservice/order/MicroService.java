@@ -18,6 +18,7 @@ package io.rxmicro.examples.testing.microservice.order;
 
 import io.rxmicro.rest.method.PATCH;
 
+@SuppressWarnings("EmptyMethod")
 // tag::content[]
 final class MicroService {
 

@@ -24,6 +24,7 @@ import io.rxmicro.data.sql.Table;
 
 import java.math.BigDecimal;
 
+@SuppressWarnings("unused")
 // tag::content[]
 @Table
 @ColumnMappingStrategy

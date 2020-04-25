@@ -18,6 +18,7 @@ package io.rxmicro.examples.code.fragments.model.postgres;
 
 import io.rxmicro.data.ColumnMappingStrategy;
 
+@SuppressWarnings("unused")
 @ColumnMappingStrategy
 public class Account {
 

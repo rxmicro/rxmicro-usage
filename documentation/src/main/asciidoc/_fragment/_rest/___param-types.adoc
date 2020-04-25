@@ -15,7 +15,7 @@ The RxMicro framework поддерживает следующие Java типы,
 * `java.math.BigDecimal`;
 * `java.lang.Character`;
 * `java.lang.String`;
-* `java.time.Intant`;
+* `java.time.Instant`;
 * `? extends Object`;
 * `java.util.List<? extends Object>`;
 

@@ -18,6 +18,7 @@ package io.rxmicro.examples.code.fragments;
 
 import io.rxmicro.rest.method.GET;
 
+@SuppressWarnings("EmptyMethod")
 public class MicroService {
 
     // tag::get-annotation[]

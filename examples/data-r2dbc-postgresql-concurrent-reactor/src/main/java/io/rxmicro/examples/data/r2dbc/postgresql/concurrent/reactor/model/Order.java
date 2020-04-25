@@ -31,11 +31,11 @@ public final class Order {
     @PrimaryKey
     Long id;
 
-    Long idAccount;
+    final Long idAccount;
 
-    Integer idProduct;
+    final Integer idProduct;
 
-    Integer count;
+    final Integer count;
 
     @NotInsertable
     Instant created;

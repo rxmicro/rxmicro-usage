@@ -16,6 +16,7 @@
 
 package io.rxmicro.examples.code.fragments.model.mongo;
 
+@SuppressWarnings("unused")
 public class Account {
 
     String firstName;

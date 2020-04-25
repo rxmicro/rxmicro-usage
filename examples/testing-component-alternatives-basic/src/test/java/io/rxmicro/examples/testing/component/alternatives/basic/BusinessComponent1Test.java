@@ -37,7 +37,7 @@ final class BusinessComponent1Test {
 
     private BusinessComponent businessComponent;
 
-    private BusinessComponent.BusinessChildComponent childComponent =
+    private final BusinessComponent.BusinessChildComponent childComponent =
             new BusinessComponent.BusinessChildComponent() {
                 @Override
                 public String getEnvironmentName() {

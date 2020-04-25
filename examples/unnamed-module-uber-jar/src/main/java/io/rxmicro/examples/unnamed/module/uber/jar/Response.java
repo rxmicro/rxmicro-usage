@@ -17,6 +17,7 @@ package io.rxmicro.examples.unnamed.module.uber.jar;
 
 import static java.util.Objects.requireNonNull;
 
+@SuppressWarnings("SameParameterValue")
 final class Response {
 
     final String message;

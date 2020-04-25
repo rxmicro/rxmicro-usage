@@ -20,6 +20,7 @@ import io.rxmicro.data.mongo.DocumentId;
 
 import java.math.BigDecimal;
 
+@SuppressWarnings("unused")
 // tag::content[]
 public class Account {
 // end::content[]

@@ -60,7 +60,9 @@ public final class CopyJacocoExec {
 
     public static void main(final String[] args) throws IOException {
         if (!CACHE.exists()) {
-            CACHE.mkdirs();
+            if (!CACHE.mkdirs()) {
+                throw new IOException("Can't mk dirs: " + CACHE);
+            }
         }
         findJacoco(new File(format("?/rxmicro-usage", RX_MICRO_HOME_VALUE)).getAbsoluteFile());
         System.out.println("Completed");

@@ -31,7 +31,7 @@ final class ParentComponent1Test {
 
     // <3>
     @Alternative
-    private ChildComponent childComponent = () -> "test"; // <4>
+    private final ChildComponent childComponent = () -> "test"; // <4>
 
     @Test
     void Should_use_alternative() {

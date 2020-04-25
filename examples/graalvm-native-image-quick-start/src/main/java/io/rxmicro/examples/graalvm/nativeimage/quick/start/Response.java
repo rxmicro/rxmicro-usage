@@ -17,6 +17,7 @@ package io.rxmicro.examples.graalvm.nativeimage.quick.start;
 
 import static java.util.Objects.requireNonNull;
 
+@SuppressWarnings("SameParameterValue")
 // tag::content[]
 final class Response {
 

@@ -7,7 +7,7 @@ import io.micronaut.http.annotation.Produces;
 
 import java.util.concurrent.CompletableFuture;
 
-@Controller("/")
+@Controller
 public class HelloWorldMicroService {
 
     @Get

@@ -22,6 +22,7 @@ import io.rxmicro.rest.server.HttpServerConfig;
 
 import static io.rxmicro.rest.server.RxMicro.startRestServer;
 
+@SuppressWarnings("EmptyMethod")
 // tag::content[]
 public final class CustomizeConfigMicroService {
 

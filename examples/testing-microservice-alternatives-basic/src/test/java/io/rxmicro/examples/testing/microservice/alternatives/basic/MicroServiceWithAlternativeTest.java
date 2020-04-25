@@ -32,17 +32,17 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @RxMicroRestBasedMicroServiceTest(MicroService.class)
 final class MicroServiceWithAlternativeTest {
 
-    private BlockingHttpClient blockingHttpClient;
-
-    private SystemOut systemOut;
-
     @Alternative
-    private BusinessService businessService = new BusinessService() { // <1>
+    private final BusinessService businessService = new BusinessService() { // <1>
         @Override
         CompletableFuture<String> doSomething() {
             return CompletableFuture.completedFuture("test"); // <2>
         }
     };
+
+    private BlockingHttpClient blockingHttpClient;
+
+    private SystemOut systemOut;
 
     @Test
     void Should_invoke_BusinessService_method() {

@@ -33,11 +33,11 @@ import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-public class Spies {
+public final class Spies {
+
+    private static final List<Publisher<Void>> CLOSE_CONNECTION_PUBLISHERS = new ArrayList<>();
 
     private static Connection spyConnection;
-
-    private static List<Publisher<Void>> closeConnectionPublishers = new ArrayList<>();
 
     @SuppressWarnings("unchecked")
     public static Connection decorateConnection(final Connection realConnection) {
@@ -45,7 +45,7 @@ public class Spies {
         when(spyConnection.close()).thenAnswer((Answer<Publisher<Void>>) invocation -> {
             final Publisher<Void> realPublisher = (Publisher<Void>) invocation.callRealMethod();
             final Publisher<Void> publisherSpy = spy(realPublisher);
-            closeConnectionPublishers.add(publisherSpy);
+            CLOSE_CONNECTION_PUBLISHERS.add(publisherSpy);
             return publisherSpy;
         });
         return spyConnection;
@@ -58,7 +58,7 @@ public class Spies {
     }
 
     private static void verifyAtLeastOneSuccessfulClose() {
-        for (final Publisher<Void> closeConnectionPublisher : closeConnectionPublishers) {
+        for (final Publisher<Void> closeConnectionPublisher : CLOSE_CONNECTION_PUBLISHERS) {
             for (final Invocation invocation : mockingDetails(closeConnectionPublisher).getInvocations()) {
                 if ("subscribe".equals(invocation.getMethod().getName()) &&
                         Arrays.equals(invocation.getMethod().getParameterTypes(), new Class[]{Subscriber.class})) {
@@ -71,7 +71,7 @@ public class Spies {
 
     private static void resetSpies() {
         spyConnection = null;
-        closeConnectionPublishers.clear();
+        CLOSE_CONNECTION_PUBLISHERS.clear();
     }
 
     private Spies() {

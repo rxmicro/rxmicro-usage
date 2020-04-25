@@ -15,6 +15,6 @@ RxMicro поддерживает следующие Java типы, которы�
 * `java.math.BigDecimal`;
 * `java.lang.Character`;
 * `java.lang.String`;
-* `java.time.Intant`;
+* `java.time.Instant`;
 
 include::../___notes/note-use-big-decimal.adoc[]

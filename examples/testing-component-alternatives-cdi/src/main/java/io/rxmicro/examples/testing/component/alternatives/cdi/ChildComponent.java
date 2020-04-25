@@ -16,6 +16,7 @@
 
 package io.rxmicro.examples.testing.component.alternatives.cdi;
 
+@SuppressWarnings("SameReturnValue")
 // tag::content[]
 public interface ChildComponent {
 

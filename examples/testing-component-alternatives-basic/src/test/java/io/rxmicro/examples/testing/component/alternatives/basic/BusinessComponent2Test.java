@@ -28,16 +28,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @RxMicroComponentTest(BusinessComponent.class)
 final class BusinessComponent2Test {
 
-    private BusinessComponent businessComponent;
-
     // @Alternative // <2>
-    private BusinessComponent.BusinessChildComponent childComponent =
+    private final BusinessComponent.BusinessChildComponent childComponent =
             new BusinessComponent.BusinessChildComponent() {
                 @Override
                 public String getEnvironmentName() {
                     return "test";
                 }
             };
+
+    private BusinessComponent businessComponent;
 
     private SystemOut systemOut;
 

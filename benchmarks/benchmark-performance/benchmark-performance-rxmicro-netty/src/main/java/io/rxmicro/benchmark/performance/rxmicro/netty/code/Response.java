@@ -18,6 +18,7 @@ package io.rxmicro.benchmark.performance.rxmicro.netty.code;
 
 import static java.util.Objects.requireNonNull;
 
+@SuppressWarnings("SameParameterValue")
 final class Response {
 
     final String message;

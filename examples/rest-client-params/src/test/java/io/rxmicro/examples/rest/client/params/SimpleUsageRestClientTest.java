@@ -34,6 +34,7 @@ import static io.rxmicro.test.mockito.httpclient.HttpClientMockFactory.prepareHt
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Answers.RETURNS_DEEP_STUBS;
 
+@SuppressWarnings("ConstantConditions")
 // tag::content[]
 @InitMocks
 @RxMicroComponentTest(SimpleUsageRestClient.class)

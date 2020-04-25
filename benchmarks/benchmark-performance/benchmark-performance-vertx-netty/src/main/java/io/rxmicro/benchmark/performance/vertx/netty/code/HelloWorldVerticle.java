@@ -21,17 +21,17 @@ import io.vertx.core.Future;
 import io.vertx.core.http.HttpServer;
 import io.vertx.core.json.JsonObject;
 
+@SuppressWarnings("deprecation")
 public class HelloWorldVerticle extends AbstractVerticle {
 
     private HttpServer server;
 
     @Override
     public void start(final Future<Void> startFuture) {
-        server = vertx.createHttpServer().requestHandler(req -> {
-            req.response()
-                    .putHeader("content-type", "application/json")
-                    .end(JsonObject.mapFrom(new Response("Hello World")).toString());
-        });
+        server = vertx.createHttpServer().requestHandler(req -> req.response()
+                .putHeader("content-type", "application/json")
+                .end(JsonObject.mapFrom(new Response("Hello World")).toString())
+        );
         server.listen(8080, res -> {
             if (res.succeeded()) {
                 startFuture.complete();

@@ -35,6 +35,7 @@ public final class BusinessComponent {
         System.out.println(childComponent.getEnvironmentName());
     }
 
+    @SuppressWarnings("SameReturnValue")
     public static final class BusinessChildComponent {
 
         public BusinessChildComponent() {

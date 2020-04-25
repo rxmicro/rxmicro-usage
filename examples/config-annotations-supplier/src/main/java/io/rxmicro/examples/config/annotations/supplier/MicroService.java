@@ -20,6 +20,7 @@ import io.rxmicro.rest.method.GET;
 
 import static io.rxmicro.rest.server.RxMicro.startRestServer;
 
+@SuppressWarnings("EmptyMethod")
 // tag::content[]
 public final class MicroService {
 

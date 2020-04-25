@@ -18,6 +18,7 @@ package io.rxmicro.examples.unnamed.module.quick.start;
 
 import static java.util.Objects.requireNonNull;
 
+@SuppressWarnings("SameParameterValue")
 final class Response {
 
     final String message;
