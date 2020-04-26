@@ -26,9 +26,9 @@ public final class NotEnoughProductCountException extends RxMicroException {
     public NotEnoughProductCountException(final int expectedCount,
                                           final int actualCount) {
         super(
-                format("Not enough product count: expected=?, but actual=?", expectedCount, actualCount),
                 false,
-                false
+                false,
+                format("Not enough product count: expected=?, but actual=?", expectedCount, actualCount)
         );
     }
 }

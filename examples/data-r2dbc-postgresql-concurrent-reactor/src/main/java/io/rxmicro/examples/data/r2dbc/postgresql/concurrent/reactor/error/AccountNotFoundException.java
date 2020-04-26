@@ -25,9 +25,9 @@ public final class AccountNotFoundException extends RxMicroException {
 
     public AccountNotFoundException(final long idAccount) {
         super(
-                format("Account not found by id=?", idAccount),
                 false,
-                false
+                false,
+                format("Account not found by id=?", idAccount)
         );
     }
 }

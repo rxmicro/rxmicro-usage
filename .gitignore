@@ -58,6 +58,7 @@ test.*
 /examples/documentation-asciidoctor-validation/src/main/asciidoc/*.adoc
 /examples/documentation-asciidoctor-all-std-validators/src/main/asciidoc/*.adoc
 /examples/unnamed-module-documentation-asciidoctor-metadata-annotations/src/main/asciidoc/*.adoc
+/code-fragments/src/main/asciidoc/*.adoc
 
 # native images
 HelloWorldMicroService

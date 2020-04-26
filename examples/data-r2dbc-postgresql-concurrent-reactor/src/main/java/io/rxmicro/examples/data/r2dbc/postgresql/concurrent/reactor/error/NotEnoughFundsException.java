@@ -28,9 +28,9 @@ public final class NotEnoughFundsException extends RxMicroException {
     public NotEnoughFundsException(final BigDecimal expectedFunds,
                                    final BigDecimal actualFunds) {
         super(
-                format("Not enough funds to buy product: expected=?, but actual=?", expectedFunds, actualFunds),
                 false,
-                false
+                false,
+                format("Not enough funds to buy product: expected=?, but actual=?", expectedFunds, actualFunds)
         );
     }
 }

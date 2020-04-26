@@ -25,9 +25,9 @@ public final class ProductNotFoundException extends RxMicroException {
 
     public ProductNotFoundException(final int idProduct) {
         super(
-                format("Product not found by id=?", idProduct),
                 false,
-                false
+                false,
+                format("Product not found by id=?", idProduct)
         );
     }
 }
