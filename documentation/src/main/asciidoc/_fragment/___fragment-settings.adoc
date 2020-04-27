@@ -7,8 +7,8 @@
 :xrefstyle: full
 :nofooter:
 :icons: font
-:fragment-document:
 ifndef::full-document[]
+:fragment-document:
 :imagesdir: {FRAGMENT_RELATIVE_DIR}../images
 endif::[]
 // -----------------------------------------------------------------------------------------------------------------------------------------

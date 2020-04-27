@@ -174,7 +174,7 @@ public final class WordCount {
             try {
                 lines.addAll(Files.readAllLines(file.toPath()));
             } catch (final IOException e) {
-                throw new RuntimeException(e);
+                throw new RuntimeException("Can't read data from file: " + file.getAbsolutePath(), e);
             }
         }
         return entry(list, lines.stream().flatMap(l -> getWords(l).stream()).collect(Collectors.toList()));

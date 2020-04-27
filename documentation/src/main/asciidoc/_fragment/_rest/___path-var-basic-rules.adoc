@@ -3,23 +3,23 @@ include::../___fragment-settings.adoc[]
 
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
 
-==== Базовые правила
+==== Basic Rules
 
-The RxMicro framework поддерживает `path variables` в моделях запроса:
+The RxMicro framework supports `path variables` in request models:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-path-variables/src/main/java/io/rxmicro/examples/rest/controller/path/variables/model/Request.java[tag=content,indent=0]
 ----
 
-<1> Для того чтобы поле модели объявить как `path variable`, необходимо использовать аннотацию
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/PathVariable.java[`@PathVariable`^].
-<2> С помощью аннотации {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/PathVariable.java[`@PathVariable`^] возможно указать имя `path variable`. +
-_(Если имя не указано, то в качестве имени `path variable` используется имя поля модели.)_
+<1> In order to declare a model field as the `path variable`, it is necessary to use the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/PathVariable.java[`@PathVariable`^] annotation.
+<2> Using the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/PathVariable.java[`@PathVariable`^] annotation, it is possible to specify the `path variable` name. +
+_(If no name is specified, the model field name is used as the `path variable` name.)_
 
 [TIP]
 ====
-В отличие от HTTP заголовков и параметров, которые доступны и на клиентской стороне, `path variables` доступны *только* внутри обработчиков HTTP запроса.
+Unlike HTTP headers and parameters that are available also on the client side, `path variables` are available *only* within the HTTP request handlers.
 
-*Поэтому рекомендуется для простоты всегда использовать имя поля модели в качестве имени `path variable`!*
+*So for simplicity it is recommended to always use the model field name as the `path variable` name!*
 ====

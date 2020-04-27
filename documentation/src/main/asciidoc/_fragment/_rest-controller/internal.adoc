@@ -4,56 +4,56 @@ include::../___fragment-settings.adoc[]
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
 
 [[rest-controller-internals-basic-section]]
-=== Поддержка служебных типов данных
+=== Support of Internal Data Types
 
-==== Базовые правила
+==== Basic Rules
 
-RxMicro поддерживает работу со служебными данными.
-Благодаря такой поддержки разработчик имеет возможность извлечь дополнительные сведения об HTTP запросе и получает больший контроль над генерируемым HTTP ответом.
+The RxMicro framework works with internal data.
+Due to this, the developer can extract additional information about the HTTP request and gain more control over the generated HTTP response.
 
-Для работы со служебными данными в запросе необходимо создать модели запроса и ответа:
+To work with internal data, it is necessary to create request and response models:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-internals/src/main/java/io/rxmicro/examples/rest/controller/internals/model/Request.java[tag=content,indent=0]
 ----
-<1> Для извлечения удаленного адреса клиентского подключения необходимо использовать аннотацию
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RemoteAddress.java[`@RemoteAddress`^].
-<2> Для извлечения текущего `URL path` необходимо использовать аннотацию
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RequestUrlPath.java[`@RequestUrlPath`^]. +
-_(Данная возможность полезна при логировании запросов с использованием `path-variables`.)_
-<3> Для извлечения текущего HTTP метода необходимо использовать аннотацию
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RequestMethod.java[`@RequestMethod`^]. +
-_(Данная возможность полезна при логировании запросов в случае когда один обработчик поддерживает разные HTTP методы.)_
-<4> Для извлечения версии протокола HTTP, необходимо использовать тип
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpVersion.java[`HttpVersion`^].
-<5> Для извлечения всех HTTP заголовков, необходимо использовать тип
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java[`HttpHeaders`^].
-<6> Для извлечения содержимого тела запроса в виде массива байт, необходимо использовать аннотацию
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RequestBody.java[`@RequestBody`^].
+<1> To extract the remote address of the client connection, it is necessary to use the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RemoteAddress.java[`@RemoteAddress`^] annotation.
+<2> To extract the current `URL path`, it is necessary to use the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RequestUrlPath.java[`@RequestUrlPath`^] annotation. +
+_(This feature is useful for request logging using `path-variables`.)_
+<3> To extract the current HTTP method, it is necessary to use the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RequestMethod.java[`@RequestMethod`^] annotation. +
+_(This feature is useful for request logging when one handler supports different HTTP methods.)_
+<4> To extract the HTTP protocol version, it is necessary to use the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpVersion.java[`HttpVersion`^] type.
+<5> To extract all HTTP headers, it is necessary to use the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java[`HttpHeaders`^] type.
+<6> To extract the request body content as a byte array, it is necessary to use the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RequestBody.java[`@RequestBody`^] annotation.
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-internals/src/main/java/io/rxmicro/examples/rest/controller/internals/model/Response.java[tag=content,indent=0]
 ----
-<1> Для переопределения HTTP статус кода необходимо использовать аннотацию
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ResponseStatusCode.java[`@ResponseStatusCode`^].
-<2> Для установки версии протокола HTTP, необходимо использовать тип
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpVersion.java[`HttpVersion`^]. +
-_(На данный момент поддерживаются только HTTP версии: `1.0` и `1.1`.)_
-<3> Для установки всех HTTP заголовков, необходимо использовать тип
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java[`HttpHeaders`^].
-<4> Для установки содержимого тела ответа в виде массива байт, необходимо использовать аннотацию
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ResponseBody.java[`@ResponseBody`^].
+<1> To override the HTTP status code, it is necessary to use the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ResponseStatusCode.java[`@ResponseStatusCode`^] annotation.
+<2> To set the HTTP protocol version, it is necessary to use the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpVersion.java[`HttpVersion`^] type. +
+_(Currently only `1.0` and `1.1` HTTP versions are supported.)_
+<3> To set all HTTP headers, it is necessary to use the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java[`HttpHeaders`^] type.
+<4> To set the response body content as a byte array, it is necessary to use the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ResponseBody.java[`@ResponseBody`^] annotation.
 
-После создания классов моделей, необходимо создать обработчик HTTP запросов, использующий данные модели:
+After creating model classes, it is necessary to create an HTTP request handler that uses the following models:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-internals/src/main/java/io/rxmicro/examples/rest/controller/internals/MicroService.java[tag=content,indent=0]
 ----
 
-После создания REST контроллера, проверяем что все работает:
+After creating the REST controller, let's check that everything works:
 
 [source,java]
 ----
@@ -67,79 +67,79 @@ include::../___notes/recompile-after-change.adoc[]
 
 <<<
 
-==== Поддерживаемые служебные типы данных
+==== Supported Internal Data Types
 
-.Поддерживаемые служебные типы данных для модели запроса.
+.Supported internal data types for a request model.
 |===
-|*Java тип*|*RxMicro аннотация*|*Аннотация обязательна?*|*Описание*
+|*Java type*|*RxMicro annotation*|*Is the annotation required?*|*Description*
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/detail/model/HttpRequest.java[`HttpRequest`^]
-|Отсутствует
+|None
 |-
-|Модель HTTP запроса
+|HTTP request model
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpVersion.java[`HttpVersion`^]
-|Отсутствует
+|None
 |-
-|Версия HTTP протокола
+|HTTP protocol version
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java[`HttpHeaders`^]
-|Отсутствует
+|None
 |-
-|Модель HTTP заголовков
+|HTTP header model
 
 |{JDK-JAVA-BASE-DOC-ROOT-URL}java/net/SocketAddress.html[`SocketAddress`^]
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RemoteAddress.java[`@RemoteAddress`^]
-|*Нет*
-|Адрес удаленного клиента
+|*No*
+|Remote client address
 
 |{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`String`^]
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RemoteAddress.java[`@RemoteAddress`^]
-|*Да*
-|Адрес удаленного клиента
+|*Yes*
+|Remote client address
 
 |{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`String`^]
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RequestUrlPath.java[`@RequestUrlPath`^]
-|*Да*
-|URL Path текущего запроса
+|*Yes*
+|URL Path of the current request
 
 |{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`String`^]
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RequestMethod.java[`@RequestMethod`^]
-|*Да*
-|Метод HTTP запроса
+|*Yes*
+|HTTP request method
 
 |`byte[]`
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RequestBody.java[`@RequestBody`^]
-|*Да*
-|Содержимое HTTP тела запроса
+|*Yes*
+|HTTP request body content
 |===
 
 [TIP]
 ====
-На данный момент поддерживаются только HTTP версии: `1.0` и `1.1`.
+Currently only `1.0` and `1.1` HTTP versions are supported.
 ====
 
-.Поддерживаемые служебные типы данных для модели ответа.
+.Supported internal data types for a response model.
 |===
-|*Java тип*|*RxMicro аннотация*|*Аннотация обязательна?*|*Описание*
+|*Java type*|*RxMicro annotation*|*Is the annotation required?*|*Description*
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpVersion.java[`HttpVersion`^]
-|Отсутствует
+|None
 |-
-|Версия HTTP протокола
+|HTTP protocol version
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java[`HttpHeaders`^]
-|Отсутствует
+|None
 |-
-|Модель HTTP заголовков
+|HTTP header model
 
 |{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Integer.html[`Integer`^]
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ResponseStatusCode.java[`@ResponseStatusCode`^]
-|*Да*
-|HTTP статус код ответа
+|*Yes*
+|HTTP response status code
 
 |`byte[]`
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ResponseBody.java[`@ResponseBody`^]
-|*Да*
-|Содержимое HTTP тела ответа
+|*Yes*
+|HTTP response body content
 |===

@@ -16,6 +16,7 @@
 
 package io.rxmicro.examples.testing.integration.basic;
 
+import io.rxmicro.common.model.Option;
 import io.rxmicro.test.BlockingHttpClient;
 import io.rxmicro.test.BlockingHttpClientSettings;
 
@@ -36,7 +37,8 @@ public final class MicroServiceIntegrationTestSettings {
             randomPortProvider = "SERVER_PORT", // <4>
             versionValue = "v1.1",              // <5>
             versionStrategy = HEADER,           // <6>
-            requestTimeout = 15                 // <7>
+            requestTimeout = 15,                // <7>
+            followRedirects = Option.ENABLED    // <8>
     )
     private BlockingHttpClient blockingHttpClient;
     // end::content[]

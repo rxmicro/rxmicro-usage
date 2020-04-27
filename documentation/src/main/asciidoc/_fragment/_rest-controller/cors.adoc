@@ -6,28 +6,28 @@ include::../___fragment-settings.adoc[]
 [[rest-controller-cors-section]]
 === `CORS` Support
 
-RxMicro поддерживает https://developer.mozilla.org/ru/docs/Web/HTTP/CORS[`Cross Origin Resource Sharing (CORS)`^].
+The RxMicro framework supports the https://developer.mozilla.org/ru/docs/Web/HTTP/CORS[`Cross Origin Resource Sharing (CORS)`^].
 
-Для активации данной функции необходимо добавить аннотацию
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/feature/EnableCrossOriginResourceSharing.java[`@EnableCrossOriginResourceSharing`^]:
+To activate this function it is necessary to add the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/feature/EnableCrossOriginResourceSharing.java[`@EnableCrossOriginResourceSharing`^] annotation:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-cors/src/main/java/io/rxmicro/examples/rest/controller/cors/MicroService.java[tag=content,indent=0]
 ----
-<1> Функция https://developer.mozilla.org/ru/docs/Web/HTTP/CORS[`Cross Origin Resource Sharing (CORS)`^] активируется для *всех* обработчиков указанного REST контроллера.
+<1> The https://developer.mozilla.org/ru/docs/Web/HTTP/CORS[`Cross Origin Resource Sharing (CORS)`^] feature is activated for *all* handlers of the specified REST controller.
 
-При активации данной функции RxMicro автоматически добавляет стандартный обработчик:
+When activating this feature, the RxMicro framework automatically adds a standard handler:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-cors/src/test/java/io/rxmicro/examples/rest/controller/cors/MicroServiceTest.java[tag=content,indent=0]
 ----
-<1> Стандартный обработчик умеет обрабатывать `OPTIONS` запросы с дополнительными HTTP заголовками.
+<1> The standard handler can handle `OPTIONS` requests with additional HTTP headers.
 
 [NOTE]
 ====
-Для получения дополнительной информации о поддержке https://developer.mozilla.org/ru/docs/Web/HTTP/CORS[`Cross Origin Resource Sharing (CORS)`^] рекомендуем обратится к примеру:
+For more information on the https://developer.mozilla.org/ru/docs/Web/HTTP/CORS[`Cross Origin Resource Sharing (CORS)`^] support, check out the following examples:
 
 * {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}rest-controller-cors/src/main/java/io/rxmicro/examples/rest/controller/cors/ComplexCORSMicroService.java[`ComplexCORSMicroService.java`^]
 

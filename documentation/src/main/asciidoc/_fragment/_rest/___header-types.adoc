@@ -1,7 +1,7 @@
 :FRAGMENT_RELATIVE_DIR: ../
 include::../___fragment-settings.adoc[]
 
-The RxMicro framework поддерживает следующие Java типы, которые могут быть HTTP заголовками модели запроса:
+The RxMicro framework supports the following Java types, which can be HTTP request model headers:
 
 * `? extends Enum<?>`;
 * `java.lang.Boolean`;
@@ -19,4 +19,4 @@ The RxMicro framework поддерживает следующие Java типы,
 
 include::../___notes/note-use-big-decimal.adoc[]
 
-а также тип `java.util.List<T>`, параметризован любым из выше перечисленных примитивных типов.
+and also the `java.util.List<T>` type is parameterized by any of the above mentioned primitive types.

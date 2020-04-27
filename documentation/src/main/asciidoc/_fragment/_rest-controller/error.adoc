@@ -6,29 +6,29 @@ include::../___fragment-settings.adoc[]
 [[rest-controller-errors-section]]
 === Exceptions Usage
 
-Каждый реактивный тип возвращаемого результата обработчика запроса поддерживает два состояния:
+Each reactive type of returned request handler result supports two states:
 
-* Сигнал успешного завершения.
-* Сигнал завершения с ошибкой.
+* Successful completion signal.
+* Completion signal with an error.
 
-Особенность сигнала успешного завершения заключается в том, что он уникальный, т.е. если данный сигнал возник, то гарантируется что поставленная задача успешно выполнена.
-Особенность сигнала завершения с ошибкой заключается в том, что в процессе выполнения поставленной задачи могут возникнуть разные типы ошибок:
+The feature of a successful completion signal consists in its uniqueness, i.e. if such a signal has occurred, it ensures successful completion of the business task.
+The feature of a completion signal with an error is that different types of errors may occur during the execution of the business task:
 
-* ошибка валидации;
-* ошибка подключения к источнику данных;
-* ошибка алгоритма вычисления и т.д.
+* validation error;
+* data source connection error;
+* computational algorithm error, etc.
 
-Т.е. каждый обработчик запроса может вернуть только один успешный результат и несколько результатов с ошибками.
+It means that each request handler can return *only one successful result and several results with errors*.
 
-Поэтому the RxMicro framework вводит понятие `ошибка`.
-Под ошибкой подразумевается любой неуспешный результат.
+So the RxMicro framework introduces the `error` concept.
+An error means any unsuccessful result.
 
-*Для упрощенной обработки ошибок the RxMicro framework рекомендует использовать HTTP статус коды для каждой категории ошибок!*
+*For simplified error handling, the RxMicro framework recommends using HTTP status codes for each error category!*
 
-В случае если HTTP статус кода не достаточно, the RxMicro framework рекомендует использовать дополнительное текстовое описание.
+In case the HTTP code status is not sufficient, the RxMicro framework recommends using an additional text description.
 
 [[rest-controller-errors-model-inline]]
-Для этих целей the RxMicro framework определяет стандартную JSON модель, которая возвращается при любой возникшей ошибки:
+For this purpose, the RxMicro framework defines a standard JSON model which is returned in case of any error:
 
 [source,json]
 ----
@@ -37,70 +37,70 @@ include::../___fragment-settings.adoc[]
 }
 ----
 
-Таким образом в случае возникновения ошибки client определяет категорию ошибки на основании анализа HTTP статус кода.
-А для получения дополнительных сведений он может проанализировать текстовое сообщение.
+Thus, in case of an error, the client determines the error category basing on HTTP status code analysis.
+For more information, the client should analyze a text message.
 
 <<<
 
 ==== Basic Class of Exceptions
 
-the RxMicro framework определяет базовый класс исключений при обработке HTTP запроса:
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/error/HttpErrorException.java[`HttpErrorException`^].
+When handling an HTTP request, the RxMicro framework defines the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/error/HttpErrorException.java[`HttpErrorException`^] base exception class.
 
-*Все пользовательские типы исключений должны наследоваться от этого базового класса!*
+*All custom exception types must extend this base class!*
 
 [IMPORTANT]
 ====
-Для всех классов наследников от `HttpErrorException` при создании объекта исключения *не заполняется stack trace*, так как данная информация является избыточной.
+For all child classes which extend the `HttpErrorException` class, when creating an exception instance *the stack trace is not filled*, as this information is redundant.
 
-_(Такое поведение достигается за счет использования защищенного конструктора:
-{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/RuntimeException.html#%3Cinit%3E(java.lang.String,java.lang.Throwable,boolean,boolean)[`protected RuntimeException(String, Throwable, boolean, boolean)`^].)_
+_(This behavior is achieved by using the
+{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/RuntimeException.html#%3Cinit%3E(java.lang.String,java.lang.Throwable,boolean,boolean)[`protected RuntimeException(String, Throwable, boolean, boolean)`^] protected constructor.)_
 ====
 
 <<<
 
 ==== Using the User Defined Exceptions
 
-В случае, если обработчик запросов должен возвращать какой-либо HTTP статус код, отличный от успешного, необходимо создавать отдельный класс исключения:
+If the request handler must return an HTTP status code other than the successful one, a separate exception class must be created:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-errors/src/main/java/io/rxmicro/examples/rest/controller/errors/CustomNotFoundException.java[tag=content,indent=0]
 ----
 
-<1> Пользовательский класс исключения должен наследоваться от `HttpErrorException`.
-<2> Каждый пользовательский класс ошибки должен определить статическое поле `int STATUS_CODE` с присвоением статус кода, который идентифицирует категорию ошибки.
-_(Данное имя константное и используется модулем <<{project-documentation}#project-documentation-section,`rxmicro.documentation`>> при построении документации по проекту.)_
-<3> Если необходимо отображать клиенту детальное сообщение, нужно добавить параметр конструктора. +
-_(Если Вы хотите возвращать клиенту только HTTP статус без HTTP тела, создавайте конструктор без параметров.)_
+<1> The custom exception class must extend the `HttpErrorException` class.
+<2> Each class must define the static `int STATUS_CODE` field with a status code that identifies the error category.
+_(This name is constant and is used by the <<{project-documentation}#project-documentation-section,`rxmicro.documentation`>> module when building the project documentation.)_
+<3> If You want to display a detailed message to the client, You need to add the constructor parameter. +
+_(If You want to return to the client only the HTTP status without the HTTP body, then create a constructor without parameters.)_
 
 [TIP]
 ====
-*The RxMicro framework не поддерживает `null` в качестве бизнес значения!*
+*The RxMicro framework does not support `null` as a business value!*
 
-Поэтому если в конструктор исключения в качестве сообщения будет передан `null` значение, то the RxMicro framework вернет HTTP ответ без тела сообщения! +
-_(т.е. конструкции `new CustomNotFoundException(null)` и `new CustomNotFoundException()` с точки зрения of the RxMicro framework идентичны!)_
+So if the `null` value is passed to the exception constructor as a message, then the RxMicro framework will return an HTTP response without a message body! +
+_(i.e. the `new CustomNotFoundException(null)` and `new CustomNotFoundException()` constructions are identical in terms of the RxMicro framework!)_
 ====
 
-Для возвращения HTTP статус кода, отличного от успешного можно использовать два варианта:
+You can use two approaches to return an HTTP status code other than successful one:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-errors/src/main/java/io/rxmicro/examples/rest/controller/errors/MicroService.java[tag=content,indent=0]
 ----
 
-<1> Использовать метод реактивного типа для генерации сигнала об ошибочном завершении.
-<2> Создать и выбросить объект исключения.
+<1> Use the reactive type method to generate a completion signal with an error.
+<2> Create and throw an exception instance.
 
-С точки зрения клиента два вышеуказанных варианта, абсолютно одинаковые:
+From the client's point of view, the two above-mentioned approaches are exactly the same:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-errors/src/test/java/io/rxmicro/examples/rest/controller/errors/MicroServiceTest.java[tag=content,indent=0]
 ----
-<1> В качестве детального сообщения об ошибке возвращается сообщение переданное в конструктор исключения. +
-_(Утилитный метод `jsonErrorObject("...")` синоним методу `jsonObject("message", "...")`.)_
-<2> Возвращаемый статус код равен статус коду, определенному в классе исключения в поле `int STATUS_CODE`.
+<1> As a detailed error message, the message passed to the exception constructor is returned. +
+_(The `jsonErrorObject("...")` utility method is synonymous with the `jsonObject("message", "...")` method.)_
+<2> The returned status code equals the status code defined in the exception class in the `int STATUS_CODE` field.
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-controller-errors
 include::../___notes/full-source-code-of-example.adoc[]
@@ -111,11 +111,11 @@ include::../___notes/recompile-after-change.adoc[]
 
 ==== Error Signal Generation Methods
 
-Для возвращения HTTP ответа с ошибкой необходимо использовать соответствующий метод реактивного типа для генерации сигнала об ошибке.
+To return an HTTP response with an error it is necessary to use the appropriate reactive type method to generate the error signal.
 
-.Методы генерации сигнала об ошибке.
+.Error signal generation method.
 |===
-|*Реактивный тип*|*Статический метод*
+|*Reactive type*|*Static method*
 
 |`CompletableFuture`
 |{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html#failedFuture(java.lang.Throwable)[`CompletableFuture.failedFuture`^]
@@ -138,48 +138,48 @@ include::../___notes/recompile-after-change.adoc[]
 
 [TIP]
 ====
-Использование метода генерации сигнала об ошибке вместо выбрасывания объекта исключения требует написания большего количества кода, но экономит процессорные ресурсы!
+Using the error signal generation method instead of throwing an exception instance requires writing more code but saves processor resources!
 
-Поэтому Вы сами должны определить какой способ Вам использовать в Вашем проекте!
+So it's up to You to determine which method to use in Your project!
 ====
 
 ==== Predefined Classes of Exceptions
 
-Для поддержки своей работоспособности the RxMicro framework определяет следующие классы исключений:
+The RxMicro framework defines the following predefined exception classes:
 
-.Список предопределенных классов исключений.
+.List of predefined exception classes.
 [cols="3,1,6"]
 |===
-|*Класс исключения*|*Статус код*|*Описание*
+|*Exception class*|*Status code*|*Description*
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/error/RedirectException.java[`RedirectException`^]
 |`300..399`
-|Базовый класс для информирования клиента, о необходимости выполнить `redirect`.
+|A base class to inform the client about the need to perform `redirect`.
 
-_(Вместо использования базового класса рекомендуется использовать один из классов наследников: `TemporaryRedirectException` или `PermanentRedirectException`.)_
+_(Instead of using a base class, it is recommended to use one of the following child ones: `TemporaryRedirectException` or `PermanentRedirectException`.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/error/TemporaryRedirectException.java[`TemporaryRedirectException`^]
 |https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/307[`307`^]
-|Класс, сигнализирующий о необходимости выполнить <<rest-controller-redirect-section,`Temporary Redirect`.>>
+|A class that signals the need to perform <<rest-controller-redirect-section,`Temporary Redirect`.>>
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/error/PermanentRedirectException.java[`PermanentRedirectException`^]
 |https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/308[`308`^]
-|Класс, сигнализирующий о необходимости выполнить <<rest-controller-redirect-section,`Permanent Redirect`.>>
+|A class that signals the need to perform <<rest-controller-redirect-section,`Permanent Redirect`.>>
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/error/ValidationException.java[`ValidationException`^]
 |https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400[`400`^]
-|Класс, сигнализирующий о том, что client передал <<{validation}#validation-section,некорректный запрос на выполнение.>>
+|A class signaling that the client has sent <<{validation}#validation-section,a bad request.>>
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/error/InternalHttpErrorException.java[`InternalHttpErrorException`^]
 |https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500[`500`^]
-|Класс, сигнализирующий о том, что в процессе выполнения возникла внутрення ошибка.
+|A class signaling that an internal error has occurred during execution.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/UnexpectedResponseException.java[`UnexpectedResponseException`^]
 |https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500[`500`^]
-|Класс, сигнализирующий о том, что сформированный обработчиком запросов <<{validation}#validation-response-section,HTTP ответ, содержит ошибки валидации.>>
+|A class signaling that the <<{validation}#validation-response-section,HTTP response, generated by the request handler, contains validation errors.>>
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http-client/src/main/java/io/rxmicro/http/client/HttpClientTimeoutException.java[`HttpClientTimeoutException`^]
 |https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504[`504`^]
-|Класс, сигнализирующий о том, что HTTP client не смог получить ответ от сервера за отведенный промежуток времени.
+|A class signaling that the HTTP client didn't receive a response from the server in given time.
 
 |===

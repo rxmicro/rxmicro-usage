@@ -1,5 +1,5 @@
 [[microservice-section]]
-= What are microservices?
+= What are Microservices?
 :guide-kind: section
 :current-entity: microservice
 :imagesdir: ../images

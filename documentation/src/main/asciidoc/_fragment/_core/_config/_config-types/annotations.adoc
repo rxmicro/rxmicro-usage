@@ -20,7 +20,7 @@ _(It means the field of the specified configuration class.)_
 <3> If no configuration class is specified, the name *must* contain a namespace. +
 _(The namespace allows You to clearly define to which configuration class the specified setting belongs.)_
 <4> When configuring a microservice project, the annotation must be specified on the `module-info.java` descriptor. +
-_(A microservice project may contain several classes of REST controllers, so the general settings are configured using the `module-info.java` descriptor rather than the REST controller class.)_
+_(A microservice project may contain several classes of REST controllers, so the common settings are configured using the `module-info.java` descriptor rather than the REST controller class.)_
 
 [WARNING]
 ====

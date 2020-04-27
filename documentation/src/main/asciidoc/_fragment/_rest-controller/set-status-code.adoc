@@ -6,9 +6,9 @@ include::../___fragment-settings.adoc[]
 [[rest-controller-set-status-code-section]]
 === Overriding the Status Code
 
-По умолчанию, если в процессе обработки HTTP запроса не возникает ошибок, HTTP сервер возвращает статус код `200`.
-Если необходимо изменить статус код, возвращаемый по умолчанию, необходимо использовать аннотацию
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/SetStatusCode.java[`@SetStatusCode`^]:
+By default, if there are no errors during HTTP request handling, the HTTP server returns the `200` status code.
+If You need to change the status code returned by default, You must use the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/SetStatusCode.java[`@SetStatusCode`^] annotation:
 
 [source,java]
 ----

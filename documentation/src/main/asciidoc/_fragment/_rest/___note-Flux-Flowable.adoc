@@ -3,15 +3,15 @@ include::../___fragment-settings.adoc[]
 
 [NOTE]
 ====
-Типы
-{REACTOR-CORE-DOC-ROOT-URL}reactor/core/publisher/Flux.html[`Flux`^] и
+The
+{REACTOR-CORE-DOC-ROOT-URL}reactor/core/publisher/Flux.html[`Flux`^] and
 {RX-JAVA-DOC-ROOT-URL}io/reactivex/Flowable.html[`Flowable`^]
-разработаны для работы с потоком данных, который может поступать в течение некоторого времени.
+types are developed to handle data stream that may arrive within a certain period of time.
 
-Для таких случаев протокол HTTP предоставляет специальный механизм https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Transfer-Encoding[`Transfer-Encoding`^].
+For such cases the HTTP protocol provides the special https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Transfer-Encoding[`Transfer-Encoding`^] mechanism.
 
-Однако данный механизм еще не поддерживается by the RxMicro framework, поэтому типы
-{REACTOR-CORE-DOC-ROOT-URL}reactor/core/publisher/Flux.html[`Flux`^] и
+But this mechanism is not supported by the RxMicro framework yet, so the
+{REACTOR-CORE-DOC-ROOT-URL}reactor/core/publisher/Flux.html[`Flux`^] and
 {RX-JAVA-DOC-ROOT-URL}io/reactivex/Flowable.html[`Flowable`^]
-не могут быть использованы в обработчике HTTP запросов.
+types cannot be used in the HTTP request handler.
 ====

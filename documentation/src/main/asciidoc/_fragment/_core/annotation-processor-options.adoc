@@ -54,6 +54,6 @@ These options are set using the compiler arguments in `maven-compiler-plugin`:
 ====
 Note that it is necessary to add the `-A` prefix before setting the value of the option.
 
-The general format is as follows: `-A${name}=${value}`.
+The common format is as follows: `-A${name}=${value}`.
 For example: `-ARX_MICRO_LOG_LEVEL=OFF`
 ====

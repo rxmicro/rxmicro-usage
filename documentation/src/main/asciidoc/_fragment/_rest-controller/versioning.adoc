@@ -4,46 +4,46 @@ include::../___fragment-settings.adoc[]
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
 
 [[rest-controller-versioning-section]]
-=== Версионирование of REST Controllers
+=== Versioning of REST Controllers
 
-RxMicro поддерживает версионирования of REST Controllers с помощью двух стратегий:
+The RxMicro framework supports versioning of REST Controllers using two strategies:
 
-* Версионирование на основании анализа HTTP заголовка с именем
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java#L193[`Api-Version`^].
-* Версионирование на основании анализа URL Path фрагмента.
+* Versioning based on HTTP header analysis with the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java#L193[`Api-Version`^] name.
+* Versioning based on URL Path fragment analysis.
 
 <<<
 
-==== Версионирования на основании анализа HTTP заголовка
+==== Versioning based on HTTP header analysis
 
-RxMicro позволяет создавать одинаковые REST контроллеры, отличающиеся только версией:
+The RxMicro framework allows creating identical REST controllers that differ only in version:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-versioning-header/src/main/java/io/rxmicro/examples/rest/controller/versioning/header/OldMicroService.java[tag=content,indent=0]
 ----
-<1> REST контроллер старой версии `v1` с использованием
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L84[`Version.Strategy.HEADER`^] стратегии;
+<1> REST controller of the old `v1` version, using the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L84[`Version.Strategy.HEADER`^] strategy;
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-versioning-header/src/main/java/io/rxmicro/examples/rest/controller/versioning/header/NewMicroService.java[tag=content,indent=0]
 ----
-<1> REST контроллер новой версии `v2` с использованием
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L84[`Version.Strategy.HEADER`^] стратегии;
+<1> REST controller of the new `v2` version, using the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L84[`Version.Strategy.HEADER`^] strategy;
 
 include::../___notes/note-same-request-handlers-with-diff-versions.adoc[]
 
-Корректность выбора обработчика правильного REST контроллера может быть проверена с помощью теста:
+The correct selection of the appropriate REST controller handler can be checked with the following test:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-versioning-header/src/test/java/io/rxmicro/examples/rest/controller/versioning/header/MicroServiceTest.java[tag=content,indent=0]
 ----
-<1> Аннотация <<{testing}#testing-rest-based-microservice-tests-section,`@RxMicroRestBasedMicroServiceTest`>> позволяет запускать в тестовом режиме несколько REST контроллеров.
-<2> В тесте выполняется `PATCH` запрос на URL Path: `/`.
-<3> Для указания версии обработчика используется стандартный HTTP заголовок
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java#L193[`Api-Version`^].
+<1> The <<{testing}#testing-rest-based-microservice-tests-section,`@RxMicroRestBasedMicroServiceTest`>> annotation allows You to run several REST controllers in test mode.
+<2> The test runs the `PATCH` request to a URL Path: `/`.
+<3> To specify the handler version, the standard
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java#L193[`Api-Version`^] HTTP header is used.
 
 include::../___notes/note-blocking-http-client-version.adoc[]
 
@@ -54,34 +54,34 @@ include::../___notes/recompile-after-change.adoc[]
 
 <<<
 
-==== Версионирования на основании анализа URL Path фрагмента
+==== Versioning based on URL Path fragment analysis
 
-RxMicro позволяет создавать одинаковые REST контроллеры, отличающиеся только версией:
+The RxMicro framework allows creating identical REST controllers that differ only in version:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-versioning-url-path/src/main/java/io/rxmicro/examples/rest/controller/versioning/url/path/OldMicroService.java[tag=content,indent=0]
 ----
-<1> REST контроллер старой версии `v1` с использованием
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L71[`Version.Strategy.URL_PATH`^] стратегии;
+<1> REST controller of the old `v1` version, using the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L71[`Version.Strategy.URL_PATH`^] strategy;
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-versioning-url-path/src/main/java/io/rxmicro/examples/rest/controller/versioning/url/path/NewMicroService.java[tag=content,indent=0]
 ----
-<1> REST контроллер новой версии `v2` с использованием
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L71[`Version.Strategy.URL_PATH`^] стратегии;
+<1> REST controller of the new `v2` version, using the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L71[`Version.Strategy.URL_PATH`^] strategy;
 
 include::../___notes/note-same-request-handlers-with-diff-versions.adoc[]
 
-Корректность выбора обработчика правильного REST контроллера может быть проверена с помощью теста:
+The correct selection of the appropriate REST controller handler can be checked with the following test:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-versioning-url-path/src/test/java/io/rxmicro/examples/rest/controller/versioning/url/path/MicroServiceTest.java[tag=content,indent=0]
 ----
-<1> Аннотация <<{testing}#testing-rest-based-microservice-tests-section,`@RxMicroRestBasedMicroServiceTest`>> позволяет запускать в тестовом режиме несколько REST контроллеров.
-<2> В тесте выполняется `PATCH` запрос к разным URL Paths;
+<1> The <<{testing}#testing-rest-based-microservice-tests-section,`@RxMicroRestBasedMicroServiceTest`>> annotation allows You to run several REST controllers in test mode.
+<2> The test runs the `PATCH` request to different URL Paths;
 
 include::../___notes/note-blocking-http-client-version.adoc[]
 

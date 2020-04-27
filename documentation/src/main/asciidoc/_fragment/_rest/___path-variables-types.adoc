@@ -1,7 +1,7 @@
 :FRAGMENT_RELATIVE_DIR: ../
 include::../___fragment-settings.adoc[]
 
-RxMicro поддерживает следующие Java типы, которые могут быть `path variables` модели запроса:
+The RxMicro framework supports the following Java types, which can be `path variables` of the request model:
 
 * `? extends Enum<?>`;
 * `java.lang.Boolean`;

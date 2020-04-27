@@ -1,24 +1,24 @@
 :FRAGMENT_RELATIVE_DIR:
 include::___fragment-settings.adoc[]
 
-REST Controller - это класс, который содержит хотя бы один декларативный обработчик HTTP запроса.
+REST Controller is a class that contains at least one declarative HTTP request handler.
 
-Каждый проект REST-based микросервиса должен содержать хотя бы один REST Controller. +
-_(Именно REST Controller является точкой входа для клиента.)_
+Each REST-based microservice project must contain at least one REST Controller. +
+_(The REST Controller is the entry point for the client.)_
 
-Для создания REST контроллеров, the RxMicro framework предоставляет следующие модули:
+To create REST controllers, the RxMicro framework provides the following modules:
 
-* {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest[`rxmicro.rest`^] - базовый модуль, определяющий основные `RxMicro annotations`, необходимые при использовании
-https://en.wikipedia.org/wiki/Representational_state_transfer[`REST`^] архитектуры построения программных систем;
-* {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-server[`rxmicro.rest.server`^] - базовый модуль HTTP сервера, предназначенный для создания REST контроллеров и запуска REST-based микросервисов;
-* {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-server-netty[`rxmicro.rest.server.netty`^] - модуль реализации HTTP сервера построенный на базе https://netty.io/[`Netty`^];
-* {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-server-exchange-json[`rxmicro.rest.server.exchange.json`^] - Модуль конвертации Java моделей в https://www.json.org[`JSON`^] формат и наоборот;
+* The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest[`rxmicro.rest`^] is a basic module that defines basic `RxMicro annotations`, required when using the
+https://en.wikipedia.org/wiki/Representational_state_transfer[`REST`^] architecture of building program systems;
+* The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-server[`rxmicro.rest.server`^] is a basic HTTP server module used to create REST controllers and run REST-based microservices;
+* The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-server-netty[`rxmicro.rest.server.netty`^] is an HTTP server implementation module based on https://netty.io/[`Netty`^];
+* The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-server-exchange-json[`rxmicro.rest.server.exchange.json`^] is a module for converting Java models to https://www.json.org[`JSON`^] format and vice versa;
 
 [NOTE]
 ====
-Из-за транзитивных зависимостей в проект обычно необходимо подключить только два модуля:
-{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-server-netty[`rxmicro.rest.server.netty`^] и {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-server-exchange-json[`rxmicro.rest.server.exchange.json`^]. +
-_(Остальные модули подключаться в проект автоматически!)_
+Due to transit dependencies only two modules usually need to be added to a project:
+{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-server-netty[`rxmicro.rest.server.netty`^] and {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-server-exchange-json[`rxmicro.rest.server.exchange.json`^]. +
+_(All other modules are automatically added to the project!)_
 ====
 
 <<<

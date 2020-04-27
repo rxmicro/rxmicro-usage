@@ -1,11 +1,11 @@
 :FRAGMENT_RELATIVE_DIR: ../
 include::../___fragment-settings.adoc[]
 
-RxMicro поддерживает следующие типы параметров для обработчика HTTP запроса:
+The RxMicro framework supports the following parameter types for the HTTP request handler:
 
-. Обработчик без параметров. +
-_(Данный тип рекомендован для простейших `stateless` {target} без параметров.)_
-. Список примитивных параметров. +
-_(Данный тип рекомендован для {target}, поведение которых зависит от 1-2 параметра.)_
-. Пользовательский класс, моделирующий HTTP запрос. +
-_(Данный тип рекомендован для {target}, поведение которых зависит от 3 и больше параметров.)_
+. Handler without parameters. +
+_(This type is recommended for the simplest `stateless` {target} without parameters.)_
+. List of primitive parameters. +
+_(This type is recommended for {target}, the behavior of which depends on 1-2 parameters.)_
+. Custom class modeling an HTTP request. +
+_(This type is recommended for {target}, the behavior of which depends on 3 or more parameters.)_

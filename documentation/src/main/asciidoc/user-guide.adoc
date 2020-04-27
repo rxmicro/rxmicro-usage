@@ -31,7 +31,7 @@ include::_fragment/introduction.adoc[]
 <<<
 
 [[microservice-section]]
-== What are microservices?
+== What are Microservices?
 
 include::_fragment/microservice.adoc[]
 

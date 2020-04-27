@@ -13,7 +13,7 @@ To disable the generation of validators, You must perform one of the following s
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/DisableValidation.java[`@DisableValidation`^]
 annotation to disable validators of a selected group of classes in the project.
 
-==== Removing the `rxmicro.validation` module
+==== Removing the `rxmicro.validation` Module
 
 The easiest and fastest way to disable the generation of validators for *all* classes in the current module is to remove the `rxmicro.validation` module from the `module-info.java` descriptor.
 

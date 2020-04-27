@@ -6,7 +6,7 @@ include::../../___fragment-settings.adoc[]
 
 ==== `rxmicro.json` Module Usage
 
-To write <<{testing}#testing-section,tests>> correctly, it is necessary to have a general idea about the `rxmicro.json` module.
+To write <<{testing}#testing-section,tests>> correctly, it is necessary to have a common idea about the `rxmicro.json` module.
 
 Let's look at a microservice that returns the result in JSON object format:
 

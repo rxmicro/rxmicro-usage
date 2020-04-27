@@ -1,7 +1,7 @@
 :FRAGMENT_RELATIVE_DIR: ../
 include::../___fragment-settings.adoc[]
 
-Обработчик HTTP запроса поддерживает две категории возвращаемых результатов:
+The HTTP request handler supports two categories of returned results:
 
-* HTTP ответ без тела;
-* HTTP ответ с телом;
+* HTTP response without body;
+* HTTP response with body;

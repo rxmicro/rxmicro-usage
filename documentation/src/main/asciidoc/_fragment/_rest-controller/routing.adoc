@@ -5,13 +5,13 @@ include::../___fragment-settings.adoc[]
 
 === Routing of Requests
 
-The RxMicro framework поддерживает маршрутизацию запросов на основании HTTP метода, URL Path и HTTP тела:
+The RxMicro framework supports request routing based on HTTP method, URL Path and HTTP body:
 
 <<<
 
 ==== Routing of Requests Based on HTTP Method
 
-The RxMicro framework позволяет обрабатывать одинаковые HTTP запросы, отличающиеся *только* HTTP методом разными обработчиками:
+The RxMicro framework allows to handle identical HTTP requests, differing *only* in HTTP method, by different handlers:
 
 [source,java]
 ----
@@ -32,13 +32,13 @@ include::../___notes/recompile-after-change.adoc[]
 
 ==== Routing of Requests Based on URL Path
 
-The RxMicro framework позволяет обрабатывать HTTP запросы на разные URL Paths разными обработчиками:
+The RxMicro framework allows to handle HTTP requests on different URL Paths by different handlers:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-routing/src/main/java/io/rxmicro/examples/rest/controller/routing/RoutingUsingUrlPath.java[tag=content,indent=0]
 ----
-<1> Кроме статических URL Paths, the RxMicro framework также поддерживает и <<rest-controller-path-variables-basic,`path variables`.>>
+<1> In addition to static URL Paths, the RxMicro framework also supports <<rest-controller-path-variables-basic,`path variables`.>>
 
 [source,java]
 ----
@@ -54,31 +54,31 @@ include::../___notes/recompile-after-change.adoc[]
 
 ==== Routing of Requests Based on HTTP Body
 
-Некоторые HTTP методы позволяют передавать параметры запроса как в стартовой строке так и в теле запроса.
+Some HTTP methods allows transferring request parameters both in the start line and in the request body.
 
-Поэтому the RxMicro framework кроме стандартных типов маршрутизации также поддерживает маршрутизацию на основании наличия HTTP тела:
+Therefore, in addition to standard routing types, the RxMicro framework also supports routing based on the HTTP body availability:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-routing/src/main/java/io/rxmicro/examples/rest/controller/routing/RoutingUsingHttpBody.java[tag=content,indent=0]
 ----
-<1> Обработчик запроса, параметры которого передаются в стартовой строке
-<2> Обработчик запроса, параметры которого передаются в теле запроса.
+<1> The request handler with parameters transferred in the start line.
+<2> The request handler with parameters transferred in the request body.
 
 [NOTE]
 ====
-Для HTTP методов `GET`, `HEAD`, `OPTIONS` и `DELETE` параметры запроса *всегда* передаются в стартовой строке.
+For the `GET`, `HEAD`, `OPTIONS` and `DELETE` HTTP methods, the request parameters are *always* transferred in the start line.
 
-Для HTTP методов `POST`, `PUT` и `PATCH` параметры запроса могут передаваться как в стартовой строке так и в теле запроса.
-_(Для конфигурации типа передачи параметров используется опция `httpBody`.)_
+For the `POST`, `PUT` and `PATCH` HTTP methods, the request parameters can be transferred both in the start line and in the request body.
+_(To configure the parameter transfer type, the `httpBody` option is used.)_
 ====
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-routing/src/test/java/io/rxmicro/examples/rest/controller/routing/RoutingUsingHttpBodyTest.java[tag=content,indent=0]
 ----
-<1> Передача параметров в стартовой строке.
-<2> Передача параметров в теле запроса в виде JSON объекта.
+<1> Parameter transfer in the start line.
+<2> Parameter transfer in the request body as JSON object.
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-controller-routing
 include::../___notes/full-source-code-of-example.adoc[]

@@ -14,7 +14,7 @@ The RxMicro framework uses classes from the `rxmicro.json` module when automatic
 
 *Therefore, a developer should not explicitly use this module!*
 
-_However, the general idea about the capabilities of this module is needed for correct test writing!_
+_However, the common idea about the capabilities of this module is needed for correct test writing!_
 ====
 
 <<<

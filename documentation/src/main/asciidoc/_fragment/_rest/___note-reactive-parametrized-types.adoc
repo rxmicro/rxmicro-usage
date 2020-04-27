@@ -3,5 +3,5 @@ include::../___fragment-settings.adoc[]
 
 [NOTE]
 ====
-*Обратите внимание, что реактивные типы должны быть параметризованы классом модели HTTP ответа!*
+*Note that the reactive types must be parameterized by the HTTP response model class!*
 ====

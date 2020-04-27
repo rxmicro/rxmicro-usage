@@ -3,7 +3,7 @@ include::../___fragment-settings.adoc[]
 
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
 
-=== Automated test
+=== Automated Test
 
 The RxMicro framework provides modules for effective writing of <<{testing}#tesing-section,any type of tests>>.
 Among all supported test types, a REST-based microservice test is required for the current project.
@@ -141,7 +141,7 @@ Upon initialization it refers to the test HTTP server that was automatically sta
 ====
 For low-level and effective work with JSON format, RxMicro provides a separate `rxmicro.json` module.
 
-To get a general idea of the capabilities of this module, which are required when writing tests, go to the following section: <<{core}#core-rx-micro-json-section>>.
+To get a common idea of the capabilities of this module, which are required when writing tests, go to the following section: <<{core}#core-rx-micro-json-section>>.
 ====
 
 *In microservice tests it is recommended to compare the HTTP request body before comparing the HTTP status, when the microservice constantly returns a text error message!

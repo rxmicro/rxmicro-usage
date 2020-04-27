@@ -3,14 +3,14 @@ include::../___fragment-settings.adoc[]
 
 [IMPORTANT]
 ====
-При использовании реактивных библиотек
-{REACTOR-CORE-DOC-USER_GUIDE}[*Project Reactor*^] и {RX-JAVA-USER-GUIDE}[*RxJava*^]
-необходимо:
+When using the
+{REACTOR-CORE-DOC-USER_GUIDE}[*Project Reactor*^] and {RX-JAVA-USER-GUIDE}[*RxJava*^]
+reactive libraries, You need:
 
-. Подключить зависимости в `pom.xml`.
-. Добавить модули в `module-info.java`.
+. Add dependencies to `pom.xml`.
+. Add modules to `module-info.java`.
 
-Подключение зависимостей в `pom.xml`:
+Adding dependencies to `pom.xml`:
 
 [source,xml]
 ----
@@ -27,10 +27,10 @@ include::../___fragment-settings.adoc[]
     </dependency>
 </dependencies>
 ----
-<1> {MAVEN-REPO-SEARCH-ROOT}io.projectreactor/reactor-core[Последняя стабильная версия библиотеки `Project Reactor`^].
-<2> {MAVEN-REPO-SEARCH-ROOT}io.reactivex.rxjava3/rxjava[Последняя стабильная версия библиотеки `RxJava3`^].
+<1> {MAVEN-REPO-SEARCH-ROOT}io.projectreactor/reactor-core[The latest stable version of the `Project Reactor` library^].
+<2> {MAVEN-REPO-SEARCH-ROOT}io.reactivex.rxjava3/rxjava[The latest stable version of the `RxJava3` library^].
 
-Добавление модулей в `module-info.java`:
+Adding modules to `module-info.java`:
 
 [source,java]
 ----
@@ -39,6 +39,6 @@ module example {
     requires io.reactivex.rxjava3; // <2>
 }
 ----
-<1> Модуль `reactor.core` при использовании библиотеки {REACTOR-CORE-DOC-USER_GUIDE}[*Project Reactor*^].
-<2> Модуль `io.reactivex.rxjava3` при использовании библиотеки {RX-JAVA-USER-GUIDE}[*RxJava*^].
+<1> The `reactor.core` module when using the {REACTOR-CORE-DOC-USER_GUIDE}[*Project Reactor*^] library.
+<2> The `io.reactivex.rxjava3` module when using the {RX-JAVA-USER-GUIDE}[*RxJava*^] library.
 ====

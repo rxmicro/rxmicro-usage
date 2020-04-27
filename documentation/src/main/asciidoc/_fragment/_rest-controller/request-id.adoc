@@ -4,60 +4,59 @@ include::../___fragment-settings.adoc[]
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
 
 [[rest-controller-rqeuest-id-section]]
-=== Идентификатор запроса
+=== Request ID
 
-==== Базовые правила
+==== Basic Rules
 
-Для отслеживания HTTP запроса при использовании микросервисной архитектуры, RxMicro предоставляет функцию идентификации HTTP запроса.
+To track an HTTP request when using a microservice architecture, the RxMicro framework provides an HTTP request identification feature.
 
-Если текущий запрос идентифицирован, то предоставленный уникальный идентификатор используется в процессе жизни текущего запроса.
-Если запрос не идентифицирован, то RxMicro генерирует уникальный идентификатор, который в дальнейшем используется в процессе жизни текущего запроса.
+If the current request is identified, the provided unique id is used during the life-cycle of the current request.
+If the request is not identified, RxMicro generates a unique id, which is further used in the life-cycle of the current request.
 
-Для хранения идентификатора запроса используется вспомогательный HTTP заголовок
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java#L187[`Request-Id`^].
+To store the request id, the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java#L187[`Request-Id`^] HTTP additional header is used.
 
-Если идентификатор HTTP запроса необходим для бизнес логики, то необходимо создать отдельное поле в Java модели HTTP запроса:
+If the HTTP request id is necessary for business logic, a separate field in the HTTP request Java model must be created:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-request-id/src/main/java/io/rxmicro/examples/rest/controller/request/id/model/Request.java[tag=content,indent=0]
 ----
-<1> Для удобства вместо указания HTTP заголовка с помощью аннотации `@Header` и имени
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java#L187[`Request-Id`^]
-<2> можно использовать специальную аннотацию {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RequestId.java[`@RequestId`^], которая является альтернативой конфигурации: `@Header(HttpHeaders.REQUEST_ID)`.
+<1> For convenience, instead of specifying an HTTP header using the `@Header` annotation and the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java#L187[`Request-Id`^] name,
+<2> the special {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RequestId.java[`@RequestId`^] annotation can be used, which is an alternative to the `@Header(HttpHeaders.REQUEST_ID)` configuration.
 
-Объявив поле в Java модели HTTP запроса можно использовать его значение в обработчике:
+Having declared a field in the HTTP request Java model, You can use its value in the handler:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-request-id/src/main/java/io/rxmicro/examples/rest/controller/request/id/MicroService.java[tag=content,indent=0]
 ----
-<1> Вывод на консоль значения текущего идентификатора запроса.
+<1> Displaying the value of the current request id in the console.
 
-Следующий тест описывает основные требования к поведению функции идентификации запроса:
+The following test describes the basic requirements for the behavior of the request id function:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-request-id/src/test/java/io/rxmicro/examples/rest/controller/request/id/MicroServiceTest.java[tag=content,indent=0]
 ----
-<1> Для HTTP запросов без идентификатора RxMicro должен генерировать уникальный идентификатор автоматически.
-_(Данный идентификатор может быть использован в теле обработчика HTTP запроса.)_
-<2> Каждый HTTP ответ должен содержать обязательный HTTP заголовок
+<1> For HTTP requests without id, the RxMicro framework must generate a unique id automatically.
+_(This id can be used in the HTTP request handler body.)_
+<2> Each HTTP response must contain the required
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java#L187[`Request-Id`^]
-со значением сгенерированного идентификатора запроса. +
-_(Если параметр конфигурации `RestServerConfig.returnGeneratedRequestId = false`, HTTP ответ не будет содержать заголовок `Request-Id`.)_
-<3> Если текущий HTTP запрос уже содержит идентификатор, то RxMicro должен использовать его вместо генерации нового значения.
-<4> Установленный клиентом идентификатор может быть использован в теле обработчика HTTP запроса.
-<5> Каждый HTTP ответ должен содержать обязательный HTTP заголовок
+HTTP header with the value of the generated request id. +
+_(If the configuration parameter `RestServerConfig.returnGeneratedRequestId = false`, the HTTP response will not contain the `Request-Id` header.)_
+<3> If the current HTTP request already contains an id, the RxMicro framework must use it instead of generating a new value.
+<4> The id set by the client can be used in the HTTP request handler body.
+<5> Each HTTP response must contain the required
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java#L187[`Request-Id`^]
-со значением определенного клиентом идентификатора запроса. +
-_(Если параметр конфигурации `RestServerConfig.returnGeneratedRequestId = false`, HTTP ответ не будет содержать заголовок `Request-Id`.)_
+HTTP header with a client specified request id value. +
+_(If the configuration parameter `RestServerConfig.returnGeneratedRequestId = false`, the HTTP response will not contain the `Request-Id` header.)_
 
 [IMPORTANT]
 ====
-Для удобства тестирования, если микросервис запускается автоматически тестом, то каждому HTTP запросу присваивается тестовый идентификатор.
-
-По умолчанию значение тестового идентификатора HTTP запросов равно:
+For ease of testing, if the microservice is launched automatically by a test, then a test id is assigned to each HTTP request.
+By default, the value of the HTTP request test id is equal to
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/local/component/impl/TestRequestIdGenerator.java#L27[`TestRequestId`^].
 ====
 
@@ -68,58 +67,58 @@ include::../___notes/recompile-after-change.adoc[]
 
 <<<
 
-==== Поддерживаемые типы генераторов
+==== Supported Generator Types
 
-RxMicro поддерживает следующие типы генераторов идентификатора HTTP запроса.
+RxMicro supports the following types of HTTP request id generators.
 
-.Тип генератора HTTP запрос и его класс-реализация.
+.Generator name and its implementation class.
 |===
-|*Тип*|*Класс-реализация*|*Описание*
+|*Type*|*Implementation class*|*Description*
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/RequestIdGeneratorType.java#L25[`FASTER_BUT_UNSAFE`^]
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/local/component/impl/FasterButUnSafeRequestIdGenerator.java#L35[`FasterButUnSafeRequestIdGenerator`^]
-|*Генерирует уникальные идентификаторы только в рамках запуска одной `JVM`.*
+|*Generates unique IDs only within the framework of starting one `JVM`.*
 
-Использует счетчик со случайным инкрементом.
+Uses a random increment counter.
 
-(_Используется по-умолчанию_).
+(_Used by default_).
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/RequestIdGeneratorType.java#L27[`SAFE_BUT_SLOWER`^]
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/local/component/impl/SafeButSlowerRequestIdGenerator.java#L29[`SafeButSlowerRequestIdGenerator`^]
-|*Генерирует уникальные идентификаторы независимо от запуска `JVM`.*
+|*Generates unique IDs independently of starting the `JVM`.*
 
-В качестве уникального значения использует
+As a unique value uses the
 {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/UUID.html#randomUUID()[`UUID.randomUUID()`^].
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/RequestIdGeneratorType.java#L29[`FOR_TESTS_ONLY`^]
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/local/component/impl/TestRequestIdGenerator.java#L25[`TestRequestIdGenerator`^]
-|Рекомендован *только для тестового окружения*.
+|Recommended *for test environment only*.
 
-По умолчанию автоматически активируется для тестового окружения.
+By default, it is automatically activated for test environment.
 |===
 
-Для изменения типа генератора идентификаторов запроса, необходимо использовать конфигурационный класс
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/RestServerConfig.java[`RestServerConfig`^]:
+To change the request id generator type, You must use the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/RestServerConfig.java[`RestServerConfig`^] configuration class:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-request-id/src/main/java/io/rxmicro/examples/rest/controller/request/id/Launcher.java[tag=content,indent=0]
 ----
 
-<1> Установка значения `SAFE_BUT_SLOWER` в качестве типа генератора идентификаторов HTTP запросов.
+<1> Setting the `SAFE_BUT_SLOWER` value as a generator type of HTTP request ids.
 
 <<<
 
-==== Сравнение производительности типов генераторов
+==== Comparing the Performance of Generator Types
 
-Исходный код теста производительности:
+Performance test source code:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}benchmarks/benchmark-rxmicro-core/src/main/java/io/rxmicro/benchmark/rxmicro/core/server/RequestIdGeneratorBenchmark.java[tag=content,indent=0]
 ----
 
-Результаты тестирования производительности:
+Performance test results:
 
 [source,txt]
 ----
@@ -128,5 +127,5 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}benchmarks/_results/rxmicro-core-Reques
 
 [IMPORTANT]
 ====
-Результаты тестирования показывают, что производительность компонента `FasterButUnSafeRequestIdGenerator` *в 6 раз лучше*, чем компонента `SafeButSlowerRequestIdGenerator`!
+Test results show that the performance of the `FasterButUnSafeRequestIdGenerator` component *is 6 times better*, than that of the `SafeButSlowerRequestIdGenerator` component!
 ====
