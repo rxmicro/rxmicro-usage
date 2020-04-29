@@ -6,8 +6,8 @@ include::../___fragment-settings.adoc[]
 [[project-documentation-validation-section]]
 === Integration with `rxmicro.validation` Module
 
-Модуль `rxmicro.documentation.asciidoctor` интегрирован с модулем `rxmicro.validation`.
-Благодаря данной интеграции при построении REST-based microservice documentation the RxMicro framework анализирует все доступные built-in constraints для автоматической генерации описания полей модели.
+The `rxmicro.documentation.asciidoctor` module is integrated with the `rxmicro.validation` module.
+Thanks to this integration, when building the REST-based microservice documentation, the RxMicro framework analyzes all available built-in constraints for automatic generation of model fields description.
 
 [source,java]
 ----
@@ -20,7 +20,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-vali
 ----
 <1> The `phone` parameter must be validated via RxMicro built-in constraint for phones.
 
-Таким образом при построении REST-based microservice documentation the RxMicro framework автоматически сформирует описание for the `phone` parameter:
+Thus, when building the REST-based microservice documentation, the RxMicro framework will automatically generate a description for the `phone` parameter:
 
 .Описание поля `phone`, сформированное на основании анализа built-in constraints
 image::project-documentation/validation-integration.jpg[]

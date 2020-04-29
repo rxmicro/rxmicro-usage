@@ -6,14 +6,14 @@ include::../___fragment-settings.adoc[]
 [[project-documentation-section-customization-section]]
 === Sections Customization
 
-С помощью композиционных аннотаций:
+Using the following composite annotations:
 
 * {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/DocumentationDefinition.java[`@DocumentationDefinition`^];
 * {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/IncludeDescription.java[`@IncludeDescription`^];
 * {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/ResourceGroupDefinition.java[`@ResourceGroupDefinition`^];
 * {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/ResourceDefinition.java[`@ResourceDefinition`^]
 
-разработчик может перегрупировывать стандартные секции REST-based microservice documentation, а также подключать свои собственные фрагменты в качестве секций.
+the developer can regroup standard sections of REST-based microservice documentation, as well as add his own fragments as sections.
 
 [source,java]
 ----
@@ -22,9 +22,9 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-cust
 
 [NOTE]
 ====
-Кроме генерации финального http://asciidoc.org/[`AsciiDoc`^] документа, the `RxMicro Annotation Processor` позволяет генерировать отдельные динамические фрагменты.
+Besides generating the final http://asciidoc.org/[`AsciiDoc`^] document, the `RxMicro Annotation Processor` allows You to generate separate dynamic fragments.
 
-Для получения подробной информации о данной возможности рекомендуем обратиться к примеру:
+For more information on this feature, check out the following example:
 
 [.example-code-link]
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}documentation-asciidoctor-custom-sections[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}documentation-asciidoctor-custom-sections`^]

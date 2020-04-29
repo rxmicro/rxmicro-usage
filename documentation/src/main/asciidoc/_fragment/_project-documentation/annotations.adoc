@@ -9,68 +9,68 @@ The RxMicro framework supports the following `RxMicro annotations`:
 .Supported `RxMicro Annotations`.
 [cols="1,3"]
 |===
-|*Аннотация*|*Описание*
+|*Annotation*|*Description*
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/Author.java[`@Author`^]
-|Указывает <<project-documentation-metadata-annotations-section,автора генерируемой REST-based microservice documentation>>.
+|Denotes <<project-documentation-metadata-annotations-section,the author of the generated REST-based microservice documentation>>.
 
-_(Позволяет переоределить автора, указанного в директиве `developer` в `pom.xml`.)_
+_(Allows You to override the author specified in the `developer` directive to `pom.xml`.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/BaseEndpoint.java[`@BaseEndpoint`^]
-|Указывает <<project-documentation-metadata-annotations-section,базовый endpoint в генерируемой REST-based microservice documentation>>.
+|Denotes <<project-documentation-metadata-annotations-section,the basic endpoint in the generated REST-based microservice documentation>>.
 
-_(Позволяет переоределить базовый endpoint, указанный в директиве `url` в `pom.xml`.)_
+_(Allows You to override the basic endpoint specified in the `url` directive to `pom.xml`.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/Description.java[`@Description`^]
-|Указывает <<project-documentation-metadata-annotations-section,описание генерируемой REST-based microservice documentation>>.
+|Denotes <<project-documentation-metadata-annotations-section,the description of the generated REST-based microservice documentation>>.
 
-_(Позволяет переоределить описание, указанное в директиве `description` в `pom.xml`.)_
+_(Allows You to override the description specified in the `description` directive to `pom.xml`.)_
 
-Кроме описания ко всей REST-based microservice documentation, данная аннотация позволяет также указать описание к отдельным элементам: секциям, полям модели и т.д.
+In addition to the description of all REST-based microservice documentation, this annotation also allows You to specify a description of separate elements: sections, model fields, etc.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/DocumentationDefinition.java[`@DocumentationDefinition`^]
-|Композиционная аннотация задающая <<project-documentation-section-customization-section,настройки генерации целого документа>>.
+|A composite annotation that specifies <<project-documentation-section-customization-section, the settings for generating a whole document>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/DocumentationVersion.java[`@DocumentationVersion`^]
-|Указывает <<project-documentation-metadata-annotations-section,версию of REST-based microservice в генерируемой REST-based microservice documentation>>.
+|Denotes <<project-documentation-metadata-annotations-section,the version of REST-based microservice in the generated REST-based microservice documentation>>.
 
-_(Позволяет переоределить версию of REST-based microservice, указанную в директиве `version` в `pom.xml`.)_
+_(Allows You to override the version of REST-based microservice specified in the `version` directive to `pom.xml`.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/Example.java[`@Example`^]
-|Указывает <<project-documentation-example-description-section,значение поля модели, которое используется в качестве примера в генерируемой REST-based microservice documentation>>.
+|Denotes <<project-documentation-example-description-section, the model field value used as an example in the generated REST-based microservice documentation>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/IncludeDescription.java[`@IncludeDescription`^]
-|Указывает <<project-documentation-metadata-annotations-section,на AsciiDoc фрагмент, который должен быть импортирован в генерируемую REST-based microservice documentation>>.
+|Denotes <<project-documentation-metadata-annotations-section,the AsciiDoc fragment to be imported into the generated REST-based microservice documentation>>.
 
-Кроме описания ко всей REST-based microservice documentation, данная аннотация позволяет указать на AsciiDoc фрагмент к отдельным элементам: секциям, полям модели и т.д.
+In addition to the description of all REST-based microservice documentation, this annotation also allows You to specify the AsciiDoc fragment for separate elements: sections, model fields, etc.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/IntroductionDefinition.java[`@IntroductionDefinition`^]
-|Композиционная аннотация задающая <<project-documentation-section-customization-section,настройки генерации секции `Introduction`>>.
+|A composite annotation that specifies <<project-documentation-section-customization-section,the settings for generating the `Introduction` section>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/License.java[`@License`^]
-|Указывает <<project-documentation-metadata-annotations-section,лицензию of REST-based microservice в генерируемой REST-based microservice documentation>>.
+|Denotes <<project-documentation-metadata-annotations-section,the license of REST-based microservice in the generated REST-based microservice documentation>>.
 
-_(Позволяет переоределить лицензию of REST-based microservice, указанную в директиве `license` в `pom.xml`.)_
+_(Allows You to override the license of REST-based microservice specified in the `license` directive to `pom.xml`.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/ModelExceptionErrorResponse.java[`@ModelExceptionErrorResponse`^]
-|Указывает на exception class, который должен быть проанализирован by the `RxMicro Annotation Processor` для <<project-documentation-errors-section, формирования описания неуспешного HTTP ответа REST-based микросервиса>>.
+|Denotes the exception class to be analyzed by the `RxMicro Annotation Processor` for <<project-documentation-errors-section, generating the unsuccessful HTTP response description of REST-based microservice>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/ResourceDefinition.java[`@ResourceDefinition`^]
-|Композиционная аннотация задающая <<project-documentation-section-customization-section,настройки генерации секции `ResourceDefinition`>>.
+|A composite annotation that specifies <<project-documentation-section-customization-section,the settings for generating the `ResourceDefinition` section>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/ResourceGroupDefinition.java[`@ResourceGroupDefinition`^]
-|Композиционная аннотация задающая <<project-documentation-section-customization-section,настройки генерации секции `ResourceGroupDefinition`>>.
+|A composite annotation that specifies <<project-documentation-section-customization-section,the settings for generating the `ResourceGroupDefinition` section>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/SimpleErrorResponse.java[`@SimpleErrorResponse`^]
-|Содержит метаданные о <<project-documentation-errors-section, неуспешном HTTP ответе REST-based микросервиса>>.
+|Contains metadata about <<project-documentation-errors-section,the unsuccessful HTTP response of REST-based microservice>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/Title.java[`@Title`^]
-|Указывает <<project-documentation-metadata-annotations-section,название генерируемой REST-based microservice documentation>>.
+|Denotes <<project-documentation-metadata-annotations-section,the name of the generated REST-based microservice documentation>>.
 
-_(Позволяет переоределить название генерируемой REST-based microservice documentation, указанное в директиве `name` в `pom.xml`.)_
+_(Allows You to override the name of the generated REST-based microservice documentation specified in the `name` directive to `pom.xml`.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation-asciidoctor/src/main/java/io/rxmicro/documentation/asciidoctor/DocumentAttributes.java[`@DocumentAttributes`^]
-|Позволяет задавать https://asciidoctor.org/docs/user-manual/#attributes[AsciiDoc аттрибуты^] для генерируемой REST-based microservice documentation.
+|Allows You to specify https://asciidoctor.org/docs/user-manual/#attributes[AsciiDoc attributes^] for the generated REST-based microservice documentation.
 
 // ---------------------------------------------------------------------------------------------------------------------
 |===

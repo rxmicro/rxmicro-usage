@@ -4,9 +4,9 @@ include::../___fragment-settings.adoc[]
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
 
 [[project-documentation-errors-section]]
-=== Документирование ошибок
+=== Error Documentation
 
-Для описания неуспешных HTTP ответов, модуль `rxmicro.documentation` предоставляет две аннотации:
+To describe unsuccessful HTTP responses, the `rxmicro.documentation` module provides two annotations:
 
 * {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/SimpleErrorResponse.java[`@SimpleErrorResponse`^];
 * {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/ModelExceptionErrorResponse.java[`@ModelExceptionErrorResponse`^].
@@ -15,22 +15,23 @@ include::../___fragment-settings.adoc[]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-errors/src/main/java/io/rxmicro/examples/documentation/asciidoctor/errors/ProxyMicroService.java[tags=content]
 ----
-<1> Аннотация {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/SimpleErrorResponse.java[`@SimpleErrorResponse`^] позволяет указать описание HTTP ответа явным образом.
-<2> Параметр `status` описывает HTTP статус код.
-<3> Параметр `description` описывает текстовое описание.
-<4> Параметр `exampleErrorMessage` указывает на значение, которое используется в качестве примера в генерируемой REST-based microservice documentation.
-<5> Аннотация {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/ModelExceptionErrorResponse.java[`@ModelExceptionErrorResponse`^] позволяет указать an exception class of стандартного
-<6> или пользовательского типов.
+<1> The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/SimpleErrorResponse.java[`@SimpleErrorResponse`^] annotation allows You to explicitly specify the HTTP response description.
+<2> The `status` parameter describes the HTTP status code.
+<3> The `description` parameter describes the text description.
+<4> The `exampleErrorMessage` parameter denotes the value used as an example in the generated REST-based microservice documentation.
+<5> The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/ModelExceptionErrorResponse.java[`@ModelExceptionErrorResponse`^] annotation allows You to specify the exception class of the standard
+<6> or custom type.
 
-При использовании пользовательского типа исключения, данный класс содержит все необходимые параметры для построения REST-based microservice documentation:
+[[project-documentation-custom-error-requirements]]
+When using the custom exception type, this class contains all necessary parameters for building REST-based microservice documentation:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-errors/src/main/java/io/rxmicro/examples/documentation/asciidoctor/errors/model/NotAcceptableException.java[tags=content]
 ----
-<1> Обязательное статическое поле `STATUS_CODE` описывает HTTP статус код.
-<2> Аннотация {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/Description.java[`@Description`^] описывает текстовое описание.
-<3> Аннотация {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/Example.java[`@Example`^] описывает значение, которое используется в качестве примера в генерируемой REST-based microservice documentation.
+<1> The required `STATUS_CODE` static field describes the HTTP status code.
+<2> The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/Description.java[`@Description`^] annotation describes the text description.
+<3> The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/Example.java[`@Example`^] annotation describes the value used as an example in the generated REST-based microservice documentation.
 
 :project-documentation-file: ExamplesDocumentationAsciidoctorErrorsDocumentation.html
 include::../___notes/generated-project-documentation.adoc[]

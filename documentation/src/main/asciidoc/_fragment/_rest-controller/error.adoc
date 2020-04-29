@@ -70,7 +70,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-errors/src/mai
 
 <1> The custom exception class must extend the `HttpErrorException` class.
 <2> Each class must define the static `int STATUS_CODE` field with a status code that identifies the error category.
-_(This name is constant and is used by the <<{project-documentation}#project-documentation-section,`rxmicro.documentation`>> module when building the project documentation.)_
+_(This name is constant and is used by the <<{project-documentation}#project-documentation-custom-error-requirements,`rxmicro.documentation`>> module when building the project documentation.)_
 <3> If You want to display a detailed message to the client, You need to add the constructor parameter. +
 _(If You want to return to the client only the HTTP status without the HTTP body, then create a constructor without parameters.)_
 

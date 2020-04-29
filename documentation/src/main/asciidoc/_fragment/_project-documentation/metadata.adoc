@@ -5,24 +5,24 @@ include::../___fragment-settings.adoc[]
 
 === REST-based Microservice Metadata Configuration
 
-Для получения метаданных в процессе построения REST-based microservice documentation, the RxMicro framework может использовать:
+To obtain metadata while building REST-based microservice documentation, the RxMicro framework can use:
 
-* Файл `pom.xml`;
-* Аннотации модуля `rxmicro.documentation`.
+* The `pom.xml` file;
+* The `rxmicro.documentation` module annotations.
 
-Метаданными of REST-based microservice являются:
+The REST-based microservice metadata is:
 
-* название of REST-based microservice;
-* описание of REST-based microservice;
-* версия of REST-based microservice;
-* список лиценций, под которыми распростаняется REST-based microservice;
-* список разработчиков of REST-based microservice;
-* базовый endpoint of REST-based microservice.
+* the REST-based microservice name;
+* the REST-based microservice description;
+* the REST-based microservice version;
+* the list of licenses that cover the REST-based microservice;
+* the list of REST-based microservice developers;
+* the REST-based microservice basic endpoint.
 
 [[project-documentation-metadata-pomxml-section]]
 ==== Using `pom.xml`
 
-Для указания метаданных, необходимых для генерации REST-based microservice documentation можно использовать файл: `pom.xml`
+To specify the metadata needed to generate the REST-based microservice documentation, You can use the `pom.xml` file
 
 [source,xml]
 ----
@@ -44,7 +44,7 @@ include::../___notes/recompile-after-change.adoc[]
 [[project-documentation-metadata-annotations-section]]
 ==== Using Annotations
 
-Для указания метаданных, необходимых для генерации REST-based microservice documentation можно использовать аннотации из модуля `rxmicro.documentation`.
+To specify the metadata needed to generate the REST-based microservice documentation, You can use the `rxmicro.documentation` module annotations.
 
 [source,java]
 ----
