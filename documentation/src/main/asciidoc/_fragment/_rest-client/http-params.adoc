@@ -17,7 +17,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/main/ja
 <1> If a separate model class has been created for an HTTP request, then this class must be passed by the method parameter that handles the HTTP request.
 <2> Besides supporting HTTP request model classes, the RxMicro framework supports request handlers that accept HTTP request parameters as method parameters.
 <3> To define a common naming strategy for all HTTP parameters which are passed as method parameters, the request handler must be annotated by the `@ParameterMappingStrategy` annotation.
-<4> To declare a method parameter as an HTTP parameter field, you do not need to use any additional annotations.
+<4> To declare a method parameter as an HTTP parameter field, You do not need to use any additional annotations.
 <5> Using the `@Parameter` annotation, it is possible to specify an HTTP parameter name that does not correspond to the strategy used, declared by the `@ParameterMappingStrategy` annotation.
 
 [IMPORTANT]
@@ -149,7 +149,7 @@ include::../___notes/recompile-after-change.adoc[]
 
 If the static query parameter of an HTTP request is a list of values, the list elements are transferred by default via the HTTP protocol as a string separated by the `|` symbol.
 
-If you want the static query parameter to be repeated for each value, you need to use the
+If You want the static query parameter to be repeated for each value, You need to use the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RepeatQueryParameter.java[`@RepeatQueryParameter`^] annotation:
 
 [source,java]

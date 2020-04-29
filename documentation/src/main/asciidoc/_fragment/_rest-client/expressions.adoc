@@ -10,7 +10,7 @@ The RxMicro framework supports expressions for REST clients.
 
 Expressions can be useful to send configuration parameters to the server.
 
-To use expressions you need to create a configuration class:
+To use expressions You need to create a configuration class:
 
 [source,java]
 ----
@@ -26,7 +26,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-expressions/src/ma
 . To set property values, the class must contain https://www.w3schools.com/java/java_encapsulation.asp[`setters`^]. +
 _(Only those fields, that will contain `setters`, can be initialized!)_
 
-To attach this configuration class to a REST client, you must specify it in the
+To attach this configuration class to a REST client, You must specify it in the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/RestClient.java[`@RestClient`^] annotation parameter:
 
 [source,java]

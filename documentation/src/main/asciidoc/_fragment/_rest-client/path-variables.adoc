@@ -16,7 +16,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-path-variables/src
 ----
 <1> When using `path variables` in request models, be sure to use *all* `path variables` in the URL Path.
 _(Based on the analysis of the URL Path, and considering all `path variables`, the RxMicro framework generates the final URL to which the HTTP request will be sent.)_
-<2> In order to declare a method parameter as `path variable`, you must use the `@PathVariable` annotation.
+<2> In order to declare a method parameter as `path variable`, You must use the `@PathVariable` annotation.
 <3> Using the `@PathVariable` annotation it is possible to specify the `path variable` name, which does not match the name of the method parameter.
 
 include::../___notes/model-class-intead-of-method-parameters-note.adoc[tags=**;!headers;!params;!all]

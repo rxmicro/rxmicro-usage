@@ -15,9 +15,9 @@ After creating model classes, it is necessary to create an HTTP request handler 
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-params/src/main/java/io/rxmicro/examples/rest/controller/params/SimpleUsageMicroService.java[tag=content,indent=0]
 ----
 <1> If a separate model class has been created for an HTTP request, then this class must be passed by the method parameter that handles the HTTP request.
-<2> Besides supporting HTTP request model classes, RxMicro supports request handlers that accept HTTP request parameters as method parameters.
+<2> Besides supporting HTTP request model classes, the RxMicro framework supports request handlers that accept HTTP request parameters as method parameters.
 <3> To define a common naming strategy for all HTTP parameters which are passed as method parameters, the request handler must be annotated by the `@ParameterMappingStrategy` annotation.
-<4> To declare a method parameter as an HTTP header field, You do not need to use any additional annotations.
+<4> To declare a method parameter as an HTTP parameter field, You do not need to use any additional annotations.
 <5> Using the `@Parameter` annotation, it is possible to specify an HTTP parameter name that does not correspond to the strategy used, declared by the `@ParameterMappingStrategy` annotation.
 
 [IMPORTANT]
@@ -86,7 +86,7 @@ component automatically converts them to a comma-separated string and transfers 
 
 Unlike HTTP headers, HTTP parameters can be transferred in the request body.
 
-Therefore, besides primitives RxMicro also supports nested JSON objects and arrays.
+Therefore, besides primitives the RxMicro framework also supports nested JSON objects and arrays.
 
 [TIP]
 ====

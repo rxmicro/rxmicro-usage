@@ -91,7 +91,7 @@ include::../___notes/recompile-after-change.adoc[]
 
 If the HTTP header of an HTTP request is a list of values, the list elements are transferred by default via the HTTP protocol as a string separated by the `|` symbol.
 
-If you want the HTTP header to be repeated for each value, you need to use the
+If You want the HTTP header to be repeated for each value, You need to use the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RepeatHeader.java[`@RepeatHeader`^] annotation:
 
 [source,java]
