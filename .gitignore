@@ -67,3 +67,6 @@ PostgresMicroService
 ProxyMicroService
 WithoutAnything
 WithSout
+
+# Linux internal files
+.directory
