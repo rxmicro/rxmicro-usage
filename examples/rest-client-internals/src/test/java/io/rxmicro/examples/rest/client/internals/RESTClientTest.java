@@ -33,6 +33,7 @@ import static io.rxmicro.rest.model.HttpMethod.GET;
 import static io.rxmicro.test.mockito.httpclient.HttpClientMockFactory.prepareHttpClientMock;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.mockito.Answers.RETURNS_DEEP_STUBS;
@@ -71,7 +72,7 @@ final class RESTClientTest {
     @Test
     @BeforeTest(method = "prepare")
     void Should_support_internals() {
-        final Response response = restClient.get().join();
+        final Response response = assertDoesNotThrow(() -> restClient.get().join());
 
         assertEquals(201, response.getStatus());
         assertEquals(HTTP_1_0, response.getVersion());

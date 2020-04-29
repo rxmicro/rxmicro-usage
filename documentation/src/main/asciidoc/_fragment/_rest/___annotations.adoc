@@ -73,7 +73,7 @@ _(By default, the
 Thus, by using this strategy, the `header_name` name header corresponds to the `headerName` field name.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/PathVariable.java[`@PathVariable`^]
-|Denotes that a field of Java model class is <<rest-controller-headers-basic,a `path variable`>>.
+|Denotes that a field of Java model class is <<rest-controller-path-variables-basic,a `path variable`>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RemoteAddress.java[`@RemoteAddress`^]
 |Declares the Java model field as a field, in which You need to add <<rest-controller-internals-basic-section,the remote client connection address>>.
@@ -115,58 +115,67 @@ endif::[]
 // ---------------------------------------------------------------------------------------------------------------------
 ifdef::rest-kind-client,fragment-document[]
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/BaseUrlPath.java[`@BaseUrlPath`^]
-|TODO
+|Denotes <<rest-client-base-url-path-section, a base URL path for the all request handlers at the REST client>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java[`@Version`^]
-|TODO
+|Denotes <<rest-client-versioning-section,a version of the REST client>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Header.java[`@Header`^]
-|TODO
+|Denotes that a field of Java model class is <<rest-client-headers-basic,a HTTP header>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/HeaderMappingStrategy.java[`@HeaderMappingStrategy`^]
-|TODO
+|Declares <<rest-client-headers-basic,a strategy of header name formation based on Java model field name analysis>>.
+
+_(By default, the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L59[`CAPITALIZE_WITH_HYPHEN`^] strategy is used.
+Thus, by using this strategy, the `Header-Name` name header corresponds to the `headerName` field name.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/AddHeader.java[`@AddHeader`^]
-|TODO
+|Denotes <<rest-client-headers-static, a static HTTP header>> that must be added to the request, created by REST client implementation.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/SetHeader.java[`@SetHeader`^]
-|TODO
+|Denotes <<rest-client-headers-static, a static HTTP header>> that must be set to the request, created by REST client implementation.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RepeatHeader.java[`@RepeatHeader`^]
-|TODO
+|Denotes the header, <<rest-client-headers-repeating,which name needs to be repeated for each element in the list>>.
+
+_(This annotation applies only to fields with the `java.util.List<?>` type.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Parameter.java[`@Parameter`^]
-|TODO
+|Denotes that a field of Java model class is <<rest-client-headers-basic,a HTTP parameter>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ParameterMappingStrategy.java[`@ParameterMappingStrategy`^]
-|TODO
+|Declares <<rest-client-params-basic,a strategy of parameter name formation based on Java model field name analysis>>.
+
+_(By default, the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L34[`LOWERCASE_WITH_UNDERSCORED`^] strategy is used.
+Thus, by using this strategy, the `header_name` name header corresponds to the `headerName` field name.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/AddQueryParameter.java[`@AddQueryParameter`^]
-|TODO
+|Denotes <<rest-client-query-params-static, a static query parameter>> that must be added to the request, created by REST client implementation.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/SetQueryParameter.java[`@SetQueryParameter`^]
-|TODO
+|Denotes <<rest-client-query-params-static, a static query parameter>> that must be set to the request, created by REST client implementation.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RepeatQueryParameter.java[`@RepeatQueryParameter`^]
-|TODO
+|Denotes the query parameter, <<rest-client-query-params-repeating,which name needs to be repeated for each element in the list>>.
+
+_(This annotation applies only to fields with the `java.util.List<?>` type.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/PathVariable.java[`@PathVariable`^]
-|TODO
+|Denotes that a field of Java model class is <<rest-client-path-variables-basic,a `path variable`>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ResponseStatusCode.java[`@ResponseStatusCode`^]
-|TODO
+|Indicates to the RxMicro framework that the value of the Java model field should be used as <<rest-client-internals-basic-section, a status code that received from the server>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ResponseBody.java[`@ResponseBody`^]
-|TODO
-
-|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RequestId.java[`@RequestId`^]
-|TODO
+|Indicates to the RxMicro framework that the value of the Java model field should be used as <<rest-client-internals-basic-section,a body that received from the server>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/PartialImplementation.java[`@PartialImplementation`^]
-|Allows <<rest-client-partial-implementation-section,to set a class with partial implementation for the REST client>>.
+|Denotes an abstract class that contains <<rest-client-partial-implementation-section,a partial implementation of the annotated by this annotation REST client interface>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/RestClientGeneratorConfig.java[`@RestClientGeneratorConfig`^]
-|Denotes an abstract class that contains <<rest-client-rest-client-generator-config-section,a partial implementation of the annotated by this annotation REST client interface>>.
+|Allows <<rest-client-rest-client-generator-config-section,to configure the process of code generation by the `RxMicro Annotation Processor` for REST clients>>.
 endif::[]
 // ---------------------------------------------------------------------------------------------------------------------
 |===

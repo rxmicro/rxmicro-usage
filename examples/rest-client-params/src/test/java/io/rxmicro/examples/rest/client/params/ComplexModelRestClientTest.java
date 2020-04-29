@@ -38,6 +38,7 @@ import static io.rxmicro.examples.rest.client.params.model.Status.approved;
 import static io.rxmicro.examples.rest.client.params.model.Status.created;
 import static io.rxmicro.rest.model.HttpMethod.POST;
 import static io.rxmicro.test.mockito.httpclient.HttpClientMockFactory.prepareHttpClientMock;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Answers.RETURNS_DEEP_STUBS;
 
@@ -85,13 +86,14 @@ final class ComplexModelRestClientTest {
     @Test
     @BeforeTest(method = "prepare")
     void Should_support_complex_requests_and_responses() {
-        final ComplexResponse response = restClient.post(new ComplexRequest(
-                integerParameter,
-                enumParameter,
-                enumsParameter,
-                nestedModelParameter,
-                nestedModelsParameter
-        )).join();
+        final ComplexResponse response = assertDoesNotThrow(() ->
+                restClient.post(new ComplexRequest(
+                        integerParameter,
+                        enumParameter,
+                        enumsParameter,
+                        nestedModelParameter,
+                        nestedModelsParameter
+                )).join());
 
         assertEquals(integerParameter, response.getIntegerParameter());
         assertEquals(enumParameter, response.getEnumParameter());

@@ -28,6 +28,7 @@ import org.mockito.Mock;
 
 import static io.rxmicro.rest.model.HttpMethod.GET;
 import static io.rxmicro.test.mockito.httpclient.HttpClientMockFactory.prepareHttpClientMock;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.mockito.Answers.RETURNS_DEEP_STUBS;
 
 // tag::content[]
@@ -58,7 +59,7 @@ final class StaticHeadersRestClientTest {
     @Test
     @BeforeTest(method = "prepareParentHeaderOnly")
     void Should_use_parent_header_only() {
-        restClient.get1().join();
+        assertDoesNotThrow(() -> restClient.get1().join());
     }
 
     private void prepareParentAndChildHeaders() {
@@ -79,7 +80,7 @@ final class StaticHeadersRestClientTest {
     @Test
     @BeforeTest(method = "prepareParentAndChildHeaders")
     void Should_use_parent_and_child_headers() {
-        restClient.get2().join();
+        assertDoesNotThrow(() -> restClient.get2().join());
     }
 }
 // end::content[]

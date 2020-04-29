@@ -4,35 +4,35 @@ include::../___fragment-settings.adoc[]
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
 
 [[rest-client-versioning-section]]
-=== Версионирование of REST Clients
+=== Versioning of REST Clients
 
-RxMicro поддерживает версионирования of REST Clients с помощью двух стратегий:
+The RxMicro framework supports versioning of REST Clients using two strategies:
 
-* Версионирование на основании анализа HTTP заголовка с именем
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java#L193[`Api-Version`^].
-* Версионирование на основании анализа URL Path фрагмента.
+* Versioning based on HTTP header analysis with the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java#L193[`Api-Version`^] name.
+* Versioning based on URL Path fragment analysis.
 
 <<<
 
-==== Версионирования на основании анализа HTTP заголовка
+==== Versioning Based on HTTP Header Analysis
 
-RxMicro позволяет создавать одинаковые REST клиенты, отличающиеся только версией:
+The RxMicro framework allows creating identical REST clients that differ only in version:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-versioning-header/src/main/java/io/rxmicro/examples/rest/client/versioning/header/OldRestClient.java[tag=content,indent=0]
 ----
-<1> REST client старой версии `v1` с использованием
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L84[`Version.Strategy.HEADER`^] стратегии;
+<1> REST client of the old `v1` version, using the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L84[`Version.Strategy.HEADER`^] strategy;
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-versioning-header/src/main/java/io/rxmicro/examples/rest/client/versioning/header/NewRestClient.java[tag=content,indent=0]
 ----
-<1> REST client новой версии `v2` с использованием
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L84[`Version.Strategy.HEADER`^] стратегии;
+<1> REST client of the new `v2` version, using the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L84[`Version.Strategy.HEADER`^] strategy;
 
-Корректность формирования HTTP запроса для данных REST клиентов может быть проверена с помощью тестов:
+The correctness of HTTP request generation for these REST clients can be checked with the following tests:
 
 [source,java]
 ----
@@ -51,25 +51,25 @@ include::../___notes/recompile-after-change.adoc[]
 
 <<<
 
-==== Версионирования на основании анализа URL Path фрагмента
+==== Versioning Based on URL Path Fragment Analysis
 
-RxMicro позволяет создавать одинаковые REST клиенты, отличающиеся только версией:
+The RxMicro framework allows creating identical REST clients that differ only in version:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-versioning-url-path/src/main/java/io/rxmicro/examples/rest/client/versioning/url/path/OldRestClient.java[tag=content,indent=0]
 ----
-<1> REST client старой версии `v1` с использованием
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L71[`Version.Strategy.URL_PATH`^] стратегии;
+<1> REST client of the old `v1` version, using the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L71[`Version.Strategy.URL_PATH`^] strategy;
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-versioning-url-path/src/main/java/io/rxmicro/examples/rest/client/versioning/url/path/NewRestClient.java[tag=content,indent=0]
 ----
-<1> REST client новой версии `v1` с использованием
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L71[`Version.Strategy.URL_PATH`^] стратегии;
+<1> REST client of the new `v2` version, using the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L71[`Version.Strategy.URL_PATH`^] strategy;
 
-Корректность формирования HTTP запроса для данных REST клиентов может быть проверена с помощью тестов:
+The correctness of HTTP request generation for these REST clients can be checked with the following tests:
 
 [source,java]
 ----

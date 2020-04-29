@@ -28,6 +28,7 @@ import org.mockito.Mock;
 
 import static io.rxmicro.rest.model.HttpMethod.GET;
 import static io.rxmicro.test.mockito.httpclient.HttpClientMockFactory.prepareHttpClientMock;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.mockito.Answers.RETURNS_DEEP_STUBS;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -63,7 +64,7 @@ final class RESTClient2Test {
     @Test
     @BeforeTest(method = "prepareGeneratedMethod")
     void Should_invoke_generated_method() {
-        restClient.generatedMethod().join();
+        assertDoesNotThrow(() -> restClient.generatedMethod().join());
     }
 
     private void prepareUserDefinedMethod() {
@@ -74,7 +75,7 @@ final class RESTClient2Test {
     @Test
     @BeforeTest(method = "prepareUserDefinedMethod")
     void Should_invoke_user_defined_method() {
-        restClient.userDefinedMethod().join();
+        assertDoesNotThrow(() -> restClient.userDefinedMethod().join());
 
         verify(httpClient, never()).sendAsync(anyString(), anyString(), any());
         verify(httpClient, never()).sendAsync(anyString(), anyString(), any(), any());

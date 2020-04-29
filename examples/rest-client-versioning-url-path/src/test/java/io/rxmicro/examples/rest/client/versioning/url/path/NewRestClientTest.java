@@ -27,6 +27,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
 import static io.rxmicro.test.mockito.httpclient.HttpClientMockFactory.prepareHttpClientMock;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.mockito.Answers.RETURNS_DEEP_STUBS;
 
 // tag::content[]
@@ -54,7 +55,7 @@ final class NewRestClientTest {
     @Test
     @BeforeTest(method = "prepare")
     void Should_add_version_url_path() {
-        restClient.update().join();
+        assertDoesNotThrow(() -> restClient.update().join());
     }
 }
 // end::content[]

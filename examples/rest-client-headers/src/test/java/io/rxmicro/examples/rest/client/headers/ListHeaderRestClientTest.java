@@ -34,6 +34,7 @@ import static io.rxmicro.examples.rest.client.headers.model.Status.created;
 import static io.rxmicro.examples.rest.client.headers.model.Status.rejected;
 import static io.rxmicro.rest.model.HttpMethod.GET;
 import static io.rxmicro.test.mockito.httpclient.HttpClientMockFactory.prepareHttpClientMock;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Answers.RETURNS_DEEP_STUBS;
 
@@ -96,7 +97,8 @@ final class ListHeaderRestClientTest {
             "comboValues"
     })
     void Should_process_HTTP_headers(final String method) {
-        final ListHeaderResponse response = restClient.get().join();
+        final ListHeaderResponse response = assertDoesNotThrow(() ->
+                restClient.get().join());
 
         assertEquals(
                 List.of(created, approved, rejected),

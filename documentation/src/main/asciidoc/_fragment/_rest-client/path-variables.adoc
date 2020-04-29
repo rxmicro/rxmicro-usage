@@ -4,36 +4,36 @@ include::../___fragment-settings.adoc[]
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
 
 [[rest-client-path-variables-basic]]
-=== Поддержка `path variables`
+=== The `path variables` Support
 
 include::../_rest/___path-var-basic-rules.adoc[]
 
-После создания классов моделей, необходимо создать обработчик HTTP запросов, использующий данную модель:
+After creating model classes, it is necessary to create an HTTP request handler that uses the following model:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-path-variables/src/main/java/io/rxmicro/examples/rest/client/path/variables/RESTClient.java[tag=content,indent=0]
 ----
-<1> При использовании `path variables` в моделях запроса обязательно использовать *все* `path variables` в URL Path.
-_(На основании анализа URL Path с учетом значений всех `path variables` RxMicro формирует окончательный URL на который будет отправлен HTTP запрос.)_
-<2> Для того чтобы параметр метода объявить как `path variable`, необходимо использовать аннотацию `@PathVariable`.
-<3> С помощью аннотации `@PathVariable` возможно задать имя `path variable`, которое не соответствует имени параметра метода.
+<1> When using `path variables` in request models, be sure to use *all* `path variables` in the URL Path.
+_(Based on the analysis of the URL Path, and considering all `path variables`, the RxMicro framework generates the final URL to which the HTTP request will be sent.)_
+<2> In order to declare a method parameter as `path variable`, you must use the `@PathVariable` annotation.
+<3> Using the `@PathVariable` annotation it is possible to specify the `path variable` name, which does not match the name of the method parameter.
 
 include::../___notes/model-class-intead-of-method-parameters-note.adoc[tags=**;!headers;!params;!all]
 
-Несмотря на различные подходы к поддержке обработки `path variables`, с точки зрения окончательного URL два вышеуказанных обработчика абсолютно равнозначны:
+Despite the different approaches to `path variables` handling support, in terms of the final URL the two above-mentioned handlers are absolutely equal:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-path-variables/src/test/java/io/rxmicro/examples/rest/client/path/variables/RESTClientTest.java[tag=content,indent=0]
 ----
-<1> В результате выполнения обработчика HTTP запроса RxMicro формирует один и тотже URL: `/CATEGORY/TYPE-SUB-TYPE`
+<1> As a result of the HTTP request handler execution, the RxMicro framework generates the same URL: `/CATEGORY/TYPE-SUB-TYPE`
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-path-variables
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]
 
-==== Поддерживаемые типы данных
+==== Supported Data Types
 
 include::../_rest/___path-variables-types.adoc[]

@@ -33,6 +33,7 @@ import java.util.stream.Stream;
 
 import static io.rxmicro.test.json.JsonFactory.jsonObject;
 import static io.rxmicro.test.mockito.httpclient.HttpClientMockFactory.prepareHttpClientMock;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Answers.RETURNS_DEEP_STUBS;
 
@@ -81,7 +82,7 @@ final class RestClientWithBodyTest {
     @MethodSource("clientMethodsProvider")
     @BeforeTest(method = "prepare")
     void Should_return_message_Hello_World(final Function<RestClientWithBody, Response> clientMethod) {
-        final Response response = clientMethod.apply(restClient);
+        final Response response = assertDoesNotThrow(() -> clientMethod.apply(restClient));
 
         assertEquals("Hello World!", response.getMessage());
     }

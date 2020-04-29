@@ -34,6 +34,7 @@ import static io.rxmicro.examples.rest.client.headers.model.Status.created;
 import static io.rxmicro.examples.rest.client.headers.model.Status.rejected;
 import static io.rxmicro.rest.model.HttpMethod.PUT;
 import static io.rxmicro.test.mockito.httpclient.HttpClientMockFactory.prepareHttpClientMock;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.mockito.Answers.RETURNS_DEEP_STUBS;
 
 // tag::content[]
@@ -68,7 +69,7 @@ final class RepeatingHeadersRestClientTest {
     @BeforeTest(method = "prepare")
     void Should_support_repeating_headers() {
         final List<Status> headers = List.of(created, approved, rejected);
-        restClient.put(headers, headers).join();
+        assertDoesNotThrow(() -> restClient.put(headers, headers).join());
     }
 }
 // end::content[]

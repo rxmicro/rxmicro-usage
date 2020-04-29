@@ -28,6 +28,7 @@ import org.mockito.Mock;
 
 import static io.rxmicro.rest.model.HttpMethod.GET;
 import static io.rxmicro.test.mockito.httpclient.HttpClientMockFactory.prepareHttpClientMock;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.mockito.Answers.RETURNS_DEEP_STUBS;
 
 @InitMocks
@@ -59,7 +60,7 @@ final class ComplexStaticQueryParametersRestClientTest {
     @Test
     @BeforeTest(method = "prepareParentParamsOnly")
     void Should_return_parent_params_only() {
-        restClient.get1().join();
+        assertDoesNotThrow(() -> restClient.get1().join());
     }
 
     private void prepareParentAndChildParams() {
@@ -85,7 +86,7 @@ final class ComplexStaticQueryParametersRestClientTest {
     @Test
     @BeforeTest(method = "prepareParentAndChildParams")
     void Should_return_child_and_parent_params() {
-        restClient.get2().join();
+        assertDoesNotThrow(() -> restClient.get2().join());
     }
 
     private void prepareOverriddenParentParams() {
@@ -106,7 +107,7 @@ final class ComplexStaticQueryParametersRestClientTest {
     @Test
     @BeforeTest(method = "prepareOverriddenParentParams")
     void Should_return_overridden_parent_params() {
-        restClient.get3().join();
+        assertDoesNotThrow(() -> restClient.get3().join());
     }
 
     private void prepareExtendedParentParams() {
@@ -131,6 +132,6 @@ final class ComplexStaticQueryParametersRestClientTest {
     @Test
     @BeforeTest(method = "prepareExtendedParentParams")
     void Should_return_extended_parent_params() {
-        restClient.get4().join();
+        assertDoesNotThrow(() -> restClient.get4().join());
     }
 }

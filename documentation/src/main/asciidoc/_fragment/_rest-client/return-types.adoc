@@ -3,28 +3,30 @@ include::../___fragment-settings.adoc[]
 
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
 
-=== Возвращаемые типы обработчиков HTTP запроса
+=== HTTP Request Handler Return Types
 
 include::../_rest/___http-handler-return-types.adoc[]
 
 <<<
 
-==== Поддерживаемые типы возвращаемого результата для HTTP ответа без тела
+==== Supported Return Result Types for HTTP Response without Body
+
+The RxMicro framework supports the following return result types for an HTTP response without body:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-handlers/src/main/java/io/rxmicro/examples/rest/client/handlers/RestClientWithoutBody.java[tag=content,indent=0]
 ----
-<1> Тип {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[`CompletableFuture<Void>`^]
-рекомендуется при использовании библиотеки {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/package-summary.html[*java.util.concurrent*^].
-<2> Вместо {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[`CompletableFuture<Void>`^] может быть использован также тип
-{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletionStage.html[`CompletionStage<Void>`^].
-<3> При использовании библиотеки {REACTOR-CORE-DOC-USER_GUIDE}[*Project Reactor*^] только тип
-{REACTOR-CORE-DOC-ROOT-URL}reactor/core/publisher/Mono.html[`Mono<Void>`^] может быть использован.
-<4> При использовании библиотеки {RX-JAVA-USER-GUIDE}[*RxJava*^] только тип
-{RX-JAVA-DOC-ROOT-URL}io/reactivex/Completable.html[`Completable`^] может быть использован.
+<1> The {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[`CompletableFuture<Void>`^]
+type is recommended when using the {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/package-summary.html[*java.util.concurrent*^] library.
+<2> Instead of the {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[`CompletableFuture<Void>`^] type, can also be used the
+{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletionStage.html[`CompletionStage<Void>`^] type.
+<3> When using the {REACTOR-CORE-DOC-USER_GUIDE}[*Project Reactor*^] library, only the
+{REACTOR-CORE-DOC-ROOT-URL}reactor/core/publisher/Mono.html[`Mono<Void>`^] type can be used.
+<4> When using the {RX-JAVA-USER-GUIDE}[*RxJava*^] library, only the
+{RX-JAVA-DOC-ROOT-URL}io/reactivex/Completable.html[`Completable`^] type can be used.
 
-Все указанные выше обработчики HTTP запроса не должны выбрасывать каких-либо исключений:
+All the above mentioned HTTP request handlers shouldn't throw any exceptions:
 
 [source,java]
 ----
@@ -38,26 +40,26 @@ include::../___notes/recompile-after-change.adoc[]
 
 <<<
 
-==== Поддерживаемые типы возвращаемого результата для HTTP ответа с телом
+==== Supported Return Result Types for HTTP Response with Body
 
-RxMicro поддерживает следующие типы возвращаемого результата для HTTP ответа с телом:
+The RxMicro framework supports the following return result types for an HTTP response with body:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-handlers/src/main/java/io/rxmicro/examples/rest/client/handlers/RestClientWithBody.java[tag=content,indent=0]
 ----
-<1> Тип {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[`CompletableFuture<MODEL>`^]
-рекомендуется при использовании библиотеки {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/package-summary.html[*java.util.concurrent*^].
-<2> Вместо {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[`CompletableFuture<MODEL>`^] может быть использован также тип
-{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletionStage.html[`CompletionStage<MODEL>`^].
-<3> При использовании библиотеки {REACTOR-CORE-DOC-USER_GUIDE}[*Project Reactor*^] только тип
-{REACTOR-CORE-DOC-ROOT-URL}reactor/core/publisher/Mono.html[`Mono<MODEL>`^] может быть использован.
-<4> При использовании библиотеки {RX-JAVA-USER-GUIDE}[*RxJava*^] только тип
-{RX-JAVA-DOC-ROOT-URL}io/reactivex/Single.html[`Single<MODEL>`^] может быть использован.
+<1> The {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[`CompletableFuture<MODEL>`^]
+type is recommended when using the {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/package-summary.html[*java.util.concurrent*^] library.
+<2> Instead of the {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[`CompletableFuture<MODEL>`^] type, can also be used the
+{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletionStage.html[`CompletionStage<MODEL>`^] type.
+<3> When using the {REACTOR-CORE-DOC-USER_GUIDE}[*Project Reactor*^] library, only the
+{REACTOR-CORE-DOC-ROOT-URL}reactor/core/publisher/Mono.html[`Mono<MODEL>`^] type can be used.
+<4> When using the {RX-JAVA-USER-GUIDE}[*RxJava*^] library, only the
+{RX-JAVA-DOC-ROOT-URL}io/reactivex/Single.html[`Single<MODEL>`^] type can be used.
 
 include::../_rest/___note-reactive-parametrized-types.adoc[]
 
-Все указанные выше обработчики возвращают объект класса `Response` с сообщением `Hello World!`:
+All of the above mentioned handlers return the `Response` class instance with the `Hello World!` message:
 
 [source,java]
 ----

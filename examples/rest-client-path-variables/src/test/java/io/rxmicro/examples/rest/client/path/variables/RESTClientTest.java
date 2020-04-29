@@ -32,6 +32,7 @@ import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 import static io.rxmicro.test.mockito.httpclient.HttpClientMockFactory.prepareHttpClientMock;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.mockito.Answers.RETURNS_DEEP_STUBS;
 
 // tag::content[]
@@ -67,7 +68,7 @@ final class RESTClientTest {
     @MethodSource("clientMethodsProvider")
     @BeforeTest(method = "prepare")
     void Should_return_message_Hello_World(final Consumer<RESTClient> clientMethod) {
-        clientMethod.accept(restClient);
+        assertDoesNotThrow(() -> clientMethod.accept(restClient));
     }
 }
 // end::content[]

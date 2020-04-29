@@ -35,6 +35,7 @@ import java.util.stream.Stream;
 
 import static io.rxmicro.rest.model.HttpMethod.GET;
 import static io.rxmicro.test.mockito.httpclient.HttpClientMockFactory.prepareHttpClientMock;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Answers.RETURNS_DEEP_STUBS;
 
@@ -84,7 +85,8 @@ final class SimpleUsageRestClientTest {
     @BeforeTest(method = "prepare")
     void Should_process_HTTP_headers(
             final Function<SimpleUsageRestClient, Response> clientMethod) {
-        final Response response = clientMethod.apply(restClient); // <1>
+        final Response response = assertDoesNotThrow(() ->
+                clientMethod.apply(restClient)); // <1>
 
         assertEquals(ENDPOINT_VERSION, response.getEndpointVersion()); // <4>
         assertEquals(USE_PROXY, response.getUseProxy());               // <4>

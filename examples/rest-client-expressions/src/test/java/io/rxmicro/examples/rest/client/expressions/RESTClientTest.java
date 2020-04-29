@@ -30,6 +30,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
 import static io.rxmicro.test.mockito.httpclient.HttpClientMockFactory.prepareHttpClientMock;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.mockito.Answers.RETURNS_DEEP_STUBS;
 
 // tag::content[]
@@ -71,7 +72,7 @@ final class RESTClientTest {
     @Test
     @BeforeTest(method = "prepare")
     void Should_support_expressions() {
-        restClient.put().join();
+        assertDoesNotThrow(() -> restClient.put().join());
     }
 }
 // end::content[]

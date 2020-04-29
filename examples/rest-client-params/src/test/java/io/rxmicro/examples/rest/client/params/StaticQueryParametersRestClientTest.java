@@ -28,6 +28,7 @@ import org.mockito.Mock;
 
 import static io.rxmicro.rest.model.HttpMethod.GET;
 import static io.rxmicro.test.mockito.httpclient.HttpClientMockFactory.prepareHttpClientMock;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.mockito.Answers.RETURNS_DEEP_STUBS;
 
 // tag::content[]
@@ -58,7 +59,7 @@ final class StaticQueryParametersRestClientTest {
     @Test
     @BeforeTest(method = "prepareParentParamOnly")
     void Should_use_parent_param_only() {
-        restClient.get1().join();
+        assertDoesNotThrow(() -> restClient.get1().join());
     }
 
     private void prepareParentAndChildParams() {
@@ -79,7 +80,7 @@ final class StaticQueryParametersRestClientTest {
     @Test
     @BeforeTest(method = "prepareParentAndChildParams")
     void Should_use_parent_and_child_params() {
-        restClient.get2().join();
+        assertDoesNotThrow(() -> restClient.get2().join());
     }
 }
 // end::content[]

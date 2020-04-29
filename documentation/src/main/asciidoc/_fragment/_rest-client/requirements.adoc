@@ -1,9 +1,9 @@
 :FRAGMENT_RELATIVE_DIR: ../
 include::../___fragment-settings.adoc[]
 
-=== Требования к реализации REST Client
+=== REST Client Implementation Requirements
 
-==== Требования к интерфейсу REST Client
+==== REST Client Interface Requirements
 
 REST Client is a Java interface that annotated by the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/RestClient.java[`@RestClient`^] annotation:
@@ -32,7 +32,7 @@ that must meet the following requirements:
 
 <<<
 
-==== Требования к обработчикам HTTP запроса
+==== HTTP Request Handler Requirements
 
 HTTP request handler is a method, that must meet the following requirements:
 
@@ -64,7 +64,7 @@ A REST client can contain `static`, `private` and `default` methods, but such me
 
 include::../_rest/___note-Flux-Flowable.adoc[]
 
-:target: REST клиентов
+:target: REST clients
 include::../_rest/___requirements-param-types.adoc[]
 
 include::../_rest/___note-reactive-libs.adoc[]

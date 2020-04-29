@@ -6,8 +6,8 @@ include::../___fragment-settings.adoc[]
 [[rest-client-base-url-path-section]]
 === Base URL Path for All Handlers
 
-Для конфигурирования общего URL Path для всех методов, отправляющих HTTP запрос, RxMicro предоставляет аннотацию
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/BaseUrlPath.java[`@BaseUrlPath`^]:
+To configure a base URL Path for all methods sending an HTTP request, RxMicro provides the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/BaseUrlPath.java[`@BaseUrlPath`^] annotation:
 
 [source,java]
 ----

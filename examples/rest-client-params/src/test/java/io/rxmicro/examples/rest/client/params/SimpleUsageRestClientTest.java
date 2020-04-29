@@ -31,6 +31,7 @@ import org.mockito.Mock;
 
 import static io.rxmicro.test.json.JsonFactory.jsonObject;
 import static io.rxmicro.test.mockito.httpclient.HttpClientMockFactory.prepareHttpClientMock;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Answers.RETURNS_DEEP_STUBS;
 
@@ -77,7 +78,8 @@ final class SimpleUsageRestClientTest {
     @BeforeTest(method = "prepare1")
     void Should_use_handler_with_request_class() {
         final Response response =
-                restClient.get1(new Request(ENDPOINT_VERSION, USE_PROXY)).join();
+                assertDoesNotThrow(() ->
+                        restClient.get1(new Request(ENDPOINT_VERSION, USE_PROXY)).join());
 
         assertEquals(ENDPOINT_VERSION, response.getEndpointVersion());
         assertEquals(USE_PROXY, response.getUseProxy());
@@ -100,7 +102,8 @@ final class SimpleUsageRestClientTest {
     @BeforeTest(method = "prepare2")
     void Should_use_handler_with_request_params() {
         final Response response =
-                restClient.get2(ENDPOINT_VERSION, USE_PROXY).join();
+                assertDoesNotThrow(() ->
+                        restClient.get2(ENDPOINT_VERSION, USE_PROXY).join());
 
         assertEquals(ENDPOINT_VERSION, response.getEndpointVersion());
         assertEquals(USE_PROXY, response.getUseProxy());

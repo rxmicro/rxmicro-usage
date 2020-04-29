@@ -1,21 +1,21 @@
 :FRAGMENT_RELATIVE_DIR:
 include::___fragment-settings.adoc[]
 
-REST Client - это интерфейс, который содержит хотя бы один декларативный обработчик HTTP запроса.
+REST Client is an interface that contains at least one declarative HTTP request handler.
 
-Для создания REST клиентов, the RxMicro framework предоставляет следующие модули:
+To create REST clients, the RxMicro framework provides the following modules:
 
-* {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest[`rxmicro.rest`^] - базовый модуль, определяющий основные `RxMicro annotations`, необходимые при использовании
-https://en.wikipedia.org/wiki/Representational_state_transfer[`REST`^] архитектуры построения программных систем;
-* {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-client[`rxmicro.rest.client`^] - базовый модуль, предназначенный для создания и запуска REST клиентов;
-* {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-client-jdk[`rxmicro.rest.client.jdk`^] - модуль реализации HTTP клиента построенный на базе https://openjdk.java.net/groups/net/httpclient/intro.html[`Java HTTP Client`^];
-* {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-client-exchange-json[`rxmicro.rest.client.exchange.json`^] - Модуль конвертации Java моделей в https://www.json.org[`JSON`^] формат и наоборот;
+* The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest[`rxmicro.rest`^] is a basic module that defines basic `RxMicro annotations`, required when using the
+https://en.wikipedia.org/wiki/Representational_state_transfer[`REST`^] architecture of building program systems;
+* The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-client[`rxmicro.rest.client`^] is a basic module used to create and run REST clients;
+* The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-client-jdk[`rxmicro.rest.client.jdk`^] is an HTTP client implementation module based on https://openjdk.java.net/groups/net/httpclient/intro.html[`Java HTTP Client`^];
+* The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-client-exchange-json[`rxmicro.rest.client.exchange.json`^] is a module for converting Java models to https://www.json.org[`JSON`^] format and vice versa;
 
 [NOTE]
 ====
-Из-за транзитивных зависимостей в проект обычно необходимо подключить только два модуля:
-{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-client-jdk[`rxmicro.rest.client.jdk`^] и {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-client-exchange-json[`rxmicro.rest.client.exchange.json`^]. +
-_(Остальные модули подключаться в проект автоматически!)_
+Due to transit dependencies only two modules usually need to be added to a project:
+{RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-client-jdk[`rxmicro.rest.client.jdk`^] and {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-client-exchange-json[`rxmicro.rest.client.exchange.json`^]. +
+_(All other modules are automatically added to the project!)_
 ====
 
 <<<
