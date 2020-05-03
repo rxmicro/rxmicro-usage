@@ -6,10 +6,10 @@ include::../../___fragment-settings.adoc[]
 [[java-integration-unnamed-module-module-config]]
 ==== Module Configuration
 
-Некоторые RxMicro модули позволяют задавать общую конфигурацию с помощью `RxMicro Annotations`, которыми аннотируется дескриптор модуля `module-info.java`.
-Но для `unnamed module`, дескриптор модуля `module-info.java` не существует!
+Some RxMicro modules allow You to set the common configuration with `RxMicro Annotations`, which annotate the `module-info.java` module descriptor.
+But for the `unnamed module`, the `module-info.java` module descriptor does not exist!
 
-В таких случаях необходимо создать виртуальный дескриптор:
+In such cases a virtual descriptor must be created:
 
 [source,java]
 ----
@@ -19,18 +19,18 @@ public @interface ModuleInfo {
 }
 ----
 
-Виртуальным дескриптором является пользовательская аннотация, удовлетворяющая следующим требованиям:
+A virtual descriptor is a custom annotation that meets the following requirements:
 
-. Имя виртуального дескриптора является фиксированным и равно: `ModuleInfo`.
-. Аннотация должна находится в пакете по-умолчанию (`unnamed package`).
-. Аннотация должна быть доступна только в процессе компиляции: `@Retention(SOURCE)`.
-. Аннотация должна содержать пустой список targets: `@Target({})`.
+. The name of the virtual descriptor is fixed and equal to: `ModuleInfo`.
+. The annotation must be contained in the default package (`unnamed package`).
+. The annotation should be available only during the compilation process: `@Retention(SOURCE)`.
+. The annotation must contain an empty list of targets: `@Target({})`.
 
 [TIP]
 ====
-Так как виртуальный дескриптор доступен только в процессе компиляции, то в процессе сборки `uber.jar` данную аннотацию можно не включать в результирующий `jar`.
+Since the virtual descriptor is available only during the compilation process, then during the `uber.jar` build process this annotation can be excluded from the resulting `jar`.
 
-Именно поэтому <<java-integration-unnamed-module-uber-jar-maven-shade-plugin,при настройке `maven-shade-plugin` была добавлена следующая настройка>>:
+Therefore, <<java-integration-unnamed-module-uber-jar-maven-shade-plugin,when setting the `maven-shade-plugin`, the following setting was added>>:
 
 [source,xml]
 ----
@@ -45,13 +45,13 @@ public @interface ModuleInfo {
 ----
 ====
 
-===== Конфигурирование процесса генерации кода для Rest Controller
+===== Configuration of the Code Generation Process for Rest Controller
 
-RxMicro предоставляет возможность конфигурировать процесс генерации кода для REST контроллеров.
-Для этих целей необходимо использовать аннотацию `@RestServerGeneratorConfig`, с помощью которой аннотируется
-<<rest-controller#rest-controller-rest-server-generator-config-section,дескриптор модуля `module-info.java`>>.
+The RxMicro framework provides the option to configure the code generation process for REST controllers.
+For this purpose, the `@RestServerGeneratorConfig` annotation should be used to annotate the
+<<rest-controller#rest-controller-rest-server-generator-config-section,`module-info.java` module descriptor>>.
 
-Для `unnamed module` вместо дескриптора модуля `module-info.java`, используйте аннотацию `ModuleInfo`:
+For the `unnamed module` instead of the `module-info.java` module descriptor, use the `ModuleInfo` annotation:
 
 [source,java]
 ----
@@ -65,13 +65,13 @@ include::../../___notes/recompile-after-change.adoc[]
 
 <<<
 
-===== Конфигурирование процесса генерации кода для Rest Client
+===== Configuration of the Code Generation Process for Rest Client
 
-RxMicro предоставляет возможность конфигурировать процесс генерации кода для REST клиентов.
-Для этих целей необходимо использовать аннотацию `@RestClientGeneratorConfig`, с помощью которой аннотируется
-<<rest-client#rest-client-rest-client-generator-config-section,дескриптор модуля `module-info.java`>>.
+The RxMicro framework provides the option to configure the code generation process for REST clients.
+For this purpose, the `@RestClientGeneratorConfig` annotation should be used to annotate the
+<<rest-client#rest-client-rest-client-generator-config-section,`module-info.java` module descriptor>>.
 
-Для `unnamed module` вместо дескриптора модуля `module-info.java`, используйте аннотацию `ModuleInfo`:
+For the `unnamed module` instead of the `module-info.java` module descriptor, use the `ModuleInfo` annotation:
 
 [source,java]
 ----
@@ -87,10 +87,10 @@ include::../../___notes/recompile-after-change.adoc[]
 
 ===== REST-based Microservice Metadata Configuration
 
-The RxMicro framework предоставляет возможность конфигурировать процесс генерации REST-based microservice documentation с помощью аннотаций.
-Данными аннотациями аннотируется <<project-documentation#project-documentation-metadata-annotations-section,дескриптор модуля `module-info.java`>>.
+The RxMicro framework provides the option to configure the REST-based microservice documentation generation process, using the annotations.
+These annotations annotate the <<project-documentation#project-documentation-metadata-annotations-section,`module-info.java` module descriptor>>.
 
-Для `unnamed module` вместо дескриптора модуля `module-info.java`, используйте аннотацию `ModuleInfo`:
+For the `unnamed module` instead of the `module-info.java` module descriptor, use the `ModuleInfo` annotation:
 
 [source,java]
 ----

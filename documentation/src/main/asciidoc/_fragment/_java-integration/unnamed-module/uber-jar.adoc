@@ -11,7 +11,7 @@ This means that the JAR functions as an "all-in-one" distribution of the softwar
 
 _(You still need a Java runtime, and an underlying operating system, of course.)_
 
-Для сборки микросервисного проекта в виде `uber.jar`, необходимо активировать режим `unnamed module` и настроить `maven-shade-plugin`.
+To build a microservice project in the form of `uber.jar`, You need to enable the `unnamed module` mode and configure the `maven-shade-plugin`.
 
 ===== Enable the `unnamed module` Mode
 
@@ -42,26 +42,26 @@ To enable the `unnamed module` mode, add the `RX_MICRO_BUILD_UNNAMED_MODULE` com
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/unnamed-module-uber-jar/pom.xml[tags=content,indent=0]
 ----
-<1> Необходимо указать класс с методом `main`, который будет использоваться как точка входа в микросервис.
-<2> Результирующий `uber.jar` не должен содержать виртуальный дескриптор модуля, так как данный дескриптор необходим только на уровне компиляции.
-_(Подробнее об виртуальном дескрипторе можно ознакомится в <<java-integration-unnamed-module-module-config>>.)_
-<3> Результирующий `uber.jar` может быть уменьшен за счет исключения не используемых классов и пакетов.
+<1> It is necessary to specify a class with the `main` method, which will be used as an entry point into the microservice.
+<2> The resulting `uber.jar` must not contain the module virtual descriptor, as this descriptor is only needed at the compilation level.
+_(More information about the virtual descriptor can be found in <<java-integration-unnamed-module-module-config>>.)_
+<3> The resulting `uber.jar` can be reduced by excluding unused classes and packages.
 
 [TIP]
 ====
-Плагин `maven-shade-plugin` автоматически удаляет из результирующего `uber.jar` все `module-info.class`, поэтому все RxMicro модули будут работать в режиме `unnamed module`!
+The `maven-shade-plugin` plugin automatically removes all `module-info.class` from the resulting `uber.jar`, so all RxMicro modules will work in the `unnamed module` mode!
 ====
 
 ===== Rebuild Project
 
-После настройки `pom.xml` необходимо пересобрать проект:
+After `pom.xml` setting, it is necessary to rebuild the project:
 
 [source,txt,subs="verbatim,quotes"]
 ----
 *mvn* clean package
 ----
 
-В результате будет создан `uber.jar` со всеми необходимыми зависимостями:
+As a result, the `uber.jar` with all the necessary dependencies will be created:
 
 [source,txt,subs="verbatim,quotes"]
 ----
@@ -70,12 +70,12 @@ _(Подробнее об виртуальном дескрипторе можн
 -rw-rw-r-- 1 nedis nedis *1,4M* Mar 28 11:03 *unnamed-module-uber-jar-1.0-SNAPSHOT.jar*          # <1>
 -rw-rw-r-- 1 nedis nedis *9,8K* Mar 28 11:03 original-unnamed-module-uber-jar-1.0-SNAPSHOT.jar # <2>
 ----
-<1> Размер `uber.jar` равен *1,4 MB*.
-<2> Размер оригинального jar файла равен *9.8 KB*.
+<1> The `uber.jar` size is equal to *1,4 MB*.
+<2> The size of the original jar file is equal to *9.8 KB*.
 
-`uber.jar` содержит исходный код микросервисного проекта, код of the RxMicro and the Netty frameworks:
+The `uber.jar` contains the source code of the microservice project, the code of the RxMicro and the Netty frameworks:
 
-.Содержимое `uber.jar` для простого микросервисного проекта
+.The `uber.jar` content for a simple microservice project
 image::java-integration/uber-jar-content.jpg[]
 
 ===== Run `uber.jar`
@@ -90,7 +90,7 @@ To run `uber.jar` it is necessary to provider jar file only:
 Server started at 0.0.0.0:8080 using NETTY transport in 500 millis # <1>
 ----
 
-<1> Сообщение формата `Server started in ... millis` означает, что RxMicro HTTP сервер успешно запустился.
+<1> The `Server started in ... millis` message format means that the RxMicro HTTP server has been successfully started.
 
 [NOTE]
 ====

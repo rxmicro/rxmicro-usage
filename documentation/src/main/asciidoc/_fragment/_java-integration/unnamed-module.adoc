@@ -4,7 +4,7 @@ include::../___fragment-settings.adoc[]
 [[java-integration-unnamed-module]]
 === Unnamed Modules Support
 
-https://openjdk.java.net/projects/jdk9/[21 September 2017] Java 9 ввела в использование https://www.oracle.com/corporate/features/understanding-java-9-modules.html[JPMS^].
+https://openjdk.java.net/projects/jdk9/[On September 21, 2017], Java 9 has introduced https://www.oracle.com/corporate/features/understanding-java-9-modules.html[JPMS^].
 
 [TIP]
 ====
@@ -20,14 +20,14 @@ The name of the modules will be derived from the name of the appropriate JAR fil
 Unnamed modules disable the JPMS and allow to run any code that does not support the JPMS on Java 9 or higher.
 ====
 
-Однако на сегодняшний день большая часть существующих фреймворком и библиотек ориентированы на https://openjdk.java.net/projects/jdk8/[JDK 8] и не поддерживают JPMS.
+Currently, the majority of existing frameworks and libraries are focused on https://openjdk.java.net/projects/jdk8/[JDK 8] and do not support JPMS.
 
-Для поддержки совместимости с библиотеками, которые не поддерживают JPMS, Java 9 предоставляет механизм `unnamed modules`.
+To support compatibility with libraries that do not support JPMS, Java 9 provides the `unnamed modules` mechanism.
 
-Особенностью данного механизма является то, что код, написанный на Java 9 и выше не использует дескриптор модуля `module-info.java` и использует `class-path` вместо `module-path`.
-Для интеграции с библиотеками, которые не поддерживают JPMS, the RxMicro framework позволяет активировать режим `unnamed module` для the `RxMicro Annotation Processor`.
+The feature of this mechanism is that the code written in Java 9 and higher does not use the `module-info.java` module descriptor, and uses `class-path` instead of `module-path`.
+For integration with libraries that do not support JPMS, the RxMicro framework allows You to enable the `unnamed module` mode for the `RxMicro Annotation Processor`.
 
-Для активации данного режима, необходимо в настройках `maven-compiler-plugin` добавить конфигурационный параметр `RX_MICRO_BUILD_UNNAMED_MODULE`:
+To enable this mode, You need to add the `RX_MICRO_BUILD_UNNAMED_MODULE` configuration parameter to the `maven-compiler-plugin` settings:
 
 [source,xml]
 ----
