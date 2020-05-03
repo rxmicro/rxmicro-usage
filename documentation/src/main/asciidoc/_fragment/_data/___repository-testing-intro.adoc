@@ -1,4 +1,4 @@
-Для успешного функционального тестирования динамических репозиториев, которые взаимодействуют с {link}[`{name}`^] необходимо:
+For successful functional testing of dynamic repositories, that interact with {link}[`{name}`^], it is required:
 
-* Наличие скрипта создающего тестовую базу данных.
-* Механизм подготовки базы данных к тестированию: создание базы данных перед запуском теста и удаление базы данных после завершения тестирования.
+* Presence of a script that creates a test database.
+* Mechanism for preparing a database for testing: creating a database before starting the test and deleting a database after completing the test.

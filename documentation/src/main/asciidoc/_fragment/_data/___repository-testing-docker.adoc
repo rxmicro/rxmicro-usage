@@ -10,63 +10,63 @@ ifndef::test-template-owner[]
 :personal-template-source-code: ../../../../../../examples/data-mongo-basic/src/test/java/io/rxmicro/examples/data/mongo/basic/DataRepositoryTestTemplate2.java
 endif::[]
 
-В качестве механизма подготовки базы данных к тестированию (создание базы данных перед запуском теста и удаление базы данных после завершения тестирования) удобнее всего использовать https://www.docker.com/[`docker`^].
+As a mechanism for preparing a database for testing (creating a database before starting the test and deleting a database after completing the test), it is most convenient to use https://www.docker.com/[`docker`^].
 
-Для запуска `docker` контейнеров в функциональном тесте удобно использовать Java библиотеку https://www.testcontainers.org/[`Testcontainers`^]:
+To start `docker` containers in the functional test it is convenient to use the https://www.testcontainers.org/[`Testcontainers`^] Java library:
 
 [source,java]
 ----
 include::{shared-template-source-code}[tag=content,indent=0]
 ----
-<1> Аннотация {TESTCONTAINERS-JUNIT-DOC-ROOT-URL}org/testcontainers/junit/jupiter/Testcontainers.java[`@Testcontainers`^]
-активирует запуск и остановку `docker` контейнеров, которые будут использоваться в данном тесте.
-<2> Т.к. динамический репозиторий является полноценным RxMicro компонентом, то для его тестирования необходимо использовать <<testing#testing-component-tests-section,подход к тестированию компонентов микросервиса>>.
-<3> Аннотация {TESTCONTAINERS-JUNIT-DOC-ROOT-URL}org/testcontainers/junit/jupiter/Container.java[`@Container`^]
-указывает на `docker` контейнер, который будет использован в данном тесте.
-В качестве образа на базе которого необходимо создать `docker` контейнер используется готовый образ {db-link}[`{db-name}`^] с тестовой базой данных:
-{docker-test-db-link}[`{docker-test-db-name}`^].
-<4> При старте `docker` контейнера необходимо открыть стандартный порт для {db-link}[`{db-name}`^].
-<5> С помощью аннотации {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/WithConfig.java[`@WithConfig`^]
-объявляется конфигурация доступная только в процессе выполнения теста.
-<6> Настройка конфигурации для взаимодействия с тестовой базой данных.
-<7> Перед запуском всех тестов необходимо запустить `docker` контейнер.
-<8> После запуска `docker` контейнер, необходимо считать случайный IP address и порт, которые будут использоваться при подключении к запущенному `docker` контейнеру.
-<9> При тестировании <<testing#testing-component-tests-section,компонентов микросервиса>> необходимо указать ссылку на компонент, в которую the RxMicro framework внедрит тестируемый компонент.
-<10> После завершения всех тестов, необходимо остановить `docker` контейнер.
+<1> The {TESTCONTAINERS-JUNIT-DOC-ROOT-URL}org/testcontainers/junit/jupiter/Testcontainers.java[`@Testcontainers`^]
+annotation activates the start and stop of the `docker` containers to be used in this test.
+<2> Since the dynamic repository is a RxMicro component, for its testing You need to use <<testing#testing-component-tests-section,the microservice component testing approach>>.
+<3> The {TESTCONTAINERS-JUNIT-DOC-ROOT-URL}org/testcontainers/junit/jupiter/Container.java[`@Container`^]
+annotation indicates the `docker` container that will be used in this test.
+As an image on the basis of which it is necessary to create the `docker` container, the {db-link}[`{db-name}`^] ready-made image with the
+{docker-test-db-link}[`{docker-test-db-name}`^] test database is used.
+<4> When starting the `docker` container, You need to open the standard port for {db-link}[`{db-name}`^].
+<5> Using the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/WithConfig.java[`@WithConfig`^]
+annotation, the configuration available only during the test is declared.
+<6> Setting up the configuration to interact with the test database.
+<7> Before running all tests, You must start the `docker` container.
+<8> After starting the `docker` container, You need to read the random IP address and port that will be used when connecting to the running `docker` container.
+<9> When testing <<testing#testing-component-tests-section,microservice components>>, it is necessary to specify a reference to the component in which the RxMicro framework will inject the tested component.
+<10> After completing all the tests, You must stop the `docker` container.
 
-Основное преимущество данного шаблона заключается в скорости тестирования.
-Т.к. `docker` контейнер создается один раз перед запуском *всех* тестовых методов, то суммарное время выполнения всех тестовых методов уменьшается.
-Основной недостаток данного шаблона заключается в том, что если какой-либо тестовый метод изменит состояние {db-link}[`{db-name}`^], то следующий тестовый метод может завершится с ошибкой.
+The main advantage of this template is the speed of testing.
+Since the `docker` container is created once before starting *all* test methods, the total runtime of all test methods is reduced.
+The main disadvantage of this template is that if any test method changes the {db-link}[`{db-name}`^] state, the following test method may end with an error.
 
-*Поэтому данный шаблон функционального теста рекомендуется использовать при запросах к {db-link}[`{db-name}`^], которые не изменяют состояния базы данных!*
+*Therefore, this functional test template should be used for queries to {db-link}[`{db-name}`^] that do not change the database state!*
 
-Если необходимо тестировать методы, которые изменяют состояние {db-link}[`{db-name}`^], то следует использовать другой шаблон:
+If You need to test methods that change the {db-link}[`{db-name}`^] state, You should use another template:
 
 [source,java]
 ----
 include::{personal-template-source-code}[tag=content,indent=0]
 ----
-<1> Аннотация {TESTCONTAINERS-JUNIT-DOC-ROOT-URL}org/testcontainers/junit/jupiter/Testcontainers.java[`@Testcontainers`^]
-активирует запуск и остановку `docker` контейнеров, которые будут использоваться в данном тесте.
-<2> Т.к. динамический репозиторий является полноценным RxMicro компонентом, то для его тестирования необходимо использовать <<testing#testing-component-tests-section,подход к тестированию компонентов микросервиса>>
-<3> Аннотация {TESTCONTAINERS-JUNIT-DOC-ROOT-URL}org/testcontainers/junit/jupiter/Container.java[`@Container`^]
-указывает на `docker` контейнер, который будет использован в данном тесте.
-В качестве образа на базе которого необходимо создать `docker` контейнер используется готовый образ {db-link}[`{db-name}`^] с тестовой базой данных:
-{docker-test-db-link}[`{docker-test-db-name}`^].
-<4> При старте `docker` контейнера необходимо открыть стандартны порт для {db-link}[`{db-name}`^].
-<5> С помощью аннотации {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/WithConfig.java[`@WithConfig`^]
-объявляется конфигурация доступная только в процессе выполнения теста.
-<6> Настройка конфигурации для взаимодействия с тестовой базой данных.
-<7> При тестировании <<testing#testing-component-tests-section,компонентов микросервиса>> необходимо указать ссылку на компонент, в которую the RxMicro framework внедрит тестируемый компонент.
-<8> После запуска `docker` контейнер, необходимо считать случайный IP address и порт, которые будут использоваться при подключении к запущенному `docker` контейнеру.
+<1> The {TESTCONTAINERS-JUNIT-DOC-ROOT-URL}org/testcontainers/junit/jupiter/Testcontainers.java[`@Testcontainers`^]
+annotation activates the start and stop of the `docker` containers to be used in this test.
+<2> Since the dynamic repository is a RxMicro component, for its testing You need to use <<testing#testing-component-tests-section,the microservice component testing approach>>
+<3> The {TESTCONTAINERS-JUNIT-DOC-ROOT-URL}org/testcontainers/junit/jupiter/Container.java[`@Container`^]
+annotation indicates the `docker` container that will be used in this test.
+As an image on the basis of which it is necessary to create the `docker` container, the {db-link}[`{db-name}`^] ready-made image with the
+{docker-test-db-link}[`{docker-test-db-name}`^] test database is used.
+<4> When starting the `docker` container, You need to open the standard port for {db-link}[`{db-name}`^].
+<5> Using the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/WithConfig.java[`@WithConfig`^]
+annotation, the configuration available only during the test is declared.
+<6> Setting up the configuration to interact with the test database.
+<7> When testing <<testing#testing-component-tests-section,microservice components>>, it is necessary to specify a reference to the component in which the RxMicro framework will inject the tested component.
+<8> After starting the `docker` container, You need to read the random IP address and port that will be used when connecting to the running `docker` container.
 
-Данный шаблон *для каждого тестового метода* будет создавть и останавливать `docker` контейнер, что может увеличить суммарное время выполнения всех тестовых методов.
+This template *for each test method* will create and drop the `docker` container, which may increase the total runtime of all test methods.
 
-*Поэтому выбирайте наиболее подходящий шаблон функционального теста исходя из требований к тестируемому функционалу!*
+*Therefore, select the most appropriate functional test template based on the requirements of the tested functionality!*
 
 [IMPORTANT]
 ====
-Библиотека https://www.testcontainers.org/[`Testcontainers`^] запускает `docker` контейнер перед запуском теста и останавливает `docker` контейнер после выполнения теста автоматически!
+The https://www.testcontainers.org/[`Testcontainers`^] library starts the `docker` container before running the test and stops the `docker` container automatically after completing the test!
 
-Поэтому запускать и останавливать `docker` контейнер нужно вручную только, если Вы хотите использовать один `docker` контейнер для *всех* тестовых методов!
+So You should start and stop the `docker` container manually only if You want to use one `docker` container for *all* test methods!
 ====

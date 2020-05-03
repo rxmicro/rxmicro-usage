@@ -28,7 +28,7 @@ By default, the https://github.com/r2dbc/r2dbc-postgresql[reactive R2DBC Postgre
 so when adding the `rxmicro.data.sql.r2dbc.postgresql` module, the `reactor.core` module is automatically added and available for usage!
 ====
 
-After adding the `rxmicro.data.sql.r2dbc.postgresql` module, You can create a data storage model class and dynamic repository:
+After adding the `rxmicro.data.sql.r2dbc.postgresql` module, You can create a data model class and dynamic repository:
 
 [source,java]
 ----
