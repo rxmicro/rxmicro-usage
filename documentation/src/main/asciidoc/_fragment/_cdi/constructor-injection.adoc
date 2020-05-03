@@ -6,24 +6,24 @@ include::../___fragment-settings.adoc[]
 [[cdi-constructor-injection-section]]
 === Constructor Injection
 
-The RxMicro framework поддерживает также внедрение с помощью конструктора:
+The RxMicro framework also supports constructor injection:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-constructor-injection/src/main/java/io/rxmicro/examples/cdi/constructor/injection/BusinessServiceFacade.java[tag=content,indent=0]
 ----
-<1> Для активации внедрения с помощью конструктора, необходимо создать конструктор с параметрами и аннотировать его аннотацией
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@Inject`^] или
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Autowired.java[`@Autowired`^].
+<1> To enable constructor injection, it is necessary to create a constructor with parameters and annotate it by the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@Inject`^] or
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Autowired.java[`@Autowired`^] annotation.
 
-При использовании механизма внедрения с помощью конструктора, данный конструктор вызывается by the RxMicro framework автоматически:
+When using the constructor injection mechanism, this constructor is automatically invoked by the RxMicro framework:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-constructor-injection/src/test/java/io/rxmicro/examples/cdi/constructor/injection/BusinessServiceFacadeTest.java[tag=content,indent=0]
 ----
 
-Внедрение с помощью конструктора требует написания большего количества кода, но также позволяет создавать `final` поля, которые являются injection points.
+Constructor injection requires more code to be written, but also allows You to create `final` fields as injection points.
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-constructor-injection
 include::../___notes/full-source-code-of-example.adoc[]

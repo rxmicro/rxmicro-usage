@@ -6,36 +6,36 @@ include::../___fragment-settings.adoc[]
 [[cdi-factory-method-section]]
 === Factory Method
 
-При использовании механизмов внедрения зависимостей, the RxMicro framework самостоятельно создает объекты заданных классов и внедряет ссылки на них to injection points.
-Для успешной реализации данного поведения необходимо, чтобы каждый класс, объект которого должен быть внедрен содержал доступный конструктор без параметров или конструктор аннотированный аннотацией
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@Inject`^] или
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Autowired.java[`@Autowired`^].
+When using the dependency injection mechanisms, the RxMicro framework creates instances of the specified classes and injects links to them to injection points.
+For successful implementation of this behavior, each class, the instance of which should be injected, must contain an accessible constructor without parameters or a constructor annotated by the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@Inject`^] or
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Autowired.java[`@Autowired`^] annotation.
 
-Т.е. the RxMicro framework определяет объект какого класса должен быть создан и создает этот объект автоматически при старте of the CDI container.
-Если необходимо получить больший контроль над созданием объекта реализации, необходимо использовать шаблон Factory Method:
+In other words, the RxMicro framework determines the instance of which class should be created and creates this instance automatically at the start of the CDI container.
+If it is necessary to get more control over creation of the implementation instance, it is necessary to use the Factory Method template:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-factory-method/src/main/java/io/rxmicro/examples/cdi/factory/method/BusinessServiceFacade.java[tag=content,indent=0]
 ----
-<1> Класс должен содержать статический метод, аннотированный аннотацией {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Factory.java[`@Factory`^]
-<2> Приватный конструктор ограничивает возможность создания объекта данного класса извне.
-Таким образом объект данного класса может быть создан только используя фабричный метод `create()`.
+<1> The class must contain the static method annotated by the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Factory.java[`@Factory`^]annotation.
+<2> The private constructor restricts the possibility of creating the instance of this class externally.
+Thus, the instance of this class can only be created using the `create()` factory method.
 
-Если the RxMicro framework обнаруживает метод в классе, аннотированный аннотацией {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Factory.java[`@Factory`^], то при создании объекта данного класса использует именно этот метод, а не констуктор:
+If the RxMicro framework detects a method in the class, annotated by the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Factory.java[`@Factory`^]annotation, then this method is used instead of the constructor when creating the instance of this class:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-factory-method/src/test/java/io/rxmicro/examples/cdi/factory/method/BusinessServiceFacadeTest.java[tag=content,indent=0]
 ----
 
-Фабричный метод должен удовлетворять следующим требованиям:
+The factory method must meet the following requirements:
 
-* Метод должен быть статическим.
-* Метод должен быть ненативным.
-* Метод должен быть несинхронизируемым.
-* Метод должен возвращать объект класса, в котором он объявлен.
-* Метод не должен содержать параметры.
+* The method must be static.
+* The method must be non-native.
+* The method must not be synchronized.
+* The method must return the class instance in which it is declared.
+* The method must not contain parameters.
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-factory-method
 include::../___notes/full-source-code-of-example.adoc[]

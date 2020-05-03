@@ -6,20 +6,20 @@ include::../___fragment-settings.adoc[]
 [[cdi-singletons-section]]
 === All Beans are Singletons!
 
-The RxMicro framework ориентирован на создание микросервисных проектов.
-Одним из ключевых особенностей микросервисов является их простота.
-Именно поэтому в качестве основного и единственного scope был выбран `singleton` scope.
+The RxMicro framework focuses on creating microservice projects.
+One of the key features of microservices is their simplicity.
+That's why `singleton` scope was chosen as the main and only one.
 
-Таким образом *все CDI компоненты являются `singletons`!*
+Thus, *all CDI components are `singletons`!*
 
-Это означает что в момент запуска микросервисного проекта создается *только один объект* класса реализации компонента и внедряется во все необходимые injection points.
+It means that when starting a microservice project, *only one instance* of the component implementation class is created and injected into all necessary injection points.
 
 [NOTE]
 ====
-Если необходимо to each injection point внедрять отдельный объект класса реализации (`prototype` scope), то в этом случае необходимо использовать <<cdi-factory-class-section, фабрику, создающую объекты заданного класса>>!
+If it is necessary to inject a separate implementation class instance (`prototype` scope) to each injection point, then You must use  <<cdi-factory-class-section, the factory that creates instances of the given class>>!
 ====
 
-Данное поведение может быть проверено с помощью следующего кода:
+This behavior can be checked with the following code:
 
 [source,java]
 ----
@@ -35,7 +35,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-singletons/src/main/java/i
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-singletons/src/test/java/io/rxmicro/examples/cdi/singletons/BusinessServiceFacadeTest.java[tag=content,indent=0]
 ----
-<1> Так как класс `BusinessServiceImpl` реализует два интерфейса, то при внедрении разных с точки зрения интерфейсов типов внедряется один и тотже объект реализации!
+<1> Since the `BusinessServiceImpl` class implements two interfaces, the same implementation instance is injected when injecting different types of interfaces!
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-singletons
 include::../___notes/full-source-code-of-example.adoc[]

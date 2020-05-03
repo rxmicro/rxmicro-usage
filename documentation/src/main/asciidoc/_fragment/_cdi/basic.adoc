@@ -6,23 +6,23 @@ include::../___fragment-settings.adoc[]
 [[cdi-basic-section]]
 === Basic Usage
 
-Для использования модуля `rxmicro.cdi` в проекте, необходимо выполнить два шага:
+To use the `rxmicro.cdi` module in the project, the following two steps must be taken:
 
-* Подключить зависимость `rxmicro-cdi` в файл `pom.xml`:
+* Add the `rxmicro-cdi` dependency to the `pom.xml` file:
 
 [source,xml]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-basic/pom.xml[tag=content,indent=0]
 ----
 
-* Добавить модуль `rxmicro.cdi` в дескриптор `module-info.java`:
+* Add the `rxmicro.cdi` module to the `module-info.java` descriptor:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-basic/src/main/java/module-info.java[tag=content,indent=0]
 ----
 
-После подключения модуля `rxmicro.cdi` можно создавать бизнес сервис:
+After adding the `rxmicro.cdi` module, You can create a business service:
 
 [source,java]
 ----
@@ -34,33 +34,33 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-basic/src/main/java/io/rxm
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-basic/src/main/java/io/rxmicro/examples/cdi/basic/BusinessServiceImpl.java[tag=content,indent=0]
 ----
 
-Для внедрения реализации бизнес сервиса, необходимо испрользовать аннотацию
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@Inject`^]:
+In order to inject a business service implementation, it is necessary to use the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@Inject`^] annotation:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-basic/src/main/java/io/rxmicro/examples/cdi/basic/RestController.java[tag=content,indent=0]
 ----
-<1> Использование аннотации {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@io.rxmicro.cdi.Inject`^]
-ничем принципиальным не отличается от использования аннотаций
-https://docs.oracle.com/javaee/6/api/javax/inject/Inject.html[`@javax.inject.Inject`^] или
-https://google.github.io/guice/api-docs/latest/javadoc/index.html?com/google/inject/Inject.html[`@com.google.inject.Inject`^].
+<1> The usage of the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@io.rxmicro.cdi.Inject`^]
+annotation does not differ fundamentally from that of the
+https://docs.oracle.com/javaee/6/api/javax/inject/Inject.html[`@javax.inject.Inject`^] or
+https://google.github.io/guice/api-docs/latest/javadoc/index.html?com/google/inject/Inject.html[`@com.google.inject.Inject`^] annotations.
 
-Корректность внедрения может быть проверена с помощью <<testing#testing-rest-based-microservice-tests-section, теста REST-based микросервиса>>:
+The correctness of injection can be checked using <<testing#testing-rest-based-microservice-tests-section, REST-based microservice test>>:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-basic/src/test/java/io/rxmicro/examples/cdi/basic/RestControllerTest.java[tag=content,indent=0]
 ----
 
-Реализация бизнес сервиса может быть внедрена не только в REST контроллер, но и в любой компонент:
+Business service implementation can be injected not only into REST controller, but into any component:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-basic/src/main/java/io/rxmicro/examples/cdi/basic/BusinessServiceFacade.java[tag=content,indent=0]
 ----
 
-Так как внедрение выполняется в обычный компонент, то для тестирования необходимо использовать <<testing#testing-component-tests-section,подход к тестированию компонентов микросервиса>>:
+Since the injection is performed into any component, it is necessary to use <<testing#testing-component-tests-section,the microservice component testing approach>>:
 
 [source,java]
 ----

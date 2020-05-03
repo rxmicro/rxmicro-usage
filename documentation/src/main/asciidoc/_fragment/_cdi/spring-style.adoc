@@ -6,12 +6,12 @@ include::../___fragment-settings.adoc[]
 [[cdi-spring-style-section]]
 === Dependency Injection Using Spring Style
 
-Разработчики, которые имеют богатый опыт использования Spring в своих предыдущих проектах могут вместо аннотаций:
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@Inject`^] и
+The developers with a rich experience in using Spring in their previous projects can instead of the following annotations:
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@Inject`^] and
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Named.java[`@Named`^]
-использовать соответсвенно аннотации
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Autowired.java[`@Autowired`^] и
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Qualifier.java[`@Qualifier`^], которые абсолютно аналогичные по возможностям:
+use the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Autowired.java[`@Autowired`^] and
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Qualifier.java[`@Qualifier`^] annotations respectively, which are absolutely similar in features:
 
 [source,java]
 ----
@@ -27,16 +27,16 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-spring-style/src/main/java
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-spring-style/src/main/java/io/rxmicro/examples/cdi/spring/style/BusinessServiceFacade.java[tag=content,indent=0]
 ----
-<1> Для внедрения в поле `businessService1` объекта класса `ProductionBusinessService`, необходимо в параметре аннотации
+<1> To inject the `ProductionBusinessService` class instance in the `businessService1` field, it is necessary in the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Qualifier.java[`@Qualifier`^]
-указать имя `Production`. +
-_(Это имя, которое задается явно для класса `ProductionBusinessService` с помощью аннотации
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Qualifier.java[`@Qualifier`^]!)_
-<2> Для внедрения в поле `businessService2` объекта класса `DevelopmentBusinessService`, необходимо в параметре аннотации
+annotation parameter specify the `Production` name. +
+_(This is the name that is set explicitly for the `ProductionBusinessService` class by the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Qualifier.java[`@Qualifier`^] annotation!)_
+<2> To inject the `DevelopmentBusinessService` class instance in the `businessService2` field, it is necessary in the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Qualifier.java[`@Qualifier`^]
-указать имя `Development`. +
-_(Это имя, которое задается явно для класса `DevelopmentBusinessService` с помощью аннотации
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Qualifier.java[`@Qualifier`^]!)_
+annotation parameter specify the `Development` name. +
+_(This is the name that is set explicitly for the `DevelopmentBusinessService` class by the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Qualifier.java[`@Qualifier`^] annotation!)_
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-spring-style
 include::../___notes/full-source-code-of-example.adoc[]

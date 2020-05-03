@@ -6,17 +6,17 @@ include::../___fragment-settings.adoc[]
 [[cdi-method-injection-section]]
 === Method Injection
 
-The RxMicro framework поддерживает также внедрение с помощью https://www.w3schools.com/java/java_encapsulation.asp[`setters` (method injection)^]:
+The RxMicro framework also supports injection with https://www.w3schools.com/java/java_encapsulation.asp[`setters` (method injection)^]:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-method-injection/src/main/java/io/rxmicro/examples/cdi/method/injection/BusinessServiceFacade.java[tag=content,indent=0]
 ----
-<1> Для активации внедрения с помощью https://www.w3schools.com/java/java_encapsulation.asp[`setters`^], необходимо создать `setter` и аннотировать его аннотацией
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@Inject`^] или
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Autowired.java[`@Autowired`^].
+<1> To enable the injection with https://www.w3schools.com/java/java_encapsulation.asp[`setters`^], it is necessary to create `setter` and annotate it by the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@Inject`^] or
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Autowired.java[`@Autowired`^] annotation.
 
-При использовании механизма внедрения с помощью https://www.w3schools.com/java/java_encapsulation.asp[`setters`^], данный метод вызывается by the RxMicro framework автоматически:
+When using the injection mechanism with https://www.w3schools.com/java/java_encapsulation.asp[`setters`^], this method is invoked automatically by the RxMicro framework:
 
 [source,java]
 ----

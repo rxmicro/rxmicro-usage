@@ -6,35 +6,35 @@ include::../___fragment-settings.adoc[]
 [[cdi-factory-class-section]]
 === Factory Class
 
-The RxMicro framework поддерживает создание классов-фабрик, которые могут использоваться для создания объектов других типов.
+The RxMicro framework supports creation of factory classes, that can be used to create instances of other types.
 
-Используя классы-фабрики возможно получить следующие преимущества:
+By using factory classes, it is possible to get the following benefits:
 
-* Создавать динамические классы.
-_(Например, используя класс {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/reflect/Proxy.html[`Proxy`^].)_
-* Реализовать a `prototype` scope.
+* Create dynamic classes.
+_(For example, using the {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/reflect/Proxy.html[`Proxy`^] class.)_
+* Implement a `prototype` scope.
 
-Для создания класса-фабрики необходимо:
+To create a factory class, it is necessary:
 
-* Создать класс, реализующий интерфейс {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/function/Supplier.html[`Supplier`^].
-* Аннотировать данный класс аннотацией {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Factory.java[`@Factory`^].
-* Реализовать метод `get`, который должен вернуть объект создаваемого класса.
+* Create a class implementing the {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/function/Supplier.html[`Supplier`^] interface.
+* Annotate this class by the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Factory.java[`@Factory`^]annotation.
+* Implement the `get` method, which should return the instance of the created class.
 
-Например для создания динамического класса, необходимо использовать следующий класс-фабрику:
+For example, to create a dynamic class, it is necessary to use the following factory class:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-factory-class/src/main/java/io/rxmicro/examples/cdi/factoryclass/BusinessServiceFactoryImpl.java[tag=content,indent=0]
 ----
 
-Внедрение объекта, создаваемого классом-фабрикой ничем не отличается от внедрения объекта, автоматически создаваемого by the RxMicro framework:
+Injection of an instance created by the factory class does not differ from injection of an instance automatically created by the RxMicro framework:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-factory-class/src/main/java/io/rxmicro/examples/cdi/factoryclass/BusinessServiceFacade.java[tag=content,indent=0]
 ----
 
-При вызове метода `getValue` динамический класс возвращает предопределенное значение:
+When invoking the `getValue` method, the dynamic class returns a predefined value:
 
 [source,java]
 ----

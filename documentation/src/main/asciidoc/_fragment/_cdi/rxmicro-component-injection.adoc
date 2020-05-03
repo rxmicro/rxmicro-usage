@@ -8,25 +8,25 @@ include::../___fragment-settings.adoc[]
 
 ==== Basic Usage
 
-Кроме пользовательских классов the RxMicro framework поддерживает возможность внедрения of the RxMicro components.
+Besides custom classes, the RxMicro framework supports the RxMicro components injection.
 
-Например, если в проекте объявлен декларативный REST client:
+For example, if a declarative REST client is declared in the project:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-rxmicro-component/src/main/java/io/rxmicro/examples/cdi/rxmicro/component/RESTClient.java[tag=content,indent=0]
 ----
 
-то вместо явного получения ссылки на объект класса реализации с помощью
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/RestClientFactory.java#L35[`RestClientFactory.getRestClient`^], разработчик может использовать механиз внедрения зависимостей:
+then instead of getting an explicit link to the implementation class instance using the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/RestClientFactory.java#L35[`RestClientFactory.getRestClient`^], the developer can use the dependency injection mechanism:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-rxmicro-component/src/main/java/io/rxmicro/examples/cdi/rxmicro/component/BusinessServiceFacade.java[tag=content,indent=0]
 ----
-<1> Для получения ссылки на класс-реализацию REST клиента, разработчик может использовать аннотацию {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@Inject`^].
-<2> Кроме внедрения REST клиентов, the RxMicro framework поддерживает также внедрение конфигураций. +
-_(Список всех поддерживаемых RxMicro компонентов, которые могут быть внедрены описаны в <<cdi-rx-micro-component-injection-all-supported-components-section>>.)_
+<1> To get a link to the REST client implementation class, the developer can use the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@Inject`^] annotation.
+<2> Besides injecting REST clients, the RxMicro framework also supports the configuration injection. +
+_(A list of all supported RxMicro components that can be injected is described in the <<cdi-rx-micro-component-injection-all-supported-components-section>>.)_
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-rxmicro-component
 include::../___notes/full-source-code-of-example.adoc[]
@@ -36,41 +36,41 @@ include::../___notes/recompile-after-change.adoc[]
 [[cdi-rx-micro-component-injection-all-supported-components-section]]
 ==== All Supported RxMicro Components
 
-В данном разделе описываются все поддерживаемые RxMicro components, которые могут быть внедрены в любой класс, используя механизмы внедрения.
+This section describes all supported RxMicro components that can be injected in any class using the injection mechanisms.
 
 .All Supported RxMicro Components.
 [cols="1,3"]
 |===
-|*Название*|*Характеристика*
+|*Name*|*Feature*
 
 |Config instance.
-|Любой класс, который наследуется от базового класса конфигураций: {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Config.java[`Config`^].
+|Any class that extends the basic configuration class: {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Config.java[`Config`^].
 
 _(For example: `MongoConfig`, `HttpClientConfig`, `HttpServerConfig`, etc.)_
 
 |Mongo repository.
-|Интерфейс, аннотированный аннотацией {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/MongoRepository.java[`@MongoRepository`^].
+|The interface annotated by the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/MongoRepository.java[`@MongoRepository`^] annotation.
 
 |Mongo client.
-|Предопределенный тип: {MONGO-ASYNC-REACTIVE_DOC}com/mongodb/reactivestreams/client/MongoClient.html[`com.mongodb.reactivestreams.client.MongoClient`^]
+|Predefined type: {MONGO-ASYNC-REACTIVE_DOC}com/mongodb/reactivestreams/client/MongoClient.html[`com.mongodb.reactivestreams.client.MongoClient`^]
 
 |PostgreSQL repository.
-|Интерфейс, аннотированный аннотацией {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql-r2dbc-postgresql/src/main/java/io/rxmicro/data/sql/r2dbc/postgresql/PostgreSQLRepository.java[`@PostgreSQLRepository`^].
+|The interface annotated by the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql-r2dbc-postgresql/src/main/java/io/rxmicro/data/sql/r2dbc/postgresql/PostgreSQLRepository.java[`@PostgreSQLRepository`^] annotation.
 
 |R2DBC connection factory.
-|Предопределенный тип: {R2DBC-JAVADOC-ROOT-URL}io/r2dbc/spi/ConnectionFactory.html[`io.r2dbc.spi.ConnectionFactory`^].
+|Predefined type: {R2DBC-JAVADOC-ROOT-URL}io/r2dbc/spi/ConnectionFactory.html[`io.r2dbc.spi.ConnectionFactory`^].
 
 |R2DBC connection pool.
-|Предопределенный тип: {R2DBC-JAVADOC-POOL-URL}io/r2dbc/pool/ConnectionPool.html[`io.r2dbc.pool.ConnectionPool`^].
+|Predefined type: {R2DBC-JAVADOC-POOL-URL}io/r2dbc/pool/ConnectionPool.html[`io.r2dbc.pool.ConnectionPool`^].
 
 |REST client.
-|Интерфейс, аннотированный аннотацией {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/RestClient.java[`@RestClient`^].
+|The interface annotated by the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/RestClient.java[`@RestClient`^] annotation.
 
 |===
 
 [TIP]
 ====
-Исходный код проекта, демонстрирующего все поддерживаемые для внедрения RxMicro components, доступен по ссылке:
+The source code of the project demonstrating all supported for injection RxMicro components is available at the following link:
 
 [.example-code-link]
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-all-rxmicro-components[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-all-rxmicro-components`^]

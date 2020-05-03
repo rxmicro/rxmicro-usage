@@ -6,11 +6,11 @@ include::../___fragment-settings.adoc[]
 [[cdi-multibindings-section]]
 === Multibindings
 
-The RxMicro framework поддерживает *Multibindings*.
+The RxMicro framework supports *Multibindings*.
 
-*Multibindings* - это функция of the CDI container, которая позволяет найти все реализации данного типа и внедрить их.
+*Multibindings* is a function of the CDI container, that allows You to find all implementations of this type and inject them.
 
-Например, если существует два класса реализации интерфейса `BusinessService`:
+For example, if there are two implementation classes of the `BusinessService` interface:
 
 [source,java]
 ----
@@ -22,14 +22,14 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-multibinder/src/main/java/
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-multibinder/src/main/java/io/rxmicro/examples/cdi/multibinder/impl/DevelopmentBusinessService.java[tag=content,indent=0]
 ----
 
-то объекты данных классов могут быть внедрены by the RxMicro framework в поле типа {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/Set.html[`java.util.Set`^]:
+then the instances of these classes can be injected by the RxMicro framework into the {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/Set.html[`java.util.Set`^] type field:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-multibinder/src/main/java/io/rxmicro/examples/cdi/multibinder/BusinessServiceFacade.java[tag=content,indent=0]
 ----
 
-После успешного внедрения поле `businessServices` будет содержать объекты классов `ProductionBusinessService` и `DevelopmentBusinessService`:
+After successful injection, the `businessServices` field will contain the `ProductionBusinessService` and `DevelopmentBusinessService` class instances:
 
 [source,java]
 ----

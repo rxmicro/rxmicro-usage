@@ -3,49 +3,49 @@ include::../___fragment-settings.adoc[]
 
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
 
-=== Разрешение неоднозначностей
+=== Ambiguity Resolving
 
-Если в текущем модуле проекта присутсвует два и больше реализаций одного и того же интерфейса, то в процессе of dependencies injection может возникнуть проблема разрешения неоднозначностей.
-Данная проблема возникает из-за того, что в поле с типом интерфейса потенциально can be injected an implementation of любого из классов наследников данного интерфейса.
+If there are two or more implementations of the same interface in the current project module, the problem of ambiguity resolving may arise in the process of dependencies injection.
+In the field with the interface type potentially can be injected an implementation of any of the child classes of this interface, that's why such a problem occurs.
 
-Для однозначного решения такого рода проблем, RxMicro использует алгоритм разрешения неоднозначностей по-умолчанию.
+In order to solve such problems definitively, the RxMicro framework uses the ambiguity resolving algorithm by default.
 
-==== Разрешение неоднозначностей по-умолчанию
+==== Default Ambiguity Resolving
 
-Если в текущем модуле проекта присутсвует два и больше реализаций одного и того же интерфейса, то для каждой реализации RxMicro неявным образом устанавливает имя.
-Данное имя соответсвует простому имени класса, начинающему с маленьком буквы, например:
+If there are two or more implementations of the same interface in the current project module, then the RxMicro framework implicitly sets the name for each implementation.
+This name corresponds to a simple class name starting with a small letter, for example:
 
-* Для класса `io.rxmicro.examples.cdi.ProductionBusinessService` имя равно `productionBusinessService`.
-* Для класса `io.rxmicro.examples.cdi.DevelopmentBusinessService` имя равно `developmentBusinessService`.
-* Для класса `io.rxmicro.ProductionBusinessService` имя равно `productionBusinessService`.
-* Для класса `ProductionBusinessService` имя равно `productionBusinessService`.
+* For the `io.rxmicro.examples.cdi.ProductionBusinessService` class, the name is equal to `productionBusinessService`.
+* For the `io.rxmicro.examples.cdi.DevelopmentBusinessService` class, the name is equal to `developmentBusinessService`.
+* For the `io.rxmicro.ProductionBusinessService` class, the name is equal to `productionBusinessService`.
+* For the `ProductionBusinessService` class, the name is equal to `productionBusinessService`.
 
 [IMPORTANT]
 ====
-Проблема разрешения неоднозначностей может возникнуть *только между классами реализующими один и тот же интерфейс!*.
+The ambiguity resolving problem may occur *only between classes implementing the same interface!*.
 
-Это означает, что если в проекте будет два интерфейса:
+This means that if there are two following interfaces in the project:
 
-* `package1.BusinessService` и
+* `package1.BusinessService` and
 * `package2.BusinessService`;
 
-и четыре класса-реализаций:
+and four implementation classes:
 
 * `package1.impl.ProductionBusinessService implements package1.BusinessService`;
 * `package1.impl.DevelopmentBusinessService implements package1.BusinessService`;
 * `package2.impl.ProductionBusinessService implements package2.BusinessService`;
 * `package2.impl.DevelopmentBusinessService implements package2.BusinessService`;
 
-то несмотря на одинаковые имена для разных классов:
+then despite the same names for different classes:
 
-* `productionBusinessService` для `package1.impl.ProductionBusinessService` и `package2.impl.ProductionBusinessService`;
-* `developmentBusinessService` для `package1.impl.DevelopmentBusinessService` и `package2.impl.DevelopmentBusinessService`;
+* `productionBusinessService` для `package1.impl.ProductionBusinessService` and `package2.impl.ProductionBusinessService`;
+* `developmentBusinessService` для `package1.impl.DevelopmentBusinessService` and `package2.impl.DevelopmentBusinessService`;
 
-никаких ошибок при внедрении не возникнет!
-Все будет работать корректно так как одинаковые имена компонентов создаются для *разных типов данных!*
+no implementation errors will occur!
+Everything will work correctly as the same component names are created for *different data types!*
 ====
 
-Таким образом для классов-реализаций `ProductionBusinessService` и `DevelopmentBusinessService` устанавливаются соответственно имена: `productionBusinessService` и `developmentBusinessService`:
+Thus, for `ProductionBusinessService` and `DevelopmentBusinessService` implementation classes, the following names are set accordingly: `productionBusinessService` and `developmentBusinessService`:
 
 [source,java]
 ----
@@ -57,24 +57,24 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-by-impl
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-by-impl-classname-and-field-name/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/impl/classname/field/name/impl/DevelopmentBusinessService.java[tag=content,indent=0]
 ----
 
-При внедрении реализаций RxMicro считывает имя поля класса или параметра метода.
-Если имена полей класса совпадают с именами компонентов реализаций, то выполняется успешное внедрение:
+When injecting implementations, the RxMicro framework reads the name of the class or method parameter field.
+If the names of the class fields correspond to the names of implementation components, the successful injection is performed:
 
 [IMPORTANT]
 ====
-Если в текущем модуле существует *только один класс реализация*, то независимо от имен полей классов или параметров методов, объект данного класса будет внедрен успешно!
+If there is *only one implementation class*, in the current module, then regardless of the class field names or method parameters, the instance of this class will be successfully injected!
 
-Т.е. алгоритм разрешения неоднозначностей по-умолчанию активируется *только при наличии таких неоднозначностей!*
+In other words, the ambiguity resolving algorithm is enabled by default *only if there are such ambiguities!*
 ====
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-by-impl-classname-and-field-name/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/impl/classname/field/name/BusinessServiceFacade.java[tag=content,indent=0]
 ----
-<1> В поле `productionBusinessService` внедряется объект класса `ProductionBusinessService`.
-<2> В поле `developmentBusinessService` внедряется объект класса `DevelopmentBusinessService`.
+<1> In the `productionBusinessService` field, the `ProductionBusinessService` class instance is injected.
+<2> In the `developmentBusinessService` field, the `DevelopmentBusinessService` class instance is injected.
 
-Данное поведение может быть проверено с помощью теста:
+This behavior can be tested with the following test:
 
 [source,java]
 ----
@@ -89,26 +89,25 @@ include::../___notes/recompile-after-change.adoc[]
 <<<
 
 [[cdi-named]]
-==== Использование аннотации `@Named` (`@Qualifier`)
+==== The `@Named` (`@Qualifier`) Annotation Usage
 
-В случае, если алгоритм разрешения неоднозначностей по-умолчанию не удовлетворяет потребностям бизнес задачи, разработчик может настроить процесс внедрения с помощью аннотаций:
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Named.java[`@Named`^] или
+In case if the ambiguity resolving algorithm by default does not meet the needs of a business task, the developer can set up the implementation process using the following annotations: {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Named.java[`@Named`^] or
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Qualifier.java[`@Qualifier`^]:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-by-impl-classname-and-Named-annotation/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/impl/classname/named/field/BusinessServiceFacade.java[tag=content,indent=0]
 ----
-<1> Для внедрения в поле `businessService1` объекта класса `ProductionBusinessService`, необходимо в параметре аннотации
+<1> To inject the `ProductionBusinessService` class instance to the `businessService1` field, in the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Named.java[`@Named`^]
-указать имя `productionBusinessService`. +
-_(Это неявное имя, которое задается by the RxMicro framework для класса `ProductionBusinessService`!)_
-<2> Для внедрения в поле `businessService2` объекта класса `DevelopmentBusinessService`, необходимо в параметре аннотации
+annotation parameter, You need to specify the `productionBusinessService` name. +
+_(This is an implicit name that is set by the RxMicro framework for the `ProductionBusinessService` class!)_
+<2> To inject the `DevelopmentBusinessService` class instance to the `businessService2` field, in the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Named.java[`@Named`^]
-указать имя `developmentBusinessService`. +
-_(Это неявное имя, которое задается by the RxMicro framework для класса `DevelopmentBusinessService`!)_
+annotation parameter, You need to specify the `developmentBusinessService` name. +
+_(This is an implicit name that is set by the RxMicro framework for the `DevelopmentBusinessService` class!)_
 
-Данное поведение может быть проверено с помощью теста:
+This behavior can be tested with the following test:
 
 [source,java]
 ----
@@ -122,9 +121,9 @@ include::../___notes/recompile-after-change.adoc[]
 
 //-----------------------------------------------------------
 
-Неявно создаваемое имя для класса реализации можно задавать явно с помощью аннотаций
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Named.java[`@Named`^] или
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Qualifier.java[`@Qualifier`^]:
+An implicitly created name for an implementation class can be set explicitly using the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Named.java[`@Named`^] or
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Qualifier.java[`@Qualifier`^] annotations:
 
 [source,java]
 ----
@@ -136,22 +135,22 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-by-Name
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-by-Named-implementation-and-Named-field/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/named/impl/named/field/impl/DevelopmentBusinessService.java[tag=content,indent=0]
 ----
 
-При использовании явных имен для классов реализаций, в качестве квалификатора of an injection point необходимо указывать именно эти явные имена:
+When using explicit names for implementation classes, it is necessary to specify these explicit names as the qualifier of an injection point:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-by-Named-implementation-and-Named-field/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/named/impl/named/field/BusinessServiceFacade.java[tag=content,indent=0]
 ----
-<1> Для внедрения в поле `businessService1` объекта класса `ProductionBusinessService`, необходимо в параметре аннотации
+<1> To inject the `ProductionBusinessService` class instance to the `businessService1` field, in the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Named.java[`@Named`^]
-указать имя `Production`. +
-_(Это имя, которое задается явно для класса `ProductionBusinessService` с помощью аннотации
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Named.java[`@Named`^]!)_
-<2> Для внедрения в поле `businessService2` объекта класса `DevelopmentBusinessService`, необходимо в параметре аннотации
+annotation parameter, You need to specify the `Production` name. +
+_(This name is explicitly set for the `ProductionBusinessService` class, using the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Named.java[`@Named`^] annotation!)_
+<2> To inject the `DevelopmentBusinessService` class instance to the `businessService2` field, in the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Named.java[`@Named`^]
-указать имя `Development`. +
-_(Это имя, которое задается явно для класса `DevelopmentBusinessService` с помощью аннотации
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Named.java[`@Named`^]!)_
+annotation parameter, You need to specify the `Development` name. +
+_(This name is explicitly set for the `DevelopmentBusinessService` class, using the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Named.java[`@Named`^] annotation!)_
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-ambiguty-resolving-by-Named-implementation-and-Named-field
 include::../___notes/full-source-code-of-example.adoc[]
@@ -160,23 +159,23 @@ include::../___notes/recompile-after-change.adoc[]
 
 <<<
 
-==== Использование пользовательских аннотаций
+==== Custom Annotations Usage
 
-При использовании строковых имен для классов реализаций и injection points разработчик может допустить ошибку.
-Так как компилятор не проверяет указанные имена, то ошибку удасться обнаружить только в процессе выполнения.
+When using string names for implementation classes and injection points, the developer may make a mistake.
+Since the compiler does not check the specified names, the error can be detected only during runtime.
 
-Если такая ситуация недопустима, то необходимо в качестве квалификаторов использовать пользовательские аннотации:
+If such a situation is unacceptable, custom annotations should be used as qualifiers:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-using-custom-Named-annotation/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/using/custom/named/annotation/EnvironmentType.java[tag=content,indent=0]
 ----
-<1> Для того, чтобы пользовательская аннотация определялась by the RxMicro framework как квалификатор, необходимо ее аннотировать аннотацией
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Named.java[`@Named`^] или
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Qualifier.java[`@Qualifier`^] с пустым строковым значением.
-<2> Для контроля над именами компонентов компилятором, рекомендуется использовать перечисления.
+<1> For a custom annotation to be defined by the RxMicro framework as a qualifier, it must be annotated by the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Named.java[`@Named`^] or
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Qualifier.java[`@Qualifier`^] annotation with an empty string value.
+<2> To control the component names with the compiler, it is recommended to use enumerations.
 
-После создания пользовательской аннотации, которая является квалификатором, необходимо аннотировать ею классы реализации
+After creating the custom annotation that serves as a qualifier, it is necessary to annotate the implementation classes by it
 
 [source,java]
 ----
@@ -195,7 +194,7 @@ and injection points:
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-using-custom-Named-annotation/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/using/custom/named/annotation/BusinessServiceFacade.java[tag=content,indent=0]
 ----
 
-При использовании пользовательских аннотаций результат разрешения неоднозначностей будет таким же как и при использовании строковых имен:
+When using custom annotations, the result of ambiguity resolving will be the same as when using string names:
 
 [source,java]
 ----

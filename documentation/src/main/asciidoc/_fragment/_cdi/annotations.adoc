@@ -9,41 +9,41 @@ The RxMicro framework supports the following `RxMicro annotations`:
 .Supported `RxMicro Annotations`.
 [cols="1,3"]
 |===
-|*Аннотация*|*Описание*
+|*Annotation*|*Description*
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@Inject`^]
-|Указывает на необходимость внедрить реализацию компонента в аннотированное поле класса или параметр метода.
+|Indicates the need to inject the component implementation into the annotated class field or method parameter.
 
-_(Является синонимом аннотации {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Autowired.java[`@Autowired`^]
-и рекомендована к использованию разработчиками, которые в качестве реализации CDI в своих предыдущих проектах использовали JEE или Google Guice.)_
+_(Is a synonym of the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Autowired.java[`@Autowired`^]
+annotation, and is recommended for developers who have used JEE or Google Guice as CDI implementation in their previous projects.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Named.java[`@Named`^]
-|Позволяет <<cdi-named, кастомизировать an injection point, указав строковое значение или пользовательскую аннотацию.>>
-Данная аннотация также может быть использована для указания имени компонента.
+|Allows <<cdi-named, to customize an injection point by specifying a string value or custom annotation.>>
+This annotation can also be used to specify a component name.
 
-_(Является синонимом аннотации {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Qualifier.java[`@Qualifier`^]
-и рекомендована к использованию разработчиками, которые в качестве реализации CDI в своих предыдущих проектах использовали JEE или Google Guice.)_
+_(Is a synonym of the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Qualifier.java[`@Qualifier`^]
+annotation, and is recommended for developers who have used JEE or Google Guice as CDI implementation in their previous projects.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Autowired.java[`@Autowired`^]
-|Указывает на необходимость внедрить реализацию компонента в аннотированное поле класса или параметр метода.
+|Indicates the need to inject the component implementation into the annotated class field or method parameter.
 
-_(Является синонимом аннотации {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@Inject`^]
-и рекомендована к использованию разработчиками, которые в качестве реализации CDI в своих предыдущих проектах использовали Spring DI.)_
+_(Is a synonym of the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@Inject`^]
+annotation, and is recommended for developers who have used Spring DI as CDI implementation in their previous projects.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Qualifier.java[`@Qualifier`^]
-|Позволяет <<cdi-named, кастомизировать an injection point, указав строковое значение или пользовательскую аннотацию.>>
-Данная аннотация также может быть использована для указания имени компонента.
+|Allows <<cdi-named, to customize an injection point by specifying a string value or custom annotation.>>
+This annotation can also be used to specify a component name.
 
-_(Является синонимом аннотации {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Named.java[`@Named`^]
-и рекомендована к использованию разработчиками, которые в качестве реализации CDI в своих предыдущих проектах использовали Spring DI.)_
+_(Is a synonym of the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Named.java[`@Named`^]
+annotation, and is recommended for developers who have used Spring DI as CDI implementation in their previous projects.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/PostConstruct.java[`@PostConstruct`^]
-|Указывает на <<cdi-post-construct-section, метод, который должен быть вызван автоматически после внедрения всех зависимостей в текущий компонент.>>
+|Denotes <<cdi-post-construct-section, a method, that should be invoked automatically after all dependencies have been injected into the current component.>>
 
-_(По своей семантике полностью соответсвует аннотации https://docs.oracle.com/javaee/7/api/javax/annotation/PostConstruct.html[`@javax.annotation.PostConstruct`^].)_
+_(In its semantics, it completely corresponds to the https://docs.oracle.com/javaee/7/api/javax/annotation/PostConstruct.html[`@javax.annotation.PostConstruct`^] annotation.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Factory.java[`@Factory`^]
-|Указывает на <<cdi-factory-method-section, фабричный метод>> или <<cdi-factory-class-section, фабрику, создающую объекты заданного класса>>.
+|Denotes <<cdi-factory-method-section, a factory method>> or <<cdi-factory-class-section, a factory, that creates instances of the specified class>>.
 
 // ---------------------------------------------------------------------------------------------------------------------
 |===
