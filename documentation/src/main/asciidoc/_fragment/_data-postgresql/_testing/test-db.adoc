@@ -6,22 +6,22 @@ include::../../___fragment-settings.adoc[]
 [[data-postgresql-test-database-section]]
 ==== Test Database
 
-Для тестирования возможностей модуля `rxmicro.data.sql.r2dbc.postgresql`, которые описываются в данном разделе была создана тестовая база данных.
+A test database was created for testing the `rxmicro.data.sql.r2dbc.postgresql` module features, which are described in this section.
 
-Тестовая база данных состоит из трех таблиц: `account`, `product` и `order`:
+The test database contains three tables: `account`, `product` and `order`:
 
 .ER-Diagram for Test Database
 image::data-postgresql/rxmicro-test-db-er-diagram.jpg[]
 
 [TIP]
 ====
-SQL скрипты для создания тестовой базы данных доступны по ссылке:
+SQL scripts for creating a test database are available at the following link:
 
 [.example-code-link]
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}docker-image-postgres-test-db/src/main/sql[`{RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}docker-image-postgres-test-db/src/main/sql/`^]
 ====
 
-Созданным таблицам в тестовой базе данных соответсвуют следующие классы Java моделей:
+The following classes of Java models correspond to the tables created in the test database:
 
 [source,java]
 ----
@@ -45,9 +45,9 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/docker-image-postgres-test-db/
 
 [NOTE]
 ====
-Для удобства изучения модуля `rxmicro.data.sql.r2dbc.postgresql`, Вы можете использовать готовый образ https://www.postgresql.org/[`PostgreSQL DB`^] с тестовой базой данных: {RX-MICRO-DOCKER_HUB_ROOT}postgres-test-db[`rxmicro/postgres-test-db`^].
+For ease of studying the `rxmicro.data.sql.r2dbc.postgresql` module, You can use the ready-made https://www.postgresql.org/[`PostgreSQL DB`^] image with the {RX-MICRO-DOCKER_HUB_ROOT}postgres-test-db[`rxmicro/postgres-test-db`^] test database.
 
-Исходный код проекта, на базе которого был собран данный `docker` образ, доступен по ссылке:
+The source code of the project used as a base for building this `docker` image, is available at the following link:
 
 [.example-code-link]
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}docker-image-postgres-test-db[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}docker-image-postgres-test-db`^]

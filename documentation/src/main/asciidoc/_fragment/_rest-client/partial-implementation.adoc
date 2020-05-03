@@ -20,7 +20,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-partial-implementa
 ----
 <1> Using the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/PartialImplementation.java[`@PartialImplementation`^]
-annotation, the `AbstractRESTClient` abstract class is specified.
+annotation, the `AbstractRESTClient` class is specified.
 
 An `AbstractRESTClient` contains the following content:
 

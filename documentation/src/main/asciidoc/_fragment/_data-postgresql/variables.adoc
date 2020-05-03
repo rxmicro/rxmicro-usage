@@ -6,50 +6,50 @@ include::../___fragment-settings.adoc[]
 [[data-postgresql-variables-section]]
 === Variables Support
 
-При построении SQL запросов, иногда возникает необходимость указывать название таблицы в виде строковой константы.
-Такая возможность предоставляет разработчику большую гибкость: для разных окружений название таблиц может быть разным.
+When building SQL queries, sometimes it is necessary to specify the table name as a string constant.
+This feature provides the developer with more flexibility: the table names may vary depending on the environment.
 
-Для улучшенной читаемости SQL запроса the RxMicro framework рекомендует использовать предопределенные переменные вместо конкатенации строк:
+For better readability of SQL query, the RxMicro framework recommends using predefined variables instead of string concatenation:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-variables/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/variables/DataRepository.java[tag=content,indent=0]
 ----
-<1> Строковая константа с именем таблицы.
-<2> При конкатенации строк читаемость целого SQL запроса ухудшается.
-<3> Вместо конкатенации строк the RxMicro framework рекомендует использовать предопределенные переменные.
+<1> String constant with table name.
+<2> When strings are concatenated, the readability of an entire SQL query gets worse.
+<3> Instead of string concatenation, the RxMicro framework recommends using predefined variables.
 
-Все предопределенные переменные, поддерживаемые by the RxMicro framework объявлены в классе {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/SupportedVariables.java[`SupportedVariables`^]
+All predefined variables supported by the RxMicro framework are declared in the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/SupportedVariables.java[`SupportedVariables`^] class
 
-Для определения значения предопределенной переменной, которая используется в запросе указанном для repository method, the RxMicro framework использует следующий алгоритм:
+To determine the value of the predefined variable used in the query specified for the repository method, the RxMicro framework uses the following algorithm:
 
-. Если the repository method возвращает или принимает в качестве параметра модель сущности, то для определения значения переменной используется класс модели сущности.
-. Иначе the RxMicro framework анализирует опциональный параметр `entityClass`, опредеенный в аннотациях
+. If the repository method returns or accepts the entity model as a parameter, the entity model class is used to define the variable value.
+. Otherwise, the RxMicro framework analyzes the optional `entityClass` parameter defined in the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/operation/Select.java[`@Select`^],
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/operation/Insert.java[`@Insert`^],
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/operation/Update.java[`@Update`^] и
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/operation/Delete.java[`@Delete`^].
-. Если опциональный параметр `entityClass` задан, то для определения значения переменной используется класс указанный в данном параметре.
-. Если опциональный параметр `entityClass` отсутсвует, то the RxMicro framework пытается извлечь значение переменной из аннотации
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/VariableValues.java[`@VariableValues`^], которой аннотирован данный repository method.
-. Если the repository method не аннотирован аннотацией {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/VariableValues.java[`@VariableValues`^]
-или аннотация {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/VariableValues.java[`@VariableValues`^]
-не содержит значения предопределенной переменной, то то the RxMicro framework пытается извлечь значение этой переменной из аннотации
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/VariableValues.java[`@VariableValues`^], которой аннотирован интерфейс репозитория.
-. Если во всех указанных местах значение переменной неопределено, то the RxMicro framework информирует разработчика об ошибке.
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/operation/Update.java[`@Update`^] and
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/operation/Delete.java[`@Delete`^] annotations.
+. If the optional `entityClass` parameter is set, the class specified in this parameter is used to define the variable value.
+. If the optional `entityClass` parameter is missing, the RxMicro framework tries to extract the variable value from the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/VariableValues.java[`@VariableValues`^] annotation, which annotates this repository method.
+. If the repository method is not annotated with the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/VariableValues.java[`@VariableValues`^]
+annotation or the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/VariableValues.java[`@VariableValues`^]
+annotation does not contain the value of a predefined variable, then the RxMicro framework tries to extract the value of this variable from the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/VariableValues.java[`@VariableValues`^] annotation, which annotates the repository interface.
+. If the variable value is undefined in all specified places, then the RxMicro framework notifies the developer about the error.
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-variables/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/variables/SelectDataRepository.java[tag=content,indent=0]
 ----
-<1> Значение переменной `${table}` будет равно `entity_table`. +
-_(Значение переменной считывается из класса `Entity`, который возвращается данным методом.)_
-<2> Значение переменной `${table}` будет равно `entity_table`. +
-_(Значение переменной считывается из класса `Entity`, т.к. данный класс указан в параметре `entityClass`.)_
-<3> Значение переменной `${table}` будет равно `global_table`. +
-_(Значение переменной считывается из аннотации `@VariableValues`, которой аннотирован интерфейс репозитория.)_
-<4> Значение переменной `${table}` будет равно `local_table`. +
-_(Значение переменной считывается из аннотации `@VariableValues`, которой аннотирован repository method.)_
+<1> The `${table}` variable value will be equal to `entity_table`. +
+_(The variable value is read from the `Entity` class, which is returned by this method.)_
+<2> The `${table}` variable value will be equal to `entity_table`. +
+_(The variable value is read from the `Entity` class, since this class is specified in the `entityClass` parameter.)_
+<3> The `${table}` variable value will be equal to `global_table`. +
+_(The variable value is read from the `@VariableValues` annotation, which annotates the repository interface.)_
+<4> The `${table}` variable value will be equal to `local_table`. +
+_(The variable value is read from the `@VariableValues` annotation, which annotates the repository method.)_
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-r2dbc-postgresql-variables
 include::../___notes/full-source-code-of-example.adoc[]
