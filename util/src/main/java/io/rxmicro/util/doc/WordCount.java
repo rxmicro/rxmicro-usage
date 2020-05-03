@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. http://rxmicro.io
+ * Copyright (c) 2020. https://rxmicro.io
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 package io.rxmicro.util.doc;
 
-import io.rxmicro.common.RxMicroException;
+import io.rxmicro.common.InvalidStateException;
 
 import java.io.File;
 import java.io.IOException;
@@ -60,7 +60,7 @@ public final class WordCount {
     private static final String RX_MICRO_HOME = "RX_MICRO_HOME";
 
     private static final String RX_MICRO_HOME_VALUE = Optional.ofNullable(System.getenv(RX_MICRO_HOME)).orElseThrow(() -> {
-        throw new RxMicroException("System variable '?' not defined", RX_MICRO_HOME);
+        throw new InvalidStateException("System variable '?' not defined", RX_MICRO_HOME);
     });
 
     private static final File DOC_ROOT = new File(format("?/rxmicro-usage/documentation/src/main/asciidoc/_fragment/", RX_MICRO_HOME_VALUE));

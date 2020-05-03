@@ -63,8 +63,8 @@ final class MicroServiceIntegrationTest {
     void test() {
         final ClientHttpResponse response = blockingHttpClient.get("/");
 
-        assertEquals(200, response.statusCode()); // <8>
-        assertTrue(response.isBodyEmpty(), "Body not empty: " + response.body());// <8>
+        assertEquals(200, response.getStatusCode()); // <8>
+        assertTrue(response.isBodyEmpty(), "Body not empty: " + response.getBody());// <8>
         assertEquals("handle", systemOut.asString()); // <9>
     }
 

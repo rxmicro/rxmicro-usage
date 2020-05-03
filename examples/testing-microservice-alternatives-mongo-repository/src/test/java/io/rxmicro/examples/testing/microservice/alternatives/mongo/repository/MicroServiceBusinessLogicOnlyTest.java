@@ -55,8 +55,8 @@ final class MicroServiceBusinessLogicOnlyTest {
 
         final ClientHttpResponse response = blockingHttpClient.get("/?id=1");
 
-        assertEquals(jsonObject("message", "data"), response.body());
-        assertEquals(200, response.statusCode());
+        assertEquals(jsonObject("message", "data"), response.getBody());
+        assertEquals(200, response.getStatusCode());
     }
 
     @Test
@@ -66,8 +66,8 @@ final class MicroServiceBusinessLogicOnlyTest {
 
         final ClientHttpResponse response = blockingHttpClient.get("/?id=1");
 
-        assertEquals(jsonObject("message", "Not Found"), response.body());
-        assertEquals(404, response.statusCode());
+        assertEquals(jsonObject("message", "Not Found"), response.getBody());
+        assertEquals(404, response.getStatusCode());
     }
 }
 // end::content[]

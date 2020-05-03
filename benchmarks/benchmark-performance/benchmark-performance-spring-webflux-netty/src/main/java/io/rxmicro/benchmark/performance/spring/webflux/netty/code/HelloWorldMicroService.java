@@ -9,7 +9,7 @@ import java.util.concurrent.CompletableFuture;
 
 /**
  * @author nedis
- * @link http://rxmicro.io
+ * @link https://rxmicro.io
  * @since 0.2
  */
 @Controller

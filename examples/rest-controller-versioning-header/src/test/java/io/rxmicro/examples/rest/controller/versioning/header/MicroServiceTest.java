@@ -23,7 +23,7 @@ import io.rxmicro.test.junit.RxMicroRestBasedMicroServiceTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import static io.rxmicro.http.HttpHeaders.API_VERSION;
+import static io.rxmicro.http.HttpStandardHeaderNames.API_VERSION;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 // tag::content[]

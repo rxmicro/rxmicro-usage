@@ -33,7 +33,7 @@ final class MicroServiceTest {
     void Should_support_base_url() {
         final ClientHttpResponse response = blockingHttpClient.get("/base-url-path/path");
 
-        assertEquals(200, response.statusCode());
+        assertEquals(200, response.getStatusCode());
     }
 }
 // end::content[]

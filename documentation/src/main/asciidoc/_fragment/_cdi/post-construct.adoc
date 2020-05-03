@@ -8,7 +8,8 @@ include::../___fragment-settings.adoc[]
 
 If You need to run some code while creating a class instance, Java provides a special method for doing so, namely the constructor.
 However, when using the dependency injection mechanisms, the dependencies are injected after creating an instance, and accordingly after invoking the constructor.
-_(Except for the constructor injection mechanism!)_. In order to run some code while creating an instance, but only after introducing all dependencies into this instance, the RxMicro framework provides a special
+_(Except for the constructor injection mechanism!)_.
+In order to run some code while creating an instance, but only after introducing all dependencies into this instance, the RxMicro framework provides a special
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/PostConstruct.java[`@PostConstruct`^] annotation.
 
 Thus, if there is a class method, annotated by the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/PostConstruct.java[`@PostConstruct`^] annotation, then this method is automatically invoked after all dependencies are injected into the created instance of this class.
@@ -39,10 +40,10 @@ Thus, for any method in the class to be defined by the RxMicro framework as the 
 The `postConstruct` method must meet the following requirements:
 
 * This method should be a single method in the class.
-* The method must not be static.
-* The method must not be abstract.
-* The method must be non-native.
-* The method must not be synchronized.
+* The method must not be `static`.
+* The method must not be `abstract`.
+* The method must be non-`native`.
+* The method must not be `synchronized`.
 * The method must not contain parameters.
 * The method must return the `void` type.
 

@@ -52,8 +52,8 @@ final class HelloWorldMicroService_IT {
     void Should_return_Hello_World() {
         final ClientHttpResponse response = blockingHttpClient.get("/");
 
-        assertEquals(jsonObject("message", "Hello World!"), response.body()); // <4>
-        assertEquals(200, response.statusCode());
+        assertEquals(jsonObject("message", "Hello World!"), response.getBody()); // <4>
+        assertEquals(200, response.getStatusCode());
     }
 }
 // end::content[]

@@ -16,7 +16,7 @@
 
 package io.rxmicro.util.tests;
 
-import io.rxmicro.common.RxMicroException;
+import io.rxmicro.common.InvalidStateException;
 
 import java.io.File;
 import java.util.Map;
@@ -55,13 +55,13 @@ public final class Settings {
 
     static {
         RX_MICRO_HOME_VALUE = Optional.ofNullable(System.getenv(RX_MICRO_HOME)).orElseThrow(() -> {
-            throw new RxMicroException("System variable '?' not defined", RX_MICRO_HOME);
+            throw new InvalidStateException("System variable '?' not defined", RX_MICRO_HOME);
         });
         RX_MICRO_ROOT_DIR_PATH = format("?/rxmicro", RX_MICRO_HOME_VALUE);
         EXAMPLES_ROOT_DIR_PATH = format("?/rxmicro-usage/examples", RX_MICRO_HOME_VALUE);
         for (final String path : new String[]{RX_MICRO_ROOT_DIR_PATH, EXAMPLES_ROOT_DIR_PATH}) {
             if (!new File(path).exists()) {
-                throw new RxMicroException("Directory not found: '?'", path);
+                throw new InvalidStateException("Directory not found: '?'", path);
             }
         }
         RX_MICRO_MODULES = Map.ofEntries(

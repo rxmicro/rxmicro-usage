@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. http://rxmicro.io
+ * Copyright (c) 2020. https://rxmicro.io
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,8 +34,8 @@ final class HelloWorldMicroServiceTest {
         final ClientHttpResponse response = blockingHttpClient.get("/");
         assertEquals(
                 jsonObject("message", "Hello World!"),
-                response.body()
+                response.getBody()
         );
-        assertEquals(200, response.statusCode());
+        assertEquals(200, response.getStatusCode());
     }
 }

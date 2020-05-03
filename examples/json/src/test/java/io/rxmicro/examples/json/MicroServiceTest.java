@@ -37,7 +37,7 @@ final class MicroServiceTest {
     void Should_return_Response() {
         final ClientHttpResponse response = blockingHttpClient.get("/");
 
-        final Object actualBody = response.body(); // <1>
+        final Object actualBody = response.getBody(); // <1>
         final Object expectedBody = jsonObject(
                 "child", jsonObject("integer", 20), // <4>
                 "values", jsonArray(25, 50, 75, 100),   // <5>

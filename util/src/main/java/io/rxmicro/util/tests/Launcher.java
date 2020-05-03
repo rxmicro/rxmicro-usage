@@ -16,7 +16,7 @@
 
 package io.rxmicro.util.tests;
 
-import io.rxmicro.common.RxMicroException;
+import io.rxmicro.common.InvalidStateException;
 
 import java.io.File;
 import java.io.IOException;
@@ -114,7 +114,7 @@ public final class Launcher {
                                          final String rootPackage) throws IOException {
         final String destRoot = format("?/target/generated-sources", exampleProject.getAbsolutePath());
         if (!new File(destRoot).exists()) {
-            throw new RxMicroException("Generated source code not found: '?'. Run `mvn compile`", destRoot);
+            throw new InvalidStateException("Generated source code not found: '?'. Run `mvn compile`", destRoot);
         }
         if (!DOCUMENTATION_ASCIIDOC.equals(entry.getKey())) {
             final List<String> exclude = new ArrayList<>();

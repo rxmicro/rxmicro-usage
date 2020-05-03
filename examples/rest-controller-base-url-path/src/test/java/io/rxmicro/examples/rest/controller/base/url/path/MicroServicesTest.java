@@ -57,7 +57,7 @@ final class MicroServicesTest {
                                                     final Class<?> microService) {
         final ClientHttpResponse response = blockingHttpClient.patch(path);
 
-        assertEquals(200, response.statusCode());
+        assertEquals(200, response.getStatusCode());
         assertEquals(microService.getSimpleName(), systemOut.asString());
     }
 }

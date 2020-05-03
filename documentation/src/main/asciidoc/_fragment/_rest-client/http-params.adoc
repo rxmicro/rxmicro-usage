@@ -22,7 +22,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/main/ja
 
 [IMPORTANT]
 ====
-*Note that RxMicro does not distinguish whether HTTP request parameters will be transferred to the handler using the start line or HTTP body!*
+*Note that the RxMicro framework does not distinguish whether HTTP request parameters will be transferred to the handler using the start line or HTTP body!*
 ====
 
 include::../___notes/model-class-intead-of-method-parameters-note.adoc[tags=**;!path-variables;!headers;!all]

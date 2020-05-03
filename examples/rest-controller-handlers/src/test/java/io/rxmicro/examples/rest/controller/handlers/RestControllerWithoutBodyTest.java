@@ -55,7 +55,7 @@ final class RestControllerWithoutBodyTest {
     void Should_support_HTTP_responses_without_body(final String urlPath) {
         final ClientHttpResponse response = blockingHttpClient.get(urlPath);
 
-        assertTrue(response.isBodyEmpty(), "Body not empty: " + response.body()); // <1>
+        assertTrue(response.isBodyEmpty(), "Body not empty: " + response.getBody()); // <1>
     }
 }
 // end::content[]

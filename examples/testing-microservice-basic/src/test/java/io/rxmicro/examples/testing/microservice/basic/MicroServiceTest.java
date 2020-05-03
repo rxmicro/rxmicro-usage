@@ -35,8 +35,8 @@ class MicroServiceTest {
     void Should_handle_GET_request() {
         final ClientHttpResponse response = blockingHttpClient.get("/");
 
-        assertEquals(jsonObject("message", "Hello World!"), response.body()); // <3>
-        assertEquals(200, response.statusCode());
+        assertEquals(jsonObject("message", "Hello World!"), response.getBody()); // <3>
+        assertEquals(200, response.getStatusCode());
     }
 }
 // end::content[]

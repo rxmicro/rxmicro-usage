@@ -89,10 +89,10 @@ final class MicroServiceTest {
     void Should_support_all_parameter_types(final Map<String, Object> json) {
         final ClientHttpResponse response = blockingHttpClient.post("/", json);
 
-        assertEquals(200, response.statusCode());
+        assertEquals(200, response.getStatusCode());
         assertEquals(
                 json,
-                response.body()
+                response.getBody()
         );
     }
 }

@@ -30,11 +30,11 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import static io.rxmicro.http.HttpHeaders.CONTENT_LENGTH;
-import static io.rxmicro.http.HttpHeaders.CONTENT_TYPE;
-import static io.rxmicro.http.HttpHeaders.DATE;
-import static io.rxmicro.http.HttpHeaders.REQUEST_ID;
-import static io.rxmicro.http.HttpHeaders.SERVER;
+import static io.rxmicro.http.HttpStandardHeaderNames.CONTENT_LENGTH;
+import static io.rxmicro.http.HttpStandardHeaderNames.CONTENT_TYPE;
+import static io.rxmicro.http.HttpStandardHeaderNames.DATE;
+import static io.rxmicro.http.HttpStandardHeaderNames.REQUEST_ID;
+import static io.rxmicro.http.HttpStandardHeaderNames.SERVER;
 import static java.util.Map.entry;
 import static java.util.stream.Collectors.toList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -93,10 +93,10 @@ final class AllSupportedTypesMicroServiceTest {
     @MethodSource("httpHeadersProvider")
     void Should_support_all_http_header_types(final HttpHeaders httpHeaders) {
         final ClientHttpResponse response = blockingHttpClient.get("/", httpHeaders);
-        assertEquals(200, response.statusCode());
+        assertEquals(200, response.getStatusCode());
         assertEquals(
                 normalize(httpHeaders.getEntries()),
-                normalize(response.headers().getEntries())
+                normalize(response.getHeaders().getEntries())
         );
     }
 

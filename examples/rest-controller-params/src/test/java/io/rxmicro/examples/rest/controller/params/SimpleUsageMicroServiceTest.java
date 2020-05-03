@@ -66,7 +66,7 @@ final class SimpleUsageMicroServiceTest {
                         "endpoint_version", "v1", // <4>
                         "use-Proxy", true         // <4>
                 ),
-                response.body()
+                response.getBody()
         );
     }
 }

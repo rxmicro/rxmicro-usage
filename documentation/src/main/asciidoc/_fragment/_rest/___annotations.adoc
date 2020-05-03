@@ -76,20 +76,20 @@ Thus, by using this strategy, the `header_name` name header corresponds to the `
 |Denotes that a field of Java model class is <<rest-controller-path-variables-basic,a `path variable`>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RemoteAddress.java[`@RemoteAddress`^]
-|Declares the Java model field as a field, in which You need to add <<rest-controller-internals-basic-section,the remote client connection address>>.
+|Declares the Java model field as a field, in which the RxMicro framework must inject <<rest-controller-internals-basic-section,the remote client connection address>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RequestMethod.java[`@RequestMethod`^]
-|Declares the Java model field as a field, in which You need to add <<rest-controller-internals-basic-section,a method of the received request>>.
+|Declares the Java model field as a field, in which the RxMicro framework must inject <<rest-controller-internals-basic-section,a method of the received request>>.
 
 _(This feature is useful for request logging when one handler supports different HTTP methods.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RequestUrlPath.java[`@RequestUrlPath`^]
-|Declares the Java model field as a field, in which You need to add <<rest-controller-internals-basic-section,`URL path` of the received request>>.
+|Declares the Java model field as a field, in which the RxMicro framework must inject <<rest-controller-internals-basic-section,`URL path` of the received request>>.
 
 _(This feature is useful for request logging using `path-variables`.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RequestBody.java[`@RequestBody`^]
-|Declares the Java model field as a field, in which You need to add <<rest-controller-internals-basic-section,a body of the received request>>.
+|Declares the Java model field as a field, in which the RxMicro framework must inject <<rest-controller-internals-basic-section,a body of the received request>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ResponseStatusCode.java[`@ResponseStatusCode`^]
 |Indicates to the RxMicro framework that the value of the Java model field should be used as <<rest-controller-internals-basic-section, a status code to be sent to the client>>.
@@ -101,7 +101,7 @@ _(This feature is useful for request logging using `path-variables`.)_
 |Declares the Java model field as a field, in which the RxMicro framework must inject <<rest-controller-rqeuest-id-section,a unique request ID>>.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/SetStatusCode.java[`@SetStatusCode`^]
-|Declares <<rest-controller-set-status-code-section,a status code>>, which should be sent to the client in case of successful execution of the request handler body.
+|Declares <<rest-controller-set-status-code-section,a status code>>, which should be sent to the client in case of successful execution of the HTTP request handler.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/NotFoundMessage.java[`@NotFoundMessage`^]
 |Declares a message returned by the handler in case of <<rest-controller-not-found-section, no result>>.

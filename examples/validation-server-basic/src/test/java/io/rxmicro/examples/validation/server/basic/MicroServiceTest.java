@@ -45,14 +45,14 @@ final class MicroServiceTest {
             "/?email=@rxmicro.io,   Invalid parameter \"email\": Expected a valid email format!",
             "/?email=rxmicro.io@,   Invalid parameter \"email\": Expected a valid email format!",
             "/?email=@.rxmicro.io,  Invalid parameter \"email\": Expected a valid email format!",
-            "/?email=rxmicro.io@.,  Invalid parameter \"email\": Expected a valid email format!"
+            "/?email=rxmicro.io@.,  Invalid parameter \"email\": Expected a valid domain name!"
     })
     void Should_return_invalid_request_status(final String path,
                                               final String expectedErrorMessage) {
         final ClientHttpResponse response = blockingHttpClient.put(path);
 
-        assertEquals(jsonErrorObject(expectedErrorMessage), response.body()); // <2>
-        assertEquals(400, response.statusCode());                   // <2>
+        assertEquals(jsonErrorObject(expectedErrorMessage), response.getBody()); // <2>
+        assertEquals(400, response.getStatusCode());                   // <2>
         assertTrue(systemOut.isEmpty(), "System.out is not empty: " + systemOut.asString()); // <3>
     }
 
@@ -61,7 +61,7 @@ final class MicroServiceTest {
         final ClientHttpResponse response = blockingHttpClient.put("/?email=welcome@rxmicro.io");
 
         assertEquals("Email: welcome@rxmicro.io", systemOut.asString()); // <4>
-        assertEquals(200, response.statusCode()); // <4>
+        assertEquals(200, response.getStatusCode()); // <4>
     }
 
 }

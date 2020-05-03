@@ -23,7 +23,7 @@ import io.rxmicro.test.SystemOut;
 import io.rxmicro.test.junit.RxMicroRestBasedMicroServiceTest;
 import org.junit.jupiter.api.Test;
 
-import static io.rxmicro.http.HttpHeaders.REQUEST_ID;
+import static io.rxmicro.http.HttpStandardHeaderNames.REQUEST_ID;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 // tag::content[]
@@ -38,7 +38,7 @@ final class MicroServiceTest {
     void Should_generate_RequestId_automatically() {
         final ClientHttpResponse response = blockingHttpClient.get("/");
         assertEquals("TestRequestId", systemOut.asString()); // <1>
-        assertEquals("TestRequestId", response.headers().getValue(REQUEST_ID));  // <2>
+        assertEquals("TestRequestId", response.getHeaders().getValue(REQUEST_ID));  // <2>
     }
 
     @Test
@@ -47,7 +47,7 @@ final class MicroServiceTest {
                 blockingHttpClient.get("/", HttpHeaders.of(REQUEST_ID, "Qwerty")); // <3>
 
         assertEquals("Qwerty", systemOut.asString()); // <4>
-        assertEquals("Qwerty", response.headers().getValue(REQUEST_ID));  // <5>
+        assertEquals("Qwerty", response.getHeaders().getValue(REQUEST_ID));  // <5>
     }
 }
 // end::content[]

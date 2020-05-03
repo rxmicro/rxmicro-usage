@@ -44,8 +44,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-basic/src/main/java
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-basic/src/main/java/io/rxmicro/examples/data/mongo/basic/DataRepository.java[tag=content,indent=0]
 ----
-<1> In order for a standard interface to be recognized by the RxMicro framework as a dynamic repository for interaction with https://www.mongodb.com/[`Mongo DB`^],
-this interface should be annotated with the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/MongoRepository.java[`@MongoRepository`^] annotation.
+<1> In order for a standard interface to be recognized by the RxMicro framework as a dynamic repository for interaction with https://www.mongodb.com/[`Mongo DB`^], this interface should be annotated with the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/MongoRepository.java[`@MongoRepository`^] annotation.
 <2> The dynamic repository may contain methods that form a query to the https://www.mongodb.com/[`Mongo DB`^].
 _(The query that used for a request for data uses the JSON format (Specialized request format for https://www.mongodb.com/[`Mongo DB`^]) and is specified in the annotation parameters.
 For each operation supported by https://www.mongodb.com/[`Mongo DB`^], the RxMicro framework defines a separate annotation:

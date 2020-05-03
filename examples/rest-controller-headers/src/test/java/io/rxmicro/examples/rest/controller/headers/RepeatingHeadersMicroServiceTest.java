@@ -37,11 +37,11 @@ final class RepeatingHeadersMicroServiceTest {
         // tag::content[]
         assertEquals(
                 "created|approved|rejected", // <1>
-                response.headers().getValue("Single-Header")
+                response.getHeaders().getValue("Single-Header")
         );
         assertEquals(
                 List.of("created", "approved", "rejected"), //<2>
-                response.headers().getValues("Repeating-Header")
+                response.getHeaders().getValues("Repeating-Header")
         );
         // end::content[]
     }

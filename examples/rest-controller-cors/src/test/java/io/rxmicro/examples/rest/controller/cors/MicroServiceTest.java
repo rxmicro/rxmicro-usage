@@ -23,11 +23,11 @@ import io.rxmicro.test.SystemOut;
 import io.rxmicro.test.junit.RxMicroRestBasedMicroServiceTest;
 import org.junit.jupiter.api.Test;
 
-import static io.rxmicro.http.HttpHeaders.ACCESS_CONTROL_ALLOW_METHODS;
-import static io.rxmicro.http.HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN;
-import static io.rxmicro.http.HttpHeaders.ACCESS_CONTROL_REQUEST_METHOD;
-import static io.rxmicro.http.HttpHeaders.ORIGIN;
-import static io.rxmicro.http.HttpHeaders.VARY;
+import static io.rxmicro.http.HttpStandardHeaderNames.ACCESS_CONTROL_ALLOW_METHODS;
+import static io.rxmicro.http.HttpStandardHeaderNames.ACCESS_CONTROL_ALLOW_ORIGIN;
+import static io.rxmicro.http.HttpStandardHeaderNames.ACCESS_CONTROL_REQUEST_METHOD;
+import static io.rxmicro.http.HttpStandardHeaderNames.ORIGIN;
+import static io.rxmicro.http.HttpStandardHeaderNames.VARY;
 import static io.rxmicro.rest.model.HttpMethod.PATCH;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -57,9 +57,9 @@ final class MicroServiceTest {
                 )
         );
 
-        assertEquals(ORIGIN, response.headers().getValue(VARY));
-        assertEquals("*", response.headers().getValue(ACCESS_CONTROL_ALLOW_ORIGIN));
-        assertEquals(PATCH.name(), response.headers().getValue(ACCESS_CONTROL_ALLOW_METHODS));
+        assertEquals(ORIGIN, response.getHeaders().getValue(VARY));
+        assertEquals("*", response.getHeaders().getValue(ACCESS_CONTROL_ALLOW_ORIGIN));
+        assertEquals(PATCH.name(), response.getHeaders().getValue(ACCESS_CONTROL_ALLOW_METHODS));
     }
 }
 // end::content[]

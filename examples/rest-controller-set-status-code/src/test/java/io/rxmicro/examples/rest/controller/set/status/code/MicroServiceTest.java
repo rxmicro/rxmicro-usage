@@ -35,7 +35,7 @@ final class MicroServiceTest {
     void Should_return_valid_status_codes(final int expectedStatus) {
         final ClientHttpResponse response = blockingHttpClient.get("/" + expectedStatus);
 
-        assertEquals(expectedStatus, response.statusCode());
+        assertEquals(expectedStatus, response.getStatusCode());
     }
 }
 // end::content[]

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. http://rxmicro.io
+ * Copyright (c) 2020. https://rxmicro.io
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 package io.rxmicro.examples.config.annotations.supplier;
 
-import io.rxmicro.http.HttpHeaders;
+import io.rxmicro.http.HttpStandardHeaderNames;
 import io.rxmicro.http.client.ClientHttpResponse;
 import io.rxmicro.rest.server.ServerInstance;
 import io.rxmicro.test.BlockingHttpClient;
@@ -48,14 +48,14 @@ final class MicroService_UnitTest {
         final ClientHttpResponse response = blockingHttpClient.get("/");
 
         assertTrue(
-                response.headers().getValue(HttpHeaders.SERVER).contains("RxMicro-NettyServer"),
-                "Invalid `Server` header: " + response.headers().getValue(HttpHeaders.SERVER)
+                response.getHeaders().getValue(HttpStandardHeaderNames.SERVER).contains("RxMicro-NettyServer"),
+                "Invalid `Server` header: " + response.getHeaders().getValue(HttpStandardHeaderNames.SERVER)
         );
         assertNull(
-                response.headers().getValue(HttpHeaders.DATE),
+                response.getHeaders().getValue(HttpStandardHeaderNames.DATE),
                 "Header `Date` must be absent"
         );
-        assertEquals("System-Value", response.headers().getValue("Custom-Static-Header"));
+        assertEquals("System-Value", response.getHeaders().getValue("Custom-Static-Header"));
     }
 
     @AfterAll

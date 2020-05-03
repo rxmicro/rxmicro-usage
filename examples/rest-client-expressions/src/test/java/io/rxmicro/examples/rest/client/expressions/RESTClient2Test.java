@@ -37,7 +37,7 @@ import static org.mockito.Answers.RETURNS_DEEP_STUBS;
 @RxMicroComponentTest(RESTClient.class)
 @SetConfigValue(name = "custom.host", value = "rxmicro.io")
 @SetConfigValue(name = "custom.port", value = "8443")
-@SetConfigValue(name = "custom.schema", value = "https")
+@SetConfigValue(name = "custom.schema", value = "HTTPS")
 @SetConfigValue(name = "custom.useProxy", value = "false")
 @SetConfigValue(name = "custom.mode", value = "TEST")
 final class RESTClient2Test {
@@ -57,7 +57,7 @@ final class RESTClient2Test {
                         .setHeaders(HttpHeaders.of(
                                 "Use-Proxy", "false",
                                 "Debug", "Use-Proxy=false, Mode=TEST",
-                                "Endpoint", "Schema=https, Host=rxmicro.io, Port=8443"
+                                "Endpoint", "Schema=HTTPS, Host=rxmicro.io, Port=8443"
                         ))
                         .build(),
                 true

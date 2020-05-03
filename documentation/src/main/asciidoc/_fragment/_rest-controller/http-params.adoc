@@ -22,7 +22,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-params/src/mai
 
 [IMPORTANT]
 ====
-*Note that RxMicro does not distinguish whether HTTP request parameters will be transferred to the handler using the start line or HTTP body!*
+*Note that the RxMicro framework does not distinguish whether HTTP request parameters will be transferred to the handler using the start line or HTTP body!*
 
 Therefore, if the parameters are the same, it is possible to use the same handler with the specified request model to handle both `GET` (parameters are transferred in the start line) and `POST` (parameters are transferred in the HTTP body) request.
 ====

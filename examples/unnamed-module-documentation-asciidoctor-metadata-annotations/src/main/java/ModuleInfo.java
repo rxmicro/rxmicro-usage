@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. http://rxmicro.io
+ * Copyright (c) 2020. https://rxmicro.io
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,8 +53,8 @@ import static java.lang.annotation.RetentionPolicy.SOURCE;
 @DocumentationDefinition(
         introduction = @IntroductionDefinition(
                 sectionOrder = {
-                        IntroductionDefinition.Section.Base_Endpoint,
-                        IntroductionDefinition.Section.Licenses
+                        IntroductionDefinition.Section.BASE_ENDPOINT,
+                        IntroductionDefinition.Section.LICENSES
                 }
         ),
         resource = @ResourceDefinition(

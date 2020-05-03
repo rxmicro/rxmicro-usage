@@ -36,8 +36,8 @@ final class MicroServiceTest {
     void Should_return_404(final String urlPath) {
         final ClientHttpResponse response = blockingHttpClient.put(urlPath + "?id=0");
 
-        assertEquals(jsonErrorObject("Object not found by id=0"), response.body()); // <1>
-        assertEquals(404, response.statusCode()); // <2>
+        assertEquals(jsonErrorObject("Object not found by id=0"), response.getBody()); // <1>
+        assertEquals(404, response.getStatusCode()); // <2>
     }
 }
 // end::content[]

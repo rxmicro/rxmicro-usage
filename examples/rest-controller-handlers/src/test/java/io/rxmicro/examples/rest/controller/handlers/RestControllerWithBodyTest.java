@@ -64,7 +64,7 @@ final class RestControllerWithBodyTest {
 
         assertEquals(
                 jsonObject("message", "Hello World!"), // <1>
-                response.body()
+                response.getBody()
         );
     }
 }

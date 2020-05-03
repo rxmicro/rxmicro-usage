@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. http://rxmicro.io
+ * Copyright (c) 2020. https://rxmicro.io
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -58,10 +58,10 @@ public class HttpHelloWorldServerHandler extends SimpleChannelInboundHandler<Htt
     @Override
     public void channelRead0(ChannelHandlerContext ctx, HttpObject msg) {
         if (msg instanceof HttpRequest) {
-            HttpRequest req = (HttpRequest) msg;
+            final HttpRequest req = (HttpRequest) msg;
 
-            boolean keepAlive = HttpUtil.isKeepAlive(req);
-            FullHttpResponse response = new DefaultFullHttpResponse(req.protocolVersion(), OK,
+            final boolean keepAlive = HttpUtil.isKeepAlive(req);
+            final FullHttpResponse response = new DefaultFullHttpResponse(req.protocolVersion(), OK,
                     Unpooled.wrappedBuffer(CONTENT));
             response.headers()
                     .set(CONTENT_TYPE, APPLICATION_JSON)

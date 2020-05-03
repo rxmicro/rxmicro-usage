@@ -36,9 +36,9 @@ final class MicroServiceTest {
 
         assertEquals(
                 jsonErrorObject("Response is invalid: Parameter \"message\" is required!"),
-                response.body()
+                response.getBody()
         );
-        assertEquals(500, response.statusCode());
+        assertEquals(500, response.getStatusCode());
     }
 
 }

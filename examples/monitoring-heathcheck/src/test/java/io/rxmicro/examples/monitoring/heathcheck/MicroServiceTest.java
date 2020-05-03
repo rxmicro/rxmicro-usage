@@ -56,16 +56,16 @@ final class MicroServiceTest {
     void Should_handle_request() {
         final ClientHttpResponse response = blockingHttpClient.get("/base/test");
 
-        assertEquals(jsonObject("message", "Hello World!"), response.body());
-        assertEquals(200, response.statusCode());
+        assertEquals(jsonObject("message", "Hello World!"), response.getBody());
+        assertEquals(200, response.getStatusCode());
     }
 
     @Test
     void Should_support_health_checks() {
         final ClientHttpResponse response = blockingHttpClient.get("/http-health-check");
 
-        assertTrue(response.isBodyEmpty(), "Body not empty: " + response.body());
-        assertEquals(200, response.statusCode());
+        assertTrue(response.isBodyEmpty(), "Body not empty: " + response.getBody());
+        assertEquals(200, response.getStatusCode());
     }
 
     @AfterAll

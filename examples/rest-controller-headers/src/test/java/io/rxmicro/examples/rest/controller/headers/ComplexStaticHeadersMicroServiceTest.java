@@ -36,11 +36,11 @@ final class ComplexStaticHeadersMicroServiceTest {
 
         assertEquals(
                 List.of("new-Parent-Header1-value"),
-                response.headers().getValues("Parent-Header1")
+                response.getHeaders().getValues("Parent-Header1")
         );
         assertEquals(
                 List.of("new-Parent-Header2-value", "new-Parent-Header2-value"),
-                response.headers().getValues("Parent-Header2")
+                response.getHeaders().getValues("Parent-Header2")
         );
     }
 
@@ -50,19 +50,19 @@ final class ComplexStaticHeadersMicroServiceTest {
 
         assertEquals(
                 List.of("new-Parent-Header1-value"),
-                response.headers().getValues("Parent-Header1")
+                response.getHeaders().getValues("Parent-Header1")
         );
         assertEquals(
                 List.of("new-Parent-Header2-value", "new-Parent-Header2-value"),
-                response.headers().getValues("Parent-Header2")
+                response.getHeaders().getValues("Parent-Header2")
         );
         assertEquals(
                 List.of("new-Child-Header1-value"),
-                response.headers().getValues("Child-Header1")
+                response.getHeaders().getValues("Child-Header1")
         );
         assertEquals(
                 List.of("new-Child-Header2-value", "new-Child-Header2-value"),
-                response.headers().getValues("Child-Header2")
+                response.getHeaders().getValues("Child-Header2")
         );
     }
 
@@ -72,11 +72,11 @@ final class ComplexStaticHeadersMicroServiceTest {
 
         assertEquals(
                 List.of("new-Child-Parent-Header1-value"),
-                response.headers().getValues("Parent-Header1")
+                response.getHeaders().getValues("Parent-Header1")
         );
         assertEquals(
                 List.of("new-Child-Parent-Header2-value"),
-                response.headers().getValues("Parent-Header2")
+                response.getHeaders().getValues("Parent-Header2")
         );
     }
 
@@ -86,11 +86,11 @@ final class ComplexStaticHeadersMicroServiceTest {
 
         assertEquals(
                 List.of("new-Parent-Header1-value", "new-Child-Parent-Header1-value"),
-                response.headers().getValues("Parent-Header1")
+                response.getHeaders().getValues("Parent-Header1")
         );
         assertEquals(
                 List.of("new-Parent-Header2-value", "new-Parent-Header2-value", "new-Child-Parent-Header2-value"),
-                response.headers().getValues("Parent-Header2")
+                response.getHeaders().getValues("Parent-Header2")
         );
     }
 }

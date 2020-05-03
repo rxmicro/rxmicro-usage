@@ -21,8 +21,8 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-notfound/src/m
 
 When handling requests, the RxMicro framework checks the handler result:
 
-* If the handler returns a response model, RxMicro will convert it to an HTTP response with the `200` status and JSON representation of this model.
-* If the handler returns an empty result, RxMicro generates an HTTP response with the `404` and the standard `"Not Found"` error message.
+* If the handler returns a response model, the RxMicro framework will convert it to an HTTP response with the `200` status and JSON representation of this model.
+* If the handler returns an empty result, the RxMicro framework generates an HTTP response with the `404` and the standard `"Not Found"` error message.
 
 [source,java]
 ----

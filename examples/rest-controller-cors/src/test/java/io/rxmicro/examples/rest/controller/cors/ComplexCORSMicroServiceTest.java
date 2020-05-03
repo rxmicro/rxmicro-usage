@@ -23,14 +23,14 @@ import io.rxmicro.test.junit.RxMicroRestBasedMicroServiceTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import static io.rxmicro.http.HttpHeaders.ACCESS_CONTROL_ALLOW_CREDENTIALS;
-import static io.rxmicro.http.HttpHeaders.ACCESS_CONTROL_ALLOW_HEADERS;
-import static io.rxmicro.http.HttpHeaders.ACCESS_CONTROL_ALLOW_METHODS;
-import static io.rxmicro.http.HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN;
-import static io.rxmicro.http.HttpHeaders.ACCESS_CONTROL_MAX_AGE;
-import static io.rxmicro.http.HttpHeaders.ACCESS_CONTROL_REQUEST_METHOD;
-import static io.rxmicro.http.HttpHeaders.ORIGIN;
-import static io.rxmicro.http.HttpHeaders.VARY;
+import static io.rxmicro.http.HttpStandardHeaderNames.ACCESS_CONTROL_ALLOW_CREDENTIALS;
+import static io.rxmicro.http.HttpStandardHeaderNames.ACCESS_CONTROL_ALLOW_HEADERS;
+import static io.rxmicro.http.HttpStandardHeaderNames.ACCESS_CONTROL_ALLOW_METHODS;
+import static io.rxmicro.http.HttpStandardHeaderNames.ACCESS_CONTROL_ALLOW_ORIGIN;
+import static io.rxmicro.http.HttpStandardHeaderNames.ACCESS_CONTROL_MAX_AGE;
+import static io.rxmicro.http.HttpStandardHeaderNames.ACCESS_CONTROL_REQUEST_METHOD;
+import static io.rxmicro.http.HttpStandardHeaderNames.ORIGIN;
+import static io.rxmicro.http.HttpStandardHeaderNames.VARY;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @RxMicroRestBasedMicroServiceTest(ComplexCORSMicroService.class)
@@ -58,8 +58,8 @@ final class ComplexCORSMicroServiceTest {
                         ACCESS_CONTROL_REQUEST_METHOD, method
                 )
         );
-        assertEquals("http://localhost:8080", response.headers().getValue(ACCESS_CONTROL_ALLOW_ORIGIN));
-        assertEquals("GET, HEAD, POST, PUT", response.headers().getValue(ACCESS_CONTROL_ALLOW_METHODS));
+        assertEquals("http://localhost:8080", response.getHeaders().getValue(ACCESS_CONTROL_ALLOW_ORIGIN));
+        assertEquals("GET, HEAD, POST, PUT", response.getHeaders().getValue(ACCESS_CONTROL_ALLOW_METHODS));
         assertCommonHeaders(response);
     }
 
@@ -77,8 +77,8 @@ final class ComplexCORSMicroServiceTest {
                         ACCESS_CONTROL_REQUEST_METHOD, method
                 )
         );
-        assertEquals("https://localhost:8443", response.headers().getValue(ACCESS_CONTROL_ALLOW_ORIGIN));
-        assertEquals("GET, POST", response.headers().getValue(ACCESS_CONTROL_ALLOW_METHODS));
+        assertEquals("https://localhost:8443", response.getHeaders().getValue(ACCESS_CONTROL_ALLOW_ORIGIN));
+        assertEquals("GET, POST", response.getHeaders().getValue(ACCESS_CONTROL_ALLOW_METHODS));
         assertCommonHeaders(response);
     }
 
@@ -101,15 +101,15 @@ final class ComplexCORSMicroServiceTest {
                         ACCESS_CONTROL_REQUEST_METHOD, method
                 )
         );
-        assertEquals("http://localhost:8080", response.headers().getValue(ACCESS_CONTROL_ALLOW_ORIGIN));
-        assertEquals("GET, HEAD, POST", response.headers().getValue(ACCESS_CONTROL_ALLOW_METHODS));
+        assertEquals("http://localhost:8080", response.getHeaders().getValue(ACCESS_CONTROL_ALLOW_ORIGIN));
+        assertEquals("GET, HEAD, POST", response.getHeaders().getValue(ACCESS_CONTROL_ALLOW_METHODS));
         assertCommonHeaders(response);
     }
 
     private void assertCommonHeaders(final ClientHttpResponse response) {
-        assertEquals(ORIGIN, response.headers().getValue(VARY));
-        assertEquals("Ex-Mode", response.headers().getValue(ACCESS_CONTROL_ALLOW_HEADERS));
-        assertEquals("true", response.headers().getValue(ACCESS_CONTROL_ALLOW_CREDENTIALS));
-        assertEquals("600", response.headers().getValue(ACCESS_CONTROL_MAX_AGE));
+        assertEquals(ORIGIN, response.getHeaders().getValue(VARY));
+        assertEquals("Ex-Mode", response.getHeaders().getValue(ACCESS_CONTROL_ALLOW_HEADERS));
+        assertEquals("true", response.getHeaders().getValue(ACCESS_CONTROL_ALLOW_CREDENTIALS));
+        assertEquals("600", response.getHeaders().getValue(ACCESS_CONTROL_MAX_AGE));
     }
 }

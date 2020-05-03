@@ -37,8 +37,8 @@ final class NotFoundMicroServiceTest {
     void Should_return_found_response(final String urlPath) {
         final ClientHttpResponse response = blockingHttpClient.get(urlPath + "?found=true");
 
-        assertEquals(jsonObject("message", "Hello World!"), response.body()); // <1>
-        assertEquals(200, response.statusCode()); // <1>
+        assertEquals(jsonObject("message", "Hello World!"), response.getBody()); // <1>
+        assertEquals(200, response.getStatusCode()); // <1>
     }
 
     @ParameterizedTest
@@ -46,8 +46,8 @@ final class NotFoundMicroServiceTest {
     void Should_return_not_found_response(final String urlPath) {
         final ClientHttpResponse response = blockingHttpClient.get(urlPath + "?found=false");
 
-        assertEquals(jsonErrorObject("Not Found"), response.body()); // <2>
-        assertEquals(404, response.statusCode()); // <2>
+        assertEquals(jsonErrorObject("Not Found"), response.getBody()); // <2>
+        assertEquals(404, response.getStatusCode()); // <2>
     }
 }
 // end::content[]

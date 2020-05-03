@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. http://rxmicro.io
+ * Copyright (c) 2020. https://rxmicro.io
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,14 +41,14 @@ final class MicroServiceTest {
             "/?email=@rxmicro.io,   Response is invalid: Invalid parameter \"email\": Expected a valid email format!",
             "/?email=rxmicro.io@,   Response is invalid: Invalid parameter \"email\": Expected a valid email format!",
             "/?email=@.rxmicro.io,  Response is invalid: Invalid parameter \"email\": Expected a valid email format!",
-            "/?email=rxmicro.io@.,  Response is invalid: Invalid parameter \"email\": Expected a valid email format!"
+            "/?email=rxmicro.io@.,  Response is invalid: Invalid parameter \"email\": Expected a valid domain name!"
     })
     void Should_return_invalid_request_status(final String path,
                                               final String expectedErrorMessage) {
         final ClientHttpResponse response = blockingHttpClient.put(path);
 
-        assertEquals(jsonErrorObject(expectedErrorMessage), response.body());
-        assertEquals(500, response.statusCode());
+        assertEquals(jsonErrorObject(expectedErrorMessage), response.getBody());
+        assertEquals(500, response.getStatusCode());
     }
 
     @Test
@@ -57,8 +57,8 @@ final class MicroServiceTest {
 
         assertEquals(
                 jsonObject("email", "welcome@rxmicro.io"),
-                response.body()
+                response.getBody()
         );
-        assertEquals(200, response.statusCode());
+        assertEquals(200, response.getStatusCode());
     }
 }

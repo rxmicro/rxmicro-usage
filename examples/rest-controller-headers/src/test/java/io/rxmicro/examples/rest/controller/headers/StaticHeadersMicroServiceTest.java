@@ -33,15 +33,15 @@ final class StaticHeadersMicroServiceTest {
     void Should_use_parent_header_only() {
         final ClientHttpResponse response = blockingHttpClient.get("/get1");
 
-        assertEquals("Demo", response.headers().getValue("Mode"));
+        assertEquals("Demo", response.getHeaders().getValue("Mode"));
     }
 
     @Test
     void Should_use_parent_and_child_headers() {
         final ClientHttpResponse response = blockingHttpClient.get("/get2");
 
-        assertEquals("Demo", response.headers().getValue("Mode"));
-        assertEquals("true", response.headers().getValue("Debug"));
+        assertEquals("Demo", response.getHeaders().getValue("Mode"));
+        assertEquals("true", response.getHeaders().getValue("Debug"));
     }
     // end::content[]
 }

@@ -42,7 +42,7 @@ final class SimpleUsageMicroServiceTest {
                 )
         );
 
-        final HttpHeaders responseHeaders = response.headers();
+        final HttpHeaders responseHeaders = response.getHeaders();
         assertEquals("v1", responseHeaders.getValue("Endpoint-Version"));   // <4>
         assertEquals("true", responseHeaders.getValue("UseProxy"));         // <4>
     }

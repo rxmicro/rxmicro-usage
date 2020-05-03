@@ -56,8 +56,8 @@ final class MicroServiceTest {
         final ClientHttpResponse response = blockingHttpClient.patch("/");
 
         assertEquals("Result: mock", systemOut.asString()); // <6>
-        assertEquals(200, response.statusCode());
-        assertTrue(response.isBodyEmpty(), "Body not empty: " + response.body());
+        assertEquals(200, response.getStatusCode());
+        assertTrue(response.isBodyEmpty(), "Body not empty: " + response.getBody());
     }
 }
 // end::content[]

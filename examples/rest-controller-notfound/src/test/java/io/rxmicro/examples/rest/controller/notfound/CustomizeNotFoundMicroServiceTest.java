@@ -33,7 +33,7 @@ final class CustomizeNotFoundMicroServiceTest {
     void Should_return_custom_success_status() {
         final ClientHttpResponse response = blockingHttpClient.get("/?found=true");
 
-        assertEquals(200, response.statusCode());
+        assertEquals(200, response.getStatusCode());
     }
 
     // tag::content[]
@@ -41,8 +41,8 @@ final class CustomizeNotFoundMicroServiceTest {
     void Should_return_custom_not_found_message() {
         final ClientHttpResponse response = blockingHttpClient.get("/?found=false");
 
-        assertEquals(jsonErrorObject("Custom not found message"), response.body()); // <1>
-        assertEquals(404, response.statusCode()); // <2>
+        assertEquals(jsonErrorObject("Custom not found message"), response.getBody()); // <1>
+        assertEquals(404, response.getStatusCode()); // <2>
     }
     // end::content[]
 }

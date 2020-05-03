@@ -43,10 +43,10 @@ final class MicroServiceTest {
                 body
         );
 
-        assertEquals(body, response.body());
-        assertEquals(201, response.statusCode());
-        assertSame(HTTP_1_1, response.version());
-        final HttpHeaders responseHeaders = response.headers();
+        assertEquals(body, response.getBody());
+        assertEquals(201, response.getStatusCode());
+        assertSame(HTTP_1_1, response.getVersion());
+        final HttpHeaders responseHeaders = response.getHeaders();
         final String remoteAddress = responseHeaders.getValue("Remote-Address");
         assertTrue(
                 remoteAddress.contains("127.0.0.1"),

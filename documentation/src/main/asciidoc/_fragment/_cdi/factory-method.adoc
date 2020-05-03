@@ -31,9 +31,9 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-factory-method/src/test/ja
 
 The factory method must meet the following requirements:
 
-* The method must be static.
-* The method must be non-native.
-* The method must not be synchronized.
+* The method must be `static`.
+* The method must be non-`native`.
+* The method must not be `synchronized`.
 * The method must return the class instance in which it is declared.
 * The method must not contain parameters.
 

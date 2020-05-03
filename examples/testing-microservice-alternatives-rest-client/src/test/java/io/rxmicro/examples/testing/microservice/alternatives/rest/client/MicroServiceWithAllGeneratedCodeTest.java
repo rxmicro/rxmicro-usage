@@ -59,7 +59,7 @@ final class MicroServiceWithAllGeneratedCodeTest {
     void Should_delegate_call_to_ExternalMicroService() {
         final ClientHttpResponse response = blockingHttpClient.get("/");
 
-        assertEquals(jsonObject("message", "mock"), response.body());
+        assertEquals(jsonObject("message", "mock"), response.getBody());
     }
 }
 // end::content[]

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. http://rxmicro.io
+ * Copyright (c) 2020. https://rxmicro.io
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ import io.rxmicro.rest.method.GET;
 import java.util.concurrent.CompletableFuture;
 
 @RestClient
-@DefaultConfigValue(name = "http-client.schema", value = "https")
+@DefaultConfigValue(name = "http-client.schema", value = "HTTPS")
 @DefaultConfigValue(name = "http-client.host", value = "rxmicro.io")
 @DefaultConfigValue(name = "http-client.port", value = "443")
 public interface ExternalMicroService {

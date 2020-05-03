@@ -18,7 +18,7 @@ package io.rxmicro.examples.format;
 
 import io.r2dbc.spi.Connection;
 import io.r2dbc.spi.Result;
-import io.rxmicro.common.RxMicroException;
+import io.rxmicro.common.InvalidStateException;
 import io.rxmicro.logger.Logger;
 import io.rxmicro.logger.LoggerFactory;
 import reactor.core.publisher.Mono;
@@ -36,7 +36,7 @@ public final class Solution {
                 .bind(0, id)
                 .execute())
                 .onErrorResume(e -> Mono.error(
-                        new RxMicroException(
+                        new InvalidStateException(
                                 "SQL '?' contains syntax error: ?", sql, e.getMessage()) // <3>
                         )
                 );

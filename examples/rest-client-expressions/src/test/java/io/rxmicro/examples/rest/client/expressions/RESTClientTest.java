@@ -43,7 +43,7 @@ final class RESTClientTest {
             new CustomHttpClientConfig()
                     .setHost("rxmicro.io")
                     .setPort(8443)
-                    .setSchema(ProtocolSchema.https)
+                    .setSchema(ProtocolSchema.HTTPS)
                     .setUseProxy(false)
                     .setMode(CustomHttpClientConfig.Mode.TEST);
 
@@ -62,7 +62,7 @@ final class RESTClientTest {
                         .setHeaders(HttpHeaders.of(
                                 "Use-Proxy", "false",
                                 "Debug", "Use-Proxy=false, Mode=TEST",
-                                "Endpoint", "Schema=https, Host=rxmicro.io, Port=8443"
+                                "Endpoint", "Schema=HTTPS, Host=rxmicro.io, Port=8443"
                         ))
                         .build(),
                 true

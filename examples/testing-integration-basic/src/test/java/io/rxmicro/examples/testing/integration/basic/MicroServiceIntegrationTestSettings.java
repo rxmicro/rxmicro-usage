@@ -20,7 +20,7 @@ import io.rxmicro.common.model.Option;
 import io.rxmicro.test.BlockingHttpClient;
 import io.rxmicro.test.BlockingHttpClientSettings;
 
-import static io.rxmicro.http.ProtocolSchema.https;
+import static io.rxmicro.http.ProtocolSchema.HTTPS;
 import static io.rxmicro.rest.Version.Strategy.HEADER;
 import static io.rxmicro.test.HttpServers.getRandomFreePort;
 
@@ -31,7 +31,7 @@ public final class MicroServiceIntegrationTestSettings {
     private static final int SERVER_PORT = getRandomFreePort(); // <4>
 
     @BlockingHttpClientSettings(
-            schema = https,                     // <1>
+            schema = HTTPS,                     // <1>
             host = "examples.rxmicro.io",       // <2>
             port = 9876,                        // <3>
             randomPortProvider = "SERVER_PORT", // <4>

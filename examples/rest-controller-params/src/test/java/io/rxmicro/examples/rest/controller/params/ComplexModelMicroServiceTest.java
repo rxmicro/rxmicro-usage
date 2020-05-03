@@ -62,7 +62,7 @@ final class ComplexModelMicroServiceTest {
         );
         final ClientHttpResponse response = blockingHttpClient.post("/", jsonObject);
 
-        assertEquals(jsonObject, response.body());
+        assertEquals(jsonObject, response.getBody());
     }
 }
 // end::content[]

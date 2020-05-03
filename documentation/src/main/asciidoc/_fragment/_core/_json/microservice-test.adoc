@@ -63,7 +63,7 @@ As a result, the microservice returns the following JSON object:
 
 While writing <<{testing}#testing-rest-based-microservice-tests-section,REST-based microservice test>> or <<{testing}#testing-integration-tests-basic-section,integration test>>, it is necessary to compare the expected JSON response with the one returned by REST-based microservice.
 _(The response returned by the microservice is available through the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http-client/src/main/java/io/rxmicro/http/client/ClientHttpResponse.java#L38[`ClientHttpResponse.body()`^]method)_:
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http-client/src/main/java/io/rxmicro/http/client/ClientHttpResponse.java#L38[`ClientHttpResponse.getBody()`^]method)_:
 
 [source,java]
 ----
@@ -73,7 +73,7 @@ final class MicroServiceTest {
     @Test
     void Should_return_Response() {
         final ClientHttpResponse response = httpClient.get("/").join();
-        final Object actualBody = response.body(); // <1>
+        final Object actualBody = response.getBody(); // <1>
         // ...
     }
 }
@@ -91,7 +91,7 @@ final class MicroServiceTest {
     @Test
     void Should_return_Response() {
         final ClientHttpResponse response = httpClient.get("/").join();
-        final Object actualBody = response.body(); // <1>
+        final Object actualBody = response.getBody(); // <1>
         final Object expectedBody = Stream.of(
                 Map.entry("child", Map.of(
                         "integer", new io.rxmicro.json.JsonNumber("20")

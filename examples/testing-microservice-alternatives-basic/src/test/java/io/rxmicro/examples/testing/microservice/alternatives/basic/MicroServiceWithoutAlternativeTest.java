@@ -38,8 +38,8 @@ final class MicroServiceWithoutAlternativeTest {
         final ClientHttpResponse response = blockingHttpClient.patch("/");
 
         assertEquals("Result: production", systemOut.asString());// <1>
-        assertEquals(200, response.statusCode());                                    // <2>
-        assertTrue(response.isBodyEmpty(), "Body not empty: " + response.body());    // <3>
+        assertEquals(200, response.getStatusCode());                                    // <2>
+        assertTrue(response.isBodyEmpty(), "Body not empty: " + response.getBody());    // <3>
     }
 }
 // end::content[]

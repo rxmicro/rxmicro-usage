@@ -47,7 +47,7 @@ final class MicroServiceBusinessLogicOnlyTest {
 
         final ClientHttpResponse response = blockingHttpClient.get("/");
 
-        assertEquals(jsonObject("message", "mock"), response.body());
+        assertEquals(jsonObject("message", "mock"), response.getBody());
     }
 }
 // end::content[]

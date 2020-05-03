@@ -72,8 +72,8 @@ The source code of the project using the <<{testing}#testing-annotations-WithCon
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/DefaultConfigValue.java[`@DefaultConfigValue`^]
 annotation can be applied to override primitive values only:
 
-* `string`,
-* `boolean`,
+* `strings`,
+* `booleans`,
 * `numbers`,
 * `dates`,
 * `times`,

@@ -16,7 +16,7 @@
 
 package io.rxmicro.util.jacoco;
 
-import io.rxmicro.common.RxMicroException;
+import io.rxmicro.common.InvalidStateException;
 
 import java.io.File;
 import java.io.IOException;
@@ -32,7 +32,7 @@ public final class CopyJacocoExec {
     private static final String RX_MICRO_HOME = "RX_MICRO_HOME";
 
     private static final String RX_MICRO_HOME_VALUE = Optional.ofNullable(System.getenv(RX_MICRO_HOME)).orElseThrow(() -> {
-        throw new RxMicroException("System variable '?' not defined", RX_MICRO_HOME);
+        throw new InvalidStateException("System variable '?' not defined", RX_MICRO_HOME);
     });
 
     private static final File CACHE = new File(format("?/rxmicro-usage/.cache", RX_MICRO_HOME_VALUE));

@@ -48,8 +48,8 @@ final class MicroServiceTest {
                                               final String expectedErrorMessage) {
         final ClientHttpResponse response = blockingHttpClient.patch(path);
 
-        assertEquals(jsonErrorObject(expectedErrorMessage), response.body());
-        assertEquals(400, response.statusCode());
+        assertEquals(jsonErrorObject(expectedErrorMessage), response.getBody());
+        assertEquals(400, response.getStatusCode());
         assertEquals("", systemOut.asString());
     }
 
@@ -59,7 +59,7 @@ final class MicroServiceTest {
         final ClientHttpResponse response = blockingHttpClient.patch("/?value=" + value);
 
         assertEquals(new BigDecimal(value).toString(), systemOut.asString());
-        assertEquals(200, response.statusCode());
+        assertEquals(200, response.getStatusCode());
     }
     // end::content[]
 

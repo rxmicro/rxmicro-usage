@@ -33,6 +33,6 @@ final class HelloWorldMicroServiceTest {
     void Should_return_Hello_World() {
         final ClientHttpResponse response = blockingHttpClient.get("/");
 
-        assertEquals(jsonObject("message", "Hello World!"), response.body());
+        assertEquals(jsonObject("message", "Hello World!"), response.getBody());
     }
 }

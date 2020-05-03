@@ -24,8 +24,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-basic/sr
 
 [IMPORTANT]
 ====
-By default, the https://github.com/r2dbc/r2dbc-postgresql[reactive R2DBC PostgreSQL driver^] uses the {REACTOR-CORE-DOC-USER_GUIDE}[*Project Reactor*^] library,
-so when adding the `rxmicro.data.sql.r2dbc.postgresql` module, the `reactor.core` module is automatically added and available for usage!
+By default, the https://github.com/r2dbc/r2dbc-postgresql[reactive R2DBC PostgreSQL driver^] uses the {REACTOR-CORE-DOC-USER_GUIDE}[*Project Reactor*^] library, so when adding the `rxmicro.data.sql.r2dbc.postgresql` module, the `reactor.core` module is automatically added and available for usage!
 ====
 
 After adding the `rxmicro.data.sql.r2dbc.postgresql` module, You can create a data model class and dynamic repository:
@@ -42,8 +41,7 @@ _(Thus, the `firstName` field corresponds to the `first_name` column, and the `l
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-basic/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/basic/DataRepository.java[tag=content,indent=0]
 ----
-<1> In order for a standard interface to be recognized by the RxMicro framework as a dynamic repository for interaction with https://www.postgresql.org/[`PostgreSQL DB`^],
-this interface should be annotated by {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql-r2dbc-postgresql/src/main/java/io/rxmicro/data/sql/r2dbc/postgresql/PostgreSQLRepository.java[`@PostgreSQLRepository`^] annotation.
+<1> In order for a standard interface to be recognized by the RxMicro framework as a dynamic repository for interaction with https://www.postgresql.org/[`PostgreSQL DB`^], this interface should be annotated by {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql-r2dbc-postgresql/src/main/java/io/rxmicro/data/sql/r2dbc/postgresql/PostgreSQLRepository.java[`@PostgreSQLRepository`^] annotation.
 <2> The dynamic repository may contain methods that form a query to the https://www.postgresql.org/[`PostgreSQL DB`^]. +
 _(The query that used for a request for data uses the https://en.wikipedia.org/wiki/SQL[`SQL`^] and is specified in the annotation parameters.)_
 
