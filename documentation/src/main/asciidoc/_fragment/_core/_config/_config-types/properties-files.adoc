@@ -16,7 +16,7 @@ Configuration files can be located:
 ** for MacOS platform: `/Users/${USER-NAME}`;
 ** for Windows platform: `C:\Documents and Settings\${USER-NAME}`.
 * in the default rxmicro config directory: `$HOME/.rxmicro/` (predefined name and location). +
-_(Using `$HOME/.rxmicro/` directory instead of `$HOME` one allows to configure this directory as https://www.docker.com/[docker^] or https://kubernetes.io/[kubernetes^] volume.)_
+_(Using `$HOME/.rxmicro/` directory instead of `$HOME` one allows configuring this directory as https://www.docker.com/[docker^] or https://kubernetes.io/[kubernetes^] volume.)_
 
 [TIP]
 ====

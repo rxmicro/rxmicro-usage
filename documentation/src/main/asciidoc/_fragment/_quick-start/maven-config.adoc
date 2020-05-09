@@ -6,7 +6,7 @@ include::../___fragment-settings.adoc[]
 Before writing the code of a REST-based microservice, You should configure `pom.xml` of Your project by performing the following steps:
 
 . Define the versions of used libraries.
-. Add the required dependencies to `pom.xml`.
+. Add the required dependencies to the `pom.xml`.
 . Configure the `maven-compiler-plugin`.
 
 ==== Definition the Versions of the Used Libraries

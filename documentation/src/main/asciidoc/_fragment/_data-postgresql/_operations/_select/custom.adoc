@@ -7,7 +7,7 @@ include::../../../___fragment-settings.adoc[]
 ===== Custom Select
 
 The `rxmicro.data.sql.r2dbc.postgresql` module introduces a {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/operation/CustomSelect.java[`@CustomSelect`^]
-annotation that allows to work with a `Custom SELECT`.
+annotation that allows working with a `Custom SELECT`.
 
 The `Custom SELECT` is a string parameter that sends to a repository method and contains a SQL, built dynamically during an execution of a microservice:
 

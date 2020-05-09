@@ -2,22 +2,22 @@
 include::../___fragment-settings.adoc[]
 
 [[testing-integration-tests-section]]
-=== Интеграционное тестирование REST-based микросервисов
+=== REST-based Microservice Integration Testing
 
-Интеграционное тестирование REST-based микросервисов позволяет тестировать полноценную систему, которая может состоять из нескольких REST-based микросервисов.
+The REST-based microservice integration testing allows You to test a complete system, which can consist of several REST-based microservices.
 
-Для удобного написания интеграционных тестов REST-based микросервисов RxMicro предоставляет:
+For easy writing of the REST-based microservices integration tests, the RxMicro framework provides:
 
-. Дополнительную аннотацию {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/RxMicroIntegrationTest.java[`@RxMicroIntegrationTest`^], которая информирует RxMicro о необходимости создать HTTP client и внедрить его в тестируемый класс.
-. Специальный *блокирующий* HTTP client для выполнения HTTP запросов в процессе тестирования:
+. The additional {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/RxMicroIntegrationTest.java[`@RxMicroIntegrationTest`^] annotation, that informs the RxMicro framework about the need to create an HTTP client and inject it into the tested class.
+. A special *blocking* HTTP client to execute HTTP requests during testing:
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^].
-. Интерфейс {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/SystemOut.java[`SystemOut`^] для удобного доступа к консоли.
+. The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/SystemOut.java[`SystemOut`^] interface for easy console access.
 
-Основные отличия интеграционного тестирование от тестирования REST-based микросервиса:
+The main differences between integration testing and REST-based microservice testing:
 
-. для интеграционных тестов RxMicro не запускает HTTP сервер;
-. запуск и остановка системы, состоящей из REST-based микросервисов возлагается на разработчика;
-. RxMicro не поддерживает альтернативы и дополнительную конфигурацию для интеграционных тестов;
+. for integration tests, the RxMicro framework does not run an HTTP server;
+. the developer has to start and stop the system consisting of REST-based microservices;
+. the RxMicro framework does not support alternatives and additional configuration for integration tests;
 
 <<<
 

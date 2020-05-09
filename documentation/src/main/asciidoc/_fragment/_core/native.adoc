@@ -77,7 +77,7 @@ instead of
 </dependency>
 ----
 
-allows to use the `Netty native transports` library version compatible with all other `Netty` libraries used by the RxMicro framework.
+allows using the `Netty native transports` library version compatible with all other `Netty` libraries used by the RxMicro framework.
 
 Therefore, the *`rxmicro-netty-native-...` modules don't contain any logic.* *They just add `Netty native transports` libraries of the correct version.*
 ====

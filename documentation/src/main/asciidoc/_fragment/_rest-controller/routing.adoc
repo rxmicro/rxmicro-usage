@@ -11,7 +11,7 @@ The RxMicro framework supports request routing based on HTTP method, URL Path an
 
 ==== Routing of Requests Based on HTTP Method
 
-The RxMicro framework allows to handle identical HTTP requests, differing *only* in HTTP method, by different handlers:
+The RxMicro framework allows handling identical HTTP requests, differing *only* in HTTP method, by different handlers:
 
 [source,java]
 ----
@@ -32,7 +32,7 @@ include::../___notes/recompile-after-change.adoc[]
 
 ==== Routing of Requests Based on URL Path
 
-The RxMicro framework allows to handle HTTP requests on different URL Paths by different handlers:
+The RxMicro framework allows handling HTTP requests on different URL Paths by different handlers:
 
 [source,java]
 ----

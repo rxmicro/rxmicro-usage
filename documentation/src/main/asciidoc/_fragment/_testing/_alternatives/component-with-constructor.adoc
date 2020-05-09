@@ -3,32 +3,32 @@ include::../../___fragment-settings.adoc[]
 
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
 
-==== Компоненты с пользовательскими конструкторами
+==== Components with Custom Constructors
 
-В случае если пользовательский компонент не содержит доступный конструктор без параметров:
+In case the custom component does not contain an available constructor without parameters:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives-withconstructor/src/main/java/io/rxmicro/examples/testing/component/alternatives/withconstructor/ParentComponent.java[tag=content,indent=0]
 ----
-<1> Класс `ParentComponent` зависит от компонента `ChildComponent`. +
-_(Данная зависимость указана явно в исходном коде.)_
-<2> При создании объекта класса `ParentComponent` в конструкторе необходимо передать значение параметра `prefix`.
+<1> The `ParentComponent` depends on the `ChildComponent`. +
+_(This dependency is specified explicitly in the source code.)_
+<2> When creating the `ParentComponent` class instance in the constructor, the value of the `prefix` parameter must be passed.
 
-то the RxMicro framework не сможет создать объект данного класса.
+then the RxMicro framework won't be able to create an instance of this class.
 
-*Поэтому разработчик должен создать объект данного класса самостоятельно в одном из методов
-{JUNIT5-DOC-ROOT-URL}api/org.junit.jupiter.api/org/junit/jupiter/api/BeforeEach.html[`@BeforeEach`^],
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/BeforeTest.java[`@BeforeTest`^] или
+*Therefore, the developer should create an instance of this class in one of the
+following methods: {JUNIT5-DOC-ROOT-URL}api/org.junit.jupiter.api/org/junit/jupiter/api/BeforeEach.html[`@BeforeEach`^],
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/BeforeTest.java[`@BeforeTest`^] or
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/BeforeIterationMethodSource.java[`@BeforeIterationMethodSource`^]*:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives-withconstructor/src/test/java/io/rxmicro/examples/testing/component/alternatives/withconstructor/ParentComponentTest.java[tag=content,indent=0]
 ----
-<1> Объект класса `ParentComponent` создается внутри метода аннотированного аннотацией {JUNIT5-DOC-ROOT-URL}api/org.junit.jupiter.api/org/junit/jupiter/api/BeforeEach.html[`@BeforeEach`^].
-<2> Альтернатива `childComponent` будет внедрена в объект класса `ParentComponent` после вызова метода `beforeEach()` и перед тестовым методом `Should_use_alternative()`.
-<3> При тестировании метода `getEnvironment` вызывается метод из альтернативы вместо реального компонента.
+<1> The `ParentComponent` class instance is created inside the method annotated by the {JUNIT5-DOC-ROOT-URL}api/org.junit.jupiter.api/org/junit/jupiter/api/BeforeEach.html[`@BeforeEach`^] annotation.
+<2> The `childComponent` alternative will be injected into the `ParentComponent` class instance after invoking the `beforeEach()` method and before the `Should_use_alternative()` test method.
+<3> When testing the `getEnvironment` method, the alternative method is invoked instead of the real component one.
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-simplest
 include::../../___notes/full-source-code-of-example.adoc[]

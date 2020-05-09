@@ -1,13 +1,13 @@
 :FRAGMENT_RELATIVE_DIR: ../../
 include::../../___fragment-settings.adoc[]
 
-==== Алгоритм внедрения альтернативы of the RxMicro component
+==== Injection Algorithm for the Alternative of the RxMicro Component
 
-Для внедрения альтернативы of the RxMicro component the RxMicro framework использует следующий алгоритм:
+To inject the alternative of the RxMicro component, the RxMicro framework uses the following algorithm:
 
-. Объект альтернативы создается разработчиком в коде теста или тестируемым фреймворком автоматически.
-. После того как все альтернативы созданы, они регистрируются в runtime container.
-. После регистрации всех альтернатив, the RxMicro framework создает объект тестируемого класса.
-. В конструкторе или статической секции тестируемого класса выполняется запрос к runtime container на получения ссылки на RxMicro component.
-. Так как runtime container содержит уже альтернативу вместо реального компонента, то в объект тестируемого класса внедряется альтернатива.
-. После завершения инициализации объект тестируемого класса содержит ссылки на альтернативы вместо реальных RxMicro компонентов.
+. The alternative instance is created by the developer in the test code or by the testing framework automatically.
+. Once all alternatives have been created, they are registered in the runtime container.
+. Once all alternatives have been registered, the RxMicro framework creates an instance of the tested class.
+. In the constructor or static section of the tested class, a request to the runtime container to get a reference to the RxMicro component is executed.
+. Since the runtime container already contains an alternative instead of the real component, the alternative is injected into the instance of the tested class.
+. After initialization, the instance of the tested class contains links to alternatives instead of the real RxMicro components.

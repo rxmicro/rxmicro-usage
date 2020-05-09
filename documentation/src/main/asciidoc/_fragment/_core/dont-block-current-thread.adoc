@@ -32,7 +32,7 @@ Consequently, when writing microservice applications based on the RxMicro framew
 
 ==== Recommended Approach
 
-The absence of blocking operations in the microservice allows to handle many concurrent connections, using a small number of threads and, as a result, to effectively use hardware resources of the computer.
+The absence of blocking operations in the microservice allows handling many concurrent connections, using a small number of threads and, as a result, to effectively use hardware resources of the computer.
 
 Therefore, when designing microservices via the RxMicro framework, You must follow by the following rule:
 

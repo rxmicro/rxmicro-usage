@@ -4,38 +4,38 @@ include::../../___fragment-settings.adoc[]
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
 
 [[testing-integration-tests-docker-section]]
-==== Использование `docker`
+==== The `docker` Usage
 
-Для выполнения интеграционного тестирования микросервисов удобно использовать `docker`.
+To perform the integration testing of microservices, it is convenient to use the `docker`.
 
-Данный демонстрационный пример использует `docker` образ: {RX-MICRO-DOCKER_HUB_ROOT}simple-hello-world[`rxmicro/simple-hello-world`^].
+This demonstration example uses the `docker` image: {RX-MICRO-DOCKER_HUB_ROOT}simple-hello-world[`rxmicro/simple-hello-world`^].
 
 [TIP]
 ====
-Исходный код проекта, на базе которого был собран данный `docker` образ, доступен по ссылке:
+The source code of the project, on the basis of which this `docker` image was built, is available at the following link:
 
 [.example-code-link]
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}docker-image-hello-world-microservice[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}docker-image-hello-world-microservice`^]
 ====
 
-Для запуска `docker` контейнеров в интеграционном тесте удобно использовать Java библиотеку https://www.testcontainers.org/[`Testcontainers`^]:
+To start the `docker` containers in the integration test it is convenient to use the  https://www.testcontainers.org/[`Testcontainers`^] Java library:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-integration-docker/src/it/java/io/rxmicro/examples/testing/integration/docker/HelloWorldMicroService_IT.java[tag=content,indent=0]
 ----
-<1> Аннотация {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/RxMicroIntegrationTest.java[`@RxMicroIntegrationTest`^]
-информирует the RxMicro framework о том, что данный тест является интеграционным тестом.
-<2> Аннотация {TESTCONTAINERS-JUNIT-DOC-ROOT-URL}org/testcontainers/junit/jupiter/Testcontainers.java[`@Testcontainers`^]
-активирует запуск и остановку `docker` контейнеров, которые будут использоваться в данном тесте.
-<3> Аннотация {TESTCONTAINERS-JUNIT-DOC-ROOT-URL}org/testcontainers/junit/jupiter/Container.java[`@Container`^]
-указывает на `docker` контейнер, который будет использован в данном тесте.
-_(Для запуска микросервисов в `docker` контейнерах используется утилита `docker-compose`.)_
-<4> В процессе тестирования убеждаемся, что тестируемый микросервис возвращает сообщение `"Hello World!"`.
+<1> The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/RxMicroIntegrationTest.java[`@RxMicroIntegrationTest`^]
+annotation informs the RxMicro framework that this test is an integration test.
+<2> The {TESTCONTAINERS-JUNIT-DOC-ROOT-URL}org/testcontainers/junit/jupiter/Testcontainers.java[`@Testcontainers`^]
+annotation activates the start and stop of the `docker` containers to be used in this test.
+<3> The {TESTCONTAINERS-JUNIT-DOC-ROOT-URL}org/testcontainers/junit/jupiter/Container.java[`@Container`^]
+annotation indicates the `docker` container to be used in this test.
+_(To start microservices in the `docker` containers the `docker-compose` utility is used.)_
+<4> During the testing process, ensure that the tested microservice returns the `"Hello World!"` message.
 
 [NOTE]
 ====
-Для запуска REST-based микросервиса в `docker` контейнере используется следующий конфигурационный файл для утилиты `docker-compose`:
+To start the REST-based microservice in the `docker` container, the following configuration file for the `docker-compose` utility is used:
 
 [source,yaml]
 ----

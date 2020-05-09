@@ -2,29 +2,29 @@
 include::../___fragment-settings.adoc[]
 
 [[testing-component-tests-section]]
-=== Тестирование компонентов микросервиса
+=== Testing of Microservice Components
 
-==== Базовые принципы
+==== Basic Principles
 
-Базовые принципы тестирования компонентов рассмотрены в разделе: <<testing-alternatives-usage-section>>.
+The basic principles of component testing are covered by the <<testing-alternatives-usage-section>> section.
 
-==== Особенности тестирования сложных компонентов, использующих альтернативы
+==== Features of Testing Complex Components that Use Alternatives
 
-Особенности тестирования сложных компонентов, использующих альтернативы такие же как и <<testing-rest-based-microservice-tests-complex-alternative-usage-section, при тестировании REST-based микросервисов>>.
+The features of testing complex components that use alternatives are the same as for <<testing-rest-based-microservice-tests-complex-alternative-usage-section,REST-based microservice testing>>.
 
 For more information, we recommend that You familiarize yourself with the following examples:
 
-* Особенности тестирования компонентов, использующих REST client:
+* Features of testing components that use REST clients:
 
 [.example-code-link]
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-rest-client[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-rest-client`^];
 
-* Особенности тестирования компонентов, использующих mongo репозитории:
+* Features of testing components that use mongo repositories:
 
 [.example-code-link]
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-mongo-repository[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-mongo-repository`^];
 
-* Особенности тестирования компонентов, использующих postgres репозитории:
+* Features of testing components that use postgres repositories:
 
 [.example-code-link]
 {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-postgres-repository[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-postgres-repository`^];

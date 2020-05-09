@@ -3,18 +3,18 @@ include::../../___fragment-settings.adoc[]
 
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
 
-==== Порядок выполнения пользовательского и RxMicro кода
+==== Custom and RxMicro Code Execution Order
 
-Для эффективного написания тестов REST-based микросервиса, необходимо знать порядок выполнения пользовательского и RxMicro кода.
+For efficient writing of Rest-based microservice tests, it is necessary to know the execution order of user and RxMicro code.
 
-При тестировании REST-based микросервиса, используя следующий тест:
+When testing a Rest-based microservice, using the following test:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-microservice-order/src/test/java/io/rxmicro/examples/testing/microservice/order/MicroServiceTest.java[tag=content,indent=0]
 ----
 
-порядок выполнения будет следующим:
+the execution order will be as follows:
 
 [source,text,subs="verbatim,quotes"]
 ----
@@ -61,10 +61,10 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-microservice-order/src
 
 ----
 
-В приведенном выше порядке выполнения пользовательского и RxMicro кода подразумеваются следующие уточнения:
+In the above execution order of user and RxMicro code the following clarifications are implied:
 
-. Префик `MOCKITO` означает, что действие активируется аннотацией
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-mockito-junit/src/main/java/io/rxmicro/test/mockito/junit/InitMocks.java[`@InitMocks`^].
-. Префик `RX-MICRO` означает, что действие активируется аннотацией
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/RxMicroRestBasedMicroServiceTest.java[`@RxMicroRestBasedMicroServiceTest`^].
-. Префик `USER-TEST` означает, что на данном этапе вызывается пользовательский метод из класса `MicroServiceTest`.
+. The `MOCKITO` prefix means that the action is activated by the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-mockito-junit/src/main/java/io/rxmicro/test/mockito/junit/InitMocks.java[`@InitMocks`^] annotation.
+. The `RX-MICRO` prefix means that the action is activated by the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/RxMicroRestBasedMicroServiceTest.java[`@RxMicroRestBasedMicroServiceTest`^] annotation.
+. The `USER-TEST` prefix means that at this stage a custom method from the `MicroServiceTest` class is invoked.

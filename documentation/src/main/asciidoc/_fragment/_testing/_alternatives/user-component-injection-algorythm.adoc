@@ -1,29 +1,29 @@
 :FRAGMENT_RELATIVE_DIR: ../../
 include::../../___fragment-settings.adoc[]
 
-==== Алгоритм внедрения альтернативы пользовательского компонента
+==== Injection Algorithm for the Alternative of the Custom Component
 
-Для внедрения альтернативы пользовательского компонента the RxMicro framework использует следующий алгоритм:
+To inject the alternative of the custom component, the RxMicro framework  uses the following algorithm:
 
-. Объект альтернативы создается разработчиком в коде теста или тестируемым фреймворком автоматически.
-. The RxMicro framework создает объект тестируемого класса.
-. В конструкторе или статической секции тестируемого класса создаются объекты реальных пользовательских компонентов.
-. После завершения инициализации объект тестируемого класса содержит ссылки на реальные пользовательские компоненты.
-. После создания объекта тестируемого класса the RxMicro framework внедряет альтернативы пользовательских компонентов, используя механизм `reflection`. +
-_(Т.е. альтернативы заменяют реальные объекты уже после создания объекта тестируемого класса.)_;
-. После внедрения альтернатив объект тестируемого класса содержит ссылки на альтернативы RxMicro компонентов вместо реальных RxMicro компонентов. +
-_(Объекты реальных компонентов будут удалены сборщиком мусора позже.)_;
+. The alternative instance is created by the developer in the test code or by the testing framework automatically.
+. The RxMicro framework creates an instance of the tested class.
+. In the constructor or static section of the tested class, instances of the real custom components are created.
+. After initialization, the instance of the tested class contains references to the real custom components.
+. After creating an instance of the tested class, the RxMicro framework injects the custom component alternatives using the  `reflection` mechanism. +
+_(I.e. the alternatives replace the real instances already after creating an instance of the tested class.)_;
+. After alternative injection, the instance of the tested class contains references to the alternatives of the RxMicro components instead of the real RxMicro components. +
+_(The real component instances will be removed by the garbage collector later.)_;
 
-Таким образом главное отличие алгоритма внедрения альтернатив пользовательских компонентов заключается в том, что в процессе внедрения всегда создаются объекты реальных компонентов.
-
-[IMPORTANT]
-====
-Если реальный компонент создает ссылку на внешний ресурс, то данный ресурс *не будет* освобожден автоматически при внедрении альтернативы!
-====
-
-Для создания альтернатив пользовательских компонентов, работающих с внешними ресурсами рекомендуется использовать модуль <<{cdi}#cdi-section,`rxmicro.cdi`>>.
+Thus, the main difference of the injection algorithm for the custom component alternatives is that during the injection process, the real component instances are always created.
 
 [IMPORTANT]
 ====
-Если для создания объектов пользовательских компонентов разработчик использует модуль <<{cdi}#cdi-section,`rxmicro.cdi`>>, то тогда *все* пользовательские компоненты подчиняются алгоритму внедрения альтернативы RxMicro компонента.
+If the real component creates a reference to an external resource, then this resource *will not be* released automatically when injecting the alternative!
+====
+
+It is recommended to use the <<{cdi}#cdi-section,`rxmicro.cdi`>> module to create the custom component alternatives that work with external resources.
+
+[IMPORTANT]
+====
+If the <<{cdi}#cdi-section,`rxmicro.cdi`>> module is used by the developer to create the custom component instances, then *all* custom components are injected using the algorithm of the RxMicro component alternative injection.
 ====

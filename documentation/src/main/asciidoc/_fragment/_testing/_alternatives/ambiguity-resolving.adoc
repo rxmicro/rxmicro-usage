@@ -3,22 +3,22 @@ include::../../___fragment-settings.adoc[]
 
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
 
-==== Разрешение неоднозначностей
+==== Ambiguity Resolving
 
-Созданная разработчиком альтернатива может быть внедрена by the RxMicro framework не только в тестируемый компонент, но и в любой его дочерний компонент.
+The alternative created by the developer can be injected by the RxMicro framework not only in the tested component, but also in any of its child components.
 
-В процессе такого внедрения может возникнуть проблема неоднозначности.
+During such injection, the ambiguity problem may occur.
 
-===== Демонстрация разрешения неоднозначностей
+===== Ambiguity Resolving Demonstration
 
-Допустим в проекте существует некий бизнес сервис:
+Let's assume there is some business service in the project:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives-ambiguty-resolving/src/main/java/io/rxmicro/examples/testing/component/alternatives/ambiguty/resolving/BusinessService.java[tag=content,indent=0]
 ----
 
-Данный бизнес сервис является зависимостью для трех зависимых между собой компонентов `Child`, `Parent`, `GrandParent`:
+This business service is a dependency for three interdependent components: `Child`, `Parent`, `GrandParent`:
 
 [source,java]
 ----
@@ -35,62 +35,60 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives-ambiguty-resolving/src/main/java/io/rxmicro/examples/testing/component/alternatives/ambiguty/resolving/GrandParent.java[tag=content,indent=0]
 ----
 
-При вызове метода `GrandParent.getValue` вызывается этот метод на бизнес сервисах всех зависимых компонентов `Child`, `Parent` и `GrandParent` в соответствии с иерархией зависимостей:
+When invoking the `GrandParent.getValue` method, this method is invoked on the business services of all `Child`, `Parent` and `GrandParent` dependent components according to the dependency hierarchy:
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives-ambiguty-resolving/src/test/java/io/rxmicro/examples/testing/component/alternatives/ambiguty/resolving/GrandParent1Test.java[tag=content,indent=0]
 ----
 
-При использовании альтернативы поведение метода `GrandParent.getValue` изменяется:
+When using an alternative, the behavior of the `GrandParent.getValue` method is changed:
 
 [source,java]
 [[GrandParent2Test-inline]]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives-ambiguty-resolving/src/test/java/io/rxmicro/examples/testing/component/alternatives/ambiguty/resolving/GrandParent2Test.java[tag=content,indent=0]
 ----
-<1> Создается альтернатива бизнес сервису.
-<2> Перед тестированием программируется поведение метода `getValue` созданного мока.
-<3> В результате выполнения теста видно, что данная альтернатива внедряется во *все* зависимые компоненты `Child`, `Parent` и `GrandParent`.
+<1> An alternative to the business service is created.
+<2> Before testing, the behavior of the `getValue` method of created mock is programmed.
+<3> As a result of the test, You can see that this alternative is injected into *all* `Child`, `Parent` and `GrandParent` dependent components.
 
-Если создать 2 и больше (в данном тестовом примере не больше 3) альтернатив, то каждая альтернатива может быть внедрена в отдельный бизнес компонент:
+If You create 2 or more (no more than 3 in this test example) alternatives, then each alternative can be injected in a separate business component:
 
 [source,java]
 [[GrandParent3Test-inline]]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives-ambiguty-resolving/src/test/java/io/rxmicro/examples/testing/component/alternatives/ambiguty/resolving/GrandParent3Test.java[tag=content,indent=0]
 ----
-<1> Альтернатива `grandParentBusinessService` внедряется в компонент `GrandParent`, а альтернатива `businessService` внедряется в компонент `Child`;
+<1> The `grandParentBusinessService` alternative is injected into the `GrandParent` component, and the `businessService` alternative is injected into the `Child` component;
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-ambiguty-resolving
 include::../../___notes/full-source-code-of-example.adoc[]
 
-===== Алгоритм разрешения неоднозначностей
+===== Ambiguity Resolving Algorithm
 
-Для разрешения неоднозначностей RxMicro использует следующий алгоритм:
+To resolve ambiguities, the RxMicro framework uses the following algorithm:
 
-. Для каждого тестируемого компонента выполняется поиск кандидатов на внедрение.
-. В результате формируется карта, в качестве ключа которой выступает пользовательский тип, а значением - список кандидатов на внедрение.
-*(RxMicro не поддерживает правила полиморфизма при внедрении альтернатив.
-Таким образов альтернативу типа `A` возможно внедрить только в поле с типом `A`)*.
-. После получения карты с кандидатами на внедрение, RxMicro проходится по данной карте.
-. Для каждого пользовательского типа запрашивается список кандидатов и список альтернатив.
-. Если для пользовательского типа обнаружена только одна альтернатива и только один кандидат, то RxMicro внедряет данную альтернативу в поле кандидата;
-. Если обнаруживается больше одной альтернативы и только один кандидат, то RxMicro выбрасывает ошибку;
-. Если обнаруживается больше одного кандидата и только одна альтернатива, то:
-.. RxMicro анализирует имя поля кандидата на внедрение:
-... если имя поля кандидата совпадает с именем поля альтернативы, то RxMicro внедряет данную альтернативу;
-... если имя поля кандидата совпадает со значением параметра `name` аннотации `@Alternative`, то RxMicro внедряет данную альтернативу;
-... иначе данный кандидат пропускается;
-.. если не было внедрено ни одной альтернативы, то RxMicro внедряет данную альтернативу во *все* поля кандидатов. +
-_(Именно такое поведение возникает в тесте <<GrandParent2Test-inline,`GrandParent2Test`>>.)_
-. Если обнаруживается больше одного кандидата и больше одной альтернативы то:
-.. RxMicro анализирует имя поля кандидата на внедрение:
-... если имя поля кандидата совпадает с именем поля альтернативы, то RxMicro внедряет данную альтернативу; +
-_(В тесте <<GrandParent3Test-inline,`GrandParent3Test`>> альтернатива `grandParentBusinessService` внедряется в поле компонента `GrandParent`, потому что имена полей альтернативы и компонента равны.)_;
-... если имя поля кандидата совпадает со значением параметра `name` аннотации `@Alternative`, то RxMicro внедряет данную альтернативу; +
-_(В тесте <<GrandParent3Test-inline,`GrandParent3Test`>> альтернатива `businessService` внедряется в поле компонента `Child`, потому что параметр `name` аннотации `@Alternative` равен `childBusinessService`._ _А в классе `Child` имя поля с типом `BusinessService` также равно `childBusinessService`.)_
-... иначе данный кандидат пропускается;
-.. _(В ситуации когда обнаруживается больше одного кандидата и больше одной альтернативы возможен вариант, когда ни одна из альтернатив не будет внедрена.)_
-. После того как все кандидаты проанализированы, RxMicro проверяет наличие неиспользуемых альтернатив.
-. Если будет обнаружена неиспользуемая альтернатива, то RxMicro выбрасывает ошибку.
+. For each tested component, a search for injection candidates is performed.
+. As a result, a map is formed with a user type as its key and a list of candidates for injection as its value.
+*(The RxMicro framework does not support polymorphism rules when injecting alternatives.
+Thus, the alternative of the `A` type can only be injected in the field with the `A` type)*.
+. After receiving a map with candidates for injection, the RxMicro framework passes through this map.
+. For each user type, a list of candidates and a list of alternatives is requested.
+. If there is only one alternative and only one candidate for the user type, the RxMicro framework injects this alternative into the candidate field;
+. If more than one alternative and only one candidate is found, the RxMicro framework will throw out an error;
+. If there is more than one candidate and only one alternative, then:
+.. The RxMicro framework analyzes the injection candidate field name:
+... if the candidate field name matches the alternative field name, the RxMicro framework injects this alternative;
+... if the candidate field name matches the value of the `name` parameter of the `@Alternative` annotation, the RxMicro framework injects this alternative;
+... otherwise this candidate will be skipped;
+.. if no alternative has been injected, the RxMicro framework injects this alternative in *all* candidate fields. +
+_(This is the behavior that occurs in the <<GrandParent2Test-inline,`GrandParent2Test`>> test.)_
+. If there is more than one candidate and more than one alternative, then:
+.. The RxMicro framework analyzes the injection candidate field name:
+... if the candidate field name matches the alternative field name, the RxMicro framework injects this alternative; +
+_(In the <<GrandParent3Test-inline,`GrandParent3Test`>> test, the `grandParentBusinessService` alternative is injected in the `GrandParent` component field, because the names of the alternative and component fields are equal.)_;
+... if the candidate field name matches the value of the `name` parameter of the `@Alternative` annotation, the RxMicro framework injects this alternative; +
+_(In the <<GrandParent3Test-inline,`GrandParent3Test`>> test, the `businessService` alternative is injected in the `Child` component field, because the `name` parameter of the `@Alternative` annotation is equal to the `childBusinessService`._ _And in the `Child` class, the field name with the `BusinessService` type is also equal to the `childBusinessService`.)_
+... otherwise this candidate will be skipped;
+.. _(When more than one candidate and more than one alternative is found, it is possible that none of the alternatives will be injected.)_

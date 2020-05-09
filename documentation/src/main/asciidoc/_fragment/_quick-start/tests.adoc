@@ -130,7 +130,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/quick-start/src/test/java/io/r
 ----
 <1> The RxMicro test annotation indicating which microservice should be run for testing.
 <2> The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^] is a basic HTTP client interface designed for use in tests.
-This interface allows to execute *blocking* requests to the microservice via the `HTTP` protocol.
+This interface allows executing *blocking* requests to the microservice via the `HTTP` protocol.
 This field is initialized automatically when running the test with `reflection`.
 Upon initialization it refers to the test HTTP server that was automatically started for the test.
 <3> Blocking request to the microservice.

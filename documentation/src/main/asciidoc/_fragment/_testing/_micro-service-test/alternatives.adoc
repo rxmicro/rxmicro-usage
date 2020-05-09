@@ -2,7 +2,7 @@
 include::../../___fragment-settings.adoc[]
 
 [[testing-rest-based-microservice-tests-complex-alternative-usage-section]]
-==== Особенности тестирования сложных микросервисов, использующих альтернативы
+==== Features of Testing Complex Microservices that use Alternatives
 
 include::_alternatives/rest-client.adoc[]
 
