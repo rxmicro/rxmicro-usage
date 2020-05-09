@@ -23,7 +23,7 @@ import io.rxmicro.test.BlockingHttpClient;
 import io.rxmicro.test.junit.BeforeTest;
 import io.rxmicro.test.junit.RxMicroRestBasedMicroServiceTest;
 import io.rxmicro.test.mockito.junit.InitMocks;
-import io.rxmicro.test.mockito.r2dbc.SQLParamsMock;
+import io.rxmicro.test.mockito.r2dbc.SQLQueryWithParamsMock;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
@@ -38,8 +38,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @RxMicroRestBasedMicroServiceTest(MicroService.class)
 final class MicroServiceWithAllGeneratedCodeTest {
 
-    private static final SQLParamsMock SQL_PARAMS_MOCK =
-            new SQLParamsMock.Builder()
+    private static final SQLQueryWithParamsMock SQL_PARAMS_MOCK =
+            new SQLQueryWithParamsMock.Builder()
                     .setAnySql()
                     //.setSql("SELECT data FROM entity WHERE id = $1")
                     //.setBindParams(1L)

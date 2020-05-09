@@ -30,7 +30,7 @@ To enable the `unnamed module` mode, it is necessary to add `RX_MICRO_BUILD_UNNA
 </plugin>
 ----
 
-====== `maven-shade-plugin` Configuration
+====== `Maven-shade-plugin` Configuration
 
 To build a native image we need a `uber jar`.
 For that it is necessary to add `maven-shade-plugin`:
@@ -65,7 +65,7 @@ For that it is necessary to add `maven-shade-plugin`:
 </plugin>
 ----
 
-====== `exec-maven-plugin` Configuration
+====== `Exec-maven-plugin` Configuration
 
 To build a native image from `maven` it is necessary to use `exec-maven-plugin`:
 

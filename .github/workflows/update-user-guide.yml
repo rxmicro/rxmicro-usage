@@ -25,10 +25,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout rxmicro-usage repo
+      - name: Checkout `rxmicro-usage` Repository
         uses: actions/checkout@v2
 
-      - name: Setup m2 local repo
+      - name: Setup Maven Local Repository
         uses: actions/cache@v1
         with:
           path: ~/.m2/repository
@@ -58,7 +58,7 @@ jobs:
           mvn -DskipTests -Drxmicro.version=$LATEST_VERSION -B compile --file examples/documentation-asciidoctor-metadata-annotations/pom.xml
           mvn -DskipTests -Drxmicro.version=$LATEST_VERSION -B compile --file examples/documentation-asciidoctor-metadata-pomxml/pom.xml
 
-      - name: Build User Guide
+      - name: Build the Last Version of RxMicro User Guide
         run: |
           cd rxmicro/
           LATEST_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
@@ -66,27 +66,27 @@ jobs:
           cd documentation/
           mvn -Drxmicro.version=$LATEST_VERSION -B verify --file pom.xml
 
-      - name: Clone `rxmicro.github.io`
-        run: git clone https://github.com/rxmicro/rxmicro.github.io
+      - name: Clone the `docs` Repository
+        run: git clone https://github.com/rxmicro/docs
 
-      - name: Update `rxmicro.github.io` Repository
+      - name: Update the `docs` Repository
         run: |
-          rm -R rxmicro.github.io/doc/latest/
-          mkdir rxmicro.github.io/doc/latest/
-          mv -v documentation/target/generated-docs/images rxmicro.github.io/doc/latest
-          mv -v documentation/target/generated-docs/project-documentation-examples rxmicro.github.io/doc/latest
-          mv -v documentation/target/generated-docs/user-guide rxmicro.github.io/doc/latest
-          mv -v documentation/target/generated-docs/user-guide.html rxmicro.github.io/doc/latest
-          mv -v documentation/target/generated-docs/user-guide.pdf rxmicro.github.io/doc/latest
-          mkdir rxmicro.github.io/doc/latest/styles/
-          mv -v documentation/target/generated-docs/styles/rxmicro-doc.min.css rxmicro.github.io/doc/latest/styles/
+          rm -R docs/latest/
+          mkdir docs/latest/
+          mv -v documentation/target/generated-docs/images docs/latest
+          mv -v documentation/target/generated-docs/project-documentation-examples docs/latest
+          mv -v documentation/target/generated-docs/user-guide docs/latest
+          mv -v documentation/target/generated-docs/user-guide.html docs/latest
+          mv -v documentation/target/generated-docs/user-guide.pdf docs/latest
+          mkdir docs/latest/styles/
+          mv -v documentation/target/generated-docs/styles/rxmicro-doc.min.css docs/latest/styles/
 
-      - name: Commit and Push Changes to `rxmicro.github.io` Repository
+      - name: Commit and Push Changes to the `docs` Repository
         run: |
-          cd rxmicro.github.io
+          cd docs
           git config user.email "rxmicro.io@gmail.com"
           git config user.name "rxmicro"
           git add --all
-          git commit -m "Update user guide. Commit#${{ github.sha }}"
-          git remote set-url origin https://rxmicro:${{ secrets.AUTO_UPDATE_RX_MICRO_IO_DOC_ACCESS_TOKEN }}@github.com/rxmicro/rxmicro.github.io.git
-          git push origin master
+          git commit --amend -m "Update user guide. Commit#${{ github.sha }}"
+          git remote set-url origin https://rxmicro:${{ secrets.AUTO_UPDATE_RX_MICRO_IO_DOC_ACCESS_TOKEN }}@github.com/rxmicro/docs.git
+          git push --force origin master

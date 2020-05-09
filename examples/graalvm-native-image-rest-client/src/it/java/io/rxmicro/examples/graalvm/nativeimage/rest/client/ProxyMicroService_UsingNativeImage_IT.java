@@ -44,7 +44,7 @@ final class ProxyMicroService_UsingNativeImage_IT {
         process = new TestedProcessBuilder()
                 .setCommandWithArgs("./ProxyMicroService")
                 .setWorkingDir(new File("."))
-                .build();
+                .start();
         new WaitFor("wait-for localhost:8080").start();
     }
 

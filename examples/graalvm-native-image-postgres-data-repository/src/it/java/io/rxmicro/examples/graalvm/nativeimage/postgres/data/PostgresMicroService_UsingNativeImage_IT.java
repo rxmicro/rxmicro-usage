@@ -67,7 +67,7 @@ public final class PostgresMicroService_UsingNativeImage_IT {
                         format("?:?", POSTGRESQL_TEST_DB.getContainerIpAddress(), POSTGRESQL_TEST_DB.getFirstMappedPort())
                 )
                 .setWorkingDir(new File("."))
-                .build();
+                .start();
         new WaitFor("wait-for localhost:8080").start();
     }
 

@@ -7,7 +7,7 @@ include::../../../___fragment-settings.adoc[]
 ===== Custom Reading Order of Config Sources.
 
 To change the order of the configuration reading it is necessary to use the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L121[`Configs.Builder.withOrderedConfigSources`^] method:
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L197[`Configs.Builder.withOrderedConfigSources`^] method:
 
 [source,java]
 ----
@@ -31,27 +31,27 @@ Server started at localhost:9090 using NETTY transport in 500 millis. # <1>
 [IMPORTANT]
 ====
 The
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L118[`Configs.Builder.withOrderedConfigLoadSources`^]
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L198[`Configs.Builder.withOrderedConfigSources`^]
 method allows not only to change the order of reading the configuration sources, but also to activate/deactivate the sources.
 
 *In the above example, the RxMicro framework will ignore any configuration sources except classpath resources!*
 ====
 
 The
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L118[`Configs.Builder.withOrderedConfigLoadSources`^]
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L197[`Configs.Builder.withOrderedConfigSources`^]
 method is universal.
 
 The RxMicro framework also provides other additional methods:
 
-* {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L124[`Configs.Builder.withAllConfigLoadSources`^] - activation of all configuration types in the order given by the list:
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/ConfigLoadSource.java[`ConfigLoadSource`^]
+* {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L222[`Configs.Builder.withAllConfigSources`^] - activation of all configuration types in the order given by the list:
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/ConfigSource.java[`ConfigSource`^]
 
-* {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L129[`Configs.Builder.withContainerConfigSources`^] - this combination is recommended for microservices operating in https://www.docker.com/[docker^] or https://kubernetes.io/[kubernetes^].
+* {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L240[`Configs.Builder.withContainerConfigSources`^] - this combination is recommended for microservices operating in https://www.docker.com/[docker^] or https://kubernetes.io/[kubernetes^].
 
 [TIP]
 ====
 The
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L124[`Configs.Builder.withAllConfigLoadSources`^]
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L222[`Configs.Builder.withAllConfigSources`^]
 method was used to activate the reading of configurations from properties files in the <<core-config-properties-files-section>> subsection.
 
 If You plan to use only `properties` files, it is recommended to specify only these types, excluding all other types:
@@ -66,7 +66,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro
 <4> ctivation of configuration reading from the `${name-space}.properties` files (for example, `http-server.properties`) in the current directory.
 
 *The order of reading is set by the argument order of the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L118[`Configs.Builder.withOrderedConfigLoadSources`^]* method
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L197[`Configs.Builder.withOrderedConfigSources`^]* method
 ====
 
 [IMPORTANT]

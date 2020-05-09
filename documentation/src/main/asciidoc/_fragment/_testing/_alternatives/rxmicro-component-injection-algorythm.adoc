@@ -10,4 +10,4 @@ To inject the alternative of the RxMicro component, the RxMicro framework uses t
 . Once all alternatives have been registered, the RxMicro framework creates an instance of the tested class.
 . In the constructor or static section of the tested class, a request to the runtime container to get a reference to the RxMicro component is executed.
 . Since the runtime container already contains an alternative instead of the real component, the alternative is injected into the instance of the tested class.
-. After initialization, the instance of the tested class contains links to alternatives instead of the real RxMicro components.
+. After initialization, the instance of the tested class contains references to alternatives instead of the real RxMicro components.

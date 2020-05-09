@@ -6,7 +6,7 @@ include::../___fragment-settings.adoc[]
 
 https://www.json.org/[*JSON*^] is a widely used message exchange format for distributed applications.
 
-RxMicro provides the `rxmicro.json` module for low-level and efficient work with this format.
+The RxMicro framework provides the `rxmicro.json` module for low-level and efficient work with this format.
 
 [IMPORTANT]
 ====

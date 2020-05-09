@@ -20,7 +20,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-basic/src/ma
 ----
 <1> The `email` parameter is annotated by the `@Email` annotation.
 
-Due to this annotation the annotation processor will automatically generate a validator for `email` HTTP parameter:
+Due to this annotation the `RxMicro Annotation Processor` will automatically generate a validator for `email` HTTP parameter:
 
 [source,java]
 ----

@@ -40,7 +40,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-all/src/main/java/m
 
 [IMPORTANT]
 ====
-*Upon activation of the `rxmicro.validation` module, by default RxMicro generates only HTTP request validators for REST controllers and HTTP response validators for REST clients!*
+*Upon activation of the `rxmicro.validation` module, by default the RxMicro framework generates only HTTP request validators for REST controllers and HTTP response validators for REST clients!*
 
 All other categories of validators must be manually activated using the `@RestServerGeneratorConfig` and `@RestClientGeneratorConfig` annotations!
 ====

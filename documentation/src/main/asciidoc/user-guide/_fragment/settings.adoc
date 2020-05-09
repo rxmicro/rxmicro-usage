@@ -9,8 +9,8 @@
 :sectnums:
 :sectnumlevels: 6
 :linkattrs:
-:keywords: rxmicro, reactive java framework, reactive JVM framework, microservice java framework, microservice java, reactive java, reactive JVM
-:description: RxMicro is a modern, JVM-based, full-stack framework designed to develop distributed reactive applications, using a microservice architecture.
+:keywords: rx, rxmicro, reactive java, reactive jvm, microservice java, reactive microservice, micro service java, reactive micro service
+:description: A modern, JVM-based, full stack framework designed to develop distributed reactive applications that use a microservice architecture.
 :xrefstyle: full
 :nofooter:
 :icons: font

@@ -23,7 +23,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-aggregate/src/main/
 For more information, we recommend that You familiarize yourself with the following examples:
 
 * {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}data-mongo-all-operations/src/main/java/io/rxmicro/examples/data/mongo/all/operations/AggregateDataRepository.java[All Supported Return Types^];
-* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}data-mongo-supported-types/src/main/java/io/rxmicro/examples/data/mongo/supported/types/GetDataRepository.java#L25[All Supported Parameter Types^].
+* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}data-mongo-supported-types/src/main/java/io/rxmicro/examples/data/mongo/supported/types/GetDataRepository.java#L41[All Supported Parameter Types^].
 ====
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-mongo-aggregate

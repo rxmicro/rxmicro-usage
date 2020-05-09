@@ -53,19 +53,19 @@ final class BusinessServiceTest {
     void beforeEach() {
     }
 
-    void beforeEachPreparer1() {
+    void beforeTest1UserMethod() {
     }
 
     @Test
-    @BeforeTest(method = "beforeEachPreparer1")
+    @BeforeTest(method = "beforeTest1UserMethod")
     void test1() {
     }
 
-    void beforeEachPreparer2() {
+    void beforeTest2UserMethod() {
     }
 
     @Test
-    @BeforeTest(method = "beforeEachPreparer2")
+    @BeforeTest(method = "beforeTest2UserMethod")
     void test2() {
     }
 

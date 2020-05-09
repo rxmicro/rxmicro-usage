@@ -6,7 +6,7 @@ include::../___fragment-settings.adoc[]
 [[cdi-factory-method-section]]
 === Factory Method
 
-When using the dependency injection mechanisms, the RxMicro framework creates instances of the specified classes and injects links to them to injection points.
+When using the dependency injection mechanisms, the RxMicro framework creates instances of the specified classes and injects references to them to injection points.
 For successful implementation of this behavior, each class, the instance of which should be injected, must contain an accessible constructor without parameters or a constructor annotated by the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@Inject`^] or
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Autowired.java[`@Autowired`^] annotation.

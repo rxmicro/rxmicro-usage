@@ -4,8 +4,8 @@ include::../../../___fragment-settings.adoc[]
 [[core-config-order-default-section]]
 ===== Default Reading Order of Config Sources.
 
-By default, the RxMicro reads configuration sources
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L42[in the following order^]:
+By default, the RxMicro framework reads configuration sources
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L54[in the following order^]:
 
 * Configuration using {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/DefaultConfigValue.java[`@DefaultConfigValue`^] annotations;
 * Configuration using the `rxmicro.properties` classpath resource;

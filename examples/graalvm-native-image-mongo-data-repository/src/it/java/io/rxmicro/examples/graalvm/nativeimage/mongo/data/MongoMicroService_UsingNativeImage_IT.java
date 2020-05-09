@@ -62,7 +62,7 @@ public final class MongoMicroService_UsingNativeImage_IT {
                         format("?:?", MONGO_TEST_DB.getContainerIpAddress(), MONGO_TEST_DB.getFirstMappedPort())
                 )
                 .setWorkingDir(new File("."))
-                .build();
+                .start();
         new WaitFor("wait-for localhost:8080").start();
     }
 

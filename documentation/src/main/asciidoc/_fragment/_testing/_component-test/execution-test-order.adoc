@@ -3,9 +3,9 @@ include::../../___fragment-settings.adoc[]
 
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
 
-==== Custom and RxMicro Code Execution Order
+==== Custom and the RxMicro Framework Execution Order
 
-For efficient writing of component tests, it is necessary to know the execution order of user and RxMicro code.
+For efficient writing of component tests, it is necessary to know the execution order of user, and the RxMicro framework code.
 
 When testing a component, using the following test:
 
@@ -19,18 +19,18 @@ the execution order will be as follows:
 [source,text,subs="verbatim,quotes"]
 ----
 *RX-MICRO:* Test class validated.
-*USER-TEST:* '@BeforeAll' method invoked.
+*USER-TEST:* '@org.junit.jupiter.api.BeforeAll' invoked.
 
 *USER-TEST:* new instance of the component test class created.
 *MOCKITO:* All mocks created and injected.
 *RX-MICRO:* Alternatives of the RxMicro components registered in the RxMicro runtime containers.
 *RX-MICRO:* SystemOut instance created and injected to the instance of the test class.
-*USER-TEST:* '@BeforeEach' method invoked.
-*USER-TEST:* 'beforeEachPreparer1' method invoked.
+*USER-TEST:* '@org.junit.jupiter.api.BeforeEach' invoked.
+*USER-TEST:* 'beforeTest1UserMethod' invoked.
 *RX-MICRO:* Tested component instance created, if it is not created by user.
 *RX-MICRO:* Alternatives of the user components injected to the tested component instance.
 *USER-TEST:* 'test1()' method invoked.
-*USER-TEST:* '@AfterEach' method invoked.
+*USER-TEST:* '@org.junit.jupiter.api.AfterEach' invoked.
 *RX-MICRO:* All registered alternatives removed from the RxMicro runtime containers.
 *RX-MICRO:* System.out reset.
 *MOCKITO:* All mocks destroyed.
@@ -39,23 +39,23 @@ the execution order will be as follows:
 *MOCKITO:* All mocks created and injected.
 *RX-MICRO:* Alternatives of the RxMicro components registered in the RxMicro runtime containers.
 *RX-MICRO:* SystemOut instance created and injected to the instance of the test class.
-*USER-TEST:* '@BeforeEach' method invoked.
-*USER-TEST:* 'beforeEachPreparer2' method invoked.
+*USER-TEST:* '@org.junit.jupiter.api.BeforeEach' invoked.
+*USER-TEST:* 'beforeTest2UserMethod' invoked.
 *RX-MICRO:* Tested component instance created, if it is not created by user.
 *RX-MICRO:* Alternatives of the user components injected to the tested component instance.
 *USER-TEST:* 'test2()' method invoked.
-*USER-TEST:* '@AfterEach' method invoked.
+*USER-TEST:* '@org.junit.jupiter.api.AfterEach' invoked.
 *RX-MICRO:* All registered alternatives removed from the RxMicro runtime containers.
 *RX-MICRO:* System.out reset.
 *MOCKITO:* All mocks destroyed.
 
-*USER-TEST:* '@AfterAll' method invoked.
+*USER-TEST:* '@org.junit.jupiter.api.AfterAll' invoked.
 ----
 
-In the above execution order of user and RxMicro code the following clarifications are implied:
+In the above execution order of user, and the RxMicro framework code the following clarifications are implied:
 
 . The `MOCKITO` prefix means that the action is activated by the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-mockito-junit/src/main/java/io/rxmicro/test/mockito/junit/InitMocks.java[`@InitMocks`^] annotation.
 . The `RX-MICRO` prefix means that the action is activated by the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/RxMicroRestBasedMicroServiceTest.java[`@RxMicroRestBasedMicroServiceTest`^] annotation.
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/RxMicroComponentTest.java[`@RxMicroComponentTest`^] annotation.
 . The `USER-TEST` prefix means that at this stage a custom method from the `BusinessServiceTest` class is invoked.

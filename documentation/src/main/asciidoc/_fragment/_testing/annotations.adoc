@@ -11,13 +11,13 @@ test frameworks and add additional features required for efficient writing of al
 ====
 The RxMicro framework supports two types of annotations:
 
-* The `RxMicro annotations` used by the `RxMicro Annotation Processor` during the compiling and therefore available *only during the compilation process*.
-* The `RxMicro Test annotations` used by the test framework during the test run and therefore available using the `reflection` mechanism.
+* The `RxMicro Annotations` used by the `RxMicro Annotation Processor` during the compiling and therefore available *only during the compilation process*.
+* The `RxMicro Test Annotations` used by the test framework during the test run and therefore available using the `reflection` mechanism.
 
 These types of annotations do not complement each other!
 Each of these types is designed to perform its tasks.
 
-*So when writing tests, be careful not to use the `RxMicro annotations` as they are not available for the test framework!*
+*So when writing tests, be careful not to use the `RxMicro Annotations` as they are not available for the test framework!*
 ====
 
 .Supported `RxMicro Test Annotations`
@@ -87,5 +87,5 @@ _The RxMicro framework supports the `@BeforeIterationMethodSource` annotation on
 
 _(Using the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-mockito-junit/src/main/java/io/rxmicro/test/mockito/junit/InitMocks.java[`@InitMocks`^]
 annotation is preferable to the analogous
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-mockito-junit/src/main/java/io/rxmicro/test/mockito/junit/InitMocks.java#L34[`@ExtendWith(MockitoExtension.class)`^] construction.)_
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-mockito-junit/src/main/java/io/rxmicro/test/mockito/junit/InitMocks.java#L58[`@ExtendWith(MockitoExtension.class)`^] construction.)_
 |===

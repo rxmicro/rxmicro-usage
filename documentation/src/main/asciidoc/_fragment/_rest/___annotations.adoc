@@ -1,7 +1,7 @@
 :FRAGMENT_RELATIVE_DIR: ../
 include::../___fragment-settings.adoc[]
 
-The RxMicro framework supports the following `RxMicro annotations`, which are used to create and configure {rest-title}.
+The RxMicro framework supports the following `RxMicro Annotations`, which are used to create and configure {rest-title}.
 
 .Supported `RxMicro Annotations`.
 [cols="1,3"]
@@ -48,7 +48,7 @@ ifdef::rest-kind-controller,fragment-document[]
 |Declares <<rest-controller-headers-basic,a strategy of header name formation based on Java model field name analysis>>.
 
 _(By default, the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L59[`CAPITALIZE_WITH_HYPHEN`^] strategy is used.
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L61[`CAPITALIZE_WITH_HYPHEN`^] strategy is used.
 Thus, by using this strategy, the `Header-Name` name header corresponds to the `headerName` field name.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/AddHeader.java[`@AddHeader`^]
@@ -69,7 +69,7 @@ _(This annotation applies only to fields with the `java.util.List<?>` type.)_
 |Declares <<rest-controller-params-basic,a strategy of parameter name formation based on Java model field name analysis>>.
 
 _(By default, the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L34[`LOWERCASE_WITH_UNDERSCORED`^] strategy is used.
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L36[`LOWERCASE_WITH_UNDERSCORED`^] strategy is used.
 Thus, by using this strategy, the `header_name` name header corresponds to the `headerName` field name.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/PathVariable.java[`@PathVariable`^]
@@ -127,7 +127,7 @@ ifdef::rest-kind-client,fragment-document[]
 |Declares <<rest-client-headers-basic,a strategy of header name formation based on Java model field name analysis>>.
 
 _(By default, the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L59[`CAPITALIZE_WITH_HYPHEN`^] strategy is used.
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L61[`CAPITALIZE_WITH_HYPHEN`^] strategy is used.
 Thus, by using this strategy, the `Header-Name` name header corresponds to the `headerName` field name.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/AddHeader.java[`@AddHeader`^]
@@ -148,7 +148,7 @@ _(This annotation applies only to fields with the `java.util.List<?>` type.)_
 |Declares <<rest-client-params-basic,a strategy of parameter name formation based on Java model field name analysis>>.
 
 _(By default, the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L34[`LOWERCASE_WITH_UNDERSCORED`^] strategy is used.
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L36[`LOWERCASE_WITH_UNDERSCORED`^] strategy is used.
 Thus, by using this strategy, the `header_name` name header corresponds to the `headerName` field name.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/AddQueryParameter.java[`@AddQueryParameter`^]

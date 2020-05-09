@@ -14,11 +14,11 @@ Each namespace clearly defines the corresponding configuration class.
 The namespace is necessary to set the settings of the configuration class fields in text form.
 (_Further details will be described below._)
 
-To work with configurations, RxMicro provides the
+To work with configurations, the RxMicro framework provides the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java[`Configs`^] configuration manager.
 
 To read the current settings, You must use the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L73[`Configs.getConfig`^] method:
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L98[`Configs.getConfig`^] method:
 
 [source,java]
 ----
@@ -27,7 +27,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/config-basic/src/main/java/io/
 <1> Getting the current HTTP server configuration using the `Configs.getConfig` static method.
 
 To change the standard configuration settings, You must use the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L85[`Configs.Builder`^] class:
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L135[`Configs.Builder`^] class:
 
 [source,java]
 ----

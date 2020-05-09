@@ -5,7 +5,7 @@ REST Client is an interface that contains at least one declarative HTTP request 
 
 To create REST clients, the RxMicro framework provides the following modules:
 
-* The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest[`rxmicro.rest`^] is a basic module that defines basic `RxMicro annotations`, required when using the
+* The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest[`rxmicro.rest`^] is a basic module that defines basic `RxMicro Annotations`, required when using the
 https://en.wikipedia.org/wiki/Representational_state_transfer[`REST`^] architecture of building program systems;
 * The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-client[`rxmicro.rest.client`^] is a basic module used to create and run REST clients;
 * The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-client-jdk[`rxmicro.rest.client.jdk`^] is an HTTP client implementation module based on https://openjdk.java.net/groups/net/httpclient/intro.html[`Java HTTP Client`^];

@@ -44,7 +44,7 @@ final class HelloWorldMicroService_UsingNativeImage_IT {
         process = new TestedProcessBuilder()
                 .setCommandWithArgs("./HelloWorldMicroService")
                 .setWorkingDir(new File("."))
-                .build();
+                .start();
         new WaitFor("wait-for localhost:8080").start();
     }
 

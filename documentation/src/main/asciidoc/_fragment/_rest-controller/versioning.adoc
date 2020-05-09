@@ -9,12 +9,12 @@ include::../___fragment-settings.adoc[]
 The RxMicro framework supports versioning of REST Controllers using two strategies:
 
 * Versioning based on HTTP header analysis with the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java#L193[`Api-Version`^] name.
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpStandardHeaderNames.java#L406[`Api-Version`^] name.
 * Versioning based on URL Path fragment analysis.
 
 <<<
 
-==== Versioning based on HTTP header analysis
+==== Versioning Based on HTTP Header Analysis
 
 The RxMicro framework allows creating identical REST controllers that differ only in version:
 
@@ -23,14 +23,14 @@ The RxMicro framework allows creating identical REST controllers that differ onl
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-versioning-header/src/main/java/io/rxmicro/examples/rest/controller/versioning/header/OldMicroService.java[tag=content,indent=0]
 ----
 <1> REST controller of the old `v1` version, using the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L84[`Version.Strategy.HEADER`^] strategy;
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L86[`Version.Strategy.HEADER`^] strategy;
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-versioning-header/src/main/java/io/rxmicro/examples/rest/controller/versioning/header/NewMicroService.java[tag=content,indent=0]
 ----
 <1> REST controller of the new `v2` version, using the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L84[`Version.Strategy.HEADER`^] strategy;
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L86[`Version.Strategy.HEADER`^] strategy;
 
 include::../___notes/note-same-request-handlers-with-diff-versions.adoc[]
 
@@ -54,7 +54,7 @@ include::../___notes/recompile-after-change.adoc[]
 
 <<<
 
-==== Versioning based on URL Path fragment analysis
+==== Versioning Based on URL Path Fragment Analysis
 
 The RxMicro framework allows creating identical REST controllers that differ only in version:
 
@@ -63,14 +63,14 @@ The RxMicro framework allows creating identical REST controllers that differ onl
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-versioning-url-path/src/main/java/io/rxmicro/examples/rest/controller/versioning/url/path/OldMicroService.java[tag=content,indent=0]
 ----
 <1> REST controller of the old `v1` version, using the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L71[`Version.Strategy.URL_PATH`^] strategy;
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L69[`Version.Strategy.URL_PATH`^] strategy;
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-versioning-url-path/src/main/java/io/rxmicro/examples/rest/controller/versioning/url/path/NewMicroService.java[tag=content,indent=0]
 ----
 <1> REST controller of the new `v2` version, using the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L71[`Version.Strategy.URL_PATH`^] strategy;
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L69[`Version.Strategy.URL_PATH`^] strategy;
 
 include::../___notes/note-same-request-handlers-with-diff-versions.adoc[]
 

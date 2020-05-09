@@ -15,7 +15,7 @@ The RxMicro framework provides the following benefits:
 
 These benefits are gained due to:
 
-* using of {JDK-JAVA-COMPILER-DOC-ROOT-URL}javax/annotation/processing/Processor.html[*Java annotation processors*^], which generates standard code based on `RxMicro annotations`;
+* using of {JDK-JAVA-COMPILER-DOC-ROOT-URL}javax/annotation/processing/Processor.html[*Java annotation processors*^], which generates standard code based on `RxMicro Annotations`;
 * replacing standard Java libraries that require `reflection` for their work with analogs that do not need `reflection`;
 * using of https://netty.io/[*Netty*^] as the primary NIO framework for *non-blocking asynchronous IO operations*;
 * generation of low-level code avoiding unnecessary abstractions and proxies.

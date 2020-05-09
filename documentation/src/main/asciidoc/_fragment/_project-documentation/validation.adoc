@@ -18,11 +18,11 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-vali
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-validation/src/main/java/io/rxmicro/examples/documentation/asciidoctor/validation/MicroService.java[tags=content]
 ----
-<1> The `phone` parameter must be validated via RxMicro built-in constraint for phones.
+<1> The `phone` parameter must be validated via built-in constraint for phones.
 
 Thus, when building the REST-based microservice documentation, the RxMicro framework will automatically generate a description for the `phone` parameter:
 
-.Описание поля `phone`, сформированное на основании анализа built-in constraints
+.The `phone` field description, formed based on built-in constraints analysis
 image::project-documentation/validation-integration.jpg[]
 
 :project-documentation-file: ExamplesDocumentationAsciidoctorValidationDocumentation.html

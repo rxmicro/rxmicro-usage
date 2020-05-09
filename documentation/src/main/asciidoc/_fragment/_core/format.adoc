@@ -24,7 +24,7 @@ For SLF4J, it's a `{}` symbol.)_
 
 While writing the code, a developer can easily confuse the required placeholder.
 
-*To avoid such a problem, the RxMicro recommends using the universal `?` placeholder*
+*To avoid such a problem, the RxMicro framework recommends using the universal `?` placeholder*
 
 [source,java]
 ----

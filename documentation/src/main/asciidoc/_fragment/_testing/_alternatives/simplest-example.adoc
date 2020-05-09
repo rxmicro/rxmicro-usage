@@ -6,7 +6,7 @@ include::../../___fragment-settings.adoc[]
 [[testing-alternatives-usage-section]]
 ==== Alternative Usage
 
-The alternative mechanism is a universal tool that can be applied to the simplest project, which doesn't use the `RxMicro annotations`. +
+The alternative mechanism is a universal tool that can be applied to the simplest project, which doesn't use the `RxMicro Annotations`. +
 Let's look at the project consisting of two components: the `ChildComponent` interface and the `ParentComponent` class:
 
 [source,java]

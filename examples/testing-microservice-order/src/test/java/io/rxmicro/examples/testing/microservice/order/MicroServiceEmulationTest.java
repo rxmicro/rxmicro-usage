@@ -30,7 +30,7 @@ final class MicroServiceEmulationTest {
 
     @BeforeAll
     static void beforeAll() {
-        System.out.println("USER-TEST: '@BeforeAll' method invoked.");
+        System.out.println("USER-TEST: '@org.junit.jupiter.api.BeforeAll' invoked.");
     }
 
     public MicroServiceEmulationTest() {
@@ -39,37 +39,37 @@ final class MicroServiceEmulationTest {
 
     @BeforeEach
     void beforeEach() {
-        System.out.println("USER-TEST: '@BeforeEach' method invoked.");
+        System.out.println("USER-TEST: '@org.junit.jupiter.api.BeforeEach' invoked.");
     }
 
     void beforeEachPreparer1() {
-        System.out.println("USER-TEST: 'beforeEachPreparer1' method invoked.");
+        System.out.println("USER-TEST: 'beforeTest1UserMethod' invoked.");
     }
 
     @Test
     @BeforeTest(method = "beforeEachPreparer1")
     void test1() {
-        System.out.println("USER-TEST: 'test1()' method invoked.");
+        System.out.println("USER-TEST: 'test1()' invoked.");
     }
 
     void beforeEachPreparer2() {
-        System.out.println("USER-TEST: 'beforeEachPreparer2' method invoked.");
+        System.out.println("USER-TEST: 'beforeTest2UserMethod' invoked.");
     }
 
     @Test
     @BeforeTest(method = "beforeEachPreparer2")
     void test2() {
-        System.out.println("USER-TEST: 'test2()' method invoked.");
+        System.out.println("USER-TEST: 'test2()' invoked.");
     }
 
     @AfterEach
     void afterEach() {
-        System.out.println("USER-TEST: '@AfterEach' method invoked.");
+        System.out.println("USER-TEST: '@org.junit.jupiter.api.AfterEach' invoked.");
     }
 
     @AfterAll
     static void afterAll() {
-        System.out.println("USER-TEST: '@AfterAll' method invoked.");
+        System.out.println("USER-TEST: '@org.junit.jupiter.api.AfterAll' invoked.");
     }
 
 }

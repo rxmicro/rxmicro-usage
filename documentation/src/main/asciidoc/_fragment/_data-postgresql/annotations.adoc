@@ -4,7 +4,7 @@ include::../___fragment-settings.adoc[]
 [[data-postgresql-annotations-section]]
 === `RxMicro Annotations`
 
-The RxMicro framework supports the following `RxMicro annotations`:
+The RxMicro framework supports the following `RxMicro Annotations`:
 
 .Supported `RxMicro Annotations`.
 [cols="1,3"]
@@ -21,7 +21,7 @@ If the name should differ for some reason, (for example, as a column name in the
 |Sets the strategy of column name formation in the `PostgreSQL DB` table, based on the analysis of the Java model class field names.
 
 _(If this annotation annotates the Java model class, then the set strategy will be used for *all* fields in this class.
-For example, if You set the default {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L34[`LOWERCASE_WITH_UNDERSCORED`^] strategy,
+For example, if You set the default {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L36[`LOWERCASE_WITH_UNDERSCORED`^] strategy,
 then the `parentId` field in the Java class will correspond to the `parent_id` column in the `PostgreSQL DB` table.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data/src/main/java/io/rxmicro/data/DataRepositoryGeneratorConfig.java[`@DataRepositoryGeneratorConfig`^]

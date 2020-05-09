@@ -63,7 +63,7 @@ As a result, the microservice returns the following JSON object:
 
 While writing <<{testing}#testing-rest-based-microservice-tests-section,REST-based microservice test>> or <<{testing}#testing-integration-tests-basic-section,integration test>>, it is necessary to compare the expected JSON response with the one returned by REST-based microservice.
 _(The response returned by the microservice is available through the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http-client/src/main/java/io/rxmicro/http/client/ClientHttpResponse.java#L38[`ClientHttpResponse.getBody()`^]method)_:
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http-client/src/main/java/io/rxmicro/http/client/ClientHttpResponse.java#L73[`ClientHttpResponse.getBody()`^]method)_:
 
 [source,java]
 ----
@@ -78,7 +78,7 @@ final class MicroServiceTest {
     }
 }
 ----
-<1>  The `ClientHttpResponse.body()` method returns the HTTP response body.
+<1>  The `ClientHttpResponse.getBody()` method returns the HTTP response body.
 Since the REST-based microservice returns a JSON object, this method returns the result as the <<core-json-type-mapping,`java.util.Map<String, Object>`>> object.
 
 Therefore, to compare JSON objects, You need to create the `java.util.Map<String, Object>` object containing the expected properties of the JSON object:
@@ -146,7 +146,7 @@ Thus, the following JSON objects:
 
 are considered to be the same.
 
-*RxMicro always arranges JSON object properties!*
+*The RxMicro framework always arranges JSON object properties!*
 
 *Thus, the order of JSON properties always corresponds to the order of fields in the Java model!*
 
@@ -181,7 +181,7 @@ interface besides `body()` method also contains `bodyAsBytes()` and `bodyAsStrin
 Therefore in the test You can compare JSON objects by comparing their string representation or using a third-party Java library that supports the JSON format.
 (For example, https://github.com/stleary/JSON-java[`JSON-java`^], https://javaee.github.io/jsonp/[`Java API for JSON Processing`^], etc.)
 
-*Thus, RxMicro recommends using the `rxmicro.json` module to compare JSON objects, but at the same time provides an opportunity to use any other JSON framework!*
+*Thus, the RxMicro framework recommends using the `rxmicro.json` module to compare JSON objects, but at the same time provides an opportunity to use any other JSON framework!*
 ====
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}json

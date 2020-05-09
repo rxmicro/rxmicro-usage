@@ -3,7 +3,7 @@ include::../___fragment-settings.adoc[]
 
 === RxMicro Features
 
-RxMicro provides the following feature set:
+The RxMicro framework provides the following feature set:
 
 . Declarative programming using https://docs.oracle.com/javase/tutorial/java/annotations/[annotations^].
 . Reactive programming using common libraries:

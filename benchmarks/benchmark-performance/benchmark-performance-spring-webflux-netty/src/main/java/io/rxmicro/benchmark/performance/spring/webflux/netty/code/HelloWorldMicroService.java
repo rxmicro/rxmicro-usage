@@ -7,11 +7,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.concurrent.CompletableFuture;
 
-/**
- * @author nedis
- * @link https://rxmicro.io
- * @since 0.2
- */
 @Controller
 @SpringBootApplication
 public class HelloWorldMicroService {

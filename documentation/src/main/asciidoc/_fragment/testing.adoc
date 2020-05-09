@@ -4,9 +4,9 @@ include::___fragment-settings.adoc[]
 To help You write tests efficiently, the RxMicro framework provides the following modules:
 
 * The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test[`rxmicro.test`^] is a basic module designed for test writing using any modern testing framework;
-* The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test-junit[`rxmicro.test.junit`^] is an integration module with the https://junit.org/junit5/[JUnit 5^] framework;
-* The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test-mockito[`rxmicro.test.mockito`^] is an integration module with the https://site.mockito.org/[Mockito^] framework;
-* The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test-mockito-junit[`rxmicro.test.mockito.junit`^] is an integration module with the https://junit.org/junit5/[JUnit 5^] and https://site.mockito.org/[Mockito^] frameworks.
+* The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test-junit[`rxmicro.test.junit`^] is a module designed for test writing using the https://junit.org/junit5/[JUnit 5^] framework;
+* The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test-mockito[`rxmicro.test.mockito`^] is a module designed for test writing using the https://site.mockito.org/[Mockito^] framework;
+* The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test-mockito-junit[`rxmicro.test.mockito.junit`^] is a module designed for test writing using the https://junit.org/junit5/[JUnit 5^] and https://site.mockito.org/[Mockito^] frameworks.
 
 Using these modules, the developer can create the following types of tests:
 

@@ -10,7 +10,7 @@ The common work schema can be presented as follows:
 image::core/how-it-work/core-schema.jpg[]
 
 While solving a business task, the developer writes `Micro service source code`.
-Then the developer configures the desired standard microservice behavior via `RxMicro annotations`.
+Then the developer configures the desired standard microservice behavior via `RxMicro Annotations`.
 After that, the developer compiles the project.
 
 Since the `RxMicro Annotation Processor` is configured in `maven`, when compiling a project this processor handles the source code of the microservice and generates the additional classes: `Micro service generated code`.
@@ -20,9 +20,9 @@ The compiled source and generated codes along with the `RxMicro runtime librarie
 
 [IMPORTANT]
 ====
-*All `RxMicro annotations` are only available during compilation!*
+*All `RxMicro Annotations` are only available during compilation!*
 
-The compiled byte code of microservices *does not contain* `RxMicro annotations`:
+The compiled byte code of microservices *does not contain* `RxMicro Annotations`:
 
 .Decompiled REST-based microservice class.
 image::core/how-it-work/rxmicro-annotations-not-available-in-runtime.jpg[]

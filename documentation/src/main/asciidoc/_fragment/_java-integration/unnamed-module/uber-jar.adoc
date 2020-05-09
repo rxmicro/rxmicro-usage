@@ -6,7 +6,7 @@ include::../../___fragment-settings.adoc[]
 [[java-integration-unnamed-module-uber-jar]]
 ==== Uber Jar
 
-An uber-JAR—also known as a fat JAR or JAR with dependencies—is a JAR file that contains not only a Java program, but embeds its dependencies as well.
+An uber JAR (also known as a fat JAR or JAR with dependencies) is a JAR file that contains not only a Java program, but embeds its dependencies as well.
 This means that the JAR functions as an "all-in-one" distribution of the software, without needing any other Java code.
 
 _(You still need a Java runtime, and an underlying operating system, of course.)_

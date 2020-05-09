@@ -4,7 +4,7 @@ include::../___fragment-settings.adoc[]
 [[project-documentation-annotations-section]]
 === `RxMicro Annotations`
 
-The RxMicro framework supports the following `RxMicro annotations`:
+The RxMicro framework supports the following `RxMicro Annotations`:
 
 .Supported `RxMicro Annotations`.
 [cols="1,3"]

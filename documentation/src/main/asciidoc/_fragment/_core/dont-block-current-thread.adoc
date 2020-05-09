@@ -2,7 +2,7 @@
 include::../___fragment-settings.adoc[]
 
 [[core-dont-block-current-thread]]
-=== Don’t Block Current Thread!
+=== Don't Block Current Thread!
 
 In modern computer architecture, IO operations are the slowest ones.
 As a result, when using
@@ -14,7 +14,7 @@ Therefore, the https://en.wikipedia.org/wiki/Event-driven_architecture[Event-dri
 
 The most popular Java framework that uses Event-driven architecture for IO operations is https://netty.io[Netty^].
 To write efficient programs using Netty, it is necessary to comply with certain rules and restrictions.
-The most important of these is the following requirement: *Don’t block current thread!*
+The most important of these is the following requirement: *Don't block current thread!*
 
 The RxMicro framework is a framework that runs on Netty.
 Therefore, all requirements for applications that utilize Netty also cover the RxMicro framework.

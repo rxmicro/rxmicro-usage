@@ -8,7 +8,7 @@ _(The REST Controller is the entry point for the client.)_
 
 To create REST controllers, the RxMicro framework provides the following modules:
 
-* The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest[`rxmicro.rest`^] is a basic module that defines basic `RxMicro annotations`, required when using the
+* The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest[`rxmicro.rest`^] is a basic module that defines basic `RxMicro Annotations`, required when using the
 https://en.wikipedia.org/wiki/Representational_state_transfer[`REST`^] architecture of building program systems;
 * The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-server[`rxmicro.rest.server`^] is a basic HTTP server module used to create REST controllers and run REST-based microservices;
 * The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-server-netty[`rxmicro.rest.server.netty`^] is an HTTP server implementation module based on https://netty.io/[`Netty`^];

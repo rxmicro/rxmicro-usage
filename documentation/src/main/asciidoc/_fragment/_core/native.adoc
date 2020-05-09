@@ -3,7 +3,7 @@ include::../___fragment-settings.adoc[]
 
 === Native Transports
 
-RxMicro uses https://netty.io/[`Netty`^] to perform asynchronous non-blocking IO operations.
+The RxMicro framework uses https://netty.io/[`Netty`^] to perform asynchronous non-blocking IO operations.
 To increase productivity, `Netty` allows the use of https://netty.io/wiki/native-transports.html[`native transports`^].
 
 To enable `native transports` feature, add one of the following dependencies:

@@ -28,7 +28,7 @@ or {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/
 .. if necessary, registers the RxMicro component alternatives in the RxMicro container;
 .. registers the tested REST-based microservice on the running HTTP server;
 .. if necessary, injects the custom component alternatives to the REST-based microservice;
-.. injects a link to the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^] instance into the test class;
+.. injects a reference to the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^] instance into the test class;
 .. if necessary, creates the `System.out` mock, and injects it into the test class.
 . After performing each test method:
 .. deletes all registered components from the RxMicro container;

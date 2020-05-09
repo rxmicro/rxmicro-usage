@@ -118,7 +118,7 @@ When running different types of tests, sometimes a different configuration of th
 |===
 ====
 
-Before starting tests, the RxMicro uses a generated class to configure the module system for the test environment:
+Before starting tests, the RxMicro framework uses a generated class to configure the module system for the test environment:
 
 [source,text,subs="verbatim,quotes"]
 ----

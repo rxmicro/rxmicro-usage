@@ -6,7 +6,7 @@ include::../../../___fragment-settings.adoc[]
 [[core-config-annotations-section]]
 ===== Configuration Using Java Annotations.
 
-To override the default value, the RxMicro provides the
+To override the default value, the RxMicro framework provides the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/DefaultConfigValue.java[`@DefaultConfigValue`^] annotation.
 
 [source,java]
@@ -31,7 +31,7 @@ The overridden value will be simply *ignored*!
 ====
 
 By overriding the default values using the `module-info.java` descriptor, You can start the microservice.
-While reading the configuration of the `HttpServerConfig` class, the RxMicro reads the default values set with annotations:
+While reading the configuration of the `HttpServerConfig` class, the RxMicro framework reads the default values set with annotations:
 
 [source,text]
 ----
@@ -48,14 +48,14 @@ include::../../../___notes/full-source-code-of-example.adoc[]
 ====
 The main difference between configuring with annotations and configuring with Java classes is support of the *settings inheritance and overriding*.
 
-In other words, when using configuration via annotations, the RxMicro can also read other configuration sources.
+In other words, when using configuration via annotations, the RxMicro framework can also read other configuration sources.
 
 When using configuration via Java classes, other configuration sources *are always ignored*.
 ====
 
 [NOTE]
 ====
-For the test environment only, RxMicro provides special <<{testing}#testing-annotations-WithConfig-inline,`@WithConfig`>> annotation.
+For the test environment only, the RxMicro framework provides special <<{testing}#testing-annotations-WithConfig-inline,`@WithConfig`>> annotation.
 Using this annotation it is convenient to configure the configuration manager for the test environment:
 
 [source,java]

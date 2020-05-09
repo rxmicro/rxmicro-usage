@@ -1,8 +1,8 @@
 // Maven Repo Root
 :MAVEN-REPO-SEARCH-ROOT: https://mvnrepository.com/artifact/
 // RxMicro Root Links
-:RX-MICRO-SRC-ROOT-TREE-URL: https://github.com/rxmicro/rxmicro/tree/v0.3/
-:RX-MICRO-SRC-ROOT-BLOB-URL: https://github.com/rxmicro/rxmicro/blob/v0.3/
+:RX-MICRO-SRC-ROOT-TREE-URL: https://github.com/rxmicro/rxmicro/tree/v0.4/
+:RX-MICRO-SRC-ROOT-BLOB-URL: https://github.com/rxmicro/rxmicro/blob/v0.4/
 :RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL: https://github.com/rxmicro/rxmicro-usage/tree/master/examples/
 :RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL: https://github.com/rxmicro/rxmicro-usage/blob/master/examples/
 // Oracle Java Root Links

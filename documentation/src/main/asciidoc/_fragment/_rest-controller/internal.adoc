@@ -71,7 +71,7 @@ include::../___notes/recompile-after-change.adoc[]
 
 .Supported internal data types for a request model.
 |===
-|*Java type*|*RxMicro annotation*|*Is the annotation required?*|*Description*
+|*Java type*|*RxMicro Annotation*|*Is the annotation required?*|*Description*
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/detail/model/HttpRequest.java[`HttpRequest`^]
 |None
@@ -121,7 +121,7 @@ Currently only `1.0` and `1.1` HTTP versions are supported.
 
 .Supported internal data types for a response model.
 |===
-|*Java type*|*RxMicro annotation*|*Is the annotation required?*|*Description*
+|*Java type*|*RxMicro Annotation*|*Is the annotation required?*|*Description*
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpVersion.java[`HttpVersion`^]
 |None

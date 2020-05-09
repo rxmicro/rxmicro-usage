@@ -6,7 +6,7 @@ include::../___fragment-settings.adoc[]
 [[validation-response-section]]
 === HTTP Responses Server Validation
 
-In addition to validating HTTP requests, RxMicro also provides the option to validate HTTP responses.
+In addition to validating HTTP requests, the RxMicro framework also provides the option to validate HTTP responses.
 
 _(HTTP response validation can be useful for identifying errors in business task implementation algorithms.
 For example, instead of returning an incorrect response model to a client, the microservice will throw an error.
@@ -18,7 +18,7 @@ If current implementation of the business task doesn't contain any errors, then 
 In this case, HTTP response validation must be disabled!
 ====
 
-*By default, RxMicro does not generate response validators!*
+*By default, the RxMicro framework does not generate response validators!*
 
 To inform the `RxMicro Annotation Processor` about the need to generate HTTP response validators, it is necessary to use the <<{rest-controller}#rest-controller-rest-server-generator-config-section,`@RestServerGeneratorConfig`>> annotation:
 
@@ -48,7 +48,7 @@ To emulate an incorrect business value, `null` value is passed in the request ha
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-response/src/main/java/io/rxmicro/examples/validation/server/response/MicroService.java[tag=content,indent=0]
 ----
 
-In case of invalid HTTP response, RxMicro returns HTTP response with a status `500` and <<{rest-controller}#rest-controller-errors-model-inline, standard error model>>:
+In case of invalid HTTP response, the RxMicro framework returns HTTP response with a status `500` and <<{rest-controller}#rest-controller-errors-model-inline, standard error model>>:
 
 [source,java]
 ----

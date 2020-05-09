@@ -38,8 +38,8 @@ and four implementation classes:
 
 then despite the same names for different classes:
 
-* `productionBusinessService` для `package1.impl.ProductionBusinessService` and `package2.impl.ProductionBusinessService`;
-* `developmentBusinessService` для `package1.impl.DevelopmentBusinessService` and `package2.impl.DevelopmentBusinessService`;
+* `productionBusinessService` for `package1.impl.ProductionBusinessService` and `package2.impl.ProductionBusinessService`;
+* `developmentBusinessService` for `package1.impl.DevelopmentBusinessService` and `package2.impl.DevelopmentBusinessService`;
 
 no implementation errors will occur!
 Everything will work correctly as the same component names are created for *different data types!*

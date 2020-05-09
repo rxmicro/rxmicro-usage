@@ -23,4 +23,5 @@ _(The `port` and `randomPortProvider` parameters are mutually exclusive.)_
 <5> The `versionValue` allows You to specify <<{rest-controller}#rest-controller-versioning-section,the microservice version>>.
 <6> The `versionStrategy` parameter allows specifying <<{rest-controller}#rest-controller-versioning-section,the versioning strategy>>, which is used in the tested microservice.
 <7> The `requestTimeout` parameter allows specifying the request timeout.
+<8> The `followRedirects` parameter returns follow redirect option for the blocking HTTP client
 

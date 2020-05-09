@@ -11,10 +11,10 @@ include::../___fragment-settings.adoc[]
 To track an HTTP request when using a microservice architecture, the RxMicro framework provides an HTTP request identification feature.
 
 If the current request is identified, the provided unique id is used during the life-cycle of the current request.
-If the request is not identified, RxMicro generates a unique id, which is further used in the life-cycle of the current request.
+If the request is not identified, the RxMicro framework generates a unique id, which is further used in the life-cycle of the current request.
 
 To store the request id, the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java#L187[`Request-Id`^] HTTP additional header is used.
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpStandardHeaderNames.java#L400[`Request-Id`^] HTTP additional header is used.
 
 If the HTTP request id is necessary for business logic, a separate field in the HTTP request Java model must be created:
 
@@ -23,7 +23,7 @@ If the HTTP request id is necessary for business logic, a separate field in the 
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-request-id/src/main/java/io/rxmicro/examples/rest/controller/request/id/model/Request.java[tag=content,indent=0]
 ----
 <1> For convenience, instead of specifying an HTTP header using the `@Header` annotation and the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java#L187[`Request-Id`^] name,
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpStandardHeaderNames.java#L400[`Request-Id`^] name,
 <2> the special {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RequestId.java[`@RequestId`^] annotation can be used, which is an alternative to the `@Header(HttpHeaders.REQUEST_ID)` configuration.
 
 Having declared a field in the HTTP request Java model, You can use its value in the handler:
@@ -43,13 +43,13 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-request-id/src
 <1> For HTTP requests without id, the RxMicro framework must generate a unique id automatically.
 _(This id can be used in the HTTP request handler body.)_
 <2> Each HTTP response must contain the required
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java#L187[`Request-Id`^]
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpStandardHeaderNames.java#L400[`Request-Id`^]
 HTTP header with the value of the generated request id. +
 _(If the configuration parameter `RestServerConfig.returnGeneratedRequestId = false`, the HTTP response will not contain the `Request-Id` header.)_
 <3> If the current HTTP request already contains an id, the RxMicro framework must use it instead of generating a new value.
 <4> The id set by the client can be used in the HTTP request handler body.
 <5> Each HTTP response must contain the required
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java#L187[`Request-Id`^]
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpStandardHeaderNames.java#L400[`Request-Id`^]
 HTTP header with a client specified request id value. +
 _(If the configuration parameter `RestServerConfig.returnGeneratedRequestId = false`, the HTTP response will not contain the `Request-Id` header.)_
 
@@ -57,7 +57,7 @@ _(If the configuration parameter `RestServerConfig.returnGeneratedRequestId = fa
 ====
 For ease of testing, if the microservice is launched automatically by a test, then a test id is assigned to each HTTP request.
 By default, the value of the HTTP request test id is equal to
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/local/component/impl/TestRequestIdGenerator.java#L27[`TestRequestId`^].
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/local/component/impl/TestRequestIdGenerator.java#L32[`TestRequestId`^].
 ====
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-controller-request-id
@@ -69,29 +69,29 @@ include::../___notes/recompile-after-change.adoc[]
 
 ==== Supported Generator Types
 
-RxMicro supports the following types of HTTP request id generators.
+The RxMicro framework supports the following types of HTTP request id generators.
 
 .Generator name and its implementation class.
 |===
 |*Type*|*Implementation class*|*Description*
 
-|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/RequestIdGeneratorType.java#L25[`FASTER_BUT_UNSAFE`^]
-|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/local/component/impl/FasterButUnSafeRequestIdGenerator.java#L35[`FasterButUnSafeRequestIdGenerator`^]
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/RequestIdGeneratorType.java#L36[`FASTER_BUT_UNSAFE`^]
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/local/component/impl/FasterButUnSafeRequestIdGenerator.java[`FasterButUnSafeRequestIdGenerator`^]
 |*Generates unique IDs only within the framework of starting one `JVM`.*
 
 Uses a random increment counter.
 
 (_Used by default_).
 
-|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/RequestIdGeneratorType.java#L27[`SAFE_BUT_SLOWER`^]
-|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/local/component/impl/SafeButSlowerRequestIdGenerator.java#L29[`SafeButSlowerRequestIdGenerator`^]
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/RequestIdGeneratorType.java#L43[`SAFE_BUT_SLOWER`^]
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/local/component/impl/SafeButSlowerRequestIdGenerator.java[`SafeButSlowerRequestIdGenerator`^]
 |*Generates unique IDs independently of starting the `JVM`.*
 
 As a unique value uses the
 {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/UUID.html#randomUUID()[`UUID.randomUUID()`^].
 
-|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/RequestIdGeneratorType.java#L29[`FOR_TESTS_ONLY`^]
-|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/local/component/impl/TestRequestIdGenerator.java#L25[`TestRequestIdGenerator`^]
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/RequestIdGeneratorType.java#L50[`FOR_TESTS_ONLY`^]
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/local/component/impl/TestRequestIdGenerator.java[`TestRequestIdGenerator`^]
 |Recommended *for test environment only*.
 
 By default, it is automatically activated for test environment.

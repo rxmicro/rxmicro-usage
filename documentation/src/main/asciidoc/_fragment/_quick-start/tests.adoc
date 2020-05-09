@@ -113,7 +113,7 @@ Since the RxMicro framework uses the {JDK-JAVA-COMPILER-DOC-ROOT-URL}javax/annot
 
 [NOTE]
 ====
-To learn more about how the annotation processor works in the test environment, please go to the following section: <<{testing}#testing-how-it-works-section>>.
+To learn more about how the `RxMicro Annotation Processor` works in the test environment, please go to the following section: <<{testing}#testing-how-it-works-section>>.
 ====
 
 ===== Configuring the `maven-surefire-plugin`
@@ -128,7 +128,7 @@ REST-based microservice test is a one class containing one test method:
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/quick-start/src/test/java/io/rxmicro/examples/quick/start/HelloWorldMicroServiceTest.java[tag=content]
 ----
-<1> The RxMicro test annotation indicating which microservice should be run for testing.
+<1> The `RxMicro Test Annotation` indicating which microservice should be run for testing.
 <2> The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^] is a basic HTTP client interface designed for use in tests.
 This interface allows executing *blocking* requests to the microservice via the `HTTP` protocol.
 This field is initialized automatically when running the test with `reflection`.
@@ -139,7 +139,7 @@ Upon initialization it refers to the test HTTP server that was automatically sta
 
 [NOTE]
 ====
-For low-level and effective work with JSON format, RxMicro provides a separate `rxmicro.json` module.
+For low-level and effective work with JSON format, the RxMicro framework provides a separate `rxmicro.json` module.
 
 To get a common idea of the capabilities of this module, which are required when writing tests, go to the following section: <<{core}#core-rx-micro-json-section>>.
 ====
@@ -232,5 +232,5 @@ After starting, the console will display the following information:
 
 [NOTE]
 ====
-For further information on how the annotation processor works for the test environment, go to the following section: <<{testing}#testing-how-it-works-section>>.
+For further information on how the `RxMicro Annotation Processor` works for the test environment, go to the following section: <<{testing}#testing-how-it-works-section>>.
 ====
