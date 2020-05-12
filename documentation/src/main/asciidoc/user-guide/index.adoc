@@ -4,7 +4,7 @@
 :current-entity: appendices
 :imagesdir: ../images
 :stylesdir: ../styles/
-include::../user-guide/_fragment/settings.adoc[]
+include::_fragment/settings.adoc[]
 
 include::_fragment/preface.adoc[]
 
@@ -22,3 +22,5 @@ include::_fragment/preface.adoc[]
 . <<java-integration.adoc#java-integration-section,*Java EcoSystem Integration*>>
 . <<testing.adoc#tesing-section,*Testing*>>
 . <<appendices.adoc#appendices-section,*Appendices*>>
+
+include::_fragment/analytics.adoc[]

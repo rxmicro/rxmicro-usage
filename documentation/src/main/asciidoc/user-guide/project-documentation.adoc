@@ -28,3 +28,5 @@ include::_fragment/preface.adoc[]
 include::../_fragment/project-documentation.adoc[leveloffset=-1]
 
 include::_fragment/nav.adoc[]
+
+include::_fragment/analytics.adoc[]

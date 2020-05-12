@@ -118,3 +118,5 @@ include::_fragment/testing.adoc[]
 == Appendices
 
 include::_fragment/appendices.adoc[]
+
+include::user-guide/_fragment/analytics.adoc[]

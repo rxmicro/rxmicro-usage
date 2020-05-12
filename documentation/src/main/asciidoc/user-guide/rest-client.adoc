@@ -27,3 +27,5 @@ include::_fragment/preface.adoc[]
 include::../_fragment/rest-client.adoc[leveloffset=-1]
 
 include::_fragment/nav.adoc[]
+
+include::_fragment/analytics.adoc[]
