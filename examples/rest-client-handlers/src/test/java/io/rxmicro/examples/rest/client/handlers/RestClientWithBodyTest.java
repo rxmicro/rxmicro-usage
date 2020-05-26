@@ -20,7 +20,7 @@ import io.rxmicro.examples.rest.client.handlers.model.Request;
 import io.rxmicro.examples.rest.client.handlers.model.Response;
 import io.rxmicro.http.client.HttpClientFactory;
 import io.rxmicro.test.Alternative;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.httpclient.HttpRequestMock;
 import io.rxmicro.test.mockito.junit.InitMocks;
@@ -80,7 +80,7 @@ final class RestClientWithBodyTest {
 
     @ParameterizedTest
     @MethodSource("clientMethodsProvider")
-    @BeforeTest(method = "prepare")
+    @BeforeThisTest(method = "prepare")
     void Should_return_message_Hello_World(final Function<RestClientWithBody, Response> clientMethod) {
         final Response response = assertDoesNotThrow(() -> clientMethod.apply(restClient));
 

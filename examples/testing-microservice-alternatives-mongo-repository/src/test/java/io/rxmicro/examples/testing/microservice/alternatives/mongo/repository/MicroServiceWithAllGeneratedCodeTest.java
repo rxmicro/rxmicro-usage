@@ -20,7 +20,7 @@ import com.mongodb.reactivestreams.client.MongoDatabase;
 import io.rxmicro.http.client.ClientHttpResponse;
 import io.rxmicro.test.Alternative;
 import io.rxmicro.test.BlockingHttpClient;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroRestBasedMicroServiceTest;
 import io.rxmicro.test.mockito.junit.InitMocks;
 import io.rxmicro.test.mockito.mongo.FindOperationMock;
@@ -59,7 +59,7 @@ final class MicroServiceWithAllGeneratedCodeTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareOneEntityFound")
+    @BeforeThisTest(method = "prepareOneEntityFound")
     void Should_return_Entity_data() {
         final ClientHttpResponse response = blockingHttpClient.get("/?id=1");
 
@@ -76,7 +76,7 @@ final class MicroServiceWithAllGeneratedCodeTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareNoEntityFound")
+    @BeforeThisTest(method = "prepareNoEntityFound")
     void Should_return_Not_Found_error() {
         final ClientHttpResponse response = blockingHttpClient.get("/?id=1");
 

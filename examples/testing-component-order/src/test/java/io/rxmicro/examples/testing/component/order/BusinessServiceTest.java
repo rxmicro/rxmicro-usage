@@ -18,7 +18,7 @@ package io.rxmicro.examples.testing.component.order;
 
 import io.rxmicro.test.Alternative;
 import io.rxmicro.test.SystemOut;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.junit.InitMocks;
 import org.junit.jupiter.api.AfterAll;
@@ -57,7 +57,7 @@ final class BusinessServiceTest {
     }
 
     @Test
-    @BeforeTest(method = "beforeTest1UserMethod")
+    @BeforeThisTest(method = "beforeTest1UserMethod")
     void test1() {
     }
 
@@ -65,7 +65,7 @@ final class BusinessServiceTest {
     }
 
     @Test
-    @BeforeTest(method = "beforeTest2UserMethod")
+    @BeforeThisTest(method = "beforeTest2UserMethod")
     void test2() {
     }
 

@@ -71,10 +71,10 @@ _The RxMicro framework supports the `BlockingHttpClient` component only for <<{t
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/RxMicroIntegrationTest.java[`@RxMicroIntegrationTest`^]
 |Declares the test class as a <<{testing}#testing-integration-tests-section,REST-based microservice integration test>>.
 
-|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/BeforeTest.java[`@BeforeTest`^]
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/BeforeThisTest.java[`@BeforeThisTest`^]
 |It is used to specify the method to be invoked by the RxMicro framework <<{testing}#testing-before-test-section,before running the test method>>.
 
-_The RxMicro framework supports the `@BeforeTest` annotation only for <<{testing}#testing-rest-based-microservice-tests-section,REST-based microservice tests>> and <<{testing}#testing-component-tests-section,component unit tests>>._
+_The RxMicro framework supports the `@BeforeThisTest` annotation only for <<{testing}#testing-rest-based-microservice-tests-section,REST-based microservice tests>> and <<{testing}#testing-component-tests-section,component unit tests>>._
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/BeforeIterationMethodSource.java[`@BeforeIterationMethodSource`^]
 |It is used to specify the methods to be invoked by the RxMicro framework before <<{testing}#testing-before-test-section,performing each iteration of the parameterized test>>.

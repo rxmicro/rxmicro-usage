@@ -19,7 +19,7 @@ package io.rxmicro.examples.data.mongo.insert;
 import com.mongodb.reactivestreams.client.MongoDatabase;
 import io.rxmicro.examples.data.mongo.insert.model.Account;
 import io.rxmicro.test.Alternative;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.junit.InitMocks;
 import io.rxmicro.test.mockito.mongo.InsertOperationMock;
@@ -73,7 +73,7 @@ final class DataRepository_UnitTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareInsertSuccess")
+    @BeforeThisTest(method = "prepareInsertSuccess")
     void insertSuccess() {
         assertDoesNotThrow(() -> dataRepository.insert(ACCOUNT).block());
     }
@@ -88,7 +88,7 @@ final class DataRepository_UnitTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareInsertFailed")
+    @BeforeThisTest(method = "prepareInsertFailed")
     void insertFailed() {
         final RuntimeException exception =
                 assertThrows(RuntimeException.class, () -> dataRepository.insert(ACCOUNT).block());

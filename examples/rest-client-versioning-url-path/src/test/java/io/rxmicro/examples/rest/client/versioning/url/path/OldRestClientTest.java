@@ -19,7 +19,7 @@ package io.rxmicro.examples.rest.client.versioning.url.path;
 import io.rxmicro.http.client.HttpClientFactory;
 import io.rxmicro.rest.model.HttpMethod;
 import io.rxmicro.test.Alternative;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.httpclient.HttpRequestMock;
 import io.rxmicro.test.mockito.junit.InitMocks;
@@ -53,7 +53,7 @@ final class OldRestClientTest {
     }
 
     @Test
-    @BeforeTest(method = "prepare")
+    @BeforeThisTest(method = "prepare")
     void Should_add_version_url_path() {
         assertDoesNotThrow(() -> restClient.update().join());
     }

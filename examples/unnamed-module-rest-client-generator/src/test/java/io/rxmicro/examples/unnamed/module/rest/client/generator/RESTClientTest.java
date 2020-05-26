@@ -23,7 +23,7 @@ import io.rxmicro.http.client.HttpClientFactory;
 import io.rxmicro.http.error.ValidationException;
 import io.rxmicro.rest.model.HttpMethod;
 import io.rxmicro.test.Alternative;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.httpclient.HttpRequestMock;
 import io.rxmicro.test.mockito.junit.InitMocks;
@@ -76,7 +76,7 @@ final class RESTClientTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareInvalidResponse")
+    @BeforeThisTest(method = "prepareInvalidResponse")
     void Should_does_not_validate_response() {
         final Response response = restClient.get(new Request("welcome@rxmicro.io")).join();
 

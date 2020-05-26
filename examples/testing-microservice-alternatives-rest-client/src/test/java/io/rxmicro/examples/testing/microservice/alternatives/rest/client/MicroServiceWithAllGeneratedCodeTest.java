@@ -20,7 +20,7 @@ import io.rxmicro.http.client.ClientHttpResponse;
 import io.rxmicro.http.client.HttpClientFactory;
 import io.rxmicro.test.Alternative;
 import io.rxmicro.test.BlockingHttpClient;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroRestBasedMicroServiceTest;
 import io.rxmicro.test.mockito.httpclient.HttpRequestMock;
 import io.rxmicro.test.mockito.junit.InitMocks;
@@ -55,7 +55,7 @@ final class MicroServiceWithAllGeneratedCodeTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareExternalMicroServiceHttpClient")
+    @BeforeThisTest(method = "prepareExternalMicroServiceHttpClient")
     void Should_delegate_call_to_ExternalMicroService() {
         final ClientHttpResponse response = blockingHttpClient.get("/");
 

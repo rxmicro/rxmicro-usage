@@ -21,7 +21,7 @@ import com.mongodb.reactivestreams.client.MongoDatabase;
 import io.rxmicro.examples.data.mongo.update.model.AccountDocument;
 import io.rxmicro.examples.data.mongo.update.model.AccountEntity;
 import io.rxmicro.test.Alternative;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.junit.InitMocks;
 import io.rxmicro.test.mockito.mongo.UpdateOperationMock;
@@ -84,7 +84,7 @@ final class DataRepository_UnitTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareUpdateEntitySuccess")
+    @BeforeThisTest(method = "prepareUpdateEntitySuccess")
     void updateEntitySuccess() {
         assertEquals(true, dataRepository.updateEntity(new AccountEntity(100L, ACCOUNT_DOCUMENT)).block());
     }
@@ -99,7 +99,7 @@ final class DataRepository_UnitTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareUpdateEntityFailed")
+    @BeforeThisTest(method = "prepareUpdateEntityFailed")
     void updateEntityFailed() {
         final RuntimeException exception =
                 assertThrows(RuntimeException.class, () ->
@@ -117,7 +117,7 @@ final class DataRepository_UnitTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareUpdateByRoleSuccess")
+    @BeforeThisTest(method = "prepareUpdateByRoleSuccess")
     void updateByRoleSuccess() {
         assertSame(updateResult, dataRepository.updateByRole(BigDecimal.ZERO, CEO).block());
     }
@@ -132,7 +132,7 @@ final class DataRepository_UnitTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareUpdateByRoleFailed")
+    @BeforeThisTest(method = "prepareUpdateByRoleFailed")
     void updateByRoleFailed() {
         final RuntimeException exception =
                 assertThrows(RuntimeException.class, () ->

@@ -19,7 +19,7 @@ package io.rxmicro.examples.data.mongo.aggregate;
 import com.mongodb.reactivestreams.client.MongoDatabase;
 import io.rxmicro.examples.data.mongo.aggregate.model.Report;
 import io.rxmicro.test.Alternative;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.junit.InitMocks;
 import io.rxmicro.test.mockito.mongo.AggregateOperationMock;
@@ -67,7 +67,7 @@ final class DataRepository_UnitTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareAggregateSuccess")
+    @BeforeThisTest(method = "prepareAggregateSuccess")
     void aggregateSuccess() {
         final List<Report> reports = requireNonNull(dataRepository.aggregate().collectList().block());
         assertEquals(
@@ -86,7 +86,7 @@ final class DataRepository_UnitTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareAggregateFailed")
+    @BeforeThisTest(method = "prepareAggregateFailed")
     void aggregateFailed() {
         final RuntimeException exception =
                 assertThrows(RuntimeException.class, () -> dataRepository.aggregate().collectList().block());

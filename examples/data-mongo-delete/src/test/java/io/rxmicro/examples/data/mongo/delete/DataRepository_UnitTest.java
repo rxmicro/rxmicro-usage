@@ -18,7 +18,7 @@ package io.rxmicro.examples.data.mongo.delete;
 
 import com.mongodb.reactivestreams.client.MongoDatabase;
 import io.rxmicro.test.Alternative;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.junit.InitMocks;
 import io.rxmicro.test.mockito.mongo.DeleteOperationMock;
@@ -57,7 +57,7 @@ final class DataRepository_UnitTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareDeleteByIdSuccess")
+    @BeforeThisTest(method = "prepareDeleteByIdSuccess")
     void deleteByIdSuccess() {
         assertTrue(requireNonNull(dataRepository.deleteById(1L).block()));
     }
@@ -72,7 +72,7 @@ final class DataRepository_UnitTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareDeleteByIdFailed")
+    @BeforeThisTest(method = "prepareDeleteByIdFailed")
     void deleteByIdFailed() {
         final RuntimeException exception =
                 assertThrows(RuntimeException.class, () -> dataRepository.deleteById(1L).block());

@@ -17,7 +17,7 @@
 package io.rxmicro.examples.testing.component.before.test;
 
 import io.rxmicro.test.Alternative;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.junit.InitMocks;
 import org.junit.jupiter.api.Test;
@@ -43,7 +43,7 @@ final class ParentComponent4Test {
 
     @Test
     // <2>
-    @BeforeTest(method = "beforeTest1")
+    @BeforeThisTest(method = "beforeTest1")
     void Should_use_alternative1() {
         assertEquals("mock1", parentComponent.getEnvironment());
     }
@@ -53,7 +53,7 @@ final class ParentComponent4Test {
     }
 
     @Test
-    @BeforeTest(method = "beforeTest2")
+    @BeforeThisTest(method = "beforeTest2")
     void Should_use_alternative2() {
         assertEquals("mock2", parentComponent.getEnvironment());
     }

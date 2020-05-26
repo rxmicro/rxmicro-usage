@@ -22,7 +22,7 @@ import io.rxmicro.http.QueryParams;
 import io.rxmicro.http.client.HttpClientFactory;
 import io.rxmicro.rest.model.HttpMethod;
 import io.rxmicro.test.Alternative;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.httpclient.HttpRequestMock;
 import io.rxmicro.test.mockito.junit.InitMocks;
@@ -75,7 +75,7 @@ final class SimpleUsageRestClientTest {
     }
 
     @Test
-    @BeforeTest(method = "prepare1")
+    @BeforeThisTest(method = "prepare1")
     void Should_use_handler_with_request_class() {
         final Response response =
                 assertDoesNotThrow(() ->
@@ -99,7 +99,7 @@ final class SimpleUsageRestClientTest {
     }
 
     @Test
-    @BeforeTest(method = "prepare2")
+    @BeforeThisTest(method = "prepare2")
     void Should_use_handler_with_request_params() {
         final Response response =
                 assertDoesNotThrow(() ->

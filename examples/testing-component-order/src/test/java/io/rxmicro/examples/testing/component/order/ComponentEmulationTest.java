@@ -16,7 +16,7 @@
 
 package io.rxmicro.examples.testing.component.order;
 
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -47,7 +47,7 @@ public final class ComponentEmulationTest {
     }
 
     @Test
-    @BeforeTest(method = "beforeEachPreparer1")
+    @BeforeThisTest(method = "beforeEachPreparer1")
     void test1() {
         System.out.println("USER-TEST: 'test1()' method invoked.");
     }
@@ -57,7 +57,7 @@ public final class ComponentEmulationTest {
     }
 
     @Test
-    @BeforeTest(method = "beforeEachPreparer2")
+    @BeforeThisTest(method = "beforeEachPreparer2")
     void test2() {
         System.out.println("USER-TEST: 'test2()' method invoked.");
     }

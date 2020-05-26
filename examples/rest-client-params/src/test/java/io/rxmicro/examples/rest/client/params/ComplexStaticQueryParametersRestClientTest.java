@@ -19,7 +19,7 @@ package io.rxmicro.examples.rest.client.params;
 import io.rxmicro.http.QueryParams;
 import io.rxmicro.http.client.HttpClientFactory;
 import io.rxmicro.test.Alternative;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.httpclient.HttpRequestMock;
 import io.rxmicro.test.mockito.junit.InitMocks;
@@ -58,7 +58,7 @@ final class ComplexStaticQueryParametersRestClientTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareParentParamsOnly")
+    @BeforeThisTest(method = "prepareParentParamsOnly")
     void Should_return_parent_params_only() {
         assertDoesNotThrow(() -> restClient.get1().join());
     }
@@ -84,7 +84,7 @@ final class ComplexStaticQueryParametersRestClientTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareParentAndChildParams")
+    @BeforeThisTest(method = "prepareParentAndChildParams")
     void Should_return_child_and_parent_params() {
         assertDoesNotThrow(() -> restClient.get2().join());
     }
@@ -105,7 +105,7 @@ final class ComplexStaticQueryParametersRestClientTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareOverriddenParentParams")
+    @BeforeThisTest(method = "prepareOverriddenParentParams")
     void Should_return_overridden_parent_params() {
         assertDoesNotThrow(() -> restClient.get3().join());
     }
@@ -130,7 +130,7 @@ final class ComplexStaticQueryParametersRestClientTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareExtendedParentParams")
+    @BeforeThisTest(method = "prepareExtendedParentParams")
     void Should_return_extended_parent_params() {
         assertDoesNotThrow(() -> restClient.get4().join());
     }

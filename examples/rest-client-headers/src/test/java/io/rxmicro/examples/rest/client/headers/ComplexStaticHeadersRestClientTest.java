@@ -19,7 +19,7 @@ package io.rxmicro.examples.rest.client.headers;
 import io.rxmicro.http.HttpHeaders;
 import io.rxmicro.http.client.HttpClientFactory;
 import io.rxmicro.test.Alternative;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.httpclient.HttpRequestMock;
 import io.rxmicro.test.mockito.junit.InitMocks;
@@ -58,7 +58,7 @@ final class ComplexStaticHeadersRestClientTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareParentHeadersOnly")
+    @BeforeThisTest(method = "prepareParentHeadersOnly")
     void Should_return_parent_headers_only() {
         assertDoesNotThrow(() -> restClient.get1().join());
     }
@@ -84,7 +84,7 @@ final class ComplexStaticHeadersRestClientTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareParentAndChildHeaders")
+    @BeforeThisTest(method = "prepareParentAndChildHeaders")
     void Should_return_child_and_parent_headers() {
         assertDoesNotThrow(() -> restClient.get2().join());
     }
@@ -105,7 +105,7 @@ final class ComplexStaticHeadersRestClientTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareOverriddenParentHeaders")
+    @BeforeThisTest(method = "prepareOverriddenParentHeaders")
     void Should_return_overridden_parent_headers() {
         assertDoesNotThrow(() -> restClient.get3().join());
     }
@@ -130,7 +130,7 @@ final class ComplexStaticHeadersRestClientTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareExtendedParentHeaders")
+    @BeforeThisTest(method = "prepareExtendedParentHeaders")
     void Should_return_extended_parent_headers() {
         assertDoesNotThrow(() -> restClient.get4().join());
     }

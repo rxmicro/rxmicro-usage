@@ -20,7 +20,7 @@ import io.rxmicro.test.Alternative;
 import io.rxmicro.test.BlockingHttpClient;
 import io.rxmicro.test.SystemOut;
 import io.rxmicro.test.junit.BeforeIterationMethodSource;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroRestBasedMicroServiceTest;
 import io.rxmicro.test.mockito.junit.InitMocks;
 import org.junit.jupiter.api.Test;
@@ -49,7 +49,7 @@ final class MicroServiceTest {
 
     @Test
     // <2>
-    @BeforeTest(method = "beforeEachPreparer")
+    @BeforeThisTest(method = "beforeEachPreparer")
     void test() {
         // when(businessService.getValue()).thenReturn(5); // <3>
         blockingHttpClient.patch("/");

@@ -19,7 +19,7 @@ package io.rxmicro.examples.rest.client.partial.implementation;
 import io.rxmicro.http.client.HttpClient;
 import io.rxmicro.http.client.HttpClientFactory;
 import io.rxmicro.test.Alternative;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.httpclient.HttpRequestMock;
 import io.rxmicro.test.mockito.junit.InitMocks;
@@ -62,7 +62,7 @@ final class RESTClient2Test {
     }
 
     @Test
-    @BeforeTest(method = "prepareGeneratedMethod")
+    @BeforeThisTest(method = "prepareGeneratedMethod")
     void Should_invoke_generated_method() {
         assertDoesNotThrow(() -> restClient.generatedMethod().join());
     }
@@ -73,7 +73,7 @@ final class RESTClient2Test {
     }
 
     @Test
-    @BeforeTest(method = "prepareUserDefinedMethod")
+    @BeforeThisTest(method = "prepareUserDefinedMethod")
     void Should_invoke_user_defined_method() {
         assertDoesNotThrow(() -> restClient.userDefinedMethod().join());
 

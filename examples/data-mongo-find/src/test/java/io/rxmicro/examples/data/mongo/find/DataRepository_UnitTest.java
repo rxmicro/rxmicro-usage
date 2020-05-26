@@ -20,7 +20,7 @@ import com.mongodb.reactivestreams.client.MongoDatabase;
 import io.rxmicro.data.Pageable;
 import io.rxmicro.examples.data.mongo.find.model.Account;
 import io.rxmicro.test.Alternative;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.junit.InitMocks;
 import io.rxmicro.test.mockito.mongo.FindOperationMock;
@@ -88,7 +88,7 @@ final class DataRepository_UnitTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareFindByIdSuccess")
+    @BeforeThisTest(method = "prepareFindByIdSuccess")
     void findByIdSuccess() {
         final Account actual =
                 requireNonNull(dataRepository.findById(1L).block());
@@ -105,7 +105,7 @@ final class DataRepository_UnitTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareFindByIdFailed")
+    @BeforeThisTest(method = "prepareFindByIdFailed")
     void findByIdFailed() {
         final RuntimeException exception =
                 assertThrows(RuntimeException.class, () -> dataRepository.findById(1L).block());
@@ -123,7 +123,7 @@ final class DataRepository_UnitTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareFindByRoleSuccess")
+    @BeforeThisTest(method = "prepareFindByRoleSuccess")
     void findByRoleSuccess() {
         final List<Account> actual =
                 requireNonNull(dataRepository.findByRole(CEO, new Pageable(5, 10)).collectList().block());
@@ -144,7 +144,7 @@ final class DataRepository_UnitTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareFindByRoleFailed")
+    @BeforeThisTest(method = "prepareFindByRoleFailed")
     void findByRoleFailed() {
         final RuntimeException exception =
                 assertThrows(RuntimeException.class, () ->

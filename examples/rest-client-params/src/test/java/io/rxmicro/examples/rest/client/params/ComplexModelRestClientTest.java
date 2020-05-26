@@ -22,7 +22,7 @@ import io.rxmicro.examples.rest.client.params.model.Status;
 import io.rxmicro.examples.rest.client.params.model.nested.NestedModel;
 import io.rxmicro.http.client.HttpClientFactory;
 import io.rxmicro.test.Alternative;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.httpclient.HttpRequestMock;
 import io.rxmicro.test.mockito.httpclient.HttpResponseMock;
@@ -84,7 +84,7 @@ final class ComplexModelRestClientTest {
     }
 
     @Test
-    @BeforeTest(method = "prepare")
+    @BeforeThisTest(method = "prepare")
     void Should_support_complex_requests_and_responses() {
         final ComplexResponse response = assertDoesNotThrow(() ->
                 restClient.post(new ComplexRequest(

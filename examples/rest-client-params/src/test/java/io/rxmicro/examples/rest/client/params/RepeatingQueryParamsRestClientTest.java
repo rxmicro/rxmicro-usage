@@ -20,7 +20,7 @@ import io.rxmicro.examples.rest.client.params.model.Status;
 import io.rxmicro.http.QueryParams;
 import io.rxmicro.http.client.HttpClientFactory;
 import io.rxmicro.test.Alternative;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.httpclient.HttpRequestMock;
 import io.rxmicro.test.mockito.junit.InitMocks;
@@ -66,7 +66,7 @@ final class RepeatingQueryParamsRestClientTest {
     }
 
     @Test
-    @BeforeTest(method = "prepare")
+    @BeforeThisTest(method = "prepare")
     void Should_support_repeating_headers() {
         final List<Status> headers = List.of(created, approved, rejected);
         assertDoesNotThrow(() -> restClient.put(headers, headers).join());

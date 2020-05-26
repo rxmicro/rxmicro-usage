@@ -19,7 +19,7 @@ package io.rxmicro.examples.testing.component.alternatives.mongo.repository;
 import com.mongodb.reactivestreams.client.MongoDatabase;
 import io.rxmicro.examples.testing.component.alternatives.mongo.repository.model.Entity;
 import io.rxmicro.test.Alternative;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.junit.InitMocks;
 import io.rxmicro.test.mockito.mongo.FindOperationMock;
@@ -61,7 +61,7 @@ final class BusinessServiceWillAllGeneratedCodeTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareOneEntityFound")
+    @BeforeThisTest(method = "prepareOneEntityFound")
     void Should_return_Entity_data() {
         final Optional<Entity> result = businessService.findById(1).join();
         assertTrue(result.isPresent());
@@ -78,7 +78,7 @@ final class BusinessServiceWillAllGeneratedCodeTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareNoEntityFound")
+    @BeforeThisTest(method = "prepareNoEntityFound")
     void Should_return_Not_Found_error() {
         final Optional<Entity> result = businessService.findById(1).join();
         assertEquals(Optional.empty(), result);

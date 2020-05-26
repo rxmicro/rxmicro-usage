@@ -19,7 +19,7 @@ package io.rxmicro.examples.rest.client.params;
 import io.rxmicro.http.QueryParams;
 import io.rxmicro.http.client.HttpClientFactory;
 import io.rxmicro.test.Alternative;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.httpclient.HttpRequestMock;
 import io.rxmicro.test.mockito.junit.InitMocks;
@@ -57,7 +57,7 @@ final class StaticQueryParametersRestClientTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareParentParamOnly")
+    @BeforeThisTest(method = "prepareParentParamOnly")
     void Should_use_parent_param_only() {
         assertDoesNotThrow(() -> restClient.get1().join());
     }
@@ -78,7 +78,7 @@ final class StaticQueryParametersRestClientTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareParentAndChildParams")
+    @BeforeThisTest(method = "prepareParentAndChildParams")
     void Should_use_parent_and_child_params() {
         assertDoesNotThrow(() -> restClient.get2().join());
     }

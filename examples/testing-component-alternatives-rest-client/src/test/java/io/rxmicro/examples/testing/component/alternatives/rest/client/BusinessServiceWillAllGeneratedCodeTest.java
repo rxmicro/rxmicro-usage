@@ -19,7 +19,7 @@ package io.rxmicro.examples.testing.component.alternatives.rest.client;
 import io.rxmicro.http.client.HttpClientFactory;
 import io.rxmicro.http.error.HttpErrorException;
 import io.rxmicro.test.Alternative;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.httpclient.HttpRequestMock;
 import io.rxmicro.test.mockito.junit.InitMocks;
@@ -58,7 +58,7 @@ final class BusinessServiceWillAllGeneratedCodeTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareOneEntityFound")
+    @BeforeThisTest(method = "prepareOneEntityFound")
     void Should_return_Entity_data() {
         final Optional<String> result = businessService.get().join();
         assertEquals(Optional.of("mock"), result);
@@ -77,7 +77,7 @@ final class BusinessServiceWillAllGeneratedCodeTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareNoEntityFound")
+    @BeforeThisTest(method = "prepareNoEntityFound")
     void Should_return_Not_Found_error() {
         final Optional<String> result = businessService.get().join();
         assertEquals(Optional.empty(), result);

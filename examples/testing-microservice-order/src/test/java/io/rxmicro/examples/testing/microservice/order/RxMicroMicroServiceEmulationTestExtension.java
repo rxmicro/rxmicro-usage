@@ -16,7 +16,7 @@
 
 package io.rxmicro.examples.testing.microservice.order;
 
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import org.junit.jupiter.api.extension.AfterAllCallback;
 import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
@@ -48,7 +48,7 @@ public final class RxMicroMicroServiceEmulationTestExtension
 
     @Override
     public void beforeTestExecution(final ExtensionContext context) {
-        final BeforeTest beforeTest = context.getRequiredTestMethod().getAnnotation(BeforeTest.class);
+        final BeforeThisTest beforeTest = context.getRequiredTestMethod().getAnnotation(BeforeThisTest.class);
         if (beforeTest != null) {
             invokeMethod(List.of(context.getRequiredTestInstance()), beforeTest.method());
         }

@@ -18,7 +18,7 @@ package io.rxmicro.examples.data.mongo.estimated.document.count;
 
 import com.mongodb.reactivestreams.client.MongoDatabase;
 import io.rxmicro.test.Alternative;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.junit.InitMocks;
 import org.junit.jupiter.api.Test;
@@ -50,7 +50,7 @@ final class DataRepository_UnitTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareEstimatedDocumentCountSuccess")
+    @BeforeThisTest(method = "prepareEstimatedDocumentCountSuccess")
     void estimatedDocumentCountSuccess() {
         assertEquals(100, dataRepository.estimatedDocumentCount().block());
     }
@@ -65,7 +65,7 @@ final class DataRepository_UnitTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareEstimatedDocumentCountFailed")
+    @BeforeThisTest(method = "prepareEstimatedDocumentCountFailed")
     void estimatedDocumentCountFailed() {
         final RuntimeException exception =
                 assertThrows(RuntimeException.class, () -> dataRepository.estimatedDocumentCount().block());

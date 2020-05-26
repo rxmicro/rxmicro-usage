@@ -23,7 +23,7 @@ For each microservice test, the RxMicro framework performs the following actions
 .. creates an instance of the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^] type;
 .. connects the created {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^] to the running HTTP server.
 . Before starting each test method:
-.. if necessary, invokes the methods defined using the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/BeforeTest.java[`@BeforeTest`^]
+.. if necessary, invokes the methods defined using the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/BeforeThisTest.java[`@BeforeThisTest`^]
 or {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/BeforeIterationMethodSource.java[`@BeforeIterationMethodSource`^] annotations;
 .. if necessary, registers the RxMicro component alternatives in the RxMicro container;
 .. registers the tested REST-based microservice on the running HTTP server;

@@ -19,7 +19,7 @@ package io.rxmicro.examples.data.mongo.distinct;
 import com.mongodb.reactivestreams.client.MongoDatabase;
 import io.rxmicro.examples.data.mongo.distinct.model.Role;
 import io.rxmicro.test.Alternative;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.junit.InitMocks;
 import io.rxmicro.test.mockito.mongo.DistinctOperationMock;
@@ -70,7 +70,7 @@ final class DataRepository_UnitTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareGetEmailByIdSuccess")
+    @BeforeThisTest(method = "prepareGetEmailByIdSuccess")
     void getEmailByIdSuccess() {
         final String email = requireNonNull(dataRepository.getEmailById(1L).block());
         assertEquals("richard.hendricks@piedpiper.com", email);
@@ -86,7 +86,7 @@ final class DataRepository_UnitTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareGetEmailByIdFailed")
+    @BeforeThisTest(method = "prepareGetEmailByIdFailed")
     void getEmailByIdFailed() {
         final RuntimeException exception =
                 assertThrows(RuntimeException.class, () -> dataRepository.getEmailById(1L).block());
@@ -104,7 +104,7 @@ final class DataRepository_UnitTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareGetAllUsedRolesSuccess")
+    @BeforeThisTest(method = "prepareGetAllUsedRolesSuccess")
     void getAllUsedRolesSuccess() {
         final List<Role> roles = requireNonNull(dataRepository.getAllUsedRoles().collectList().block());
         assertEquals(
@@ -126,7 +126,7 @@ final class DataRepository_UnitTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareGetAllUsedRolesFailed")
+    @BeforeThisTest(method = "prepareGetAllUsedRolesFailed")
     void getAllUsedRolesFailed() {
         final RuntimeException exception =
                 assertThrows(RuntimeException.class, () -> dataRepository.getAllUsedRoles().collectList().block());

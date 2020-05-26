@@ -19,7 +19,7 @@ package io.rxmicro.examples.testing.microservice.order;
 import io.rxmicro.test.Alternative;
 import io.rxmicro.test.BlockingHttpClient;
 import io.rxmicro.test.SystemOut;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroRestBasedMicroServiceTest;
 import io.rxmicro.test.mockito.junit.InitMocks;
 import org.junit.jupiter.api.AfterAll;
@@ -58,7 +58,7 @@ final class MicroServiceTest {
     }
 
     @Test
-    @BeforeTest(method = "beforeTest1UserMethod")
+    @BeforeThisTest(method = "beforeTest1UserMethod")
     void test1() {
     }
 
@@ -66,7 +66,7 @@ final class MicroServiceTest {
     }
 
     @Test
-    @BeforeTest(method = "beforeTest2UserMethod")
+    @BeforeThisTest(method = "beforeTest2UserMethod")
     void test2() {
     }
 

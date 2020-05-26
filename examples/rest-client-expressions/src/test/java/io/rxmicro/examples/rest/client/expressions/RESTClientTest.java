@@ -22,7 +22,7 @@ import io.rxmicro.http.client.HttpClientFactory;
 import io.rxmicro.rest.model.HttpMethod;
 import io.rxmicro.test.Alternative;
 import io.rxmicro.test.WithConfig;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.httpclient.HttpRequestMock;
 import io.rxmicro.test.mockito.junit.InitMocks;
@@ -70,7 +70,7 @@ final class RESTClientTest {
     }
 
     @Test
-    @BeforeTest(method = "prepare")
+    @BeforeThisTest(method = "prepare")
     void Should_support_expressions() {
         assertDoesNotThrow(() -> restClient.put().join());
     }

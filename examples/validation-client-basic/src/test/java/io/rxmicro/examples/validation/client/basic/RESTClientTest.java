@@ -20,7 +20,7 @@ import io.rxmicro.examples.validation.client.basic.model.Response;
 import io.rxmicro.http.client.HttpClientFactory;
 import io.rxmicro.rest.model.HttpMethod;
 import io.rxmicro.test.Alternative;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.httpclient.HttpRequestMock;
 import io.rxmicro.test.mockito.junit.InitMocks;
@@ -59,7 +59,7 @@ final class RESTClientTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareValidResponse")
+    @BeforeThisTest(method = "prepareValidResponse")
     void Should_return_received_email() {
         final Response response = restClient.get().join();
         assertEquals("welcome@rxmicro.io", response.getEmail()); // <1>
@@ -74,7 +74,7 @@ final class RESTClientTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareInvalidResponse")
+    @BeforeThisTest(method = "prepareInvalidResponse")
     void Should_throw_UnexpectedResponseException() {
         final Throwable throwable =
                 // <4>

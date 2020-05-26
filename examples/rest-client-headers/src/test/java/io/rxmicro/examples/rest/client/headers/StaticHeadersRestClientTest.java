@@ -19,7 +19,7 @@ package io.rxmicro.examples.rest.client.headers;
 import io.rxmicro.http.HttpHeaders;
 import io.rxmicro.http.client.HttpClientFactory;
 import io.rxmicro.test.Alternative;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.httpclient.HttpRequestMock;
 import io.rxmicro.test.mockito.junit.InitMocks;
@@ -57,7 +57,7 @@ final class StaticHeadersRestClientTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareParentHeaderOnly")
+    @BeforeThisTest(method = "prepareParentHeaderOnly")
     void Should_use_parent_header_only() {
         assertDoesNotThrow(() -> restClient.get1().join());
     }
@@ -78,7 +78,7 @@ final class StaticHeadersRestClientTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareParentAndChildHeaders")
+    @BeforeThisTest(method = "prepareParentAndChildHeaders")
     void Should_use_parent_and_child_headers() {
         assertDoesNotThrow(() -> restClient.get2().join());
     }

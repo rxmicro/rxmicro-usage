@@ -18,7 +18,7 @@ package io.rxmicro.examples.data.mongo.count.documents;
 
 import com.mongodb.reactivestreams.client.MongoDatabase;
 import io.rxmicro.test.Alternative;
-import io.rxmicro.test.junit.BeforeTest;
+import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.junit.InitMocks;
 import io.rxmicro.test.mockito.mongo.CountDocumentsOperationMock;
@@ -62,7 +62,7 @@ final class DataRepository_UnitTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareCountAllDocumentsSuccess")
+    @BeforeThisTest(method = "prepareCountAllDocumentsSuccess")
     void countAllDocuments_should_return_count() {
         assertEquals(100, dataRepository.countDocuments().block());
     }
@@ -76,7 +76,7 @@ final class DataRepository_UnitTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareCountAllDocumentsFailed")
+    @BeforeThisTest(method = "prepareCountAllDocumentsFailed")
     void countAllDocuments_should_return_error() {
         final RuntimeException exception =
                 assertThrows(RuntimeException.class, () -> dataRepository.countDocuments().block());
@@ -92,7 +92,7 @@ final class DataRepository_UnitTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareCountFilteredDocumentsSuccess")
+    @BeforeThisTest(method = "prepareCountFilteredDocumentsSuccess")
     void countFilteredDocuments_should_return_count() {
         assertEquals(100, dataRepository.countDocuments(CEO).block());
     }
@@ -106,7 +106,7 @@ final class DataRepository_UnitTest {
     }
 
     @Test
-    @BeforeTest(method = "prepareCountFilteredDocumentsFailed")
+    @BeforeThisTest(method = "prepareCountFilteredDocumentsFailed")
     void countFilteredDocuments_should_return_error() {
         final RuntimeException exception =
                 assertThrows(RuntimeException.class, () -> dataRepository.countDocuments(CEO).block());
