@@ -72,7 +72,7 @@ final class BusinessServiceWillAllGeneratedCodeTest {
                         .setMethod(GET)
                         .setPath("/")
                         .build(),
-                new HttpErrorException(404)
+                new NotFoundException()
         );
     }
 
@@ -81,6 +81,13 @@ final class BusinessServiceWillAllGeneratedCodeTest {
     void Should_return_Not_Found_error() {
         final Optional<String> result = businessService.get().join();
         assertEquals(Optional.empty(), result);
+    }
+
+    private static final class NotFoundException extends HttpErrorException {
+
+        private NotFoundException() {
+            super(404);
+        }
     }
 }
 // end::content[]

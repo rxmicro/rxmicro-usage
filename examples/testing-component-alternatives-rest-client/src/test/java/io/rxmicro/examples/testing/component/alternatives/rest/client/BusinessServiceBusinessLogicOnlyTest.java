@@ -55,9 +55,16 @@ final class BusinessServiceBusinessLogicOnlyTest {
 
     @Test
     void Should_return_Not_Found_error() {
-        when(externalMicroService.get()).thenReturn(failedFuture(new HttpErrorException(404)));
+        when(externalMicroService.get()).thenReturn(failedFuture(new NotFoundException()));
         final Optional<String> result = businessService.get().join();
         assertEquals(Optional.empty(), result);
+    }
+
+    private static final class NotFoundException extends HttpErrorException {
+
+        private NotFoundException() {
+            super(404);
+        }
     }
 }
 // end::content[]
