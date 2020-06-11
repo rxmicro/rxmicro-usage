@@ -49,6 +49,10 @@ include::_cdi/factory-class.adoc[]
 
 <<<
 
+include::_cdi/resource.adoc[]
+
+<<<
+
 include::_cdi/optional-injection.adoc[]
 
 <<<

@@ -45,5 +45,8 @@ _(In its semantics, it completely corresponds to the https://docs.oracle.com/jav
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Factory.java[`@Factory`^]
 |Denotes <<cdi-factory-method-section, a factory method>> or <<cdi-factory-class-section, a factory, that creates instances of the specified class>>.
 
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Resource.java[`@Resource`^]
+|Indicates <<cdi-resource-section, the need to inject the external resource>> into the annotated class field or method parameter.
+
 // ---------------------------------------------------------------------------------------------------------------------
 |===

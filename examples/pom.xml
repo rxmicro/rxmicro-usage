@@ -129,6 +129,8 @@
         <module>cdi-singletons</module>
         <module>cdi-all-rxmicro-components</module>
         <module>cdi-all-user-components</module>
+        <module>cdi-resource-basic</module>
+        <module>cdi-resource-injection</module>
 
         <module>monitoring-heathcheck</module>
 

@@ -1,0 +1,88 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
+
+[[cdi-resource-section]]
+=== External resource injection
+
+==== Basic Usage
+
+Indicates the need to inject the external resource into the annotated class field or method parameter.
+
+External resource is:
+
+* File.
+* Directory.
+* Classpath resource.
+* URL Resource.
+* etc.
+
+*The RxMicro framework uses blocking API to inject resource during startup!*
+
+To inject external resource it is necessary to use
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Resource.java[`@Resource`^] annotation:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-resource-basic/src/main/java/io/rxmicro/examples/cdi/resource/basic/Component.java[tag=content,indent=0]
+----
+
+Content of the `classpath:resources.properties` is:
+
+[source,properties]
+----
+name=value
+----
+
+After startup external resource is injected successful:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-resource-basic/src/test/java/io/rxmicro/examples/cdi/resource/basic/ComponentTest.java[tag=content,indent=0]
+----
+
+==== Additional Info
+
+To customize resource injection mechanism it is necessary to use {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Resource.java[`@Resource`^] annotation.
+
+Example of valid resource paths:
+
+* `/home/rxmicro/config.json`;
+* `/home/rxmicro/config.properties`;
+* `file:///home/rxmicro/config.json`;
+* `file:///home/rxmicro/config.properties`;
+* `classpath:config.json`;
+* `classpath:config.properties`;
+
+If converter class is not specified, the RxMicro framework tries to detect valid resource converter automatically using the following algorithm:
+
+* `io.rxmicro.cdi.resource.ClasspathJsonArrayResourceConverter` is used if:
+** Resource path starts with `classpath:` prefix.
+** Resource path ends with `json` extension.
+** Annotated by {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Resource.java[`@Resource`^] annotation field has `java.util.List<Object>` type.
+
+* `io.rxmicro.cdi.resource.ClasspathJsonObjectResourceConverter` is used if:
+** Resource path starts with `classpath:` prefix.
+** Resource path ends with `json` extension.
+** Annotated by {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Resource.java[`@Resource`^] annotation field has `java.util.Map<String, Object>` type.
+
+* `io.rxmicro.cdi.resource.ClasspathPropertiesResourceConverter` is used if:
+** Resource path starts with `classpath:` prefix.
+** Resource path ends with `properties` extension.
+
+* `io.rxmicro.cdi.resource.FileJsonArrayResourceConverter` is used if:
+** Resource path starts with `file://` prefix or prefix is missing.
+** Resource path ends with `json` extension.
+** Annotated by {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Resource.java[`@Resource`^] annotation field has `java.util.List<Object>` type.
+
+* `io.rxmicro.cdi.resource.FileJsonObjectResourceConverter` is used if:
+** Resource path starts with `file://` prefix or prefix is missing.
+** Resource path ends with `json` extension.
+** Annotated by {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Resource.java[`@Resource`^] annotation field has `java.util.Map<String, Object>` type.
+
+* `io.rxmicro.cdi.resource.FilePropertiesResourceConverter` is used if:
+** Resource path starts with `file://` prefix or prefix is missing.
+** Resource path ends with `properties` extension.
+
+
