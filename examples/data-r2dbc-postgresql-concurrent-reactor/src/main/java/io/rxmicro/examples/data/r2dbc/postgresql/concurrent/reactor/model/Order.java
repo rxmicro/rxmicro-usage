@@ -31,11 +31,11 @@ public final class Order {
     @PrimaryKey
     Long id;
 
-    final Long idAccount;
+    Long idAccount;
 
-    final Integer idProduct;
+    Integer idProduct;
 
-    final Integer count;
+    Integer count;
 
     @NotInsertable
     Instant created;
@@ -46,6 +46,9 @@ public final class Order {
         this.idAccount = idAccount;
         this.idProduct = idProduct;
         this.count = count;
+    }
+
+    public Order() {
     }
 
     public Long getId() {
