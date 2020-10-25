@@ -16,7 +16,7 @@
 
 package io.rxmicro.examples.config.annotations.supplier;
 
-import io.rxmicro.rest.server.StandardStaticResponseHeader;
+import io.rxmicro.rest.server.PredefinedStaticResponseHeader;
 import io.rxmicro.rest.server.StaticResponseHeader;
 
 import java.util.Set;
@@ -29,7 +29,7 @@ public final class CustomStaticResponseHeaderSupplier implements Supplier<Set<St
     @Override
     public Set<StaticResponseHeader> get() {
         return unmodifiableOrderedSet(
-                StandardStaticResponseHeader.SERVER,
+                PredefinedStaticResponseHeader.SERVER,
                 new StaticResponseHeader() {
 
                     @Override
