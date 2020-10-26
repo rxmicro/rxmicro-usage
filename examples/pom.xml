@@ -64,6 +64,7 @@
         <module>validation-server-custom</module>
         <module>validation-server-response</module>
         <module>validation-server-all-standard</module>
+        <module>validation-server-required</module>
         <module>validation-client-basic</module>
         <module>validation-client-all-types</module>
 
