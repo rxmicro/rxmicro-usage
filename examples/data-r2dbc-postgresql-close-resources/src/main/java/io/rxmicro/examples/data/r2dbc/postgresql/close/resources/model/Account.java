@@ -16,6 +16,7 @@
 
 package io.rxmicro.examples.data.r2dbc.postgresql.close.resources.model;
 
+import io.rxmicro.data.Column;
 import io.rxmicro.data.sql.Table;
 
 import static io.rxmicro.examples.data.r2dbc.postgresql.close.resources.Constants.ACCOUNT_TABLE_NAME;
@@ -23,6 +24,7 @@ import static io.rxmicro.examples.data.r2dbc.postgresql.close.resources.Constant
 @Table(name = ACCOUNT_TABLE_NAME)
 public class Account {
 
+    @Column(length = Column.UNLIMITED_LENGTH)
     String email;
 
     @Override

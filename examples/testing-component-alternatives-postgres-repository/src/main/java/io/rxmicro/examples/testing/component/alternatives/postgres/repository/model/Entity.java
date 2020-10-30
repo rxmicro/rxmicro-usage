@@ -16,12 +16,14 @@
 
 package io.rxmicro.examples.testing.component.alternatives.postgres.repository.model;
 
+import io.rxmicro.data.Column;
 import io.rxmicro.data.sql.Table;
 
 // tag::content[]
 @Table
 public final class Entity {
 
+    @Column(length = Column.UNLIMITED_LENGTH)
     String data;
 
     public String getData() {
