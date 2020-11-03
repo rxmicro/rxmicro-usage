@@ -73,15 +73,22 @@ public interface DataRepository {
     CompletableFuture<AccountResult> insert7(Account account);
 
     @Insert("INSERT INTO ${table}(${inserted-columns}) VALUES(${values}) " +
-            "ON CONFLICT (${id-columns}) DO UPDATE SET ${on-conflict-update-not-id-columns}" +
+            "ON CONFLICT (${id-columns}) DO UPDATE SET ${on-conflict-update-inserted-columns}" +
             "RETURNING ${returning-columns}")
     CompletableFuture<AccountResult> insert8(Account account);
 
     @Insert("INSERT INTO ${table}(${inserted-columns}) VALUES(${values}) " +
-            "ON CONFLICT (${id-columns}) DO UPDATE SET ${on-conflict-update-not-id-columns}")
+            "ON CONFLICT (${id-columns}) DO UPDATE SET ${on-conflict-update-inserted-columns}")
     CompletableFuture<Void> insert9(Account account);
+
+    @Insert("INSERT INTO ${table}(${inserted-columns}) VALUES(${values}) " +
+            "ON CONFLICT (${id-columns}) DO NOTHING")
+    CompletableFuture<Void> insert10(Account account);
 
     @Insert("INSERT INTO ${table} SELECT * FROM dump RETURNING *")
     CompletableFuture<List<Account>> insertMany1();
+
+    @Insert("INSERT INTO account SELECT * FROM dump")
+    CompletableFuture<Integer> insertMany2();
 }
 // end::content[]

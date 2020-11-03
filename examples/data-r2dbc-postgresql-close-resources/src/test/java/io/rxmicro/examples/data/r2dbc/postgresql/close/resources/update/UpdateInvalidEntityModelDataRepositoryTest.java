@@ -27,9 +27,15 @@ import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+import static io.rxmicro.data.sql.r2dbc.postgresql.PostgreSQLConfigCustomizer.setConnectionDecorator;
+
 @Testcontainers
 @RxMicroComponentTest(UpdateInvalidEntityModelDataRepository.class)
 final class UpdateInvalidEntityModelDataRepositoryTest extends AbstractDataRepositoryTest<UpdateInvalidEntityModelDataRepository> {
+
+    static {
+        setConnectionDecorator(Spies::decorateConnection);
+    }
 
     @Container
     private static final GenericContainer<?> POSTGRESQL_TEST_DB =
@@ -40,8 +46,7 @@ final class UpdateInvalidEntityModelDataRepositoryTest extends AbstractDataRepos
     private static final PostgreSQLConfig CONFIG = new PostgreSQLConfig()
             .setDatabase("rxmicro")
             .setUser("rxmicro")
-            .setPassword("password")
-            .setConnectionDecorator(Spies::decorateConnection);
+            .setPassword("password");
 
     @BeforeAll
     static void beforeAll() {

@@ -36,9 +36,15 @@ import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+import static io.rxmicro.data.sql.r2dbc.postgresql.PostgreSQLConfigCustomizer.setConnectionDecorator;
+
 @Testcontainers
 @RxMicroComponentTest(Object.class)
 final class StatelessDataRepositoriesTest {
+
+    static {
+        setConnectionDecorator(Spies::decorateConnection);
+    }
 
     @Container
     final static GenericContainer<?> POSTGRESQL_TEST_DB =
@@ -49,8 +55,7 @@ final class StatelessDataRepositoriesTest {
     final static PostgreSQLConfig CONFIG = new PostgreSQLConfig()
             .setDatabase("rxmicro")
             .setUser("rxmicro")
-            .setPassword("password")
-            .setConnectionDecorator(Spies::decorateConnection);
+            .setPassword("password");
 
     @BeforeAll
     static void beforeAll() {
