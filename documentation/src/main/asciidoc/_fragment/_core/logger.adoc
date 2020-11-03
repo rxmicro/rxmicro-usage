@@ -45,10 +45,10 @@ io.rxmicro.config.level=DEBUG
 
 [IMPORTANT]
 ====
-The `rxmicro.logger` module supports all logging levels from the following sets: `{OFF, ERROR, WARN, INFO, DEBUG, TRACE, ALL}` and `{OFF, SEVERE, CONFIG, INFO, FINE, FINEST, ALL}`.
+The `rxmicro.logger` module supports all logging levels from the following sets: `{OFF, ERROR, WARN, INFO, DEBUG, TRACE, ALL}` and `{OFF, SEVERE, WARNING, INFO, CONFIG, FINE, FINER, FINEST, ALL}`.
 
 Therefore, in the `jul.properties` configuration file You can use any logging level.
-When activating the `java.logging` logger, the RxMicro framework automatically converts levels from a set of `{OFF, ERROR, WARN, INFO, DEBUG, TRACE, ALL}` into `{OFF, SEVERE, CONFIG, INFO, FINE, FINEST, ALL}`.
+When activating the `java.logging` logger, the RxMicro framework automatically converts levels from a set of `{OFF, ERROR, WARN, INFO, DEBUG, TRACE, ALL}` into `{OFF, SEVERE, WARNING, INFO, FINE, FINEST, ALL}`.
 
 This option makes it possible to use unsupported but widely used in other logging frameworks logging levels for the `java.logging` logger.
 ====
