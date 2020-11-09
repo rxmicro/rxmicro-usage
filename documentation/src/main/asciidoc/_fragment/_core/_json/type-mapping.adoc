@@ -53,14 +53,9 @@ Instead, standard Java classes are used:
 |{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Number.html[`? extends java.lang.Number`^]
 |`number`
 
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-json/src/main/java/io/rxmicro/json/JsonNumber.java[`io.rxmicro.json.JsonNumber`^]
+|`number`
+
 |`Any Java Class`
 |`string`
 |===
-
-[TIP]
-====
-The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-json/src/main/java/io/rxmicro/json/JsonNumber.java[`io.rxmicro.json.JsonNumber`^]
-class extends the {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Number.html[`java.lang.Number`^] class.
-
-Therefore, *to work with numeric data types, You can use the `java.lang.Number` type instead of `io.rxmicro.json.JsonNumber`*!
-====
