@@ -45,6 +45,7 @@
         <module>rest-controller-model-fields</module>
         <module>rest-controller-complex-model</module>
         <module>rest-controller-generator</module>
+        <module>rest-controller-map-model-type</module>
 
         <module>rest-client-handlers</module>
         <module>rest-client-headers</module>
