@@ -19,17 +19,36 @@ package io.rxmicro.examples.rest.controller.map.model.type.model.nested;
 import io.rxmicro.examples.rest.controller.map.model.type.model.Status;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.time.Instant;
 import java.util.Map;
 
 public class Nested {
 
-    Map<String, Status> enumData;
+    Map<String, Boolean> booleanData;
 
-    Map<String, String> stringData;
+    Map<String, Byte> byteData;
+
+    Map<String, Short> shortData;
 
     Map<String, Integer> integerData;
 
-    Map<String, Boolean> booleanData;
+    Map<String, Long> longData;
+
+    Map<String, BigInteger> bigIntegerData;
+
+    Map<String, Float> floatData;
+
+    Map<String, Double> doubleData;
 
     Map<String, BigDecimal> bigDecimalData;
+
+    Map<String, Character> characterData;
+
+    Map<String, String> stringData;
+
+    Map<String, Status> enumData;
+
+    Map<String, Instant> instantData;
+
 }

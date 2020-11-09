@@ -24,11 +24,12 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.time.Instant;
 import java.util.Map;
 import java.util.stream.Stream;
 
 import static io.rxmicro.test.json.JsonFactory.jsonObject;
-import static java.util.Map.entry;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @RxMicroRestBasedMicroServiceTest(MicroService.class)
@@ -40,28 +41,72 @@ final class MicroServiceTest {
         return Stream.of(
                 jsonObject(),
                 jsonObject(
-                        entry("1", jsonObject(
-                                entry("enumData", jsonObject(
-                                        "1", Status.created,
-                                        "2", Status.approved
-                                )),
-                                entry("stringData", jsonObject(
-                                        "1", "text1",
-                                        "2", "text2"
-                                )),
-                                entry("integerData", jsonObject(
-                                        "1", 1,
-                                        "2", 2
-                                )),
-                                entry("booleanData", jsonObject(
-                                        "1", true,
-                                        "2", false
-                                )),
-                                entry("bigDecimalData", jsonObject(
-                                        "1", new BigDecimal("3.14"),
-                                        "2", new BigDecimal("2,718")
+                        jsonObject("nested",
+                                jsonObject("1", jsonObject(
+                                        jsonObject("booleanData", jsonObject(
+                                                "1", true,
+                                                "2", false
+                                        ))
                                 ))
-                        ))
+                        )
+                ),
+                jsonObject(
+                        jsonObject("nested",
+                                jsonObject("1", jsonObject(
+                                        jsonObject("booleanData", jsonObject(
+                                                "1", true,
+                                                "2", false
+                                        )),
+                                        jsonObject("byteData", jsonObject(
+                                                "1", 1,
+                                                "2", 2
+                                        )),
+                                        jsonObject("shortData", jsonObject(
+                                                "1", 256,
+                                                "2", 257
+                                        )),
+                                        jsonObject("integerData", jsonObject(
+                                                "1", 64500,
+                                                "2", 64501
+                                        )),
+                                        jsonObject("longData", jsonObject(
+                                                "1", 9999999999999L,
+                                                "2", 9999999999998L
+                                        )),
+                                        jsonObject("bigIntegerData", jsonObject(
+                                                "1", new BigInteger("99999999999999999999999999999999999999999999999999999"),
+                                                "2", new BigInteger("99999999999999999999999999999999999999999999999999998")
+                                        )),
+                                        jsonObject("floatData", jsonObject(
+                                                "1", 3.14f,
+                                                "2", 2.718f
+                                        )),
+                                        jsonObject("doubleData", jsonObject(
+                                                "1", 3.14,
+                                                "2", 2.718
+                                        )),
+                                        jsonObject("bigDecimalData", jsonObject(
+                                                "1", new BigDecimal("3.14"),
+                                                "2", new BigDecimal("2.718")
+                                        )),
+                                        jsonObject("characterData", jsonObject(
+                                                "1", "y",
+                                                "2", "n"
+                                        )),
+                                        jsonObject("stringData", jsonObject(
+                                                "1", "text1",
+                                                "2", "text2"
+                                        )),
+                                        jsonObject("enumData", jsonObject(
+                                                "1", Status.created,
+                                                "2", Status.approved
+                                        )),
+                                        jsonObject("instantData", jsonObject(
+                                                "1", Instant.now(),
+                                                "2", Instant.parse("2020-01-01T01:01:01Z")
+                                        ))
+                                ))
+                        )
                 )
         );
     }
@@ -71,10 +116,10 @@ final class MicroServiceTest {
     void Should_support_all_parameter_types(final Map<String, Object> json) {
         final ClientHttpResponse response = blockingHttpClient.post("/", json);
 
-        assertEquals(200, response.getStatusCode());
         assertEquals(
                 json,
                 response.getBody()
         );
+        assertEquals(200, response.getStatusCode());
     }
 }
