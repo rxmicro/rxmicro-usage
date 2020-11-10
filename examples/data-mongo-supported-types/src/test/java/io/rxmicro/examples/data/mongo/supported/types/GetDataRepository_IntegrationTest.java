@@ -16,7 +16,6 @@
 
 package io.rxmicro.examples.data.mongo.supported.types;
 
-import io.rxmicro.data.mongo.MongoCodecsConfigurator;
 import io.rxmicro.data.mongo.MongoConfig;
 import io.rxmicro.test.WithConfig;
 import io.rxmicro.test.junit.RxMicroComponentTest;
@@ -35,12 +34,20 @@ import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
+import static io.rxmicro.data.mongo.MongoConfigCustomizer.getCurrentMongoCodecsConfigurator;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Testcontainers
 @RxMicroComponentTest(GetDataRepository.class)
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 final class GetDataRepository_IntegrationTest extends AbstractDataRepositoryIntegrationTest {
+
+    static {
+        getCurrentMongoCodecsConfigurator()
+                .withDefaultConfiguration()
+                .withExtendJavaCodecs()
+                .withExtendMongoCodecs();
+    }
 
     @Container
     private static final GenericContainer<?> MONGO_TEST_DB =
@@ -49,12 +56,7 @@ final class GetDataRepository_IntegrationTest extends AbstractDataRepositoryInte
 
     @WithConfig
     private static final MongoConfig MONGO_CONFIG = new MongoConfig()
-            .setDatabase("rxmicro")
-            .setMongoCodecsConfigurator(new MongoCodecsConfigurator()
-                    .withDefaultConfiguration()
-                    .withExtendJavaCodecs()
-                    .withExtendMongoCodecs()
-            );
+            .setDatabase("rxmicro");
 
     @BeforeAll
     static void beforeAll() {

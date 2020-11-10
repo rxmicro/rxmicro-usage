@@ -16,7 +16,6 @@
 
 package io.rxmicro.examples.data.mongo.supported.types;
 
-import io.rxmicro.data.mongo.MongoCodecsConfigurator;
 import io.rxmicro.data.mongo.MongoConfig;
 import io.rxmicro.examples.data.mongo.supported.types.model.SupportedTypesDocument;
 import io.rxmicro.examples.data.mongo.supported.types.model.SupportedTypesEntity;
@@ -36,6 +35,7 @@ import java.math.BigDecimal;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
+import static io.rxmicro.data.mongo.MongoConfigCustomizer.getCurrentMongoCodecsConfigurator;
 import static io.rxmicro.examples.data.mongo.supported.types.model.TestSupportedTypesInstance.SUPPORTED_TYPES;
 import static io.rxmicro.examples.data.mongo.supported.types.model.TestSupportedTypesInstance.newSupportedTypes;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -45,6 +45,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 final class UpdateDataRepository_IntegrationTest {
 
+    static {
+        getCurrentMongoCodecsConfigurator()
+                .withDefaultConfiguration()
+                .withExtendJavaCodecs()
+                .withExtendMongoCodecs();
+    }
+
     @Container
     private static final GenericContainer<?> MONGO_TEST_DB =
             new GenericContainer<>("rxmicro/mongo-test-db")
@@ -52,12 +59,7 @@ final class UpdateDataRepository_IntegrationTest {
 
     @WithConfig
     private static final MongoConfig MONGO_CONFIG = new MongoConfig()
-            .setDatabase("rxmicro")
-            .setMongoCodecsConfigurator(new MongoCodecsConfigurator()
-                    .withDefaultConfiguration()
-                    .withExtendJavaCodecs()
-                    .withExtendMongoCodecs()
-            );
+            .setDatabase("rxmicro");
 
     @BeforeAll
     static void beforeAll() {

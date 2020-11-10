@@ -16,7 +16,6 @@
 
 package io.rxmicro.examples.data.mongo.supported.types;
 
-import io.rxmicro.data.mongo.MongoCodecsConfigurator;
 import io.rxmicro.data.mongo.MongoConfig;
 import io.rxmicro.test.WithConfig;
 import io.rxmicro.test.junit.RxMicroComponentTest;
@@ -32,6 +31,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
+import static io.rxmicro.data.mongo.MongoConfigCustomizer.getCurrentMongoCodecsConfigurator;
 import static io.rxmicro.examples.data.mongo.supported.types.model.TestSupportedTypesInstance.SUPPORTED_TYPES;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -40,14 +40,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 final class DeleteDataRepository_IntegrationTest {
 
+    static {
+        getCurrentMongoCodecsConfigurator()
+                .withDefaultConfiguration()
+                .withExtendJavaCodecs()
+                .withExtendMongoCodecs();
+    }
+
     @WithConfig
     private static final MongoConfig MONGO_CONFIG = new MongoConfig()
-            .setDatabase("rxmicro")
-            .setMongoCodecsConfigurator(new MongoCodecsConfigurator()
-                    .withDefaultConfiguration()
-                    .withExtendJavaCodecs()
-                    .withExtendMongoCodecs()
-            );
+            .setDatabase("rxmicro");
 
     @Container
     private final GenericContainer<?> mongoTestDb =
