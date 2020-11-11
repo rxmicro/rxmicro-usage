@@ -53,5 +53,24 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/test/java/io/rxmicro
 ----
 <1> Set `Answers.RETURNS_DEEP_STUBS` as answer value.
 
+==== Why I receive `java.lang.reflect.InaccessibleObjectException: Unable to make MicroServiceTest() accessible: module module.name does not "opens test.package" to unnamed module` error during unit testing?
 
+If `test.package` name matches to the `production.package` name, then You need just to add `io.rxmicro.annotation.processor.RxMicroTestsAnnotationProcessor` annotation processor.
+(Read more at <<{quick-start}#testing-prepare-maven-compiler-plugin-settings-section>>).
 
+If `test.package` name does not match to the `production.package` name, then You need configure the `maven-surefire-plugin` manually:
+
+[source,xml]
+----
+<plugin>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>${maven-surefire-plugin.version}</version>
+    <configuration>
+        <argLine>
+            @{argLine}
+            --add-opens module.name/test.package=ALL-UNNAMED <!--1-->
+        </argLine>
+    </configuration>
+</plugin>
+----
+<1> Opens all classes from `test.package` package defined at the `module.name` module to all unnamed modules!

@@ -28,6 +28,7 @@ Before writing tests, using the RxMicro framework, the following steps must be t
 <2> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-compiler-plugin[The latest stable version of the `maven-compiler-plugin`^].
 <3> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-surefire-plugin[The latest stable version of the `maven-surefire-plugin`^].
 
+[[testing-prepare-add-required-dependencies-section]]
 ==== Adding the Required Dependencies:
 
 Before using the RxMicro modules for testing, You need to add the following dependencies to the project:
@@ -78,6 +79,7 @@ The `rxmicro-test-mockito-junit` library depends on the `rxmicro-test-junit`, so
 . If You still need to create mocks, then use the `rxmicro-test-mockito-junit` library.
 ====
 
+[[testing-prepare-maven-compiler-plugin-settings-section]]
 ==== Configuring the `maven-compiler-plugin`:
 
 To solve <<testing-how-it-works-section,problems with the Java module system>> when writing the tests,
@@ -146,6 +148,7 @@ The `io.rxmicro.annotation.processor.RxMicroTestsAnnotationProcessor` generates 
 *Therefore, You must always specify a separate folder for the generated classes!*
 ====
 
+[[testing-prepare-maven-surefire-plugin-settings-section]]
 ==== Configuring the  `maven-surefire-plugin`:
 
 include::../___shared/maven-surefire-plugin-configuration.adoc[]
