@@ -239,6 +239,7 @@
                                 junit.jupiter.execution.parallel.enabled = false
                             </configurationParameters>
                         </properties>
+                        <trimStackTrace>false</trimStackTrace>
                     </configuration>
                 </plugin>
                 <plugin>
