@@ -68,6 +68,7 @@
         <module>validation-server-required</module>
         <module>validation-client-basic</module>
         <module>validation-client-all-types</module>
+        <module>validation-nested-model</module>
 
         <module>documentation-asciidoctor-quick-start</module>
         <module>documentation-asciidoctor-echo</module>

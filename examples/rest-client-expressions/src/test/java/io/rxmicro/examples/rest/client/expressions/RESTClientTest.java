@@ -39,13 +39,13 @@ import static org.mockito.Answers.RETURNS_DEEP_STUBS;
 final class RESTClientTest {
 
     @WithConfig("custom")
-    private static final CustomHttpClientConfig config =
-            new CustomHttpClientConfig()
+    private static final CustomRestClientConfig config =
+            new CustomRestClientConfig()
                     .setHost("rxmicro.io")
                     .setPort(8443)
                     .setSchema(ProtocolSchema.HTTPS)
                     .setUseProxy(false)
-                    .setMode(CustomHttpClientConfig.Mode.TEST);
+                    .setMode(CustomRestClientConfig.Mode.TEST);
 
     private RESTClient restClient;
 
