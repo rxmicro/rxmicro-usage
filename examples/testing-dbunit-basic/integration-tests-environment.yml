@@ -1,0 +1,14 @@
+# https://docs.docker.com/compose/compose-file/
+# https://docs.docker.com/compose/reference/overview/
+#
+# docker-compose -f integration-tests-environment.yml build
+# docker-compose -f integration-tests-environment.yml up
+# docker-compose -f integration-tests-environment.yml down
+
+version: '3.7'
+
+services:
+  postgres-db:
+    image: rxmicro/postgres-test-db
+    ports:
+      - "5445:5432"

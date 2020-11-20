@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "rxmicro-test-dataset.dtd">
+
+<dataset>
+    <account id="1" email="richard.hendricks@piedpiper.com" first_name="Richard" last_name="Hendricks" balance="70000.00" role="CEO"/>
+    <account id="2" email="bertram.gilfoyle@piedpiper.com" first_name="Bertram" last_name="Gilfoyle" balance="20000.00" role="Systems_Architect"/>
+    <account id="3" email="dinesh.chugtai@piedpiper.com" first_name="Dinesh" last_name="Chugtai" balance="10000.00" role="Lead_Engineer"/>
+
+    <product id="1" name="Apple MacBook Pro 15&quot; Retina Z0WW00024 Space Gray" price="5750.00" count="10"/>
+    <product id="2" name="Apple MacBook A1534 12&quot; Space Gray (MNYF2)" price="985.00" count="12"/>
+    <product id="3" name="Apple MacBook Pro 16&quot; 512GB 2019 (MVVJ2) Space Gray" price="2540.00" count="8"/>
+    <product id="4" name="Apple MacBook Pro 13 Retina Space Gray (MPXT2) 2017" price="1345.00" count="17"/>
+    <product id="5" name="Apple MacBook Pro 15&quot; Retina Z0RF00052 (Mid 2015)" price="1860.00" count="11"/>
+    <product id="6" name="Apple iPad (2019) 10.2&quot; Wi-Fi 32GB Gold (MW762)" price="540.00" count="32"/>
+    <product id="7" name="Apple iPad (2019) 10.2&quot; Wi-Fi 128GB Silver (MW782)" price="620.00" count="37"/>
+    <product id="8" name="Apple iPad mini 5 Wi-Fi 64Gb Space Gray (MUQW2)" price="645.00" count="26"/>
+    <product id="9" name="Apple iPad Pro 11&quot; Wi-Fi 64GB Space Gray 2018 (MTXN2)" price="1100.00" count="18"/>
+    <product id="10" name="Apple iPhone Xs 64GB Space Gray (MT9E2)" price="840.00" count="21"/>
+    <product id="11" name="Apple iPhone 11 128GB Black" price="980.00" count="18"/>
+    <product id="12" name="Apple iPhone Xr 64GB Black (MRY42)" price="760.00" count="14"/>
+    <product id="13" name="Apple iPhone Xs 256GB Space Gray (MT9H2)" price="910.00" count="10"/>
+    <product id="14" name="Apple iPhone 7 Plus 32GB Black" price="510.00" count="3"/>
+    <product id="15" name="Apple iPhone 11 Pro 64GB Space Gray" price="1450.00" count="42"/>
+    <product id="16" name="Apple iPhone 11 Pro 256GB Midnight Green" price="1720.00" count="38"/>
+    <product id="17" name="Apple iPod Touch 6 16Гб (MKH62)" price="320.00" count="54"/>
+    <product id="18" name="Apple iPod Touch 6 32Гб (MKJ02)" price="380.00" count="52"/>
+    <product id="19" name="Apple iPod Touch 6 16Гб (MKGX2)" price="310.00" count="48"/>
+    <product id="20" name="Apple iPod Touch 6 32Гб (MKHV2)" price="420.00" count="55"/>
+    <product id="21" name="Apple iMac Pro 27&quot; Z0UR000AC / Z0UR8 (Late 2017)" price="7800.00" count="6"/>
+    <product id="22" name="Apple iMac 21.5&apos; Middle 2017 (MMQA2)" price="1740.00" count="14"/>
+    <product id="23" name="Apple iMac 21&quot; Retina 4K MRT32 (Early 2019)" price="1920.00" count="11"/>
+    <product id="24" name="Apple iMac 27&quot; with Retina 5K Display Late (MQ2Y2)" price="6200.00" count="7"/>
+    <product id="25" name="Apple iMac 27&quot; 2017 5K (MNEA2)" price="2100.00" count="17"/>
+
+    <order/>
+</dataset>

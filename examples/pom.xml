@@ -161,6 +161,7 @@
         <module>testing-component-alternatives-rest-client</module>
         <module>testing-integration-basic</module>
         <module>testing-integration-docker</module>
+        <module>testing-dbunit-basic</module>
 
         <module>test-fixer-component</module>
         <module>test-fixer-microservice</module>

@@ -1,0 +1,28 @@
+<!ELEMENT dataset (
+        account*,
+        product*,
+        order*)>
+
+        <!ELEMENT account EMPTY>
+        <!ATTLIST account
+                id CDATA #IMPLIED
+                email CDATA #IMPLIED
+                first_name CDATA #IMPLIED
+                last_name CDATA #IMPLIED
+                balance CDATA #IMPLIED
+                role CDATA #IMPLIED>
+
+        <!ELEMENT order EMPTY>
+        <!ATTLIST order
+                id CDATA #IMPLIED
+                id_account CDATA #IMPLIED
+                id_product CDATA #IMPLIED
+                count CDATA #IMPLIED
+                created CDATA #IMPLIED>
+
+        <!ELEMENT product EMPTY>
+        <!ATTLIST product
+                id CDATA #IMPLIED
+                name CDATA #IMPLIED
+                price CDATA #IMPLIED
+                count CDATA #IMPLIED>
