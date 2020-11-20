@@ -14,10 +14,15 @@
  * limitations under the License.
  */
 
-module examples.format {
-    requires rxmicro.rest.server.netty;
-    requires rxmicro.rest.server.exchange.json;
-    requires rxmicro.data.sql.r2dbc.postgresql;
+package io.rxmicro.examples.code.fragments.microservices;
 
-    requires slf4j.api;
+import java.time.Instant;
+
+// tag::content[]
+public final class MicroService1 {
+
+    public static void main(final String[] args) {
+        System.out.println(Instant.now());
+    }
 }
+// end::content[]

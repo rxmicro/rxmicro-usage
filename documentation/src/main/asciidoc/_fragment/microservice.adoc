@@ -20,7 +20,7 @@ Let's look at a microservice that displays the current date and time in UTC form
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/microservices/src/main/java/io/rxmicro/examples/microservices/MicroService1.java[tags=content]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/microservices/MicroService1.java[tags=content]
 ----
 
 Does this microprogram constitute a microservice? +
@@ -34,7 +34,7 @@ Yes, we can:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/microservices/src/main/java/io/rxmicro/examples/microservices/MicroService2.java[tags=content]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/microservices/MicroService2.java[tags=content]
 ----
 
 This microservice uses a file system to interact with client's programs.
@@ -46,7 +46,7 @@ Yes, we can:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/microservices/src/main/java/io/rxmicro/examples/microservices/MicroService3.java[tags=content]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/microservices/MicroService3.java[tags=content]
 ----
 
 Now, the microservice uses the network to interact with clients.
@@ -62,7 +62,7 @@ Yes, for this purpose You can use the HTTP protocol with the REST architecture s
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/microservices/src/main/java/io/rxmicro/examples/microservices/MicroService4.java[tags=content]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/microservices/MicroService4.java[tags=content]
 ----
 
 *That's why microservices are often referred to as REST-based microservices*

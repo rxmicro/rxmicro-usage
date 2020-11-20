@@ -11,7 +11,7 @@ For this purpose, Java provides different approaches:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/format/src/main/java/io/rxmicro/examples/format/Problem.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/format/Problem.java[tag=content,indent=0]
 ----
 <1> To generate an SQL query, You need to use `$1` placeholder. +
 _(This placeholder depends on the used {R2DBC-SPEC-ROOT-URL}#statements.parameterized[R2DBC driver^].
@@ -28,7 +28,7 @@ While writing the code, a developer can easily confuse the required placeholder.
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/format/src/main/java/io/rxmicro/examples/format/Solution.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/format/Solution.java[tag=content,indent=0]
 ----
 <1> To generate an SQL query, You need to use `?` placeholder.
 <2> To generate a logging message, You need to use `?` placeholder.

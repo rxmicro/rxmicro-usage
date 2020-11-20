@@ -23,4 +23,7 @@ module examples.code.fragments {
     requires rxmicro.data.sql.r2dbc.postgresql;
     requires rxmicro.data.mongo;
     requires rxmicro.documentation.asciidoctor;
+    requires rxmicro.slf4j.proxy;
+
+    requires jdk.httpserver;
 }

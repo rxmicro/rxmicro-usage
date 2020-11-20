@@ -12,7 +12,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>microservices</module>
         <module>quick-start</module>
 
         <module>docker-image-hello-world-microservice</module>
@@ -23,7 +22,6 @@
         <module>config-custom</module>
         <module>config-annotations</module>
         <module>config-annotations-supplier</module>
-        <module>format</module>
         <module>json</module>
         <module>logger</module>
 
@@ -161,12 +159,12 @@
         <module>testing-component-alternatives-rest-client</module>
         <module>testing-integration-basic</module>
         <module>testing-integration-docker</module>
+
         <module>testing-dbunit-basic</module>
 
         <module>test-fixer-component</module>
         <module>test-fixer-microservice</module>
         <module>test-fixer-integration</module>
-
         <module>processor-all-components</module>
         <module>processor-microservice</module>
         <module>processor-restclient</module>

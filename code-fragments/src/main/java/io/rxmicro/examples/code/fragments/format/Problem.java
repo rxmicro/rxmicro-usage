@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.rxmicro.examples.format;
+package io.rxmicro.examples.code.fragments.format;
 
 import io.r2dbc.spi.Connection;
 import io.r2dbc.spi.Result;

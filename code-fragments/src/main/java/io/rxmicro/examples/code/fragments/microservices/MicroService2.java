@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.rxmicro.examples.microservices;
+package io.rxmicro.examples.code.fragments.microservices;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;

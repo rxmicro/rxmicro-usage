@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.rxmicro.examples.microservices;
+package io.rxmicro.examples.code.fragments.microservices;
 
 import com.sun.net.httpserver.HttpServer;
 
