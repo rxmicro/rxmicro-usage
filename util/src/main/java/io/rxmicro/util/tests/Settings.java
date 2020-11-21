@@ -33,13 +33,13 @@ public final class Settings {
 
     public static final String POM_XML = "pom.xml";
 
-    public static final String DOCUMENTATION_ASCIIDOC = "documentation-asciidoctor";
+    public static final String DOCUMENTATION_ASCIIDOC = "documentation-asciidoctor-";
 
-    public static final String CDI = "cdi";
+    public static final String CDI = "cdi-";
 
-    public static final String DATA_R2DBC_POSTGRESQL = "data-r2dbc-postgresql";
+    public static final String DATA_R2DBC_POSTGRESQL = "data-r2dbc-postgresql-";
 
-    public static final String DATA_MONGO = "data-mongo";
+    public static final String DATA_MONGO = "data-mongo-";
 
     public static final String UNNAMED_MODULE_PREFIX = "unnamed-module-";
 
@@ -64,17 +64,70 @@ public final class Settings {
                 throw new InvalidStateException("Directory not found: '?'", path);
             }
         }
-        RX_MICRO_MODULES = Map.ofEntries(
-                entry("rest-controller", RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-rest-server/src/test/resources"),
-                entry("validation-server", RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-rest-server/src/test/resources"),
-                entry("rest-client", RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-rest-client/src/test/resources"),
-                entry("validation-client", RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-rest-client/src/test/resources"),
-                entry(DOCUMENTATION_ASCIIDOC, RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-documentation-asciidoctor/src/test/resources"),
-                entry(CDI, RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-cdi/src/test/resources"),
-                entry("processor", RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor/src/test/resources"),
-                entry("test-fixer", RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor/src/test/resources"),
-                entry(DATA_R2DBC_POSTGRESQL, RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-data-sql-r2dbc-postgresql/src/test/resources"),
-                entry(DATA_MONGO, RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-data-mongo/src/test/resources")
+        RX_MICRO_MODULES = createMapping();
+    }
+
+    private static Map<String, String> createMapping(){
+        return Map.ofEntries(
+                // REST controller
+                entry(
+                        "group-rest-controller/rest-controller-",
+                        RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-rest-server/src/test/resources"
+                ),
+                entry(
+                        "group-unnamed-module/unnamed-module-rest-controller-",
+                        RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-rest-server/src/test/resources"
+                ),
+                entry(
+                        "group-validation/validation-server-",
+                        RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-rest-server/src/test/resources"
+                ),
+                // REST client
+                entry(
+                        "group-rest-client/rest-client-",
+                        RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-rest-client/src/test/resources"
+                ),
+                entry(
+                        "group-unnamed-module/unnamed-module-rest-client-",
+                        RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-rest-client/src/test/resources"
+                ),
+                entry(
+                        "group-validation/validation-client-",
+                        RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-rest-client/src/test/resources"
+                ),
+                // Documentation
+                entry(
+                        "group-documentation-asciidoctor/documentation-asciidoctor-",
+                        RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-documentation-asciidoctor/src/test/resources"
+                ),
+                entry(
+                        "group-unnamed-module/unnamed-module-documentation-asciidoctor-",
+                        RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-documentation-asciidoctor/src/test/resources"
+                ),
+                // CDI
+                entry(
+                        "group-cdi/cdi-",
+                        RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-cdi/src/test/resources"
+                ),
+                entry(
+                        "group-unnamed-module/unnamed-module-cdi-",
+                        RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-cdi/src/test/resources"
+                ),
+                // PROCESSOR
+                entry(
+                        "group-processor",
+                        RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor/src/test/resources"
+                ),
+                // Data postgres
+                entry(
+                        "group-data-r2dbc-postgresql/data-r2dbc-postgresql-",
+                        RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-data-sql-r2dbc-postgresql/src/test/resources"
+                ),
+                // Data mongo
+                entry(
+                        "group-data-mongo/data-mongo-",
+                        RX_MICRO_ROOT_DIR_PATH + "/rxmicro-annotation-processor-data-mongo/src/test/resources"
+                )
         );
     }
 

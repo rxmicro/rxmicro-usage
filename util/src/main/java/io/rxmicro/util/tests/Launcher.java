@@ -89,12 +89,9 @@ public final class Launcher {
     }
 
     private static void copyExamples() throws IOException {
-        for (final File exampleProject : requireNonNull(new File(EXAMPLES_ROOT_DIR_PATH).listFiles())) {
+        for (final File exampleProject : getExampleRootFolders()) {
             for (final Map.Entry<String, String> entry : RX_MICRO_MODULES.entrySet()) {
-                final String name = exampleProject.getName().startsWith(UNNAMED_MODULE_PREFIX) ?
-                        exampleProject.getName().substring(UNNAMED_MODULE_PREFIX.length()) :
-                        exampleProject.getName();
-                if (name.startsWith(entry.getKey())) {
+                if (exampleProject.getAbsolutePath().contains(entry.getKey())) {
                     if (!new File(exampleProject.getAbsolutePath(), "skip").exists()) {
                         final String srcRoot = format("?/src/main/java", exampleProject.getAbsolutePath());
                         if (new File(srcRoot).exists()) {
@@ -109,6 +106,18 @@ public final class Launcher {
         }
     }
 
+    private static List<File> getExampleRootFolders() {
+        final List<File> files = new ArrayList<>();
+        for (final File exampleProject : requireNonNull(new File(EXAMPLES_ROOT_DIR_PATH).listFiles())) {
+            if (exampleProject.getName().startsWith("group-")) {
+                files.addAll(List.of(requireNonNull(exampleProject.listFiles())));
+            } else {
+                files.add(exampleProject);
+            }
+        }
+        return files;
+    }
+
     private static void copyOutputOrDocs(final File exampleProject,
                                          final Map.Entry<String, String> entry,
                                          final String rootPackage) throws IOException {
@@ -116,13 +125,13 @@ public final class Launcher {
         if (!new File(destRoot).exists()) {
             throw new InvalidStateException("Generated source code not found: '?'. Run `mvn compile`", destRoot);
         }
-        if (!DOCUMENTATION_ASCIIDOC.equals(entry.getKey())) {
+        if (!entry.getKey().contains(DOCUMENTATION_ASCIIDOC)) {
             final List<String> exclude = new ArrayList<>();
-            if (DATA_R2DBC_POSTGRESQL.equals(entry.getKey())) {
+            if (entry.getKey().contains(DATA_R2DBC_POSTGRESQL)) {
                 exclude.add("$$RepositoryFactoryImpl.java");
-            } else if (DATA_MONGO.equals(entry.getKey())) {
+            } else if (entry.getKey().contains(DATA_MONGO)) {
                 exclude.add("$$RepositoryFactoryImpl.java");
-            } else if (CDI.equals(entry.getKey())) {
+            } else if (entry.getKey().contains(CDI)) {
                 exclude.addAll(List.of(
                         "$$RestControllerAggregatorImpl.java",
                         "$$RestClientFactoryImpl.java",
@@ -133,7 +142,7 @@ public final class Launcher {
                         "RestClient.java"
                 ));
             }
-            if (!exampleProject.getName().startsWith(UNNAMED_MODULE_PREFIX)) {
+            if (!exampleProject.getName().contains(UNNAMED_MODULE_PREFIX)) {
                 exclude.add("$$EnvironmentCustomizer.java");
             }
             copyOutput(destRoot, rootPackage, entry.getValue() + "/output", exclude.toArray(new String[0]));
