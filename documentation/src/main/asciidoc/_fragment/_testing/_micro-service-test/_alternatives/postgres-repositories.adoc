@@ -11,29 +11,29 @@ The source code of such REST-based microservice consists of the `Entity` entity 
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-microservice-alternatives-postgres-repository/src/main/java/io/rxmicro/examples/testing/microservice/alternatives/postgres/repository/model/Response.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-microservice-alternatives-postgres-repository/src/main/java/io/rxmicro/examples/testing/microservice/alternatives/postgres/repository/model/Response.java[tag=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-microservice-alternatives-postgres-repository/src/main/java/io/rxmicro/examples/testing/microservice/alternatives/postgres/repository/model/Entity.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-microservice-alternatives-postgres-repository/src/main/java/io/rxmicro/examples/testing/microservice/alternatives/postgres/repository/model/Entity.java[tag=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-microservice-alternatives-postgres-repository/src/main/java/io/rxmicro/examples/testing/microservice/alternatives/postgres/repository/DataRepository.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-microservice-alternatives-postgres-repository/src/main/java/io/rxmicro/examples/testing/microservice/alternatives/postgres/repository/DataRepository.java[tag=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-microservice-alternatives-postgres-repository/src/main/java/io/rxmicro/examples/testing/microservice/alternatives/postgres/repository/MicroService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-microservice-alternatives-postgres-repository/src/main/java/io/rxmicro/examples/testing/microservice/alternatives/postgres/repository/MicroService.java[tag=content,indent=0]
 ----
 
 The most logical way to test such microservice is to create a mock alternative for the `DataRepository` component:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-microservice-alternatives-postgres-repository/src/test/java/io/rxmicro/examples/testing/microservice/alternatives/postgres/repository/MicroServiceBusinessLogicOnlyTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-microservice-alternatives-postgres-repository/src/test/java/io/rxmicro/examples/testing/microservice/alternatives/postgres/repository/MicroServiceBusinessLogicOnlyTest.java[tag=content,indent=0]
 ----
 
 But if on the basis of such test we build the source code coverage report, this report will show a low degree of coverage:
@@ -51,7 +51,7 @@ If such a result is not acceptable, it is necessary to:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-microservice-alternatives-postgres-repository/src/test/java/io/rxmicro/examples/testing/microservice/alternatives/postgres/repository/MicroServiceWithAllGeneratedCodeTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-microservice-alternatives-postgres-repository/src/test/java/io/rxmicro/examples/testing/microservice/alternatives/postgres/repository/MicroServiceWithAllGeneratedCodeTest.java[tag=content,indent=0]
 ----
 
 The modified test shows a coverage rate of 100%:

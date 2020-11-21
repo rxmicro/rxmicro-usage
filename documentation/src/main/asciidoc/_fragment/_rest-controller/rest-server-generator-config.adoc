@@ -13,7 +13,7 @@ annotation, that annotates the `module-info.java` module descriptor:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-generator/src/main/java/module-info.java[tags=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-generator/src/main/java/module-info.java[tags=content,indent=0]
 ----
 <1> The `exchangeFormat` parameter allows You to specify a format for message exchange with a client. +
 _(By default, it is used the message exchange format added to the `module-info.java` descriptor.

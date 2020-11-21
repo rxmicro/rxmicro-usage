@@ -11,12 +11,12 @@ Let's look at the project consisting of two components: the `ChildComponent` int
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives-simplest/src/main/java/io/rxmicro/examples/testing/component/alternatives/simplest/ChildComponent.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-component-alternatives-simplest/src/main/java/io/rxmicro/examples/testing/component/alternatives/simplest/ChildComponent.java[tag=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives-simplest/src/main/java/io/rxmicro/examples/testing/component/alternatives/simplest/ParentComponent.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-component-alternatives-simplest/src/main/java/io/rxmicro/examples/testing/component/alternatives/simplest/ParentComponent.java[tag=content,indent=0]
 ----
 <1>  The `ParentComponent` class depends on the `ChildComponent`. +
 _(This dependency specified explicitly in the source code.)_
@@ -28,7 +28,7 @@ For this replacement, it is most convenient to use the alternative:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives-simplest/src/test/java/io/rxmicro/examples/testing/component/alternatives/simplest/ParentComponent1Test.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-component-alternatives-simplest/src/test/java/io/rxmicro/examples/testing/component/alternatives/simplest/ParentComponent1Test.java[tag=content,indent=0]
 ----
 <1> The alternatives are supported by the RxMicro framework only during component unit tests or REST-based microservice tests.
 Therefore, it must be declared that this test is a test of the `ParentComponent` component.
@@ -49,7 +49,7 @@ For this purpose, it is very convenient to use the https://site.mockito.org/[Moc
 [source,java]
 [[InitMocks-inline]]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-alternatives-simplest/src/test/java/io/rxmicro/examples/testing/component/alternatives/simplest/ParentComponent2Test.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-component-alternatives-simplest/src/test/java/io/rxmicro/examples/testing/component/alternatives/simplest/ParentComponent2Test.java[tag=content,indent=0]
 ----
 
 <1> To create a mock instance, it is necessary to use the {MOCKITO-DOC-ROOT-URL}org/mockito/Mock.html[`@Mock`^] annotation.

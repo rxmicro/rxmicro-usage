@@ -12,7 +12,7 @@ After creating model classes, it is necessary to create an HTTP request handler 
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/SimpleUsageRestClient.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/SimpleUsageRestClient.java[tag=content,indent=0]
 ----
 <1> If a separate model class has been created for an HTTP request, then this class must be passed by the method parameter that handles the HTTP request.
 <2> Besides supporting HTTP request model classes, the RxMicro framework supports request handlers that accept HTTP request parameters as method parameters.
@@ -31,7 +31,7 @@ Despite the different approaches to HTTP parameter handling support, as to the m
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/test/java/io/rxmicro/examples/rest/client/params/SimpleUsageRestClientTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-params/src/test/java/io/rxmicro/examples/rest/client/params/SimpleUsageRestClientTest.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-params
@@ -65,19 +65,19 @@ Nested Model Example:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/model/nested/NestedModel.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/model/nested/NestedModel.java[tag=content,indent=0]
 ----
 
 As well as examples of more complex Java models that use a nested model:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/model/ComplexRequest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/model/ComplexRequest.java[tag=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/model/ComplexResponse.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/model/ComplexResponse.java[tag=content,indent=0]
 ----
 
 <1> Primitive JSON type field.
@@ -89,14 +89,14 @@ After creating model classes, it is necessary to create a request handler that u
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/ComplexModelRestClient.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/ComplexModelRestClient.java[tag=content,indent=0]
 ----
 
 Since the request is transferred in an HTTP body, the sent and received JSON objects must be the same:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/test/java/io/rxmicro/examples/rest/client/params/ComplexModelRestClientTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-params/src/test/java/io/rxmicro/examples/rest/client/params/ComplexModelRestClientTest.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-params
@@ -115,7 +115,7 @@ For setting static query parameters, the RxMicro framework provides the
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/StaticQueryParametersRestClient.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/StaticQueryParametersRestClient.java[tag=content,indent=0]
 ----
 <1> If the static query parameter is set for the REST client, it is added to the HTTP requests for each handler.
 <2> If the static query parameter is set for the handler, it is added to the HTTP requests only for that handler.
@@ -124,7 +124,7 @@ In terms of the HTTP protocol, static query parameters do not differ from any st
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/test/java/io/rxmicro/examples/rest/client/params/StaticQueryParametersRestClientTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-params/src/test/java/io/rxmicro/examples/rest/client/params/StaticQueryParametersRestClientTest.java[tag=content,indent=0]
 ----
 
 [NOTE]
@@ -154,14 +154,14 @@ If You want the static query parameter to be repeated for each value, You need t
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/RepeatingQueryParamsRestClient.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/RepeatingQueryParamsRestClient.java[tag=content,indent=0]
 ----
 
 As a result of converting the Java model to HTTP response, the result will be as follows:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-params/src/test/java/io/rxmicro/examples/rest/client/params/RepeatingQueryParamsRestClientTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-params/src/test/java/io/rxmicro/examples/rest/client/params/RepeatingQueryParamsRestClientTest.java[tag=content,indent=0]
 ----
 <1> By default, static query parameter list elements are transferred via the HTTP protocol as a string separated by the `|` symbol.
 <2> If the field is annotated by the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RepeatQueryParameter.java[`@RepeatQueryParameter`^] annotation, then the static query parameter is repeated for each element of the list.

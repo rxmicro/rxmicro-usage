@@ -9,7 +9,7 @@ The RxMicro framework supports `path variables` in request models:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-path-variables/src/main/java/io/rxmicro/examples/rest/controller/path/variables/model/Request.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-path-variables/src/main/java/io/rxmicro/examples/rest/controller/path/variables/model/Request.java[tag=content,indent=0]
 ----
 
 <1> In order to declare a model field as the `path variable`, it is necessary to use the

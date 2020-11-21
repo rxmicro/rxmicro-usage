@@ -13,7 +13,7 @@ annotation, that annotates the `module-info.java` module descriptor:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-generator/src/main/java/module-info.java[tags=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-generator/src/main/java/module-info.java[tags=content,indent=0]
 ----
 <1> The `exchangeFormat` parameter allows You to specify a format for message exchange with a server. +
 _(By default, it is used the message exchange format which added to the `module-info.java` descriptor.
@@ -28,12 +28,12 @@ If the `requestValidationMode` parameter is equal to the `RETURN_ERROR_SIGNAL`, 
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-generator/src/main/java/io/rxmicro/examples/request/validaton/pseudo/code/BusinessService.java[tags=RETURN_ERROR_SIGNAL,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-generator/src/main/java/io/rxmicro/examples/request/validaton/pseudo/code/BusinessService.java[tags=RETURN_ERROR_SIGNAL,indent=0]
 ----
 
 If the `requestValidationMode` parameter is equal to the `THROW_EXCEPTION`, then it is necessary to catch the exception
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-generator/src/main/java/io/rxmicro/examples/request/validaton/pseudo/code/BusinessService.java[tags=THROW_EXCEPTION,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-generator/src/main/java/io/rxmicro/examples/request/validaton/pseudo/code/BusinessService.java[tags=THROW_EXCEPTION,indent=0]
 ----

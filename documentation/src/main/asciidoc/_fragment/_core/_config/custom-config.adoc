@@ -11,7 +11,7 @@ To do this, it is necessary to create a separate class:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/config-custom/src/main/java/io/rxmicro/examples/config/custom/BusinessServiceConfig.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-common/config-custom/src/main/java/io/rxmicro/examples/config/custom/BusinessServiceConfig.java[tag=content,indent=0]
 ----
 
 [IMPORTANT]
@@ -31,7 +31,7 @@ _(These are the https://www.oracle.com/corporate/features/understanding-java-9-m
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/config-custom/src/main/java/module-info.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-common/config-custom/src/main/java/module-info.java[tag=content,indent=0]
 ----
 <1> Allow the `rxmicro.runtime` module access to public classes from the `io.rxmicro.example.config.custom` package.
 <2> Allow the `rxmicro.config` module access to public classes from the `io.rxmicro.example.config.custom` package.
@@ -40,7 +40,7 @@ After these changes, a class of custom configurations is available for use:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/config-custom/src/main/java/io/rxmicro/examples/config/custom/MicroService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-common/config-custom/src/main/java/io/rxmicro/examples/config/custom/MicroService.java[tag=content,indent=0]
 ----
 
 The `production` flag can now be set using any type of configuration, for example using the classpath of the `business-service.properties` resource:

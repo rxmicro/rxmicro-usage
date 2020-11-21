@@ -20,7 +20,7 @@ If the HTTP request id is necessary for business logic, a separate field in the 
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-request-id/src/main/java/io/rxmicro/examples/rest/controller/request/id/model/Request.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-request-id/src/main/java/io/rxmicro/examples/rest/controller/request/id/model/Request.java[tag=content,indent=0]
 ----
 <1> For convenience, instead of specifying an HTTP header using the `@Header` annotation and the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpStandardHeaderNames.java#L400[`Request-Id`^] name,
@@ -30,7 +30,7 @@ Having declared a field in the HTTP request Java model, You can use its value in
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-request-id/src/main/java/io/rxmicro/examples/rest/controller/request/id/MicroService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-request-id/src/main/java/io/rxmicro/examples/rest/controller/request/id/MicroService.java[tag=content,indent=0]
 ----
 <1> Displaying the value of the current request id in the console.
 
@@ -38,7 +38,7 @@ The following test describes the basic requirements for the behavior of the requ
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-request-id/src/test/java/io/rxmicro/examples/rest/controller/request/id/MicroServiceTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-request-id/src/test/java/io/rxmicro/examples/rest/controller/request/id/MicroServiceTest.java[tag=content,indent=0]
 ----
 <1> For HTTP requests without id, the RxMicro framework must generate a unique id automatically.
 _(This id can be used in the HTTP request handler body.)_
@@ -102,7 +102,7 @@ To change the request id generator type, You must use the
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-request-id/src/main/java/io/rxmicro/examples/rest/controller/request/id/Launcher.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-request-id/src/main/java/io/rxmicro/examples/rest/controller/request/id/Launcher.java[tag=content,indent=0]
 ----
 
 <1> Setting the `SAFE_BUT_SLOWER` value as a generator type of HTTP request ids.

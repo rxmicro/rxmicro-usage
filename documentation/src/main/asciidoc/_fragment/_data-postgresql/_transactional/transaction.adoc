@@ -10,7 +10,7 @@ To work with database transactions the RxMicro framework introduces a basic tran
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-transactional/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/transactional/TransactionTemplate.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-transactional/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/transactional/TransactionTemplate.java[tag=content,indent=0]
 ----
 
 where `ReactiveType` can be {REACTOR-CORE-DOC-ROOT-URL}reactor/core/publisher/Mono.html[`Mono<Void>`^],
@@ -25,7 +25,7 @@ This basic transaction model has adaptation for <<core#core-reactive-libraries-s
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-transactional/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/transactional/BeginReactorTransactionRepository.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-transactional/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/transactional/BeginReactorTransactionRepository.java[tag=content,indent=0]
 ----
 
 * If You want to use the {RX-JAVA-USER-GUIDE}[*RxJava*^] library:
@@ -35,7 +35,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-transact
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-transactional/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/transactional/BeginRxJava3TransactionRepository.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-transactional/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/transactional/BeginRxJava3TransactionRepository.java[tag=content,indent=0]
 ----
 
 * If You want to use the {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/package-summary.html[*java.util.concurrent*^] library:
@@ -45,7 +45,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-transact
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-transactional/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/transactional/BeginCompletableFutureTransactionRepository.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-transactional/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/transactional/BeginCompletableFutureTransactionRepository.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-r2dbc-postgresql-transactional

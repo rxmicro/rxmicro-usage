@@ -13,7 +13,7 @@ Creation and usage of a logger in the source code is no different from http://ww
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/logger/src/main/java/io/rxmicro/examples/logger/MicroService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-common/logger/src/main/java/io/rxmicro/examples/logger/MicroService.java[tag=content,indent=0]
 ----
 <1> Logger creation for the current microservice class.
 <2> Logging of a message with `INFO` message.

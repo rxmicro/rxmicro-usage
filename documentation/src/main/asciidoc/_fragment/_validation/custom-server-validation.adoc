@@ -14,7 +14,7 @@ A validation annotation is an annotation that meets the following requirements:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-custom/src/main/java/io/rxmicro/examples/validation/server/custom/ExpectedZero.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-validation/validation-server-custom/src/main/java/io/rxmicro/examples/validation/server/custom/ExpectedZero.java[tag=content,indent=0]
 ----
 <1> The annotation is only available at the compilation level.
 <2> This annotation allows validating class fields, class methods (`setters` and `getters`) and method parameters.
@@ -29,7 +29,7 @@ Validator is a class that meets the following requirements:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-custom/src/main/java/io/rxmicro/examples/validation/server/custom/ExpectedZeroConstraintValidator.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-validation/validation-server-custom/src/main/java/io/rxmicro/examples/validation/server/custom/ExpectedZeroConstraintValidator.java[tag=content,indent=0]
 ----
 <1> The validator class must implement the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/ConstraintValidator.java[`ConstraintValidator`^] interface parameterized by the data type. +
@@ -43,12 +43,12 @@ Using a custom validator is no different from using a predefined validator:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-custom/src/main/java/io/rxmicro/examples/validation/server/custom/MicroService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-validation/validation-server-custom/src/main/java/io/rxmicro/examples/validation/server/custom/MicroService.java[tag=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-custom/src/test/java/io/rxmicro/examples/validation/server/custom/MicroServiceTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-validation/validation-server-custom/src/test/java/io/rxmicro/examples/validation/server/custom/MicroServiceTest.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}validation-server-custom

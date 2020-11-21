@@ -9,6 +9,6 @@ include::../../___fragment-settings.adoc[]
 :db-name: Mongo DB
 :docker-test-db-link: {RX-MICRO-DOCKER_HUB_ROOT}mongo-test-db
 :docker-test-db-name: rxmicro/mongo-test-db
-:shared-template-source-code: ../../../../../../examples/data-mongo-basic/src/test/java/io/rxmicro/examples/data/mongo/basic/DataRepositoryTestTemplate1.java
-:personal-template-source-code: ../../../../../../examples/data-mongo-basic/src/test/java/io/rxmicro/examples/data/mongo/basic/DataRepositoryTestTemplate2.java
+:shared-template-source-code: ../../../../../../examples/group-data-mongo/data-mongo-basic/src/test/java/io/rxmicro/examples/data/mongo/basic/DataRepositoryTestTemplate1.java
+:personal-template-source-code: ../../../../../../examples/group-data-mongo/data-mongo-basic/src/test/java/io/rxmicro/examples/data/mongo/basic/DataRepositoryTestTemplate2.java
 include::../../_data/___repository-testing-docker.adoc[]

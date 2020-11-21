@@ -10,12 +10,12 @@ The following example demonstrates how developer can use the RxMicro framework t
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-concurrent-reactor/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/concurrent/reactor/ConcurrentRepository.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-concurrent-reactor/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/concurrent/reactor/ConcurrentRepository.java[tag=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-concurrent-reactor/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/concurrent/reactor/ConcurrentBusinessService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-concurrent-reactor/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/concurrent/reactor/ConcurrentBusinessService.java[tag=content,indent=0]
 ----
 
 [NOTE]

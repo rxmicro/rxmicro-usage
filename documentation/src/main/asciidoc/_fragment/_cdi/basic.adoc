@@ -12,26 +12,26 @@ To use the `rxmicro.cdi` module in the project, the following two steps must be 
 
 [source,xml]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-basic/pom.xml[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-basic/pom.xml[tag=content,indent=0]
 ----
 
 * Add the `rxmicro.cdi` module to the `module-info.java` descriptor:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-basic/src/main/java/module-info.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-basic/src/main/java/module-info.java[tag=content,indent=0]
 ----
 
 After adding the `rxmicro.cdi` module, You can create a business service:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-basic/src/main/java/io/rxmicro/examples/cdi/basic/BusinessService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-basic/src/main/java/io/rxmicro/examples/cdi/basic/BusinessService.java[tag=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-basic/src/main/java/io/rxmicro/examples/cdi/basic/BusinessServiceImpl.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-basic/src/main/java/io/rxmicro/examples/cdi/basic/BusinessServiceImpl.java[tag=content,indent=0]
 ----
 
 In order to inject a business service implementation, it is necessary to use the
@@ -39,7 +39,7 @@ In order to inject a business service implementation, it is necessary to use the
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-basic/src/main/java/io/rxmicro/examples/cdi/basic/RestController.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-basic/src/main/java/io/rxmicro/examples/cdi/basic/RestController.java[tag=content,indent=0]
 ----
 <1> The usage of the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@io.rxmicro.cdi.Inject`^]
 annotation does not differ fundamentally from that of the
@@ -50,21 +50,21 @@ The correctness of injection can be checked using <<testing#testing-rest-based-m
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-basic/src/test/java/io/rxmicro/examples/cdi/basic/RestControllerTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-basic/src/test/java/io/rxmicro/examples/cdi/basic/RestControllerTest.java[tag=content,indent=0]
 ----
 
 Business service implementation can be injected not only into REST controller, but into any component:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-basic/src/main/java/io/rxmicro/examples/cdi/basic/BusinessServiceFacade.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-basic/src/main/java/io/rxmicro/examples/cdi/basic/BusinessServiceFacade.java[tag=content,indent=0]
 ----
 
 Since the injection is performed into any component, it is necessary to use <<testing#testing-component-tests-section,the microservice component testing approach>>:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-basic/src/test/java/io/rxmicro/examples/cdi/basic/BusinessServiceFacadeTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-basic/src/test/java/io/rxmicro/examples/cdi/basic/BusinessServiceFacadeTest.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-basic

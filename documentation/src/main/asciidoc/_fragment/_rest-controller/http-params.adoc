@@ -12,7 +12,7 @@ After creating model classes, it is necessary to create an HTTP request handler 
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-params/src/main/java/io/rxmicro/examples/rest/controller/params/SimpleUsageMicroService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-params/src/main/java/io/rxmicro/examples/rest/controller/params/SimpleUsageMicroService.java[tag=content,indent=0]
 ----
 <1> If a separate model class has been created for an HTTP request, then this class must be passed by the method parameter that handles the HTTP request.
 <2> Besides supporting HTTP request model classes, the RxMicro framework supports request handlers that accept HTTP request parameters as method parameters.
@@ -33,7 +33,7 @@ Despite the different approaches to HTTP parameter handling support, from the cl
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-params/src/test/java/io/rxmicro/examples/rest/controller/params/SimpleUsageMicroServiceTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-params/src/test/java/io/rxmicro/examples/rest/controller/params/SimpleUsageMicroServiceTest.java[tag=content,indent=0]
 ----
 <1> When performing a request to different URL Paths, the result is the same.
 _(Despite the differences in parameter transfer for `GET` and `POST`requests.)_
@@ -56,12 +56,12 @@ include::../_rest/___param-types.adoc[]
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-params/src/main/java/io/rxmicro/examples/rest/controller/params/ListQueryParamMicroService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-params/src/main/java/io/rxmicro/examples/rest/controller/params/ListQueryParamMicroService.java[tag=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-params/src/test/java/io/rxmicro/examples/rest/controller/params/ListQueryParamMicroServiceTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-params/src/test/java/io/rxmicro/examples/rest/controller/params/ListQueryParamMicroServiceTest.java[tag=content,indent=0]
 ----
 
 <1> If the HTTP parameter is a list of values, the list elements are transferred via the HTTP protocol as a string separated by the `|` symbol.
@@ -100,19 +100,19 @@ Nested Model Example:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-params/src/main/java/io/rxmicro/examples/rest/controller/params/model/nested/NestedModel.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-params/src/main/java/io/rxmicro/examples/rest/controller/params/model/nested/NestedModel.java[tag=content,indent=0]
 ----
 
 As well as examples of more complex Java models that use a nested model:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-params/src/main/java/io/rxmicro/examples/rest/controller/params/model/ComplexRequest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-params/src/main/java/io/rxmicro/examples/rest/controller/params/model/ComplexRequest.java[tag=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-params/src/main/java/io/rxmicro/examples/rest/controller/params/model/ComplexResponse.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-params/src/main/java/io/rxmicro/examples/rest/controller/params/model/ComplexResponse.java[tag=content,indent=0]
 ----
 
 <1> Primitive JSON type field.
@@ -124,14 +124,14 @@ After creating model classes, it is necessary to create a request handler that u
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-params/src/main/java/io/rxmicro/examples/rest/controller/params/ComplexModelMicroService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-params/src/main/java/io/rxmicro/examples/rest/controller/params/ComplexModelMicroService.java[tag=content,indent=0]
 ----
 
 Since the request is transferred in an HTTP body, the sent and received JSON objects must be the same:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-params/src/test/java/io/rxmicro/examples/rest/controller/params/ComplexModelMicroServiceTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-params/src/test/java/io/rxmicro/examples/rest/controller/params/ComplexModelMicroServiceTest.java[tag=content,indent=0]
 ----
 
 [TIP]

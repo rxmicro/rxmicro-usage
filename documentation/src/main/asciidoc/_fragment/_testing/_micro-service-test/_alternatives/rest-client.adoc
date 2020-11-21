@@ -11,24 +11,24 @@ The source code of such REST-based microservice consists of the `Response` model
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-microservice-alternatives-rest-client/src/main/java/io/rxmicro/examples/testing/microservice/alternatives/rest/client/model/Response.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-microservice-alternatives-rest-client/src/main/java/io/rxmicro/examples/testing/microservice/alternatives/rest/client/model/Response.java[tag=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-microservice-alternatives-rest-client/src/main/java/io/rxmicro/examples/testing/microservice/alternatives/rest/client/ExternalMicroService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-microservice-alternatives-rest-client/src/main/java/io/rxmicro/examples/testing/microservice/alternatives/rest/client/ExternalMicroService.java[tag=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-microservice-alternatives-rest-client/src/main/java/io/rxmicro/examples/testing/microservice/alternatives/rest/client/MicroService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-microservice-alternatives-rest-client/src/main/java/io/rxmicro/examples/testing/microservice/alternatives/rest/client/MicroService.java[tag=content,indent=0]
 ----
 
 The most logical way to test such microservice is to create a mock alternative for the `ExternalMicroService` component:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-microservice-alternatives-rest-client/src/test/java/io/rxmicro/examples/testing/microservice/alternatives/rest/client/MicroServiceBusinessLogicOnlyTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-microservice-alternatives-rest-client/src/test/java/io/rxmicro/examples/testing/microservice/alternatives/rest/client/MicroServiceBusinessLogicOnlyTest.java[tag=content,indent=0]
 ----
 
 But if on the basis of such test we build the source code coverage report, this report will show a low degree of coverage:
@@ -46,7 +46,7 @@ If such a result is not acceptable, it is necessary to:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-microservice-alternatives-rest-client/src/test/java/io/rxmicro/examples/testing/microservice/alternatives/rest/client/MicroServiceWithAllGeneratedCodeTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-microservice-alternatives-rest-client/src/test/java/io/rxmicro/examples/testing/microservice/alternatives/rest/client/MicroServiceWithAllGeneratedCodeTest.java[tag=content,indent=0]
 ----
 
 The modified test shows a coverage rate of 100%:

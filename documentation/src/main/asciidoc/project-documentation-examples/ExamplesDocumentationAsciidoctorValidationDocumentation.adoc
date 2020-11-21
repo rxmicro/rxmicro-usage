@@ -2,4 +2,4 @@
 :stylesheet: rxmicro-doc.min.css
 :stylesdir: ../styles/
 
-include::../../../../../examples/documentation-asciidoctor-validation/src/main/asciidoc/ExamplesDocumentationAsciidoctorValidationDocumentation.adoc[]
+include::../../../../../examples/group-documentation-asciidoctor/documentation-asciidoctor-validation/src/main/asciidoc/ExamplesDocumentationAsciidoctorValidationDocumentation.adoc[]

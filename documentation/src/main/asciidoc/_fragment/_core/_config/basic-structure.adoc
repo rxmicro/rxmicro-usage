@@ -22,7 +22,7 @@ To read the current settings, You must use the
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/config-basic/src/main/java/io/rxmicro/examples/config/basic/ReadConfigMicroService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-common/config-basic/src/main/java/io/rxmicro/examples/config/basic/ReadConfigMicroService.java[tag=content,indent=0]
 ----
 <1> Getting the current HTTP server configuration using the `Configs.getConfig` static method.
 
@@ -31,7 +31,7 @@ To change the standard configuration settings, You must use the
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/config-basic/src/main/java/io/rxmicro/examples/config/basic/CustomizeConfigMicroService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-common/config-basic/src/main/java/io/rxmicro/examples/config/basic/CustomizeConfigMicroService.java[tag=content,indent=0]
 ----
 <1> Setting the HTTP server custom port.
 <2> Creating the configuration manager object.

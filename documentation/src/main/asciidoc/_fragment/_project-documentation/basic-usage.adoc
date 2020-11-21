@@ -28,7 +28,7 @@ To generate REST-based microservice documentation during the compilation of the 
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-quick-start/src/main/java/module-info.java[tags=content]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-documentation-asciidoctor/documentation-asciidoctor-quick-start/src/main/java/module-info.java[tags=content]
 ----
 
 <1> The `rxmicro.documentation.asciidoctor` must be added using the `static` modifier. +

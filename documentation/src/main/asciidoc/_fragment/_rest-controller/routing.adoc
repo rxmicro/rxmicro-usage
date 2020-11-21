@@ -15,12 +15,12 @@ The RxMicro framework allows handling identical HTTP requests, differing *only* 
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-routing/src/main/java/io/rxmicro/examples/rest/controller/routing/RoutingUsingHTTPMethod.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-routing/src/main/java/io/rxmicro/examples/rest/controller/routing/RoutingUsingHTTPMethod.java[tag=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-routing/src/test/java/io/rxmicro/examples/rest/controller/routing/RoutingUsingHTTPMethodTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-routing/src/test/java/io/rxmicro/examples/rest/controller/routing/RoutingUsingHTTPMethodTest.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-controller-routing
@@ -36,13 +36,13 @@ The RxMicro framework allows handling HTTP requests on different URL Paths by di
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-routing/src/main/java/io/rxmicro/examples/rest/controller/routing/RoutingUsingUrlPath.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-routing/src/main/java/io/rxmicro/examples/rest/controller/routing/RoutingUsingUrlPath.java[tag=content,indent=0]
 ----
 <1> In addition to static URL Paths, the RxMicro framework also supports <<rest-controller-path-variables-basic,`path variables`.>>
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-routing/src/test/java/io/rxmicro/examples/rest/controller/routing/RoutingUsingUrlPathTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-routing/src/test/java/io/rxmicro/examples/rest/controller/routing/RoutingUsingUrlPathTest.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-controller-routing
@@ -60,7 +60,7 @@ Therefore, in addition to standard routing types, the RxMicro framework also sup
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-routing/src/main/java/io/rxmicro/examples/rest/controller/routing/RoutingUsingHttpBody.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-routing/src/main/java/io/rxmicro/examples/rest/controller/routing/RoutingUsingHttpBody.java[tag=content,indent=0]
 ----
 <1> The request handler with parameters transferred in the start line.
 <2> The request handler with parameters transferred in the request body.
@@ -75,7 +75,7 @@ _(To configure the parameter transfer type, the `httpBody` option is used.)_
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-routing/src/test/java/io/rxmicro/examples/rest/controller/routing/RoutingUsingHttpBodyTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-routing/src/test/java/io/rxmicro/examples/rest/controller/routing/RoutingUsingHttpBodyTest.java[tag=content,indent=0]
 ----
 <1> Parameter transfer in the start line.
 <2> Parameter transfer in the request body as JSON object.

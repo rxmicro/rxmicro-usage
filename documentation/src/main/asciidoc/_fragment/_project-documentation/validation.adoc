@@ -11,12 +11,12 @@ Thanks to this integration, when building the REST-based microservice documentat
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-validation/src/main/java/module-info.java[tags=content]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-documentation-asciidoctor/documentation-asciidoctor-validation/src/main/java/module-info.java[tags=content]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-validation/src/main/java/io/rxmicro/examples/documentation/asciidoctor/validation/MicroService.java[tags=content]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-documentation-asciidoctor/documentation-asciidoctor-validation/src/main/java/io/rxmicro/examples/documentation/asciidoctor/validation/MicroService.java[tags=content]
 ----
 <1> The `phone` parameter must be validated via built-in constraint for phones.
 

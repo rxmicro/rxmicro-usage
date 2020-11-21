@@ -16,7 +16,7 @@ annotation, and specify an abstract class that contains a partial implementation
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-partial-implementation/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/partial/implementation/DataRepository.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-partial-implementation/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/partial/implementation/DataRepository.java[tag=content,indent=0]
 ----
 <1> Using the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql-r2dbc-postgresql/src/main/java/io/rxmicro/data/sql/r2dbc/postgresql/PartialImplementation.java[`@PartialImplementation`^]
@@ -26,7 +26,7 @@ An `AbstractDataRepository` contains the following content:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-partial-implementation/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/partial/implementation/AbstractDataRepository.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-partial-implementation/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/partial/implementation/AbstractDataRepository.java[tag=content,indent=0]
 ----
 
 An abstract class that contains a partial implementation must meet the following requirements:
@@ -41,7 +41,7 @@ In terms of infrastructure, the repository methods generated and defined by the 
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-partial-implementation/src/test/java/io/rxmicro/examples/data/r2dbc/postgresql/partial/implementation/DataRepositoryTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-partial-implementation/src/test/java/io/rxmicro/examples/data/r2dbc/postgresql/partial/implementation/DataRepositoryTest.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-r2dbc-postgresql-partial-implementation

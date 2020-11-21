@@ -12,14 +12,14 @@ Let's look at a microservice that returns the result in JSON object format:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/json/src/main/java/io/rxmicro/examples/json/MicroService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-common/json/src/main/java/io/rxmicro/examples/json/MicroService.java[tag=content,indent=0]
 ----
 
 The `Response` class - Java model of HTTP response in JSON format:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/json/src/main/java/io/rxmicro/examples/json/Response.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-common/json/src/main/java/io/rxmicro/examples/json/Response.java[tag=content,indent=0]
 ----
 <1> Nested JSON object.
 <2> JSON numeric array.
@@ -32,7 +32,7 @@ The `Child` class - Java model of the nested JSON object:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/json/src/main/java/io/rxmicro/examples/json/Child.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-common/json/src/main/java/io/rxmicro/examples/json/Child.java[tag=content,indent=0]
 ----
 
 [TIP]
@@ -162,7 +162,7 @@ This class arranges JSON properties and automatically converts all
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/json/src/test/java/io/rxmicro/examples/json/MicroServiceTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-common/json/src/test/java/io/rxmicro/examples/json/MicroServiceTest.java[tag=content,indent=0]
 ----
 <1> A JSON object returned by microservice.
 <2> Expected JSON object.

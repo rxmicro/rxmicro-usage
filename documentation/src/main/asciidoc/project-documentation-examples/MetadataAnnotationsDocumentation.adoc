@@ -2,4 +2,4 @@
 :stylesheet: rxmicro-doc.min.css
 :stylesdir: ../styles/
 
-include::../../../../../examples/documentation-asciidoctor-metadata-annotations/src/main/asciidoc/MetadataAnnotationsDocumentation.adoc[]
+include::../../../../../examples/group-documentation-asciidoctor/documentation-asciidoctor-metadata-annotations/src/main/asciidoc/MetadataAnnotationsDocumentation.adoc[]

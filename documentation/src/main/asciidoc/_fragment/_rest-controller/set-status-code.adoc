@@ -12,12 +12,12 @@ If You need to change the status code returned by default, You must use the
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-set-status-code/src/main/java/io/rxmicro/examples/rest/controller/set/status/code/MicroService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-set-status-code/src/main/java/io/rxmicro/examples/rest/controller/set/status/code/MicroService.java[tag=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-set-status-code/src/test/java/io/rxmicro/examples/rest/controller/set/status/code/MicroServiceTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-set-status-code/src/test/java/io/rxmicro/examples/rest/controller/set/status/code/MicroServiceTest.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-controller-set-status-code

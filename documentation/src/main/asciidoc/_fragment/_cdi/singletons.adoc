@@ -23,17 +23,17 @@ This behavior can be checked with the following code:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-singletons/src/main/java/io/rxmicro/examples/cdi/singletons/BusinessServiceImpl.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-singletons/src/main/java/io/rxmicro/examples/cdi/singletons/BusinessServiceImpl.java[tag=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-singletons/src/main/java/io/rxmicro/examples/cdi/singletons/BusinessServiceFacade.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-singletons/src/main/java/io/rxmicro/examples/cdi/singletons/BusinessServiceFacade.java[tag=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-singletons/src/test/java/io/rxmicro/examples/cdi/singletons/BusinessServiceFacadeTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-singletons/src/test/java/io/rxmicro/examples/cdi/singletons/BusinessServiceFacadeTest.java[tag=content,indent=0]
 ----
 <1> Since the `BusinessServiceImpl` class implements two interfaces, the same implementation instance is injected when injecting different types of interfaces!
 

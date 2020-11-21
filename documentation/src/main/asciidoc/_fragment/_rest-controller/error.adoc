@@ -65,7 +65,7 @@ If the request handler must return an HTTP status code other than the successful
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-errors/src/main/java/io/rxmicro/examples/rest/controller/errors/CustomNotFoundException.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-errors/src/main/java/io/rxmicro/examples/rest/controller/errors/CustomNotFoundException.java[tag=content,indent=0]
 ----
 
 <1> The custom exception class must extend the `HttpErrorException` class.
@@ -86,7 +86,7 @@ You can use two approaches to return an HTTP status code other than successful o
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-errors/src/main/java/io/rxmicro/examples/rest/controller/errors/MicroService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-errors/src/main/java/io/rxmicro/examples/rest/controller/errors/MicroService.java[tag=content,indent=0]
 ----
 
 <1> Use the reactive type method to generate a completion signal with an error.
@@ -96,7 +96,7 @@ From the client's point of view, the two above-mentioned approaches are exactly 
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-errors/src/test/java/io/rxmicro/examples/rest/controller/errors/MicroServiceTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-errors/src/test/java/io/rxmicro/examples/rest/controller/errors/MicroServiceTest.java[tag=content,indent=0]
 ----
 <1> As a detailed error message, the message passed to the exception constructor is returned. +
 _(The `jsonErrorObject("...")` utility method is synonymous with the `jsonObject("message", "...")` method.)_

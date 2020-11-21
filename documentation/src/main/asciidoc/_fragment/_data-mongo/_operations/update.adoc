@@ -10,7 +10,7 @@ The `rxmicro.data.mongo` module supports the https://docs.mongodb.com/manual/ref
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-update/src/main/java/io/rxmicro/examples/data/mongo/update/DataRepository.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-mongo/data-mongo-update/src/main/java/io/rxmicro/examples/data/mongo/update/DataRepository.java[tag=content,indent=0]
 ----
 
 [NOTE]

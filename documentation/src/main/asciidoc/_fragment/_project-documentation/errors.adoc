@@ -13,7 +13,7 @@ To describe unsuccessful HTTP responses, the `rxmicro.documentation` module prov
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-errors/src/main/java/io/rxmicro/examples/documentation/asciidoctor/errors/ProxyMicroService.java[tags=content]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-documentation-asciidoctor/documentation-asciidoctor-errors/src/main/java/io/rxmicro/examples/documentation/asciidoctor/errors/ProxyMicroService.java[tags=content]
 ----
 <1> The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/SimpleErrorResponse.java[`@SimpleErrorResponse`^] annotation allows You to explicitly specify the HTTP response description.
 <2> The `status` parameter describes the HTTP status code.
@@ -27,7 +27,7 @@ When using the custom exception type, this class contains all necessary paramete
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-errors/src/main/java/io/rxmicro/examples/documentation/asciidoctor/errors/model/NotAcceptableException.java[tags=content]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-documentation-asciidoctor/documentation-asciidoctor-errors/src/main/java/io/rxmicro/examples/documentation/asciidoctor/errors/model/NotAcceptableException.java[tags=content]
 ----
 <1> The required `STATUS_CODE` static field describes the HTTP status code.
 <2> The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/Description.java[`@Description`^] annotation describes the text description.

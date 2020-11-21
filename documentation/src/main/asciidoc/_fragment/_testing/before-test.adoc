@@ -17,19 +17,19 @@ annotation. We'll use the example of a project consisting of two components: Chi
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-before-test/src/main/java/io/rxmicro/examples/testing/component/before/test/ChildComponent.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-component-before-test/src/main/java/io/rxmicro/examples/testing/component/before/test/ChildComponent.java[tag=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-before-test/src/main/java/io/rxmicro/examples/testing/component/before/test/ParentComponent.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-component-before-test/src/main/java/io/rxmicro/examples/testing/component/before/test/ParentComponent.java[tag=content,indent=0]
 ----
 
 When using the mock alternative, it is possible to program the behavior in the method annotated by the {JUNIT5-DOC-ROOT-URL}api/org.junit.jupiter.api/org/junit/jupiter/api/BeforeEach.html[`@BeforeEach`^] annotation:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-before-test/src/test/java/io/rxmicro/examples/testing/component/before/test/ParentComponent1Test.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-component-before-test/src/test/java/io/rxmicro/examples/testing/component/before/test/ParentComponent1Test.java[tag=content,indent=0]
 ----
 <1> Since the `beforeEach()` method will be surely invoked by the https://junit.org/junit5/[JUnit 5^]
 framework before invoking the `Should_use_alternative()` test method, the programmed mock behavior will be used during the test;
@@ -39,14 +39,14 @@ annotation, is that it is impossible to program different behavior for two or mo
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-before-test/src/test/java/io/rxmicro/examples/testing/component/before/test/ParentComponent2Test.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-component-before-test/src/test/java/io/rxmicro/examples/testing/component/before/test/ParentComponent2Test.java[tag=content,indent=0]
 ----
 
 The standard solution to this problem consists in programming behavior in the test method:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-before-test/src/test/java/io/rxmicro/examples/testing/component/before/test/ParentComponent3Test.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-component-before-test/src/test/java/io/rxmicro/examples/testing/component/before/test/ParentComponent3Test.java[tag=content,indent=0]
 ----
 
 However, the alternative configuration in the test method is not always convenient. +
@@ -62,7 +62,7 @@ annotation allows You to specify the method to be invoked before invoking a spec
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-before-test/src/test/java/io/rxmicro/examples/testing/component/before/test/ParentComponent4Test.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-component-before-test/src/test/java/io/rxmicro/examples/testing/component/before/test/ParentComponent4Test.java[tag=content,indent=0]
 ----
 <1> To configure the mock alternative, it is necessary to create a method in the test class.
 <2> If this method needs to be invoked before the test method, it is necessary to specify the name of this method using the
@@ -76,7 +76,7 @@ annotation instead of the
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-before-test/src/test/java/io/rxmicro/examples/testing/component/before/test/ParentComponent5Test.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-component-before-test/src/test/java/io/rxmicro/examples/testing/component/before/test/ParentComponent5Test.java[tag=content,indent=0]
 ----
 <1> Using the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/BeforeIterationMethodSource.java[`@BeforeIterationMethodSource`^]
 annotation, the developer specifies an array of methods.

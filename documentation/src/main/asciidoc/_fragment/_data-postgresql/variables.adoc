@@ -13,7 +13,7 @@ For better readability of SQL query, the RxMicro framework recommends using pred
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-variables/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/variables/DataRepository.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-variables/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/variables/DataRepository.java[tag=content,indent=0]
 ----
 <1> String constant with table name.
 <2> When strings are concatenated, the readability of an entire SQL query gets worse.
@@ -40,7 +40,7 @@ annotation does not contain the value of a predefined variable, then the RxMicro
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-variables/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/variables/SelectDataRepository.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-variables/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/variables/SelectDataRepository.java[tag=content,indent=0]
 ----
 <1> The `${table}` variable value will be equal to `entity_table`. +
 _(The variable value is read from the `Entity` class, which is returned by this method.)_

@@ -27,7 +27,7 @@ To specify the metadata needed to generate the REST-based microservice documenta
 [source,xml]
 ----
 <project>
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-metadata-pomxml/pom.xml[tags=content]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-documentation-asciidoctor/documentation-asciidoctor-metadata-pomxml/pom.xml[tags=content]
 </project>
 ----
 
@@ -48,7 +48,7 @@ To specify the metadata needed to generate the REST-based microservice documenta
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-metadata-annotations/src/main/java/module-info.java[tags=content]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-documentation-asciidoctor/documentation-asciidoctor-metadata-annotations/src/main/java/module-info.java[tags=content]
 ----
 
 :project-documentation-file: MetadataAnnotationsDocumentation.html

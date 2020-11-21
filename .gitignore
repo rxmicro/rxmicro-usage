@@ -48,16 +48,16 @@ test.*
 .graal
 
 # examples generated docs
-/examples/documentation-asciidoctor-custom-sections/src/main/asciidoc/*.adoc
-/examples/documentation-asciidoctor-echo/src/main/asciidoc/*.adoc
-/examples/documentation-asciidoctor-errors/src/main/asciidoc/*.adoc
-/examples/documentation-asciidoctor-full/src/main/asciidoc/*.adoc
-/examples/documentation-asciidoctor-metadata-annotations/src/main/asciidoc/*.adoc
-/examples/documentation-asciidoctor-metadata-pomxml/src/main/asciidoc/*.adoc
-/examples/documentation-asciidoctor-quick-start/src/main/asciidoc/*.adoc
-/examples/documentation-asciidoctor-validation/src/main/asciidoc/*.adoc
-/examples/documentation-asciidoctor-all-std-validators/src/main/asciidoc/*.adoc
-/examples/unnamed-module-documentation-asciidoctor-metadata-annotations/src/main/asciidoc/*.adoc
+/examples/group-documentation-asciidoctor/documentation-asciidoctor-custom-sections/src/main/asciidoc/*.adoc
+/examples/group-documentation-asciidoctor/documentation-asciidoctor-echo/src/main/asciidoc/*.adoc
+/examples/group-documentation-asciidoctor/documentation-asciidoctor-errors/src/main/asciidoc/*.adoc
+/examples/group-documentation-asciidoctor/documentation-asciidoctor-full/src/main/asciidoc/*.adoc
+/examples/group-documentation-asciidoctor/documentation-asciidoctor-metadata-annotations/src/main/asciidoc/*.adoc
+/examples/group-documentation-asciidoctor/documentation-asciidoctor-metadata-pomxml/src/main/asciidoc/*.adoc
+/examples/group-documentation-asciidoctor/documentation-asciidoctor-quick-start/src/main/asciidoc/*.adoc
+/examples/group-documentation-asciidoctor/documentation-asciidoctor-validation/src/main/asciidoc/*.adoc
+/examples/group-documentation-asciidoctor/documentation-asciidoctor-all-std-validators/src/main/asciidoc/*.adoc
+/examples/group-unnamed-module/unnamed-module-documentation-asciidoctor-metadata-annotations/src/main/asciidoc/*.adoc
 /code-fragments/src/main/asciidoc/*.adoc
 
 # native images

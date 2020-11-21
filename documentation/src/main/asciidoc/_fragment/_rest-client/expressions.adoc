@@ -14,7 +14,7 @@ To use expressions You need to create a configuration class:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-expressions/src/main/java/io/rxmicro/examples/rest/client/expressions/CustomHttpClientConfig.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-expressions/src/main/java/io/rxmicro/examples/rest/client/expressions/CustomRestClientConfig.java[tag=content,indent=0]
 ----
 
 , which must meet the following requirements:
@@ -31,7 +31,7 @@ To attach this configuration class to a REST client, You must specify it in the
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-expressions/src/main/java/io/rxmicro/examples/rest/client/expressions/RESTClient.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-expressions/src/main/java/io/rxmicro/examples/rest/client/expressions/RESTClient.java[tag=content,indent=0]
 ----
 <1> Attaching the configuration class to a REST client.
 <2> The `name space` specification for this configuration file. +
@@ -42,7 +42,7 @@ The functionality of expressions can be demonstrated through the test:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-expressions/src/test/java/io/rxmicro/examples/rest/client/expressions/RESTClientTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-expressions/src/test/java/io/rxmicro/examples/rest/client/expressions/RESTClientTest.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-expressions

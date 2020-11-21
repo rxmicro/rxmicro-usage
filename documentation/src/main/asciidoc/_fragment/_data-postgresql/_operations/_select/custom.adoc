@@ -13,7 +13,7 @@ The `Custom SELECT` is a string parameter that sends to a repository method and 
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-select-custom/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/select/custom/CustomSelectRepository.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-select-custom/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/select/custom/CustomSelectRepository.java[tag=content,indent=0]
 ----
 <1> This is example of a repository method that can execute any `SELECT` query.
 <2> This repository method selects all columns defined at `Account` entity. +
@@ -33,7 +33,7 @@ The following test describes how the `Custom SELECT` feature can be tested:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-select-custom/src/test/java/io/rxmicro/examples/data/r2dbc/postgresql/select/custom/CustomSelectRepositoryTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-select-custom/src/test/java/io/rxmicro/examples/data/r2dbc/postgresql/select/custom/CustomSelectRepositoryTest.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-r2dbc-postgresql-select-custom

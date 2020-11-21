@@ -16,7 +16,7 @@ annotation, and specify an abstract class that contains a partial implementation
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-partial-implementation/src/main/java/io/rxmicro/examples/rest/client/partial/implementation/RESTClient.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-partial-implementation/src/main/java/io/rxmicro/examples/rest/client/partial/implementation/RESTClient.java[tag=content,indent=0]
 ----
 <1> Using the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/PartialImplementation.java[`@PartialImplementation`^]
@@ -26,7 +26,7 @@ An `AbstractRESTClient` contains the following content:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-partial-implementation/src/main/java/io/rxmicro/examples/rest/client/partial/implementation/AbstractRESTClient.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-partial-implementation/src/main/java/io/rxmicro/examples/rest/client/partial/implementation/AbstractRESTClient.java[tag=content,indent=0]
 ----
 
 An abstract class that contains a partial implementation must meet the following requirements:
@@ -40,7 +40,7 @@ In terms of infrastructure, the HTTP request handlers generated and defined by t
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-partial-implementation/src/test/java/io/rxmicro/examples/rest/client/partial/implementation/RESTClientTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-partial-implementation/src/test/java/io/rxmicro/examples/rest/client/partial/implementation/RESTClientTest.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-partial-implementation

@@ -15,7 +15,7 @@ To work with internal data, it is necessary to create a response model:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-internals/src/main/java/io/rxmicro/examples/rest/client/internals/model/Response.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-internals/src/main/java/io/rxmicro/examples/rest/client/internals/model/Response.java[tag=content,indent=0]
 ----
 <1> To get the HTTP status code, it is necessary to use the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ResponseStatusCode.java[`@ResponseStatusCode`^] annotation.
@@ -31,14 +31,14 @@ After creating model classes, it is necessary to create a REST client method tha
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-internals/src/main/java/io/rxmicro/examples/rest/client/internals/RESTClient.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-internals/src/main/java/io/rxmicro/examples/rest/client/internals/RESTClient.java[tag=content,indent=0]
 ----
 
 After creating the REST client, let's check that everything works:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-internals/src/test/java/io/rxmicro/examples/rest/client/internals/RESTClientTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-internals/src/test/java/io/rxmicro/examples/rest/client/internals/RESTClientTest.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-controller-internals

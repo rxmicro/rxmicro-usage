@@ -13,7 +13,7 @@ To activate this function it is necessary to add the
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-cors/src/main/java/io/rxmicro/examples/rest/controller/cors/MicroService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-cors/src/main/java/io/rxmicro/examples/rest/controller/cors/MicroService.java[tag=content,indent=0]
 ----
 <1> The https://developer.mozilla.org/ru/docs/Web/HTTP/CORS[`Cross Origin Resource Sharing (CORS)`^] feature is activated for *all* handlers of the specified REST controller.
 
@@ -21,7 +21,7 @@ When activating this feature, the RxMicro framework automatically adds a standar
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-cors/src/test/java/io/rxmicro/examples/rest/controller/cors/MicroServiceTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-cors/src/test/java/io/rxmicro/examples/rest/controller/cors/MicroServiceTest.java[tag=content,indent=0]
 ----
 <1> The standard handler can handle `OPTIONS` requests with additional HTTP headers.
 

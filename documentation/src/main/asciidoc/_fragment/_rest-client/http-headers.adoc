@@ -12,7 +12,7 @@ After creating model classes, it is necessary to create a request handler that u
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-headers/src/main/java/io/rxmicro/examples/rest/client/headers/SimpleUsageRestClient.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-headers/src/main/java/io/rxmicro/examples/rest/client/headers/SimpleUsageRestClient.java[tag=content,indent=0]
 ----
 <1> If a separate model class has been created for an HTTP request, then this class must be passed by the method parameter that handles the HTTP request.
 <2> Besides supporting HTTP request model classes, the RxMicro framework supports request handlers that accept HTTP headers as method parameters.
@@ -26,7 +26,7 @@ Despite the different approaches to HTTP header handling support, as to the mess
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-headers/src/test/java/io/rxmicro/examples/rest/client/headers/SimpleUsageRestClientTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-headers/src/test/java/io/rxmicro/examples/rest/client/headers/SimpleUsageRestClientTest.java[tag=content,indent=0]
 ----
 <1> When performing a request to different URL Paths, the result is the same.
 <2> The `Endpoint-Version` name corresponds to the `endpointVersion` field of the request model. +
@@ -57,7 +57,7 @@ For static header installation, the RxMicro framework provides the
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-headers/src/main/java/io/rxmicro/examples/rest/client/headers/StaticHeadersRestClient.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-headers/src/main/java/io/rxmicro/examples/rest/client/headers/StaticHeadersRestClient.java[tag=content,indent=0]
 ----
 <1> If the HTTP header is set for the REST client, it is added to the HTTP requests for each handler.
 <2> If the HTTP header is set for the handler, it is added to the HTTP requests only for that handler.
@@ -66,7 +66,7 @@ In terms of the HTTP protocol, static headers do not differ from any others:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-headers/src/test/java/io/rxmicro/examples/rest/client/headers/StaticHeadersRestClientTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-headers/src/test/java/io/rxmicro/examples/rest/client/headers/StaticHeadersRestClientTest.java[tag=content,indent=0]
 ----
 
 [NOTE]
@@ -96,7 +96,7 @@ If You want the HTTP header to be repeated for each value, You need to use the
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-headers/src/main/java/io/rxmicro/examples/rest/client/headers/RepeatingHeadersRestClient.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-headers/src/main/java/io/rxmicro/examples/rest/client/headers/RepeatingHeadersRestClient.java[tag=content,indent=0]
 ----
 
 [NOTE]
@@ -110,7 +110,7 @@ As a result of converting the Java model to HTTP response, the result will be as
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-headers/src/test/java/io/rxmicro/examples/rest/client/headers/RepeatingHeadersRestClientTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-headers/src/test/java/io/rxmicro/examples/rest/client/headers/RepeatingHeadersRestClientTest.java[tag=content,indent=0]
 ----
 <1> By default, HTTP header list elements are transferred via the HTTP protocol as a string separated by the `|` symbol.
 <2> If the field is annotated by the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RepeatHeader.java[`@RepeatHeader`^] annotation, then the header is repeated for each element of the list.

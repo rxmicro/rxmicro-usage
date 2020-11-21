@@ -13,7 +13,7 @@ _(A uniqueness of this type of primary key is controlled by the database server!
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-primary-keys/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/primary/keys/model/Order.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-primary-keys/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/primary/keys/model/Order.java[tag=content,indent=0]
 ----
 
 * Auto generated primary key that uses https://www.postgresql.org/docs/12/functions-sequence.html[a sequence to get the next unique value^]. +
@@ -21,7 +21,7 @@ _(A uniqueness of this type of primary key is controlled by the database server!
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-primary-keys/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/primary/keys/model/Account.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-primary-keys/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/primary/keys/model/Account.java[tag=content,indent=0]
 ----
 
 * Manually set primary key. +
@@ -29,7 +29,7 @@ _(A developer must control a uniqueness of this type of primary key!)_:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-primary-keys/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/primary/keys/model/Product.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-primary-keys/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/primary/keys/model/Product.java[tag=content,indent=0]
 ----
 
 * Complex primary key: +
@@ -37,7 +37,7 @@ _(A developer must control a uniqueness of this type of primary key!)_:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-primary-keys/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/primary/keys/model/CompositePrimaryKey.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-primary-keys/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/primary/keys/model/CompositePrimaryKey.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-r2dbc-postgresql-primary-keys

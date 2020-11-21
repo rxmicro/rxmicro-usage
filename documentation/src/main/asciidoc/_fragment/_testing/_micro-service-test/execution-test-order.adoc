@@ -11,7 +11,7 @@ When testing a Rest-based microservice, using the following test:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-microservice-order/src/test/java/io/rxmicro/examples/testing/microservice/order/MicroServiceTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-microservice-order/src/test/java/io/rxmicro/examples/testing/microservice/order/MicroServiceTest.java[tag=content,indent=0]
 ----
 
 the execution order will be as follows:

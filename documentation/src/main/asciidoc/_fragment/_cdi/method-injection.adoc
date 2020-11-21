@@ -10,7 +10,7 @@ The RxMicro framework also supports injection with https://www.w3schools.com/jav
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-method-injection/src/main/java/io/rxmicro/examples/cdi/method/injection/BusinessServiceFacade.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-method-injection/src/main/java/io/rxmicro/examples/cdi/method/injection/BusinessServiceFacade.java[tag=content,indent=0]
 ----
 <1> To enable the injection with https://www.w3schools.com/java/java_encapsulation.asp[`setters`^], it is necessary to create `setter` and annotate it by the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@Inject`^] or
@@ -20,7 +20,7 @@ When using the injection mechanism with https://www.w3schools.com/java/java_enca
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-method-injection/src/test/java/io/rxmicro/examples/cdi/method/injection/BusinessServiceFacadeTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-method-injection/src/test/java/io/rxmicro/examples/cdi/method/injection/BusinessServiceFacadeTest.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-method-injection

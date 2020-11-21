@@ -11,7 +11,7 @@ When testing a component, using the following test:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-component-order/src/test/java/io/rxmicro/examples/testing/component/order/BusinessServiceTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-component-order/src/test/java/io/rxmicro/examples/testing/component/order/BusinessServiceTest.java[tag=content,indent=0]
 ----
 
 the execution order will be as follows:

@@ -12,7 +12,7 @@ To use projections, developer must specify required columns at `SELECT` query:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-select-projection/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/select/projection/SelectProjectionDataRepository.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-select-projection/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/select/projection/SelectProjectionDataRepository.java[tag=content,indent=0]
 ----
 
 For each nonstandard projection, the RxMicro framework generates a separate converter method.

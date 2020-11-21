@@ -11,7 +11,7 @@ and https://docs.mongodb.com/manual/reference/method/db.collection.deleteMany/[`
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-delete/src/main/java/io/rxmicro/examples/data/mongo/delete/DataRepository.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-mongo/data-mongo-delete/src/main/java/io/rxmicro/examples/data/mongo/delete/DataRepository.java[tag=content,indent=0]
 ----
 
 [NOTE]

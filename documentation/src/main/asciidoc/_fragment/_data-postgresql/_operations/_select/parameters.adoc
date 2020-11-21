@@ -12,35 +12,35 @@ The `rxmicro.data.sql.r2dbc.postgresql` module supports all SQL nested operators
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-select-parameters/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/select/parameters/SelectByFilterRepository.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-select-parameters/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/select/parameters/SelectByFilterRepository.java[tag=content,indent=0]
 ----
 
 * `IN` operator:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-select-parameters/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/select/parameters/SelectByFilterUsingINOperatorRepository.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-select-parameters/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/select/parameters/SelectByFilterUsingINOperatorRepository.java[tag=content,indent=0]
 ----
 
 * `ORDER BY` operator:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-select-parameters/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/select/parameters/SelectOrderedDataRepository.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-select-parameters/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/select/parameters/SelectOrderedDataRepository.java[tag=content,indent=0]
 ----
 
 * `LIMIT` and/or `OFFSET` operator(s):
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-select-parameters/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/select/parameters/SelectLimitedDataRepository.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-select-parameters/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/select/parameters/SelectLimitedDataRepository.java[tag=content,indent=0]
 ----
 
 * Composition of `WHERE`, `ORDER BY`, `LIMIT` and `OFFSET` operators:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-select-parameters/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/select/parameters/SelectComplexDataRepository.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-select-parameters/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/select/parameters/SelectComplexDataRepository.java[tag=content,indent=0]
 ----
 
 * etc.

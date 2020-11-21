@@ -12,7 +12,7 @@ To activate this feature it's necessary to return a reactive type that supports 
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-notfound/src/main/java/io/rxmicro/examples/rest/controller/notfound/NotFoundMicroService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-notfound/src/main/java/io/rxmicro/examples/rest/controller/notfound/NotFoundMicroService.java[tag=content,indent=0]
 ----
 <1> When using `CompletableFuture`/`CompletionStage` it is necessary to use the
 {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/Optional.html[`java.util.Optional`^] contract, since the `CompletableFuture`/`CompletionStage` reactive types do not support optional result by default.
@@ -26,7 +26,7 @@ When handling requests, the RxMicro framework checks the handler result:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-notfound/src/test/java/io/rxmicro/examples/rest/controller/notfound/NotFoundMicroServiceTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-notfound/src/test/java/io/rxmicro/examples/rest/controller/notfound/NotFoundMicroServiceTest.java[tag=content,indent=0]
 ----
 <1> In case there is a result, the result is returned in JSON format, and the HTTP response status is `200`.
 <2> If there is no result, a standard error message is returned, and the HTTP response status is `404`.
@@ -35,14 +35,14 @@ The RxMicro framework provides an option to customize the `Not Found` message:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-notfound/src/main/java/io/rxmicro/examples/rest/controller/notfound/CustomizeNotFoundMicroService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-notfound/src/main/java/io/rxmicro/examples/rest/controller/notfound/CustomizeNotFoundMicroService.java[tag=content,indent=0]
 ----
 <1> The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/NotFoundMessage.java[`@NotFoundMessage`^]
 annotation allows You to specify a message that will be displayed to the client in case of missing result instead of the standard `"Not Found"` message.
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-notfound/src/test/java/io/rxmicro/examples/rest/controller/notfound/CustomizeNotFoundMicroServiceTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-notfound/src/test/java/io/rxmicro/examples/rest/controller/notfound/CustomizeNotFoundMicroServiceTest.java[tag=content,indent=0]
 ----
 <1> If there is no result, the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/NotFoundMessage.java[`@NotFoundMessage`^] message, which is set by the annotation, is returned.

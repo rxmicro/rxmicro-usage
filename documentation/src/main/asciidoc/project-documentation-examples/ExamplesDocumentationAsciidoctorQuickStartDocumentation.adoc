@@ -2,4 +2,4 @@
 :stylesheet: rxmicro-doc.min.css
 :stylesdir: ../styles/
 
-include::../../../../../examples/documentation-asciidoctor-quick-start/src/main/asciidoc/ExamplesDocumentationAsciidoctorQuickStartDocumentation.adoc[]
+include::../../../../../examples/group-documentation-asciidoctor/documentation-asciidoctor-quick-start/src/main/asciidoc/ExamplesDocumentationAsciidoctorQuickStartDocumentation.adoc[]

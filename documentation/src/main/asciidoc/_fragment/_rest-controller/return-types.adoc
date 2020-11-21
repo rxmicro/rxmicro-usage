@@ -15,7 +15,7 @@ The RxMicro framework supports the following return result types for an HTTP res
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-handlers/src/main/java/io/rxmicro/examples/rest/controller/handlers/RestControllerWithoutBody.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-handlers/src/main/java/io/rxmicro/examples/rest/controller/handlers/RestControllerWithoutBody.java[tag=content,indent=0]
 ----
 <1> The `void` type is supported mainly for test purposes. +
 _(The `void` type can also be applied when the request handler does not use any <<core.adoc#core-dont-block-current-thread,blocking operations>>.
@@ -33,7 +33,7 @@ All the above mentioned handlers return an HTTP response without body:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-handlers/src/test/java/io/rxmicro/examples/rest/controller/handlers/RestControllerWithoutBodyTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-handlers/src/test/java/io/rxmicro/examples/rest/controller/handlers/RestControllerWithoutBodyTest.java[tag=content,indent=0]
 ----
 <1> When testing all `RestControllerWithoutBody` class handlers, each handler returns an HTTP response without body.
 
@@ -52,7 +52,7 @@ The RxMicro framework supports the following return result types for an HTTP res
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-handlers/src/main/java/io/rxmicro/examples/rest/controller/handlers/RestControllerWithBody.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-handlers/src/main/java/io/rxmicro/examples/rest/controller/handlers/RestControllerWithBody.java[tag=content,indent=0]
 ----
 <1> The {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[`CompletableFuture<MODEL>`^]
 type is recommended when using the {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/package-summary.html[*java.util.concurrent*^] library.
@@ -70,7 +70,7 @@ All the above mentioned handlers return an HTTP response with body:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-handlers/src/test/java/io/rxmicro/examples/rest/controller/handlers/RestControllerWithBodyTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-handlers/src/test/java/io/rxmicro/examples/rest/controller/handlers/RestControllerWithBodyTest.java[tag=content,indent=0]
 ----
 <1> When testing all `RestControllerWithBody` class handlers, each handler returns an HTTP response containing a JSON object, with the `Hello World!` message.
 

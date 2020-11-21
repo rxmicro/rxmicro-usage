@@ -10,14 +10,14 @@ To demonstrate the features of the integration testing, let's look at the follow
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-integration-basic/src/main/java/io/rxmicro/examples/testing/integration/basic/MicroService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-integration-basic/src/main/java/io/rxmicro/examples/testing/integration/basic/MicroService.java[tag=content,indent=0]
 ----
 
 The integration test for this microservice will be as follows:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-integration-basic/src/test/java/io/rxmicro/examples/testing/integration/basic/MicroServiceIntegrationTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-integration-basic/src/test/java/io/rxmicro/examples/testing/integration/basic/MicroServiceIntegrationTest.java[tag=content,indent=0]
 ----
 <1> The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/RxMicroIntegrationTest.java[`@RxMicroIntegrationTest`^]
 annotation informs the RxMicro framework that this test is an integration test.

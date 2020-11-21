@@ -9,12 +9,12 @@ The RxMicro framework supports HTTP headers in request and response models:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-headers/src/main/java/io/rxmicro/examples/rest/controller/headers/model/Request.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-headers/src/main/java/io/rxmicro/examples/rest/controller/headers/model/Request.java[tag=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-headers/src/main/java/io/rxmicro/examples/rest/controller/headers/model/Response.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-headers/src/main/java/io/rxmicro/examples/rest/controller/headers/model/Response.java[tag=content,indent=0]
 ----
 <1> The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/HeaderMappingStrategy.java[`@HeaderMappingStrategy`^]
 annotation allows setting common conversion rules for all header names from HTTP to Java format and vice versa in the current model class. +

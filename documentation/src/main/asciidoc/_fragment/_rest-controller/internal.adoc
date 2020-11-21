@@ -15,7 +15,7 @@ To work with internal data, it is necessary to create request and response model
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-internals/src/main/java/io/rxmicro/examples/rest/controller/internals/model/Request.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-internals/src/main/java/io/rxmicro/examples/rest/controller/internals/model/Request.java[tag=content,indent=0]
 ----
 <1> To extract the remote address of the client connection, it is necessary to use the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RemoteAddress.java[`@RemoteAddress`^] annotation.
@@ -34,7 +34,7 @@ _(This feature is useful for request logging when one handler supports different
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-internals/src/main/java/io/rxmicro/examples/rest/controller/internals/model/Response.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-internals/src/main/java/io/rxmicro/examples/rest/controller/internals/model/Response.java[tag=content,indent=0]
 ----
 <1> To override the HTTP status code, it is necessary to use the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/ResponseStatusCode.java[`@ResponseStatusCode`^] annotation.
@@ -50,14 +50,14 @@ After creating model classes, it is necessary to create an HTTP request handler 
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-internals/src/main/java/io/rxmicro/examples/rest/controller/internals/MicroService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-internals/src/main/java/io/rxmicro/examples/rest/controller/internals/MicroService.java[tag=content,indent=0]
 ----
 
 After creating the REST controller, let's check that everything works:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-internals/src/test/java/io/rxmicro/examples/rest/controller/internals/MicroServiceTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-internals/src/test/java/io/rxmicro/examples/rest/controller/internals/MicroServiceTest.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-controller-internals

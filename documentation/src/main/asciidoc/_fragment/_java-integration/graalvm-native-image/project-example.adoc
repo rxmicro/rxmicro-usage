@@ -107,12 +107,12 @@ A microservice source code contains two classes only:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/graalvm-native-image-quick-start/src/main/java/io/rxmicro/examples/graalvm/nativeimage/quick/start/Response.java[tags=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-graalvm/graalvm-native-image-quick-start/src/main/java/io/rxmicro/examples/graalvm/nativeimage/quick/start/Response.java[tags=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/graalvm-native-image-quick-start/src/main/java/io/rxmicro/examples/graalvm/nativeimage/quick/start/HelloWorldMicroService.java[tags=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-graalvm/graalvm-native-image-quick-start/src/main/java/io/rxmicro/examples/graalvm/nativeimage/quick/start/HelloWorldMicroService.java[tags=content,indent=0]
 ----
 <1> Docker based configuration activates the configuration via annotations and environment variables only.
 <2> Registration the SIGTERM handler manually.

@@ -16,7 +16,7 @@ Thus, if there is a class method, annotated by the {RX-MICRO-SRC-ROOT-BLOB-URL}r
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-post-construct/src/main/java/io/rxmicro/examples/cdi/post/construct/BusinessService2Facade.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-post-construct/src/main/java/io/rxmicro/examples/cdi/post/construct/BusinessService2Facade.java[tag=content,indent=0]
 ----
 <1> After injection of the implementation class instance in the `businessService` field, the RxMicro framework will automatically invoke the `anyName` method, since this method is annotated by the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/PostConstruct.java[`@PostConstruct`^] annotation.
@@ -29,7 +29,7 @@ The method with the specified name will be invoked automatically after all depen
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-post-construct/src/main/java/io/rxmicro/examples/cdi/post/construct/BusinessService1Facade.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-post-construct/src/main/java/io/rxmicro/examples/cdi/post/construct/BusinessService1Facade.java[tag=content,indent=0]
 ----
 
 Thus, for any method in the class to be defined by the RxMicro framework as the method to be invoked automatically after all dependencies are injected, it is necessary to:
@@ -51,12 +51,12 @@ The facts of invoking the `postConstruct` and `anyName` methods can be checked u
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-post-construct/src/test/java/io/rxmicro/examples/cdi/post/construct/BusinessService1FacadeTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-post-construct/src/test/java/io/rxmicro/examples/cdi/post/construct/BusinessService1FacadeTest.java[tag=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-post-construct/src/test/java/io/rxmicro/examples/cdi/post/construct/BusinessService2FacadeTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-post-construct/src/test/java/io/rxmicro/examples/cdi/post/construct/BusinessService2FacadeTest.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-post-construct

@@ -8,7 +8,7 @@ After activation of the `rxmicro.validation` module in the `module-info.java` de
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-basic/src/main/java/module-info.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-validation/validation-server-basic/src/main/java/module-info.java[tag=content,indent=0]
 ----
 <1> `rxmicro.validation` is a module for request and response validation.
 
@@ -16,7 +16,7 @@ the developer can use <<validation-std-constraints-section, built-in constraints
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-basic/src/main/java/io/rxmicro/examples/validation/server/basic/MicroService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-validation/validation-server-basic/src/main/java/io/rxmicro/examples/validation/server/basic/MicroService.java[tag=content,indent=0]
 ----
 <1> The `email` parameter is annotated by the `@Email` annotation.
 
@@ -24,7 +24,7 @@ Due to this annotation the `RxMicro Annotation Processor` will automatically gen
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-basic/src/test/java/io/rxmicro/examples/validation/server/basic/MicroServiceTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-validation/validation-server-basic/src/test/java/io/rxmicro/examples/validation/server/basic/MicroServiceTest.java[tag=content,indent=0]
 ----
 <1> When activating the `rxmicro.validation` module, all query parameters are automatically considered as required. +
 _(Therefore the `RxMicro Annotation Processor` automatically adds a `required` validator for each parameter.

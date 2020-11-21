@@ -13,7 +13,7 @@ If the current project allows the situation when a suitable instance may be miss
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-optional-injection/src/main/java/io/rxmicro/examples/cdi/optional/injection/BusinessServiceFacade.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-optional-injection/src/main/java/io/rxmicro/examples/cdi/optional/injection/BusinessServiceFacade.java[tag=content,indent=0]
 ----
 <1> When using the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@Inject`^] annotation, the `optional = true` parameter must be set to enable the `optional injection` mode.
 <2> When using the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Autowired.java[`@Autowired`^] annotation, the `required = false` parameter must be set to enable the `optional injection` mode.
@@ -28,7 +28,7 @@ The correctness of this algorithm can be checked with the following test:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-optional-injection/src/test/java/io/rxmicro/examples/cdi/optional/injection/BusinessServiceFacadeTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-optional-injection/src/test/java/io/rxmicro/examples/cdi/optional/injection/BusinessServiceFacadeTest.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-optional-injection

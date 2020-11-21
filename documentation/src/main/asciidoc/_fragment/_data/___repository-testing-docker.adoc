@@ -6,8 +6,8 @@ ifndef::test-template-owner[]
 :db-name: RxMicro DB
 :docker-test-db-link: {RX-MICRO-DOCKER_HUB_ROOT}rxmicro-test-db
 :docker-test-db-name: rxmicro/rxmicro-test-db
-:shared-template-source-code: ../../../../../../examples/data-mongo-basic/src/test/java/io/rxmicro/examples/data/mongo/basic/DataRepositoryTestTemplate1.java
-:personal-template-source-code: ../../../../../../examples/data-mongo-basic/src/test/java/io/rxmicro/examples/data/mongo/basic/DataRepositoryTestTemplate2.java
+:shared-template-source-code: ../../../../../../examples/group-data-mongo/data-mongo-basic/src/test/java/io/rxmicro/examples/data/mongo/basic/DataRepositoryTestTemplate1.java
+:personal-template-source-code: ../../../../../../examples/group-data-mongo/data-mongo-basic/src/test/java/io/rxmicro/examples/data/mongo/basic/DataRepositoryTestTemplate2.java
 endif::[]
 
 As a mechanism for preparing a database for testing (creating a database before starting the test and deleting a database after completing the test), it is most convenient to use https://www.docker.com/[`docker`^].

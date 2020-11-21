@@ -16,12 +16,12 @@ annotation, the developer can specify the detailed description of separate model
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-echo/src/main/java/io/rxmicro/examples/documentation/asciidoctor/echo/Echo.java[tags=content]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-documentation-asciidoctor/documentation-asciidoctor-echo/src/main/java/io/rxmicro/examples/documentation/asciidoctor/echo/Echo.java[tags=content]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-echo/src/main/java/io/rxmicro/examples/documentation/asciidoctor/echo/MicroService.java[tags=content]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-documentation-asciidoctor/documentation-asciidoctor-echo/src/main/java/io/rxmicro/examples/documentation/asciidoctor/echo/MicroService.java[tags=content]
 ----
 
 :project-documentation-file: ExamplesDocumentationAsciidoctorEchoDocumentation.html

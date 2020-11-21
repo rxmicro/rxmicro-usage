@@ -8,7 +8,7 @@ After activation of the `rxmicro.validation` module in the `module-info.java` de
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-client-basic/src/main/java/module-info.java[tags=content]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-validation/validation-client-basic/src/main/java/module-info.java[tags=content]
 ----
 <1> `rxmicro.validation` is a module for request and response validation.
 
@@ -16,7 +16,7 @@ the developer can use <<validation-std-constraints-section, built-in constraints
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-client-basic/src/main/java/io/rxmicro/examples/validation/client/basic/model/Response.java[tags=content]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-validation/validation-client-basic/src/main/java/io/rxmicro/examples/validation/client/basic/model/Response.java[tags=content]
 ----
 <1> The `email` parameter is annotated by the `@Email` annotation.
 
@@ -24,14 +24,14 @@ After setting up the model class, this model must be used in the REST client:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-client-basic/src/main/java/io/rxmicro/examples/validation/client/basic/RESTClient.java[tags=content]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-validation/validation-client-basic/src/main/java/io/rxmicro/examples/validation/client/basic/RESTClient.java[tags=content]
 ----
 
 When converting the content of an HTTP response to the `Response` class object, the validator will be invoked automatically:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-client-basic/src/test/java/io/rxmicro/examples/validation/client/basic/RESTClientTest.java[tags=content]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-validation/validation-client-basic/src/test/java/io/rxmicro/examples/validation/client/basic/RESTClientTest.java[tags=content]
 ----
 <1> If the REST client receives a valid HTTP response, no errors will occur.
 <2> If the `email` field is incorrect in the HTTP response, the REST client will return an error signal.

@@ -14,26 +14,26 @@ For example, if there are two implementation classes of the `BusinessService` in
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-multibinder/src/main/java/io/rxmicro/examples/cdi/multibinder/impl/ProductionBusinessService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-multibinder/src/main/java/io/rxmicro/examples/cdi/multibinder/impl/ProductionBusinessService.java[tag=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-multibinder/src/main/java/io/rxmicro/examples/cdi/multibinder/impl/DevelopmentBusinessService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-multibinder/src/main/java/io/rxmicro/examples/cdi/multibinder/impl/DevelopmentBusinessService.java[tag=content,indent=0]
 ----
 
 then the instances of these classes can be injected by the RxMicro framework into the {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/Set.html[`java.util.Set`^] type field:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-multibinder/src/main/java/io/rxmicro/examples/cdi/multibinder/BusinessServiceFacade.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-multibinder/src/main/java/io/rxmicro/examples/cdi/multibinder/BusinessServiceFacade.java[tag=content,indent=0]
 ----
 
 After successful injection, the `businessServices` field will contain the `ProductionBusinessService` and `DevelopmentBusinessService` class instances:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-multibinder/src/test/java/io/rxmicro/examples/cdi/multibinder/BusinessServiceFacadeTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-multibinder/src/test/java/io/rxmicro/examples/cdi/multibinder/BusinessServiceFacadeTest.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-multibinder

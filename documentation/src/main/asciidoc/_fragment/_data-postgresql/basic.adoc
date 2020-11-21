@@ -12,14 +12,14 @@ To use the `rxmicro.data.sql.r2dbc.postgresql` module in the project, the follow
 
 [source,xml]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-basic/pom.xml[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-basic/pom.xml[tag=content,indent=0]
 ----
 
 * Add the `rxmicro.data.sql.r2dbc.postgresql` module to the `module-info.java` descriptor:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-basic/src/main/java/module-info.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-basic/src/main/java/module-info.java[tag=content,indent=0]
 ----
 
 [IMPORTANT]
@@ -31,7 +31,7 @@ After adding the `rxmicro.data.sql.r2dbc.postgresql` module, You can create a da
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-basic/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/basic/entity/Account.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-basic/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/basic/entity/Account.java[tag=content,indent=0]
 ----
 <1> The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data/src/main/java/io/rxmicro/data/ColumnMappingStrategy.java[`@ColumnMappingStrategy`^]
 annotation sets the strategy of forming column names of the relational database table based on the analysis of the Java model class field names. +
@@ -39,7 +39,7 @@ _(Thus, the `firstName` field corresponds to the `first_name` column, and the `l
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-basic/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/basic/DataRepository.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-basic/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/basic/DataRepository.java[tag=content,indent=0]
 ----
 <1> In order for a standard interface to be recognized by the RxMicro framework as a dynamic repository for interaction with https://www.postgresql.org/[`PostgreSQL DB`^], this interface should be annotated by {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql-r2dbc-postgresql/src/main/java/io/rxmicro/data/sql/r2dbc/postgresql/PostgreSQLRepository.java[`@PostgreSQLRepository`^] annotation.
 <2> The dynamic repository may contain methods that form a query to the https://www.postgresql.org/[`PostgreSQL DB`^]. +
@@ -54,7 +54,7 @@ The common approach recommended for testing dynamic repositories, that interact 
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-basic/src/test/java/io/rxmicro/examples/data/r2dbc/postgresql/basic/DataRepositoryTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-basic/src/test/java/io/rxmicro/examples/data/r2dbc/postgresql/basic/DataRepositoryTest.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-r2dbc-postgresql-basic

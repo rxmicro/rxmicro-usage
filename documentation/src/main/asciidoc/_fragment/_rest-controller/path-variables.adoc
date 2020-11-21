@@ -12,7 +12,7 @@ After creating model classes, it is necessary to create an HTTP request handler 
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-path-variables/src/main/java/io/rxmicro/examples/rest/controller/path/variables/MicroService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-path-variables/src/main/java/io/rxmicro/examples/rest/controller/path/variables/MicroService.java[tag=content,indent=0]
 ----
 <1> When using `path variables` in request models, be sure to use *all* `path variables` in the URL Path.
 _(Based on the analysis of the URL Path, and considering all `path variables`, the RxMicro framework selects the required HTTP request handler.)_
@@ -25,7 +25,7 @@ Despite the different approaches to `path variables` handling support, from the 
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-path-variables/src/test/java/io/rxmicro/examples/rest/controller/path/variables/MicroServiceTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-path-variables/src/test/java/io/rxmicro/examples/rest/controller/path/variables/MicroServiceTest.java[tag=content,indent=0]
 ----
 <1> The current `path`, which corresponds to one of the specified `path` templates.
 <2> The expected string containing all extracted `path variables`  from the current `path`, displayed in the console.

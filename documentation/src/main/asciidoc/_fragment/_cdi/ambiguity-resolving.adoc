@@ -49,12 +49,12 @@ Thus, for `ProductionBusinessService` and `DevelopmentBusinessService` implement
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-by-impl-classname-and-field-name/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/impl/classname/field/name/impl/ProductionBusinessService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-ambiguty-resolving-by-impl-classname-and-field-name/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/impl/classname/field/name/impl/ProductionBusinessService.java[tag=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-by-impl-classname-and-field-name/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/impl/classname/field/name/impl/DevelopmentBusinessService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-ambiguty-resolving-by-impl-classname-and-field-name/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/impl/classname/field/name/impl/DevelopmentBusinessService.java[tag=content,indent=0]
 ----
 
 When injecting implementations, the RxMicro framework reads the name of the class or method parameter field.
@@ -69,7 +69,7 @@ In other words, the ambiguity resolving algorithm is enabled by default *only if
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-by-impl-classname-and-field-name/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/impl/classname/field/name/BusinessServiceFacade.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-ambiguty-resolving-by-impl-classname-and-field-name/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/impl/classname/field/name/BusinessServiceFacade.java[tag=content,indent=0]
 ----
 <1> In the `productionBusinessService` field, the `ProductionBusinessService` class instance is injected.
 <2> In the `developmentBusinessService` field, the `DevelopmentBusinessService` class instance is injected.
@@ -78,7 +78,7 @@ This behavior can be tested with the following test:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-by-impl-classname-and-field-name/src/test/java/io/rxmicro/examples/cdi/ambiguty/resolving/BusinessServiceFacadeTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-ambiguty-resolving-by-impl-classname-and-field-name/src/test/java/io/rxmicro/examples/cdi/ambiguty/resolving/BusinessServiceFacadeTest.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-ambiguty-resolving-by-impl-classname-and-field-name
@@ -96,7 +96,7 @@ In case if the ambiguity resolving algorithm by default does not meet the needs 
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-by-impl-classname-and-Named-annotation/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/impl/classname/named/field/BusinessServiceFacade.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-ambiguty-resolving-by-impl-classname-and-Named-annotation/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/impl/classname/named/field/BusinessServiceFacade.java[tag=content,indent=0]
 ----
 <1> To inject the `ProductionBusinessService` class instance to the `businessService1` field, in the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Named.java[`@Named`^]
@@ -111,7 +111,7 @@ This behavior can be tested with the following test:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-by-impl-classname-and-Named-annotation/src/test/java/io/rxmicro/examples/cdi/ambiguty/resolving/BusinessServiceFacadeTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-ambiguty-resolving-by-impl-classname-and-Named-annotation/src/test/java/io/rxmicro/examples/cdi/ambiguty/resolving/BusinessServiceFacadeTest.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-ambiguty-resolving-by-impl-classname-and-Named-annotation
@@ -127,19 +127,19 @@ An implicitly created name for an implementation class can be set explicitly usi
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-by-Named-implementation-and-Named-field/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/named/impl/named/field/impl/ProductionBusinessService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-ambiguty-resolving-by-Named-implementation-and-Named-field/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/named/impl/named/field/impl/ProductionBusinessService.java[tag=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-by-Named-implementation-and-Named-field/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/named/impl/named/field/impl/DevelopmentBusinessService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-ambiguty-resolving-by-Named-implementation-and-Named-field/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/named/impl/named/field/impl/DevelopmentBusinessService.java[tag=content,indent=0]
 ----
 
 When using explicit names for implementation classes, it is necessary to specify these explicit names as the qualifier of an injection point:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-by-Named-implementation-and-Named-field/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/named/impl/named/field/BusinessServiceFacade.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-ambiguty-resolving-by-Named-implementation-and-Named-field/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/named/impl/named/field/BusinessServiceFacade.java[tag=content,indent=0]
 ----
 <1> To inject the `ProductionBusinessService` class instance to the `businessService1` field, in the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Named.java[`@Named`^]
@@ -168,7 +168,7 @@ If such a situation is unacceptable, custom annotations should be used as qualif
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-using-custom-Named-annotation/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/using/custom/named/annotation/EnvironmentType.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-ambiguty-resolving-using-custom-Named-annotation/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/using/custom/named/annotation/EnvironmentType.java[tag=content,indent=0]
 ----
 <1> For a custom annotation to be defined by the RxMicro framework as a qualifier, it must be annotated by the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Named.java[`@Named`^] or
@@ -179,26 +179,26 @@ After creating the custom annotation that serves as a qualifier, it is necessary
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-using-custom-Named-annotation/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/using/custom/named/annotation/impl/ProductionBusinessService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-ambiguty-resolving-using-custom-Named-annotation/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/using/custom/named/annotation/impl/ProductionBusinessService.java[tag=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-using-custom-Named-annotation/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/using/custom/named/annotation/impl/DevelopmentBusinessService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-ambiguty-resolving-using-custom-Named-annotation/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/using/custom/named/annotation/impl/DevelopmentBusinessService.java[tag=content,indent=0]
 ----
 
 and injection points:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-using-custom-Named-annotation/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/using/custom/named/annotation/BusinessServiceFacade.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-ambiguty-resolving-using-custom-Named-annotation/src/main/java/io/rxmicro/examples/cdi/ambiguty/resolving/using/custom/named/annotation/BusinessServiceFacade.java[tag=content,indent=0]
 ----
 
 When using custom annotations, the result of ambiguity resolving will be the same as when using string names:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-ambiguty-resolving-using-custom-Named-annotation/src/test/java/io/rxmicro/examples/cdi/ambiguty/resolving/BusinessServiceFacadeTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-ambiguty-resolving-using-custom-Named-annotation/src/test/java/io/rxmicro/examples/cdi/ambiguty/resolving/BusinessServiceFacadeTest.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-ambiguty-resolving-using-custom-Named-annotation

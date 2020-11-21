@@ -10,7 +10,7 @@ The `rxmicro.data.sql.r2dbc.postgresql` module supports the https://www.postgres
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-r2dbc-postgresql-delete/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/delete/DataRepository.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-delete/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/delete/DataRepository.java[tag=content,indent=0]
 ----
 <1> The variable values are used to resolve predefined variables at the SQL query. +
 _(Read more about the algorithm of the variables resolving at <<data-postgresql-variables-section>>.)_

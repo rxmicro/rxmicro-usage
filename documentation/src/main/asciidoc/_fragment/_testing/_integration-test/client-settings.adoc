@@ -11,7 +11,7 @@ The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/Block
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-integration-basic/src/test/java/io/rxmicro/examples/testing/integration/basic/MicroServiceIntegrationTestSettings.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-integration-basic/src/test/java/io/rxmicro/examples/testing/integration/basic/MicroServiceIntegrationTestSettings.java[tag=content,indent=0]
 ----
 <1> The `schema` parameter allows You to specify the HTTP protocol schema.
 <2> The `host` parameter allows You to specify the remote host on which the microservice is running. +

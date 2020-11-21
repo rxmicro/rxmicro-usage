@@ -15,7 +15,7 @@ The RxMicro framework supports the following return result types for an HTTP res
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-handlers/src/main/java/io/rxmicro/examples/rest/client/handlers/RestClientWithoutBody.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-handlers/src/main/java/io/rxmicro/examples/rest/client/handlers/RestClientWithoutBody.java[tag=content,indent=0]
 ----
 <1> The {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[`CompletableFuture<Void>`^]
 type is recommended when using the {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/package-summary.html[*java.util.concurrent*^] library.
@@ -30,7 +30,7 @@ All the above mentioned HTTP request handlers shouldn't throw any exceptions:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-handlers/src/test/java/io/rxmicro/examples/rest/client/handlers/RestClientWithoutBodyTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-handlers/src/test/java/io/rxmicro/examples/rest/client/handlers/RestClientWithoutBodyTest.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-handlers
@@ -46,7 +46,7 @@ The RxMicro framework supports the following return result types for an HTTP res
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-handlers/src/main/java/io/rxmicro/examples/rest/client/handlers/RestClientWithBody.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-handlers/src/main/java/io/rxmicro/examples/rest/client/handlers/RestClientWithBody.java[tag=content,indent=0]
 ----
 <1> The {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/CompletableFuture.html[`CompletableFuture<MODEL>`^]
 type is recommended when using the {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/concurrent/package-summary.html[*java.util.concurrent*^] library.
@@ -63,7 +63,7 @@ All of the above mentioned handlers return the `Response` class instance with th
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-client-handlers/src/test/java/io/rxmicro/examples/rest/client/handlers/RestClientWithBodyTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-handlers/src/test/java/io/rxmicro/examples/rest/client/handlers/RestClientWithBodyTest.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-handlers

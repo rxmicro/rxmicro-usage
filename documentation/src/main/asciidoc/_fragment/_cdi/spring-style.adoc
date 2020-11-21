@@ -15,17 +15,17 @@ use the
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-spring-style/src/main/java/io/rxmicro/examples/cdi/spring/style/impl/ProductionBusinessService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-spring-style/src/main/java/io/rxmicro/examples/cdi/spring/style/impl/ProductionBusinessService.java[tag=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-spring-style/src/main/java/io/rxmicro/examples/cdi/spring/style/impl/DevelopmentBusinessService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-spring-style/src/main/java/io/rxmicro/examples/cdi/spring/style/impl/DevelopmentBusinessService.java[tag=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-spring-style/src/main/java/io/rxmicro/examples/cdi/spring/style/BusinessServiceFacade.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-spring-style/src/main/java/io/rxmicro/examples/cdi/spring/style/BusinessServiceFacade.java[tag=content,indent=0]
 ----
 <1> To inject the `ProductionBusinessService` class instance in the `businessService1` field, it is necessary in the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Qualifier.java[`@Qualifier`^]

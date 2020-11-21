@@ -2,4 +2,4 @@
 :stylesheet: rxmicro-doc.min.css
 :stylesdir: ../styles/
 
-include::../../../../../examples/documentation-asciidoctor-custom-sections/src/main/asciidoc/ExamplesDocumentationAsciidoctorCustomSectionsDocumentation.adoc[]
+include::../../../../../examples/group-documentation-asciidoctor/documentation-asciidoctor-custom-sections/src/main/asciidoc/ExamplesDocumentationAsciidoctorCustomSectionsDocumentation.adoc[]

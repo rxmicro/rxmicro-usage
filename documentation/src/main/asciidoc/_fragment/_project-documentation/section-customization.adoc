@@ -17,7 +17,7 @@ the developer can regroup standard sections of REST-based microservice documenta
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/documentation-asciidoctor-custom-sections/src/main/java/module-info.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-documentation-asciidoctor/documentation-asciidoctor-custom-sections/src/main/java/module-info.java[tag=content,indent=0]
 ----
 
 [NOTE]

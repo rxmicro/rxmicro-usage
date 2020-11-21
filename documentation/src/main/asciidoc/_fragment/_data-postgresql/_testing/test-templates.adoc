@@ -9,6 +9,6 @@ include::../../___fragment-settings.adoc[]
 :db-name: PostgreSQL DB
 :docker-test-db-link: {RX-MICRO-DOCKER_HUB_ROOT}postgres-test-db
 :docker-test-db-name: rxmicro/postgres-test-db
-:shared-template-source-code: ../../../../../../examples/data-r2dbc-postgresql-basic/src/test/java/io/rxmicro/examples/data/r2dbc/postgresql/basic/DataRepositoryTestTemplate1.java
-:personal-template-source-code: ../../../../../../examples/data-r2dbc-postgresql-basic/src/test/java/io/rxmicro/examples/data/r2dbc/postgresql/basic/DataRepositoryTestTemplate2.java
+:shared-template-source-code: ../../../../../../examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-basic/src/test/java/io/rxmicro/examples/data/r2dbc/postgresql/basic/DataRepositoryTestTemplate1.java
+:personal-template-source-code: ../../../../../../examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-basic/src/test/java/io/rxmicro/examples/data/r2dbc/postgresql/basic/DataRepositoryTestTemplate2.java
 include::../../_data/___repository-testing-docker.adoc[]

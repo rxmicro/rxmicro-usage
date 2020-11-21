@@ -10,7 +10,7 @@ The RxMicro framework supports request redirection:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-redirect/src/main/java/io/rxmicro/examples/rest/controller/redirect/MicroService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-redirect/src/main/java/io/rxmicro/examples/rest/controller/redirect/MicroService.java[tag=content,indent=0]
 ----
 <1> To redirect a request, You need to return the `PermanentRedirectException` instance, indicating a new URL Path.
 <2> Once the HTTP response with request redirection is returned, the HTTP client will automatically repeat the request to a new URL Path.
@@ -31,7 +31,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/308[`308`^] HTTP status
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-redirect/src/test/java/io/rxmicro/examples/rest/controller/redirect/MicroServiceTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-redirect/src/test/java/io/rxmicro/examples/rest/controller/redirect/MicroServiceTest.java[tag=content,indent=0]
 ----
 <1> By default, the predefined HTTP client, that is used to perform test requests to the microservice, does not support redirection.
 Therefore, automatic redirection must be activated using the <<testing.adoc#testing-BlockingHttpClient-settings-section,`@BlockingHttpClientSettings(followRedirects = ENABLED)` setting>>.
@@ -45,7 +45,7 @@ Besides using the `PermanentRedirectException`/`TemporaryRedirectException` exce
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-redirect/src/main/java/io/rxmicro/examples/rest/controller/redirect/MicroService2.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-redirect/src/main/java/io/rxmicro/examples/rest/controller/redirect/MicroService2.java[tag=content,indent=0]
 ----
 <1> Using a custom model class with the `Location` header.
 <2> Using the <<rest-controller-set-status-code-section,`@SetStatusCode`>> and <<rest-controller-headers-static,`@SetHeader`>> annotation composition.
@@ -54,7 +54,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-redirect/src/m
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-redirect/src/main/java/io/rxmicro/examples/rest/controller/redirect/model/RedirectResponse.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-redirect/src/main/java/io/rxmicro/examples/rest/controller/redirect/model/RedirectResponse.java[tag=content,indent=0]
 ----
 ====
 

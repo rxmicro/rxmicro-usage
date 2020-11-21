@@ -31,7 +31,7 @@ To disable the generation of validators by category, it is necessary to use anno
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-all/src/main/java/module-info.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-validation/validation-all/src/main/java/module-info.java[tag=content,indent=0]
 ----
 <1> Validators for all models of HTTP requests in the current project won't be generated.
 <2> Validators for all models of HTTP responses in the current project won't be generated.

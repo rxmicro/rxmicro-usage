@@ -11,12 +11,12 @@ To configure a base URL Path for all HTTP request handlers, the RxMicro framewor
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-base-url-path/src/main/java/io/rxmicro/examples/rest/controller/base/url/path/MicroService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-base-url-path/src/main/java/io/rxmicro/examples/rest/controller/base/url/path/MicroService.java[tag=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/rest-controller-base-url-path/src/test/java/io/rxmicro/examples/rest/controller/base/url/path/MicroServiceTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-base-url-path/src/test/java/io/rxmicro/examples/rest/controller/base/url/path/MicroServiceTest.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-controller-base-url-path

@@ -24,21 +24,21 @@ For example, to create a dynamic class, it is necessary to use the following fac
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-factory-class/src/main/java/io/rxmicro/examples/cdi/factoryclass/BusinessServiceFactoryImpl.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-factory-class/src/main/java/io/rxmicro/examples/cdi/factoryclass/BusinessServiceFactoryImpl.java[tag=content,indent=0]
 ----
 
 Injection of an instance created by the factory class does not differ from injection of an instance automatically created by the RxMicro framework:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-factory-class/src/main/java/io/rxmicro/examples/cdi/factoryclass/BusinessServiceFacade.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-factory-class/src/main/java/io/rxmicro/examples/cdi/factoryclass/BusinessServiceFacade.java[tag=content,indent=0]
 ----
 
 When invoking the `getValue` method, the dynamic class returns a predefined value:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-factory-class/src/test/java/io/rxmicro/examples/cdi/factoryclass/BusinessServiceFacadeTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-factory-class/src/test/java/io/rxmicro/examples/cdi/factoryclass/BusinessServiceFacadeTest.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-factory-class

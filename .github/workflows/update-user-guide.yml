@@ -11,13 +11,13 @@ on:
     branches: [ master ]
     paths:
       - 'documentation/**'
-      - 'examples/documentation-asciidoctor-custom-sections/**'
-      - 'examples/documentation-asciidoctor-echo/**'
-      - 'examples/documentation-asciidoctor-errors/**'
-      - 'examples/documentation-asciidoctor-metadata-annotations/**'
-      - 'examples/documentation-asciidoctor-metadata-pomxml/**'
-      - 'examples/documentation-asciidoctor-quick-start/**'
-      - 'examples/documentation-asciidoctor-validation/**'
+      - 'examples/group-documentation-asciidoctor/documentation-asciidoctor-custom-sections/**'
+      - 'examples/group-documentation-asciidoctor/documentation-asciidoctor-echo/**'
+      - 'examples/group-documentation-asciidoctor/documentation-asciidoctor-errors/**'
+      - 'examples/group-documentation-asciidoctor/documentation-asciidoctor-metadata-annotations/**'
+      - 'examples/group-documentation-asciidoctor/documentation-asciidoctor-metadata-pomxml/**'
+      - 'examples/group-documentation-asciidoctor/documentation-asciidoctor-quick-start/**'
+      - 'examples/group-documentation-asciidoctor/documentation-asciidoctor-validation/**'
 
 jobs:
   update-user-guide:
@@ -49,14 +49,14 @@ jobs:
         run: |
           cd rxmicro/
           LATEST_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
-          cd ../
-          mvn -DskipTests -Drxmicro.version=$LATEST_VERSION -B compile --file examples/documentation-asciidoctor-custom-sections/pom.xml
-          mvn -DskipTests -Drxmicro.version=$LATEST_VERSION -B compile --file examples/documentation-asciidoctor-echo/pom.xml
-          mvn -DskipTests -Drxmicro.version=$LATEST_VERSION -B compile --file examples/documentation-asciidoctor-errors/pom.xml
-          mvn -DskipTests -Drxmicro.version=$LATEST_VERSION -B compile --file examples/documentation-asciidoctor-quick-start/pom.xml
-          mvn -DskipTests -Drxmicro.version=$LATEST_VERSION -B compile --file examples/documentation-asciidoctor-validation/pom.xml
-          mvn -DskipTests -Drxmicro.version=$LATEST_VERSION -B compile --file examples/documentation-asciidoctor-metadata-annotations/pom.xml
-          mvn -DskipTests -Drxmicro.version=$LATEST_VERSION -B compile --file examples/documentation-asciidoctor-metadata-pomxml/pom.xml
+          cd ../examples/group-documentation-asciidoctor
+          mvn -DskipTests -Drxmicro.version=$LATEST_VERSION -B compile --file documentation-asciidoctor-custom-sections/pom.xml
+          mvn -DskipTests -Drxmicro.version=$LATEST_VERSION -B compile --file documentation-asciidoctor-echo/pom.xml
+          mvn -DskipTests -Drxmicro.version=$LATEST_VERSION -B compile --file documentation-asciidoctor-errors/pom.xml
+          mvn -DskipTests -Drxmicro.version=$LATEST_VERSION -B compile --file documentation-asciidoctor-quick-start/pom.xml
+          mvn -DskipTests -Drxmicro.version=$LATEST_VERSION -B compile --file documentation-asciidoctor-validation/pom.xml
+          mvn -DskipTests -Drxmicro.version=$LATEST_VERSION -B compile --file documentation-asciidoctor-metadata-annotations/pom.xml
+          mvn -DskipTests -Drxmicro.version=$LATEST_VERSION -B compile --file documentation-asciidoctor-metadata-pomxml/pom.xml
 
       - name: Build the Last Version of RxMicro User Guide
         run: |

@@ -24,7 +24,7 @@ To inform the `RxMicro Annotation Processor` about the need to generate HTTP res
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-response/src/main/java/module-info.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-validation/validation-server-response/src/main/java/module-info.java[tag=content,indent=0]
 ----
 <1> The `generateResponseValidators` parameter allows You to enable/disable the option of generating HTTP response validators for all handlers in the project. +
 _(The `AUTO_DETECT` value means that validators will be generated only if the developer adds the `rxmicro.validation` module to the `module-info.java` descriptor.
@@ -34,7 +34,7 @@ The HTTP response model class can contain any built-in or custom constraint anno
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-response/src/main/java/io/rxmicro/examples/validation/server/response/model/Response.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-validation/validation-server-response/src/main/java/io/rxmicro/examples/validation/server/response/model/Response.java[tag=content,indent=0]
 ----
 <1> In this example, the `message` field doesn't explicitly contain any constraint annotations.
 But since to the `module-info.java` descriptor was added the `rxmicro.validation` module, then all model fields not marked with the
@@ -45,14 +45,14 @@ To emulate an incorrect business value, `null` value is passed in the request ha
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-response/src/main/java/io/rxmicro/examples/validation/server/response/MicroService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-validation/validation-server-response/src/main/java/io/rxmicro/examples/validation/server/response/MicroService.java[tag=content,indent=0]
 ----
 
 In case of invalid HTTP response, the RxMicro framework returns HTTP response with a status `500` and <<{rest-controller}#rest-controller-errors-model-inline, standard error model>>:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/validation-server-response/src/test/java/io/rxmicro/examples/validation/server/response/MicroServiceTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-validation/validation-server-response/src/test/java/io/rxmicro/examples/validation/server/response/MicroServiceTest.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}validation-server-response

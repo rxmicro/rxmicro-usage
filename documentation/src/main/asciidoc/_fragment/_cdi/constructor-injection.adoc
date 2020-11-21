@@ -10,7 +10,7 @@ The RxMicro framework also supports constructor injection:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-constructor-injection/src/main/java/io/rxmicro/examples/cdi/constructor/injection/BusinessServiceFacade.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-constructor-injection/src/main/java/io/rxmicro/examples/cdi/constructor/injection/BusinessServiceFacade.java[tag=content,indent=0]
 ----
 <1> To enable constructor injection, it is necessary to create a constructor with parameters and annotate it by the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Inject.java[`@Inject`^] or
@@ -20,7 +20,7 @@ When using the constructor injection mechanism, this constructor is automaticall
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-constructor-injection/src/test/java/io/rxmicro/examples/cdi/constructor/injection/BusinessServiceFacadeTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-constructor-injection/src/test/java/io/rxmicro/examples/cdi/constructor/injection/BusinessServiceFacadeTest.java[tag=content,indent=0]
 ----
 
 Constructor injection requires more code to be written, but also allows You to create `final` fields as injection points.

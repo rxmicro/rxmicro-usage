@@ -25,7 +25,7 @@ To inject external resource it is necessary to use
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-resource-basic/src/main/java/io/rxmicro/examples/cdi/resource/basic/Component.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-resource-basic/src/main/java/io/rxmicro/examples/cdi/resource/basic/Component.java[tag=content,indent=0]
 ----
 
 Content of the `classpath:resources.properties` is:
@@ -39,7 +39,7 @@ After startup external resource is injected successful:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/cdi-resource-basic/src/test/java/io/rxmicro/examples/cdi/resource/basic/ComponentTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-resource-basic/src/test/java/io/rxmicro/examples/cdi/resource/basic/ComponentTest.java[tag=content,indent=0]
 ----
 
 ==== Additional Info

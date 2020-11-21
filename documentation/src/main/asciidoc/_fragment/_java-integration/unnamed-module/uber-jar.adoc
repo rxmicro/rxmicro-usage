@@ -40,7 +40,7 @@ To enable the `unnamed module` mode, add the `RX_MICRO_BUILD_UNNAMED_MODULE` com
 [[java-integration-unnamed-module-uber-jar-maven-shade-plugin]]
 [source,xml]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/unnamed-module-uber-jar/pom.xml[tags=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-unnamed-module/unnamed-module-uber-jar/pom.xml[tags=content,indent=0]
 ----
 <1> It is necessary to specify a class with the `main` method, which will be used as an entry point into the microservice.
 <2> The resulting `uber.jar` must not contain the module virtual descriptor, as this descriptor is only needed at the compilation level.

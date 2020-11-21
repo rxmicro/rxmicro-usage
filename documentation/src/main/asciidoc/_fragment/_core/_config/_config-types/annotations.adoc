@@ -11,7 +11,7 @@ To override the default value, the RxMicro framework provides the
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/config-annotations/src/main/java/module-info.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-common/config-annotations/src/main/java/module-info.java[tag=content,indent=0]
 ----
 
 <1> When overriding the configuration value, You must specify the configuration class.
@@ -60,7 +60,7 @@ Using this annotation it is convenient to configure the configuration manager fo
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-microservice-with-config/src/test/java/io/rxmicro/examples/testing/microservice/with/config/MicroServiceTest.java[tags=WithConfig,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-microservice-with-config/src/test/java/io/rxmicro/examples/testing/microservice/with/config/MicroServiceTest.java[tags=WithConfig,indent=0]
 ----
 
 The source code of the project using the <<{testing}#testing-annotations-WithConfig-inline,`@WithConfig`>> annotation is available at the following link:

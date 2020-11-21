@@ -12,7 +12,7 @@ To use the `rxmicro.data.mongo` module in the project, the following two steps m
 
 [source,xml]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-basic/pom.xml[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-mongo/data-mongo-basic/pom.xml[tag=content,indent=0]
 ----
 <1> Besides the `rxmicro.data.mongo` dependency, it is also recommended to add the reactive programming library.
 
@@ -29,7 +29,7 @@ Therefore, it is recommended to use the {REACTOR-CORE-DOC-USER_GUIDE}[*Project R
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-basic/src/main/java/module-info.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-mongo/data-mongo-basic/src/main/java/module-info.java[tag=content,indent=0]
 ----
 <1> When using a third-party reactive programming library, do not forget to add the corresponding module.
 
@@ -37,12 +37,12 @@ Once the `rxmicro.data.mongo` module is added, You can create a data model class
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-basic/src/main/java/io/rxmicro/examples/data/mongo/basic/model/Account.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-mongo/data-mongo-basic/src/main/java/io/rxmicro/examples/data/mongo/basic/model/Account.java[tag=content,indent=0]
 ----
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-basic/src/main/java/io/rxmicro/examples/data/mongo/basic/DataRepository.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-mongo/data-mongo-basic/src/main/java/io/rxmicro/examples/data/mongo/basic/DataRepository.java[tag=content,indent=0]
 ----
 <1> In order for a standard interface to be recognized by the RxMicro framework as a dynamic repository for interaction with https://www.mongodb.com/[`Mongo DB`^], this interface should be annotated with the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-mongo/src/main/java/io/rxmicro/data/mongo/MongoRepository.java[`@MongoRepository`^] annotation.
 <2> The dynamic repository may contain methods that form a query to the https://www.mongodb.com/[`Mongo DB`^].
@@ -60,7 +60,7 @@ The common approach recommended for testing dynamic repositories, that interact 
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/data-mongo-basic/src/test/java/io/rxmicro/examples/data/mongo/basic/DataRepositoryTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-mongo/data-mongo-basic/src/test/java/io/rxmicro/examples/data/mongo/basic/DataRepositoryTest.java[tag=content,indent=0]
 ----
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-mongo-basic

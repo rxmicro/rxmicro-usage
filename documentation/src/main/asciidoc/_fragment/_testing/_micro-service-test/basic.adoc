@@ -11,14 +11,14 @@ Since the microservice will return a JSON object, it is necessary to create a re
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-microservice-basic/src/main/java/io/rxmicro/examples/testing/microservice/basic/model/Response.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-microservice-basic/src/main/java/io/rxmicro/examples/testing/microservice/basic/model/Response.java[tag=content,indent=0]
 ----
 
 When there is the `GET` request to the microservice, it should return the `"Hello World!"` message:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-microservice-basic/src/main/java/io/rxmicro/examples/testing/microservice/basic/MicroService.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-microservice-basic/src/main/java/io/rxmicro/examples/testing/microservice/basic/MicroService.java[tag=content,indent=0]
 ----
 
 The testing process of the REST-based microservice is to perform an HTTP request after the RxMicro framework starts the tested microservice on the HTTP server.
@@ -26,7 +26,7 @@ After receiving a response from the microservice, this response is compared to t
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/testing-microservice-basic/src/test/java/io/rxmicro/examples/testing/microservice/basic/MicroServiceTest.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-microservice-basic/src/test/java/io/rxmicro/examples/testing/microservice/basic/MicroServiceTest.java[tag=content,indent=0]
 ----
 <1> To start the HTTP server and register the tested REST-based microservice, it is necessary to annotate the test class by the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/RxMicroRestBasedMicroServiceTest.java[`@RxMicroRestBasedMicroServiceTest`^] annotation.
