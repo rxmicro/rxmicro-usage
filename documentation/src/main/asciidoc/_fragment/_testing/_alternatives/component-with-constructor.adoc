@@ -30,5 +30,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-co
 <2> The `childComponent` alternative will be injected into the `ParentComponent` class instance after invoking the `beforeEach()` method and before the `Should_use_alternative()` test method.
 <3> When testing the `getEnvironment` method, the alternative method is invoked instead of the real component one.
 
+include::update-final-field-tip.adoc[]
+
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-simplest
 include::../../___notes/full-source-code-of-example.adoc[]

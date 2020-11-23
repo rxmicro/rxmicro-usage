@@ -43,6 +43,8 @@ After starting the test, a reference to the instance of the tested component wil
 Therefore, it is necessary to define what value should be returned when invoking the `getValue` method.
 <5> When testing the `getEnvironment` method, the alternative method is invoked instead of the real component one.
 
+include::update-final-field-tip.adoc[]
+
 When using alternatives it is very convenient to use a dynamic class with programmable behavior.
 For this purpose, it is very convenient to use the https://site.mockito.org/[Mockito^] framework:
 
@@ -56,6 +58,8 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-co
 <2> In order for JUnit to handle all fields annotated by the {MOCKITO-DOC-ROOT-URL}org/mockito/Mock.html[`@Mock`^] annotation before invoking test methods, it is necessary to annotate the test class by the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-mockito-junit/src/main/java/io/rxmicro/test/mockito/junit/InitMocks.java[`@InitMocks`^] annotation.
 <3> Before testing, it is necessary to program the behavior of the `getValue` method of the declared mock.
 <4> When testing the `getEnvironment` method, the method from the alternative is invoked instead of the real component one.
+
+include::update-final-field-tip.adoc[]
 
 [IMPORTANT]
 ====

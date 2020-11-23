@@ -21,8 +21,10 @@ import io.rxmicro.examples.unnamed.module.rest.client.generator.model.Response;
 import io.rxmicro.http.QueryParams;
 import io.rxmicro.http.client.HttpClientFactory;
 import io.rxmicro.http.error.ValidationException;
+import io.rxmicro.rest.client.RestClientConfig;
 import io.rxmicro.rest.model.HttpMethod;
 import io.rxmicro.test.Alternative;
+import io.rxmicro.test.WithConfig;
 import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.httpclient.HttpRequestMock;
@@ -43,6 +45,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @InitMocks
 @RxMicroComponentTest(RESTClient.class)
 final class RESTClientTest {
+
+    @WithConfig
+    private static RestClientConfig CONFIG = new RestClientConfig()
+            .setEnableAdditionalValidations(true);
 
     private RESTClient restClient;
 

@@ -25,15 +25,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # https://github.com/actions/checkout/blob/main/README.md
       - name: Checkout `rxmicro-usage` Repository
         uses: actions/checkout@v2
 
+      # https://github.com/actions/cache/blob/main/README.md
       - name: Setup Maven Local Repository
         uses: actions/cache@v1
         with:
           path: ~/.m2/repository
-          key: rxmicro-doc-maven-${{ runner.os }}-cache
+          key: rxmicro-doc-m2-local-${{ runner.os }}-repo
 
+      # https://github.com/actions/setup-java/blob/main/README.md
       - name: Setup JDK 11
         uses: actions/setup-java@v1
         with:

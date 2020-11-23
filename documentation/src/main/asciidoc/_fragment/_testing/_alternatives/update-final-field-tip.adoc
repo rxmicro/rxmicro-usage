@@ -1,0 +1,20 @@
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../___fragment-settings.adoc[]
+
+[NOTE]
+====
+If You would like to inject the alternative to the *final* field, don't forget to configure `maven-surefire-plugin`:
+
+[source,xml]
+----
+<plugin>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <configuration>
+        <argLine>
+            --add-opens java.base/java.lang.reflect=rxmicro.common <!--1-->
+        </argLine>
+    </configuration>
+</plugin>
+----
+<1> - It is necessary to add this open instruction
+====

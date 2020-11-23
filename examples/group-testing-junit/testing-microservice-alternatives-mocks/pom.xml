@@ -74,6 +74,10 @@
                                 junit.jupiter.execution.timeout.mode = disabled_on_debug
                             </configurationParameters>
                         </properties>
+                        <argLine>
+                            @{argLine}
+                            --add-opens java.base/java.lang.reflect=rxmicro.common
+                        </argLine>
                     </configuration>
                 </plugin>
             </plugins>

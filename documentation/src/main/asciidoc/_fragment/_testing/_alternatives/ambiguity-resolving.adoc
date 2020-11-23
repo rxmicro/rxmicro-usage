@@ -53,6 +53,8 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-co
 <2> Before testing, the behavior of the `getValue` method of created mock is programmed.
 <3> As a result of the test, You can see that this alternative is injected into *all* `Child`, `Parent` and `GrandParent` dependent components.
 
+include::update-final-field-tip.adoc[]
+
 If You create 2 or more (no more than 3 in this test example) alternatives, then each alternative can be injected in a separate business component:
 
 [source,java]
@@ -61,6 +63,8 @@ If You create 2 or more (no more than 3 in this test example) alternatives, then
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-component-alternatives-ambiguty-resolving/src/test/java/io/rxmicro/examples/testing/component/alternatives/ambiguty/resolving/GrandParent3Test.java[tag=content,indent=0]
 ----
 <1> The `grandParentBusinessService` alternative is injected into the `GrandParent` component, and the `businessService` alternative is injected into the `Child` component;
+
+include::update-final-field-tip.adoc[]
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-ambiguty-resolving
 include::../../___notes/full-source-code-of-example.adoc[]

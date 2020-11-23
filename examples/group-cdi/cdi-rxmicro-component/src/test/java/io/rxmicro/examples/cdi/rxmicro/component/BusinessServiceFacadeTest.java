@@ -35,7 +35,7 @@ final class BusinessServiceFacadeTest {
         assertEquals(
                 List.of(
                         "$$RESTClient",
-                        "HttpClientConfig"
+                        "RestClientConfig"
                 ),
                 systemOut.asStrings()
         );

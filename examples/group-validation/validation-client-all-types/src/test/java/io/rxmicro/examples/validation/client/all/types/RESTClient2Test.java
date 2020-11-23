@@ -19,7 +19,9 @@ package io.rxmicro.examples.validation.client.all.types;
 import io.rxmicro.examples.validation.client.all.types.model.Request;
 import io.rxmicro.http.client.HttpClientFactory;
 import io.rxmicro.http.error.ValidationException;
+import io.rxmicro.rest.client.RestClientConfig;
 import io.rxmicro.test.Alternative;
+import io.rxmicro.test.WithConfig;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.junit.InitMocks;
 import org.junit.jupiter.api.Test;
@@ -36,6 +38,10 @@ import static org.mockito.Answers.RETURNS_DEEP_STUBS;
 @InitMocks
 @RxMicroComponentTest(RESTClient2.class)
 final class RESTClient2Test {
+
+    @WithConfig
+    private static RestClientConfig CONFIG = new RestClientConfig()
+            .setEnableAdditionalValidations(true);
 
     private RESTClient2 restClient2;
 
