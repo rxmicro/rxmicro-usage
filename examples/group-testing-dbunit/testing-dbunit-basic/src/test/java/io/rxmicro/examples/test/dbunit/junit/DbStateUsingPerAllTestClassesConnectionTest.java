@@ -20,18 +20,16 @@ import io.rxmicro.test.dbunit.ExpectedDataSet;
 import io.rxmicro.test.dbunit.InitialDataSet;
 import io.rxmicro.test.dbunit.junit.DbUnitTest;
 import io.rxmicro.test.junit.RxMicroIntegrationTest;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.testcontainers.containers.DockerComposeContainer;
-import org.testcontainers.containers.wait.strategy.Wait;
+import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
-import java.io.File;
-import java.time.Duration;
-
+import static io.rxmicro.test.dbunit.TestDatabaseConfig.getCurrentTestDatabaseConfig;
 import static io.rxmicro.test.dbunit.junit.RetrieveConnectionStrategy.PER_ALL_TEST_CLASSES;
 
 // tag::content[]
@@ -42,12 +40,16 @@ import static io.rxmicro.test.dbunit.junit.RetrieveConnectionStrategy.PER_ALL_TE
 final class DbStateUsingPerAllTestClassesConnectionTest {
 
     @Container
-    private static final DockerComposeContainer<?> COMPOSE =
-            new DockerComposeContainer<>(new File("integration-tests-environment.yml").getAbsoluteFile())
-                    .withLocalCompose(true)
-                    .withPull(false)
-                    .withTailChildContainers(true)
-                    .waitingFor("postgres-db", Wait.forLogMessage(".*PostgreSQL init process complete.*\\s", 1));
+    private static final GenericContainer<?> POSTGRESQL_TEST_DB =
+            new GenericContainer<>("rxmicro/postgres-test-db")
+                    .withExposedPorts(5432);
+
+    @BeforeAll
+    static void beforeAll() {
+        getCurrentTestDatabaseConfig()
+                .setHost(POSTGRESQL_TEST_DB.getContainerIpAddress())
+                .setPort(POSTGRESQL_TEST_DB.getFirstMappedPort());
+    }
 
     @Test
     @ExpectedDataSet("dataset/rxmicro-test-dataset.xml")
@@ -60,7 +62,7 @@ final class DbStateUsingPerAllTestClassesConnectionTest {
     @InitialDataSet("dataset/rxmicro-test-dataset-two-rows-only.xml")
     @ExpectedDataSet("dataset/rxmicro-test-dataset-two-rows-only.xml")
     @Order(2)
-    void Should_set_and_compare_dataset(){
+    void Should_set_and_compare_dataset() {
 
     }
 }

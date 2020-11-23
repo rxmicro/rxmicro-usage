@@ -102,7 +102,6 @@
             <artifactId>rxmicro-data-sql-r2dbc-postgresql</artifactId>
             <version>${rxmicro.version}</version>
         </dependency>
-
         <dependency>
             <groupId>io.rxmicro</groupId>
             <artifactId>rxmicro-test-dbunit-junit</artifactId>
@@ -119,6 +118,12 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>${org.testcontainers.logback-classic.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.jdbc.driver.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

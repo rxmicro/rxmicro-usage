@@ -15,6 +15,10 @@
         <module>testing-dbunit-basic</module>
     </modules>
 
+    <properties>
+        <postgresql.jdbc.driver.version>42.2.18</postgresql.jdbc.driver.version>
+    </properties>
+
     <build>
         <plugins>
             <plugin>

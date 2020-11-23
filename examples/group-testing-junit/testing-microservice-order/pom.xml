@@ -70,6 +70,7 @@
                         <argLine>
                             @{argLine}
                             --add-opens examples.testing.microservice.order/io.rxmicro.examples.testing.microservice.order=ALL-UNNAMED
+                            --add-opens examples.testing.microservice.order/io.rxmicro.examples.testing.microservice.order=rxmicro.common
                         </argLine>
                         <properties>
                             <!-- https://junit.org/junit5/docs/5.5.1/api/org/junit/jupiter/api/Timeout.html -->

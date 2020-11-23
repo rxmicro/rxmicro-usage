@@ -53,7 +53,7 @@ final class RowOrderingTest {
             value = "dataset/rxmicro-test-dataset-products-order-by-price.xml",
             orderBy = "price"
     )
-    @Order(2)
+    @Order(1)
     void Should_contain_expected_dataset() {
 
     }
