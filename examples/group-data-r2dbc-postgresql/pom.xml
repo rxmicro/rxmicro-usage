@@ -32,6 +32,7 @@
         <module>data-r2dbc-postgresql-concurrent-isolation-level</module>
         <module>data-r2dbc-postgresql-close-resources</module>
         <module>data-r2dbc-postgresql-request-id-supplier</module>
+        <module>data-r2dbc-postgresql-expected-updated-rows-count</module>
     </modules>
 
     <build>
