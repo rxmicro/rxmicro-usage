@@ -188,7 +188,7 @@ To verify the built native image run:
 *./HelloWorldMicroService*
 ----
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}graalvm-native-image-quick-start
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-graalvm/graalvm-native-image-quick-start
 include::../../___notes/full-source-code-of-example.adoc[]
 
 include::../../___notes/recompile-after-change.adoc[]

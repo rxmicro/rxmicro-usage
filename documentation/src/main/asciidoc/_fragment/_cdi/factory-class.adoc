@@ -41,7 +41,7 @@ When invoking the `getValue` method, the dynamic class returns a predefined valu
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-factory-class/src/test/java/io/rxmicro/examples/cdi/factoryclass/BusinessServiceFacadeTest.java[tag=content,indent=0]
 ----
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-factory-class
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-cdi/cdi-factory-class
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

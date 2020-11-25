@@ -22,8 +22,8 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/da
 ====
 For more information, we recommend that You familiarize yourself with the following examples:
 
-* {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-r2dbc-postgresql-concurrent-reactor[*Concurrent Example Using Spring Reactor Library*^];
-* {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-r2dbc-postgresql-concurrent-rxjava3[*Concurrent Example Using RxJava 3 Library*^];
+* {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-data-r2dbc-postgresql/data-r2dbc-postgresql-concurrent-reactor[*Concurrent Example Using Spring Reactor Library*^];
+* {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-data-r2dbc-postgresql/data-r2dbc-postgresql-concurrent-rxjava3[*Concurrent Example Using RxJava 3 Library*^];
 ====
 
 include::../../___notes/recompile-after-change.adoc[]

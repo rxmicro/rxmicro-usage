@@ -34,7 +34,7 @@ Despite the different approaches to HTTP parameter handling support, as to the m
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-params/src/test/java/io/rxmicro/examples/rest/client/params/SimpleUsageRestClientTest.java[tag=content,indent=0]
 ----
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-params
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-rest-client/rest-client-params
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]
@@ -99,7 +99,7 @@ Since the request is transferred in an HTTP body, the sent and received JSON obj
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-params/src/test/java/io/rxmicro/examples/rest/client/params/ComplexModelRestClientTest.java[tag=content,indent=0]
 ----
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-params
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-rest-client/rest-client-params
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]
@@ -137,7 +137,7 @@ In order to understand the differences between the {RX-MICRO-SRC-ROOT-BLOB-URL}r
 * {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}rest-client-params/src/test/java/io/rxmicro/examples/rest/client/params/ComplexStaticQueryParametersRestClientTest.java[`ComplexStaticQueryParametersRestClientTest.java`^]
 ====
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-params
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-rest-client/rest-client-params
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]
@@ -166,7 +166,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-
 <1> By default, static query parameter list elements are transferred via the HTTP protocol as a string separated by the `|` symbol.
 <2> If the field is annotated by the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RepeatQueryParameter.java[`@RepeatQueryParameter`^] annotation, then the static query parameter is repeated for each element of the list.
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-params
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-rest-client/rest-client-params
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

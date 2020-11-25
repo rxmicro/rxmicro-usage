@@ -102,7 +102,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-con
 _(The `jsonErrorObject("...")` utility method is synonymous with the `jsonObject("message", "...")` method.)_
 <2> The returned status code equals the status code defined in the exception class in the `int STATUS_CODE` field.
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-controller-errors
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-rest-controller/rest-controller-errors
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

@@ -59,7 +59,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-post-construct/s
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-post-construct/src/test/java/io/rxmicro/examples/cdi/post/construct/BusinessService2FacadeTest.java[tag=content,indent=0]
 ----
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-post-construct
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-cdi/cdi-post-construct
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

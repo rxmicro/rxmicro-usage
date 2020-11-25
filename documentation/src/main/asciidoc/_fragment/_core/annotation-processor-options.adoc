@@ -29,6 +29,18 @@ The `RxMicro Annotation Processor` supports the following options:
 |the <<{java-integration}#java-integration-unnamed-module,`unnamed module`>> support for a microservice project.
 |`boolean`
 |`false`
+
+|`RX_MICRO_DOC_ANALYZE_PARENT_POM`
+|This option allows analyzing parent `pom.xml` if child `pom.xml` does not contain required property.
+|`boolean`
+|`true`
+
+|`RX_MICRO_STRICT_MODE`
+|Activates additional validation rules during compilation process.
+
+*The RxMicro team strong recommends enabling the strict mode for your production code.*
+|`boolean`
+|`false`
 |===
 
 These options are set using the compiler arguments in `maven-compiler-plugin`:
@@ -45,6 +57,8 @@ These options are set using the compiler arguments in `maven-compiler-plugin`:
             <arg>-ARX_MICRO_LOG_LEVEL=INFO</arg>
             <arg>-ARX_MICRO_DOC_DESTINATION_DIR=./src/main/asciidoc</arg>
             <arg>-ARX_MICRO_BUILD_UNNAMED_MODULE=false</arg>
+            <arg>-ARX_MICRO_DOC_ANALYZE_PARENT_POM=true</arg>
+            <arg>-ARX_MICRO_STRICT_MODE=false</arg>
         </compilerArgs>
     </configuration>
 </plugin>

@@ -43,6 +43,10 @@ include::_data-postgresql/primary-keys.adoc[]
 
 <<<
 
+include::_data-postgresql/enabled-updated-rows-count.adoc[]
+
+<<<
+
 include::_data-postgresql/transactional.adoc[]
 
 <<<

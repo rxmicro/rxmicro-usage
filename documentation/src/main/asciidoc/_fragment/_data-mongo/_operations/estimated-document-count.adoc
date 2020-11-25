@@ -17,10 +17,10 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-mongo/data-mongo-es
 ====
 For more information, we recommend that You familiarize yourself with the following examples:
 
-* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}data-mongo-all-operations/src/main/java/io/rxmicro/examples/data/mongo/all/operations/EstimatedDocumentCountDataRepository.java[All Supported Return Types^].
+* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}group-data-mongo/data-mongo-all-operations/src/main/java/io/rxmicro/examples/data/mongo/all/operations/EstimatedDocumentCountDataRepository.java[All Supported Return Types^].
 ====
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-mongo-estimated-document-count
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-data-mongo/data-mongo-estimated-document-count
 include::../../___notes/full-source-code-of-example.adoc[]
 
 include::../../___notes/recompile-after-change.adoc[]

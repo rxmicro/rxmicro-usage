@@ -27,13 +27,13 @@ Besides generating the final http://asciidoc.org/[`AsciiDoc`^] document, the `Rx
 For more information on this feature, check out the following example:
 
 [.example-code-link]
-{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}documentation-asciidoctor-custom-sections[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}documentation-asciidoctor-custom-sections`^]
+{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-documentation-asciidoctor/documentation-asciidoctor-custom-sections[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-documentation-asciidoctor/documentation-asciidoctor-custom-sections`^]
 ====
 
 :project-documentation-file: ExamplesDocumentationAsciidoctorCustomSectionsDocumentation.html
 include::../___notes/generated-project-documentation.adoc[]
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}documentation-asciidoctor-custom-sections
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-documentation-asciidoctor/documentation-asciidoctor-custom-sections
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

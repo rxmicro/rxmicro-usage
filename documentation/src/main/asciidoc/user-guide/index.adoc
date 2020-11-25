@@ -19,6 +19,7 @@ include::_fragment/preface.adoc[]
 . <<data-postgresql.adoc#data-postgresql-section,*Postgre SQL Data Repositories*>>
 . <<data-mongo.adoc#data-mongo-section,*Mongo Data Repositories*>>
 . <<cdi.adoc#cdi-section,*Contexts and Dependency Injection*>>
+. <<monitoring.adoc#monitoring-section,*Monitoring*>>
 . <<java-integration.adoc#java-integration-section,*Java EcoSystem Integration*>>
 . <<testing.adoc#tesing-section,*Testing*>>
 . <<appendices.adoc#appendices-section,*Appendices*>>

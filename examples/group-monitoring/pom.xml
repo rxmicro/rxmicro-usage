@@ -13,6 +13,7 @@
 
     <modules>
         <module>monitoring-heathcheck</module>
+        <module>monitoring-request-tracing</module>
     </modules>
 
     <build>

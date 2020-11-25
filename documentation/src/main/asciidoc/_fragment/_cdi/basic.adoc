@@ -67,7 +67,7 @@ Since the injection is performed into any component, it is necessary to use <<te
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-basic/src/test/java/io/rxmicro/examples/cdi/basic/BusinessServiceFacadeTest.java[tag=content,indent=0]
 ----
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-basic
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-cdi/cdi-basic
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

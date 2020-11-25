@@ -43,7 +43,7 @@ _(This correspondence is formed basing on the default strategy use, which is def
 <4> After executing the request in the resulting HTTP response, the `endpoint_version` and `use-Proxy` HTTP parameters are equal to `v1` and `true` respectively.
 _(The handler returns the same header values it received from an HTTP request.)_
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-controller-params
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-rest-controller/rest-controller-params
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]
@@ -140,7 +140,7 @@ For automatic conversion of Java types to JSON types, it is recommended to use t
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/json/JsonFactory.java[`JsonFactory`^] test class from the `rxmicro-test-json` module.
 ====
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-controller-params
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-rest-controller/rest-controller-params
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

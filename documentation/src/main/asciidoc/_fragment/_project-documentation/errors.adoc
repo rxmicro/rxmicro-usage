@@ -33,10 +33,18 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-documentation-asciidocto
 <2> The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/Description.java[`@Description`^] annotation describes the text description.
 <3> The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/Example.java[`@Example`^] annotation describes the value used as an example in the generated REST-based microservice documentation.
 
+The custom exception class can contain not string parameter(s):
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-documentation-asciidoctor/documentation-asciidoctor-errors/src/main/java/io/rxmicro/examples/documentation/asciidoctor/errors/model/CustomErrorModelException.java[tags=content]
+----
+<1> TODO ...
+
 :project-documentation-file: ExamplesDocumentationAsciidoctorErrorsDocumentation.html
 include::../___notes/generated-project-documentation.adoc[]
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}documentation-asciidoctor-errors
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-documentation-asciidoctor/documentation-asciidoctor-errors
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

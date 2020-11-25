@@ -1,0 +1,35 @@
+// suppress inspection "AsciiDocLinkResolve" for whole file
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../___fragment-settings.adoc[]
+
+==== Logger Configuration
+
+[[core-logger-config-file-inline]]
+The main configuration file of the `java.logging` logger is the `jul.properties` classpath resource.
+
+[NOTE]
+====
+If classpath contains the `jul.test.properties` resource, then this resource overrides *all* configurations of the `jul.properties` resource.
+
+This function allows configuring the logger for a test environment.
+====
+
+The `jul.properties` classpath resource must contain a configuration http://tutorials.jenkov.com/java-logging/configuration.html[in the standard format for the `java.logging` module^].
+
+Example of logger configuration:
+
+[source,properties]
+----
+.level=INFO
+io.rxmicro.config.level=DEBUG
+----
+
+[IMPORTANT]
+====
+The `rxmicro.logger` module supports all logging levels from the following sets: `{OFF, ERROR, WARN, INFO, DEBUG, TRACE, ALL}` and `{OFF, SEVERE, WARNING, INFO, CONFIG, FINE, FINER, FINEST, ALL}`.
+
+Therefore, in the `jul.properties` configuration file You can use any logging level.
+When activating the `java.logging` logger, the RxMicro framework automatically converts levels from a set of `{OFF, ERROR, WARN, INFO, DEBUG, TRACE, ALL}` into `{OFF, SEVERE, WARNING, INFO, FINE, FINEST, ALL}`.
+
+This option makes it possible to use unsupported but widely used in other logging frameworks logging levels for the `java.logging` logger.
+====

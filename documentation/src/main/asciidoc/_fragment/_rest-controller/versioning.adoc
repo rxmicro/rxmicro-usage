@@ -47,7 +47,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-con
 
 include::../___notes/note-blocking-http-client-version.adoc[]
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-controller-versioning-header
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-rest-controller/rest-controller-versioning-header
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]
@@ -85,7 +85,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-con
 
 include::../___notes/note-blocking-http-client-version.adoc[]
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-controller-versioning-url-path
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-rest-controller/rest-controller-versioning-url-path
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

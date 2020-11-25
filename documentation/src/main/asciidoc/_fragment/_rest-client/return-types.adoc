@@ -33,7 +33,7 @@ All the above mentioned HTTP request handlers shouldn't throw any exceptions:
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-handlers/src/test/java/io/rxmicro/examples/rest/client/handlers/RestClientWithoutBodyTest.java[tag=content,indent=0]
 ----
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-handlers
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-rest-client/rest-client-handlers
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]
@@ -66,7 +66,7 @@ All of the above mentioned handlers return the `Response` class instance with th
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-handlers/src/test/java/io/rxmicro/examples/rest/client/handlers/RestClientWithBodyTest.java[tag=content,indent=0]
 ----
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-handlers
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-rest-client/rest-client-handlers
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

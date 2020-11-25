@@ -85,6 +85,6 @@ Each method in this array must be invoked before executing a new iteration of th
 This parameter is not used in the test, but if it is present, the https://junit.org/junit5/[JUnit 5^] framework automatically passes the method name to it.
 Thus, in the execution report of the parameterized test, for each iteration the method that was invoked before execution of this iteration will be specified.
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-before-test
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-junit/testing-component-before-test
 include::../___notes/full-source-code-of-example.adoc[]
 

@@ -23,43 +23,14 @@ The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-logger/src/main/java/io/rxmicro/logger/L
 At the moment, there is only one implementation of this interface that delegates logging to the
 https://docs.oracle.com/javase/10/core/java-logging-overview.htm[`java.logging`^] module.
 
-[[core-logger-config-file-inline]]
-The main configuration file of the `java.logging` logger is the `jul.properties` classpath resource.
+<<<
 
-[NOTE]
-====
-If classpath contains the `jul.test.properties` resource, then this resource overrides *all* configurations of the `jul.properties` resource.
+include::_logger/config.adoc[]
 
-This function allows configuring the logger for a test environment.
-====
+<<<
 
-The `jul.properties` classpath resource must contain a configuration http://tutorials.jenkov.com/java-logging/configuration.html[in the standard format for the `java.logging` module^].
+include::_logger/handler.adoc[]
 
-Example of logger configuration:
+<<<
 
-[source,properties]
-----
-.level=INFO
-io.rxmicro.config.level=DEBUG
-----
-
-[IMPORTANT]
-====
-The `rxmicro.logger` module supports all logging levels from the following sets: `{OFF, ERROR, WARN, INFO, DEBUG, TRACE, ALL}` and `{OFF, SEVERE, WARNING, INFO, CONFIG, FINE, FINER, FINEST, ALL}`.
-
-Therefore, in the `jul.properties` configuration file You can use any logging level.
-When activating the `java.logging` logger, the RxMicro framework automatically converts levels from a set of `{OFF, ERROR, WARN, INFO, DEBUG, TRACE, ALL}` into `{OFF, SEVERE, WARNING, INFO, FINE, FINEST, ALL}`.
-
-This option makes it possible to use unsupported but widely used in other logging frameworks logging levels for the `java.logging` logger.
-====
-
-By default the `INFO` logging level is activated for the logger, and the `ConsoleHandler` appender, which outputs all logging information into `System.out`.
-
-[TIP]
-====
-The `rxmicro.logger` module contains only the basic functions necessary for logging.
-
-If these functions are not enough You can use any other logging framework:
-http://logback.qos.ch/[`Logback`^],
-https://logging.apache.org/log4j/2.x/[`Apache Log4j 2`^] and others.
-====
+include::_logger/pattern-formatter.adoc[]

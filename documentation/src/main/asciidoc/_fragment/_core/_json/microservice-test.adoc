@@ -184,5 +184,5 @@ Therefore in the test You can compare JSON objects by comparing their string rep
 *Thus, the RxMicro framework recommends using the `rxmicro.json` module to compare JSON objects, but at the same time provides an opportunity to use any other JSON framework!*
 ====
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}json
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-common/json
 include::../../___notes/full-source-code-of-example.adoc[]

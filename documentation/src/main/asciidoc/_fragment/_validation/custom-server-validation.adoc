@@ -51,7 +51,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-validation/validation-se
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-validation/validation-server-custom/src/test/java/io/rxmicro/examples/validation/server/custom/MicroServiceTest.java[tag=content,indent=0]
 ----
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}validation-server-custom
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-validation/validation-server-custom
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

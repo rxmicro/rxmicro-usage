@@ -68,5 +68,5 @@ annotation should be over the `@RxMicroComponentTest` annotation (or `@RxMicroRe
 otherwise, *the alternative will be injected before creating a mock instance, (i.e. injection of the `null` instance), which will cause an error!*
 ====
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-simplest
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-junit/testing-component-alternatives-simplest
 include::../../___notes/full-source-code-of-example.adoc[]

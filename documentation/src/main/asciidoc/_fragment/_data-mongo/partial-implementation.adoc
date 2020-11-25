@@ -44,7 +44,7 @@ In terms of infrastructure, the repository methods generated and defined by the 
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-mongo/data-mongo-partial-implementation/src/test/java/io/rxmicro/examples/data/mongo/partial/implementation/DataRepositoryTest.java[tag=content,indent=0]
 ----
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-mongo-partial-implementation
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-data-mongo/data-mongo-partial-implementation
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

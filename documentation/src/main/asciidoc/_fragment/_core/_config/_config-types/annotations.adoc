@@ -41,7 +41,7 @@ Server started at localhost:9090 using NETTY transport in 500 millis. # <1>
 
 <1>  HTTP server started on `localhost:9090`
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}config-annotations
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-common/config-annotations
 include::../../../___notes/full-source-code-of-example.adoc[]
 
 [IMPORTANT]
@@ -66,7 +66,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-mi
 The source code of the project using the <<{testing}#testing-annotations-WithConfig-inline,`@WithConfig`>> annotation is available at the following link:
 
 [.example-code-link]
-{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-microservice-with-config[`https://github.com/rxmicro/rxmicro-usage/tree/master/examples/testing-microservice-with-config`^]
+{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-junit/testing-microservice-with-config[`https://github.com/rxmicro/rxmicro-usage/tree/master/examples/testing-microservice-with-config`^]
 ====
 
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/DefaultConfigValue.java[`@DefaultConfigValue`^]
@@ -90,7 +90,7 @@ The source code of the project using the
 annotation is available at the following link:
 
 [.example-code-link]
-{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}config-annotations-supplier[`https://github.com/rxmicro/rxmicro-usage/tree/master/examples/config-annotations-supplier`^]
+{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-common/config-annotations-supplier[`https://github.com/rxmicro/rxmicro-usage/tree/master/examples/config-annotations-supplier`^]
 ====
 
 include::../../../___notes/recompile-after-change.adoc[]

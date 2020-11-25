@@ -51,7 +51,7 @@ _(The variable value is read from the `@VariableValues` annotation, which annota
 <4> The `${table}` variable value will be equal to `local_table`. +
 _(The variable value is read from the `@VariableValues` annotation, which annotates the repository method.)_
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-r2dbc-postgresql-variables
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-data-r2dbc-postgresql/data-r2dbc-postgresql-variables
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

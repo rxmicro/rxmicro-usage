@@ -55,7 +55,7 @@ In case of invalid HTTP response, the RxMicro framework returns HTTP response wi
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-validation/validation-server-response/src/test/java/io/rxmicro/examples/validation/server/response/MicroServiceTest.java[tag=content,indent=0]
 ----
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}validation-server-response
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-validation/validation-server-response
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

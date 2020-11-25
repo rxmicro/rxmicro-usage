@@ -34,7 +34,7 @@ If the parameter should be `optional`, the model field should be annotated with 
 <3> If an HTTP request validation error occurs, the request handler isn't invoked from the REST controller.
 <4> If the request parameters are valid, control is transferred to the request handler from the REST controller.
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}validation-server-basic
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-validation/validation-server-basic
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

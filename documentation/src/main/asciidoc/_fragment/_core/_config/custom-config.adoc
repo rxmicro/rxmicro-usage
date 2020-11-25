@@ -50,7 +50,7 @@ The `production` flag can now be set using any type of configuration, for exampl
 production=false
 ----
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}config-custom
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-common/config-custom
 include::../../___notes/full-source-code-of-example.adoc[]
 
 include::../../___notes/recompile-after-change.adoc[]

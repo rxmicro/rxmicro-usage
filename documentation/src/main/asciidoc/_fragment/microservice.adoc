@@ -84,6 +84,3 @@ Therefore, the following is implied in this guide:
 
 . If You find the term *microservice*, it means *REST-based microservice*, unless stated otherwise!
 . If You find the term *REST controller*, it means a logical component of the microservice that performs its direct functions!
-
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}microservices
-include::___notes/full-source-code-of-example.adoc[]

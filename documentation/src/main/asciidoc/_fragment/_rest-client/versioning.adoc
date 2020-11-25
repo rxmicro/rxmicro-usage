@@ -44,7 +44,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-versioning-header/src/test/java/io/rxmicro/examples/rest/client/versioning/header/NewRestClientTest.java[tag=content,indent=0]
 ----
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-versioning-header
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-rest-client/rest-client-versioning-header
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]
@@ -81,7 +81,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-versioning-url-path/src/test/java/io/rxmicro/examples/rest/client/versioning/url/path/NewRestClientTest.java[tag=content,indent=0]
 ----
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-versioning-url-path
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-rest-client/rest-client-versioning-url-path
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

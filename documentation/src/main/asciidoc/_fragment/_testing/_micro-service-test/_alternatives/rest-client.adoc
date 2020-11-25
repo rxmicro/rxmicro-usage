@@ -54,7 +54,7 @@ The modified test shows a coverage rate of 100%:
 .The test coverage report when using the `HttpClientFactory` mock alternative.
 image::testing/microservice/alternative/rest-client/jacoco-all-generated.jpg[]
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-microservice-alternatives-rest-client
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-junit/testing-microservice-alternatives-rest-client
 include::../../../___notes/full-source-code-of-example.adoc[]
 
 include::../../../___notes/recompile-after-change.adoc[]

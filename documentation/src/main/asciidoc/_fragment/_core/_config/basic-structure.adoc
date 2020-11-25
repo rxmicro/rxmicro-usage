@@ -46,7 +46,7 @@ It means that if the developer creates several `Configs.Builder` instances, it w
 method that matters, the others will be ignored.
 ====
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}config-basic
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-common/config-basic
 include::../../___notes/full-source-code-of-example.adoc[]
 
 include::../../___notes/recompile-after-change.adoc[]

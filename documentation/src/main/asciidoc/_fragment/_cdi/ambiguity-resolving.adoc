@@ -81,7 +81,7 @@ This behavior can be tested with the following test:
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-ambiguty-resolving-by-impl-classname-and-field-name/src/test/java/io/rxmicro/examples/cdi/ambiguty/resolving/BusinessServiceFacadeTest.java[tag=content,indent=0]
 ----
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-ambiguty-resolving-by-impl-classname-and-field-name
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-cdi/cdi-ambiguty-resolving-by-impl-classname-and-field-name
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]
@@ -114,7 +114,7 @@ This behavior can be tested with the following test:
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-ambiguty-resolving-by-impl-classname-and-Named-annotation/src/test/java/io/rxmicro/examples/cdi/ambiguty/resolving/BusinessServiceFacadeTest.java[tag=content,indent=0]
 ----
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-ambiguty-resolving-by-impl-classname-and-Named-annotation
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-cdi/cdi-ambiguty-resolving-by-impl-classname-and-Named-annotation
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]
@@ -152,7 +152,7 @@ annotation parameter, You need to specify the `Development` name. +
 _(This name is explicitly set for the `DevelopmentBusinessService` class, using the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Named.java[`@Named`^] annotation!)_
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-ambiguty-resolving-by-Named-implementation-and-Named-field
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-cdi/cdi-ambiguty-resolving-by-Named-implementation-and-Named-field
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]
@@ -201,7 +201,7 @@ When using custom annotations, the result of ambiguity resolving will be the sam
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-ambiguty-resolving-using-custom-Named-annotation/src/test/java/io/rxmicro/examples/cdi/ambiguty/resolving/BusinessServiceFacadeTest.java[tag=content,indent=0]
 ----
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-ambiguty-resolving-using-custom-Named-annotation
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-cdi/cdi-ambiguty-resolving-using-custom-Named-annotation
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

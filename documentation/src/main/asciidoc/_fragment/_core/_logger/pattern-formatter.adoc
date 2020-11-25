@@ -1,0 +1,177 @@
+// suppress inspection "AsciiDocLinkResolve" for whole file
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../___fragment-settings.adoc[]
+
+==== Pattern Formatter
+
+The current version of the `rxmicro.logger` module is supported only one logger formatter:
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-logger/src/main/java/io/rxmicro/logger/jul/PatternFormatter.java[`PatternFormatter`^] with the default configuration:
+
+[source,properties]
+----
+io.rxmicro.logger.jul.PatternFormatter.pattern=%d{yyyy-MM-dd HH:mm:ss.SSS} [%p] %c: %m%n
+----
+
+This class supports conversion specifiers that can be used as format control expressions.
+Each conversion specifier starts with a percent sign `%` and is followed by optional format modifiers, a conversion word and optional parameters between braces.
+The conversion word controls the data field to convert, e.g. logger name or date format.
+
+The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-logger/src/main/java/io/rxmicro/logger/jul/PatternFormatter.java[`PatternFormatter`^] supports the following conversion specifiers:
+
+.Conversion specifiers supported by the `PatternFormatter`.
+[cols=">1,2a"]
+|===
+|*Conversion specifiers*|*Description*
+
+|*c*`\{length}` +
+*lo*`\{length}` +
+*logger*`\{length}` +
+|Outputs the name of the logger at the origin of the logging event. +
+This conversion specifier takes a string as its first and only option. +
+Currently supported only one of the following options: `\{short}`, `\{0}`, `\{full}`. +
+`\{short}` is synonym for `\{0}` option. +
+If no option defined this conversion specifier uses `\{full}` option. +
+
+The following table describes option usage results:
+[cols="1,2,2"]
+!===
+! Conversion specifier ! Logger name ! Result
+
+! `%logger`
+! `package.sub.Bar`
+! `package.sub.Bar`
+
+! `%logger\{full}`
+! `package.sub.Bar`
+! `package.sub.Bar`
+
+! `%logger\{short}`
+! `package.sub.Bar`
+! `Bar`
+
+! `%logger\{0}`
+! `package.sub.Bar`
+! `Bar`
+
+!===
+
+|*C*`\{length}` +
+*class*`\{length}` +
+|Outputs the fully-qualified class name of the caller issuing the logging request. +
+This conversion specifier takes a string as its first and only option. +
+Currently supported only one of the following options: `\{short}`, `\{0}`, `\{full}`. +
+`\{short}` is synonym for `\{0}` option. +
+If no option defined this conversion specifier uses `\{full}` option. +
+
+The following table describes option usage results:
+[cols="1,2,2"]
+!===
+! Conversion specifier ! Logger name ! Result
+
+! `%logger`
+! `package.sub.Bar`
+! `package.sub.Bar`
+
+! `%logger\{full}`
+! `package.sub.Bar`
+! `package.sub.Bar`
+
+! `%logger\{short}`
+! `package.sub.Bar`
+! `Bar`
+
+! `%logger\{0}`
+! `package.sub.Bar`
+! `Bar`
+
+!===
+
+*Generating the caller class information is not particularly fast.
+Thus, its use should be avoided unless execution speed is not an issue!*
+
+|*d*`\{pattern}` +
+*date*`\{pattern}` +
+*d*`{pattern, timezone}` +
+*date*`{pattern, timezone}` +
+|Used to output the date of the logging event. +
+The date conversion word admits a pattern string as a parameter. +
+The pattern syntax is compatible with the format accepted by {JDK-JAVA-BASE-DOC-ROOT-URL}java/time/format/DateTimeFormatter.html[`DateTimeFormatter`^]. +
+If {@code timezone} is specified, this conversion specifier uses {JDK-JAVA-BASE-DOC-ROOT-URL}java/time/ZoneId.html#of(java.lang.String)[`ZoneId.of(String)`^] method to parse it, so timezone syntax must be compatible with zone id format. +
+
+The following table describes option usage results:
+[cols="1,2"]
+!===
+! Conversion specifier ! Result
+
+! `%date`
+! `2020-01-02 03:04:05.123`
+
+! `%date\{yyyy-MM-dd}`
+! `2020-01-02`
+
+! `%date{HH:mm:ss.SSS}`
+! `03:04:05.123`
+
+! `%date{, UTC}`
+! `2020-01-02 03:04:05.123`
+
+!===
+
+If pattern is missing (For example: `%d`, `%date`, `%date{, UTC}}`, the default pattern will be used:
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-logger/src/main/java/io/rxmicro/logger/internal/jul/config/adapter/pattern/consumers/DateTimeOfLoggingEventBiConsumer.java#L40[`yyyy-MM-dd HH:mm:ss.SSS`^]
+
+|*F* +
+*file*`
+|Outputs the file name of the Java source file where the logging request was issued.
+
+*Generating the file information is not particularly fast.
+Thus, its use should be avoided unless execution speed is not an issue!*
+
+|*L* +
+*line*`
+|Outputs the line number from where the logging request was issued.
+
+*Generating the file information is not particularly fast.
+Thus, its use should be avoided unless execution speed is not an issue!*
+
+|*m* +
+*mes*` +
+*message* +
+|Outputs the application-supplied message associated with the logging event.
+
+|*M* +
+*method*`
+|Outputs the method name where the logging request was issued.
+
+*Generating the method name is not particularly fast.
+Thus, its use should be avoided unless execution speed is not an issue.*
+
+|*n*
+|Outputs the platform dependent line separator character or characters.
+
+This conversion word offers practically the same performance as using non-portable line separator strings such as `\n`, or `\r\n`.
+Thus, it is the preferred way of specifying a line separator.
+
+|*p* +
+*le*` +
+*level* +
+|Outputs the level of the logging event.
+
+|*r* +
+*relative* +
+|Outputs the number of milliseconds elapsed since the start of the application until the creation of the logging event.
+
+|*t* +
+*thread* +
+|Outputs the name of the thread that generated the logging event.
+
+|*id* +
+*rid* +
+*request-id* +
+*request_id* +
+*requestId* +
+|Outputs the request id if specified.
+
+This specifier displays the request id that retrieved from HTTP request if the <<{monitoring}#monitoring-request-tracing,request tracing>> is enabled.
+
+|===

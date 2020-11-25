@@ -58,7 +58,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-con
 ----
 ====
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-controller-redirect
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-rest-controller/rest-controller-redirect
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

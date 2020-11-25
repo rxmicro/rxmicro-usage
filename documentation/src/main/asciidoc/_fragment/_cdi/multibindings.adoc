@@ -36,7 +36,7 @@ After successful injection, the `businessServices` field will contain the `Produ
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-multibinder/src/test/java/io/rxmicro/examples/cdi/multibinder/BusinessServiceFacadeTest.java[tag=content,indent=0]
 ----
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-multibinder
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-cdi/cdi-multibinder
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

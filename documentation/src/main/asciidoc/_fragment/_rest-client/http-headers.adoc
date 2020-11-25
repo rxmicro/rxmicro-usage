@@ -35,7 +35,7 @@ _(This correspondence is formed basing on the default strategy use, which is def
 <4> After executing the request in the resulting HTTP response, the `Endpoint-Version` and `UseProxy` headers are equal to `v1` and `true` respectively.
 _(The handler returns the same header values it received from an HTTP request.)_
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-headers
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-rest-client/rest-client-headers
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]
@@ -79,7 +79,7 @@ In order to understand the differences between the {RX-MICRO-SRC-ROOT-BLOB-URL}r
 * {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}rest-client-headers/src/test/java/io/rxmicro/examples/rest/client/headers/ComplexStaticHeadersRestClientTest.java[`ComplexStaticHeadersRestClientTest.java`^]
 ====
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-headers
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-rest-client/rest-client-headers
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]
@@ -115,7 +115,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-
 <1> By default, HTTP header list elements are transferred via the HTTP protocol as a string separated by the `|` symbol.
 <2> If the field is annotated by the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/RepeatHeader.java[`@RepeatHeader`^] annotation, then the header is repeated for each element of the list.
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-headers
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-rest-client/rest-client-headers
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

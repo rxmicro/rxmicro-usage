@@ -39,7 +39,7 @@ _(The configuration defined in this way is only available while the test is runn
 
 The source code of the project that uses the `@WithConfig` annotation, is available at the following link:
 
-{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-microservice-with-config[`testing-microservice-with-config`^]
+{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-junit/testing-microservice-with-config[`testing-microservice-with-config`^]
 
 _The RxMicro framework supports test configuration only for <<{testing}#testing-rest-based-microservice-tests-section,REST-based microservice tests>> and <<{testing}#testing-component-tests-section,component unit tests>>._
 

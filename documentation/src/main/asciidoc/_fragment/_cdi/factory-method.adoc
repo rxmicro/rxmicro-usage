@@ -37,7 +37,7 @@ The factory method must meet the following requirements:
 * The method must return the class instance in which it is declared.
 * The method must not contain parameters.
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-factory-method
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-cdi/cdi-factory-method
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

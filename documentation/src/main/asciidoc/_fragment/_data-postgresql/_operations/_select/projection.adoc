@@ -72,7 +72,7 @@ public final class $$AccountEntityFromDBConverter
 _(This converter is a standard one, because an order of the selected columns is defined by the order of fields of Java model class.
 (`Account` class for current example.))_
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-r2dbc-postgresql-select-projection
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-data-r2dbc-postgresql/data-r2dbc-postgresql-select-projection
 include::../../../___notes/full-source-code-of-example.adoc[]
 
 include::../../../___notes/recompile-after-change.adoc[]

@@ -15,6 +15,7 @@
 :data-postgresql: data-postgresql.adoc
 :data-mongo: data-mongo.adoc
 :cdi: cdi.adoc
+:monitoring: monitoring.adoc
 :java-integration: java-integration.adoc
 :testing:
 :appendices: appendices.adoc

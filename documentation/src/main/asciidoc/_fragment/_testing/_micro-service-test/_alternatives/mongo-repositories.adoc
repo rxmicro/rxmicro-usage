@@ -59,7 +59,7 @@ The modified test shows a coverage rate of 100%:
 .The test coverage report when using the `MongoDatabase` mock alternative.
 image::testing/microservice/alternative/mongo-repo/jacoco-all-generated.jpg[]
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-microservice-alternatives-mongo-repository
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-junit/testing-microservice-alternatives-mongo-repository
 include::../../../___notes/full-source-code-of-example.adoc[]
 
 include::../../../___notes/recompile-after-change.adoc[]

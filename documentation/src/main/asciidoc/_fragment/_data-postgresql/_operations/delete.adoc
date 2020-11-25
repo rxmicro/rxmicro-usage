@@ -19,10 +19,10 @@ _(Read more about the algorithm of the variables resolving at <<data-postgresql-
 ====
 For more information, we recommend that You familiarize yourself with the following examples:
 
-{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-r2dbc-postgresql-return-types/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/returntypes/delete[All Supported Return Types^]
+{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-data-r2dbc-postgresql/data-r2dbc-postgresql-return-types/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/returntypes/delete[All Supported Return Types^]
 ====
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-r2dbc-postgresql-delete
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-data-r2dbc-postgresql/data-r2dbc-postgresql-delete
 include::../../___notes/full-source-code-of-example.adoc[]
 
 include::../../___notes/recompile-after-change.adoc[]

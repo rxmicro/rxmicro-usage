@@ -38,7 +38,7 @@ annotation parameter specify the `Development` name. +
 _(This is the name that is set explicitly for the `DevelopmentBusinessService` class by the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-cdi/src/main/java/io/rxmicro/cdi/Qualifier.java[`@Qualifier`^] annotation!)_
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-spring-style
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-cdi/cdi-spring-style
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

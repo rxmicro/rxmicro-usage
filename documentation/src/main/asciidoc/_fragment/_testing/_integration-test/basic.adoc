@@ -42,7 +42,7 @@ This integration test demonstrates *all* features of the integration test activa
 Thus, the integration test unlike the REST-based microservice test can only inject a blocking HTTP client and create a mock for the `System.out`.
 ====
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-integration-basic
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-junit/testing-integration-basic
 include::../../___notes/full-source-code-of-example.adoc[]
 
 include::../../___notes/recompile-after-change.adoc[]

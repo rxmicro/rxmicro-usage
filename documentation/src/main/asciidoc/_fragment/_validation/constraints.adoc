@@ -11,6 +11,10 @@ The RxMicro framework supports the following built-in constraints, that are avai
 |===
 |*Annotation*|*Supported Type*|*Description*
 
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/AllowEmptyString.java[`@AllowEmptyString`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
+|The annotated element may be optional, i.e. `empty string` BUT must be not `null`!
+
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/AssertFalse.java[`@AssertFalse`^]
 |{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Boolean.html[`java.lang.Boolean`^]
 |The annotated element must be `false`.
@@ -118,7 +122,9 @@ a|* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Byte.html[`java.lang.Byte`^];
 |The annotated element must be a number whose value must be lower or equal to the specified maximum.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/MaxSize.java[`@MaxSize`^]
-|{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/List.html[`java.util.List`^]
+a|* {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/List.html[`java.util.List`^]
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/Set.html[`java.util.Set`^]
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/Map.html[`java.util.Map`^]
 |The annotated element must have a list size whose value must be lower or equal to the specified maximum.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/MinDouble.java[`@MinDouble`^]
@@ -149,7 +155,9 @@ a|* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Byte.html[`java.lang.Byte`^];
 |The annotated element must be a number whose value must be higher or equal to the specified minimum.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/MinSize.java[`@MinSize`^]
-|{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/List.html[`java.util.List`^]
+a|* {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/List.html[`java.util.List`^]
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/Set.html[`java.util.Set`^]
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/Map.html[`java.util.Map`^]
 |The annotated element must have a list size whose value must be higher or equal to the specified minimum.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Nullable.java[`@Nullable`^]
@@ -157,7 +165,8 @@ a|* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Byte.html[`java.lang.Byte`^];
 |The annotated element may be optional, i.e. `null`.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/NullableArrayItem.java[`@NullableArrayItem`^]
-|{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/List.html[`java.util.List`^]
+a|* {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/List.html[`java.util.List`^]
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/Set.html[`java.util.Set`^]
 |The annotated array element may be optional, i.e. `null`.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Numeric.java[`@Numeric`^]
@@ -184,7 +193,9 @@ _(See {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/regex/Pattern.html[`java.util.regex.
 |The annotated element must be a https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers[valid phone number^].
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Size.java[`@Size`^]
-|{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/List.html[`java.util.List`^]
+a|* {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/List.html[`java.util.List`^]
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/Set.html[`java.util.Set`^]
+* {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/Map.html[`java.util.Map`^]
 |The annotated element must have the expected list size.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Skype.java[`@Skype`^]

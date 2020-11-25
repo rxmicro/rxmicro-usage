@@ -63,7 +63,7 @@ The common approach recommended for testing dynamic repositories, that interact 
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-mongo/data-mongo-basic/src/test/java/io/rxmicro/examples/data/mongo/basic/DataRepositoryTest.java[tag=content,indent=0]
 ----
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}data-mongo-basic
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-data-mongo/data-mongo-basic
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

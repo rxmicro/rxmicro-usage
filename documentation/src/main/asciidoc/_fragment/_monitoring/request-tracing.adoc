@@ -1,0 +1,100 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
+
+[[monitoring-request-tracing]]
+=== REST Request Tracing
+
+TODO
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-monitoring/monitoring-request-tracing/src/main/java/io/rxmicro/examples/monitoring/request/tracing/model/rest/Request.java[tags=content]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-monitoring/monitoring-request-tracing/src/main/java/io/rxmicro/examples/monitoring/request/tracing/controller/AccountController.java[tags=content]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-monitoring/monitoring-request-tracing/src/main/java/io/rxmicro/examples/monitoring/request/tracing/service/AccountService.java[tags=content]
+----
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-monitoring/monitoring-request-tracing/src/main/java/io/rxmicro/examples/monitoring/request/tracing/repository/AccountRepository.java[tags=content]
+----
+
+[source,properties]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-monitoring/monitoring-request-tracing/src/main/resources/jul.properties[]
+----
+
+[source,text,subs="verbatim,quotes"]
+----
+:$ curl -v localhost:8080/account/1
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+> GET /account/1 HTTP/1.1
+> Host: localhost:8080
+> User-Agent: curl/7.58.0
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Content-Length: 88
+< Server: RxMicro-NettyServer/0.7-SNAPSHOT
+< Date: Wed, 25 Nov 2020 17:30:51 GMT
+< Content-Type: application/json
+< Request-Id: AkinnfVzx1752012 <1>
+<
+* Connection #0 to host localhost left intact
+{"email":"richard.hendricks@piedpiper.com","firstName":"Richard","lastName":"Hendricks"}
+----
+
+The log output:
+
+[source,text,subs="verbatim,quotes"]
+----
+19:30:50.494 {null} [TRACE] NettyClientConnectionController: Client connection created: Channel=eaaf0399, IP=/127.0.0.1:33312
+
+19:30:50.589 {AkinnfVzx1752012} [TRACE] NettyRequestHandler: HTTP request:  (Channel=eaaf0399, IP=/127.0.0.1:33312):
+GET /account/1 HTTP/1.1
+Host: localhost:8080
+User-Agent: curl/7.58.0
+Accept: */*
+content-length: 0
+
+
+19:30:50.591 {AkinnfVzx1752012} [DEBUG] AccountService: Finding account by id=1...
+
+19:30:50.998 {AkinnfVzx1752012} [TRACE] AccountRepository: Execute SQL 'SELECT id, email, first_name, last_name FROM account WHERE id = $1' with params: [1] using connection: class='PooledConnection', id='c1275307250'...
+
+19:30:51.074 {AkinnfVzx1752012} [TRACE] AccountRepository: SQL 'SELECT id, email, first_name, last_name FROM account WHERE id = $1' with params: [1] executed successful
+
+19:30:51.148 {AkinnfVzx1752012} [DEBUG] AccountService: Account exists by id=1: Account{id=1, email=richard.hendricks@piedpiper.com, firstName=Richard, lastName=Hendricks}
+
+19:30:51.166 {AkinnfVzx1752012} [TRACE] AccountRepository: Connection closed: class='PooledConnection', id='c1275307250', signal='onComplete'
+
+19:30:51.167 {AkinnfVzx1752012} [TRACE] NettyRequestHandler: HTTP response: (Channel=eaaf0399, Duration=588.093042ms):
+HTTP/1.1 200 OK
+Content-Length: 88
+Server: RxMicro-NettyServer/0.7-SNAPSHOT
+Date: Wed, 25 Nov 2020 17:30:51 GMT
+Content-Type: application/json
+Request-Id: AkinnfVzx1752012
+
+{"email":"richard.hendricks@piedpiper.com","firstName":"Richard","lastName":"Hendricks"}
+
+----
+
+[NOTE]
+====
+For more information, we recommend that You familiarize yourself with the following examples:
+
+* {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-monitoring/monitoring-request-tracing[*Request tracing example*^];
+====
+
+include::../___notes/recompile-after-change.adoc[]

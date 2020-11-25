@@ -1,0 +1,22 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
+
+[[data-postgresql-enabled-updated-rows-count-section]]
+=== `@EnabledUpdatedRowsCount` annotation
+
+TODO
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-expected-updated-rows-count/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/expected/updated/rows/count/InsertDataRepository.java[tag=content,indent=0]
+----
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-expected-updated-rows-count/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/expected/updated/rows/count/UpdateDataRepository.java[tag=content,indent=0]
+----
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-expected-updated-rows-count/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/expected/updated/rows/count/DeleteDataRepository.java[tag=content,indent=0]
+----

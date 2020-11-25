@@ -28,7 +28,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-rxmicro-componen
 <2> Besides injecting REST clients, the RxMicro framework also supports the configuration injection. +
 _(A list of all supported RxMicro components that can be injected is described in the <<cdi-rx-micro-component-injection-all-supported-components-section>>.)_
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-rxmicro-component
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-cdi/cdi-rxmicro-component
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]
@@ -73,5 +73,5 @@ _(For example: `MongoConfig`, `HttpClientConfig`, `HttpServerConfig`, etc.)_
 The source code of the project demonstrating all supported for injection RxMicro components is available at the following link:
 
 [.example-code-link]
-{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-all-rxmicro-components[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-all-rxmicro-components`^]
+{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-cdi/cdi-all-rxmicro-components[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-cdi/cdi-all-rxmicro-components`^]
 ====

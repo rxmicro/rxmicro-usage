@@ -25,7 +25,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-constructor-inje
 
 Constructor injection requires more code to be written, but also allows You to create `final` fields as injection points.
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-constructor-injection
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-cdi/cdi-constructor-injection
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

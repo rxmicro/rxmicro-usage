@@ -34,7 +34,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-documentation-asciidocto
 :project-documentation-file: MetadataPomXmlDocumentation.html
 include::../___notes/generated-project-documentation.adoc[]
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}documentation-asciidoctor-metadata-pomxml
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-documentation-asciidoctor/documentation-asciidoctor-metadata-pomxml
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]
@@ -54,7 +54,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-documentation-asciidocto
 :project-documentation-file: MetadataAnnotationsDocumentation.html
 include::../___notes/generated-project-documentation.adoc[]
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}documentation-asciidoctor-metadata-annotations
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-documentation-asciidoctor/documentation-asciidoctor-metadata-annotations
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

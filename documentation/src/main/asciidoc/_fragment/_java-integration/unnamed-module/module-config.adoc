@@ -58,7 +58,7 @@ For the `unnamed module` instead of the `module-info.java` module descriptor, us
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-unnamed-module/unnamed-module-rest-controller-generator/src/main/java/ModuleInfo.java[tags=content,indent=0]
 ----
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}unnamed-module-rest-controller-generator
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-unnamed-module/unnamed-module-rest-controller-generator
 include::../../___notes/full-source-code-of-example.adoc[]
 
 include::../../___notes/recompile-after-change.adoc[]
@@ -78,7 +78,7 @@ For the `unnamed module` instead of the `module-info.java` module descriptor, us
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-unnamed-module/unnamed-module-rest-client-generator/src/main/java/ModuleInfo.java[tags=content,indent=0]
 ----
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}unnamed-module-rest-client-generator
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-unnamed-module/unnamed-module-rest-client-generator
 include::../../___notes/full-source-code-of-example.adoc[]
 
 include::../../___notes/recompile-after-change.adoc[]
@@ -97,7 +97,7 @@ For the `unnamed module` instead of the `module-info.java` module descriptor, us
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-unnamed-module/unnamed-module-documentation-asciidoctor-metadata-annotations/src/main/java/ModuleInfo.java[tags=content,indent=0]
 ----
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}unnamed-module-documentation-asciidoctor-metadata-annotations
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-unnamed-module/unnamed-module-documentation-asciidoctor-metadata-annotations
 include::../../___notes/full-source-code-of-example.adoc[]
 
 include::../../___notes/recompile-after-change.adoc[]

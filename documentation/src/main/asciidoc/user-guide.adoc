@@ -100,6 +100,13 @@ include::_fragment/cdi.adoc[]
 
 <<<
 
+[[monitoring-section]]
+== Monitoring
+
+include::_fragment/monitoring.adoc[]
+
+<<<
+
 [[java-integration-section]]
 == Java EcoSystem Integration
 

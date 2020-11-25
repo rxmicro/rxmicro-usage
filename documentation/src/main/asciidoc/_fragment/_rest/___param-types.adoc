@@ -21,4 +21,10 @@ The RxMicro framework supports the following Java types, which can be HTTP reque
 
 include::../___notes/note-use-big-decimal.adoc[]
 
-and also the `java.util.List<T>` type is parameterized by any of the above mentioned primitive types (except for `? extends Object` and `java.util.List<? extends Object>`).
+and also the `java.util.List<T>` and the `java.util.Map<String, T>` type is parameterized by any of the above mentioned primitive types (except for `? extends Object` and `java.util.List<? extends Object>`).
+
+[TIP]
+====
+If the `java.util.Map<String, T>` type is used, then REST model can contain dynamic properties, where `keys` are the names of properties and `values` are the properties values.
+====
+

@@ -103,7 +103,7 @@ To run a modularized micro service project the java requires more arguments:
 
 ====
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}unnamed-module-uber-jar
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-unnamed-module/unnamed-module-uber-jar
 include::../../___notes/full-source-code-of-example.adoc[]
 
 include::../../___notes/recompile-after-change.adoc[]

@@ -37,7 +37,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-singletons/src/t
 ----
 <1> Since the `BusinessServiceImpl` class implements two interfaces, the same implementation instance is injected when injecting different types of interfaces!
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}cdi-singletons
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-cdi/cdi-singletons
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

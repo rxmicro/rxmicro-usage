@@ -44,10 +44,10 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-validation/validation-cl
 Check out the following example to find out the features of the RxMicro framework for HTTP request validation in REST clients:
 
 [.example-code-link]
-{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}validation-client-all-types[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}validation-client-all-types`^]
+{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-validation/validation-client-all-types[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-validation/validation-client-all-types`^]
 ====
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}validation-client-basic
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-validation/validation-client-basic
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

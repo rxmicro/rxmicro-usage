@@ -17,17 +17,17 @@ For more information, we recommend that You familiarize yourself with the follow
 * Features of testing components that use REST clients:
 
 [.example-code-link]
-{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-rest-client[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-rest-client`^];
+{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-junit/testing-component-alternatives-rest-client[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-junit/testing-component-alternatives-rest-client`^];
 
 * Features of testing components that use mongo repositories:
 
 [.example-code-link]
-{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-mongo-repository[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-mongo-repository`^];
+{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-junit/testing-component-alternatives-mongo-repository[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-junit/testing-component-alternatives-mongo-repository`^];
 
 * Features of testing components that use postgres repositories:
 
 [.example-code-link]
-{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-postgres-repository[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-postgres-repository`^];
+{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-junit/testing-component-alternatives-postgres-repository[`{RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-junit/testing-component-alternatives-postgres-repository`^];
 
 <<<
 

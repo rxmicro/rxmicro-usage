@@ -32,5 +32,5 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-co
 
 include::update-final-field-tip.adoc[]
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}testing-component-alternatives-simplest
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-junit/testing-component-alternatives-simplest
 include::../../___notes/full-source-code-of-example.adoc[]

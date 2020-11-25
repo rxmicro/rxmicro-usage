@@ -29,7 +29,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-
 ----
 <1> As a result of the HTTP request handler execution, the RxMicro framework generates the same URL: `/CATEGORY/TYPE-SUB-TYPE`
 
-:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}rest-client-path-variables
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-rest-client/rest-client-path-variables
 include::../___notes/full-source-code-of-example.adoc[]
 
 include::../___notes/recompile-after-change.adoc[]

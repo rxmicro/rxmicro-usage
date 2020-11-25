@@ -3,7 +3,6 @@
 :microservice-title: What are microservices?
 :quick-start-title: Quick Start
 :core-title: Core Concepts
-:java-integration-title: Java EcoSystem Integration
 :rest-controller-title: REST Controller
 :rest-client-title: REST Client
 :validation-title: Validation
@@ -11,6 +10,8 @@
 :data-postgresql-title: Postgre SQL Data Repositories
 :data-mongo-title: Mongo Data Repositories
 :cdi-title: Contexts and Dependency Injection
+:monitoring-title: Monitoring
+:java-integration-title: Java EcoSystem Integration
 :testing-title: Testing
 :appendices-title: Appendices
 // --------------------------------------------- introduction ---------------------------------------------
@@ -130,6 +131,17 @@ ifeval::["{current-entity}" == "cdi"]
 |===
 |<<data-mongo.adoc#data-mongo-section,*icon:angle-double-left[] {data-mongo-title}*>>
 |<<index.adoc#index-section,*icon:angle-double-up[] {home-title}*>>
+|<<monitoring.adoc#monitoring-section,*icon:angle-double-left[] {monitoring-title}  icon:angle-double-right[]*>>
+|===
+
+endif::[]
+// --------------------------------------------- cdi ---------------------------------------------
+ifeval::["{current-entity}" == "monitoring"]
+
+[cols="<,^,>",width=100%,frame=none]
+|===
+|<<cdi.adoc#cdi-section,*icon:angle-double-left[] {cdi-title}*>>
+|<<index.adoc#index-section,*icon:angle-double-up[] {home-title}*>>
 |<<java-integration.adoc#java-integration-section,*{java-integration-title}  icon:angle-double-right[]*>>
 |===
 
@@ -139,7 +151,7 @@ ifeval::["{current-entity}" == "java-integration"]
 
 [cols="<,^,>",width=100%,frame=none]
 |===
-|<<cdi.adoc#cdi-section,*icon:angle-double-left[] {cdi-title}*>>
+|<<monitoring.adoc#monitoring-section,*icon:angle-double-left[] {monitoring-title}*>>
 |<<index.adoc#index-section,*icon:angle-double-up[] {home-title}*>>
 |<<testing.adoc#testing-section,*{testing-title}  icon:angle-double-right[]*>>
 |===
