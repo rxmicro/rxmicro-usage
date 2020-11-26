@@ -5,7 +5,7 @@ include::../___fragment-settings.adoc[]
 [[monitoring-request-tracing-usage-example]]
 === Request Tracing Usage Example
 
-TODO
+The following example demonstrates how request tracing feature can be used:
 
 [source,java]
 ----
@@ -27,10 +27,14 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-monitoring/monitoring-re
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-monitoring/monitoring-request-tracing/src/main/java/io/rxmicro/examples/monitoring/request/tracing/repository/AccountRepository.java[tags=content]
 ----
 
+The `jul.properties' config classpath resource:
+
 [source,properties]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-monitoring/monitoring-request-tracing/src/main/resources/jul.properties[]
 ----
+
+Invoke the test request:
 
 [source,text,subs="verbatim,quotes"]
 ----

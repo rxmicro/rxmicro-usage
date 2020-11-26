@@ -3,7 +3,7 @@ include::../___fragment-settings.adoc[]
 
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
 
-[[rest-controller-request-id-section]]
+[[rest-client-request-id-section]]
 === Request ID
 
 The Request Id feature described at <<{monitoring}#monitoring-request-id-section, Monitoring>> section.

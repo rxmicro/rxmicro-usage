@@ -60,6 +60,10 @@ include::_rest-client/expressions.adoc[]
 
 <<<
 
+include::_rest-controller/request-id.adoc[]
+
+<<<
+
 include::_rest-client/partial-implementation.adoc[]
 
 <<<
