@@ -78,7 +78,8 @@ If a microservice has to solve a complex task, then this microservice is divided
 .. once the response model is received, convert it to an HTTP response.
 . Business service, the main task of which is:
 .. if the task is of medium complexity, then independently calculate the result and return it to the REST controller;
-.. if it is a high-complexity task, then decompose it into sub-tasks and delegate its execution to other microservices. After all sub-tasks have been completed, merge the result and return it to the REST controller.
+.. if it is a high-complexity task, then decompose it into sub-tasks and delegate its execution to other microservices.
+After all sub-tasks have been completed, merge the result and return it to the REST controller.
 
 Therefore, the following is implied in this guide:
 

@@ -37,7 +37,7 @@ _(The instance is created using the `reflection` mechanism, so the tested class 
 In order to invoke any method of the tested component, a reference to that component is required.
 Therefore, the RxMicro framework requires that the developer declares an uninitialized field of the tested component.
 After starting the test, a reference to the instance of the tested component will be injected into this field using the `reflection` mechanism.
-<3> In order to use the alternative mechanism, it is necessary to declare test field as  alternative by using the
+<3> In order to use the alternative mechanism, it is necessary to declare test field as alternative by using the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/Alternative.java[`@Alternative`^] annotation.
 <4> Alternative is a test component with predefined behavior.
 Therefore, it is necessary to define what value should be returned when invoking the `getValue` method.
@@ -64,8 +64,7 @@ include::update-final-field-tip.adoc[]
 [IMPORTANT]
 ====
 When creating mock alternatives, the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-mockito-junit/src/main/java/io/rxmicro/test/mockito/junit/InitMocks.java[`@InitMocks`^]
-annotation should be over the `@RxMicroComponentTest` annotation (or `@RxMicroRestBasedMicroServiceTest` when writing REST-based microservice tests),
-otherwise, *the alternative will be injected before creating a mock instance, (i.e. injection of the `null` instance), which will cause an error!*
+annotation should be over the `@RxMicroComponentTest` annotation (or `@RxMicroRestBasedMicroServiceTest` when writing REST-based microservice tests), otherwise, *the alternative will be injected before creating a mock instance, (i.e. injection of the `null` instance), which will cause an error!*
 ====
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-junit/testing-component-alternatives-simplest

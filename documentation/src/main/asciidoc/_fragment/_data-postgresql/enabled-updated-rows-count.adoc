@@ -12,14 +12,17 @@ This annotation adds additional runtime validator that validates the actual upda
 If current database has invalid state the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/model/InvalidDatabaseStateException.java[`InvalidDatabaseStateException`^] will be thrown!
 
 The following examples demonstrate the `@ExpectedUpdatedRowsCount` annotation usage:
+
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-expected-updated-rows-count/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/expected/updated/rows/count/InsertDataRepository.java[tag=content,indent=0]
 ----
+
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-expected-updated-rows-count/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/expected/updated/rows/count/UpdateDataRepository.java[tag=content,indent=0]
 ----
+
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-expected-updated-rows-count/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/expected/updated/rows/count/DeleteDataRepository.java[tag=content,indent=0]

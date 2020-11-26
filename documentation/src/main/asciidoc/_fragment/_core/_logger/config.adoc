@@ -3,6 +3,7 @@
 include::../../___fragment-settings.adoc[]
 
 ==== Logger Configuration
+
 ===== Using Configuration File
 
 [[core-logger-config-file-inline]]

@@ -6,7 +6,8 @@ include::../___fragment-settings.adoc[]
 
 Java 9 has introduced the {WHAT-IS-JPMS-LINK}[`JPMS`^].
 
-This system requires that a developer defines the `module-info.java` descriptor for each project. In this descriptor, the developer must describe all the dependencies of the current project.
+This system requires that a developer defines the `module-info.java` descriptor for each project.
+In this descriptor, the developer must describe all the dependencies of the current project.
 In the context of the unit module system, the tests required for each project should be configured as a separate module, since they depend on libraries that should not be available in the `runtime`.
 Usually such libraries are unit testing libraries (e.g. https://junit.org/junit5/[JUnit 5^]), mock creation libraries (e.g. https://site.mockito.org/[Mockito^]), etc.
 
@@ -100,7 +101,8 @@ public final class $$ComponentTestFixer {
 
 [NOTE]
 ====
-When running different types of tests, sometimes a different configuration of the Java module system is required. Thus, for each type of test, the RxMicro framework creates a separate class in the `rxmicro` system package:
+When running different types of tests, sometimes a different configuration of the Java module system is required.
+Thus, for each type of test, the RxMicro framework creates a separate class in the `rxmicro` system package:
 
 .Names of generated classes
 [cols="1,1"]

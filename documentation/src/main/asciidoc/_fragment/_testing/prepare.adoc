@@ -82,8 +82,7 @@ The `rxmicro-test-mockito-junit` library depends on the `rxmicro-test-junit`, so
 [[testing-prepare-maven-compiler-plugin-settings-section]]
 ==== Configuring the `maven-compiler-plugin`:
 
-To solve <<testing-how-it-works-section,problems with the Java module system>> when writing the tests,
-it is necessary to add the additional execution to the `maven-compiler-plugin` configuration:
+To solve <<testing-how-it-works-section,problems with the Java module system>> when writing the tests, it is necessary to add the additional execution to the `maven-compiler-plugin` configuration:
 
 [source,xml]
 ----

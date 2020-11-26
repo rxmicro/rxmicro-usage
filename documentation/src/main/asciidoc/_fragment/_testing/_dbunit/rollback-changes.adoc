@@ -6,8 +6,7 @@ include::../../___fragment-settings.adoc[]
 [[testing-dbunit-rollback-changes]]
 ==== `@RollbackChanges` Annotation
 
-The `@RollbackChanges` annotation starts a new transaction before initialization of database by the `@InitialDataSet` annotation (if it is present)
-and rolls back this transaction after comparing actual database state with expected one provided by the `@ExpectedDataSet` annotation (if it is present).
+The `@RollbackChanges` annotation starts a new transaction before initialization of database by the `@InitialDataSet` annotation (if it is present) and rolls back this transaction after comparing actual database state with expected one provided by the `@ExpectedDataSet` annotation (if it is present).
 
 The isolation level of the test transaction can be configured using `isolationLevel` parameter declared at the `@RollbackChanges` annotation.
 

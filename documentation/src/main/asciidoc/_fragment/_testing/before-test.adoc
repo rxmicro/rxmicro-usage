@@ -12,8 +12,8 @@ https://junit.org/junit5/[JUnit 5^] framework provides a special {JUNIT5-DOC-ROO
 According to the working rules of the https://junit.org/junit5/[JUnit 5^] framework, if the test class contains a method annotated by the
 {JUNIT5-DOC-ROOT-URL}api/org.junit.jupiter.api/org/junit/jupiter/api/BeforeEach.html[`@BeforeEach`^] annotation, then this method should be invoked before invoking each test method in the test class.
 
-Let's consider the possibilities of using the {JUNIT5-DOC-ROOT-URL}api/org.junit.jupiter.api/org/junit/jupiter/api/BeforeEach.html[`@BeforeEach`^]
-annotation. We'll use the example of a project consisting of two components: ChildComponent interface and ParentComponent class.
+Let's consider the possibilities of using the {JUNIT5-DOC-ROOT-URL}api/org.junit.jupiter.api/org/junit/jupiter/api/BeforeEach.html[`@BeforeEach`^] annotation.
+We'll use the example of a project consisting of two components: ChildComponent interface and ParentComponent class.
 
 [source,java]
 ----

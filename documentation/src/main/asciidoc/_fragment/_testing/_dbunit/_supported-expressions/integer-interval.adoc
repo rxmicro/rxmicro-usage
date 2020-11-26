@@ -14,7 +14,8 @@ This expression is useful if Your business logic generates random integer number
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-dbunit/testing-dbunit-expressions/src/test/java/io/rxmicro/examples/testing/dbunit/expressions/ExpressionsTest.java[tag=int-interval,indent=0]
 ----
-<1> The actual product count is random value from `0` to `9`. To compare the actual dataset it is necessary to use `${int:interval}` expression.
+<1> The actual product count is random value from `0` to `9`.
+To compare the actual dataset it is necessary to use `${int:interval}` expression.
 <2> After test execution the test database must contain random integer number value from `0` to `9`.
 
 The expected dataset with the integer number interval from `0` to `9`:

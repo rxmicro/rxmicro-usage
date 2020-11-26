@@ -3,7 +3,7 @@ include::../../___fragment-settings.adoc[]
 
 ==== Injection Algorithm for the Alternative of the Custom Component
 
-To inject the alternative of the custom component, the RxMicro framework  uses the following algorithm:
+To inject the alternative of the custom component, the RxMicro framework uses the following algorithm:
 
 . The alternative instance is created by the developer in the test code or by the testing framework automatically.
 . The RxMicro framework creates an instance of the tested class.

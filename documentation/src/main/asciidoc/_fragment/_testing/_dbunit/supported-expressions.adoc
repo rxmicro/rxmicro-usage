@@ -9,7 +9,7 @@ include::../../___fragment-settings.adoc[]
 The RxMicro framework supports expressions for datasets. +
 Expressions can be useful to set dynamic parameters.
 
-The  RxMicro framework supports the following expressions:
+The RxMicro framework supports the following expressions:
 
 * `${null}` - null value.
 * `${now}` - is `java.time.Instant.now()` value for the initial dataset;
