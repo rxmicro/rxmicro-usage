@@ -3,11 +3,15 @@ include::../___fragment-settings.adoc[]
 
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
 
-[[data-postgresql-enabled-updated-rows-count-section]]
-=== `@EnabledUpdatedRowsCount` annotation
+[[data-postgresql-expected-updated-rows-count-section]]
+=== `@ExpectedUpdatedRowsCount` annotation
 
-TODO
+Enables validation for updated rows count during DML operation, like `Insert`, `Update` and `Delete` operations.
+This annotation adds additional runtime validator that validates the actual updated rows during SQL operation.
 
+If current database has invalid state the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/model/InvalidDatabaseStateException.java[`InvalidDatabaseStateException`^] will be thrown!
+
+The following examples demonstrate the `@ExpectedUpdatedRowsCount` annotation usage:
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/data-r2dbc-postgresql-expected-updated-rows-count/src/main/java/io/rxmicro/examples/data/r2dbc/postgresql/expected/updated/rows/count/InsertDataRepository.java[tag=content,indent=0]
