@@ -33,13 +33,25 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-documentation-asciidocto
 <2> The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/Description.java[`@Description`^] annotation describes the text description.
 <3> The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/Example.java[`@Example`^] annotation describes the value used as an example in the generated REST-based microservice documentation.
 
-The custom exception class can contain not string parameter(s):
+The custom exception class can contain not string parameter(s).
+For such classes the RxMicro framework returns custom JSON model instead of <<{rest-controller}#rest-controller-errors-model-inline, standard one>>.
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-documentation-asciidoctor/documentation-asciidoctor-errors/src/main/java/io/rxmicro/examples/documentation/asciidoctor/errors/model/CustomErrorModelException.java[tags=content]
 ----
-<1> TODO ...
+<1> The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/Description.java[`@Description`^] annotation describes the text description.
+<2> The required `STATUS_CODE` static field describes the HTTP status code.
+<3> The custom field can contain {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/Example.java[`@Example`^] and
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-documentation/src/main/java/io/rxmicro/documentation/Description.java[`@Description`^] annotations.
+<4> The custom field(s) must be initialized via constructor.
+<5> For custom exception classes with custom field(s) the RxMicro Annotation Processor does not generate `Writer`, so You must override the `getResponseData` method manually!
+<6> Overridden method must return values from all declared fields at custom exception class.
+
+[IMPORTANT]
+====
+If <<{core}#rxmicro-annotation-processor-options-section, `RX_MICRO_STRICT_MODE`>> option is enabled, the RxMicro Annotation Processor validates the overidden `getResponseData` method and throws compilation error if some field values not returned!
+====
 
 :project-documentation-file: ExamplesDocumentationAsciidoctorErrorsDocumentation.html
 include::../___notes/generated-project-documentation.adoc[]
