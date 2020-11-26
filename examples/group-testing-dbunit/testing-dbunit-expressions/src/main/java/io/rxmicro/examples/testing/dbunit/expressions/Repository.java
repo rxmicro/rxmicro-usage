@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. https://rxmicro.io
+ * Copyright (c) 2020. http://rxmicro.io
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,30 +14,16 @@
  * limitations under the License.
  */
 
-package io.rxmicro.examples.test.dbunit.junit.model;
+package io.rxmicro.examples.testing.dbunit.expressions;
 
-import io.rxmicro.data.ColumnMappingStrategy;
-import io.rxmicro.data.sql.NotInsertable;
-import io.rxmicro.data.sql.PrimaryKey;
-import io.rxmicro.data.sql.Table;
+import io.rxmicro.data.sql.operation.Select;
+import io.rxmicro.data.sql.r2dbc.postgresql.PostgreSQLRepository;
+import io.rxmicro.examples.testing.dbunit.expressions.model.Account;
+import reactor.core.publisher.Mono;
 
-import java.time.Instant;
+@PostgreSQLRepository
+public interface Repository {
 
-// tag::content[]
-@Table
-@ColumnMappingStrategy
-public final class Order {
-
-    @PrimaryKey
-    Long id;
-
-    Long idAccount;
-
-    Integer idProduct;
-
-    Integer count;
-
-    @NotInsertable
-    Instant created;
+    @Select("SELECT * from ${table}")
+    Mono<Account> findAll();
 }
-// end::content[]

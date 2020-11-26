@@ -1,0 +1,52 @@
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[testing-dbunit-supported-expressions]]
+==== Supported Expressions
+
+The RxMicro framework supports expressions for datasets. +
+Expressions can be useful to set dynamic parameters.
+
+The  RxMicro framework supports the following expressions:
+
+* `${null}` - null value.
+* `${now}` - is `java.time.Instant.now()` value for the initial dataset;
+** `${instant:now}` is alias for `${now}`;
+** `${timestamp:now}` is alias for `${now}`;
+* `${now}` - is `java.time.Instant.now()` value for the expected dataset;
+** `${instant:now}` is alias for `${now}`;
+** `${timestamp:now}` is alias for `${now}`;
+** `${now:${CUSTOM-DURATION}}` is alias for `${now}`;
+** `${instant:now:${CUSTOM-DURATION}}` is alias for `${now}`;
+** `${timestamp:now:${CUSTOM-DURATION}}` is alias for `${now}`;
+* `${interval:${MIN}:${MAX}}` - is an instant interval that can be compared with `java.time.Instant` and `java.sql.Timestamp` instances correctly.
+** `${interval:${MEDIAN}:${LEFT-DELTA}:${RIGHT-DELTA}}` is alias for `${interval:${MIN}:${MAX}}`;
+** `${instant:interval:${MEDIAN}:${LEFT-DELTA}:${RIGHT-DELTA}}` is alias for `${interval:${MIN}:${MAX}}`;
+** `${timestamp:interval:${MEDIAN}:${LEFT-DELTA}:${RIGHT-DELTA}}` is alias for `${interval:${MIN}:${MAX}}`;
+** `${instant:interval:${MIN}:${MAX}}` is alias for `${interval:${MIN}:${MAX}}`;
+** `${timestamp:interval:${MIN}:${MAX}}` is alias for `${interval:${MIN}:${MAX}}`;
+* `${int:interval:${MIN}:${MAX}}` - is an integer number interval that can be compared with `java.lang.Short`, `java.lang.Integer` and `java.lang.Long` instances correctly.
+** `${integer:interval:${MIN}:${MAX}}` is alias for `${int:interval:${MIN}:${MAX}}`;
+** `${tinyint:interval:${MIN}:${MAX}}` is alias for `${int:interval:${MIN}:${MAX}}`;
+** `${short:interval:${MIN}:${MAX}}` is alias for `${int:interval:${MIN}:${MAX}}`;
+** `${smallint:interval:${MIN}:${MAX}}` is alias for `${int:interval:${MIN}:${MAX}}`;
+** `${long:interval:${MIN}:${MAX}}` is alias for `${int:interval:${MIN}:${MAX}}`;
+** `${bigint:interval:${MIN}:${MAX}}` is alias for `${int:interval:${MIN}:${MAX}}`;
+
+<<<
+
+include::_supported-expressions/null.adoc[]
+
+<<<
+
+include::_supported-expressions/now.adoc[]
+
+<<<
+
+include::_supported-expressions/instant-interval.adoc[]
+
+<<<
+
+include::_supported-expressions/integer-interval.adoc[]

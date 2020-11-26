@@ -1,0 +1,22 @@
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[testing-dbunit-rollback-changes]]
+==== `@RollbackChanges` Annotation
+
+The `@RollbackChanges` annotation starts a new transaction before initialization of database by the `@InitialDataSet` annotation (if it is present)
+and rolls back this transaction after comparing actual database state with expected one provided by the `@ExpectedDataSet` annotation (if it is present).
+
+The isolation level of the test transaction can be configured using `isolationLevel` parameter declared at the `@RollbackChanges` annotation.
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-dbunit/testing-dbunit-basic/src/test/java/io/rxmicro/examples/test/dbunit/junit/RollbackChangesTest.java[tag=content,indent=0]
+----
+<1> For database testing it is necessary to inform the RxMicro framework that current test is DBUnit test.
+<2> If test method annotated by the `@RollbackChanges` annotation all changes made by this test method will be rolled back.
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-dbunit/testing-dbunit-basic
+include::../../___notes/full-source-code-of-example.adoc[]

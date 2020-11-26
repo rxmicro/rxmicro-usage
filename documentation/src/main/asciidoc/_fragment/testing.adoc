@@ -7,12 +7,15 @@ To help You write tests efficiently, the RxMicro framework provides the followin
 * The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test-junit[`rxmicro.test.junit`^] is a module designed for test writing using the https://junit.org/junit5/[JUnit 5^] framework;
 * The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test-mockito[`rxmicro.test.mockito`^] is a module designed for test writing using the https://site.mockito.org/[Mockito^] framework;
 * The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test-mockito-junit[`rxmicro.test.mockito.junit`^] is a module designed for test writing using the https://junit.org/junit5/[JUnit 5^] and https://site.mockito.org/[Mockito^] frameworks.
+* The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test-dbunit[`rxmicro.test.dbunit`^] is a module designed for test writing using the http://dbunit.sourceforge.net/[DbUnit^] framework;
+* The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-test-dbunit-junit[`rxmicro.test.dbunit.junit`^] is a module designed for test writing using the http://dbunit.sourceforge.net/[DbUnit^] and https://junit.org/junit5/[JUnit 5^] frameworks;
 
 Using these modules, the developer can create the following types of tests:
 
 . <<testing#testing-rest-based-microservice-tests-section, REST-based microservice test>>;
 . <<testing#testing-component-tests-section, Component unit test>>;
 . <<testing#testing-integration-tests-section, Integration test of REST-based microservices>>.
+. <<testing#testing-dbunit-tests-section, Database Testing Using DBUnit>>.
 
 <<<
 
@@ -45,3 +48,7 @@ include::_testing/component-test.adoc[]
 <<<
 
 include::_testing/integration-test.adoc[]
+
+<<<
+
+include::_testing/dbunit-test.adoc[]

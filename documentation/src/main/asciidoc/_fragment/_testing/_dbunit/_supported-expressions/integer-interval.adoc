@@ -1,0 +1,29 @@
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../../
+
+[[testing-dbunit-supported-expressions-instant-interval]]
+===== `${int:interval}` Expression
+
+The `${int:interval}` expression allows comparing this expression with `java.lang.Short`, `java.lang.Integer` and `java.lang.Long` instances correctly.
+
+This expression is useful if Your business logic generates random integer number value within predefined boundaries:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-dbunit/testing-dbunit-expressions/src/test/java/io/rxmicro/examples/testing/dbunit/expressions/ExpressionsTest.java[tag=int-interval,indent=0]
+----
+<1> The actual product count is random value from `0` to `9`. To compare the actual dataset it is necessary to use `${int:interval}` expression.
+<2> After test execution the test database must contain random integer number value from `0` to `9`.
+
+The expected dataset with the integer number interval from `0` to `9`:
+
+[source,xml]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-dbunit/testing-dbunit-expressions/src/test/resources/dataset/with-int-interval-expression-dataset.xml[]
+----
+<1> Set integer number interval from `0` to `9`.
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-dbunit/testing-dbunit-expressions
+include::../../../___notes/full-source-code-of-example.adoc[]

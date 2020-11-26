@@ -1,0 +1,28 @@
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../../
+
+[[testing-dbunit-supported-expressions-null]]
+===== `${null}` Expression
+
+If dataset must contain `null` value, the `${null}` expression must be used:
+
+[source,xml]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-dbunit/testing-dbunit-expressions/src/test/resources/dataset/with-null-expression-dataset.xml[]
+----
+<1> Set `null` value to the `balance` column.
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-dbunit/testing-dbunit-expressions/src/test/java/io/rxmicro/examples/testing/dbunit/expressions/ExpressionsTest.java[tag=null,indent=0]
+----
+<1> The dataset with `${null}` expression.
+<2> The test database does not support `null` values for `account.balance` column.
+To demonstrate how `${null}` expression is worked it is necessary to drop `NOT NULL` constraint.
+<3> The actual row contains `null` value.
+<4> After test execution the test database must contain `null` value.
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-dbunit/testing-dbunit-expressions
+include::../../../___notes/full-source-code-of-example.adoc[]

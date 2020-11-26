@@ -3,6 +3,7 @@ include::../../___fragment-settings.adoc[]
 
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
 
+[[configuration-basic-structure-section]]
 ==== Basic Structure of the Config Module
 
 Each class that extends the

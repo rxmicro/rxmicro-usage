@@ -14,16 +14,19 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://maven.apache.org/POM/4.0.0"
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>rxmicro-usage</artifactId>
+        <artifactId>group-testing-dbunit</artifactId>
         <groupId>io.rxmicro</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>code-fragments</artifactId>
+
+    <groupId>io.rxmicro.examples</groupId>
+    <artifactId>testing-dbunit-expressions</artifactId>
 
     <build>
         <pluginManagement>
@@ -85,6 +88,7 @@
                             <configurationParameters>
                                 junit.jupiter.execution.timeout.default = 60
                                 junit.jupiter.execution.timeout.mode = disabled_on_debug
+                                junit.jupiter.execution.parallel.enabled = false
                             </configurationParameters>
                         </properties>
                     </configuration>
@@ -96,60 +100,31 @@
     <dependencies>
         <dependency>
             <groupId>io.rxmicro</groupId>
-            <artifactId>rxmicro-rest-server-netty</artifactId>
-            <version>${rxmicro.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.rxmicro</groupId>
-            <artifactId>rxmicro-rest-server-exchange-json</artifactId>
-            <version>${rxmicro.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.rxmicro</groupId>
-            <artifactId>rxmicro-cdi</artifactId>
-            <version>${rxmicro.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.rxmicro</groupId>
-            <artifactId>rxmicro-validation</artifactId>
-            <version>${rxmicro.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.rxmicro</groupId>
             <artifactId>rxmicro-data-sql-r2dbc-postgresql</artifactId>
             <version>${rxmicro.version}</version>
         </dependency>
         <dependency>
             <groupId>io.rxmicro</groupId>
-            <artifactId>rxmicro-data-mongo</artifactId>
-            <version>${rxmicro.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.rxmicro</groupId>
-            <artifactId>rxmicro-documentation-asciidoctor</artifactId>
-            <version>${rxmicro.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.rxmicro</groupId>
-            <artifactId>rxmicro-rest-client-jdk</artifactId>
-            <version>${rxmicro.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.rxmicro</groupId>
-            <artifactId>rxmicro-rest-client-exchange-json</artifactId>
-            <version>${rxmicro.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.rxmicro</groupId>
-            <artifactId>rxmicro-test-mockito-junit</artifactId>
+            <artifactId>rxmicro-test-dbunit-junit</artifactId>
             <version>${rxmicro.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>io.rxmicro</groupId>
-            <artifactId>rxmicro-test-dbunit-junit</artifactId>
-            <version>${rxmicro.version}</version>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${org.testcontainers.junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${org.testcontainers.logback-classic.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.jdbc.driver.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

@@ -41,8 +41,8 @@ CREATE TABLE public."order" (
 	count int4 NOT NULL DEFAULT 1,
 	created timestamp NOT NULL DEFAULT now(),
 	CONSTRAINT order_id_pk PRIMARY KEY (id),
-	CONSTRAINT order_fk FOREIGN KEY (id_account) REFERENCES account(id) ON UPDATE CASCADE ON DELETE RESTRICT,
-	CONSTRAINT order_fk_1 FOREIGN KEY (id_product) REFERENCES product(id) ON UPDATE CASCADE ON DELETE RESTRICT
+	CONSTRAINT order_fk_account FOREIGN KEY (id_account) REFERENCES account(id) ON UPDATE CASCADE ON DELETE RESTRICT,
+	CONSTRAINT order_fk_product FOREIGN KEY (id_product) REFERENCES product(id) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 ALTER TABLE public."order" OWNER TO rxmicro;

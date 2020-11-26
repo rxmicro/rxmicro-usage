@@ -1,0 +1,50 @@
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[testing-dbunit-retrieve-connection-strategies]]
+==== Retrieve Connection Strategies
+
+The RxMicro framework provides the following retrieve connection to the test database strategies:
+
+* One connection per all test classes.
+* One connection per test class (*default strategy*).
+* One connection per test method.
+
+===== One connection per all test classes
+
+This strategy informs the DBUnit to use single connection per all tests for your project. +
+The RxMicro team recommends using this strategy for external databases only.
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-dbunit/testing-dbunit-basic/src/test/java/io/rxmicro/examples/test/dbunit/junit/DbStateUsingPerAllTestClassesConnectionTest.java[tag=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-dbunit/testing-dbunit-basic
+include::../../___notes/full-source-code-of-example.adoc[]
+
+===== One connection per test class
+
+This strategy informs the DBUnit to create a new connection before run all tests for each test class and to close after running all tests for each test class.
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-dbunit/testing-dbunit-basic/src/test/java/io/rxmicro/examples/test/dbunit/junit/DbStateUsingPerClassConnectionTest.java[tag=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-dbunit/testing-dbunit-basic
+include::../../___notes/full-source-code-of-example.adoc[]
+
+===== One connection per test method
+
+This strategy informs the DBUnit to create a new connection before each test method and to close after each one.
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-dbunit/testing-dbunit-basic/src/test/java/io/rxmicro/examples/test/dbunit/junit/DbStateUsingPerMethodConnectionTest.java[tag=content,indent=0]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-dbunit/testing-dbunit-basic
+include::../../___notes/full-source-code-of-example.adoc[]

@@ -1,0 +1,26 @@
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[testing-dbunit-initial-data-set]]
+==== `@InitialDataSet` Annotation
+
+The `@InitialDataSet` annotation inform the RxMicro framework that it is necessary to prepare the tested database using http://dbunit.sourceforge.net/[DbUnit^] framework before test execution.
+The `@InitialDataSet` annotation contains the dataset files that must be exported to the tested database before test execution.
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/test/java/io/rxmicro/examples/code/fragments/DBUnitTestExample.java[tag=prepare,indent=0]
+----
+<1> Using data from the `@InitialDataSet` annotation the RxMicro framework prepares the tested database.
+
+The init dataset can be provided using {DBUNIT-API-DOC-ROOT-URL}org/dbunit/dataset/xml/FlatXmlDataSet.html[`flat xml`^] format:
+
+[source,xml]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-dbunit/testing-dbunit-basic/src/test/resources/dataset/rxmicro-test-dataset-two-rows-only.xml[]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-dbunit/testing-dbunit-basic
+include::../../___notes/full-source-code-of-example.adoc[]

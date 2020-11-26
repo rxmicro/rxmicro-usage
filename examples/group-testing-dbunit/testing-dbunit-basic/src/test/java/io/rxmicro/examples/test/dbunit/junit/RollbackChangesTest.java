@@ -35,6 +35,7 @@ import static io.rxmicro.test.dbunit.TestDatabaseConfig.getCurrentTestDatabaseCo
 // tag::content[]
 @RxMicroIntegrationTest
 @Testcontainers
+// <1>
 @DbUnitTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 final class RollbackChangesTest {
@@ -52,6 +53,7 @@ final class RollbackChangesTest {
     }
 
     @Test
+    // <2>
     @RollbackChanges
     @InitialDataSet("dataset/rxmicro-test-dataset-empty.xml")
     @ExpectedDataSet("dataset/rxmicro-test-dataset-empty.xml")

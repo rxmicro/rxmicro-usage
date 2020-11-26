@@ -33,3 +33,5 @@
 :RX-MICRO-DOCKER_HUB_ROOT: https://hub.docker.com/r/rxmicro/
 
 :WHAT-IS-JPMS-LINK: https://www.oracle.com/corporate/features/understanding-java-9-modules.html
+
+:DBUNIT-API-DOC-ROOT-URL: http://dbunit.sourceforge.net/apidocs/

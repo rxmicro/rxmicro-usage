@@ -1,0 +1,29 @@
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[testing-dbunit-test-database-config]]
+==== Test Database Configuration
+
+To communicate with test database the RxMicro framework uses the predefined
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-dbunit/src/main/java/io/rxmicro/test/dbunit/TestDatabaseConfig.java[`TestDatabaseConfig`^] config class.
+This class is <<{core}#configuration-basic-structure-section, the usual RxMicro configuration class>>.
+
+It means that settings for test database can be configured using:
+
+* Using `test-database.properties` classpath resource.
+* Using `./test-database.properties` file.
+* Using `$HOME/test-database.properties` file.
+* Using `$HOME/.rxmicro/test-database.properties` file.
+* Using environment variables.
+* Using Java system properties.
+* Using <<testing-annotations-WithConfig-inline, `@WithConfig`>> annotation.
+
+Besides that the settings for test database can be changed using `TestDatabaseConfig.getCurrentTestDatabaseConfig()` static method.
+This approach useful if test database is working at the https://www.docker.com/[docker^] container:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/test/java/io/rxmicro/examples/code/fragments/DBUnitTestExample.java[tag=config,indent=0]
+----

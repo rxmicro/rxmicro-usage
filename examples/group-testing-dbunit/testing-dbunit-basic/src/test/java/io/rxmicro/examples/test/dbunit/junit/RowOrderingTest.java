@@ -48,13 +48,15 @@ final class RowOrderingTest {
                 .setPort(POSTGRESQL_TEST_DB.getFirstMappedPort());
     }
 
+    // tag::content[]
     @Test
     @ExpectedDataSet(
             value = "dataset/rxmicro-test-dataset-products-order-by-price.xml",
-            orderBy = "price"
+            orderBy = "price" // <1>
     )
     @Order(1)
     void Should_contain_expected_dataset() {
 
     }
+    // end::content[]
 }

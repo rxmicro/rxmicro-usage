@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "rxmicro-test-dataset.dtd">
+
+<dataset>
+    <order id="1"
+           id_account="1"
+           id_product="1"
+           count="10"
+           created="${interval:now:PT1S:PT10S}"/> <!--1-->
+</dataset>

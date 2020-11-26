@@ -1,0 +1,36 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
+[[testing-dbunit-tests-section]]
+=== Database Testing Using DBUnit
+
+http://dbunit.sourceforge.net/[DbUnit^] is an extension targeted at database-driven projects that, among other things, puts your database into a known state between test runs.
+This is an excellent way to avoid the myriad of problems that can occur when one test case corrupts the database and causes subsequent tests to fail or exacerbate the damage.
+
+<<<
+
+include::_dbunit/test-database-config.adoc[]
+
+<<<
+
+include::_dbunit/retrieve-connection-strategies.adoc[]
+
+<<<
+
+include::_dbunit/initial-data-set.adoc[]
+
+<<<
+
+include::_dbunit/expected-data-set.adoc[]
+
+<<<
+
+include::_dbunit/rollback-changes.adoc[]
+
+<<<
+
+include::_dbunit/order-by.adoc[]
+
+<<<
+
+include::_dbunit/supported-expressions.adoc[]

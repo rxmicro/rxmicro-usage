@@ -1,0 +1,25 @@
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[testing-dbunit-expected-data-set]]
+==== `@ExpectedDataSet` Annotation
+
+The `@ExpectedDataSet` annotation inform the RxMicro framework that it is necessary to compare the actual database state with the expected one, defined using dataset file(s) after test execution.
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/test/java/io/rxmicro/examples/code/fragments/DBUnitTestExample.java[tag=verify,indent=0]
+----
+<1> Using data from the `@ExpectedDataSet` annotation the RxMicro framework compares actual database state with the expected one after test execution.
+
+The expected dataset can be provided using {DBUNIT-API-DOC-ROOT-URL}org/dbunit/dataset/xml/FlatXmlDataSet.html[`flat xml`^] format:
+
+[source,xml]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-dbunit/testing-dbunit-basic/src/test/resources/dataset/rxmicro-test-dataset-two-rows-only.xml[]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-dbunit/testing-dbunit-basic
+include::../../___notes/full-source-code-of-example.adoc[]

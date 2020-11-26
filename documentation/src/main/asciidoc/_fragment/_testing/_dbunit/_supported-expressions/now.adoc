@@ -1,0 +1,52 @@
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../../
+
+[[testing-dbunit-supported-expressions-now]]
+===== `${now}` Expression
+
+The `${now}` expression useful if it is necessary to work with current instant: set and compare.
+
+If dataset must contain `java.time.Instant.now()` value, the `${now}` expression must be used:
+
+[source,xml]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-dbunit/testing-dbunit-expressions/src/test/resources/dataset/with-now-expression-dataset.xml[]
+----
+<1> Set current instant value to the `created` column.
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-dbunit/testing-dbunit-expressions/src/test/java/io/rxmicro/examples/testing/dbunit/expressions/ExpressionsTest.java[tag=now1,indent=0]
+----
+<1> The dataset with `${now}` expression.
+<2> The test database contains foreign keys.
+To demonstrate how `${now}` expression is worked it is necessary to drop these foreign keys.
+<3> The expected dataset must contain current instant value too.
+<4> The actual row contains current instant value.
+<5> To compare current instant value it is necessary to use `ExAssertions.assertInstantEquals` method.
+This method verifies that instants are equal within the default `delta` configured via {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/GlobalTestConfig.java[`GlobalTestConfig`^] config class.
+
+The `${now}` expression can be used to verify that unit test creates `java.time.Instant.now()` value:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-dbunit/testing-dbunit-expressions/src/test/java/io/rxmicro/examples/testing/dbunit/expressions/ExpressionsTest.java[tag=now2,indent=0]
+----
+<1> The empty dataset.
+<2> The test database contains foreign keys.
+To demonstrate how `${now}` expression is worked it is necessary to drop these foreign keys.
+<3> The `java.time.Instant.now()` value is stored to test database.
+<4> After test execution the test database must contain `java.time.Instant.now()` value.
+
+The `dataset/with-now-expression-dataset.xml` classpath resource contains the following content:
+
+[source,xml]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-dbunit/testing-dbunit-expressions/src/test/resources/dataset/with-now-expression-dataset.xml[]
+----
+<1> The `created` column must contain `java.time.Instant.now()` value.
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-dbunit/testing-dbunit-expressions
+include::../../../___notes/full-source-code-of-example.adoc[]

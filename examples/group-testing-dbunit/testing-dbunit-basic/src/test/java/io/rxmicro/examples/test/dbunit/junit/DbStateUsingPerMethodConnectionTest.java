@@ -35,6 +35,7 @@ import static io.rxmicro.test.dbunit.junit.RetrieveConnectionStrategy.PER_TEST_M
 // tag::content[]
 @RxMicroIntegrationTest
 @Testcontainers
+// <1>
 @DbUnitTest(retrieveConnectionStrategy = PER_TEST_METHOD)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 final class DbStateUsingPerMethodConnectionTest {

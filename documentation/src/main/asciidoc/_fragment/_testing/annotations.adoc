@@ -4,7 +4,7 @@ include::../___fragment-settings.adoc[]
 [[testing-annotations-section]]
 === `RxMicro Test Annotations`
 
-The RxMicro framework supports additional `RxMicro Test annotations`, that extend the features of the https://junit.org/junit5/[JUnit 5^] and https://site.mockito.org/[Mockito^]
+The RxMicro framework supports additional `RxMicro Test annotations`, that extend the features of the https://junit.org/junit5/[JUnit 5^], https://site.mockito.org/[Mockito^] and http://dbunit.sourceforge.net/[DbUnit^]
 test frameworks and add additional features required for efficient writing of all supported test types.
 
 [TIP]
@@ -71,6 +71,9 @@ _The RxMicro framework supports the `BlockingHttpClient` component only for <<{t
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/RxMicroIntegrationTest.java[`@RxMicroIntegrationTest`^]
 |Declares the test class as a <<{testing}#testing-integration-tests-section,REST-based microservice integration test>>.
 
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-dbunit-junit/src/main/java/io/rxmicro/test/dbunit/junit/DbUnitTest.java[`@DbUnitTest`^]
+|Declares the test class as a <<{testing}#testing-integration-tests-section,DBUnit integration test>>.
+
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-junit/src/main/java/io/rxmicro/test/junit/BeforeThisTest.java[`@BeforeThisTest`^]
 |It is used to specify the method to be invoked by the RxMicro framework <<{testing}#testing-before-test-section,before running the test method>>.
 
@@ -88,4 +91,18 @@ _The RxMicro framework supports the `@BeforeIterationMethodSource` annotation on
 _(Using the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-mockito-junit/src/main/java/io/rxmicro/test/mockito/junit/InitMocks.java[`@InitMocks`^]
 annotation is preferable to the analogous
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-mockito-junit/src/main/java/io/rxmicro/test/mockito/junit/InitMocks.java#L58[`@ExtendWith(MockitoExtension.class)`^] construction.)_
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-dbunit/src/main/java/io/rxmicro/test/dbunit/InitialDataSet.java[`@InitialDataSet`^]
+|Provides <<testing-dbunit-initial-data-set, the init state of tested database before execution of the test method>>.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-dbunit/src/main/java/io/rxmicro/test/dbunit/ExpectedDataSet.java[`@ExpectedDataSet`^]
+|Provides <<testing-dbunit-expected-data-set, the expected state of tested database after execution of the test method>>.
+
+If expected state does not match to the actual database state the `java.lang.AssertionError` will be thrown.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-dbunit/src/main/java/io/rxmicro/test/dbunit/RollbackChanges.java[`@RollbackChanges`^]
+|Declares the <<testing-dbunit-rollback-changes, transactional test>>.
+
+The transaction test means that all changes made by test will rolled back after the test execution.
+
 |===

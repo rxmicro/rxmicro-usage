@@ -1,0 +1,32 @@
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../../
+
+[[testing-dbunit-supported-expressions-int-interval]]
+===== `${instant:interval}` Expression
+
+The `${instant:interval}` expression allows comparing this expression with `java.time.Instant` and `java.sql.Timestamp` instances correctly.
+
+This expression is useful if Your business logic generates random instant value within predefined boundaries:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-dbunit/testing-dbunit-expressions/src/test/java/io/rxmicro/examples/testing/dbunit/expressions/ExpressionsTest.java[tag=instant-interval,indent=0]
+----
+<1> The empty dataset.
+<2> The test database contains foreign keys.
+To demonstrate how `${now}` expression is worked it is necessary to drop these foreign keys.
+<3> The `java.time.Instant.now() + [1 SECOND - 10 SECOND]` value is stored to test database.
+<4> After test execution the test database must contain `java.time.Instant.now() + [1 SECOND - 10 SECOND]` value.
+
+The `dataset/with-now-expression-dataset.xml` classpath resource contains the following content:
+
+[source,xml]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-dbunit/testing-dbunit-expressions/src/test/resources/dataset/with-instant-interval-expression-dataset.xml[]
+----
+<1> The `created` column must contain `java.time.Instant.now() + [1 SECOND - 10 SECOND]` value.
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-dbunit/testing-dbunit-expressions
+include::../../../___notes/full-source-code-of-example.adoc[]

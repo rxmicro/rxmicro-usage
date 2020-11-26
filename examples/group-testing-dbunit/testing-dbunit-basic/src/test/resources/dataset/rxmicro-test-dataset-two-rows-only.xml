@@ -2,11 +2,27 @@
 <!DOCTYPE dataset SYSTEM "rxmicro-test-dataset.dtd">
 
 <dataset>
-    <account id="1" email="richard.hendricks@piedpiper.com" first_name="Richard" last_name="Hendricks" balance="70000.00" role="CEO"/>
-    <account id="3" email="dinesh.chugtai@piedpiper.com" first_name="Dinesh" last_name="Chugtai" balance="10000.00" role="Lead_Engineer"/>
+    <account id="1"
+             email="richard.hendricks@piedpiper.com"
+             first_name="Richard"
+             last_name="Hendricks"
+             balance="70000.00"
+             role="CEO"/>
+    <account id="3"
+             email="dinesh.chugtai@piedpiper.com"
+             first_name="Dinesh"
+             last_name="Chugtai"
+             balance="10000.00"
+             role="Lead_Engineer"/>
 
-    <product id="24" name="Apple iMac 27&quot; with Retina 5K Display Late (MQ2Y2)" price="6200.00" count="7"/>
-    <product id="25" name="Apple iMac 27&quot; 2017 5K (MNEA2)" price="2100.00" count="17"/>
+    <product id="24"
+             name="Apple iMac 27&quot; with Retina 5K Display Late (MQ2Y2)"
+             price="6200.00"
+             count="7"/>
+    <product id="25"
+             name="Apple iMac 27&quot; 2017 5K (MNEA2)"
+             price="2100.00"
+             count="17"/>
 
     <order/>
 </dataset>

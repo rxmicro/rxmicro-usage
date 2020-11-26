@@ -13,6 +13,7 @@
 
     <modules>
         <module>testing-dbunit-basic</module>
+        <module>testing-dbunit-expressions</module>
     </modules>
 
     <properties>

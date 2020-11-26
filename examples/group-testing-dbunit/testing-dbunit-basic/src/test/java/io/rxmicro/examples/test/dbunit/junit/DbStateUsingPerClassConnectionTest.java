@@ -34,6 +34,7 @@ import static io.rxmicro.test.dbunit.TestDatabaseConfig.getCurrentTestDatabaseCo
 // tag::content[]
 @RxMicroIntegrationTest
 @Testcontainers
+// <1>
 @DbUnitTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 final class DbStateUsingPerClassConnectionTest {

@@ -1,0 +1,26 @@
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+[[testing-dbunit-order-by]]
+==== Ordered Comparison
+
+If the expected dataset is ordered, it is necessary to inform the RxMicro framework how to compare this dataset correctly.
+For this case the `@ExpectedDataSet` annotation has `orderBy` parameter:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-dbunit/testing-dbunit-basic/src/test/java/io/rxmicro/examples/test/dbunit/junit/RowOrderingTest.java[tag=content,indent=0]
+----
+<1> The `orderBy` parameter contains the column name(s) that must be used to sort the actual dataset before comparison.
+
+The `dataset/rxmicro-test-dataset-products-order-by-price.xml` dataset is the following:
+
+[source,xml]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-dbunit/testing-dbunit-basic/src/test/resources/dataset/rxmicro-test-dataset-products-order-by-price.xml[]
+----
+
+:link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-dbunit/testing-dbunit-basic
+include::../../___notes/full-source-code-of-example.adoc[]

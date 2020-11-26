@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "rxmicro-test-dataset.dtd">
+
+<dataset>
+    <product id="1"
+             name="name"
+             price="6200.00"
+             count="${int:interval:0:9}"/> <!--1-->
+</dataset>
