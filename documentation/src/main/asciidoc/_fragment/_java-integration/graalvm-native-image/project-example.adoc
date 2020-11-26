@@ -6,7 +6,7 @@ include::../../___fragment-settings.adoc[]
 ==== RxMicro Project Configuration
 
 The first release of GraalVM based on Java 11 is https://www.graalvm.org/docs/release-notes/19_3/#1930[*19.3.0* (2019-11-19)^].
-But unfortunately the GraalVM Native Image Tool does not support JPMS yet.
+But unfortunately the GraalVM Native Image Tool does not support {WHAT-IS-JPMS-LINK}[`JPMS`^] yet.
 
 Thus we need to use the `unnamed module` mode for RxMicro project.
 

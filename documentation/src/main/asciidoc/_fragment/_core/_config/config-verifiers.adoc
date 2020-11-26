@@ -1,0 +1,18 @@
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+==== Configuration Verifiers
+
+If Your runtime has complex configuration the RxMicro team strong recommends enabling runtime strict mode.
+
+If the runtime strict mode activated the RxMicro runtime invokes additional checks to find unused or redundant configurations.
+
+To enable the runtime strict mode set `RX_MICRO_RUNTIME_STRICT_MODE` environment variable to the `true` value!
+If runtime strict mode successful activated the following log message can be found:
+
+[source,text]
+----
+[INFO] RxMicroRuntime !!! RxMicro Runtime Strict Mode is activated !!!
+----

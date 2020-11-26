@@ -10,7 +10,7 @@ The source code of each of these components is described below.
 
 ==== A `module-info.java` Descriptor
 
-Java 9 has introduced the https://www.oracle.com/corporate/features/understanding-java-9-modules.html[JPMS^].
+Java 9 has introduced the {WHAT-IS-JPMS-LINK}[`JPMS`^].
 
 Therefore, the RxMicro framework, which requires the use of https://openjdk.java.net/projects/jdk/11/[JDK 11^] or higher, requires a `module-info.java` descriptor for any of Your microservice projects.
 

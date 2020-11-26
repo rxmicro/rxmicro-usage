@@ -56,6 +56,13 @@ Therefore, when compiling this class, the `RxMicro Annotation Processor` generat
 It is recommended to add a getter or change the field modifier: from private to default, protected or public.
 ----
 
+[NOTE]
+====
+If the <<rxmicro-annotation-processor-options-section,`RX_MICRO_STRICT_MODE`>> is set, the RxMicro Annotation Processor throws a compilation error instead of showing the *PERFORMANCE WARNING*.
+
+*By default the reflection usage for model classes is not allowed for strict mode!*
+====
+
 ==== A Separate Package Usage
 
 The best and *recommended* solution to this problem is to create a separate package (e.g. `model`) and declare all fields of the model classes without any access modifier (i.e. `default/package`).
@@ -153,3 +160,10 @@ To benefit from the encapsulation advantages when designing microservices via th
 
 *Do not use the `private` modifier to access the model field without `getter` (`setter`)!* +
 *This approach offers no benefits!*
+
+[NOTE]
+====
+If the <<rxmicro-annotation-processor-options-section,`RX_MICRO_STRICT_MODE`>> is set, the RxMicro Annotation Processor throws a compilation error instead of showing the *PERFORMANCE WARNING*.
+
+*By default the reflection usage for model classes is not allowed for strict mode!*
+====

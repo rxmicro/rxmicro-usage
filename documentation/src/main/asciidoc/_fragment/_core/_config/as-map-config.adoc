@@ -1,0 +1,32 @@
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+==== Dynamic Configuration
+
+If Your runtime environment can contain dynamic properties You can use {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/AsMapConfig.java[`AsMapConfig`^] configuration:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/config/dynamic/DynamicAsMapConfig.java[tag=content,indent=0]
+----
+
+If the `rxmicro.properties` classpath resource with the following content exists:
+
+[source,properties]
+----
+dynamic.bigDecimal=3.1423456676
+dynamic.bigInteger=9999999999999999999999999999999999999999999999999
+dynamic.boolean=true
+dynamic.integer=34
+dynamic.string=staging
+----
+
+then the following code will return configured dynamic parameters:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/config/dynamic/Test.java[tag=content,indent=0]
+----
+

@@ -28,7 +28,4 @@ module examples.monitoring.request.tracing {
     requires rxmicro.data.sql.r2dbc.postgresql;
     requires rxmicro.cdi;
     requires reactor.core;
-
-    opens io.rxmicro.examples.monitoring.request.tracing.model.db to
-            rxmicro.common;
 }

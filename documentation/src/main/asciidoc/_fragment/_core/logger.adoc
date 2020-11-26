@@ -16,7 +16,7 @@ Creation and usage of a logger in the source code is no different from http://ww
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-common/logger/src/main/java/io/rxmicro/examples/logger/MicroService.java[tag=content,indent=0]
 ----
 <1> Logger creation for the current microservice class.
-<2> Logging of a message with `INFO` message.
+<2> Logging of a message with `INFO` level.
 
 The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-logger/src/main/java/io/rxmicro/logger/Logger.java[`Logger`^] interface is an abstraction over the real logger.
 

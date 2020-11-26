@@ -31,12 +31,12 @@ The `RxMicro Annotation Processor` supports the following options:
 |`false`
 
 |`RX_MICRO_DOC_ANALYZE_PARENT_POM`
-|This option allows analyzing parent `pom.xml` if child `pom.xml` does not contain required property.
+|this option allows analyzing parent `pom.xml` if child `pom.xml` does not contain required property.
 |`boolean`
 |`true`
 
 |`RX_MICRO_STRICT_MODE`
-|Activates additional validation rules during compilation process.
+|activates additional validation rules during compilation process.
 
 *The RxMicro team strong recommends enabling the strict mode for your production code.*
 |`boolean`

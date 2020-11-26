@@ -1,6 +1,7 @@
 // suppress inspection "AsciiDocLinkResolve" for whole file
 :FRAGMENT_RELATIVE_DIR: ../../
 include::../../___fragment-settings.adoc[]
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
 
 ==== Pattern Formatter
 
@@ -175,3 +176,13 @@ Thus, it is the preferred way of specifying a line separator.
 This specifier displays the request id that retrieved from HTTP request if the <<{monitoring}#monitoring-request-tracing,request tracing>> is enabled.
 
 |===
+
+[IMPORTANT]
+====
+For request tracing feature usage Your code must use the overloaded logger methods with {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-logger/src/main/java/io/rxmicro/logger/RequestIdSupplier.java[`RequestIdSupplier`^] argument:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/logger/Logger.java[tag=content,indent=0]
+----
+====

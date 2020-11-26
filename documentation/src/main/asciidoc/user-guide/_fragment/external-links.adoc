@@ -31,3 +31,5 @@
 :MONGO-ASYNC-REACTIVE_DOC: http://mongodb.github.io/mongo-java-driver-reactivestreams/1.9/javadoc/
 
 :RX-MICRO-DOCKER_HUB_ROOT: https://hub.docker.com/r/rxmicro/
+
+:WHAT-IS-JPMS-LINK: https://www.oracle.com/corporate/features/understanding-java-9-modules.html

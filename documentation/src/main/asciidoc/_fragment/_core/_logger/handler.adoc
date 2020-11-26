@@ -6,7 +6,7 @@ include::../../___fragment-settings.adoc[]
 
 By default the `INFO` logging level is activated for the all logger.
 
-All logger events are sent to the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-logger/src/main/java/io/rxmicro/logger/jul/SystemOutConsoleHandler.java[`SystemOutConsoleHandler`^] appender, which outputs all logging information into `System.out`.
+All logger events are sent to the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-logger/src/main/java/io/rxmicro/logger/jul/SystemConsoleHandler.java[`SystemConsoleHandler`^] appender, which outputs all logging information into `System.out`.
 
 [TIP]
 ====
@@ -16,3 +16,10 @@ If these functions are not enough You can use any other logging framework:
 http://logback.qos.ch/[`Logback`^],
 https://logging.apache.org/log4j/2.x/[`Apache Log4j 2`^] and others.
 ====
+
+If the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-logger/src/main/java/io/rxmicro/logger/jul/SystemConsoleHandler.java[`SystemConsoleHandler`^] appender must output all logging information into `System.err` it is necessary to add the following configuration:
+
+[source,properties]
+----
+io.rxmicro.logger.jul.SystemConsoleHandler.stream=stderror
+----

@@ -26,4 +26,16 @@ include::_config/config-setting.adoc[]
 
 <<<
 
+include::_config/as-map-config.adoc[]
+
+<<<
+
 include::_config/custom-config.adoc[]
+
+<<<
+
+include::_config/supported-types.adoc[]
+
+<<<
+
+include::_config/config-verifiers.adoc[]

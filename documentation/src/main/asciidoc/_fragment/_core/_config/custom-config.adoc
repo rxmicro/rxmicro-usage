@@ -27,7 +27,7 @@ _(Only those fields that contain `setters` can be initialized!)_
 ====
 
 Since this class will be created and initialized by the classes from `rxmicro.runtime` and `rxmicro.config` modules automatically, it is necessary to export the package to these modules in the `module-info.java` descriptor. +
-_(These are the https://www.oracle.com/corporate/features/understanding-java-9-modules.html[JPMS^] requirements.)_
+_(These are the {WHAT-IS-JPMS-LINK}[`JPMS`^] requirements.)_
 
 [source,java]
 ----

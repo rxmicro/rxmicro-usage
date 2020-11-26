@@ -3,6 +3,7 @@
 include::../../___fragment-settings.adoc[]
 
 ==== Logger Configuration
+===== Using Configuration File
 
 [[core-logger-config-file-inline]]
 The main configuration file of the `java.logging` logger is the `jul.properties` classpath resource.
@@ -33,3 +34,34 @@ When activating the `java.logging` logger, the RxMicro framework automatically c
 
 This option makes it possible to use unsupported but widely used in other logging frameworks logging levels for the `java.logging` logger.
 ====
+
+===== Using Environment Variables And Java System Properties
+
+Besides configuration file (`jul.properties`) the `rxmicro.logger` module supports configuration using environment variables and java system properties.
+
+If Your runtime contains an environment variable and (or) java system property with name that starts with `logger.` phrase, the `rxmicro.logger` module interprets it as configuration.
+For example to enable `TRACE` logger level for `MicroServiceLauncher` it is necessary to provide one of the following configurations:
+
+[source,bash]
+----
+export logger.io.rxmicro.rest.server.level=TRACE
+
+java -p lib:. -m module/package.MicroServiceLauncher
+----
+
+or
+
+[source,bash]
+----
+java -p lib:. -Dlogger.io.rxmicro.rest.server.level=TRACE -m module/package.MicroServiceLauncher
+----
+
+===== Default Reading Order of Config Sources.
+
+By default, the `rxmicro.logger` module reads configuration sources in the following order (From the lowest to the highest priority):
+
+* Default config.
+* Configuration from the `jul.properties` classpath resource if the resource found.
+* Configuration from the `jul.test.properties` classpath resource if the resource found.
+* Configuration from the environment variables if any environment variable with `logger.` prefix found.
+* Configuration from the java system properties if any java system property with `logger.` prefix found.

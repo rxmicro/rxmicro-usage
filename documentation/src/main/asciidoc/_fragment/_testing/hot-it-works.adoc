@@ -4,7 +4,7 @@ include::../___fragment-settings.adoc[]
 [[testing-how-it-works-section]]
 === How It Works
 
-Java 9 has introduced the https://www.oracle.com/corporate/features/understanding-java-9-modules.html[JPMS^].
+Java 9 has introduced the {WHAT-IS-JPMS-LINK}[`JPMS`^].
 
 This system requires that a developer defines the `module-info.java` descriptor for each project. In this descriptor, the developer must describe all the dependencies of the current project.
 In the context of the unit module system, the tests required for each project should be configured as a separate module, since they depend on libraries that should not be available in the `runtime`.

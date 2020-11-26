@@ -18,6 +18,7 @@
         <module>config-annotations-supplier</module>
         <module>json</module>
         <module>logger</module>
+        <module>base-model</module>
     </modules>
 
     <build>

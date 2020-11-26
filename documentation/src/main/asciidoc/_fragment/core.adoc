@@ -19,11 +19,7 @@ include::_core/reactive.adoc[]
 
 <<<
 
-include::_core/encapsulation.adoc[]
-
-<<<
-
-include::_core/logger.adoc[]
+include::_core/base-model.adoc[]
 
 <<<
 
@@ -31,7 +27,17 @@ include::_core/format.adoc[]
 
 <<<
 
+include::_core/encapsulation.adoc[]
+
+
+<<<
+
 include::_core/config.adoc[]
+
+<<<
+
+include::_core/logger.adoc[]
+
 
 <<<
 

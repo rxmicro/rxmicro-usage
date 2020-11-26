@@ -276,7 +276,7 @@ public final class $$RestControllerAggregatorImpl extends RestControllerAggregat
 [[core-how-it-works-environment-customizer]]
 ===== An Environment Customizer.
 
-Java 9 has introduced the https://www.oracle.com/corporate/features/understanding-java-9-modules.html[JPMS^].
+Java 9 has introduced the {WHAT-IS-JPMS-LINK}[`JPMS`^].
 
 This system requires that a developer configures access to classes in the *module-info.java* file of the microservice project.
 
@@ -321,7 +321,7 @@ final class $$EnvironmentCustomizer {
 <1> When the class is loaded, the `addExportsToRuntime()` static method is invoked.
 <2> In this method body, the export of the `rxmicro` package to the `rxmicro.runtime` module is performed dynamically using the capabilities of the {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Module.html[`java.lang.Module`^] class.
 
-Due to this additional class, all necessary settings for the https://www.oracle.com/corporate/features/understanding-java-9-modules.html[JPMS^] are created automatically.
+Due to this additional class, all necessary settings for the {WHAT-IS-JPMS-LINK}[`JPMS`^] are created automatically.
 
 [TIP]
 ====
