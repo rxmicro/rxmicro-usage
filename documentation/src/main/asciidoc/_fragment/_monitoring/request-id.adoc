@@ -1,0 +1,17 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
+[[monitoring-request-id-section]]
+=== Request Id
+
+To track an HTTP request when using a microservice architecture, the RxMicro framework provides an HTTP request identification feature.
+
+include::_request-id/basic-rules.adoc[]
+
+<<<
+
+include::_request-id/supported-generator-types.adoc[]
+
+<<<
+
+include::_request-id/comparing-the-performance.adoc[]

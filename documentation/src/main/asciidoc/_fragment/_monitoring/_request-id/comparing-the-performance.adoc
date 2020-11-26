@@ -1,0 +1,25 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+==== Comparing the Performance of Generator Types
+
+Performance test source code:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}benchmarks/benchmark-rxmicro-core/src/main/java/io/rxmicro/benchmark/rxmicro/core/server/RequestIdGeneratorBenchmark.java[tag=content,indent=0]
+----
+
+Performance test results:
+
+[source,txt]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}benchmarks/_results/rxmicro-core-RequestIdGeneratorBenchmark.txt[]
+----
+
+[IMPORTANT]
+====
+Test results show that the performance of the `FasterButUnSafeRequestIdGenerator` component *is 6 times better*, than that of the `SafeButSlowerRequestIdGenerator` component!
+====

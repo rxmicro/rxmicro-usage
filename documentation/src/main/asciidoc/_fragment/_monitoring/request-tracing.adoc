@@ -2,8 +2,8 @@
 include::../___fragment-settings.adoc[]
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
 
-[[monitoring-request-tracing]]
-=== REST Request Tracing
+[[monitoring-request-tracing-usage-example]]
+=== Request Tracing Usage Example
 
 TODO
 
@@ -94,7 +94,7 @@ Request-Id: AkinnfVzx1752012
 ====
 For more information, we recommend that You familiarize yourself with the following examples:
 
-* {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-monitoring/monitoring-request-tracing[*Request tracing example*^];
+* {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-monitoring/monitoring-request-tracing[*Request tracing usage example*^];
 ====
 
 include::../___notes/recompile-after-change.adoc[]

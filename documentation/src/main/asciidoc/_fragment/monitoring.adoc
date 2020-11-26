@@ -5,4 +5,8 @@ TODO
 
 <<<
 
+include::_monitoring/request-id.adoc[]
+
+<<<
+
 include::_monitoring/request-tracing.adoc[]

@@ -1,0 +1,44 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+==== Supported Generator Types
+
+The RxMicro framework supports the following types of HTTP request id generators.
+
+.Generator name and its implementation class.
+|===
+|*Type*|*Implementation class*|*Description*
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/RequestIdGeneratorType.java#L36[`FASTER_BUT_UNSAFE`^]
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/local/component/impl/FasterButUnSafeRequestIdGenerator.java[`FasterButUnSafeRequestIdGenerator`^]
+|*Generates unique IDs only within the framework of starting one `JVM`.*
+
+Uses a random increment counter.
+
+(_Used by default_).
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/RequestIdGeneratorType.java#L43[`SAFE_BUT_SLOWER`^]
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/local/component/impl/SafeButSlowerRequestIdGenerator.java[`SafeButSlowerRequestIdGenerator`^]
+|*Generates unique IDs independently of starting the `JVM`.*
+
+As a unique value uses the
+{JDK-JAVA-BASE-DOC-ROOT-URL}java/util/UUID.html#randomUUID()[`UUID.randomUUID()`^].
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/RequestIdGeneratorType.java#L50[`FOR_TESTS_ONLY`^]
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/local/component/impl/TestRequestIdGenerator.java[`TestRequestIdGenerator`^]
+|Recommended *for test environment only*.
+
+By default, it is automatically activated for test environment.
+|===
+
+To change the request id generator type, You must use the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/RestServerConfig.java[`RestServerConfig`^] configuration class:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-request-id/src/main/java/io/rxmicro/examples/rest/controller/request/id/Launcher.java[tag=content,indent=0]
+----
+
+<1> Setting the `SAFE_BUT_SLOWER` value as a generator type of HTTP request ids.

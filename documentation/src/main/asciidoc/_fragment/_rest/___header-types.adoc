@@ -19,7 +19,7 @@ The RxMicro framework supports the following Java types, which can be HTTP reque
 
 include::../___notes/note-use-big-decimal.adoc[]
 
-and also the `java.util.List<T>` and the `java.util.Map<String, T>` type is parameterized by any of the above mentioned primitive types.
+and also the `java.util.List<T>`, `java.util.Set<T>` and the `java.util.Map<String, T>` type is parameterized by any of the above mentioned primitive types.
 
 [TIP]
 ====
