@@ -16,19 +16,23 @@ include::_validation/constraints.adoc[]
 
 <<<
 
-include::_validation/basic-server-validation.adoc[]
+include::_validation/server-request-validation.adoc[]
 
 <<<
 
-include::_validation/custom-server-validation.adoc[]
+include::_validation/server-response-validation.adoc[]
 
 <<<
 
-include::_validation/response-server-validation.adoc[]
+include::_validation/client-response-validation.adoc[]
 
 <<<
 
-include::_validation/client-validation.adoc[]
+include::_validation/client-request-validation.adoc[]
+
+<<<
+
+include::_validation/custom-constraint.adoc[]
 
 <<<
 

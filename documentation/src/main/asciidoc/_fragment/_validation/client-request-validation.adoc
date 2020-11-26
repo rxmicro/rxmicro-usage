@@ -1,0 +1,26 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../
+
+=== HTTP Requests Client Validation
+
+In addition to validating HTTP responses, the RxMicro framework also provides the option to validate HTTP requests.
+
+_(HTTP request validation can be useful for identifying errors in business task implementation algorithms.
+For example, instead of returning an incorrect request model to a server, the REST client will throw an error.
+This approach increases the speed of error search and debugging of the source code that performs the business task.)_
+
+[IMPORTANT]
+====
+If current implementation of the business task doesn't contain any errors, then HTTP request validation will consume computing resources senselessly.
+In this case, HTTP request validation must be disabled!
+
+*By default the request validators are generated but not invoked!*
+To activate the validation of requests it is necessary to set `enableAdditionalValidations` property:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/rest_client/ActivateRequestValidators.java[tags=content,indent=0]
+----
+<1> Enables the requests validators
+====

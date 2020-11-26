@@ -16,19 +16,17 @@ This approach increases the speed of error search and debugging of the source co
 ====
 If current implementation of the business task doesn't contain any errors, then HTTP response validation will consume computing resources senselessly.
 In this case, HTTP response validation must be disabled!
-====
 
-*By default, the RxMicro framework does not generate response validators!*
+*By default the response validators are generated but not invoked!*
 
-To inform the `RxMicro Annotation Processor` about the need to generate HTTP response validators, it is necessary to use the <<{rest-controller}#rest-controller-rest-server-generator-config-section,`@RestServerGeneratorConfig`>> annotation:
+To activate the validation of responses it is necessary to set `enableAdditionalValidations` property:
 
 [source,java]
 ----
-include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-validation/validation-server-response/src/main/java/module-info.java[tag=content,indent=0]
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/rest_controller/ActivateResponseValidators.java[tags=content,indent=0]
 ----
-<1> The `generateResponseValidators` parameter allows You to enable/disable the option of generating HTTP response validators for all handlers in the project. +
-_(The `AUTO_DETECT` value means that validators will be generated only if the developer adds the `rxmicro.validation` module to the `module-info.java` descriptor.
-Since this module has been added, the `RxMicro Annotation Processor` will generate validators for HTTP response.)_
+<1> Enables the response validators
+====
 
 The HTTP response model class can contain any built-in or custom constraint annotations:
 
