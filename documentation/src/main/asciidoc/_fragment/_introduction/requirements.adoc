@@ -10,13 +10,22 @@ To succeed in studying this guide, it is assumed that the reader is familiar wit
 * {JDK-JAVA-BASE-DOC-ROOT-URL}module-summary.html[`JDK 11 base API`^];
 * https://maven.apache.org/users/index.html[`Apache Maven`^];
 * https://junit.org/junit5/docs/current/user-guide/[`JUnit 5`^];
+* http://dbunit.sourceforge.net/intro.html[`DBUnit`^];
 * {MOCKITO-DOC-ROOT-URL}org/mockito/Mockito.html[`Mockito`^];
 * https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview[`Hypertext Transfer Protocol (HTTP)`^];
 * https://en.wikipedia.org/wiki/Representational_state_transfer[`Representational state transfer (REST)`^];
+* https://www.docker.com/resources/what-container[`Docker`^].
 
 The RxMicro framework uses the following Java modules:
 
-* {JDK-JAVA-BASE-DOC-ROOT-URL}module-summary.html[`java.base`^];
-* {JDK-JAVA-LOGGING-DOC-ROOT-URL}module-summary.html[`java.logging`^];
-* {JDK-JAVA-NET-HTTP-DOC-ROOT-URL}module-summary.html[`java.net.http`^];
-* `jdk.unsupported`;
+* Common module(s):
+** {JDK-JAVA-BASE-DOC-ROOT-URL}module-summary.html[`java.base`^];
+* The `rxmicro.logger` module requires the following module(s):
+** {JDK-JAVA-LOGGING-DOC-ROOT-URL}module-summary.html[`java.logging`^];
+* REST client and REST based microservice test modules require the following module(s):
+** {JDK-JAVA-NET-HTTP-DOC-ROOT-URL}module-summary.html[`java.net.http`^];
+* The `rxmicro.data.r2dbc.postgresql` module requires the following module(s):
+** {JDK-JAVA-NAMING-DOC-ROOT-URL}module-summary.html[`java.naming`^];
+** {JDK-JAVA-MANAGMENT-DOC-ROOT-URL}module-summary.html[`java.management`^];
+* Netty requires the the following module(s):
+** `jdk.unsupported`.

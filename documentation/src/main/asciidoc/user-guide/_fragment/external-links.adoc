@@ -10,6 +10,8 @@
 :JDK-JAVA-LOGGING-DOC-ROOT-URL: https://docs.oracle.com/en/java/javase/11/docs/api/java.logging/
 :JDK-JAVA-NET-HTTP-DOC-ROOT-URL: https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/
 :JDK-JAVA-COMPILER-DOC-ROOT-URL: https://docs.oracle.com/en/java/javase/11/docs/api/java.compiler/
+:JDK-JAVA-NAMING-DOC-ROOT-URL: https://docs.oracle.com/en/java/javase/11/docs/api/java.naming/
+:JDK-JAVA-MANAGMENT-DOC-ROOT-URL: https://docs.oracle.com/en/java/javase/11/docs/api/java.management/
 // Reactive Lib Root Links
 :RX-JAVA-USER-GUIDE: https://github.com/ReactiveX/RxJava/blob/3.x/README.md
 :RX-JAVA-DOC-ROOT-URL: http://reactivex.io/RxJava/javadoc/

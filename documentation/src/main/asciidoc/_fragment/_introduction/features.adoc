@@ -58,17 +58,22 @@ The RxMicro framework provides the following feature set:
 ... Customized `SELECT` queries support.
 ... Possibility to customize a standard repository implementation.
 ... Access to a low-level API.
+... Auto registration of enum codecs.
 .. Mongo Data Repositories.
 ... `find`, `aggregate`, `distinct`, `insert`, `update`, `delete`, `countDocuments` and `estimatedDocumentCount` operation support.
 ... Auto-generated entity id support.
 ... Query parameter logging.
 ... Possibility to customize a standard repository implementation.
 ... Access to a low-level API.
+. Monitoring
+.. Health checks.
+.. Request tracing.
 . Testing.
 .. Component testing.
 .. REST-based microservices testing.
 .. Integration testing.
 .. Support for alternatives and mocks.
 .. Integration with https://junit.org/junit5/[JUnit 5^] and https://site.mockito.org/[Mockito^] frameworks.
+.. Integration with http://dbunit.sourceforge.net/[DBUnit^] framework.
 . Integration with other Java libraries and frameworks.
 .. https://www.graalvm.org/docs/reference-manual/native-image/[A GraalVM native image^] support.
