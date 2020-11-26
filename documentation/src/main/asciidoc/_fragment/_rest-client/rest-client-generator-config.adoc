@@ -37,3 +37,24 @@ If the `requestValidationMode` parameter is equal to the `THROW_EXCEPTION`, then
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-generator/src/main/java/io/rxmicro/examples/request/validaton/pseudo/code/BusinessService.java[tags=THROW_EXCEPTION,indent=0]
 ----
+
+[IMPORTANT]
+====
+The RxMicro team strong recommends to use the `AUTO_DETECT` generate option always!
+(This is default value for {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/client/RestClientGeneratorConfig.java[`@RestClientGeneratorConfig`^] annotation).
+
+*FYI:* By default the request validators are generated but not invoked!
+To activate the validation of requests it is necessary to set `enableAdditionalValidations` property:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/rest_client/ActivateRequestValidators.java[tags=content,indent=0]
+----
+<1> Enables the requests validators
+
+Thus the RxMicro team recommends the following approach:
+
+* Your project configuration must enable generation of validators for all possible model classes.
+* Your `development` and `staging` environment must enable additional validation.
+* Your `production` environment must disable additional validation!
+====
