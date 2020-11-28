@@ -14,12 +14,12 @@ The `pom.xml` configuration file is a reference configuration and can be copied 
 
 *DON'T FORGET to remove the link to the parent project*:
 
-[source,xml]
+[source,xml,subs="attributes+"]
 ----
 <parent>
     <artifactId>examples</artifactId>
     <groupId>io.rxmicro</groupId>
-    <version>0.4</version>
+    <version>{RXMICRO-VERSION}</version>
 </parent>
 ----
 

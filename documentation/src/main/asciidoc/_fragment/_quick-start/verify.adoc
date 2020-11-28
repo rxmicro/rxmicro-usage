@@ -5,7 +5,7 @@ include::../___fragment-settings.adoc[]
 
 To receive the `"Hello World!"` message from the created REST-based microservice, execute `GET` request to `localhost:8080` endpoint:
 
-[source,text,subs="verbatim,quotes"]
+[source,text,subs="verbatim,quotes,attributes+"]
 ----
 :$ *curl* -v localhost:8080
 
@@ -21,7 +21,7 @@ To receive the `"Hello World!"` message from the created REST-based microservice
 >
 
 < HTTP/1.1 200 OK <2>
-< Server: RxMicro-NettyServer/0.4
+< Server: RxMicro-NettyServer/{RXMICRO-VERSION}
 < Date: Thu, 2 Jan 2020 11:48:13 GMT
 < Content-Type: application/json
 < Content-Length: 25
