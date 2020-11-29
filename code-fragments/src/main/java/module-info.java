@@ -26,4 +26,8 @@ module examples.code.fragments {
     requires rxmicro.slf4j.proxy;
 
     requires jdk.httpserver;
+
+    exports io.rxmicro.examples.code.fragments.config.dynamic to
+            rxmicro.runtime,
+            rxmicro.config;
 }

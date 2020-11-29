@@ -26,7 +26,8 @@ The `dataset/with-now-expression-dataset.xml` classpath resource contains the fo
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-dbunit/testing-dbunit-expressions/src/test/resources/dataset/with-instant-interval-expression-dataset.xml[]
 ----
-<1> The `created` column must contain `java.time.Instant.now() + [1 SECOND - 10 SECOND]` value.
+<1> The `created` column must contain `java.time.Instant.now() + [1 SECOND - 12 SECOND]` value.
+`12` instead of `10` is used because 2 second is compare delta!
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-dbunit/testing-dbunit-expressions
 include::../../../___notes/full-source-code-of-example.adoc[]

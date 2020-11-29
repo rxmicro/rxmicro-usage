@@ -6,5 +6,5 @@
            id_account="1"
            id_product="1"
            count="10"
-           created="${interval:now:PT1S:PT10S}"/> <!--1-->
+           created="${interval:now:PT1S:PT12S}"/> <!--1-->
 </dataset>

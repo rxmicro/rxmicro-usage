@@ -12,13 +12,13 @@ This class is <<{core}#configuration-basic-structure-section, the usual RxMicro 
 
 It means that settings for test database can be configured using:
 
-* Using `test-database.properties` classpath resource.
-* Using `./test-database.properties` file.
-* Using `$HOME/test-database.properties` file.
-* Using `$HOME/.rxmicro/test-database.properties` file.
-* Using environment variables.
-* Using Java system properties.
-* Using <<testing-annotations-WithConfig-inline, `@WithConfig`>> annotation.
+* `test-database.properties` classpath resource.
+* `./test-database.properties` file.
+* `$HOME/test-database.properties` file.
+* `$HOME/.rxmicro/test-database.properties` file.
+* environment variables.
+* Java system properties.
+* <<testing-annotations-WithConfig-inline, `@WithConfig`>> annotation.
 
 Besides that the settings for test database can be changed using `TestDatabaseConfig.getCurrentTestDatabaseConfig()` static method.
 This approach useful if test database is working at the https://www.docker.com/[docker^] container:
