@@ -22,8 +22,11 @@
         <module>rest-client-path-variables</module>
         <module>rest-client-versioning-url-path</module>
         <module>rest-client-versioning-header</module>
-        <module>rest-client-model-fields</module>
         <module>rest-client-generator</module>
+        <module>rest-client-model-field-mapping-strategy</module>
+        <module>rest-client-model-field-access</module>
+        <module>rest-client-model-types</module>
+        <module>rest-client-path-variables-complex</module>
     </modules>
 
     <build>

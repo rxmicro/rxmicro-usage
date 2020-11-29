@@ -7,7 +7,7 @@ include::../../../___fragment-settings.adoc[]
 
 This section will cover the features of testing REST-based microservices that use REST clients.
 
-The source code of such REST-based microservice consists of the `Response` model class, `ExternalMicroService` REST client and `MicroService` HTTP request handler:
+The source code of such REST-based microservice consists of the `Response` model class, `ExternalMicroService` REST client and `ConsumeMicroService` HTTP request handler:
 
 [source,java]
 ----

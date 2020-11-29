@@ -27,10 +27,12 @@
         <module>rest-controller-request-id</module>
         <module>rest-controller-base-url-path</module>
         <module>rest-controller-set-status-code</module>
-        <module>rest-controller-model-fields</module>
         <module>rest-controller-complex-model</module>
         <module>rest-controller-generator</module>
         <module>rest-controller-map-model-type</module>
+        <module>rest-controller-model-types</module>
+        <module>rest-controller-model-field-access</module>
+        <module>rest-controller-model-field-mapping-strategy</module>
     </modules>
 
     <build>

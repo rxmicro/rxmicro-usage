@@ -7,7 +7,7 @@ include::../../../___fragment-settings.adoc[]
 
 This section will cover the features of testing REST-based microservices that use mongo repositories.
 
-The source code of such REST-based microservice consists of the `Entity` entity model, `Response` model class, `DataRepository` mongo repository and `MicroService` HTTP request handler:
+The source code of such REST-based microservice consists of the `Entity` entity model, `Response` model class, `DataRepository` mongo repository and `ConsumeMicroService` HTTP request handler:
 
 [source,java]
 ----
