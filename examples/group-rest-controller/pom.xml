@@ -33,6 +33,7 @@
         <module>rest-controller-model-types</module>
         <module>rest-controller-model-field-access</module>
         <module>rest-controller-model-field-mapping-strategy</module>
+        <module>rest-controller-extendable-model</module>
     </modules>
 
     <build>
