@@ -16,20 +16,23 @@
 
 package io.rxmicro.examples.test.dbunit.junit;
 
+import io.rxmicro.test.WithConfig;
+import io.rxmicro.test.dbunit.DatabaseType;
 import io.rxmicro.test.dbunit.ExpectedDataSet;
 import io.rxmicro.test.dbunit.InitialDataSet;
+import io.rxmicro.test.dbunit.TestDatabaseConfig;
 import io.rxmicro.test.dbunit.junit.DbUnitTest;
 import io.rxmicro.test.junit.RxMicroIntegrationTest;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.testcontainers.containers.FixedHostPortGenericContainer;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
-import static io.rxmicro.test.dbunit.TestDatabaseConfig.getCurrentTestDatabaseConfig;
+import static io.rxmicro.test.HttpServers.getRandomFreePort;
 import static io.rxmicro.test.dbunit.junit.RetrieveConnectionStrategy.PER_ALL_TEST_CLASSES;
 
 // tag::content[]
@@ -40,17 +43,21 @@ import static io.rxmicro.test.dbunit.junit.RetrieveConnectionStrategy.PER_ALL_TE
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 final class DbStateUsingPerAllTestClassesConnectionTest {
 
+    private static final int DB_PORT = getRandomFreePort();
+
+    @WithConfig
+    private static final TestDatabaseConfig CONFIG = new TestDatabaseConfig()
+            .setType(DatabaseType.POSTGRES)
+            .setPort(DB_PORT)
+            .setUser("rxmicro")
+            .setPassword("password")
+            .setDatabase("rxmicro");
+
     @Container
     private static final GenericContainer<?> POSTGRESQL_TEST_DB =
-            new GenericContainer<>("rxmicro/postgres-test-db")
-                    .withExposedPorts(5432);
-
-    @BeforeAll
-    static void beforeAll() {
-        getCurrentTestDatabaseConfig()
-                .setHost(POSTGRESQL_TEST_DB.getContainerIpAddress())
-                .setPort(POSTGRESQL_TEST_DB.getFirstMappedPort());
-    }
+            new FixedHostPortGenericContainer<>("rxmicro/postgres-test-db")
+                    .withExposedPorts(5432)
+                    .withFixedExposedPort(DB_PORT, 5432);
 
     @Test
     @ExpectedDataSet("dataset/rxmicro-test-dataset.xml")
