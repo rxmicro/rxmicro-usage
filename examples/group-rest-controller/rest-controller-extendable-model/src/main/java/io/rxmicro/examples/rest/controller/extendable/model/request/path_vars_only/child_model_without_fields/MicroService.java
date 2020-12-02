@@ -21,8 +21,8 @@ import io.rxmicro.rest.method.PUT;
 
 public class MicroService {
 
-    @PUT("/1/${grandVar}/${parentVar}")
+    @PUT(value = "/1/${grandVar}/${parentVar}", httpBody = false)
     void consume(final Child request) {
-        // do something
+        System.out.println(request);
     }
 }

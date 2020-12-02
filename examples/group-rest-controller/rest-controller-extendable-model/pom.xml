@@ -44,7 +44,6 @@
                             </annotationProcessorPath>
                         </annotationProcessorPaths>
                         <compilerArgs>
-                            <arg>-ARX_MICRO_LOG_LEVEL=DEBUG</arg>
                             <arg>-ARX_MICRO_STRICT_MODE=true</arg>
                         </compilerArgs>
                     </configuration>
@@ -113,6 +112,25 @@
                             <outputDirectory>${project.build.directory}/lib</outputDirectory>
                             <includeScope>compile</includeScope>
                         </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>prepare-agent-execution</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report-execution</id>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
