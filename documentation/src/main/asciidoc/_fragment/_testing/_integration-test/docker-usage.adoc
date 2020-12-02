@@ -43,5 +43,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-in
 ----
 ====
 
+include::../_note_json_compare.adoc[]
+
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-junit/testing-integration-docker
 include::../../___notes/full-source-code-of-example.adoc[]

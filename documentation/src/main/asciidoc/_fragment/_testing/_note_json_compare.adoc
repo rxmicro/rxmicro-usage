@@ -1,0 +1,7 @@
+:FRAGMENT_RELATIVE_DIR: ../
+include::../___fragment-settings.adoc[]
+
+[NOTE]
+====
+To get additional info about writing tests that require JSON object comparison, please read <<{core}#core-json-rxmicro-json-module-usage,`rxmicro.json` Module Usage>> section.
+====

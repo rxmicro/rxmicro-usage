@@ -37,6 +37,8 @@ The developer must declare a reference to this component, and while starting the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/BlockingHttpClient.java[`BlockingHttpClient`^] class instance, using the `reflection` mechanism.
 <3> Upon receiving the HTTP response from the microservice, the developer should compare the response body with the expected result in the test.
 
+include::../_note_json_compare.adoc[]
+
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-testing-junit/testing-microservice-basic
 include::../../___notes/full-source-code-of-example.adoc[]
 

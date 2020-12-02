@@ -4,6 +4,7 @@ include::../../___fragment-settings.adoc[]
 
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
 
+[[core-json-rxmicro-json-module-usage]]
 ==== `rxmicro.json` Module Usage
 
 To write <<{testing}#testing-section,tests>> correctly, it is necessary to have a common idea about the `rxmicro.json` module.
@@ -152,6 +153,13 @@ are considered to be the same.
 
 This allows You to compare JSON objects in the form of  `java.util.Map<String, Object>` using the
 {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Object.html#equals(java.lang.Object)[`java.lang.Object.equals()`^] method.
+====
+
+[NOTE]
+====
+If Your microservice returns the JSON object with unordered properties, use
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test/src/main/java/io/rxmicro/test/json/JsonFactory.java[`JsonFactory.orderedJsonObject(Object jsonObject)`^] method to
+sort properties before comparison!
 ====
 
 For convenient creation of the expected JSON object, it is recommended to use the

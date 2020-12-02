@@ -36,6 +36,8 @@ The most logical way to test such microservice is to create a mock alternative f
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-testing-junit/testing-microservice-alternatives-mongo-repository/src/test/java/io/rxmicro/examples/testing/microservice/alternatives/mongo/repository/MicroServiceBusinessLogicOnlyTest.java[tag=content,indent=0]
 ----
 
+include::../../_note_json_compare.adoc[]
+
 But if on the basis of such test we build the source code coverage report, this report will show a low degree of coverage:
 
 .The test coverage report when using a mock alternative for Mongo repository.
