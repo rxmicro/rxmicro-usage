@@ -20,7 +20,7 @@
         <module>validation-server-required</module>
         <module>validation-client-basic</module>
         <module>validation-client-all-types</module>
-        <module>validation-nested-model</module>
+        <module>validation-server-nested-model</module>
     </modules>
 
     <build>

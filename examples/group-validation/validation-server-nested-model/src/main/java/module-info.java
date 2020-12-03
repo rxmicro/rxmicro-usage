@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-module examples.validation.nested.model {
+module examples.validation.server.nested.model {
     requires rxmicro.rest.server.netty;
     requires rxmicro.rest.server.exchange.json;
     requires rxmicro.validation;

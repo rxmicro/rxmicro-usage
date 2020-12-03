@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.examples.examples.validation.nested.model.model;
+package io.rxmicro.examples.validation.server.nested.model.model;
 
-import io.examples.examples.validation.nested.model.model.nested.Nested;
+import io.rxmicro.examples.validation.server.nested.model.model.nested.Nested;
 
 import java.util.List;
 

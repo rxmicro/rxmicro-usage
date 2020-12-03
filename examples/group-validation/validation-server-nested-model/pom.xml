@@ -24,8 +24,9 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>io.rxmicro.examples</groupId>
-    <artifactId>validation-nested-model</artifactId>
+    <artifactId>validation-server-nested-model</artifactId>
 
     <build>
         <pluginManagement>

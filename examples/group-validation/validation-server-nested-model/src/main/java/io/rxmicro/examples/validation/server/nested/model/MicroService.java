@@ -14,12 +14,21 @@
  * limitations under the License.
  */
 
-package io.examples.examples.validation.nested.model.model.nested;
+package io.rxmicro.examples.validation.server.nested.model;
 
-import io.rxmicro.validation.constraint.Phone;
+import io.rxmicro.examples.validation.server.nested.model.model.ArrayRequest;
+import io.rxmicro.examples.validation.server.nested.model.model.ObjectRequest;
+import io.rxmicro.rest.method.POST;
 
-public class Nested {
+public class MicroService {
 
-    @Phone
-    String phone;
+    @POST("/consume1")
+    void consume1(final ObjectRequest request){
+
+    }
+
+    @POST("/consume2")
+    void consume2(final ArrayRequest request){
+
+    }
 }
