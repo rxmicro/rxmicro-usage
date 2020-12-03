@@ -40,8 +40,10 @@ The RxMicro framework provides the following feature set:
 .. Dependency injection by fields, methods and constructors.
 .. Qualifier support.
 .. Factory method support.
+.. Post construct method support.
 .. Class factory support.
 .. Optional injection.
+.. Resource injection.
 .. Multibinder support.
 .. Dependency injection using JEE and Spring style.
 . Generation of REST-based microservice documentation.
@@ -75,5 +77,8 @@ The RxMicro framework provides the following feature set:
 .. Support for alternatives and mocks.
 .. Integration with https://junit.org/junit5/[JUnit 5^] and https://site.mockito.org/[Mockito^] frameworks.
 .. Integration with http://dbunit.sourceforge.net/[DBUnit^] framework.
+. Monitoring.
+.. Health checks.
+.. Request tracing.
 . Integration with other Java libraries and frameworks.
 .. https://www.graalvm.org/docs/reference-manual/native-image/[A GraalVM native image^] support.
