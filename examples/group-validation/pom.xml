@@ -18,9 +18,11 @@
         <module>validation-server-response</module>
         <module>validation-server-all-standard</module>
         <module>validation-server-required</module>
+        <module>validation-server-nested-model</module>
+        <module>validation-server-extendable-model</module>
+
         <module>validation-client-basic</module>
         <module>validation-client-all-types</module>
-        <module>validation-server-nested-model</module>
     </modules>
 
     <build>
