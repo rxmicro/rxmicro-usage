@@ -143,7 +143,7 @@ public final class Launcher {
                 ));
             }
             if (!exampleProject.getName().contains(UNNAMED_MODULE_PREFIX) &&
-                    !exampleProject.getName().contains("rest-controller-extendable-model")) {
+                    !exampleProject.getName().contains("extendable-model")) {
                 exclude.add("$$EnvironmentCustomizer.java");
             }
             copyOutput(destRoot, rootPackage, entry.getValue() + "/output", exclude.toArray(new String[0]));
