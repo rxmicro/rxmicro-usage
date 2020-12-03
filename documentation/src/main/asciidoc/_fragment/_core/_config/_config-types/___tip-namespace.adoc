@@ -7,5 +7,5 @@ The `http-server` name is the default namespace for the `HttpServerConfig` class
 That's why these settings are automatically applied when requesting the `HttpServerConfig` class configuration.
 
 The default namespace for the configuration class is calculated using the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Config.java#L57[`Config.getDefaultNameSpace`^] method,
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Config.java#L95[`Config.getDefaultNameSpace(Class<? extends Config>)`^] method,
 ====

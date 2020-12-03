@@ -19,7 +19,7 @@ To work with configurations, the RxMicro framework provides the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java[`Configs`^] configuration manager.
 
 To read the current settings, You must use the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L98[`Configs.getConfig`^] method:
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L101[`Configs.getConfig(Class<T>)`^] method:
 
 [source,java]
 ----
@@ -28,7 +28,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-common/config-basic/src/
 <1> Getting the current HTTP server configuration using the `Configs.getConfig` static method.
 
 To change the standard configuration settings, You must use the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L135[`Configs.Builder`^] class:
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Configs.java#L134[`Configs.Builder`^] class:
 
 [source,java]
 ----

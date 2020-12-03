@@ -7,5 +7,5 @@ The `rxmicro` name for the `properties` file is constant.
 That's why when requesting any configuration, the RxMicro framework tries to read the content of this file, if it exists.
 
 The `rxmicro` name is a named constant:
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Config.java#L41[`Config.RX_MICRO_CONFIG_FILE_NAME`^],
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-config/src/main/java/io/rxmicro/config/Config.java#L74[`Config.RX_MICRO_CONFIG_FILE_NAME`^],
 ====
