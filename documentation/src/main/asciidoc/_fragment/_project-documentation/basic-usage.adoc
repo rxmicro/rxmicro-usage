@@ -35,7 +35,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-documentation-asciidocto
 _(For more information on the benefits of the `static` modifier, refer to the <<project-documentation-basic-usage-maven-dependency-plugin>>.)_
 
 After performing these steps during compiling the microservice project, the `RxMicro Annotation Processor` will generate the `ExamplesDocumentationAsciidoctorQuickStartDocumentation.adoc` file.
-The generated file will contain REST-based microservice documentation in the http://asciidoc.org/[`AsciiDoc`^] format, and by default will be located in the `./src/main/asciidoc` folder.
+The generated file will contain REST-based microservice documentation in the https://asciidoc.org/[`AsciiDoc`^] format, and by default will be located in the `./src/main/asciidoc` folder.
 
 [NOTE]
 ====
@@ -48,7 +48,7 @@ _(To configure the folder in which REST-based microservice documentation should 
 
 Using the `./src/main/asciidoc` folder by default provides the following benefits:
 
-* The `asciidoctor-maven-plugin`, which converts the http://asciidoc.org/[`AsciiDoc`^] format to https://html.spec.whatwg.org/[`HTML`^] or https://www.adobe.com/content/dam/acom/en/devnet/pdf/pdfs/PDF32000_2008.pdf[`PDF`^]
+* The `asciidoctor-maven-plugin`, which converts the https://asciidoc.org/[`AsciiDoc`^] format to https://html.spec.whatwg.org/[`HTML`^] or https://www.adobe.com/content/dam/acom/en/devnet/pdf/pdfs/PDF32000_2008.pdf[`PDF`^]
 , by default reads files from the `./src/main/asciidoc` folder.
 * Automatic building of REST-based microservice documentation can be used as an initial version of the document.
 After formation of the initial version, the generation can be disabled and all changes to the documentation will be made manually by the developer and stored in the version control system.
@@ -61,7 +61,7 @@ _(When using this approach, do not forget to add the all dynamic fragments to ig
 
 ==== `Asciidoctor-maven-plugin` Settings
 
-The `asciidoctor-maven-plugin` plugin allows You to convert documentation from the http://asciidoc.org/[`AsciiDoc`^] format to
+The `asciidoctor-maven-plugin` plugin allows You to convert documentation from the https://asciidoc.org/[`AsciiDoc`^] format to
 https://html.spec.whatwg.org/[`HTML`^], https://www.adobe.com/content/dam/acom/en/devnet/pdf/pdfs/PDF32000_2008.pdf[`PDF`^] and other formats.
 
 [source,xml]
@@ -94,9 +94,9 @@ https://html.spec.whatwg.org/[`HTML`^], https://www.adobe.com/content/dam/acom/e
 ----
 <1> {MAVEN-REPO-SEARCH-ROOT}org.asciidoctor/asciidoctor-maven-plugin[The latest stable version of the `asciidoctor-maven-plugin`^].
 <2> The `asciidoctor-maven-plugin` must convert REST-based microservice documentation at the `package` phase.
-<3> Using the `backend` directive, You can specify in which format the http://asciidoc.org/[`AsciiDoc`^] document should be converted.
-<4> If the http://asciidoc.org/[`AsciiDoc`^] document contains examples of source code in a programming language, You need to add the js library for highlighting the syntax of that language.
-<5> Using the `attributes` directive, it is possible to override the attributes of the   http://asciidoc.org/[`AsciiDoc`^] document.
+<3> Using the `backend` directive, You can specify in which format the https://asciidoc.org/[`AsciiDoc`^] document should be converted.
+<4> If the https://asciidoc.org/[`AsciiDoc`^] document contains examples of source code in a programming language, You need to add the js library for highlighting the syntax of that language.
+<5> Using the `attributes` directive, it is possible to override the attributes of the   https://asciidoc.org/[`AsciiDoc`^] document.
 
 [NOTE]
 ====

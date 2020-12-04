@@ -8,4 +8,4 @@ include::../___fragment-settings.adoc[]
 * https://github.com/rxmicro/rxmicro-usage/tree/master/documentation[RxMicro Documentation Repository^];
 * {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}[RxMicro Examples Repository^];
 * https://hub.docker.com/u/rxmicro[RxMicro Docker Repository^];
-* https://mvnrepository.com/search?q=io.rxmicro[RxMicro on Maven Central]
+* {MAVEN-REPO-SEARCH-ROOT}io.rxmicro[RxMicro on Maven Central]

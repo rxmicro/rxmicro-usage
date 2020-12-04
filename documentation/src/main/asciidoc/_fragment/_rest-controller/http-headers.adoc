@@ -100,9 +100,9 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-con
 In order to understand the differences between the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/AddHeader.java[`@AddHeader`^] and
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/SetHeader.java[`@SetHeader`^] annotations, take a look to the following example:
 
-* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}rest-controller-headers/src/main/java/io/rxmicro/examples/rest/controller/headers/ComplexStaticHeadersMicroService.java[`ComplexStaticHeadersMicroService.java`^]
+* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}group-rest-controller/rest-controller-headers/src/main/java/io/rxmicro/examples/rest/controller/headers/ComplexStaticHeadersMicroService.java[`ComplexStaticHeadersMicroService.java`^]
 
-* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}rest-controller-headers/src/test/java/io/rxmicro/examples/rest/controller/headers/ComplexStaticHeadersMicroServiceTest.java[`ComplexStaticHeadersMicroServiceTest.java`^]
+* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}group-rest-controller/rest-controller-headers/src/test/java/io/rxmicro/examples/rest/controller/headers/ComplexStaticHeadersMicroServiceTest.java[`ComplexStaticHeadersMicroServiceTest.java`^]
 ====
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-rest-controller/rest-controller-headers

@@ -132,9 +132,9 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-
 In order to understand the differences between the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/AddQueryParameter.java[`@AddQueryParameter`^] and
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/SetQueryParameter.java[`@SetQueryParameter`^] annotations, check out the following example:
 
-* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/ComplexStaticQueryParametersRestClient.java[`ComplexStaticQueryParametersRestClient.java`^]
+* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}group-rest-client/rest-client-params/src/main/java/io/rxmicro/examples/rest/client/params/ComplexStaticQueryParametersRestClient.java[`ComplexStaticQueryParametersRestClient.java`^]
 
-* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}rest-client-params/src/test/java/io/rxmicro/examples/rest/client/params/ComplexStaticQueryParametersRestClientTest.java[`ComplexStaticQueryParametersRestClientTest.java`^]
+* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}group-rest-client/rest-client-params/src/test/java/io/rxmicro/examples/rest/client/params/ComplexStaticQueryParametersRestClientTest.java[`ComplexStaticQueryParametersRestClientTest.java`^]
 ====
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-rest-client/rest-client-params

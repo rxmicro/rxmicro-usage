@@ -3,7 +3,7 @@ include::___fragment-settings.adoc[]
 
 The RxMicro framework supports creation of dynamic repositories for interaction with databases.
 
-To interact with https://www.postgresql.org/[`PostgreSQL DB`^], using the https://github.com/r2dbc/r2dbc-postgresql[reactive R2DBC PostgreSQL driver^], the RxMicro framework provides the `rxmicro.data.sql.r2dbc.postgresql` module.
+To interact with https://www.postgresql.org/[`PostgreSQL DB`^], using the https://github.com/pgjdbc/r2dbc-postgresql[reactive R2DBC PostgreSQL driver^], the RxMicro framework provides the `rxmicro.data.sql.r2dbc.postgresql` module.
 
 <<<
 

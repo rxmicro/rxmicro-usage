@@ -41,7 +41,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-
 [IMPORTANT]
 ====
 The RxMicro team strong recommends using the `AUTO_DETECT` generate option always!
-(This is default value for {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/client/RestClientGeneratorConfig.java[`@RestClientGeneratorConfig`^] annotation).
+(This is default value for {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/RestClientGeneratorConfig.java[`@RestClientGeneratorConfig`^] annotation).
 
 _(HTTP request validation can be useful for identifying errors in business task implementation algorithms.
 For example, instead of returning an incorrect request model to a server, the REST client will throw an error.

@@ -21,7 +21,7 @@ To make further updating of library versions convenient, it is recommended to us
     <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version> <!--2-->
 </properties>
 ----
-<1> {MAVEN-REPO-SEARCH-ROOT}io.rxmicro/rxmicro[The latest stable version of the RxMicro framework^].
+<1> {MAVEN-REPO-SEARCH-ROOT}io.rxmicro[The latest stable version of the RxMicro framework^].
 <2> {MAVEN-REPO-SEARCH-ROOT}org.apache.maven.plugins/maven-compiler-plugin[The latest stable version of the `maven-compiler-plugin`^].
 
 ==== Adding the Required Dependencies

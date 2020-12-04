@@ -21,7 +21,7 @@ endif::[]
 // Reactive Lib Root Links
 :RX-JAVA-USER-GUIDE: https://github.com/ReactiveX/RxJava/blob/3.x/README.md
 :RX-JAVA-DOC-ROOT-URL: http://reactivex.io/RxJava/javadoc/
-:REACTOR-CORE-DOC-USER_GUIDE: https://projectreactor.io/docs/core/release/reference/
+:REACTOR-CORE-DOC-USER_GUIDE: https://projectreactor.io/docs/core/release/reference/index.html
 :REACTOR-CORE-DOC-ROOT-URL: https://projectreactor.io/docs/core/release/api/
 // Testing Lib Root Links
 :JUNIT5-DOC-ROOT-URL: https://junit.org/junit5/docs/current/
@@ -32,7 +32,7 @@ endif::[]
 :R2DBC-JAVADOC-ROOT-URL: https://r2dbc.io/spec/0.8.1.RELEASE/api/
 :R2DBC-JAVADOC-POOL-URL: https://javadoc.io/static/io.r2dbc/r2dbc-pool/0.8.1.RELEASE/
 
-:POSTGRESQL-R2DBC-GITHUB-ROOT: https://github.com/r2dbc/r2dbc-postgresql
+:POSTGRESQL-R2DBC-GITHUB-ROOT: https://github.com/pgjdbc/r2dbc-postgresql
 :MONGO-ASYNC-DRIVER_DOC: http://mongodb.github.io/mongo-java-driver/4.0/driver/
 :MONGO-ASYNC-REACTIVE_DOC: http://mongodb.github.io/mongo-java-driver-reactivestreams/1.9/javadoc/
 

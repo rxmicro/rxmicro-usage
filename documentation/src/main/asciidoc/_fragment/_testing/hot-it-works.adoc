@@ -17,7 +17,7 @@ When trying to create a separate `module-info.java` descriptor available only fo
 https://www.logicbig.com/tutorials/core-java-tutorial/modules/automatic-modules.html[automatic module^]. +
 This solution allows You to correct compilation errors, but when starting tests, there will be runtime errors. +
 To fix runtime errors, when starting the Java virtual machine, You must add
-https://blog.codefx.org/java/five-command-line-options-hack-java-module-system/[options that configure the Java module system at runtime^].*
+https://nipafx.dev/five-command-line-options-hack-java-module-system/[options that configure the Java module system at runtime^].*
 
 In case the tests are run, these options must be added to the `maven-surefire-plugin`:
 

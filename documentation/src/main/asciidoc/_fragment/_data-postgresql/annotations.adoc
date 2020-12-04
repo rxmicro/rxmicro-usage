@@ -52,7 +52,7 @@ then the `parentId` field in the Java class will correspond to the `parent_id` c
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/operation/Delete.java[`@Delete`^]
 |Denotes a repository method that must execute <<data-postgresql-delete-section,a `DELETE` SQL operation>>
 
-|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/operation/ExpectedUpdatedRowsCount.java[`@ExpectedUpdatedRowsCount`^]
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/ExpectedUpdatedRowsCount.java[`@ExpectedUpdatedRowsCount`^]
 |Enables <<data-postgresql-expected-updated-rows-count-section, validation for updated rows count during DML operation, like `Insert`, `Update` and `Delete` operations>>.
 
 If current database has invalid state the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/model/InvalidDatabaseStateException.java[`InvalidDatabaseStateException`^] will be thrown!
@@ -70,7 +70,7 @@ If current database has invalid state the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-da
 |Denotes a schema of a database table.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/SequenceGenerator.java[`@SequenceGenerator`^]
-|Denotes https://www.postgresql.org/docs/12/functions-sequence.html[a sequence that must be used to get the next unique value for model field^].
+|Denotes https://www.postgresql.org/docs/current/functions-sequence.html[a sequence that must be used to get the next unique value for model field^].
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data-sql/src/main/java/io/rxmicro/data/sql/Table.java[`@Table`^]
 |Denotes a table name for entity.

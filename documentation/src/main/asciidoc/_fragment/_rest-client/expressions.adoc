@@ -22,7 +22,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-
 . The class must be public.
 . The class must contain a public constructor without parameters.
 . The class must extend the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http-client/src/main/java/io/rxmicro/rest/client/RestClientConfig.java[`RestClientConfig`^] class.
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/RestClientConfig.java[`RestClientConfig`^] class.
 . To set property values, the class must contain https://www.w3schools.com/java/java_encapsulation.asp[`setters`^]. +
 _(Only those fields, that will contain `setters`, can be initialized!)_
 

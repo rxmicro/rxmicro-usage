@@ -29,9 +29,9 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-con
 ====
 For more information on the https://developer.mozilla.org/ru/docs/Web/HTTP/CORS[`Cross Origin Resource Sharing (CORS)`^] support, check out the following examples:
 
-* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}rest-controller-cors/src/main/java/io/rxmicro/examples/rest/controller/cors/ComplexCORSMicroService.java[`ComplexCORSMicroService.java`^]
+* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}group-rest-controller/rest-controller-cors/src/main/java/io/rxmicro/examples/rest/controller/cors/ComplexCORSMicroService.java[`ComplexCORSMicroService.java`^]
 
-* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}rest-controller-cors/src/test/java/io/rxmicro/examples/rest/controller/cors/ComplexCORSMicroServiceTest.java[`ComplexCORSMicroServiceTest.java`^]
+* {RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL}group-rest-controller/rest-controller-cors/src/test/java/io/rxmicro/examples/rest/controller/cors/ComplexCORSMicroServiceTest.java[`ComplexCORSMicroServiceTest.java`^]
 ====
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-rest-controller/rest-controller-cors

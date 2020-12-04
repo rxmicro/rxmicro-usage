@@ -12,7 +12,7 @@ But for a multi-user distributed application with a much higher number of IO ope
 
 Therefore, the https://en.wikipedia.org/wiki/Event-driven_architecture[Event-driven architecture (EDA)^] is used for efficient use of the hardware resources of a multi-user distributed application.
 
-The most popular Java framework that uses Event-driven architecture for IO operations is https://netty.io[Netty^].
+The most popular Java framework that uses Event-driven architecture for IO operations is https://netty.io/[Netty^].
 To write efficient programs using Netty, it is necessary to comply with certain rules and restrictions.
 The most important of these is the following requirement: *Don't block current thread!*
 

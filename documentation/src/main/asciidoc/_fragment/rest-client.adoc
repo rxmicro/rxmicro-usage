@@ -9,7 +9,7 @@ To create REST clients, the RxMicro framework provides the following modules:
 https://en.wikipedia.org/wiki/Representational_state_transfer[`REST`^] architecture of building program systems;
 * The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-client[`rxmicro.rest.client`^] is a basic module used to create and run REST clients;
 * The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-client-jdk[`rxmicro.rest.client.jdk`^] is an HTTP client implementation module based on https://openjdk.java.net/groups/net/httpclient/intro.html[`Java HTTP Client`^];
-* The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-client-exchange-json[`rxmicro.rest.client.exchange.json`^] is a module for converting Java models to https://www.json.org[`JSON`^] format and vice versa;
+* The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-client-exchange-json[`rxmicro.rest.client.exchange.json`^] is a module for converting Java models to https://www.json.org/[`JSON`^] format and vice versa;
 
 [NOTE]
 ====

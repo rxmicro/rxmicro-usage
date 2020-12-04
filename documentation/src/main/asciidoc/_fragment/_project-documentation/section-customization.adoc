@@ -22,7 +22,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-documentation-asciidocto
 
 [NOTE]
 ====
-Besides generating the final http://asciidoc.org/[`AsciiDoc`^] document, the `RxMicro Annotation Processor` allows You to generate separate dynamic fragments.
+Besides generating the final https://asciidoc.org/[`AsciiDoc`^] document, the `RxMicro Annotation Processor` allows You to generate separate dynamic fragments.
 
 For more information on this feature, check out the following example:
 

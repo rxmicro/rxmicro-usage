@@ -24,7 +24,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-data-r2dbc-postgresql/da
 
 [IMPORTANT]
 ====
-By default, the https://github.com/r2dbc/r2dbc-postgresql[reactive R2DBC PostgreSQL driver^] uses the {REACTOR-CORE-DOC-USER_GUIDE}[*Project Reactor*^] library, so when adding the `rxmicro.data.sql.r2dbc.postgresql` module, the `reactor.core` module is automatically added and available for usage!
+By default, the https://github.com/pgjdbc/r2dbc-postgresql[reactive R2DBC PostgreSQL driver^] uses the {REACTOR-CORE-DOC-USER_GUIDE}[*Project Reactor*^] library, so when adding the `rxmicro.data.sql.r2dbc.postgresql` module, the `reactor.core` module is automatically added and available for usage!
 ====
 
 After adding the `rxmicro.data.sql.r2dbc.postgresql` module, You can create a data model class and dynamic repository:

@@ -12,7 +12,7 @@ To create REST controllers, the RxMicro framework provides the following modules
 https://en.wikipedia.org/wiki/Representational_state_transfer[`REST`^] architecture of building program systems;
 * The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-server[`rxmicro.rest.server`^] is a basic HTTP server module used to create REST controllers and run REST-based microservices;
 * The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-server-netty[`rxmicro.rest.server.netty`^] is an HTTP server implementation module based on https://netty.io/[`Netty`^];
-* The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-server-exchange-json[`rxmicro.rest.server.exchange.json`^] is a module for converting Java models to https://www.json.org[`JSON`^] format and vice versa;
+* The {RX-MICRO-SRC-ROOT-TREE-URL}rxmicro-rest-server-exchange-json[`rxmicro.rest.server.exchange.json`^] is a module for converting Java models to https://www.json.org/[`JSON`^] format and vice versa;
 
 [NOTE]
 ====

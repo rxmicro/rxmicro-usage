@@ -3,7 +3,7 @@ include::___fragment-settings.adoc[]
 
 REST-based microservice documentation describes rules of interaction with REST-based microservices for fast and easy integration with them.
 
-Currently, the RxMicro framework only supports specialized documentation format based on the http://asciidoc.org/[`AsciiDoc`^] format.
+Currently, the RxMicro framework only supports specialized documentation format based on the https://asciidoc.org/[`AsciiDoc`^] format.
 
 <<<
 
