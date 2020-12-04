@@ -49,8 +49,8 @@ final class MicroServiceTest {
 
         assertEquals(
                 "Child{" +
-                        "childParameter='childParameter', " +
-                        "parentParameter='parentParameter'" +
+                        "parentParameter='parentParameter', " +
+                        "childParameter='childParameter'" +
                         "}",
                 systemOut.asString()
         );

@@ -51,9 +51,9 @@ final class MicroServiceTest {
 
         assertEquals(
                 "Child{" +
-                        "childParameter='childParameter', " +
+                        "grandParameter='grandParameter', " +
                         "parentParameter='parentParameter', " +
-                        "grandParameter='grandParameter'" +
+                        "childParameter='childParameter'" +
                         "}",
                 systemOut.asString()
         );
@@ -73,9 +73,9 @@ final class MicroServiceTest {
 
         assertEquals(
                 "Child{" +
-                        "childParameter='childParameter', " +
+                        "grandParameter='grandParameter', " +
                         "parentParameter='parentParameter', " +
-                        "grandParameter='grandParameter'" +
+                        "childParameter='childParameter'" +
                         "}",
                 systemOut.asString()
         );
@@ -94,8 +94,8 @@ final class MicroServiceTest {
 
         assertEquals(
                 "Parent{" +
-                        "parentParameter='parentParameter', " +
-                        "grandParameter='grandParameter'" +
+                        "grandParameter='grandParameter', " +
+                        "parentParameter='parentParameter'" +
                         "}",
                 systemOut.asString()
         );
@@ -114,8 +114,8 @@ final class MicroServiceTest {
 
         assertEquals(
                 "Parent{" +
-                        "parentParameter='parentParameter', " +
-                        "grandParameter='grandParameter'" +
+                        "grandParameter='grandParameter', " +
+                        "parentParameter='parentParameter'" +
                         "}",
                 systemOut.asString()
         );

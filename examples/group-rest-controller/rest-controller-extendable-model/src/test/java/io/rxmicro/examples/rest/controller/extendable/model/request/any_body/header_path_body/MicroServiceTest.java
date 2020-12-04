@@ -51,9 +51,10 @@ final class MicroServiceTest {
         assertTrue(response.isBodyEmpty(), () -> "Body not empty: " + response.getBody());
 
         assertEquals(
-                "Child{childHeader='childHeader', " +
+                "Child{" +
+                        "grandParameter='grandParameter', " +
                         "parentVar='parentVar', " +
-                        "grandParameter='grandParameter'" +
+                        "childHeader='childHeader'" +
                         "}",
                 systemOut.asString()
         );
@@ -70,8 +71,9 @@ final class MicroServiceTest {
         assertTrue(response.isBodyEmpty(), () -> "Body not empty: " + response.getBody());
 
         assertEquals(
-                "Parent{parentVar='parentVar', " +
-                        "grandParameter='grandParameter'" +
+                "Parent{" +
+                        "grandParameter='grandParameter', " +
+                        "parentVar='parentVar'" +
                         "}",
                 systemOut.asString()
         );

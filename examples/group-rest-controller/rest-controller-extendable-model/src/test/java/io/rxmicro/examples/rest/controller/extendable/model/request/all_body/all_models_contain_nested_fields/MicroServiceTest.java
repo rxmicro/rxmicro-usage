@@ -64,14 +64,15 @@ final class MicroServiceTest {
         assertTrue(response.isBodyEmpty(), () -> "Body not empty: " + response.getBody());
 
         assertEquals(
-                "Child{method='PUT', childVar='childVar', childHeader='childHeader', childParameter='childParameter', " +
-                        "childNestedParameter=Nested{childNestedParameter='childNestedParameter'}, " +
+                "Child{" +
+                        "httpVersion=HTTP/1.1, grandVar='grandVar', grandHeader='grandHeader', grandParameter='grandParameter', " +
+                        "grandNestedParameter=Nested{grandNestedParameter='grandNestedParameter'}, " +
 
                         "url='/1/grandVar/parentVar/childVar', parentVar='parentVar', parentHeader='parentHeader', " +
                         "parentParameter='parentParameter', parentNestedParameter=Nested{parentNestedParameter='parentNestedParameter'}, " +
 
-                        "httpVersion=HTTP/1.1, grandVar='grandVar', grandHeader='grandHeader', grandParameter='grandParameter', " +
-                        "grandNestedParameter=Nested{grandNestedParameter='grandNestedParameter'}" +
+                        "method='PUT', childVar='childVar', childHeader='childHeader', childParameter='childParameter', " +
+                        "childNestedParameter=Nested{childNestedParameter='childNestedParameter'}" +
                         "}",
                 systemOut.asString()
         );
@@ -99,11 +100,12 @@ final class MicroServiceTest {
         assertTrue(response.isBodyEmpty(), () -> "Body not empty: " + response.getBody());
 
         assertEquals(
-                "Parent{url='/2/grandVar/parentVar', parentVar='parentVar', parentHeader='parentHeader', " +
-                        "parentParameter='parentParameter', parentNestedParameter=Nested{parentNestedParameter='parentNestedParameter'}, " +
-
+                "Parent{" +
                         "httpVersion=HTTP/1.1, grandVar='grandVar', grandHeader='grandHeader', grandParameter='grandParameter', " +
-                        "grandNestedParameter=Nested{grandNestedParameter='grandNestedParameter'}" +
+                        "grandNestedParameter=Nested{grandNestedParameter='grandNestedParameter'}, " +
+
+                        "url='/2/grandVar/parentVar', parentVar='parentVar', parentHeader='parentHeader', " +
+                        "parentParameter='parentParameter', parentNestedParameter=Nested{parentNestedParameter='parentNestedParameter'}" +
                         "}",
                 systemOut.asString()
         );

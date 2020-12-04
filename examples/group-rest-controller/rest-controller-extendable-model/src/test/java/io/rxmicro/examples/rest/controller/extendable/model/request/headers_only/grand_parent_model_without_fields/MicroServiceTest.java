@@ -49,8 +49,8 @@ final class MicroServiceTest {
 
         assertEquals(
                 "Child{" +
-                        "childHeader='childHeader', " +
-                        "parentHeader='parentHeader'" +
+                        "parentHeader='parentHeader', " +
+                        "childHeader='childHeader'" +
                         "}",
                 systemOut.asString()
         );

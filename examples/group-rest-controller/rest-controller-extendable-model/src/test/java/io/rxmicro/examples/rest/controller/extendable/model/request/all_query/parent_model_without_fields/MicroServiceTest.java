@@ -53,9 +53,10 @@ final class MicroServiceTest {
         assertTrue(response.isBodyEmpty(), () -> "Body not empty: " + response.getBody());
 
         assertEquals(
-                "Child{method='GET', childVar='childVar', childHeader='childHeader', childParameter='childParameter', " +
+                "Child{" +
+                        "httpVersion=HTTP/1.1, grandVar='grandVar', grandHeader='grandHeader', grandParameter='grandParameter', " +
 
-                        "httpVersion=HTTP/1.1, grandVar='grandVar', grandHeader='grandHeader', grandParameter='grandParameter'" +
+                        "method='GET', childVar='childVar', childHeader='childHeader', childParameter='childParameter'" +
                         "}",
                 systemOut.asString()
         );

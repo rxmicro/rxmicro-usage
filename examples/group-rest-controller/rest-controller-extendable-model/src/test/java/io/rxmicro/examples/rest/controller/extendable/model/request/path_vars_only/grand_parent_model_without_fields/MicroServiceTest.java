@@ -44,8 +44,8 @@ final class MicroServiceTest {
 
         assertEquals(
                 "Child{" +
-                        "childVar='childVar', " +
-                        "parentVar='parentVar'" +
+                        "parentVar='parentVar', " +
+                        "childVar='childVar'" +
                         "}",
                 systemOut.asString()
         );
