@@ -16,6 +16,7 @@
         <module>documentation</module>
         <module>util</module>
         <module>code-fragments</module>
+        <module>tool</module>
     </modules>
 
     <properties>
