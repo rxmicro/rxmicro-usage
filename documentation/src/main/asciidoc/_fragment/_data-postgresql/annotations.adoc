@@ -27,7 +27,7 @@ It used as the descriptive characteristic only.
 |Sets the strategy of column name formation in the `PostgreSQL DB` table, based on the analysis of the Java model class field names.
 
 _(If this annotation annotates the Java model class, then the set strategy will be used for *all* fields in this class.
-For example, if You set the default {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L36[`LOWERCASE_WITH_UNDERSCORED`^] strategy,
+For example, if You set the default {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L41[`LOWERCASE_WITH_UNDERSCORED`^] strategy,
 then the `parentId` field in the Java class will correspond to the `parent_id` column in the `PostgreSQL DB` table.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-data/src/main/java/io/rxmicro/data/DataRepositoryGeneratorConfig.java[`@DataRepositoryGeneratorConfig`^]

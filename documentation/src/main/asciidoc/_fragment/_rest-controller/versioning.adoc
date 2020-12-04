@@ -23,14 +23,14 @@ The RxMicro framework allows creating identical REST controllers that differ onl
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-versioning-header/src/main/java/io/rxmicro/examples/rest/controller/versioning/header/OldMicroService.java[tag=content,indent=0]
 ----
 <1> REST controller of the old `v1` version, using the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L86[`Version.Strategy.HEADER`^] strategy;
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L89[`Version.Strategy.HEADER`^] strategy;
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-versioning-header/src/main/java/io/rxmicro/examples/rest/controller/versioning/header/NewMicroService.java[tag=content,indent=0]
 ----
 <1> REST controller of the new `v2` version, using the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L86[`Version.Strategy.HEADER`^] strategy;
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L89[`Version.Strategy.HEADER`^] strategy;
 
 include::../___notes/note-same-request-handlers-with-diff-versions.adoc[]
 
@@ -43,7 +43,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-con
 <1> The <<{testing}#testing-rest-based-microservice-tests-section,`@RxMicroRestBasedMicroServiceTest`>> annotation allows You to run several REST controllers in test mode.
 <2> The test runs the `PATCH` request to a URL Path: `/`.
 <3> To specify the handler version, the standard
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpHeaders.java#L193[`Api-Version`^] HTTP header is used.
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpStandardHeaderNames.java#L406[`Api-Version`^] HTTP header is used.
 
 include::../___notes/note-blocking-http-client-version.adoc[]
 
@@ -63,14 +63,14 @@ The RxMicro framework allows creating identical REST controllers that differ onl
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-versioning-url-path/src/main/java/io/rxmicro/examples/rest/controller/versioning/url/path/OldMicroService.java[tag=content,indent=0]
 ----
 <1> REST controller of the old `v1` version, using the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L69[`Version.Strategy.URL_PATH`^] strategy;
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L70[`Version.Strategy.URL_PATH`^] strategy;
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-versioning-url-path/src/main/java/io/rxmicro/examples/rest/controller/versioning/url/path/NewMicroService.java[tag=content,indent=0]
 ----
 <1> REST controller of the new `v2` version, using the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L69[`Version.Strategy.URL_PATH`^] strategy;
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L70[`Version.Strategy.URL_PATH`^] strategy;
 
 include::../___notes/note-same-request-handlers-with-diff-versions.adoc[]
 

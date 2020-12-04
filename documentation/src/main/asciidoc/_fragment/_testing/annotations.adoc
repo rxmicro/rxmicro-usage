@@ -90,7 +90,7 @@ _The RxMicro framework supports the `@BeforeIterationMethodSource` annotation on
 
 _(Using the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-mockito-junit/src/main/java/io/rxmicro/test/mockito/junit/InitMocks.java[`@InitMocks`^]
 annotation is preferable to the analogous
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-mockito-junit/src/main/java/io/rxmicro/test/mockito/junit/InitMocks.java#L58[`@ExtendWith(MockitoExtension.class)`^] construction.)_
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-mockito-junit/src/main/java/io/rxmicro/test/mockito/junit/InitMocks.java#L60[`@ExtendWith(MockitoExtension.class)`^] construction.)_
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-test-dbunit/src/main/java/io/rxmicro/test/dbunit/InitialDataSet.java[`@InitialDataSet`^]
 |Provides <<testing-dbunit-initial-data-set, the init state of tested database before execution of the test method>>.

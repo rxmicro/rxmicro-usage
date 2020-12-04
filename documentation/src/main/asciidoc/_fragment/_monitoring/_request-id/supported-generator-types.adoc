@@ -11,7 +11,7 @@ The RxMicro framework supports the following types of HTTP request id generators
 |===
 |*Type*|*Implementation class*|*Description*
 
-|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/RequestIdGeneratorType.java#L36[`FASTER_BUT_UNSAFE`^]
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/PredefinedRequestIdGeneratorType.java#L40[`FASTER_BUT_UNSAFE`^]
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/local/component/impl/FasterButUnSafeRequestIdGenerator.java[`FasterButUnSafeRequestIdGenerator`^]
 |*Generates unique IDs only within the framework of starting one `JVM`.*
 
@@ -19,14 +19,14 @@ Uses a random increment counter.
 
 (_Used by default_).
 
-|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/RequestIdGeneratorType.java#L43[`SAFE_BUT_SLOWER`^]
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/PredefinedRequestIdGeneratorType.java#L48[`SAFE_BUT_SLOWER`^]
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/local/component/impl/SafeButSlowerRequestIdGenerator.java[`SafeButSlowerRequestIdGenerator`^]
 |*Generates unique IDs independently of starting the `JVM`.*
 
 As a unique value uses the
 {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/UUID.html#randomUUID()[`UUID.randomUUID()`^].
 
-|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/RequestIdGeneratorType.java#L50[`FOR_TESTS_ONLY`^]
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/PredefinedRequestIdGeneratorType.java#L56[`FOR_TESTS_ONLY`^]
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/local/component/impl/TestRequestIdGenerator.java[`TestRequestIdGenerator`^]
 |Recommended *for test environment only*.
 

@@ -17,6 +17,23 @@
 
     <build>
         <plugins>
+            <!-- http://www.mojohaus.org/build-helper-maven-plugin/index.html -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>${build-helper-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>parse-version</id>
+                        <goals>
+                            <goal>parse-version</goal>
+                        </goals>
+                        <configuration>
+                            <versionString>${rxmicro.version}</versionString>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <!-- https://asciidoctor.org/docs/asciidoctor-maven-plugin/ -->
                 <groupId>org.asciidoctor</groupId>
@@ -65,6 +82,7 @@
                     <attributes>
                         <pagenums/>
                         <rxmicro-version>${rxmicro.version}</rxmicro-version>
+                        <rxmicro-version-qualifier>${parsedVersion.qualifier}</rxmicro-version-qualifier>
                     </attributes>
                 </configuration>
                 <dependencies>

@@ -37,7 +37,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-validation/validation-cl
 <2> If the `email` field is incorrect in the HTTP response, the REST client will return an error signal.
 <3> If the HTTP response is incorrect, the `UnexpectedResponseException` class exception is returned with a detailed text message.
 <4> *Since `CompletableFuture` when receiving an error signal ALWAYS returns the `CompletionException` class exception, to get the original exception class, which was thrown during the lazy evaluation, it is necessary to use the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-common/src/main/java/io/rxmicro/common/util/Exceptions.java#L120[`Exceptions.getRealThrowable`^] utility method!*
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-common/src/main/java/io/rxmicro/common/util/Exceptions.java#L123[`Exceptions.getRealThrowable(Throwable)`^] utility method!*
 
 [NOTE]
 ====

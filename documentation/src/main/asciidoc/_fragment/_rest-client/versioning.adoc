@@ -23,14 +23,14 @@ The RxMicro framework allows creating identical REST clients that differ only in
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-versioning-header/src/main/java/io/rxmicro/examples/rest/client/versioning/header/OldRestClient.java[tag=content,indent=0]
 ----
 <1> REST client of the old `v1` version, using the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L86[`Version.Strategy.HEADER`^] strategy;
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L89[`Version.Strategy.HEADER`^] strategy;
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-versioning-header/src/main/java/io/rxmicro/examples/rest/client/versioning/header/NewRestClient.java[tag=content,indent=0]
 ----
 <1> REST client of the new `v2` version, using the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L86[`Version.Strategy.HEADER`^] strategy;
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L89[`Version.Strategy.HEADER`^] strategy;
 
 The correctness of HTTP request generation for these REST clients can be checked with the following tests:
 
@@ -60,14 +60,14 @@ The RxMicro framework allows creating identical REST clients that differ only in
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-versioning-url-path/src/main/java/io/rxmicro/examples/rest/client/versioning/url/path/OldRestClient.java[tag=content,indent=0]
 ----
 <1> REST client of the old `v1` version, using the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L69[`Version.Strategy.URL_PATH`^] strategy;
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L70[`Version.Strategy.URL_PATH`^] strategy;
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-versioning-url-path/src/main/java/io/rxmicro/examples/rest/client/versioning/url/path/NewRestClient.java[tag=content,indent=0]
 ----
 <1> REST client of the new `v2` version, using the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L69[`Version.Strategy.URL_PATH`^] strategy;
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Version.java#L70[`Version.Strategy.URL_PATH`^] strategy;
 
 The correctness of HTTP request generation for these REST clients can be checked with the following tests:
 

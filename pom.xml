@@ -49,6 +49,7 @@
         <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
         <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
         <minify-maven-plugin.version>1.7.6</minify-maven-plugin.version>
+        <build-helper-maven-plugin.version>3.2.0</build-helper-maven-plugin.version>
 
         <!-- Docker runtime -->
         <org.testcontainers.junit.jupiter.version>1.15.0</org.testcontainers.junit.jupiter.version>

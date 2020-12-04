@@ -18,7 +18,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-cdi/cdi-rxmicro-componen
 ----
 
 then instead of getting an explicit reference to the implementation class instance using the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/RestClientFactory.java#L47[`RestClientFactory.getRestClient`^], the developer can use the dependency injection mechanism:
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-client/src/main/java/io/rxmicro/rest/client/RestClientFactory.java#L48[`RestClientFactory.getRestClient(Class<?>)`^], the developer can use the dependency injection mechanism:
 
 [source,java]
 ----

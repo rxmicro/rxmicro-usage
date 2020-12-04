@@ -19,7 +19,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-con
 <1> The {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/HeaderMappingStrategy.java[`@HeaderMappingStrategy`^]
 annotation allows setting common conversion rules for all header names from HTTP to Java format and vice versa in the current model class. +
 _(By default, the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L61[`CAPITALIZE_WITH_HYPHEN`^] strategy is used.
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/MappingStrategy.java#L76[`CAPITALIZE_WITH_HYPHEN`^] strategy is used.
 The field name is used as the basic name, and then, following the rules of the specified strategy, the HTTP header name is generated.)_
 <2> In order to declare a model field as the HTTP header field, it is necessary to use the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest/src/main/java/io/rxmicro/rest/Header.java[`@Header`^] annotation.
