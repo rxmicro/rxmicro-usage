@@ -16,14 +16,32 @@
 
 package io.rxmicro.examples.graalvm.nativeimage.postgres.data.repository;
 
+import io.rxmicro.config.DefaultConfigValue;
+import io.rxmicro.data.sql.operation.Delete;
+import io.rxmicro.data.sql.operation.Insert;
 import io.rxmicro.data.sql.operation.Select;
+import io.rxmicro.data.sql.operation.Update;
+import io.rxmicro.data.sql.r2dbc.postgresql.PostgreSQLConfig;
 import io.rxmicro.data.sql.r2dbc.postgresql.PostgreSQLRepository;
+import io.rxmicro.examples.graalvm.nativeimage.postgres.data.model.Account;
 
 import java.util.concurrent.CompletableFuture;
 
 @PostgreSQLRepository
+@DefaultConfigValue(configClass = PostgreSQLConfig.class, name = "database", value = "rxmicro")
+@DefaultConfigValue(configClass = PostgreSQLConfig.class, name = "user", value = "rxmicro")
+@DefaultConfigValue(configClass = PostgreSQLConfig.class, name = "password", value = "password")
 public interface PostgresDataRepository {
 
-    @Select("SELECT 2 + 2")
-    CompletableFuture<Integer> select();
+    @Insert
+    CompletableFuture<Boolean> insert(Account account);
+
+    @Update
+    CompletableFuture<Boolean> update(Account account);
+
+    @Select("SELECT * FROM ${table} WHERE id = ?")
+    CompletableFuture<Account> findById(long id);
+
+    @Delete
+    CompletableFuture<Boolean> delete(Account account);
 }

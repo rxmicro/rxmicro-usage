@@ -24,10 +24,8 @@ import io.rxmicro.rest.method.GET;
 import java.util.concurrent.CompletableFuture;
 
 @RestClient
-@DefaultConfigValue(name = "http-client.schema", value = "HTTPS")
-@DefaultConfigValue(name = "http-client.host", value = "rxmicro.io")
-@DefaultConfigValue(name = "http-client.port", value = "443")
-public interface ExternalMicroService {
+@DefaultConfigValue(name = "rest-client.connectionString", value = "https://rxmicro.io")
+public interface GitHubRestClient {
 
     @GET("/mock-api/say-hello.json")
     CompletableFuture<Model> getMessage();

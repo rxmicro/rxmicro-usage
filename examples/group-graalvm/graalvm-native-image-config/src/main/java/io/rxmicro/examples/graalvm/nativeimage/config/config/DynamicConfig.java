@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. https://rxmicro.io
+ * Copyright (c) 2020. http://rxmicro.io
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,13 +14,10 @@
  * limitations under the License.
  */
 
-package io.rxmicro.examples.graalvm.nativeimage.rest.client.model;
+package io.rxmicro.examples.graalvm.nativeimage.config.config;
 
-public final class Model {
+import io.rxmicro.config.AsMapConfig;
 
-    String message;
-
-    public String getMessage() {
-        return message;
-    }
+public final class DynamicConfig extends AsMapConfig {
 }
+

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. https://rxmicro.io
+ * Copyright (c) 2020. http://rxmicro.io
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,17 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-// tag::content[]
-package io.rxmicro.examples.graalvm.nativeimage.mongo.data.model;
 
-import static java.util.Objects.requireNonNull;
+package io.rxmicro.examples.graalvm.nativeimage.config.config;
 
-public final class Response {
+import io.rxmicro.config.Config;
 
-    final Long result;
+public final class CustomConfig extends Config {
 
-    public Response(final Long result) {
-        this.result = requireNonNull(result);
+    private String value;
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(final String value) {
+        this.value = value;
     }
 }
-// end::content[]
+

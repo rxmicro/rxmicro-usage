@@ -136,11 +136,12 @@
                                     <goal>exec</goal>
                                 </goals>
                                 <configuration>
+                                    <!-- https://www.graalvm.org/reference-manual/native-image/Options/ -->
                                     <executable>native-image</executable>
                                     <arguments>
                                         <argument>-H:+ReportExceptionStackTraces</argument>
-                                        <argument>-H:+TraceClassInitialization</argument>
                                         <argument>--verbose</argument>
+                                        <argument>--install-exit-handlers</argument>
                                         <argument>-jar</argument>
                                         <argument>${project.build.directory}/${project.build.finalName}.jar</argument>
                                     </arguments>

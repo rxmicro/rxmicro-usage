@@ -16,26 +16,16 @@
 
 package io.rxmicro.examples.graalvm.nativeimage.rest.client;
 
-import io.rxmicro.examples.graalvm.nativeimage.rest.client.component.ExternalMicroService;
-import io.rxmicro.examples.graalvm.nativeimage.rest.client.model.Model;
-import io.rxmicro.rest.method.GET;
-import io.rxmicro.rest.server.RxMicro;
-
-import java.util.concurrent.CompletableFuture;
+import io.rxmicro.examples.graalvm.nativeimage.rest.client.component.GitHubRestClient;
 
 import static io.rxmicro.rest.client.RestClientFactory.getRestClient;
 
-public final class ProxyMicroService {
+public final class RestClientLauncher {
 
-    private final ExternalMicroService externalMicroService =
-            getRestClient(ExternalMicroService.class);
-
-    @GET("/")
-    CompletableFuture<Model> get() {
-        return externalMicroService.getMessage();
+    private RestClientLauncher(){
     }
 
     public static void main(final String[] args) {
-        RxMicro.startRestServer(ProxyMicroService.class);
+        System.out.println("STDOUT: " + getRestClient(GitHubRestClient.class).getMessage().join().getMessage());
     }
 }

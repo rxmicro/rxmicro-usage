@@ -1,5 +1,23 @@
-# Start DB
+# Launch scripts
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+https://github.com/oracle/graal/blob/master/substratevm/LIMITATIONS.md
+--------------------------------------------------------------------------------------------------------------------------------------------
+## Start DB
 
 ```shell script
-docker run -it --rm -p 27017:27017 -e MONGO_INITDB_DATABASE=db mongo:4.2.6-bionic
+docker run -it --rm --name rxmicro-mongo-test-db -p 27017:27017 rxmicro/mongo-test-db
 ```
+--------------------------------------------------------------------------------------------------------------------------------------------
+## Using java
+
+```shell script
+java -jar target/MongoLauncher.jar
+```
+--------------------------------------------------------------------------------------------------------------------------------------------
+## Using native image agent
+
+```shell script
+$GRAALVM_HOME/bin/java -agentlib:native-image-agent=config-output-dir=.graal -jar target/MongoLauncher.jar
+```
+--------------------------------------------------------------------------------------------------------------------------------------------

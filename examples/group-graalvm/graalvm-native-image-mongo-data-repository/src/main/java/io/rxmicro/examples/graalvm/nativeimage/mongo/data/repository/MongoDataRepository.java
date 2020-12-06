@@ -16,14 +16,53 @@
 
 package io.rxmicro.examples.graalvm.nativeimage.mongo.data.repository;
 
+import com.mongodb.client.result.InsertOneResult;
+import io.rxmicro.config.DefaultConfigValue;
+import io.rxmicro.data.mongo.MongoConfig;
 import io.rxmicro.data.mongo.MongoRepository;
+import io.rxmicro.data.mongo.operation.Aggregate;
 import io.rxmicro.data.mongo.operation.CountDocuments;
+import io.rxmicro.data.mongo.operation.Delete;
+import io.rxmicro.data.mongo.operation.Distinct;
+import io.rxmicro.data.mongo.operation.EstimatedDocumentCount;
+import io.rxmicro.data.mongo.operation.Find;
+import io.rxmicro.data.mongo.operation.Insert;
+import io.rxmicro.data.mongo.operation.Update;
+import io.rxmicro.examples.graalvm.nativeimage.mongo.data.model.Account;
+import io.rxmicro.examples.graalvm.nativeimage.mongo.data.model.Report;
+import io.rxmicro.examples.graalvm.nativeimage.mongo.data.model.Role;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 @MongoRepository(collection = "account")
+@DefaultConfigValue(configClass = MongoConfig.class, name = "database", value = "rxmicro")
 public interface MongoDataRepository {
 
     @CountDocuments
-    CompletableFuture<Long> count();
+    CompletableFuture<Long> countDocuments();
+
+    @EstimatedDocumentCount
+    CompletableFuture<Long> estimatedDocumentCount();
+
+    @Insert
+    CompletableFuture<InsertOneResult> insert(Account account);
+
+    @Update
+    CompletableFuture<Boolean> update(Account account);
+
+    @Delete
+    CompletableFuture<Boolean> delete(Account account);
+
+    @Find(query = "{_id:?}")
+    CompletableFuture<Account> find(long id);
+
+    @Distinct(field = "role")
+    CompletableFuture<List<Role>> distinct();
+
+    @Aggregate(pipeline = {
+            "{ $group : { _id: '$role', total : { $sum: 'balance'}} }",
+            "{ $sort: { total: -1, _id: -1} }"
+    })
+    CompletableFuture<List<Report>> aggregate();
 }

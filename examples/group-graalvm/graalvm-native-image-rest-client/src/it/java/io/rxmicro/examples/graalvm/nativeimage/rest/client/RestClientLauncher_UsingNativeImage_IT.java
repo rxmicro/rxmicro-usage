@@ -16,51 +16,46 @@
 
 package io.rxmicro.examples.graalvm.nativeimage.rest.client;
 
-import io.rxmicro.config.WaitFor;
-import io.rxmicro.http.client.ClientHttpResponse;
-import io.rxmicro.test.BlockingHttpClient;
+import io.rxmicro.test.SystemOut;
 import io.rxmicro.test.TestedProcessBuilder;
 import io.rxmicro.test.junit.RxMicroIntegrationTest;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
 
 import java.io.File;
 import java.io.IOException;
 
-import static io.rxmicro.test.json.JsonFactory.jsonObject;
+import static io.rxmicro.common.util.Formats.format;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@EnabledIfEnvironmentVariable(named = "GRAALVM_HOME", matches = ".*?")
+@EnabledIfEnvironmentVariable(
+        named = "GRAALVM_HOME",
+        matches = ".*?",
+        disabledReason = "This test requires a native image that is built only if Graalvm SDK exists."
+)
 // tag::content[]
 @RxMicroIntegrationTest
-final class ProxyMicroService_UsingNativeImage_IT {
+final class RestClientLauncher_UsingNativeImage_IT {
 
-    static Process process;
-
-    @BeforeAll
-    static void beforeAll() throws IOException{
-        process = new TestedProcessBuilder()
-                .setCommandWithArgs("./ProxyMicroService")
-                .setWorkingDir(new File("."))
-                .start();
-        new WaitFor("wait-for localhost:8080").start();
-    }
-
-    private BlockingHttpClient blockingHttpClient;
+    private SystemOut systemOut;
 
     @Test
-    void Should_return_Hello_World() {
-        final ClientHttpResponse response = blockingHttpClient.get("/");
+    void Should_return_Hello_World() throws IOException, InterruptedException {
+        final Process process = new TestedProcessBuilder()
+                .setCommandWithArgs("./RestClientLauncher")
+                .setWorkingDir(new File("."))
+                .start();
+        final int result = process.waitFor();
+        assertEquals(0, result, "Invalid exit code");
 
-        assertEquals(jsonObject("message", "Hello World!"), response.getBody());
-        assertEquals(200, response.getStatusCode());
+        final String out = systemOut.asString();
+        final String requiredMessage = "STDOUT: Hello World!";
+        assertTrue(
+                out.contains(requiredMessage),
+                format("Console out does not contain required message: '?'. Full out is \n?", requiredMessage, out)
+        );
     }
 
-    @AfterAll
-    static void afterAll() {
-        process.destroyForcibly();
-    }
 }
 // end::content[]

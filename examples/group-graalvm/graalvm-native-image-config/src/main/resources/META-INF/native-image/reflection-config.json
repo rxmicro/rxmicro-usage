@@ -1,0 +1,24 @@
+[
+  {
+    "name":"io.rxmicro.examples.graalvm.nativeimage.config.config.CustomConfig",
+    "allDeclaredMethods":true,
+    "methods":[
+      {"name":"<init>","parameterTypes":[] }
+    ]
+  },
+  {
+    "name":"io.rxmicro.examples.graalvm.nativeimage.config.config.DynamicConfig",
+    "methods":[
+      {"name":"<init>","parameterTypes":[] }
+    ]
+  },
+  {
+    "name": "io.rxmicro.rest.server.PredefinedRequestIdGeneratorType"
+  },
+  {
+    "name": "io.rxmicro.rest.server.PredefinedStaticResponseHeader"
+  },
+  {
+    "name": "io.rxmicro.rest.server.netty.PredefinedNettyChannelIdType"
+  }
+]

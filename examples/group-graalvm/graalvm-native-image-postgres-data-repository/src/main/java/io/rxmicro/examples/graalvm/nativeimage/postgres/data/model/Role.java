@@ -14,13 +14,15 @@
  * limitations under the License.
  */
 
-package io.rxmicro.examples.graalvm.nativeimage.rest.client.model;
+package io.rxmicro.examples.graalvm.nativeimage.postgres.data.model;
 
-public final class Model {
+// tag::content[]
+public enum Role {
 
-    String message;
+    CEO,
 
-    public String getMessage() {
-        return message;
-    }
+    Lead_Engineer,
+
+    Systems_Architect
 }
+// end::content[]

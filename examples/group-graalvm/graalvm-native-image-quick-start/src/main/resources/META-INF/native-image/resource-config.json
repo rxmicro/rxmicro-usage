@@ -1,8 +1,0 @@
-{
-  "resources": [
-    {
-      "pattern": "\\Qjul.properties\\E"
-    }
-  ],
-  "bundles": []
-}

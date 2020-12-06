@@ -86,6 +86,7 @@ To build a native image from `maven` it is necessary to use `exec-maven-plugin`:
                 <arguments>
                     <argument>--verbose</argument>
                     <argument>-jar</argument>
+                    <argument>--install-exit-handlers</argument> <!--2-->
                     <argument>${project.build.directory}/${project.build.finalName}.jar</argument>
                 </arguments>
             </configuration>
@@ -95,6 +96,7 @@ To build a native image from `maven` it is necessary to use `exec-maven-plugin`:
 ----
 
 <1> An executable will be the `native-image` tool with specified arguments.
+<2> This option adds the exit handler for native image.
 
 [TIP]
 ====
@@ -115,8 +117,6 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-graalvm/graalvm-native-i
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-graalvm/graalvm-native-image-quick-start/src/main/java/io/rxmicro/examples/graalvm/nativeimage/quick/start/HelloWorldMicroService.java[tags=content,indent=0]
 ----
 <1> Docker based configuration activates the configuration via annotations and environment variables only.
-<2> Registration the SIGTERM handler manually.
-_(Read more about it: https://github.com/oracle/graal/issues/1592[`https://github.com/oracle/graal/issues/1592`^].)_
 
 ===== Classpath Resources
 

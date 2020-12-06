@@ -1,12 +1,17 @@
+# Launch scripts
+
+--------------------------------------------------------------------------------------------------------------------------------------------
 https://github.com/oracle/graal/blob/master/substratevm/LIMITATIONS.md
-
-
-# Using agent
+--------------------------------------------------------------------------------------------------------------------------------------------
+## Using java
 
 ```shell script
-java -jar target/ProxyMicroService.jar
-
-$GRAALVM_HOME/bin/java -agentlib:native-image-agent=config-output-dir=.graal -jar target/ProxyMicroService.jar
+java -jar target/RestClientLauncher.jar
 ```
+--------------------------------------------------------------------------------------------------------------------------------------------
+## Using native image agent
 
--H:+ReportUnsupportedElementsAtRuntime
+```shell script
+$GRAALVM_HOME/bin/java -agentlib:native-image-agent=config-output-dir=.graal -jar target/RestClientLauncher.jar
+```
+--------------------------------------------------------------------------------------------------------------------------------------------

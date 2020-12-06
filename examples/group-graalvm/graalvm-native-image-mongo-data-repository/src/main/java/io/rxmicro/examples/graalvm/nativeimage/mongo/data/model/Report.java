@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. https://rxmicro.io
+ * Copyright (c) 2020. http://rxmicro.io
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,17 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-// tag::content[]
-package io.rxmicro.examples.graalvm.nativeimage.postgres.data.model;
 
-import static java.util.Objects.requireNonNull;
+package io.rxmicro.examples.graalvm.nativeimage.mongo.data.model;
 
-public final class Response {
+import io.rxmicro.data.mongo.DocumentId;
 
-    final Integer result;
+import java.math.BigDecimal;
 
-    public Response(final Integer result) {
-        this.result = requireNonNull(result);
+public class Report {
+
+    @DocumentId
+    Role id;
+
+    BigDecimal total;
+
+    @Override
+    public String toString() {
+        return "Report{" +
+                "id=" + id +
+                ", total=" + total +
+                '}';
     }
 }
-// end::content[]
+

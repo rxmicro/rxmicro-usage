@@ -32,7 +32,11 @@ import java.io.IOException;
 import static io.rxmicro.test.json.JsonFactory.jsonObject;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@EnabledIfEnvironmentVariable(named = "GRAALVM_HOME", matches = ".*?")
+@EnabledIfEnvironmentVariable(
+        named = "GRAALVM_HOME",
+        matches = ".*?",
+        disabledReason = "This test requires a native image that is built only if Graalvm SDK exists."
+)
 // tag::content[]
 @RxMicroIntegrationTest
 final class HelloWorldMicroService_UsingNativeImage_IT {
@@ -45,7 +49,7 @@ final class HelloWorldMicroService_UsingNativeImage_IT {
                 .setCommandWithArgs("./HelloWorldMicroService")
                 .setWorkingDir(new File("."))
                 .start();
-        new WaitFor("wait-for localhost:8080").start();
+        new WaitFor("wait-for 0.0.0.0:8080").start();
     }
 
     private BlockingHttpClient blockingHttpClient;
@@ -60,7 +64,7 @@ final class HelloWorldMicroService_UsingNativeImage_IT {
 
     @AfterAll
     static void afterAll() {
-        process.destroyForcibly();
+        process.destroy();
     }
 }
 // end::content[]

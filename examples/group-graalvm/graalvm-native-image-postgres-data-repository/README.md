@@ -1,13 +1,23 @@
+# Launch scripts
+
+--------------------------------------------------------------------------------------------------------------------------------------------
 https://github.com/oracle/graal/blob/master/substratevm/LIMITATIONS.md
-
-# Start DB
-
-```shell script
-docker run -it --rm -p 5432:5432 -e POSTGRES_DB=db -e POSTGRES_USER=rxmicro -e POSTGRES_HOST_AUTH_METHOD=trust postgres:9.6.17-alpine
-```
-
-# Build native image
+--------------------------------------------------------------------------------------------------------------------------------------------
+## Start DB
 
 ```shell script
-native-image -H:+ReportExceptionStackTraces -H:+TraceClassInitialization --verbose -jar target/PostgresMicroService.jar
+docker run -it --rm --name rxmicro-postgres-test-db -p 5432:5432 rxmicro/postgres-test-db
 ```
+--------------------------------------------------------------------------------------------------------------------------------------------
+## Using java
+
+```shell script
+java -jar target/PostgresLauncher.jar
+```
+--------------------------------------------------------------------------------------------------------------------------------------------
+## Using native image agent
+
+```shell script
+$GRAALVM_HOME/bin/java -agentlib:native-image-agent=config-output-dir=.graal -jar target/PostgresLauncher.jar
+```
+--------------------------------------------------------------------------------------------------------------------------------------------

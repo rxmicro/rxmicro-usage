@@ -1,4 +1,28 @@
-# Using JRE
+# Launch scripts
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+https://github.com/oracle/graal/blob/master/substratevm/LIMITATIONS.md
+--------------------------------------------------------------------------------------------------------------------------------------------
+## Using java
+
+```shell script
+java -jar target/HelloWorldMicroService.jar
+```
+--------------------------------------------------------------------------------------------------------------------------------------------
+## Using native image agent
+
+```shell script
+$GRAALVM_HOME/bin/java -agentlib:native-image-agent=config-output-dir=.graal -jar target/HelloWorldMicroService.jar
+```
+--------------------------------------------------------------------------------------------------------------------------------------------
+## Test microservice
+
+```shell script
+curl -v localhost:8080
+```
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Start
 
@@ -41,10 +65,4 @@ Server started at 0.0.0.0:8080 using NETTY transport in 5 millis.
 /usr/bin/time -f "\nmaxRSS\t%MkB" ./HelloWorldMicroService
 
 maxRSS 17Mb
-```
-
-# Using agent
-
-```shell script
-$GRAALVM_HOME/bin/java -agentlib:native-image-agent=config-output-dir=.graal -jar target/HelloWorldMicroService.jar
 ```

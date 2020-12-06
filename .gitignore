@@ -62,9 +62,10 @@ test.*
 
 # native images
 HelloWorldMicroService
-MongoMicroService
-PostgresMicroService
-ProxyMicroService
+MongoLauncher
+PostgresLauncher
+RestClientLauncher
+GetConfigLauncher
 WithoutAnything
 WithSout
 

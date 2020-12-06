@@ -15,8 +15,8 @@
   ~ limitations under the License.
   -->
 
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>group-graalvm</artifactId>
@@ -24,12 +24,12 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>io.rxmicro.examples</groupId>
-    <artifactId>graalvm-native-image-rest-client</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>graalvm-native-image-config</artifactId>
 
     <build>
-        <finalName>RestClientLauncher</finalName>
+        <finalName>GetConfigLauncher</finalName>
         <testSourceDirectory>src/it/java</testSourceDirectory>
         <testResources>
             <testResource>
@@ -91,7 +91,7 @@
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <manifestEntries>
-                                        <Main-Class>io.rxmicro.examples.graalvm.nativeimage.rest.client.RestClientLauncher</Main-Class>
+                                        <Main-Class>io.rxmicro.examples.graalvm.nativeimage.config.GetConfigLauncher</Main-Class>
                                     </manifestEntries>
                                 </transformer>
                             </transformers>
@@ -165,7 +165,7 @@
                                 <phase>clean</phase>
                                 <configuration>
                                     <tasks>
-                                        <delete file="${basedir}/RestClientLauncher"/>
+                                        <delete file="${basedir}/GetConfigLauncher"/>
                                     </tasks>
                                 </configuration>
                                 <goals>
@@ -182,12 +182,50 @@
     <dependencies>
         <dependency>
             <groupId>io.rxmicro</groupId>
+            <artifactId>rxmicro-cdi</artifactId>
+            <version>${rxmicro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rxmicro</groupId>
+            <artifactId>rxmicro-validation</artifactId>
+            <version>${rxmicro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rxmicro</groupId>
+            <artifactId>rxmicro-monitoring</artifactId>
+            <version>${rxmicro.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rxmicro</groupId>
+            <artifactId>rxmicro-rest-server-netty</artifactId>
+            <version>${rxmicro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rxmicro</groupId>
+            <artifactId>rxmicro-rest-server-exchange-json</artifactId>
+            <version>${rxmicro.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rxmicro</groupId>
             <artifactId>rxmicro-rest-client-jdk</artifactId>
             <version>${rxmicro.version}</version>
         </dependency>
         <dependency>
             <groupId>io.rxmicro</groupId>
             <artifactId>rxmicro-rest-client-exchange-json</artifactId>
+            <version>${rxmicro.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rxmicro</groupId>
+            <artifactId>rxmicro-data-mongo</artifactId>
+            <version>${rxmicro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rxmicro</groupId>
+            <artifactId>rxmicro-data-sql-r2dbc-postgresql</artifactId>
             <version>${rxmicro.version}</version>
         </dependency>
 
@@ -200,5 +238,4 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
 </project>

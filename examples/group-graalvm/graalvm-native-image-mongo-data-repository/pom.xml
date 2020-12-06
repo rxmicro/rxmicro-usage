@@ -27,7 +27,7 @@
     <groupId>io.rxmicro.examples</groupId>
     <artifactId>graalvm-native-image-mongo-data-repository</artifactId>
     <build>
-        <finalName>MongoMicroService</finalName>
+        <finalName>MongoLauncher</finalName>
         <testSourceDirectory>src/it/java</testSourceDirectory>
         <testResources>
             <testResource>
@@ -89,7 +89,7 @@
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <manifestEntries>
-                                        <Main-Class>io.rxmicro.examples.graalvm.nativeimage.mongo.data.MongoMicroService</Main-Class>
+                                        <Main-Class>io.rxmicro.examples.graalvm.nativeimage.mongo.data.MongoLauncher</Main-Class>
                                     </manifestEntries>
                                 </transformer>
                             </transformers>
@@ -142,14 +142,17 @@
                                     <goal>exec</goal>
                                 </goals>
                                 <configuration>
+                                    <!-- https://www.graalvm.org/reference-manual/native-image/Options/ -->
                                     <executable>native-image</executable>
                                     <arguments>
                                         <argument>-H:+ReportExceptionStackTraces</argument>
-                                        <argument>-H:+TraceClassInitialization</argument>
                                         <argument>--verbose</argument>
+                                        <argument>--install-exit-handlers</argument>
                                         <argument>-jar</argument>
                                         <argument>${project.build.directory}/${project.build.finalName}.jar</argument>
                                     </arguments>
+                                    <!-- Waiting for https://github.com/netty/netty/pull/10799 merged -->
+                                    <skip>true</skip>
                                 </configuration>
                             </execution>
                         </executions>
@@ -162,7 +165,7 @@
                                 <phase>clean</phase>
                                 <configuration>
                                     <tasks>
-                                        <delete file="${basedir}/MongoMicroService"/>
+                                        <delete file="${basedir}/MongoLauncher"/>
                                     </tasks>
                                 </configuration>
                                 <goals>
@@ -179,16 +182,6 @@
     <dependencies>
         <dependency>
             <groupId>io.rxmicro</groupId>
-            <artifactId>rxmicro-rest-server-netty</artifactId>
-            <version>${rxmicro.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.rxmicro</groupId>
-            <artifactId>rxmicro-rest-server-exchange-json</artifactId>
-            <version>${rxmicro.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.rxmicro</groupId>
             <artifactId>rxmicro-data-mongo</artifactId>
             <version>${rxmicro.version}</version>
         </dependency>
@@ -198,18 +191,6 @@
         <dependency>
             <groupId>io.rxmicro</groupId>
             <artifactId>rxmicro-test-junit</artifactId>
-            <version>${rxmicro.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.rxmicro</groupId>
-            <artifactId>rxmicro-http-client-jdk</artifactId>
-            <version>${rxmicro.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.rxmicro</groupId>
-            <artifactId>rxmicro-rest-client-exchange-json</artifactId>
             <version>${rxmicro.version}</version>
             <scope>test</scope>
         </dependency>
