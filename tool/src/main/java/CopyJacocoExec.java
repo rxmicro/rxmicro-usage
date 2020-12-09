@@ -21,7 +21,7 @@ import java.nio.file.Paths;
 
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
-public class CopyJacocoExec {
+public final class CopyJacocoExec {
 
     private static int copiedFiles;
 
@@ -73,6 +73,9 @@ public class CopyJacocoExec {
                 REPLACE_EXISTING
         );
         copiedFiles++;
+    }
+
+    private CopyJacocoExec(){
     }
 }
 
