@@ -16,6 +16,8 @@
         <module>config-custom</module>
         <module>config-annotations</module>
         <module>config-annotations-supplier</module>
+        <module>config-custom-type</module>
+
         <module>json</module>
         <module>logger</module>
         <module>base-model</module>

@@ -1,0 +1,76 @@
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+===== Supported Container Parameter Types
+
+The RxMicro framework supports the following container Java types:
+
+* `java.util.List<V>`;
+* `java.util.Set<V>`;
+* `java.util.SortedSet<V>`;
+* `java.util.Map<K, V>`;
+
+where `K` and `V` can be:
+
+* `java.lang.Boolean`;
+* `java.lang.Long`;
+* `java.math.BigDecimal`;
+* `java.lang.String`;
+* `CUSTOM_TYPE`.
+
+[NOTE]
+====
+The RxMicro framework uses `,` character as collection (List, Set, SortedSet, Map.Entry) value delimiter and '=' character as key-value separator:
+
+[source,properties]
+----
+list=red,green,blue
+set=red,green,blue
+sorted-set=red,green,blue
+map=red=0xFF0000,green=0x00FF00,blue=0x0000FF
+----
+====
+
+The RxMicro framework uses `reflection` to initialize config instances.
+But container parametrization types are not available for the `reflection` reading.
+
+Thus the RxMicro framework tries to guess which type must be created using the following algorithm:
+
+1. Try to convert to `java.lang.Boolean` type. If failed then goto `2` step.
+2. Try to convert to `java.math.BigDecimal` type. If failed then goto `3` step.
+3. Try to convert to `java.lang.Long` type. If failed then goto `4` step.
+4. Try to convert to `CUSTOM_TYPE`. If failed then goto `5` step.
+5. Return `java.lang.String` instance.
+
+This means that if You provide a config list with different types, the RxMicro framework create a `java.util.List` with different types:
+
+For example:
+
+[source,properties]
+----
+list=red,1.2,4,true
+----
+
+the result will be:
+
+[source,java]
+----
+java.util.List.of(new String("red"), new BigDecimal("1.2"), Long.valueOf(4), Boolean.valueOf(true));
+----
+
+and the `ClassCastException` will be thrown if Your config parameter is not of `java.util.List<java.lang.Object>` type.
+
+To avoid the `ClassCastException` use the following recommendation:
+
+* For `boolean` lists use `java.util.List<java.lang.Boolean>` type.
+* For `integer number` lists use `java.util.List<java.lang.Long>` type.
+* For `decimal number` lists use `java.util.List<java.math.BigDecimal>` type.
+* For `string` lists use `java.util.List<java.lang.String>` type.
+* For `custom type` lists use `java.util.List<CUSTOM_TYPE>` type.
+
+[IMPORTANT]
+====
+*DON'T USE ANY OTHER TYPES FOR COLLECTION PARAMETRIZATION!*
+====

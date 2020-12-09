@@ -1,0 +1,49 @@
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+===== Supported Primitive Parameter Types
+
+The RxMicro framework supports the following primitive Java types:
+
+* `? extends Enum<?>`;
+* `boolean`;
+* `java.lang.Boolean`;
+* `byte`;
+* `java.lang.Byte`;
+* `short`;
+* `java.lang.Short`;
+* `int`;
+* `java.lang.Integer`;
+* `long`;
+* `java.lang.Long`;
+* `java.math.BigInteger`;
+* `float`;
+* `java.lang.Float`;
+* `double`;
+* `java.lang.Double`;
+* `java.math.BigDecimal`;
+* `char`;
+* `java.lang.Character`;
+* `java.lang.CharSequence`;
+* `java.lang.String`;
+* `java.time.Instant`;
+* `java.time.LocalDate`;
+* `java.time.LocalDateTime`;
+* `java.time.LocalTime`;
+* `java.time.MonthDay`;
+* `java.time.OffsetDateTime`;
+* `java.time.OffsetTime`;
+* `java.time.Year`;
+* `java.time.YearMonth`;
+* `java.time.ZonedDateTime`;
+* `java.time.Duration`;
+* `java.time.ZoneOffset`;
+* `java.time.ZoneId`;
+* `java.time.Period`;
+
+[NOTE]
+====
+For temporal classes the RxMicro framework uses `parse` or `of` factory method to converts string value to the appropriate Java representation.
+====

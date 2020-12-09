@@ -3,61 +3,12 @@ include::../../___fragment-settings.adoc[]
 
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
 
-==== Supported Config Parameter Types
+==== Supported Parameter Types
 
-The RxMicro framework supports the following Java types, which can be config parameters for any configuration:
+The RxMicro framework supports the primitive, custom and container types, which can be config parameters for any configuration.
 
-* `? extends Enum<?>`;
-* `boolean`;
-* `java.lang.Boolean`;
-* `byte`;
-* `java.lang.Byte`;
-* `short`;
-* `java.lang.Short`;
-* `int`;
-* `java.lang.Integer`;
-* `long`;
-* `java.lang.Long`;
-* `java.math.BigInteger`;
-* `float`;
-* `java.lang.Float`;
-* `double`;
-* `java.lang.Double`;
-* `java.math.BigDecimal`;
-* `char`;
-* `java.lang.Character`;
-* `java.lang.CharSequence`;
-* `java.lang.String`;
-* `java.time.Instant`;
-* `java.time.LocalDate`;
-* `java.time.LocalDateTime`;
-* `java.time.LocalTime`;
-* `java.time.MonthDay`;
-* `java.time.OffsetDateTime`;
-* `java.time.OffsetTime`;
-* `java.time.Year`;
-* `java.time.YearMonth`;
-* `java.time.ZonedDateTime`;
-* `java.time.Duration`;
-* `java.time.ZoneOffset`;
-* `java.time.ZoneId`;
-* `java.time.Period`;
-* `java.util.List<String>`;
-* `java.util.Set<String>`;
-* `java.util.SortedSet<String>`;
-* `java.util.Map<String, String>`;
+include::_supported-types/primitive-types.adoc[]
 
-[NOTE]
-====
-The RxMicro framework uses `,` character as collection (List, Set, SortedSet, Map.Entry) delimiter and '=' character as key-value separator:
+include::_supported-types/custom-types.adoc[]
 
-[source,properties]
-----
-list=red,green,blue
-set=red,green,blue
-sorted-set=red,green,blue
-map=red=0xFF0000,green=0x00FF00,blue=0x0000FF
-----
-
-For temporal classes the RxMicro framework uses `parse` or `of` factory method to converts string value to the appropriate Java representation.
-====
+include::_supported-types/container-types.adoc[]

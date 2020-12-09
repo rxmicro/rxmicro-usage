@@ -1,0 +1,96 @@
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../../___fragment-settings.adoc[]
+
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../../
+
+===== Supported Custom Parameter Types
+
+The RxMicro framework supports a custom type as valid config parameter type.
+
+For example if Your project contain the following custom type:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-common/config-custom-type/src/main/java/io/rxmicro/examples/config/custom/type/CustomType.java[tag=content,indent=0]
+----
+
+then Your custom config class can use this type as valid config parameter type:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-common/config-custom-type/src/main/java/io/rxmicro/examples/config/custom/type/config/ExampleConfig.java[tag=content,indent=0]
+----
+
+Instances of the custom type can be created as:
+
+* Enum constant:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-common/config-custom-type/src/main/java/io/rxmicro/examples/config/custom/type/_enum/CustomEnum.java[tag=content,indent=0]
+----
+
+* Class `public static final` constant:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-common/config-custom-type/src/main/java/io/rxmicro/examples/config/custom/type/_class/CustomClass.java[tag=content,indent=0]
+----
+
+* Interface constant:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-common/config-custom-type/src/main/java/io/rxmicro/examples/config/custom/type/_interface/CustomInterface.java[tag=content,indent=0]
+----
+
+* Annotation constant:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-common/config-custom-type/src/main/java/io/rxmicro/examples/config/custom/type/_annotation/CustomAnnotation.java[tag=content,indent=0]
+----
+
+To inform the RxMicro framework which instance must be created and injected to config parameter, it is necessary to use the following syntax:
+
+[source,text]
+----
+@${FULL_CLASS_NAME}:${CONSTANT_FIELD_NAME}
+----
+
+For example if Your environment contains the following Java system properties:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-common/config-custom-type/src/main/java/io/rxmicro/examples/config/custom/type/Launcher.java[tag=setProperties,indent=0]
+----
+
+and Your application read configuration for all configured namespaces:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-common/config-custom-type/src/main/java/io/rxmicro/examples/config/custom/type/Launcher.java[tag=getConfig,indent=0]
+----
+Result will be the following:
+
+[source,text]
+----
+Default constant: DEFAULT_CONSTANT
+Enum constant: ENUM_CONSTANT
+Class constant: CLASS_CONSTANT
+Interface constant: INTERFACE_CONSTANT
+Annotation constant: ANNOTATION_CONSTANT
+----
+
+[IMPORTANT]
+====
+For class or interface or annotation constants the RxMicro framework uses the `reflection` to read value. +
+So before using this type of custom type instances don't forget to export packages to `rxmicro.common` module, because this module contains the `reflection` util class which is used to read this value:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-common/config-custom-type/src/main/java/module-info.java[tag=content,indent=0]
+----
+
+*The RxMicro team recommends using an enum for custom type injection to config instances!*
+====
