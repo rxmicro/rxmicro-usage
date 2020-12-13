@@ -10,8 +10,4 @@ include::_request-id/basic-rules.adoc[]
 
 <<<
 
-include::_request-id/supported-generator-types.adoc[]
-
-<<<
-
-include::_request-id/comparing-the-performance.adoc[]
+include::_request-id/supported-generator-providers.adoc[]

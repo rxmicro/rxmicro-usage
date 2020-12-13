@@ -14,23 +14,29 @@
  * limitations under the License.
  */
 
-package io.rxmicro.examples.rest.controller.request.id;
+package io.rxmicro.benchmark.rxmicro.simple.microservice.startup;
 
 import io.rxmicro.config.Configs;
-import io.rxmicro.rest.server.RestServerConfig;
+import io.rxmicro.rest.method.GET;
+import io.rxmicro.rest.server.RxMicro;
 
-import static io.rxmicro.rest.server.PredefinedRequestIdGeneratorProvider.UUID_128_BITS;
-import static io.rxmicro.rest.server.RxMicro.startRestServer;
+import java.util.concurrent.CompletableFuture;
 
-public final class Launcher {
+import static java.util.concurrent.CompletableFuture.completedFuture;
+
+public final class HelloWorldMicroService {
+
+    @GET("/")
+    CompletableFuture<Response> sayHelloWorld() {
+        return completedFuture(new Response("Hello World"));
+    }
 
     public static void main(final String[] args) {
-        // tag::content[]
+        // Do not try load any configurations
         new Configs.Builder()
-                .withConfigs(new RestServerConfig()
-                        .setRequestIdGeneratorProvider(UUID_128_BITS)) // <1>
+                .withoutAnyConfigSources()
                 .build();
-        // end::content[]
-        startRestServer(MicroService.class);
+        RxMicro.startRestServer(HelloWorldMicroService.class);
+        System.exit(0);
     }
 }

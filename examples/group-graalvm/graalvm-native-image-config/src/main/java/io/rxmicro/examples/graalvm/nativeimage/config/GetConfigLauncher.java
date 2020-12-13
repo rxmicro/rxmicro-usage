@@ -132,12 +132,13 @@ public class GetConfigLauncher {
         System.out.println("io.rxmicro.rest.server.RestServerConfig.hideInternalErrorMessage = " + restServerConfig.isHideInternalErrorMessage());
         System.out.println("io.rxmicro.rest.server.RestServerConfig.logHttpErrorExceptions = " + restServerConfig.isLogHttpErrorExceptions());
         System.out.println("io.rxmicro.rest.server.RestServerConfig.staticResponseHeaders = " + restServerConfig.getStaticResponseHeaders());
-        System.out.println("io.rxmicro.rest.server.RestServerConfig.generatorType = " + restServerConfig.getGeneratorType());
+        System.out.println("io.rxmicro.rest.server.RestServerConfig.requestIdGenerator = " + restServerConfig.getRequestIdGenerator());
         System.out.println("io.rxmicro.rest.server.RestServerConfig.returnGeneratedRequestId = " + restServerConfig.isReturnGeneratedRequestId());
         System.out.println("io.rxmicro.rest.server.RestServerConfig.disableLoggerMessagesForHttpHealthChecks = " + restServerConfig.isDisableLoggerMessagesForHttpHealthChecks());
         System.out.println("io.rxmicro.rest.server.RestServerConfig.showRuntimeEnv = " + restServerConfig.isShowRuntimeEnv());
         System.out.println("io.rxmicro.rest.server.RestServerConfig.useFullClassNamesForRouterMappingLogMessages = " + restServerConfig.isUseFullClassNamesForRouterMappingLogMessages());
         System.out.println("io.rxmicro.rest.server.RestServerConfig.enableAdditionalValidations = " + restServerConfig.isEnableAdditionalValidations());
+        System.out.println("io.rxmicro.rest.server.RestServerConfig.waitingForRequestIdGeneratorInitTimeoutInMillis = " + restServerConfig.getWaitingForRequestIdGeneratorInitTimeoutInMillis());
         System.out.println();
     }
 

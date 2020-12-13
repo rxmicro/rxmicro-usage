@@ -14,23 +14,11 @@
  * limitations under the License.
  */
 
-package io.rxmicro.examples.rest.controller.request.id;
+package io.rxmicro.benchmark.java.program.startup;
 
-import io.rxmicro.config.Configs;
-import io.rxmicro.rest.server.RestServerConfig;
-
-import static io.rxmicro.rest.server.PredefinedRequestIdGeneratorProvider.UUID_128_BITS;
-import static io.rxmicro.rest.server.RxMicro.startRestServer;
-
-public final class Launcher {
-
+public final class WithSout {
     public static void main(final String[] args) {
-        // tag::content[]
-        new Configs.Builder()
-                .withConfigs(new RestServerConfig()
-                        .setRequestIdGeneratorProvider(UUID_128_BITS)) // <1>
-                .build();
-        // end::content[]
-        startRestServer(MicroService.class);
+        System.out.println("Hello world");
+        System.exit(0);
     }
 }

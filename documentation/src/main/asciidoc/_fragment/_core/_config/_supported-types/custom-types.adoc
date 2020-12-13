@@ -3,6 +3,7 @@ include::../../../___fragment-settings.adoc[]
 
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../../
 
+[[core_config_supported_custom_parameter_types]]
 ===== Supported Custom Parameter Types
 
 The RxMicro framework supports a custom type as valid config parameter type.

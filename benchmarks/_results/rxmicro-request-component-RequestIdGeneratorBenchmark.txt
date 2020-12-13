@@ -1,0 +1,13 @@
+Benchmark                                         Mode  Cnt       Score        Error   Units
+RequestIdGeneratorBenchmark.deterministic96Bits  thrpt   10       0.002 ±      0.001  ops/ns
+RequestIdGeneratorBenchmark.partlyRandom96Bits   thrpt   10       0.001 ±      0.001  ops/ns
+RequestIdGeneratorBenchmark.random96Bits         thrpt   10       0.001 ±      0.001  ops/ns
+RequestIdGeneratorBenchmark.uuid128Bits          thrpt   10       0.001 ±      0.001  ops/ns
+RequestIdGeneratorBenchmark.deterministic96Bits   avgt   10    2156.478 ±    141.592   ns/op
+RequestIdGeneratorBenchmark.partlyRandom96Bits    avgt   10    3811.271 ±    150.597   ns/op
+RequestIdGeneratorBenchmark.random96Bits          avgt   10    3790.484 ±     99.674   ns/op
+RequestIdGeneratorBenchmark.uuid128Bits           avgt   10    4347.632 ±    966.338   ns/op
+RequestIdGeneratorBenchmark.deterministic96Bits     ss   10  119302.350 ±  36615.312   ns/op
+RequestIdGeneratorBenchmark.partlyRandom96Bits      ss   10  164107.925 ± 445428.845   ns/op
+RequestIdGeneratorBenchmark.random96Bits            ss   10   61219.800 ±  44054.063   ns/op
+RequestIdGeneratorBenchmark.uuid128Bits             ss   10  103698.550 ±  96632.850   ns/op

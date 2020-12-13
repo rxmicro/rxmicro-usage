@@ -209,7 +209,7 @@ final class GetConfigLauncher_UsingNativeImage_IT {
         final Map<String, String> systemProperties = Map.ofEntries(
                 entry("rest-server.handlerNotFoundErrorStatusCode", "404"),
                 entry("rest-server.handlerNotFoundErrorMessage", "No handler"),
-                entry("rest-server.generatorType", "@io.rxmicro.rest.server.PredefinedRequestIdGeneratorType:SAFE_BUT_SLOWER"),
+                entry("rest-server.requestIdGeneratorProvider", "@io.rxmicro.examples.graalvm.nativeimage.config.CustomRequestIdGeneratorProvider:CUSTOM"),
                 entry("rest-server.corsNotAllowedErrorStatusCode", "400"),
                 entry("rest-server.corsNotAllowedErrorMessage", "No CORS"),
                 entry("rest-server.humanReadableOutput", "true"),
@@ -220,7 +220,8 @@ final class GetConfigLauncher_UsingNativeImage_IT {
                 entry("rest-server.disableLoggerMessagesForHttpHealthChecks", "false"),
                 entry("rest-server.showRuntimeEnv", "true"),
                 entry("rest-server.useFullClassNamesForRouterMappingLogMessages", "false"),
-                entry("rest-server.enableAdditionalValidations", "true")
+                entry("rest-server.enableAdditionalValidations", "true"),
+                entry("rest-server.waitingForRequestIdGeneratorInitTimeoutInMillis", "2000")
         );
         exec("RestServerConfig", systemProperties);
 
@@ -233,12 +234,13 @@ final class GetConfigLauncher_UsingNativeImage_IT {
         assertRequestMessageExists(out, "io.rxmicro.rest.server.RestServerConfig.hideInternalErrorMessage = false");
         assertRequestMessageExists(out, "io.rxmicro.rest.server.RestServerConfig.logHttpErrorExceptions = false");
         assertRequestMessageExists(out, "io.rxmicro.rest.server.RestServerConfig.staticResponseHeaders = [SERVER]");
-        assertRequestMessageExists(out, "io.rxmicro.rest.server.RestServerConfig.generatorType = SAFE_BUT_SLOWER");
+        assertRequestMessageExists(out, "io.rxmicro.rest.server.RestServerConfig.requestIdGenerator = CustomRequestIdGenerator");
         assertRequestMessageExists(out, "io.rxmicro.rest.server.RestServerConfig.returnGeneratedRequestId = false");
         assertRequestMessageExists(out, "io.rxmicro.rest.server.RestServerConfig.disableLoggerMessagesForHttpHealthChecks = false");
         assertRequestMessageExists(out, "io.rxmicro.rest.server.RestServerConfig.showRuntimeEnv = true");
         assertRequestMessageExists(out, "io.rxmicro.rest.server.RestServerConfig.useFullClassNamesForRouterMappingLogMessages = false");
         assertRequestMessageExists(out, "io.rxmicro.rest.server.RestServerConfig.enableAdditionalValidations = true");
+        assertRequestMessageExists(out, "io.rxmicro.rest.server.RestServerConfig.waitingForRequestIdGeneratorInitTimeoutInMillis = 2000");
     }
 
     @Order(7)

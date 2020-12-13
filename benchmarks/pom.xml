@@ -14,11 +14,10 @@
 
     <modules>
         <module>benchmark-java-core</module>
-        <module>benchmark-rxmicro-core</module>
-        <module>benchmark-java-startup</module>
-        <module>benchmark-rxmicro-startup</module>
-        <module>benchmark-performance</module>
         <module>benchmark-reactive</module>
+        <module>benchmark-performance</module>
+        <module>benchmark-rxmicro-component</module>
+        <module>benchmark-using-linux-tools</module>
     </modules>
 
     <properties>

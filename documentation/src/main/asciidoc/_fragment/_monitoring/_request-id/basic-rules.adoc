@@ -47,13 +47,7 @@ _(If the configuration parameter `RestServerConfig.returnGeneratedRequestId = fa
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/HttpStandardHeaderNames.java#L400[`Request-Id`^]
 HTTP header with a client specified request id value. +
 _(If the configuration parameter `RestServerConfig.returnGeneratedRequestId = false`, the HTTP response will not contain the `Request-Id` header.)_
-
-[IMPORTANT]
-====
-For ease of testing, if the microservice is launched automatically by a test, then a test id is assigned to each HTTP request.
-By default, the value of the HTTP request test id is equal to
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/local/component/impl/TestRequestIdGenerator.java#L32[`TestRequestId`^].
-====
+<6> For test purposes it is necessary to set deterministic request id provider with constant value.
 
 :link: {RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL}group-rest-controller/rest-controller-request-id
 include::../../___notes/full-source-code-of-example.adoc[]

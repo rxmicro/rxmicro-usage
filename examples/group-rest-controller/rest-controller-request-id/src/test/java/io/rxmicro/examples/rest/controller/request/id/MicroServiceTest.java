@@ -18,8 +18,10 @@ package io.rxmicro.examples.rest.controller.request.id;
 
 import io.rxmicro.http.HttpHeaders;
 import io.rxmicro.http.client.ClientHttpResponse;
+import io.rxmicro.rest.server.RestServerConfig;
 import io.rxmicro.test.BlockingHttpClient;
 import io.rxmicro.test.SystemOut;
+import io.rxmicro.test.WithConfig;
 import io.rxmicro.test.junit.RxMicroRestBasedMicroServiceTest;
 import org.junit.jupiter.api.Test;
 
@@ -29,6 +31,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 // tag::content[]
 @RxMicroRestBasedMicroServiceTest(MicroService.class)
 final class MicroServiceTest {
+
+    @WithConfig
+    private static final RestServerConfig CONFIG = new RestServerConfig()
+            .setRequestIdGeneratorProvider(restServerConfig -> () -> "TestRequestId") // <6>
+            .setDevelopmentMode(true);
 
     private BlockingHttpClient blockingHttpClient;
 
