@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. http://rxmicro.io
+ * Copyright (c) 2020. https://rxmicro.io
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,21 +14,12 @@
  * limitations under the License.
  */
 
-package io.rxmicro.examples.logger;
+module examples.processor.proxy {
+    requires rxmicro.rest.server.netty;
+    requires rxmicro.rest.server.exchange.json;
 
-import io.rxmicro.logger.Logger;
-import io.rxmicro.logger.LoggerFactory;
+    requires rxmicro.rest.client.jdk;
+    requires rxmicro.rest.client.exchange.json;
 
-public final class LoggerTestLauncher {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(LoggerTestLauncher.class);
-
-    public static void main(final String[] args) {
-        LOGGER.info("From main()");
-        test();
-    }
-
-    private static void test(){
-        LOGGER.info("From test()");
-    }
+    requires rxmicro.validation;
 }

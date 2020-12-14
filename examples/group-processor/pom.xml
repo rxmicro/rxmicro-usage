@@ -21,6 +21,7 @@
         <module>processor-cdi</module>
         <module>processor-mongo</module>
         <module>processor-r2dbc-postgresql</module>
+        <module>processor-proxy</module>
     </modules>
 
     <build>

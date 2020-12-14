@@ -31,6 +31,7 @@
         <module>cdi-all-user-components</module>
         <module>cdi-resource-basic</module>
         <module>cdi-resource-injection</module>
+        <module>cdi-errors</module>
     </modules>
 
     <build>
