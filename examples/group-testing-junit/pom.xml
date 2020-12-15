@@ -12,6 +12,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>testing-system-streams</module>
         <module>testing-microservice-basic</module>
         <module>testing-microservice-before-test</module>
         <module>testing-microservice-with-config</module>
