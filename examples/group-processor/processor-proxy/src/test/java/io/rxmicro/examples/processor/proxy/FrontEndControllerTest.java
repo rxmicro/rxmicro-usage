@@ -14,21 +14,21 @@
  * limitations under the License.
  */
 
-package io.rxmicro.examples.processor.proxy.client;
+package io.rxmicro.examples.processor.proxy;
 
 import io.rxmicro.config.Configs;
 import io.rxmicro.config.WaitFor;
-import io.rxmicro.examples.processor.proxy.model.Request;
-import io.rxmicro.examples.processor.proxy.model.Response;
 import io.rxmicro.examples.processor.proxy.server.RestControllerProxy;
+import io.rxmicro.http.HttpHeaders;
+import io.rxmicro.http.client.ClientHttpResponse;
 import io.rxmicro.logger.LoggerImplProviderFactory;
 import io.rxmicro.rest.client.RestClientConfig;
-import io.rxmicro.rest.model.HttpCallFailedException;
 import io.rxmicro.rest.server.HttpServerConfig;
 import io.rxmicro.rest.server.RestServerConfig;
 import io.rxmicro.rest.server.RxMicro;
 import io.rxmicro.rest.server.ServerInstance;
-import io.rxmicro.test.junit.RxMicroIntegrationTest;
+import io.rxmicro.test.BlockingHttpClient;
+import io.rxmicro.test.junit.RxMicroRestBasedMicroServiceTest;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayNameGeneration;
@@ -38,24 +38,20 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
-import java.util.concurrent.CompletionException;
-
-import static io.rxmicro.common.util.Exceptions.getRealThrowable;
-import static io.rxmicro.json.JsonHelper.readJsonObject;
-import static io.rxmicro.rest.client.RestClientFactory.getRestClient;
+import static io.rxmicro.json.JsonHelper.toJsonString;
 import static io.rxmicro.test.HttpServers.getRandomFreePort;
 import static io.rxmicro.test.json.JsonFactory.jsonErrorObject;
+import static io.rxmicro.test.json.JsonFactory.jsonObject;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-@RxMicroIntegrationTest
-final class RestClientProxyTest {
+@RxMicroRestBasedMicroServiceTest(FrontEndController.class)
+final class FrontEndControllerTest {
 
     static {
-        System.setProperty("logger.io.rxmicro.rest.server.level", "DEBUG");
-        System.setProperty("logger.io.rxmicro.examples.processor.proxy.client.level", "DEBUG");
+        System.setProperty("logger.io.rxmicro.rest.server.level", "TRACE");
+        System.setProperty("logger.io.rxmicro.examples.processor.proxy.client.level", "TRACE");
         LoggerImplProviderFactory.resetLoggerImplFactory();
     }
 
@@ -81,28 +77,28 @@ final class RestClientProxyTest {
         new WaitFor("localhost:" + RANDOM_PORT).start();
     }
 
+    private BlockingHttpClient blockingHttpClient;
+
     @Test
     @Order(1)
     void Should_return_success_response() {
-        final Request request = new Request("header", "param");
-        final Response response = getRestClient(RestClientProxy.class).put(request).join();
+        final ClientHttpResponse response =
+                blockingHttpClient.put("/", HttpHeaders.of("Header", "header"), jsonObject("param", "param"));
 
-        assertEquals("header", response.getHeader());
-        assertEquals("param", response.getParam());
+        assertEquals(jsonObject("param", "param"), response.getBody());
+        assertEquals("header", response.getHeaders().getValue("Header"));
+        assertEquals(200, response.getStatusCode());
     }
 
     @Test
     @Order(2)
     void Should_return_failed_response() {
-        final Request request = new Request("header", "error");
-        final CompletionException exception =
-                assertThrows(CompletionException.class, () -> getRestClient(RestClientProxy.class).put(request).join());
+        final ClientHttpResponse response =
+                blockingHttpClient.put("/", HttpHeaders.of("Header", "header"), jsonObject("param", "error"));
 
-        final HttpCallFailedException httpCallFailedException = (HttpCallFailedException) getRealThrowable(exception);
-        assertEquals(
-                jsonErrorObject("custom error"),
-                readJsonObject(httpCallFailedException.getBodyAsString())
-        );
+        assertEquals(jsonErrorObject("custom error"), response.getBody());
+        assertEquals(toJsonString(jsonErrorObject("custom error")), response.getBodyAsString());
+        assertEquals(418, response.getStatusCode());
     }
 
     @AfterAll
