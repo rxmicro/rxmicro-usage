@@ -39,7 +39,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
         matches = ".*?",
         disabledReason = "This test requires a native image that is built only if Graalvm SDK exists."
 )
-@Disabled("Waiting for https://github.com/netty/netty/pull/10799 merged")
 @Testcontainers
 @RxMicroIntegrationTest
 public final class MongoLauncher_UsingNativeImage_IT {
