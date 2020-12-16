@@ -8,6 +8,26 @@ https://www.json.org/[*JSON*^] is a widely used message exchange format for dist
 
 The RxMicro framework provides the `rxmicro.json` module for low-level and efficient work with this format.
 
+[NOTE]
+====
+Unfortunately https://www.json.org/[*JSON*^] format is defined in at least seven different documents:
+
+* `2002` - https://www.json.org/[json.org^], and the business card
+* `2006` - IETF https://tools.ietf.org/html/rfc4627[RFC 4627^], which set the application/json MIME media type
+* `2011` - http://www.ecma-international.org/ecma-262/5.1/#sec-15.12[ECMAScript 262, section 15.12^]
+* `2013` - http://www.ecma-international.org/publications/standards/Ecma-404.htm[ECMA 404^] according to Tim Bray (RFC 7159 editor)
+* `2014` - IETF https://tools.ietf.org/html/rfc7158[RFC 7158^]
+* `2014` - IETF https://tools.ietf.org/html/rfc7159[RFC 7159^]
+* `2017` - IETF https://tools.ietf.org/html/rfc8259[RFC 8259^]
+
+(Read more at http://seriot.ch/parsing_json.php[Parsing JSON is a Minefield^] article).
+
+So the RxMicro framework implementation of JSON parser can be described using the following test suites:
+
+* https://docs.rxmicro.io/latest/static/java-parsers-only.html[JSON Parsing Tests, Only Java Parsers]
+* https://docs.rxmicro.io/latest/static/all-parsers.html[JSON Parsing Tests, All Parsers]
+====
+
 [IMPORTANT]
 ====
 The RxMicro framework uses classes from the `rxmicro.json` module when automatically converting Java models to JSON format and vice versa.

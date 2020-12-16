@@ -81,6 +81,7 @@ jobs:
           mv -v documentation/target/generated-docs/user-guide docs/latest
           mv -v documentation/target/generated-docs/user-guide.html docs/latest
           mv -v documentation/target/generated-docs/user-guide.pdf docs/latest
+          mv -v documentation/target/generated-docs/static docs/latest
           mkdir docs/latest/styles/
           mv -v documentation/target/generated-docs/styles/rxmicro-doc.min.css docs/latest/styles/
 
