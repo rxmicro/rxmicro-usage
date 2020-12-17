@@ -49,8 +49,7 @@ public final class ConcurrentBusinessService {
                         )
                         .switchIfEmpty(Maybe.error(() ->
                                 new AccountNotFoundException(idAccount)))
-                        .onErrorResumeNext(e -> transaction.rollback()
-                                .andThen(Maybe.error(e)))
+                        .onErrorResumeNext(transaction.createRollbackThenReturnMaybeErrorFallback())
                 )
                 .toSingle();
     }

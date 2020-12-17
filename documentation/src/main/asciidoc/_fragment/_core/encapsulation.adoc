@@ -38,9 +38,14 @@ public final class $$ResponseModelToJsonConverter extends ModelToJsonConverter<R
 
     @Override
     public Map<String, Object> toJsonObject(final Response model) {
-        return new JsonObjectBuilder()
-                .put("message", getFieldValue(model, "message")) // <2>
-                .build();
+        final JsonObjectBuilder builder = new JsonObjectBuilder();
+        putValuesToBuilder(model, builder);
+        return builder.build();
+    }
+
+    public void putValuesToBuilder(final Response model,
+                                   final JsonObjectBuilder builder) {
+        builder.put("message", getFieldValue(model, "message")); // <2>
     }
 }
 ----
@@ -108,9 +113,14 @@ public final class $$ResponseModelToJsonConverter extends ModelToJsonConverter<R
 
     @Override
     public Map<String, Object> toJsonObject(final Response model) {
-        return new JsonObjectBuilder()
-                .put("message", model.getMessage()) //<1>
-                .build();
+        final JsonObjectBuilder builder = new JsonObjectBuilder();
+        putValuesToBuilder(model, builder);
+        return builder.build();
+    }
+
+    public void putValuesToBuilder(final Response model,
+                                   final JsonObjectBuilder builder) {
+        builder.put("message", model.getMessage()); // <1>
     }
 }
 ----

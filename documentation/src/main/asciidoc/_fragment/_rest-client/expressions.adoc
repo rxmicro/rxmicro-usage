@@ -38,6 +38,18 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-
 _(For more information on `name space`, refer to the <<core#configuration-section>> section)_
 <3> After attaching the configuration class, its `properties` can be used in expressions.
 
+[IMPORTANT]
+====
+<<{core}#core-config-user-defined-config,All packages with custom config classes must be exported to `rxmicro.reflection` module!>>
+
+So dont't forget to add the following `opens` instruction to your `module-info.java`:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-client/rest-client-expressions/src/main/java/module-info.java[tag=content,indent=0]
+----
+====
+
 The functionality of expressions can be demonstrated through the test:
 
 [source,java]

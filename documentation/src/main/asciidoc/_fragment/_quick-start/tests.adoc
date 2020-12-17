@@ -165,15 +165,15 @@ To start the tests, You need to run the command:
 
 After starting, the console will display the following information:
 
-[source,text,subs="verbatim,quotes"]
+[source,text,subs="verbatim,quotes,attributes+"]
 ----
 ...
-[INFO] Compiling 3 source files to ~/examples/quick-start/target/classes
-[INFO]
-[INFO] -------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
 [INFO]  *RX-MICRO ANNOTATIONS PROCESSING* # <1>
-[INFO] -------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO]
 [INFO] Current environment context is:
+  RxMicro version: {rxmicro-version}
   Current module:
     `examples.quick.start`
   Available RxMicro modules:
@@ -181,43 +181,66 @@ After starting, the console will display the following information:
   Include packages: <none>
   Exclude packages: <none>
 [INFO] Found the following REST controllers:
-  GET / -> io.rxmicro.examples.quick.start.HelloWorldMicroService.sayHelloWorld()
+  io.rxmicro.examples.quick.start.HelloWorldMicroService:
+    'GET /' -> sayHelloWorld();
 [INFO] Generating java classes...
-[INFO] All java classes generated successful in 0.398 seconds. # <2>
-[INFO] -------------------------------------------------------
+[INFO] All java classes generated successful in 0.030 seconds. # <2>
+[INFO] ------------------------------------------------------------------------
 [INFO] Annotations processing completed successful.
+[INFO] ------------------------------------------------------------------------
 ...
-[INFO] Compiling 1 source file to ~/examples/quick-start/target/test-classes
-[INFO]
-[INFO] -------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
 [INFO]  *RX-MICRO TEST ANNOTATIONS PROCESSING* # <3>
-[INFO] -------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] Current environment context is:
+  RxMicro version: {rxmicro-version}
+  Current module:
+    `examples.quick.start`
+  Available RxMicro modules:
+    ...
+  Include packages: <none>
+  Exclude packages: <none>
 [INFO] Generating java classes...
-[INFO] All java classes generated successful in 0.366 seconds. # <4>
-[INFO] -------------------------------------------------------
+[INFO] Test fixer class generated successfully: rxmicro.$$RestBasedMicroServiceTestFixer # <4>
+[INFO] All java classes generated successful in 0.009 seconds. # <4>
+[INFO] ------------------------------------------------------------------------
 [INFO] Annotations processing completed successful.
+[INFO] ------------------------------------------------------------------------
 ...
 [INFO] -------------------------------------------------------
-[INFO]  *T E S T S*
+[INFO]  T E S T S
 [INFO] -------------------------------------------------------
-*opens* rxmicro.runtime/io.rxmicro.runtime.local to ALL-UNNAMED # <5>
-*opens* rxmicro.runtime/io.rxmicro.runtime.local.error to ALL-UNNAMED # <5>
-*opens* rxmicro.runtime/io.rxmicro.runtime.local.provider to ALL-UNNAMED # <5>
-*opens* rxmicro.rest.server/io.rxmicro.rest.server.local.model to ALL-UNNAMED # <5>
-*opens* rxmicro.rest.server/io.rxmicro.rest.server.local.component to ALL-UNNAMED # <5>
-*opens* rxmicro.rest.server/io.rxmicro.rest.server.local.component.impl to ALL-UNNAMED
-*opens* examples.quick.start/io.rxmicro.examples.quick.start to ALL-UNNAMED # <5>
-*opens* examples.quick.start/rxmicro to ALL-UNNAMED # <5>
-[INFO] Running *io.rxmicro.examples.quick.start.HelloWorldMicroServiceTest* # <6>
-[INFO] i.r.r.s.n.i.c.NettyServer : Server started at 0.0.0.0:45853 using NETTY transport. # <7>
-[INFO] i.r.h.c.j.i.JdkHttpClient : JdkHttpClient released # <8>
-[INFO] i.r.r.s.n.i.c.NettyServer : Retrieved shutdown request ...
-[INFO] i.r.r.s.n.i.c.NettyServer : Server stopped # <9>
+...
+[INFO] *Fix the environment for REST based microservice test(s)...* # <5>
+[INFO] *opens* examples.quick.start/rxmicro to ALL-UNNAMED # <5>
+[INFO] *opens* examples.quick.start/io.rxmicro.examples.quick.start to ALL-UNNAMED # <5>
+[INFO] *opens* examples.quick.start/rxmicro to rxmicro.reflection # <5>
+[INFO] *opens* examples.quick.start/io.rxmicro.examples.quick.start to rxmicro.reflection # <5>
+[INFO] *opens* rxmicro.rest.server.netty/io.rxmicro.rest.server.netty.local to ALL-UNNAMED # <5>
+[INFO] *opens* rxmicro.runtime/io.rxmicro.runtime.local to ALL-UNNAMED # <5>
+[INFO] *opens* rxmicro.runtime/io.rxmicro.runtime.local.error to ALL-UNNAMED # <5>
+[INFO] *opens* rxmicro.runtime/io.rxmicro.runtime.local.provider to ALL-UNNAMED # <5>
+[INFO] *opens* rxmicro.config/io.rxmicro.config.local to ALL-UNNAMED # <5>
+[INFO] *opens* rxmicro.rest.server/io.rxmicro.rest.server.local.model to ALL-UNNAMED # <5>
+[INFO] *opens* rxmicro.rest.server/io.rxmicro.rest.server.local.component to ALL-UNNAMED # <5>
+[INFO] *opens* rxmicro.common/io.rxmicro.common.local to ALL-UNNAMED # <5>
+[INFO] *opens* rxmicro.http/io.rxmicro.http.local to ALL-UNNAMED # <5>
+[INFO] Running io.rxmicro.examples.quick.start.HelloWorldMicroServiceTest # <6>
+[INFO] ...NettyServer: Server started at 0.0.0.0:38751 using NETTY transport. # <7>
+[INFO] ...Router: Mapped "GET '/'  onto ...HelloWorldMicroService.sayHelloWorld()
+[INFO] ...Router: Mapped "GET '/bad-request'  onto ...BadHttpRequestRestController.handle(...)
+[INFO] ...HelloWorldMicroServiceTest: JdkHttpClient released # <8>
+[INFO] ...NettyServer: Retrieved shutdown request ...
+[INFO] ...NettyServer: Server stopped # <9>
+[INFO]
+[INFO] Results:
 [INFO]
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0 # <10>
 [INFO]
+[INFO] ------------------------------------------------------------------------
 [INFO] *BUILD SUCCESS*
-[INFO] -------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
 ----
 
 <1> Starting of the `RxMicro Annotation Processor`.

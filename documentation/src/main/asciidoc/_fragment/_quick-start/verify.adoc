@@ -21,7 +21,7 @@ To receive the `"Hello World!"` message from the created REST-based microservice
 >
 
 < HTTP/1.1 200 OK <2>
-< Server: RxMicro-NettyServer/{RXMICRO-VERSION}
+< Server: RxMicro-NettyServer/{rxmicro-version}
 < Date: Thu, 2 Jan 2020 11:48:13 GMT
 < Content-Type: application/json
 < Content-Length: 25

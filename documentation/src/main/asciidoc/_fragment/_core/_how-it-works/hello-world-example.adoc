@@ -124,14 +124,17 @@ public final class $$HelloWorldMicroService extends AbstractRestController {
 
     private CompletionStage<HttpResponse> sayHelloWorld(final PathVariableMapping mapping,
                                                         final HttpRequest request) {
+        final HttpHeaders headers = HttpHeaders.of();
         return restController.sayHelloWorld() // <6>
-                .thenApply(response -> buildResponse(response, 200)); // <7>
+                .thenApply(response -> buildResponse(response, 200, headers)); // <7>
     }
 
     private HttpResponse buildResponse(final Response model,
-                                       final int statusCode) {
+                                       final int statusCode,
+                                       final HttpHeaders headers) {
         final HttpResponse response = httpResponseBuilder.build();
         response.setStatus(statusCode);
+        response.setOrAddHeaders(headers);
         responseModelWriter.write(model, response); // <8>
         return response;
     }
@@ -189,8 +192,8 @@ public final class $$ResponseModelWriter extends ModelWriter<Response> {
     @Override
     public void write(final Response model,
                       final HttpResponse response) {
-        final Map<String, Object> json = responseModelToJsonConverter.toJsonObject(model); // <4>
-        response.setHeader(HttpHeaders.CONTENT_TYPE, outputMimeType); //<5>
+        response.setHeader(HttpHeaders.CONTENT_TYPE, outputMimeType); //<4>
+        final Map<String, Object> json = responseModelToJsonConverter.toJsonObject(model); // <5>
         response.setContent(exchangeDataFormatConverter.toBytes(json)); //<6>
     }
 
@@ -200,8 +203,8 @@ public final class $$ResponseModelWriter extends ModelWriter<Response> {
 _(This task is specific for each response model, so to avoid using `reflection`, You need to generate a separate converter component.)_
 <2> To convert any low-level model (in this example, it's a JSON response model) into a byte array, You also need a separate converter component.
 <3> Since the JSON messaging format is specified in the settings, it is assumed that the JSON model will be converted to an byte array, which will be created from the Java response model.
-<4> When the HTTP response is formed, it is necessary to convert Java response model to JSON model.
-<5> Since the JSON message exchange format is specified in the settings, it is necessary to set the HTTP header: `Content-Type = application/json`.
+<4> Since the JSON message exchange format is specified in the settings, it is necessary to set the HTTP header: `Content-Type = application/json`.
+<5> When the HTTP response is formed, it is necessary to convert Java response model to JSON model.
 <6> The last step is to convert the JSON model to a byte array, that will be written to the HTTP response body.
 
 ===== A Java Model Converter.
@@ -223,11 +226,15 @@ public final class $$ResponseModelToJsonConverter extends ModelToJsonConverter<R
     @Override
     // <1>
     public Map<String, Object> toJsonObject(final Response model) {
-        return new JsonObjectBuilder()
-                .put("message", model.message) // <2>
-                .build();
+        final JsonObjectBuilder builder = new JsonObjectBuilder();
+        putValuesToBuilder(model, builder);
+        return builder.build();
     }
 
+    public void putValuesToBuilder(final Response model,
+                                   final JsonObjectBuilder builder) {
+        builder.put("message", model.message); // <2>
+    }
 }
 ----
 
@@ -280,7 +287,7 @@ Java 9 has introduced the {WHAT-IS-JPMS-LINK}[`JPMS`^].
 
 This system requires that a developer configures access to classes in the *module-info.java* file of the microservice project.
 
-To enable the RxMicro framework to load aggregator classes, You must export the `rxmicro` package to the `rxmicro.runtime` module:
+To enable the RxMicro framework to load aggregator classes, You must export the `rxmicro` package to the `rxmicro.reflection` module:
 
 [source,java]
 ----
@@ -288,10 +295,10 @@ module examples.quick.start {
     requires rxmicro.rest.server.netty;
     requires rxmicro.rest.server.exchange.json;
 
-    exports rxmicro to rxmicro.runtime; // <1>
+    exports rxmicro to rxmicro.reflection; // <1>
 }
 ----
-<1>  Allow access of classes from the `rxmicro.runtime` module to all classes from the `rxmicro` package.
+<1>  Allow access of reflection util classes from the `rxmicro.reflection` module to all classes from the `rxmicro` package.
 
 But the `rxmicro` package is created automatically and after deleting all the generated files, it won't be possible to compile the `module-info.java` because of the following error:
 
@@ -301,25 +308,31 @@ To solve this problem, the RxMicro framework generates the `rxmicro.$$Environmen
 
 [source,java]
 ----
+package rxmicro; //<1>
+
 final class $$EnvironmentCustomizer {
 
     static {
-        addExportsToRuntime(); // <1>
+        exportTheRxmicroPackageToReflectionModule(); // <2>
+        // All required customization must be here
     }
 
     public static void customize() {
         //do nothing. All customization is done at the static section
     }
 
-    private static void addExportsToRuntime() {
+    private static void exportTheRxmicroPackageToReflectionModule() {
         final Module currentModule = $$EnvironmentCustomizer.class.getModule();
-        currentModule.addExports("rxmicro", getRuntimeModule()); // <2>
+        currentModule.addExports("rxmicro", RX_MICRO_REFLECTION_MODULE); // <3>
     }
 
+    private $$EnvironmentCustomizer() {
+    }
 }
 ----
-<1> When the class is loaded, the `addExportsToRuntime()` static method is invoked.
-<2> In this method body, the export of the `rxmicro` package to the `rxmicro.runtime` module is performed dynamically using the capabilities of the {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Module.html[`java.lang.Module`^] class.
+<1> All customizers are *always* generated in the special package: `rxmicro`.
+<2> When the class is loaded, the `exportTheRxmicroPackageToReflectionModule()` static method is invoked.
+<3> In this method body, the export of the `rxmicro` package to the `rxmicro.reflection` module is performed dynamically using the capabilities of the {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Module.html[`java.lang.Module`^] class.
 
 Due to this additional class, all necessary settings for the {WHAT-IS-JPMS-LINK}[`JPMS`^] are created automatically.
 

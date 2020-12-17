@@ -11,10 +11,10 @@ If You would like to inject the alternative to the *final* field, don't forget t
     <artifactId>maven-surefire-plugin</artifactId>
     <configuration>
         <argLine>
-            --add-opens java.base/java.lang.reflect=rxmicro.common <!--1-->
+            --add-opens java.base/java.lang.reflect=rxmicro.reflection <!--1-->
         </argLine>
     </configuration>
 </plugin>
 ----
-<1> - It is necessary to add this open instruction
+<1> - It is necessary to add this `opens` instruction.
 ====

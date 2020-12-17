@@ -25,24 +25,41 @@ image::quick-start/maven-panel.jpg[]
 
 After successful compilation, the `RxMicro Annotation Processor` work results are displayed in the terminal:
 
-[source,text,subs="verbatim,quotes"]
+[source,text,subs="verbatim,quotes,attributes+"]
 ----
-[INFO] -------------------------------------------------------
-[INFO]  *RX-MICRO ANNOTATIONS PROCESSING*
-[INFO] -------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO]  RX-MICRO ANNOTATIONS PROCESSING
+[INFO] ------------------------------------------------------------------------
+[INFO]
 [INFO] Current environment context is:
+  RxMicro version: {rxmicro-version}
   Current module:
     `examples.quick.start`
   Available RxMicro modules:
-     ...
+    `rxmicro.common`;
+    `rxmicro.reflection`;
+    `rxmicro.model`;
+    `rxmicro.runtime`;
+    `rxmicro.config`;
+    `rxmicro.logger`;
+    `rxmicro.files`;
+    `rxmicro.http`;
+    `rxmicro.rest`;
+    `rxmicro.rest.server`;
+    `rxmicro.rest.server.netty`;
+    `rxmicro.json`;
+    `rxmicro.exchange.json`;
+    `rxmicro.rest.server.exchange.json`;
   Include packages: <none>
   Exclude packages: <none>
 [INFO] Found the following REST controllers:
-  *GET / -> io.rxmicro.examples.quick.start.HelloWorldMicroService.sayHelloWorld()*
+  io.rxmicro.examples.quick.start.HelloWorldMicroService:
+    'GET /' -> sayHelloWorld();
 [INFO] Generating java classes...
-[INFO] *All java classes generated successful in 0.313 seconds*. # <1>
-[INFO] -------------------------------------------------------
+[INFO] All java classes generated successful in 0.031 seconds. # <1>
+[INFO] ------------------------------------------------------------------------
 [INFO] Annotations processing completed successful.
+[INFO] ------------------------------------------------------------------------
 ----
 <1> The given information indicates that all files needed to run the microservice have been generated.
 

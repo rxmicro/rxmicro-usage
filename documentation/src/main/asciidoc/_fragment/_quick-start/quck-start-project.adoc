@@ -19,7 +19,7 @@ The `pom.xml` configuration file is a reference configuration and can be copied 
 <parent>
     <artifactId>examples</artifactId>
     <groupId>io.rxmicro</groupId>
-    <version>{RXMICRO-VERSION}</version>
+    <version>{rxmicro-version}</version>
 </parent>
 ----
 
@@ -28,11 +28,11 @@ The `pom.xml` configuration file is a reference configuration and can be copied 
 [source,xml,subs="attributes+"]
 ----
 <properties>
-    <rxmicro.version>{RXMICRO-VERSION}</rxmicro.version> <!--1-->
+    <rxmicro.version>{rxmicro-version}</rxmicro.version> <!--1-->
 
-    <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version> <!--2-->
-    <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version> <!--3-->
-    <maven-dependency-plugin.version>3.1.1</maven-dependency-plugin.version> <!--4-->
+    <maven-compiler-plugin.version>{maven-compiler-plugin-version}</maven-compiler-plugin.version> <!--2-->
+    <maven-surefire-plugin.version>{maven-surefire-plugin-version}</maven-surefire-plugin.version> <!--3-->
+    <maven-dependency-plugin.version>{maven-dependency-plugin-version}</maven-dependency-plugin.version> <!--4-->
 </properties>
 ----
 

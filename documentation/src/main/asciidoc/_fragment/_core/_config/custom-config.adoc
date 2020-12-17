@@ -3,6 +3,7 @@ include::../../___fragment-settings.adoc[]
 
 :RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
 
+[[core-config-user-defined-config]]
 ==== User Defined Configurations
 
 The developer can use the configuration module for custom configurations.
@@ -26,15 +27,14 @@ The custom configuration class must meet the following requirements:
 _(Only those fields that contain `setters` can be initialized!)_
 ====
 
-Since this class will be created and initialized by the classes from `rxmicro.runtime` and `rxmicro.config` modules automatically, it is necessary to export the package to these modules in the `module-info.java` descriptor. +
+Since this class will be created and initialized by the reflection util classes from `rxmicro.reflection` module automatically, it is necessary to export the package of the custom config class to this module in the `module-info.java` descriptor. +
 _(These are the {WHAT-IS-JPMS-LINK}[`JPMS`^] requirements.)_
 
 [source,java]
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-common/config-custom/src/main/java/module-info.java[tag=content,indent=0]
 ----
-<1> Allow the `rxmicro.runtime` module access to public classes from the `io.rxmicro.example.config.custom` package.
-<2> Allow the `rxmicro.config` module access to public classes from the `io.rxmicro.example.config.custom` package.
+<1> Allow the access of reflection util classes from `rxmicro.reflection` module to config classes from the `io.rxmicro.example.config.custom` package.
 
 After these changes, a class of custom configurations is available for use:
 

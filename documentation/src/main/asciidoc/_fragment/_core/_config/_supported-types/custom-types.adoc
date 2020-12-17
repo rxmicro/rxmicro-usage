@@ -87,7 +87,7 @@ Annotation constant: ANNOTATION_CONSTANT
 [IMPORTANT]
 ====
 For class or interface or annotation constants the RxMicro framework uses the `reflection` to read value. +
-So before using this type of custom type instances don't forget to export packages to `rxmicro.common` module, because this module contains the `reflection` util class which is used to read this value:
+So before using this type of custom type instances don't forget to export packages to `rxmicro.reflection` module, because this module contains the `reflection` util class which is used to read this value:
 
 [source,java]
 ----

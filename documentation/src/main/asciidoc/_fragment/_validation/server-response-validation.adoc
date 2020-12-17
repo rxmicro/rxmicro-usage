@@ -26,6 +26,16 @@ To activate the validation of responses it is necessary to set `enableAdditional
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/rest_controller/ActivateResponseValidators.java[tags=content,indent=0]
 ----
 <1> Enables the response validators
+
+or
+
+[source,bash]
+----
+export rest-server.enableAdditionalValidations=true # <1>
+----
+<1> Enables the response validators
+
+or using any other <<{core}#core-config-types, supported config types>>
 ====
 
 The HTTP response model class can contain any built-in or custom constraint annotations:

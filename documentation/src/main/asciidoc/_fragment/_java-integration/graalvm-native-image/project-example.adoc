@@ -98,7 +98,7 @@ To build a native image from `maven` it is necessary to use `exec-maven-plugin`:
 <1> An executable will be the `native-image` tool with specified arguments.
 <2> This option adds the exit handler for native image.
 
-[TIP]
+[IMPORTANT]
 ====
 The Native Image Tool (`native-image`) must be available via `PATH` variable!
 ====

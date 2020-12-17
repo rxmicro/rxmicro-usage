@@ -8,7 +8,7 @@ include::../___fragment-settings.adoc[]
 Java applications use `java.lang.Object.toString()` method very often for debug purposes.
 Thus a developer must override this method for all model classes in his(her) project.
 
-To help with overriding of this method for all model classes the RxMicro framework introduces the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-common/src/main/java/io/rxmicro/common/model/BaseModel.java[`BaseModel`^] class.
+To help with overriding of this method for all model classes the RxMicro framework introduces the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-model/src/main/java/io/rxmicro/model/BaseModel.java[`BaseModel`^] class.
 This class uses the `reflection` to generate string representation of the model class on fly.
 
 [source,java]
@@ -23,7 +23,7 @@ The `reflection` mechanism is slow one, so use the generated string representati
 
 [NOTE]
 ====
-According to {WHAT-IS-JPMS-LINK}[`JPMS`^] requirements all `reflection` access must be configured at the `module-info.java` descriptor using `opens` instructions.
+According to {WHAT-IS-JPMS-LINK}[`JPMS`^] requirements all `reflection` access must be configured at the `module-info.java` descriptor using `exports` or opens` instructions.
 It means that for correct usage the `BaseModel` feature, it is necessary to add the following instruction:
 
 [source,java]
@@ -33,6 +33,6 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-common/base-model/src/ma
 
 where `io.rxmicro.examples.base.model.model.package4` is the package that contains custom model classes.
 
-But the `BaseModel` feature is designed for debug purposes, so required `opens` instructions are added automatically via generated <<core-how-it-works-environment-customizer,`$$EnvironmentCustomizer`>> class if You do not add these instructions manually!
+But the `BaseModel` feature is designed for debug purposes, so required `exports` or `opens` instructions are added automatically via generated <<core-how-it-works-environment-customizer,`$$EnvironmentCustomizer`>> class if You do not add these instructions manually!
 So You can use the `BaseModel` feature without any `module-info.java` modifications for Your project!
 ====

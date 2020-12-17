@@ -17,8 +17,8 @@ To make further updating of library versions convenient, it is recommended to us
 ----
 <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <rxmicro.version>{RXMICRO-VERSION}</rxmicro.version> <!--1-->
-    <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version> <!--2-->
+    <rxmicro.version>{rxmicro-version}</rxmicro.version> <!--1-->
+    <maven-compiler-plugin.version>{maven-compiler-plugin-version}</maven-compiler-plugin.version> <!--2-->
 </properties>
 ----
 <1> {MAVEN-REPO-SEARCH-ROOT}io.rxmicro[The latest stable version of the RxMicro framework^].
@@ -109,8 +109,8 @@ After all the above changes, the final version of the `pom.xml` file should look
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <rxmicro.version>{RXMICRO-VERSION}</rxmicro.version>
-        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <rxmicro.version>{rxmicro-version}</rxmicro.version>
+        <maven-compiler-plugin.version>{maven-compiler-plugin-version}</maven-compiler-plugin.version>
     </properties>
 
     <build>

@@ -23,4 +23,14 @@ To activate the validation of requests it is necessary to set `enableAdditionalV
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/rest_client/ActivateRequestValidators.java[tags=content,indent=0]
 ----
 <1> Enables the requests validators
+
+or
+
+[source,bash]
+----
+export rest-client.enableAdditionalValidations=true # <1>
+----
+<1> Enables the response validators
+
+or using any other <<{core}#core-config-types, supported config types>>
 ====

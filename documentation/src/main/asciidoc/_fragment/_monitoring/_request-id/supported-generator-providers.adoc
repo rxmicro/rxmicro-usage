@@ -42,18 +42,26 @@ Each request id contains 44 deterministic bits + 24 incremental counter bits + 2
 This is default request id generator provider.
 
 By default this request id generator provider tries to use `PARTLY_RANDOM_96_BIT` request id generator.
-But if during `3` seconds the `java.security.SecureRandom` instance can't generate random bytes, the `DETERMINISTIC_96_BIT` request id generator will be used.
+But if during predefined timeout the `java.security.SecureRandom` instance can't generate random bytes, the `DETERMINISTIC_96_BIT` request id generator will be used.
 |===
 
 To change the request id generator provider, You must use the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/RestServerConfig.java[`RestServerConfig`^] configuration class:
 
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-rest-controller/rest-controller-request-id/src/main/java/io/rxmicro/examples/rest/controller/request/id/Launcher.java[tag=content,indent=0]
+----
+
+or
+
 [source,bash]
 ----
-export rest-server.requestIdGeneratorProvider=@io.rxmicro.rest.server.PredefinedRequestIdGeneratorProvider:UUID_128_BIT
-
-java -p ./classes:lib -m examples.quick.start/io.rxmicro.examples.quick.start.HelloWorldMicroService
+export rest-server.requestIdGeneratorProvider=\
+@io.rxmicro.rest.server.PredefinedRequestIdGeneratorProvider:UUID_128_BIT
 ----
+
+or using any other <<{core}#core-config-types, supported config types>>
 
 [NOTE]
 ====

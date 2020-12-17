@@ -20,6 +20,6 @@ module examples.base.model {
 
     // tag::content[]
     opens io.rxmicro.examples.base.model.model.package4 to
-            rxmicro.common;
+            rxmicro.reflection;
     // end::content[]
 }

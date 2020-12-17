@@ -59,6 +59,8 @@ Therefore, the list of supported types includes the following types:
 
 * `? extends Object` - custom class of the nested Java model;
 * `java.util.List<? extends Object>` - list of the nested Java model custom classes;
+* `java.util.Set<? extends Object>` - set of the nested Java model custom classes;
+* `java.util.Map<String, ? extends Object>` - map of the nested Java model custom classes;
 ====
 
 Nested Model Example:

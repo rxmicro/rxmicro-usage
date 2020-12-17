@@ -41,7 +41,7 @@ Go to the `target` folder of the microservice project, open the terminal in this
 
 [source,text,subs="verbatim,quotes,attributes+"]
 ----
-*java* -Dfile.encoding=UTF-8 -p ./classes:$M2_REPO/io/rxmicro/rxmicro-rest-server-netty/{RXMICRO-VERSION}/rxmicro-rest-server-netty-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-rest-server/{RXMICRO-VERSION}/rxmicro-rest-server-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-rest/{RXMICRO-VERSION}/rxmicro-rest-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-model/{RXMICRO-VERSION}/rxmicro-model-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-http/{RXMICRO-VERSION}/rxmicro-http-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-logger/{RXMICRO-VERSION}/rxmicro-logger-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-common/{RXMICRO-VERSION}/rxmicro-common-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-config/{RXMICRO-VERSION}/rxmicro-config-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-runtime/{RXMICRO-VERSION}/rxmicro-runtime-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-files/{RXMICRO-VERSION}/rxmicro-files-{RXMICRO-VERSION}.jar:$M2_REPO/io/netty/netty-codec-http/4.1.44.Final/netty-codec-http-4.1.44.Final.jar:$M2_REPO/io/netty/netty-common/4.1.44.Final/netty-common-4.1.44.Final.jar:$M2_REPO/io/netty/netty-buffer/4.1.44.Final/netty-buffer-4.1.44.Final.jar:$M2_REPO/io/netty/netty-codec/4.1.44.Final/netty-codec-4.1.44.Final.jar:$M2_REPO/io/netty/netty-handler/4.1.44.Final/netty-handler-4.1.44.Final.jar:$M2_REPO/io/netty/netty-transport/4.1.44.Final/netty-transport-4.1.44.Final.jar:$M2_REPO/io/netty/netty-resolver/4.1.44.Final/netty-resolver-4.1.44.Final.jar:$M2_REPO/io/rxmicro/rxmicro-rest-server-exchange-json/{RXMICRO-VERSION}/rxmicro-rest-server-exchange-json-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-exchange-json/{RXMICRO-VERSION}/rxmicro-exchange-json-{RXMICRO-VERSION}.jar:$M2_REPO/io/rxmicro/rxmicro-json/{RXMICRO-VERSION}/rxmicro-json-{RXMICRO-VERSION}.jar -m *examples.quick.start/io.rxmicro.examples.quick.start.HelloWorldMicroService*
+*java* -Dfile.encoding=UTF-8 -p ./classes:$M2_REPO/io/rxmicro/rxmicro-rest-server-netty/{rxmicro-version}/rxmicro-rest-server-netty-{rxmicro-version}.jar:$M2_REPO/io/rxmicro/rxmicro-rest-server/{rxmicro-version}/rxmicro-rest-server-{rxmicro-version}.jar:$M2_REPO/io/rxmicro/rxmicro-rest/{rxmicro-version}/rxmicro-rest-{rxmicro-version}.jar:$M2_REPO/io/rxmicro/rxmicro-model/{rxmicro-version}/rxmicro-model-{rxmicro-version}.jar:$M2_REPO/io/rxmicro/rxmicro-http/{rxmicro-version}/rxmicro-http-{rxmicro-version}.jar:$M2_REPO/io/rxmicro/rxmicro-logger/{rxmicro-version}/rxmicro-logger-{rxmicro-version}.jar:$M2_REPO/io/rxmicro/rxmicro-common/{rxmicro-version}/rxmicro-common-{rxmicro-version}.jar:$M2_REPO/io/rxmicro/rxmicro-config/{rxmicro-version}/rxmicro-config-{rxmicro-version}.jar:$M2_REPO/io/rxmicro/rxmicro-runtime/{rxmicro-version}/rxmicro-runtime-{rxmicro-version}.jar:$M2_REPO/io/rxmicro/rxmicro-files/{rxmicro-version}/rxmicro-files-{rxmicro-version}.jar:$M2_REPO/io/netty/netty-codec-http/{netty-version}/netty-codec-http-{netty-version}.jar:$M2_REPO/io/netty/netty-common/{netty-version}/netty-common-{netty-version}.jar:$M2_REPO/io/netty/netty-buffer/{netty-version}/netty-buffer-{netty-version}.jar:$M2_REPO/io/netty/netty-codec/{netty-version}/netty-codec-{netty-version}.jar:$M2_REPO/io/netty/netty-handler/{netty-version}/netty-handler-{netty-version}.jar:$M2_REPO/io/netty/netty-transport/{netty-version}/netty-transport-{netty-version}.jar:$M2_REPO/io/netty/netty-resolver/{netty-version}/netty-resolver-{netty-version}.jar:$M2_REPO/io/rxmicro/rxmicro-rest-server-exchange-json/{rxmicro-version}/rxmicro-rest-server-exchange-json-{rxmicro-version}.jar:$M2_REPO/io/rxmicro/rxmicro-exchange-json/{rxmicro-version}/rxmicro-exchange-json-{rxmicro-version}.jar:$M2_REPO/io/rxmicro/rxmicro-json/{rxmicro-version}/rxmicro-json-{rxmicro-version}.jar -m *examples.quick.start/io.rxmicro.examples.quick.start.HelloWorldMicroService*
 ----
 
 [TIP]
@@ -64,26 +64,26 @@ After starting, the console will display the following information:
 [source,text,subs="verbatim,quotes,attributes+"]
 ----
 *java* -p ./classes: \
-        $M2_REPO/io/rxmicro/rxmicro-rest-server-netty/{RXMICRO-VERSION}/rxmicro-rest-server-netty-{RXMICRO-VERSION}.jar: \
-        $M2_REPO/io/rxmicro/rxmicro-rest-server/{RXMICRO-VERSION}/rxmicro-rest-server-{RXMICRO-VERSION}.jar: \
-        $M2_REPO/io/rxmicro/rxmicro-rest/{RXMICRO-VERSION}/rxmicro-rest-{RXMICRO-VERSION}.jar: \
-        $M2_REPO/io/rxmicro/rxmicro-model/{RXMICRO-VERSION}/rxmicro-model-{RXMICRO-VERSION}.jar: \
-        $M2_REPO/io/rxmicro/rxmicro-http/{RXMICRO-VERSION}/rxmicro-http-{RXMICRO-VERSION}.jar: \
-        $M2_REPO/io/rxmicro/rxmicro-logger/{RXMICRO-VERSION}/rxmicro-logger-{RXMICRO-VERSION}.jar: \
-        $M2_REPO/io/rxmicro/rxmicro-common/{RXMICRO-VERSION}/rxmicro-common-{RXMICRO-VERSION}.jar: \
-        $M2_REPO/io/rxmicro/rxmicro-config/{RXMICRO-VERSION}/rxmicro-config-{RXMICRO-VERSION}.jar: \
-        $M2_REPO/io/rxmicro/rxmicro-runtime/{RXMICRO-VERSION}/rxmicro-runtime-{RXMICRO-VERSION}.jar: \
-        $M2_REPO/io/rxmicro/rxmicro-files/{RXMICRO-VERSION}/rxmicro-files-{RXMICRO-VERSION}.jar: \
-        $M2_REPO/io/rxmicro/rxmicro-rest-server-exchange-json/{RXMICRO-VERSION}/rxmicro-rest-server-exchange-json-{RXMICRO-VERSION}.jar: \
-        $M2_REPO/io/rxmicro/rxmicro-exchange-json/{RXMICRO-VERSION}/rxmicro-exchange-json-{RXMICRO-VERSION}.jar: \
-        $M2_REPO/io/rxmicro/rxmicro-json/{RXMICRO-VERSION}/rxmicro-json-{RXMICRO-VERSION}.jar: \
-        $M2_REPO/io/netty/netty-codec-http/4.1.44.Final/netty-codec-http-4.1.44.Final.jar: \
-        $M2_REPO/io/netty/netty-common/4.1.44.Final/netty-common-4.1.44.Final.jar: \
-        $M2_REPO/io/netty/netty-buffer/4.1.44.Final/netty-buffer-4.1.44.Final.jar: \
-        $M2_REPO/io/netty/netty-codec/4.1.44.Final/netty-codec-4.1.44.Final.jar: \
-        $M2_REPO/io/netty/netty-handler/4.1.44.Final/netty-handler-4.1.44.Final.jar: \
-        $M2_REPO/io/netty/netty-transport/4.1.44.Final/netty-transport-4.1.44.Final.jar: \
-        $M2_REPO/io/netty/netty-resolver/4.1.44.Final/netty-resolver-4.1.44.Final.jar \
+        $M2_REPO/io/rxmicro/rxmicro-rest-server-netty/{rxmicro-version}/rxmicro-rest-server-netty-{rxmicro-version}.jar: \
+        $M2_REPO/io/rxmicro/rxmicro-rest-server/{rxmicro-version}/rxmicro-rest-server-{rxmicro-version}.jar: \
+        $M2_REPO/io/rxmicro/rxmicro-rest/{rxmicro-version}/rxmicro-rest-{rxmicro-version}.jar: \
+        $M2_REPO/io/rxmicro/rxmicro-model/{rxmicro-version}/rxmicro-model-{rxmicro-version}.jar: \
+        $M2_REPO/io/rxmicro/rxmicro-http/{rxmicro-version}/rxmicro-http-{rxmicro-version}.jar: \
+        $M2_REPO/io/rxmicro/rxmicro-logger/{rxmicro-version}/rxmicro-logger-{rxmicro-version}.jar: \
+        $M2_REPO/io/rxmicro/rxmicro-common/{rxmicro-version}/rxmicro-common-{rxmicro-version}.jar: \
+        $M2_REPO/io/rxmicro/rxmicro-config/{rxmicro-version}/rxmicro-config-{rxmicro-version}.jar: \
+        $M2_REPO/io/rxmicro/rxmicro-runtime/{rxmicro-version}/rxmicro-runtime-{rxmicro-version}.jar: \
+        $M2_REPO/io/rxmicro/rxmicro-files/{rxmicro-version}/rxmicro-files-{rxmicro-version}.jar: \
+        $M2_REPO/io/rxmicro/rxmicro-rest-server-exchange-json/{rxmicro-version}/rxmicro-rest-server-exchange-json-{rxmicro-version}.jar: \
+        $M2_REPO/io/rxmicro/rxmicro-exchange-json/{rxmicro-version}/rxmicro-exchange-json-{rxmicro-version}.jar: \
+        $M2_REPO/io/rxmicro/rxmicro-json/{rxmicro-version}/rxmicro-json-{rxmicro-version}.jar: \
+        $M2_REPO/io/netty/netty-codec-http/{netty-version}/netty-codec-http-{netty-version}.jar: \
+        $M2_REPO/io/netty/netty-common/{netty-version}/netty-common-{netty-version}.jar: \
+        $M2_REPO/io/netty/netty-buffer/{netty-version}/netty-buffer-{netty-version}.jar: \
+        $M2_REPO/io/netty/netty-codec/{netty-version}/netty-codec-{netty-version}.jar: \
+        $M2_REPO/io/netty/netty-handler/{netty-version}/netty-handler-{netty-version}.jar: \
+        $M2_REPO/io/netty/netty-transport/{netty-version}/netty-transport-{netty-version}.jar: \
+        $M2_REPO/io/netty/netty-resolver/{netty-version}/netty-resolver-{netty-version}.jar \
     -m *examples.quick.start/io.rxmicro.examples.quick.start.HelloWorldMicroService*
 
 2020-02-02 20:14:11.707 [INFO] io.rxmicro.rest.server.netty.internal.component.NettyServer :

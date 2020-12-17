@@ -24,10 +24,10 @@ module examples.config.custom.type {
 
     // tag::content[]
     exports io.rxmicro.examples.config.custom.type._class to
-            rxmicro.common;
+            rxmicro.reflection;
     exports io.rxmicro.examples.config.custom.type._interface to
-            rxmicro.common;
+            rxmicro.reflection;
     exports io.rxmicro.examples.config.custom.type._annotation to
-            rxmicro.common;
+            rxmicro.reflection;
     // end::content[]
 }

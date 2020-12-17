@@ -78,19 +78,28 @@ public final class $$ComponentTestFixer {
 
     static {
         final Module currentModule = $$ComponentTestFixer.class.getModule();
-        currentModule.addExports("rxmicro", getRuntimeModule());
+        currentModule.addExports("rxmicro", RX_MICRO_REFLECTION_MODULE);
     }
 
     public $$ComponentTestFixer() {
-        final Module unNamedModule = getClass().getClassLoader().getUnnamedModule(); // <1>
         final Module currentModule = getClass().getModule();
         if (currentModule.isNamed()) {
-            currentModule.getPackages().forEach(p -> {
-                currentModule.addOpens(p, unNamedModule); // <2>
-                System.out.println(
-                        format("opens ?/? to ALL-UNNAMED", currentModule.getName(), p) // <3>
-                );
-            });
+            logInfoTestMessage("Fix the environment for componnet test(s)...");
+            final Module unnamedModule = getClass().getClassLoader().getUnnamedModule(); // <1>
+            final Set<Module> modules = unmodifiableOrderedSet(
+                    unnamedModule, RX_MICRO_REFLECTION_MODULE
+            );
+            for (final Module module : modules) {
+                for (final String packageName : currentModule.getPackages()) {
+                    currentModule.addOpens(packageName, module); // <2>
+                    logInfoTestMessage(
+                            "opens ?/? to ?", // <3>
+                            currentModule.getName(),
+                            packageName,
+                            module.isNamed() ? module.getName() : "ALL-UNNAMED"
+                    );
+                }
+            }
         }
     }
 }
@@ -127,8 +136,10 @@ Before starting tests, the RxMicro framework uses a generated class to configure
 [INFO] -------------------------------------------------------
 [INFO]  *T E S T S*
 [INFO] -------------------------------------------------------
-*opens* examples.testing/io.rxmicro.examples.testing to ALL-UNNAMED # <1>
-*opens* examples.testing/rxmicro to ALL-UNNAMED
+...
+[INFO] Fix the environment for component test(s)...
+[INFO] *opens* examples.testing/io.rxmicro.examples.testing to ALL-UNNAMED # <1>
+[INFO] *opens* examples.testing/rxmicro to ALL-UNNAMED
 [INFO] Running *io.rxmicro.examples.testing.ParentComponent1Test* # <2>
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.278 s
 [INFO] Running *io.rxmicro.examples.testing.ParentComponent2Test*

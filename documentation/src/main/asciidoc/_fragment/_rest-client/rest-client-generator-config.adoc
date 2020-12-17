@@ -56,6 +56,16 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro
 ----
 <1> Enables the requests validators
 
+or
+
+[source,bash]
+----
+export rest-client.enableAdditionalValidations=true # <1>
+----
+<1> Enables the response validators
+
+or using any other <<{core}#core-config-types, supported config types>>
+
 Thus the RxMicro team recommends the following approach:
 
 * Your project configuration must enable generation of validators for all possible model classes.

@@ -56,8 +56,7 @@ public final class ConcurrentBusinessService {
                                         new ProductNotFoundException(idProduct))))
                         // account not found
                         .switchIfEmpty(Mono.error(() -> new AccountNotFoundException(idAccount)))
-                        .onErrorResume((e) -> transaction.rollback()
-                                .then(Mono.error(e)))
+                        .onErrorResume(transaction.createRollbackThenReturnErrorFallback())
                 );
     }
 

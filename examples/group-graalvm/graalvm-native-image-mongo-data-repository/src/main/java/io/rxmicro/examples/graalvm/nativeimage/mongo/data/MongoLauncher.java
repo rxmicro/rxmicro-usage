@@ -33,12 +33,12 @@ import static io.rxmicro.examples.graalvm.nativeimage.mongo.data.model.Role.Lead
 
 public final class MongoLauncher {
 
-    private static final MongoDataRepository DATA_REPOSITORY =
-            getRepository(MongoDataRepository.class);
-
     static {
         new Configs.Builder().build();
     }
+
+    private static final MongoDataRepository DATA_REPOSITORY =
+            getRepository(MongoDataRepository.class);
 
     private static void insert() {
         final Account account =

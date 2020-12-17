@@ -29,12 +29,12 @@ import static io.rxmicro.examples.graalvm.nativeimage.postgres.data.model.Role.L
 
 public final class PostgresLauncher {
 
-    private static final PostgresDataRepository DATA_REPOSITORY =
-            getRepository(PostgresDataRepository.class);
-
     static {
         new Configs.Builder().build();
     }
+
+    private static final PostgresDataRepository DATA_REPOSITORY =
+            getRepository(PostgresDataRepository.class);
 
     private static void insert() {
         final Account account =
