@@ -33,7 +33,7 @@ public class RxMicroNativeImageBenchmark extends AbstractPerformanceBenchmark {
     @Setup
     public void setup() throws InterruptedException, IOException {
         process = Runtime.getRuntime().exec(
-                new String[]{System.getenv("RX_MICRO_HOME") +
+                new String[]{System.getenv("RX_MICRO_WORKSPACE_HOME") +
                         "/rxmicro-usage/benchmarks/benchmark-performance/" +
                         "benchmark-performance-rxmicro-native/HelloWorldMicroService"},
                 null,

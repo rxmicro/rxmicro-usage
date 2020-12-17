@@ -49,13 +49,13 @@ public final class Settings {
 
     public static final Map<String, String> RX_MICRO_MODULES;
 
-    private static final String RX_MICRO_HOME = "RX_MICRO_HOME";
+    private static final String RX_MICRO_WORKSPACE_HOME = "RX_MICRO_WORKSPACE_HOME";
 
     private static final String RX_MICRO_HOME_VALUE;
 
     static {
-        RX_MICRO_HOME_VALUE = Optional.ofNullable(System.getenv(RX_MICRO_HOME)).orElseThrow(() -> {
-            throw new InvalidStateException("System variable '?' not defined", RX_MICRO_HOME);
+        RX_MICRO_HOME_VALUE = Optional.ofNullable(System.getenv(RX_MICRO_WORKSPACE_HOME)).orElseThrow(() -> {
+            throw new InvalidStateException("System variable '?' not defined", RX_MICRO_WORKSPACE_HOME);
         });
         RX_MICRO_ROOT_DIR_PATH = format("?/rxmicro", RX_MICRO_HOME_VALUE);
         EXAMPLES_ROOT_DIR_PATH = format("?/rxmicro-usage/examples", RX_MICRO_HOME_VALUE);

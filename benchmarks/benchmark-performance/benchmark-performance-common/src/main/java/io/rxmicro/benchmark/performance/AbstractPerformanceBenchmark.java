@@ -57,8 +57,8 @@ public abstract class AbstractPerformanceBenchmark {
 
     private static final String RESULT_FOLDER = format(
             "%s/rxmicro-usage/benchmarks/_results/",
-            Optional.ofNullable(System.getenv("RX_MICRO_HOME")).orElseThrow(() -> {
-                throw new IllegalStateException("System variable 'RX_MICRO_HOME' not defined");
+            Optional.ofNullable(System.getenv("RX_MICRO_WORKSPACE_HOME")).orElseThrow(() -> {
+                throw new IllegalStateException("System variable 'RX_MICRO_WORKSPACE_HOME' not defined");
             })
     );
 

@@ -29,10 +29,10 @@ import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
 public final class CopyJacocoExec {
 
-    private static final String RX_MICRO_HOME = "RX_MICRO_HOME";
+    private static final String RX_MICRO_WORKSPACE_HOME = "RX_MICRO_WORKSPACE_HOME";
 
-    private static final String RX_MICRO_HOME_VALUE = Optional.ofNullable(System.getenv(RX_MICRO_HOME)).orElseThrow(() -> {
-        throw new InvalidStateException("System variable '?' not defined", RX_MICRO_HOME);
+    private static final String RX_MICRO_HOME_VALUE = Optional.ofNullable(System.getenv(RX_MICRO_WORKSPACE_HOME)).orElseThrow(() -> {
+        throw new InvalidStateException("System variable '?' not defined", RX_MICRO_WORKSPACE_HOME);
     });
 
     private static final File CACHE = new File(format("?/rxmicro-usage/.cache", RX_MICRO_HOME_VALUE));

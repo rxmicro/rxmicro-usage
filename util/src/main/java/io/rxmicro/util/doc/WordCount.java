@@ -57,10 +57,10 @@ public final class WordCount {
             entry("appendices", "Appendices")
     );
 
-    private static final String RX_MICRO_HOME = "RX_MICRO_HOME";
+    private static final String RX_MICRO_WORKSPACE_HOME = "RX_MICRO_WORKSPACE_HOME";
 
-    private static final String RX_MICRO_HOME_VALUE = Optional.ofNullable(System.getenv(RX_MICRO_HOME)).orElseThrow(() -> {
-        throw new InvalidStateException("System variable '?' not defined", RX_MICRO_HOME);
+    private static final String RX_MICRO_HOME_VALUE = Optional.ofNullable(System.getenv(RX_MICRO_WORKSPACE_HOME)).orElseThrow(() -> {
+        throw new InvalidStateException("System variable '?' not defined", RX_MICRO_WORKSPACE_HOME);
     });
 
     private static final File DOC_ROOT = new File(format("?/rxmicro-usage/documentation/src/main/asciidoc/_fragment/", RX_MICRO_HOME_VALUE));
