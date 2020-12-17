@@ -49,15 +49,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @RxMicroRestBasedMicroServiceTest(FrontEndController.class)
 final class FrontEndControllerTest {
 
+    private static final int RANDOM_PORT = getRandomFreePort();
+
+    static ServerInstance serverInstance;
+
     static {
         System.setProperty("logger.io.rxmicro.rest.server.level", "TRACE");
         System.setProperty("logger.io.rxmicro.examples.processor.proxy.client.level", "TRACE");
         LoggerImplProviderFactory.resetLoggerImplFactory();
     }
-
-    private static final int RANDOM_PORT = getRandomFreePort();
-
-    static ServerInstance serverInstance;
 
     @BeforeAll
     static void beforeAll() {

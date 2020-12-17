@@ -35,8 +35,6 @@ final class BusinessComponent1Test {
 
     private final PrintStream systemOut = new PrintStream(bytesOut);
 
-    private BusinessComponent businessComponent;
-
     private final BusinessComponent.BusinessChildComponent childComponent =
             new BusinessComponent.BusinessChildComponent() {
                 @Override
@@ -44,6 +42,8 @@ final class BusinessComponent1Test {
                     return "test";
                 }
             };
+
+    private BusinessComponent businessComponent;
 
     @BeforeEach
     void beforeEach() {

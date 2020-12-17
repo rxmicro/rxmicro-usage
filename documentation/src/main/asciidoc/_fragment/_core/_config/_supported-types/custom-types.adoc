@@ -72,6 +72,7 @@ and Your application read configuration for all configured namespaces:
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-common/config-custom-type/src/main/java/io/rxmicro/examples/config/custom/type/Launcher.java[tag=getConfig,indent=0]
 ----
+
 Result will be the following:
 
 [source,text]

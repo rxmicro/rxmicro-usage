@@ -29,7 +29,7 @@ final class LauncherTest {
     private SystemOut systemOut;
 
     @Test
-    void Should_support_custom_type_injection(){
+    void Should_support_custom_type_injection() {
         Launcher.main(new String[0]);
 
         final String output = systemOut.asString();

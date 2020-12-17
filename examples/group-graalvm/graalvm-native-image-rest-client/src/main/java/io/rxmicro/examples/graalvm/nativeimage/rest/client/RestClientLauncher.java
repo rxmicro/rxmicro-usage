@@ -22,7 +22,7 @@ import static io.rxmicro.rest.client.RestClientFactory.getRestClient;
 
 public final class RestClientLauncher {
 
-    private RestClientLauncher(){
+    private RestClientLauncher() {
     }
 
     public static void main(final String[] args) {

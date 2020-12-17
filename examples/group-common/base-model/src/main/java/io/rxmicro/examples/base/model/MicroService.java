@@ -25,7 +25,7 @@ import io.rxmicro.rest.method.GET;
 public class MicroService {
 
     @GET("/")
-    void test(){
+    void test() {
         System.out.println(new ModelWithToStringImpl());
         System.out.println(new ModelWithoutToStringImpl());
         System.out.println(new ModelThatExtendsParentBaseModel());

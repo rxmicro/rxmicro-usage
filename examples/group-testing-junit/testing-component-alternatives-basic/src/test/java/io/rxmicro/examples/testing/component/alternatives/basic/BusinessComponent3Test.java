@@ -29,8 +29,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @RxMicroComponentTest(BusinessComponent.class)
 final class BusinessComponent3Test {
 
-    private BusinessComponent businessComponent; // <2>
-
     // <3>
     @Alternative
     private final BusinessComponent.BusinessChildComponent childComponent =
@@ -40,6 +38,8 @@ final class BusinessComponent3Test {
                     return "test";
                 }
             };
+
+    private BusinessComponent businessComponent; // <2>
 
     private SystemOut systemOut;
 

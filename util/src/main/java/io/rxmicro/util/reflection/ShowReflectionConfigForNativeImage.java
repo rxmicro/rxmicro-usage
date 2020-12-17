@@ -34,25 +34,6 @@ import static io.rxmicro.common.util.Strings.unCapitalize;
 
 public final class ShowReflectionConfigForNativeImage {
 
-    public static void main(final String[] args)
-            throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
-        final List<Class<? extends Config>> configClasses = List.of(
-                SecretsConfig.class,
-                MongoConfig.class,
-                PostgreSQLConfig.class,
-                RestClientConfig.class,
-                HttpServerConfig.class,
-                RestServerConfig.class,
-                NettyRestServerConfig.class
-        );
-        for (final Class<? extends Config> configClass : configClasses) {
-            printReadAllPropertiesCodeFragment(configClass);
-            System.out.println();
-            printDefaultConfigExample(configClass);
-            System.out.println();
-        }
-    }
-
     private static void printReadAllPropertiesCodeFragment(final Class<? extends Config> configClass) {
         final String nameSpace = unCapitalize(configClass.getSimpleName());
         System.out.println("final " + configClass.getSimpleName() + " " + nameSpace + " = getConfig(" + configClass.getSimpleName() + ".class);");
@@ -91,6 +72,25 @@ public final class ShowReflectionConfigForNativeImage {
                     System.out.println(format("entry(\"?.?\", \"?\"),", nameSpace, property, method.invoke(instance)));
                 }
             }
+        }
+    }
+
+    public static void main(final String[] args)
+            throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        final List<Class<? extends Config>> configClasses = List.of(
+                SecretsConfig.class,
+                MongoConfig.class,
+                PostgreSQLConfig.class,
+                RestClientConfig.class,
+                HttpServerConfig.class,
+                RestServerConfig.class,
+                NettyRestServerConfig.class
+        );
+        for (final Class<? extends Config> configClass : configClasses) {
+            printReadAllPropertiesCodeFragment(configClass);
+            System.out.println();
+            printDefaultConfigExample(configClass);
+            System.out.println();
         }
     }
 }

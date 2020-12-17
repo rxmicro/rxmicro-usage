@@ -30,7 +30,7 @@ final class ComponentTest {
     private Component component;
 
     @Test
-    void Should_the_resources_be_injected(){
+    void Should_the_resources_be_injected() {
         assertEquals(Map.of("name", "value"), component.getResources());
     }
 }

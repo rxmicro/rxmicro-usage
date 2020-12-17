@@ -29,18 +29,11 @@ import static io.rxmicro.examples.graalvm.nativeimage.postgres.data.model.Role.L
 
 public final class PostgresLauncher {
 
-    static {
-        new Configs.Builder().build();
-    }
-
     private static final PostgresDataRepository DATA_REPOSITORY =
             getRepository(PostgresDataRepository.class);
 
-    public static void main(final String[] args) {
-        insert();
-        update();
-        select();
-        delete();
+    static {
+        new Configs.Builder().build();
     }
 
     private static void insert() {
@@ -67,6 +60,13 @@ public final class PostgresLauncher {
                 new Account(100L, null, null, null, null, null);
         final Boolean result = DATA_REPOSITORY.delete(account).join();
         System.out.println(format("STDOUT: Account deleted: ?, result=?", account, result));
+    }
+
+    public static void main(final String[] args) {
+        insert();
+        update();
+        select();
+        delete();
     }
 }
 

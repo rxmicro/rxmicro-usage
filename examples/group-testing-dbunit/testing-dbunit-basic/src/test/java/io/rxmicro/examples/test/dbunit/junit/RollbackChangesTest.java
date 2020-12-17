@@ -58,7 +58,7 @@ final class RollbackChangesTest {
     @InitialDataSet("dataset/rxmicro-test-dataset-empty.xml")
     @ExpectedDataSet("dataset/rxmicro-test-dataset-empty.xml")
     @Order(1)
-    void Should_set_and_compare_dataset(){
+    void Should_set_and_compare_dataset() {
 
     }
 

@@ -36,7 +36,7 @@ Each request id contains 44 deterministic bits + 24 incremental counter bits + 2
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/PredefinedRequestIdGeneratorProvider.java#L110[`DEFAULT_96_BIT`^]
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/feature/request/id/generator/PartlyRandom96BitsRequestIdGenerator.java[`PartlyRandom96BitsRequestIdGenerator`^],
- {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/feature/request/id/generator/Deterministic96BitsRequestIdGenerator.java[`Deterministic96BitsRequestIdGenerator`^]
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/feature/request/id/generator/Deterministic96BitsRequestIdGenerator.java[`Deterministic96BitsRequestIdGenerator`^]
 |*Generates unique 12 bytes (96 bits) request id*
 
 This is default request id generator provider.

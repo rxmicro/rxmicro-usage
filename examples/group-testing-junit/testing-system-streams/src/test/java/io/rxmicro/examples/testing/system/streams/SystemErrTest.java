@@ -37,7 +37,7 @@ final class SystemErrTest {
     private SystemErr systemErr;
 
     @Test
-    void Should_catch_system_out(){
+    void Should_catch_system_out() {
         System.err.println(" Hello ");
         System.err.println("world");
 

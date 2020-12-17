@@ -33,7 +33,7 @@ final class MicroServiceTest {
     private SystemOut systemOut;
 
     @Test
-    void test(){
+    void test() {
         blockingHttpClient.get("/");
 
         assertEquals(

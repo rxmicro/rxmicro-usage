@@ -33,10 +33,6 @@ import static io.rxmicro.data.sql.r2dbc.postgresql.PostgreSQLConfigCustomizer.se
 @RxMicroComponentTest(InsertSuccessfulDataRepository.class)
 final class InsertSuccessfulDataRepositoryTest extends AbstractDataRepositoryTest<InsertSuccessfulDataRepository> {
 
-    static {
-        setConnectionDecorator(Spies::decorateConnection);
-    }
-
     @Container
     private static final GenericContainer<?> POSTGRESQL_TEST_DB =
             new GenericContainer<>("rxmicro/postgres-test-db")
@@ -47,6 +43,10 @@ final class InsertSuccessfulDataRepositoryTest extends AbstractDataRepositoryTes
             .setDatabase("rxmicro")
             .setUser("rxmicro")
             .setPassword("password");
+
+    static {
+        setConnectionDecorator(Spies::decorateConnection);
+    }
 
     @BeforeAll
     static void beforeAll() {

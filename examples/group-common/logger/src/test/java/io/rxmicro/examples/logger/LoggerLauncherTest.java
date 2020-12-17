@@ -47,12 +47,12 @@ final class LoggerLauncherTest {
     void Should_display_additional_information() {
         LoggerLauncher.main(new String[0]);
 
-        assertSystemOutContains(systemOut, "io.rxmicro.examples.logger.LoggerLauncher.main(LoggerLauncher.java:27): From main()");
-        assertSystemOutContains(systemOut, "io.rxmicro.examples.logger.LoggerLauncher.test(LoggerLauncher.java:32): From test()");
+        assertSystemOutContains(systemOut, "io.rxmicro.examples.logger.LoggerLauncher.main(LoggerLauncher.java:31): From main()");
+        assertSystemOutContains(systemOut, "io.rxmicro.examples.logger.LoggerLauncher.test(LoggerLauncher.java:27): From test()");
     }
 
     @AfterEach
-    void afterEach(){
+    void afterEach() {
         resetLoggerImplFactory();
     }
 }

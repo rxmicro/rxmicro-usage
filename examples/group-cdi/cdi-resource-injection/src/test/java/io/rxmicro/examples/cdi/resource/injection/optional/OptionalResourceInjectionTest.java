@@ -20,7 +20,8 @@ import io.rxmicro.test.junit.RxMicroComponentTest;
 import org.junit.jupiter.api.Test;
 
 import static io.rxmicro.json.JsonTypes.asJsonObject;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 @RxMicroComponentTest(OptionalResourceInjection.class)
 final class OptionalResourceInjectionTest {

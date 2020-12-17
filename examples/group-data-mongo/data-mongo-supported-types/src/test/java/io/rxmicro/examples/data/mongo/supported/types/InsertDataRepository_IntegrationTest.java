@@ -38,16 +38,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 final class InsertDataRepository_IntegrationTest {
 
+    @WithConfig
+    private static final MongoConfig MONGO_CONFIG = new MongoConfig()
+            .setDatabase("rxmicro");
+
     static {
         getCurrentMongoCodecsConfigurator()
                 .withDefaultConfiguration()
                 .withExtendJavaCodecs()
                 .withExtendMongoCodecs();
     }
-
-    @WithConfig
-    private static final MongoConfig MONGO_CONFIG = new MongoConfig()
-            .setDatabase("rxmicro");
 
     @Container
     private final GenericContainer<?> mongoTestDb =

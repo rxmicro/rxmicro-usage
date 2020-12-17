@@ -37,7 +37,7 @@ final class SystemOutTest {
     private SystemOut systemOut;
 
     @Test
-    void Should_catch_system_out(){
+    void Should_catch_system_out() {
         System.out.println(" Hello ");
         System.out.println("world");
 

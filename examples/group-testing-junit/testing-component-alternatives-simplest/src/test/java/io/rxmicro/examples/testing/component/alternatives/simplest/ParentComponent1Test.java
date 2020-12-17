@@ -27,11 +27,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @RxMicroComponentTest(ParentComponent.class)
 final class ParentComponent1Test {
 
-    private ParentComponent parentComponent; // <2>
-
     // <3>
     @Alternative
     private final ChildComponent childComponent = () -> "test"; // <4>
+
+    private ParentComponent parentComponent; // <2>
 
     @Test
     void Should_use_alternative() {

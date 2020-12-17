@@ -38,10 +38,14 @@ But container parametrization types are not available for the `reflection` readi
 
 Thus the RxMicro framework tries to guess which type must be created using the following algorithm:
 
-1. Try to convert to `java.lang.Boolean` type. If failed then goto `2` step.
-2. Try to convert to `java.math.BigDecimal` type. If failed then goto `3` step.
-3. Try to convert to `java.lang.Long` type. If failed then goto `4` step.
-4. Try to convert to `CUSTOM_TYPE`. If failed then goto `5` step.
+1. Try to convert to `java.lang.Boolean` type.
+If failed then goto `2` step.
+2. Try to convert to `java.math.BigDecimal` type.
+If failed then goto `3` step.
+3. Try to convert to `java.lang.Long` type.
+If failed then goto `4` step.
+4. Try to convert to `CUSTOM_TYPE`.
+If failed then goto `5` step.
 5. Return `java.lang.String` instance.
 
 This means that if You provide a config list with different types, the RxMicro framework create a `java.util.List` with different types:

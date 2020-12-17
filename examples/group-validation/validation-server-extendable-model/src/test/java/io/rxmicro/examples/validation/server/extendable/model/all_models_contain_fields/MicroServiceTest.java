@@ -41,8 +41,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 final class MicroServiceTest {
 
-    private BlockingHttpClient blockingHttpClient;
-
     private final Map<String, Object> put1Request = new LinkedHashMap<>(jsonObject(
             "grandParameter", "GRAND",
             "parentParameter", "PARENT",
@@ -53,6 +51,8 @@ final class MicroServiceTest {
             "grandParameter", "GRAND",
             "parentParameter", "PARENT"
     ));
+
+    private BlockingHttpClient blockingHttpClient;
 
     @BeforeEach
     void beforeEach() {

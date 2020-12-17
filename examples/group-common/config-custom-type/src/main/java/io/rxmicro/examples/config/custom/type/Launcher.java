@@ -23,6 +23,30 @@ import static io.rxmicro.config.Configs.getConfig;
 
 public final class Launcher {
 
+    private static void setJavaSystemProperties() {
+        // tag::setProperties[]
+        System.setProperty(
+                "enum-constant.type",
+                "@io.rxmicro.examples.config.custom.type._enum.CustomEnum:ENUM_CONSTANT"
+        );
+        System.setProperty(
+                "class-constant.type",
+                "@io.rxmicro.examples.config.custom.type._class.CustomClass:CLASS_CONSTANT"
+        );
+        System.setProperty(
+                "interface-constant.type",
+                "@io.rxmicro.examples.config.custom.type._interface.CustomInterface:INTERFACE_CONSTANT"
+        );
+        System.setProperty(
+                "annotation-constant.type",
+                "@io.rxmicro.examples.config.custom.type._annotation.CustomAnnotation:ANNOTATION_CONSTANT"
+        );
+        // end::setProperties[]
+    }
+
+    private Launcher() {
+    }
+
     public static void main(final String[] args) {
         setJavaSystemProperties();
 
@@ -50,30 +74,6 @@ public final class Launcher {
                         getConfig("annotation-constant", ExampleConfig.class).getType().getValue()
         );
         // end::getConfig[]
-    }
-
-    private static void setJavaSystemProperties() {
-        // tag::setProperties[]
-        System.setProperty(
-                "enum-constant.type",
-                "@io.rxmicro.examples.config.custom.type._enum.CustomEnum:ENUM_CONSTANT"
-        );
-        System.setProperty(
-                "class-constant.type",
-                "@io.rxmicro.examples.config.custom.type._class.CustomClass:CLASS_CONSTANT"
-        );
-        System.setProperty(
-                "interface-constant.type",
-                "@io.rxmicro.examples.config.custom.type._interface.CustomInterface:INTERFACE_CONSTANT"
-        );
-        System.setProperty(
-                "annotation-constant.type",
-                "@io.rxmicro.examples.config.custom.type._annotation.CustomAnnotation:ANNOTATION_CONSTANT"
-        );
-        // end::setProperties[]
-    }
-
-    private Launcher(){
     }
 }
 

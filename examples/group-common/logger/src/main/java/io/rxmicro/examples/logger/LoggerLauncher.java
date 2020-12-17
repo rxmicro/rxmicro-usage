@@ -23,12 +23,12 @@ public final class LoggerLauncher {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(LoggerLauncher.class);
 
+    private static void test() {
+        LOGGER.info("From test()");
+    }
+
     public static void main(final String[] args) {
         LOGGER.info("From main()");
         test();
-    }
-
-    private static void test(){
-        LOGGER.info("From test()");
     }
 }

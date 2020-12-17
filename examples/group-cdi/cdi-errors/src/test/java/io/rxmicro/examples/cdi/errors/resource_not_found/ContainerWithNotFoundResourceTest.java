@@ -34,7 +34,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 final class ContainerWithNotFoundResourceTest {
 
     @Test
-    void Should_throw_ResourceException(){
+    void Should_throw_ResourceException() {
         final ResourceException exception = assertThrows(ResourceException.class, () -> BeanFactory.getBean(ContainerWithNotFoundResource.class));
         assertEquals("Resource 'classpath:resources.properties' not found", exception.getMessage());
     }

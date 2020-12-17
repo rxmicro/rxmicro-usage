@@ -62,7 +62,7 @@ final class DbStateUsingPerClassConnectionTest {
     @InitialDataSet("dataset/rxmicro-test-dataset-two-rows-only.xml")
     @ExpectedDataSet("dataset/rxmicro-test-dataset-two-rows-only.xml")
     @Order(2)
-    void Should_set_and_compare_dataset(){
+    void Should_set_and_compare_dataset() {
 
     }
 }

@@ -25,30 +25,6 @@ public final class CopyJacocoExec {
 
     private static int copiedFiles;
 
-    public static void main(final String[] args) throws IOException {
-        if (args.length < 2) {
-            System.err.println("Missing source and destination directories");
-            System.exit(1);
-        }
-        final File sourceDirectory = new File(args[0]).getAbsoluteFile();
-        if (!sourceDirectory.exists()) {
-            System.err.println("Source directory not found: " + sourceDirectory.getAbsolutePath());
-            System.exit(2);
-        }
-        final File destinationDirectory = new File(args[1]).getAbsoluteFile();
-        if (!destinationDirectory.exists()) {
-            System.err.println("Destination directory not found: " + destinationDirectory.getAbsolutePath());
-            System.exit(3);
-        }
-
-        System.out.println("Source directory: " + sourceDirectory.getAbsolutePath());
-        System.out.println("Destination directory: " + destinationDirectory.getAbsolutePath());
-
-        findAndCopyJacocoFiles(sourceDirectory, destinationDirectory);
-
-        System.out.println("Copy successful. Copied " + copiedFiles + " file(s)");
-    }
-
     private static void findAndCopyJacocoFiles(final File sourceDirectory,
                                                final File destinationDirectory) throws IOException {
         final File[] files = sourceDirectory.listFiles();
@@ -75,7 +51,31 @@ public final class CopyJacocoExec {
         copiedFiles++;
     }
 
-    private CopyJacocoExec(){
+    private CopyJacocoExec() {
+    }
+
+    public static void main(final String[] args) throws IOException {
+        if (args.length < 2) {
+            System.err.println("Missing source and destination directories");
+            System.exit(1);
+        }
+        final File sourceDirectory = new File(args[0]).getAbsoluteFile();
+        if (!sourceDirectory.exists()) {
+            System.err.println("Source directory not found: " + sourceDirectory.getAbsolutePath());
+            System.exit(2);
+        }
+        final File destinationDirectory = new File(args[1]).getAbsoluteFile();
+        if (!destinationDirectory.exists()) {
+            System.err.println("Destination directory not found: " + destinationDirectory.getAbsolutePath());
+            System.exit(3);
+        }
+
+        System.out.println("Source directory: " + sourceDirectory.getAbsolutePath());
+        System.out.println("Destination directory: " + destinationDirectory.getAbsolutePath());
+
+        findAndCopyJacocoFiles(sourceDirectory, destinationDirectory);
+
+        System.out.println("Copy successful. Copied " + copiedFiles + " file(s)");
     }
 }
 

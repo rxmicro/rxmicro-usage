@@ -67,7 +67,7 @@ public final class Settings {
         RX_MICRO_MODULES = createMapping();
     }
 
-    private static Map<String, String> createMapping(){
+    private static Map<String, String> createMapping() {
         return Map.ofEntries(
                 // REST controller
                 entry(

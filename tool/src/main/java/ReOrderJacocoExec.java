@@ -22,23 +22,6 @@ public final class ReOrderJacocoExec {
 
     private static int errorCount;
 
-    public static void main(final String[] args) {
-        final File currentDir = new File(".").getAbsoluteFile();
-        System.out.println("Current directory is " + currentDir);
-
-        final List<File> jacocoExecList = new ArrayList<>();
-        findAllJacocoExec(jacocoExecList, currentDir);
-        System.out.println("Found " + jacocoExecList.size() + " jacoco.exec files");
-
-        moveAllFoundJacocoExecFilesToCurrentDir(jacocoExecList, currentDir);
-        if (errorCount == 0) {
-            System.out.println("Reorder successful");
-        } else {
-            System.err.println("Reorder failed");
-        }
-        System.exit(errorCount);
-    }
-
     private static void findAllJacocoExec(final List<File> jacocoExecList,
                                           final File dir) {
         final File[] files = dir.listFiles();
@@ -67,6 +50,23 @@ public final class ReOrderJacocoExec {
     }
 
     private ReOrderJacocoExec() {
+    }
+
+    public static void main(final String[] args) {
+        final File currentDir = new File(".").getAbsoluteFile();
+        System.out.println("Current directory is " + currentDir);
+
+        final List<File> jacocoExecList = new ArrayList<>();
+        findAllJacocoExec(jacocoExecList, currentDir);
+        System.out.println("Found " + jacocoExecList.size() + " jacoco.exec files");
+
+        moveAllFoundJacocoExecFilesToCurrentDir(jacocoExecList, currentDir);
+        if (errorCount == 0) {
+            System.out.println("Reorder successful");
+        } else {
+            System.err.println("Reorder failed");
+        }
+        System.exit(errorCount);
     }
 }
 

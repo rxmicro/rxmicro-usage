@@ -23,15 +23,15 @@ public interface Logger {
 
     // ...
 
-    void trace(RequestIdSupplier requestIdSupplier, Object ... otherArguments);
+    void trace(RequestIdSupplier requestIdSupplier, Object... otherArguments);
 
-    void debug(RequestIdSupplier requestIdSupplier, Object ... otherArguments);
+    void debug(RequestIdSupplier requestIdSupplier, Object... otherArguments);
 
-    void info(RequestIdSupplier requestIdSupplier, Object ... otherArguments);
+    void info(RequestIdSupplier requestIdSupplier, Object... otherArguments);
 
-    void warn(RequestIdSupplier requestIdSupplier, Object ... otherArguments);
+    void warn(RequestIdSupplier requestIdSupplier, Object... otherArguments);
 
-    void error(RequestIdSupplier requestIdSupplier, Object ... otherArguments);
+    void error(RequestIdSupplier requestIdSupplier, Object... otherArguments);
 
     // ...
 }

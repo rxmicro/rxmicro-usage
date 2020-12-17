@@ -33,22 +33,11 @@ import static io.rxmicro.examples.graalvm.nativeimage.mongo.data.model.Role.Lead
 
 public final class MongoLauncher {
 
-    static {
-        new Configs.Builder().build();
-    }
-
     private static final MongoDataRepository DATA_REPOSITORY =
             getRepository(MongoDataRepository.class);
 
-    public static void main(final String[] args) {
-        insert();
-        update();
-        countDocuments();
-        estimatedDocumentCount();
-        find();
-        distinct();
-        aggregate();
-        delete();
+    static {
+        new Configs.Builder().build();
     }
 
     private static void insert() {
@@ -93,6 +82,17 @@ public final class MongoLauncher {
                 new Account(100L, null, null, null, null, null);
         final Boolean result = DATA_REPOSITORY.delete(account).join();
         System.out.println(format("STDOUT: Account deleted: ?, result=?", account, result));
+    }
+
+    public static void main(final String[] args) {
+        insert();
+        update();
+        countDocuments();
+        estimatedDocumentCount();
+        find();
+        distinct();
+        aggregate();
+        delete();
     }
 }
 

@@ -19,8 +19,6 @@ package io.rxmicro.examples.graalvm.nativeimage.mongo.data;
 import io.rxmicro.test.SystemOut;
 import io.rxmicro.test.TestedProcessBuilder;
 import io.rxmicro.test.junit.RxMicroIntegrationTest;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
 import org.testcontainers.containers.GenericContainer;

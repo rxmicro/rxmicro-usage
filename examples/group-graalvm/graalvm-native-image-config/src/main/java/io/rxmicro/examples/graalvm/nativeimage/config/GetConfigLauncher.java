@@ -31,39 +31,6 @@ import static io.rxmicro.config.Configs.getConfig;
 
 public class GetConfigLauncher {
 
-    public static void main(final String[] args) {
-        new Configs.Builder().build();
-
-        if (args.length == 0) {
-            getSecretsConfig();
-            getMongoConfig();
-            getPostgreSQLConfig();
-            getRestClientConfig();
-            getHttpServerConfig();
-            getRestServerConfig();
-            getNettyRestServerConfig();
-            getCustomConfigs();
-        } else if ("SecretsConfig".equals(args[0])) {
-            getSecretsConfig();
-        } else if ("MongoConfig".equals(args[0])) {
-            getMongoConfig();
-        } else if ("PostgreSQLConfig".equals(args[0])) {
-            getPostgreSQLConfig();
-        } else if ("RestClientConfig".equals(args[0])) {
-            getRestClientConfig();
-        } else if ("HttpServerConfig".equals(args[0])) {
-            getHttpServerConfig();
-        } else if ("RestServerConfig".equals(args[0])) {
-            getRestServerConfig();
-        } else if ("NettyRestServerConfig".equals(args[0])) {
-            getNettyRestServerConfig();
-        } else if ("CustomConfigs".equals(args[0])) {
-            getCustomConfigs();
-        } else {
-            throw new IllegalArgumentException("Unsupported argument: " + args[0]);
-        }
-    }
-
     private static void getSecretsConfig() {
         final SecretsConfig secretsConfig = getConfig(SecretsConfig.class);
         System.out.println("io.rxmicro.config.SecretsConfig.regex = " + secretsConfig.getRegex());
@@ -157,6 +124,39 @@ public class GetConfigLauncher {
         final DynamicConfig dynamicConfig = getConfig(DynamicConfig.class);
         System.out.println("io.rxmicro.examples.graalvm.nativeimage.config.config.DynamicConfig = " + dynamicConfig);
         System.out.println();
+    }
+
+    public static void main(final String[] args) {
+        new Configs.Builder().build();
+
+        if (args.length == 0) {
+            getSecretsConfig();
+            getMongoConfig();
+            getPostgreSQLConfig();
+            getRestClientConfig();
+            getHttpServerConfig();
+            getRestServerConfig();
+            getNettyRestServerConfig();
+            getCustomConfigs();
+        } else if ("SecretsConfig".equals(args[0])) {
+            getSecretsConfig();
+        } else if ("MongoConfig".equals(args[0])) {
+            getMongoConfig();
+        } else if ("PostgreSQLConfig".equals(args[0])) {
+            getPostgreSQLConfig();
+        } else if ("RestClientConfig".equals(args[0])) {
+            getRestClientConfig();
+        } else if ("HttpServerConfig".equals(args[0])) {
+            getHttpServerConfig();
+        } else if ("RestServerConfig".equals(args[0])) {
+            getRestServerConfig();
+        } else if ("NettyRestServerConfig".equals(args[0])) {
+            getNettyRestServerConfig();
+        } else if ("CustomConfigs".equals(args[0])) {
+            getCustomConfigs();
+        } else {
+            throw new IllegalArgumentException("Unsupported argument: " + args[0]);
+        }
     }
 }
 
