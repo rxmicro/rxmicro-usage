@@ -25,7 +25,7 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 
 import java.util.List;
 
-import static io.rxmicro.common.util.Reflections.invokeMethod;
+import static io.rxmicro.reflection.Reflections.invokeMethod;
 
 public final class RxMicroComponentEmulationTestExtension
         implements BeforeAllCallback, BeforeEachCallback, BeforeTestExecutionCallback, AfterEachCallback {

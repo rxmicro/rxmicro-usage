@@ -20,8 +20,7 @@ module examples.config.custom.type {
     exports io.rxmicro.examples.config.custom.type;
 
     exports io.rxmicro.examples.config.custom.type.config to
-            rxmicro.runtime,
-            rxmicro.config;
+            rxmicro.reflection;
 
     // tag::content[]
     exports io.rxmicro.examples.config.custom.type._class to

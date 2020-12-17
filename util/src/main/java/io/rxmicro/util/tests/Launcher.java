@@ -96,8 +96,8 @@ public final class Launcher {
                         final String srcRoot = format("?/src/main/java", exampleProject.getAbsolutePath());
                         if (new File(srcRoot).exists()) {
                             final String rootPackage = defineRootPackage(srcRoot);
-                            copyInput(srcRoot, rootPackage, entry.getValue() + "/input");
                             copyOutputOrDocs(exampleProject, entry, rootPackage);
+                            copyInput(srcRoot, rootPackage, entry.getValue() + "/input");
                             break;
                         }
                     }

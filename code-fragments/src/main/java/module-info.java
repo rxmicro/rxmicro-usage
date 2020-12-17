@@ -28,6 +28,5 @@ module examples.code.fragments {
     requires jdk.httpserver;
 
     exports io.rxmicro.examples.code.fragments.config.dynamic to
-            rxmicro.runtime,
-            rxmicro.config;
+            rxmicro.reflection;
 }

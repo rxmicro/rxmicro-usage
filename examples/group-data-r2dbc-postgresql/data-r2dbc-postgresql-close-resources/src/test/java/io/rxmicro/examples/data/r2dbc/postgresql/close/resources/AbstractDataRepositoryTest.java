@@ -32,8 +32,8 @@ import java.util.stream.Stream;
 
 import static io.rxmicro.common.util.Formats.format;
 import static io.rxmicro.examples.data.r2dbc.postgresql.close.resources.Spies.verifyCloseConnection;
-import static io.rxmicro.common.util.Reflections.allMethods;
-import static io.rxmicro.common.util.Reflections.invokeMethod;
+import static io.rxmicro.reflection.Reflections.allMethods;
+import static io.rxmicro.reflection.Reflections.invokeMethod;
 import static java.util.stream.Collectors.toList;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;

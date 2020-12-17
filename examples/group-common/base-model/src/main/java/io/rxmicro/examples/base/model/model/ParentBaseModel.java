@@ -16,7 +16,7 @@
 
 package io.rxmicro.examples.base.model.model;
 
-import io.rxmicro.common.model.BaseModel;
+import io.rxmicro.model.BaseModel;
 
 public class ParentBaseModel extends BaseModel {
 

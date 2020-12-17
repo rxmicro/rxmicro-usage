@@ -16,7 +16,7 @@
 
 package io.rxmicro.examples.code.fragments.base_model;
 
-import io.rxmicro.common.model.BaseModel;
+import io.rxmicro.model.BaseModel;
 
 // tag::content[]
 public class CustomModel extends BaseModel {

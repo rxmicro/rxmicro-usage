@@ -92,8 +92,8 @@
                         </properties>
                         <argLine>
                             @{argLine}
-                            --add-opens java.base/java.lang=rxmicro.common
-                            --add-opens java.base/java.lang.reflect=rxmicro.common
+                            --add-opens java.base/java.lang=rxmicro.reflection
+                            --add-opens java.base/java.lang.reflect=rxmicro.reflection
                         </argLine>
                     </configuration>
                 </plugin>

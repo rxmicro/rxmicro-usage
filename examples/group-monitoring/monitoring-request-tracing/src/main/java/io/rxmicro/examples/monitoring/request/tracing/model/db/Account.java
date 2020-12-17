@@ -16,7 +16,7 @@
 
 package io.rxmicro.examples.monitoring.request.tracing.model.db;
 
-import io.rxmicro.common.model.BaseModel;
+import io.rxmicro.model.BaseModel;
 import io.rxmicro.data.Column;
 import io.rxmicro.data.ColumnMappingStrategy;
 import io.rxmicro.data.sql.NotUpdatable;

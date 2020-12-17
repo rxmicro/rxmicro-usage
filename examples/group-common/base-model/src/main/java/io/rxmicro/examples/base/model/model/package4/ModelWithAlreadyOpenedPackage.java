@@ -16,7 +16,7 @@
 
 package io.rxmicro.examples.base.model.model.package4;
 
-import io.rxmicro.common.model.BaseModel;
+import io.rxmicro.model.BaseModel;
 
 public class ModelWithAlreadyOpenedPackage extends BaseModel {
 

@@ -20,7 +20,6 @@ module examples.config.custom {
     requires rxmicro.rest.server.exchange.json;
 
     exports io.rxmicro.examples.config.custom to
-            rxmicro.runtime, // <1>
-            rxmicro.config;  // <2>
+            rxmicro.reflection;  // <1>
 }
 // end::content[]

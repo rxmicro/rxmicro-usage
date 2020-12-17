@@ -16,7 +16,7 @@
 
 package io.rxmicro.examples.base.model.model.package2;
 
-import io.rxmicro.common.model.BaseModel;
+import io.rxmicro.model.BaseModel;
 
 public class ModelWithoutToStringImpl extends BaseModel {
 
