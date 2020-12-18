@@ -1,0 +1,7 @@
+Benchmark                              Mode  Cnt   Score    Error   Units
+FileReadBenchmark.Files_readAllBytes  thrpt    6  67.917 ±  8.578  ops/ms
+FileReadBenchmark.readUsingIOStream   thrpt    6  49.383 ± 20.023  ops/ms
+FileReadBenchmark.Files_readAllBytes   avgt    6   0.013 ±  0.007   ms/op
+FileReadBenchmark.readUsingIOStream    avgt    6   0.018 ±  0.003   ms/op
+FileReadBenchmark.Files_readAllBytes     ss    6   0.153 ±  0.152   ms/op
+FileReadBenchmark.readUsingIOStream      ss    6   0.077 ±  0.050   ms/op

@@ -1,0 +1,19 @@
+Benchmark                                                     Mode  Cnt    Score    Error   Units
+FileAccessWithoutReadingDataBenchmark.File_exists_found      thrpt    6  304.621 ± 38.119  ops/ms
+FileAccessWithoutReadingDataBenchmark.File_exists_not_found  thrpt    6  349.736 ± 36.300  ops/ms
+FileAccessWithoutReadingDataBenchmark.File_size              thrpt    6  304.206 ± 33.826  ops/ms
+FileAccessWithoutReadingDataBenchmark.Path_exists_found      thrpt    6  319.923 ± 39.833  ops/ms
+FileAccessWithoutReadingDataBenchmark.Path_exists_not_found  thrpt    6  330.285 ± 21.602  ops/ms
+FileAccessWithoutReadingDataBenchmark.Path_size              thrpt    6  278.519 ± 37.054  ops/ms
+FileAccessWithoutReadingDataBenchmark.File_exists_found       avgt    6    0.003 ±  0.001   ms/op
+FileAccessWithoutReadingDataBenchmark.File_exists_not_found   avgt    6    0.003 ±  0.001   ms/op
+FileAccessWithoutReadingDataBenchmark.File_size               avgt    6    0.003 ±  0.001   ms/op
+FileAccessWithoutReadingDataBenchmark.Path_exists_found       avgt    6    0.003 ±  0.002   ms/op
+FileAccessWithoutReadingDataBenchmark.Path_exists_not_found   avgt    6    0.003 ±  0.001   ms/op
+FileAccessWithoutReadingDataBenchmark.Path_size               avgt    6    0.003 ±  0.001   ms/op
+FileAccessWithoutReadingDataBenchmark.File_exists_found         ss    6    0.021 ±  0.012   ms/op
+FileAccessWithoutReadingDataBenchmark.File_exists_not_found     ss    6    0.019 ±  0.037   ms/op
+FileAccessWithoutReadingDataBenchmark.File_size                 ss    6    0.010 ±  0.010   ms/op
+FileAccessWithoutReadingDataBenchmark.Path_exists_found         ss    6    0.026 ±  0.037   ms/op
+FileAccessWithoutReadingDataBenchmark.Path_exists_not_found     ss    6    0.027 ±  0.030   ms/op
+FileAccessWithoutReadingDataBenchmark.Path_size                 ss    6    0.028 ±  0.057   ms/op
