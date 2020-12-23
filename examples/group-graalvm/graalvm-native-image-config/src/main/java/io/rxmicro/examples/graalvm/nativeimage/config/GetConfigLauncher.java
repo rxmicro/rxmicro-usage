@@ -105,7 +105,7 @@ public class GetConfigLauncher {
         System.out.println("io.rxmicro.rest.server.RestServerConfig.showRuntimeEnv = " + restServerConfig.isShowRuntimeEnv());
         System.out.println("io.rxmicro.rest.server.RestServerConfig.useFullClassNamesForRouterMappingLogMessages = " + restServerConfig.isUseFullClassNamesForRouterMappingLogMessages());
         System.out.println("io.rxmicro.rest.server.RestServerConfig.enableAdditionalValidations = " + restServerConfig.isEnableAdditionalValidations());
-        System.out.println("io.rxmicro.rest.server.RestServerConfig.waitingForRequestIdGeneratorInitTimeoutInMillis = " + restServerConfig.getWaitingForRequestIdGeneratorInitTimeoutInMillis());
+        System.out.println("io.rxmicro.rest.server.RestServerConfig.requestIdGeneratorInitTimeout = " + restServerConfig.getRequestIdGeneratorInitTimeout());
         System.out.println();
     }
 

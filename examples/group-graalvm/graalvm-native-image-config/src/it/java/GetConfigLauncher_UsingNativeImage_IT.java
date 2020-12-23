@@ -221,7 +221,7 @@ final class GetConfigLauncher_UsingNativeImage_IT {
                 entry("rest-server.showRuntimeEnv", "true"),
                 entry("rest-server.useFullClassNamesForRouterMappingLogMessages", "false"),
                 entry("rest-server.enableAdditionalValidations", "true"),
-                entry("rest-server.waitingForRequestIdGeneratorInitTimeoutInMillis", "2000")
+                entry("rest-server.requestIdGeneratorInitTimeout", "PT15M")
         );
         exec("RestServerConfig", systemProperties);
 
@@ -240,7 +240,7 @@ final class GetConfigLauncher_UsingNativeImage_IT {
         assertRequestMessageExists(out, "io.rxmicro.rest.server.RestServerConfig.showRuntimeEnv = true");
         assertRequestMessageExists(out, "io.rxmicro.rest.server.RestServerConfig.useFullClassNamesForRouterMappingLogMessages = false");
         assertRequestMessageExists(out, "io.rxmicro.rest.server.RestServerConfig.enableAdditionalValidations = true");
-        assertRequestMessageExists(out, "io.rxmicro.rest.server.RestServerConfig.waitingForRequestIdGeneratorInitTimeoutInMillis = 2000");
+        assertRequestMessageExists(out, "io.rxmicro.rest.server.RestServerConfig.requestIdGeneratorInitTimeout = PT15M");
     }
 
     @Order(7)

@@ -48,7 +48,7 @@ final class MicroService_UnitTest {
         final ClientHttpResponse response = blockingHttpClient.get("/");
 
         assertTrue(
-                response.getHeaders().getValue(HttpStandardHeaderNames.SERVER).contains("RxMicro-NettyServer"),
+                response.getHeaders().getValue(HttpStandardHeaderNames.SERVER).contains("rx-micro-netty-rest-server"),
                 "Invalid `Server` header: " + response.getHeaders().getValue(HttpStandardHeaderNames.SERVER)
         );
         assertNull(

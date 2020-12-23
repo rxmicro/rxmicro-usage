@@ -34,6 +34,8 @@
         <module>rest-controller-model-field-access</module>
         <module>rest-controller-model-field-mapping-strategy</module>
         <module>rest-controller-extendable-model</module>
+        <module>rest-controller-static-resources-basic</module>
+        <module>rest-controller-static-resources-complex</module>
     </modules>
 
     <build>
