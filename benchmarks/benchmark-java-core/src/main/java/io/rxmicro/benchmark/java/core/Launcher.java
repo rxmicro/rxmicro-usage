@@ -16,7 +16,7 @@
 
 package io.rxmicro.benchmark.java.core;
 
-import io.rxmicro.benchmark.java.core.files.FileReadBenchmark;
+import io.rxmicro.benchmark.java.core.iterations.HashMapOrForeachOnStringWith9ValuesBenchmark;
 import org.openjdk.jmh.results.format.ResultFormatType;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
@@ -49,6 +49,7 @@ public final class Launcher {
         //launchBenchmark(ReadWriteFieldBenchmark.class);
         //launchBenchmark(IterationBenchmark.class);
         //launchBenchmark(FileAccessWithoutReadingDataBenchmark.class);
-        launchBenchmark(FileReadBenchmark.class);
+        //launchBenchmark(FileReadBenchmark.class);
+        launchBenchmark(HashMapOrForeachOnStringWith9ValuesBenchmark.class);
     }
 }

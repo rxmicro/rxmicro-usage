@@ -1,0 +1,13 @@
+Benchmark                                                            Mode  Cnt      Score       Error   Units
+HashMapOrForeachOnStringWith9ValuesBenchmark.arrayList9Search       thrpt   10   6126.904 ±   699.991  ops/ms
+HashMapOrForeachOnStringWith9ValuesBenchmark.hashMap9Search         thrpt   10  25194.003 ± 15691.555  ops/ms
+HashMapOrForeachOnStringWith9ValuesBenchmark.unmodifiedList9Search  thrpt   10   7030.167 ±   743.136  ops/ms
+HashMapOrForeachOnStringWith9ValuesBenchmark.unmodifiedMap9Search   thrpt   10  11165.502 ±   891.777  ops/ms
+HashMapOrForeachOnStringWith9ValuesBenchmark.arrayList9Search        avgt   10     ≈ 10⁻⁴               ms/op
+HashMapOrForeachOnStringWith9ValuesBenchmark.hashMap9Search          avgt   10     ≈ 10⁻⁵               ms/op
+HashMapOrForeachOnStringWith9ValuesBenchmark.unmodifiedList9Search   avgt   10     ≈ 10⁻⁴               ms/op
+HashMapOrForeachOnStringWith9ValuesBenchmark.unmodifiedMap9Search    avgt   10     ≈ 10⁻⁴               ms/op
+HashMapOrForeachOnStringWith9ValuesBenchmark.arrayList9Search          ss   10      0.020 ±     0.034   ms/op
+HashMapOrForeachOnStringWith9ValuesBenchmark.hashMap9Search            ss   10      0.002 ±     0.001   ms/op
+HashMapOrForeachOnStringWith9ValuesBenchmark.unmodifiedList9Search     ss   10      0.010 ±     0.010   ms/op
+HashMapOrForeachOnStringWith9ValuesBenchmark.unmodifiedMap9Search      ss   10      0.003 ±     0.001   ms/op
