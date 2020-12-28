@@ -20,6 +20,7 @@ import io.rxmicro.config.Config;
 import io.rxmicro.config.SecretsConfig;
 import io.rxmicro.data.mongo.MongoConfig;
 import io.rxmicro.data.sql.r2dbc.postgresql.PostgreSQLConfig;
+import io.rxmicro.netty.runtime.NettyRuntimeConfig;
 import io.rxmicro.rest.client.RestClientConfig;
 import io.rxmicro.rest.server.HttpServerConfig;
 import io.rxmicro.rest.server.RestServerConfig;
@@ -84,6 +85,7 @@ public final class ShowReflectionConfigForNativeImage {
                 RestClientConfig.class,
                 HttpServerConfig.class,
                 RestServerConfig.class,
+                NettyRuntimeConfig.class,
                 NettyRestServerConfig.class
         );
         for (final Class<? extends Config> configClass : configClasses) {

@@ -245,19 +245,57 @@ final class GetConfigLauncher_UsingNativeImage_IT {
 
     @Order(7)
     @Test
+    void Should_read_NettyRuntimeConfig_correctly() throws IOException, InterruptedException {
+        final Map<String, String> systemProperties = Map.ofEntries(
+                entry("netty-runtime.shareWorkerThreads", "true"),
+                entry("netty-runtime.acceptorThreadCount", "2"),
+                entry("netty-runtime.acceptorThreadNameCategory", "acceptor1"),
+                entry("netty-runtime.acceptorThreadPriority", "2"),
+                entry("netty-runtime.workerThreadCount", "4"),
+                entry("netty-runtime.workerThreadNameCategory", "worker1"),
+                entry("netty-runtime.workerThreadPriority", "4"),
+                entry("netty-runtime.channelIdType", "@io.rxmicro.netty.runtime.PredefinedNettyChannelIdType:LONG")
+        );
+        exec("NettyRuntimeConfig", systemProperties);
+
+        final String out = systemOut.asString();
+        assertRequestMessageExists(out, "io.rxmicro.netty.runtime.NettyRuntimeConfig.shareWorkerThreads = true");
+        assertRequestMessageExists(out, "io.rxmicro.netty.runtime.NettyRuntimeConfig.acceptorThreadCount = 2");
+        assertRequestMessageExists(out, "io.rxmicro.netty.runtime.NettyRuntimeConfig.acceptorThreadNameCategory = acceptor1");
+        assertRequestMessageExists(out, "io.rxmicro.netty.runtime.NettyRuntimeConfig.acceptorThreadPriority = 2");
+        assertRequestMessageExists(out, "io.rxmicro.netty.runtime.NettyRuntimeConfig.workerThreadCount = 4");
+        assertRequestMessageExists(out, "io.rxmicro.netty.runtime.NettyRuntimeConfig.workerThreadNameCategory = worker1");
+        assertRequestMessageExists(out, "io.rxmicro.netty.runtime.NettyRuntimeConfig.workerThreadPriority = 4");
+        assertRequestMessageExists(out, "io.rxmicro.netty.runtime.NettyRuntimeConfig.channelIdType = LONG");
+    }
+
+    @Order(8)
+    @Test
     void Should_read_NettyRestServerConfig_correctly() throws IOException, InterruptedException {
         final Map<String, String> systemProperties = Map.ofEntries(
-                entry("netty-rest-server.transport", "EPOLL"),
-                entry("netty-rest-server.channelIdType", "@io.rxmicro.rest.server.netty.PredefinedNettyChannelIdType:LONG")
+                entry("netty-rest-server.maxHttpRequestInitialLineLength", "2"),
+                entry("netty-rest-server.maxHttpRequestHeaderSize", "3"),
+                entry("netty-rest-server.maxHttpRequestChunkSize", "4"),
+                entry("netty-rest-server.validateHttpRequestHeaders", "true"),
+                entry("netty-rest-server.initialHttpRequestBufferSize", "5"),
+                entry("netty-rest-server.allowDuplicateHttpRequestContentLengths", "true"),
+                entry("netty-rest-server.maxHttpRequestContentLength", "6"),
+                entry("netty-rest-server.closeOnHttpRequestContentExpectationFailed", "false")
         );
         exec("NettyRestServerConfig", systemProperties);
 
         final String out = systemOut.asString();
-        assertRequestMessageExists(out, "io.rxmicro.rest.server.netty.NettyRestServerConfig.transport = EPOLL");
-        assertRequestMessageExists(out, "io.rxmicro.rest.server.netty.NettyRestServerConfig.channelIdType = LONG");
+        assertRequestMessageExists(out, "io.rxmicro.rest.server.netty.NettyRestServerConfig.maxHttpRequestInitialLineLength = 2");
+        assertRequestMessageExists(out, "io.rxmicro.rest.server.netty.NettyRestServerConfig.maxHttpRequestHeaderSize = 3");
+        assertRequestMessageExists(out, "io.rxmicro.rest.server.netty.NettyRestServerConfig.maxHttpRequestChunkSize = 4");
+        assertRequestMessageExists(out, "io.rxmicro.rest.server.netty.NettyRestServerConfig.validateHttpRequestHeaders = true");
+        assertRequestMessageExists(out, "io.rxmicro.rest.server.netty.NettyRestServerConfig.initialHttpRequestBufferSize = 5");
+        assertRequestMessageExists(out, "io.rxmicro.rest.server.netty.NettyRestServerConfig.allowDuplicateHttpRequestContentLengths = true");
+        assertRequestMessageExists(out, "io.rxmicro.rest.server.netty.NettyRestServerConfig.maxHttpRequestContentLength = 6");
+        assertRequestMessageExists(out, "io.rxmicro.rest.server.netty.NettyRestServerConfig.closeOnHttpRequestContentExpectationFailed = false");
     }
 
-    @Order(8)
+    @Order(9)
     @Test
     void Should_read_custom_configs_correctly() throws IOException, InterruptedException {
         final Map<String, String> systemProperties = Map.of(

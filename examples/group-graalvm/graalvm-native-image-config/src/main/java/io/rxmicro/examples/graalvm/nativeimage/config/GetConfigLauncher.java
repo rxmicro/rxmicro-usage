@@ -22,6 +22,7 @@ import io.rxmicro.data.mongo.MongoConfig;
 import io.rxmicro.data.sql.r2dbc.postgresql.PostgreSQLConfig;
 import io.rxmicro.examples.graalvm.nativeimage.config.config.CustomConfig;
 import io.rxmicro.examples.graalvm.nativeimage.config.config.DynamicConfig;
+import io.rxmicro.netty.runtime.NettyRuntimeConfig;
 import io.rxmicro.rest.client.RestClientConfig;
 import io.rxmicro.rest.server.HttpServerConfig;
 import io.rxmicro.rest.server.RestServerConfig;
@@ -109,10 +110,29 @@ public class GetConfigLauncher {
         System.out.println();
     }
 
+    private static void getNettyRuntimeConfig() {
+        final NettyRuntimeConfig nettyRuntimeConfig = getConfig(NettyRuntimeConfig.class);
+        System.out.println("io.rxmicro.netty.runtime.NettyRuntimeConfig.shareWorkerThreads = " + nettyRuntimeConfig.isShareWorkerThreads());
+        System.out.println("io.rxmicro.netty.runtime.NettyRuntimeConfig.acceptorThreadCount = " + nettyRuntimeConfig.getAcceptorThreadCount());
+        System.out.println("io.rxmicro.netty.runtime.NettyRuntimeConfig.acceptorThreadNameCategory = " + nettyRuntimeConfig.getAcceptorThreadNameCategory());
+        System.out.println("io.rxmicro.netty.runtime.NettyRuntimeConfig.acceptorThreadPriority = " + nettyRuntimeConfig.getAcceptorThreadPriority());
+        System.out.println("io.rxmicro.netty.runtime.NettyRuntimeConfig.workerThreadCount = " + nettyRuntimeConfig.getWorkerThreadCount());
+        System.out.println("io.rxmicro.netty.runtime.NettyRuntimeConfig.workerThreadNameCategory = " + nettyRuntimeConfig.getWorkerThreadNameCategory());
+        System.out.println("io.rxmicro.netty.runtime.NettyRuntimeConfig.workerThreadPriority = " + nettyRuntimeConfig.getWorkerThreadPriority());
+        System.out.println("io.rxmicro.netty.runtime.NettyRuntimeConfig.channelIdType = " + nettyRuntimeConfig.getChannelIdType());
+        System.out.println();
+    }
+
     private static void getNettyRestServerConfig() {
         final NettyRestServerConfig nettyRestServerConfig = getConfig(NettyRestServerConfig.class);
-        System.out.println("io.rxmicro.rest.server.netty.NettyRestServerConfig.transport = " + nettyRestServerConfig.getTransport());
-        System.out.println("io.rxmicro.rest.server.netty.NettyRestServerConfig.channelIdType = " + nettyRestServerConfig.getChannelIdType());
+        System.out.println("io.rxmicro.rest.server.netty.NettyRestServerConfig.maxHttpRequestInitialLineLength = " + nettyRestServerConfig.getMaxHttpRequestInitialLineLength());
+        System.out.println("io.rxmicro.rest.server.netty.NettyRestServerConfig.maxHttpRequestHeaderSize = " + nettyRestServerConfig.getMaxHttpRequestHeaderSize());
+        System.out.println("io.rxmicro.rest.server.netty.NettyRestServerConfig.maxHttpRequestChunkSize = " + nettyRestServerConfig.getMaxHttpRequestChunkSize());
+        System.out.println("io.rxmicro.rest.server.netty.NettyRestServerConfig.validateHttpRequestHeaders = " + nettyRestServerConfig.isValidateHttpRequestHeaders());
+        System.out.println("io.rxmicro.rest.server.netty.NettyRestServerConfig.initialHttpRequestBufferSize = " + nettyRestServerConfig.getInitialHttpRequestBufferSize());
+        System.out.println("io.rxmicro.rest.server.netty.NettyRestServerConfig.allowDuplicateHttpRequestContentLengths = " + nettyRestServerConfig.isAllowDuplicateHttpRequestContentLengths());
+        System.out.println("io.rxmicro.rest.server.netty.NettyRestServerConfig.maxHttpRequestContentLength = " + nettyRestServerConfig.getMaxHttpRequestContentLength());
+        System.out.println("io.rxmicro.rest.server.netty.NettyRestServerConfig.closeOnHttpRequestContentExpectationFailed = " + nettyRestServerConfig.isCloseOnHttpRequestContentExpectationFailed());
         System.out.println();
     }
 
@@ -150,7 +170,9 @@ public class GetConfigLauncher {
             getHttpServerConfig();
         } else if ("RestServerConfig".equals(args[0])) {
             getRestServerConfig();
-        } else if ("NettyRestServerConfig".equals(args[0])) {
+        } else if ("NettyRuntimeConfig".equals(args[0])) {
+            getNettyRuntimeConfig();
+        }  else if ("NettyRestServerConfig".equals(args[0])) {
             getNettyRestServerConfig();
         } else if ("CustomConfigs".equals(args[0])) {
             getCustomConfigs();
