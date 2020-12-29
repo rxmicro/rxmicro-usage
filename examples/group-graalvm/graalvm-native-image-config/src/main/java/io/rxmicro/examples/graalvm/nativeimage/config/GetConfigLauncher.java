@@ -29,6 +29,7 @@ import io.rxmicro.rest.server.RestServerConfig;
 import io.rxmicro.rest.server.netty.NettyRestServerConfig;
 
 import static io.rxmicro.config.Configs.getConfig;
+import static io.rxmicro.examples.graalvm.nativeimage.config.TestDataProvider.ALL_SYSTEM_PROPERTIES;
 
 public class GetConfigLauncher {
 
@@ -150,6 +151,7 @@ public class GetConfigLauncher {
         new Configs.Builder().build();
 
         if (args.length == 0) {
+            ALL_SYSTEM_PROPERTIES.forEach(System::setProperty);
             getSecretsConfig();
             getMongoConfig();
             getPostgreSQLConfig();
@@ -157,6 +159,7 @@ public class GetConfigLauncher {
             getHttpServerConfig();
             getRestServerConfig();
             getNettyRestServerConfig();
+            getNettyRuntimeConfig();
             getCustomConfigs();
         } else if ("SecretsConfig".equals(args[0])) {
             getSecretsConfig();
