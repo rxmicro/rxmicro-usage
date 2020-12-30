@@ -16,5 +16,4 @@
 
 module examples.cdi.errors {
     requires rxmicro.cdi;
-    requires rxmicro.files;
 }

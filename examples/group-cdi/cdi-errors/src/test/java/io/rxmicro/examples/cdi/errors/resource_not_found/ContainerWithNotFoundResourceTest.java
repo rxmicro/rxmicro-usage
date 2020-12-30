@@ -17,7 +17,7 @@
 package io.rxmicro.examples.cdi.errors.resource_not_found;
 
 import io.rxmicro.cdi.BeanFactory;
-import io.rxmicro.files.ResourceException;
+import io.rxmicro.resource.model.ResourceException;
 import io.rxmicro.test.junit.RxMicroIntegrationTest;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
