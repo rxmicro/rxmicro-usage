@@ -16,8 +16,6 @@
 
 package io.rxmicro.util.doc;
 
-import io.rxmicro.common.InvalidStateException;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -27,21 +25,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.function.ToIntFunction;
 
 import static io.rxmicro.common.util.Formats.format;
+import static io.rxmicro.util.CommonSettings.RX_MICRO_WORKSPACE_HOME;
 import static io.rxmicro.util.doc.WordUtils.getWords;
 
 public final class WordStatistics {
 
-    private static final String RX_MICRO_WORKSPACE_HOME = "RX_MICRO_WORKSPACE_HOME";
-
-    private static final String RX_MICRO_HOME_VALUE = Optional.ofNullable(System.getenv(RX_MICRO_WORKSPACE_HOME)).orElseThrow(() -> {
-        throw new InvalidStateException("System variable '?' not defined", RX_MICRO_WORKSPACE_HOME);
-    });
-
-    private static final File DOC_ROOT = new File(format("?/rxmicro-usage/documentation/src/main/asciidoc/_fragment/", RX_MICRO_HOME_VALUE));
+    private static final File DOC_ROOT = new File(format("?/rxmicro-usage/documentation/src/main/asciidoc/_fragment/", RX_MICRO_WORKSPACE_HOME));
 
     private static void findAllLines(final File dir, final List<String> allLines) throws IOException {
         for (final File file : Objects.requireNonNull(dir.listFiles())) {

@@ -20,9 +20,9 @@ import io.rxmicro.common.InvalidStateException;
 
 import java.io.File;
 import java.util.Map;
-import java.util.Optional;
 
 import static io.rxmicro.common.util.Formats.format;
+import static io.rxmicro.util.CommonSettings.RX_MICRO_WORKSPACE_HOME;
 import static java.util.Map.entry;
 
 public final class Settings {
@@ -49,16 +49,9 @@ public final class Settings {
 
     public static final Map<String, String> RX_MICRO_MODULES;
 
-    private static final String RX_MICRO_WORKSPACE_HOME = "RX_MICRO_WORKSPACE_HOME";
-
-    private static final String RX_MICRO_HOME_VALUE;
-
     static {
-        RX_MICRO_HOME_VALUE = Optional.ofNullable(System.getenv(RX_MICRO_WORKSPACE_HOME)).orElseThrow(() -> {
-            throw new InvalidStateException("System variable '?' not defined", RX_MICRO_WORKSPACE_HOME);
-        });
-        RX_MICRO_ROOT_DIR_PATH = format("?/rxmicro", RX_MICRO_HOME_VALUE);
-        EXAMPLES_ROOT_DIR_PATH = format("?/rxmicro-usage/examples", RX_MICRO_HOME_VALUE);
+        RX_MICRO_ROOT_DIR_PATH = format("?/rxmicro", RX_MICRO_WORKSPACE_HOME);
+        EXAMPLES_ROOT_DIR_PATH = format("?/rxmicro-usage/examples", RX_MICRO_WORKSPACE_HOME);
         for (final String path : new String[]{RX_MICRO_ROOT_DIR_PATH, EXAMPLES_ROOT_DIR_PATH}) {
             if (!new File(path).exists()) {
                 throw new InvalidStateException("Directory not found: '?'", path);

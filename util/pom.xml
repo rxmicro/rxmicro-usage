@@ -45,6 +45,11 @@
             <artifactId>rxmicro-rest-client-jdk</artifactId>
             <version>${rxmicro.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.rxmicro</groupId>
+            <artifactId>rxmicro-exchange-json</artifactId>
+            <version>${rxmicro.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>commons-io</groupId>

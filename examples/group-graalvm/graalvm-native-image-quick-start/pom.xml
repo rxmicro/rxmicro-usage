@@ -28,6 +28,10 @@
     <artifactId>graalvm-native-image-quick-start</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <graalvm-native-image-docker-build-skip>true</graalvm-native-image-docker-build-skip>
+    </properties>
+
     <build>
         <finalName>HelloWorldMicroService</finalName>
         <testSourceDirectory>src/it/java</testSourceDirectory>
@@ -165,6 +169,7 @@
                         <configuration>
                             <repository>rxmicro/native-hello-world</repository>
                             <tag>latest</tag>
+                            <skip>${graalvm-native-image-docker-build-skip}</skip>
                         </configuration>
                     </plugin>
                     <plugin>

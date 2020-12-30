@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. https://rxmicro.io
+ * Copyright (c) 2020. http://rxmicro.io
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-module rxmicro.examples.util {
-    requires rxmicro.common;
-    requires rxmicro.json;
-    requires commons.io;
-    requires org.jsoup;
-    requires java.net.http;
-    requires rxmicro.data.mongo;
-    requires rxmicro.data.sql.r2dbc.postgresql;
-    requires rxmicro.rest.server.netty;
-    requires rxmicro.rest.client.jdk;
+package io.rxmicro.util.graalvm;
+
+import java.io.File;
+import java.util.List;
+import java.util.Map;
+
+public interface GraalVmProcessor {
+
+    List<RxMicroNativeImageResource> process(final File rxMicroHome, final List<Map.Entry<Example, Object>> data);
 }
+

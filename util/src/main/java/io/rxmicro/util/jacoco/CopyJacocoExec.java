@@ -16,28 +16,20 @@
 
 package io.rxmicro.util.jacoco;
 
-import io.rxmicro.common.InvalidStateException;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Optional;
 
 import static io.rxmicro.common.util.Formats.format;
+import static io.rxmicro.util.CommonSettings.RX_MICRO_WORKSPACE_HOME;
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
 public final class CopyJacocoExec {
 
-    private static final String RX_MICRO_WORKSPACE_HOME = "RX_MICRO_WORKSPACE_HOME";
+    private static final File CACHE = new File(format("?/rxmicro-usage/.cache", RX_MICRO_WORKSPACE_HOME));
 
-    private static final String RX_MICRO_HOME_VALUE = Optional.ofNullable(System.getenv(RX_MICRO_WORKSPACE_HOME)).orElseThrow(() -> {
-        throw new InvalidStateException("System variable '?' not defined", RX_MICRO_WORKSPACE_HOME);
-    });
-
-    private static final File CACHE = new File(format("?/rxmicro-usage/.cache", RX_MICRO_HOME_VALUE));
-
-    private static final File REPORT = new File(format("?/rxmicro/rxmicro-annotation-processor/target", RX_MICRO_HOME_VALUE));
+    private static final File REPORT = new File(format("?/rxmicro/rxmicro-annotation-processor/target", RX_MICRO_WORKSPACE_HOME));
 
     private static void findJacoco(final File dir) throws IOException {
         final File[] files = dir.listFiles();
@@ -64,7 +56,7 @@ public final class CopyJacocoExec {
                 throw new IOException("Can't mk dirs: " + CACHE);
             }
         }
-        findJacoco(new File(format("?/rxmicro-usage", RX_MICRO_HOME_VALUE)).getAbsoluteFile());
+        findJacoco(new File(format("?/rxmicro-usage", RX_MICRO_WORKSPACE_HOME)).getAbsoluteFile());
         System.out.println("Completed");
     }
 }
