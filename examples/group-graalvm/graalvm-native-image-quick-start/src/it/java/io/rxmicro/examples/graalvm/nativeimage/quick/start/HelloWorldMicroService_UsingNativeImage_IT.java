@@ -17,7 +17,7 @@
 package io.rxmicro.examples.graalvm.nativeimage.quick.start;
 
 import io.rxmicro.config.WaitFor;
-import io.rxmicro.http.client.ClientHttpResponse;
+import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.test.BlockingHttpClient;
 import io.rxmicro.test.TestedProcessBuilder;
 import io.rxmicro.test.junit.RxMicroIntegrationTest;

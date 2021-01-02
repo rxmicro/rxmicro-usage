@@ -16,7 +16,7 @@
 
 package io.rxmicro.examples.testing.integration.docker;
 
-import io.rxmicro.http.client.ClientHttpResponse;
+import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.test.BlockingHttpClient;
 import io.rxmicro.test.junit.RxMicroIntegrationTest;
 import org.junit.jupiter.api.Test;

@@ -16,7 +16,7 @@
 
 package io.rxmicro.examples.unnamed.module.quick.start;
 
-import io.rxmicro.http.client.ClientHttpResponse;
+import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.test.BlockingHttpClient;
 import io.rxmicro.test.junit.RxMicroRestBasedMicroServiceTest;
 import org.junit.jupiter.api.Test;

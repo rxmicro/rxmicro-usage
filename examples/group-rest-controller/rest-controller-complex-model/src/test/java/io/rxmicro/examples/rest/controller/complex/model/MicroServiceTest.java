@@ -17,7 +17,7 @@
 package io.rxmicro.examples.rest.controller.complex.model;
 
 import io.rxmicro.examples.rest.controller.complex.model.model.Status;
-import io.rxmicro.http.client.ClientHttpResponse;
+import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.json.JsonNumber;
 import io.rxmicro.test.BlockingHttpClient;
 import io.rxmicro.test.junit.RxMicroRestBasedMicroServiceTest;

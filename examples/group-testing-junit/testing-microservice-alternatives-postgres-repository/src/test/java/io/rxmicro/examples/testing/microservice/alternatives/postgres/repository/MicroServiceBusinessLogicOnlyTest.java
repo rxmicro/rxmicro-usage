@@ -17,7 +17,7 @@
 package io.rxmicro.examples.testing.microservice.alternatives.postgres.repository;
 
 import io.rxmicro.examples.testing.microservice.alternatives.postgres.repository.model.Entity;
-import io.rxmicro.http.client.ClientHttpResponse;
+import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.test.Alternative;
 import io.rxmicro.test.BlockingHttpClient;
 import io.rxmicro.test.junit.RxMicroRestBasedMicroServiceTest;

@@ -20,7 +20,7 @@ import io.rxmicro.examples.rest.client.params.model.ComplexRequest;
 import io.rxmicro.examples.rest.client.params.model.ComplexResponse;
 import io.rxmicro.examples.rest.client.params.model.Status;
 import io.rxmicro.examples.rest.client.params.model.nested.NestedModel;
-import io.rxmicro.http.client.HttpClientFactory;
+import io.rxmicro.rest.client.detail.HttpClientFactory;
 import io.rxmicro.test.Alternative;
 import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;

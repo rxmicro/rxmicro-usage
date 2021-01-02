@@ -20,7 +20,7 @@ import io.rxmicro.config.Configs;
 import io.rxmicro.config.WaitFor;
 import io.rxmicro.examples.processor.proxy.server.RestControllerProxy;
 import io.rxmicro.http.HttpHeaders;
-import io.rxmicro.http.client.ClientHttpResponse;
+import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.logger.LoggerImplProviderFactory;
 import io.rxmicro.rest.client.RestClientConfig;
 import io.rxmicro.rest.server.HttpServerConfig;

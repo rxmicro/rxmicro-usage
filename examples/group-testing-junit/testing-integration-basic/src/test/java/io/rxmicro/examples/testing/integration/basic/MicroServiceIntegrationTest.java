@@ -17,7 +17,7 @@
 package io.rxmicro.examples.testing.integration.basic;
 
 import io.rxmicro.config.Configs;
-import io.rxmicro.http.client.ClientHttpResponse;
+import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.rest.server.HttpServerConfig;
 import io.rxmicro.rest.server.ServerInstance;
 import io.rxmicro.test.BlockingHttpClient;

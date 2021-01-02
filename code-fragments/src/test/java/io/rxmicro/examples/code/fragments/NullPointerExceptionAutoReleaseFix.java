@@ -16,7 +16,7 @@
 
 package io.rxmicro.examples.code.fragments;
 
-import io.rxmicro.http.client.HttpClientFactory;
+import io.rxmicro.rest.client.detail.HttpClientFactory;
 import io.rxmicro.test.Alternative;
 import org.mockito.Answers;
 import org.mockito.Mock;

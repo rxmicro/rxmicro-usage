@@ -17,7 +17,7 @@
 package io.rxmicro.examples.rest.client.expressions;
 
 import io.rxmicro.http.HttpHeaders;
-import io.rxmicro.http.client.HttpClientFactory;
+import io.rxmicro.rest.client.detail.HttpClientFactory;
 import io.rxmicro.rest.model.HttpMethod;
 import io.rxmicro.test.Alternative;
 import io.rxmicro.test.SetConfigValue;

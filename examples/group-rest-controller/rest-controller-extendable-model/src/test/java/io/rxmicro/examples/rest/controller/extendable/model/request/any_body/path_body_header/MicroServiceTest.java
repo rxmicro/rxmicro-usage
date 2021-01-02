@@ -17,7 +17,7 @@
 package io.rxmicro.examples.rest.controller.extendable.model.request.any_body.path_body_header;
 
 import io.rxmicro.http.HttpHeaders;
-import io.rxmicro.http.client.ClientHttpResponse;
+import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.test.BlockingHttpClient;
 import io.rxmicro.test.SystemOut;
 import io.rxmicro.test.junit.RxMicroRestBasedMicroServiceTest;

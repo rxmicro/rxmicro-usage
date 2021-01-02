@@ -16,8 +16,8 @@
 
 package io.rxmicro.examples.rest.client.partial.implementation;
 
-import io.rxmicro.http.client.HttpClient;
-import io.rxmicro.http.client.HttpClientFactory;
+import io.rxmicro.rest.client.detail.HttpClient;
+import io.rxmicro.rest.client.detail.HttpClientFactory;
 import io.rxmicro.test.Alternative;
 import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;

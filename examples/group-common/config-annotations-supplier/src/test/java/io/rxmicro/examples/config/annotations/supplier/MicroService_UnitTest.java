@@ -17,7 +17,7 @@
 package io.rxmicro.examples.config.annotations.supplier;
 
 import io.rxmicro.http.HttpStandardHeaderNames;
-import io.rxmicro.http.client.ClientHttpResponse;
+import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.rest.server.ServerInstance;
 import io.rxmicro.test.BlockingHttpClient;
 import io.rxmicro.test.junit.RxMicroIntegrationTest;

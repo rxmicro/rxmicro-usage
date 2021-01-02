@@ -17,7 +17,7 @@
 package io.rxmicro.examples.rest.controller.extendable.model.response.body_only.grand_parent_model_without_fields;
 
 import io.rxmicro.examples.rest.controller.extendable.model.AbstractTest;
-import io.rxmicro.http.client.ClientHttpResponse;
+import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.test.BlockingHttpClient;
 import io.rxmicro.test.junit.RxMicroRestBasedMicroServiceTest;
 import org.junit.jupiter.api.DisplayNameGeneration;

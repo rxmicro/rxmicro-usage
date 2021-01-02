@@ -16,7 +16,7 @@
 
 package io.rxmicro.examples.rest.controller.extendable.model;
 
-import io.rxmicro.http.client.ClientHttpResponse;
+import io.rxmicro.test.ClientHttpResponse;
 
 import java.util.HashSet;
 import java.util.List;

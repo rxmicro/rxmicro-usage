@@ -16,7 +16,7 @@
 
 package io.rxmicro.examples.rest.client.base.url.path;
 
-import io.rxmicro.http.client.HttpClientFactory;
+import io.rxmicro.rest.client.detail.HttpClientFactory;
 import io.rxmicro.rest.model.HttpMethod;
 import io.rxmicro.test.Alternative;
 import io.rxmicro.test.junit.BeforeThisTest;

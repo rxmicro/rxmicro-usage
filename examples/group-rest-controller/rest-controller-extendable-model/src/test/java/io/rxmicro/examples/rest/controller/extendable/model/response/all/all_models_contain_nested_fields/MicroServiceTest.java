@@ -17,7 +17,7 @@
 package io.rxmicro.examples.rest.controller.extendable.model.response.all.all_models_contain_nested_fields;
 
 import io.rxmicro.examples.rest.controller.extendable.model.AbstractTest;
-import io.rxmicro.http.client.ClientHttpResponse;
+import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.test.BlockingHttpClient;
 import io.rxmicro.test.junit.RxMicroRestBasedMicroServiceTest;
 import org.junit.jupiter.api.DisplayNameGeneration;

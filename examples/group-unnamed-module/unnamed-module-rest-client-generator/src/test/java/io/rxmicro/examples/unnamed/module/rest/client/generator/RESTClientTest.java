@@ -19,7 +19,7 @@ package io.rxmicro.examples.unnamed.module.rest.client.generator;
 import io.rxmicro.examples.unnamed.module.rest.client.generator.model.Request;
 import io.rxmicro.examples.unnamed.module.rest.client.generator.model.Response;
 import io.rxmicro.http.QueryParams;
-import io.rxmicro.http.client.HttpClientFactory;
+import io.rxmicro.rest.client.detail.HttpClientFactory;
 import io.rxmicro.http.error.ValidationException;
 import io.rxmicro.rest.client.RestClientConfig;
 import io.rxmicro.rest.model.HttpMethod;
