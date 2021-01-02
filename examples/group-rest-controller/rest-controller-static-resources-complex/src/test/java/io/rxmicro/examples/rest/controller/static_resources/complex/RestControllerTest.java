@@ -17,9 +17,9 @@
 package io.rxmicro.examples.rest.controller.static_resources.complex;
 
 import io.rxmicro.http.HttpHeaders;
-import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.rest.server.HttpServerConfig;
 import io.rxmicro.test.BlockingHttpClient;
+import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.test.junit.RxMicroRestBasedMicroServiceTest;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -157,7 +157,7 @@ final class RestControllerTest {
     void Should_send_file_correctly(final String url,
                                     final String expectedContent) {
         final ClientHttpResponse response = blockingHttpClient.get(url);
-        assertEquals(expectedContent, response.getBodyAsString());
+        assertEquals(expectedContent, response.getBodyAsUTF8String());
         assertEquals(200, response.getStatusCode());
     }
 
@@ -206,7 +206,7 @@ final class RestControllerTest {
                         ifModifiedSinceValue
                 ));
         assertEquals(304, response.getStatusCode());
-        assertTrue(response.isBodyEmpty(), () -> "Response body is not empty: " + response.getBodyAsString());
+        assertTrue(response.isBodyEmpty(), () -> "Response body is not empty: " + response.getBodyAsUTF8String());
     }
 
     @AfterAll

@@ -50,13 +50,7 @@ Before using the RxMicro modules for testing, You need to add the following depe
     </dependency>
     <dependency>
         <groupId>io.rxmicro</groupId>
-        <artifactId>rxmicro-http-client-jdk</artifactId> <!--3-->
-        <version>${rxmicro.version}</version>
-        <scope>test</scope>
-    </dependency>
-    <dependency>
-        <groupId>io.rxmicro</groupId>
-        <artifactId>rxmicro-rest-client-exchange-json</artifactId> <!--4-->
+        <artifactId>rxmicro-rest-client-exchange-json</artifactId> <!--3-->
         <version>${rxmicro.version}</version>
         <scope>test</scope>
     </dependency>
@@ -64,12 +58,11 @@ Before using the RxMicro modules for testing, You need to add the following depe
 ----
 <1> `rxmicro-test-junit` - a unit testing library based on the https://junit.org/junit5/[JUnit 5^] framework.
 <2> `rxmicro-test-mockito-junit` - a unit testing library based on the https://junit.org/junit5/[JUnit 5^] framework with integration of the https://site.mockito.org/[Mockito^] framework.
-<3> `rxmicro-http-client-jdk` - an HTTP client library based on the https://developer.oracle.com/java/jdk-http-client.html[`java.net.http`^] JDK module.
-<4> `rxmicro-rest-client-exchange-json` - a library for converting Java models to https://www.json.org/[JSON^] format and vice versa on the HTTP client side.
+<3> `rxmicro-rest-client-exchange-json` - a library for converting Java models to https://www.json.org/[JSON^] format and vice versa on the HTTP client side.
 
 [TIP]
 ====
-The `rxmicro-http-client-jdk` and `rxmicro-rest-client-exchange-json` libraries are required only during writing the
+The `rxmicro-rest-client-exchange-json` libraries are required only during writing the
 <<testing#testing-rest-based-microservice-tests-section, REST-based microservice tests>> and <<testing#testing-integration-tests-section, integration tests>>.
 These dependencies can be omitted during writing the <<testing#testing-component-tests-section, component unit tests>>.
 

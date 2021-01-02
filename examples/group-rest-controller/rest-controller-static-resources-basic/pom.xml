@@ -130,11 +130,5 @@
             <version>${rxmicro.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>io.rxmicro</groupId>
-            <artifactId>rxmicro-rest-client-jdk</artifactId>
-            <version>${rxmicro.version}</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 </project>

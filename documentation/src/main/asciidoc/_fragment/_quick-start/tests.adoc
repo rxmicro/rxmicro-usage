@@ -31,24 +31,17 @@ Before using RxMicro modules for testing, You need to add the following dependen
     </dependency>
     <dependency>
         <groupId>io.rxmicro</groupId>
-        <artifactId>rxmicro-http-client-jdk</artifactId> <!--2-->
-        <version>${rxmicro.version}</version>
-        <scope>test</scope>
-    </dependency>
-    <dependency>
-        <groupId>io.rxmicro</groupId>
-        <artifactId>rxmicro-rest-client-exchange-json</artifactId> <!--3-->
+        <artifactId>rxmicro-rest-client-exchange-json</artifactId> <!--2-->
         <version>${rxmicro.version}</version>
         <scope>test</scope>
     </dependency>
 </dependencies>
 ----
 <1> Unit testing library based on the https://junit.org/junit5/[JUnit 5^] framework
-<2> HTTP client library based on the https://developer.oracle.com/java/jdk-http-client.html[`java.net.http`^] JDK module;
-<3> Library for Java model conversion to https://www.json.org/[JSON^] format and vice versa on the HTTP client side;
+<2> Library for Java model conversion to https://www.json.org/[JSON^] format and vice versa on the HTTP client side;
 
 The REST-based microservice testing process consists in launching the REST-based microservice and sending a request to the microservice via HTTP client. +
-_(Therefore, in `maven` dependencies it's necessary to add the HTTP client library (`rxmicro-http-client-jdk`) and the library supporting the https://www.json.org/[JSON^]
+_(Therefore, in `maven` dependencies it's necessary to add the library supporting the https://www.json.org/[JSON^]
 format on the HTTP client side (`rxmicro-rest-client-exchange-json`))_. +
 After receiving a response from the microservice, the response is compared to the expected one.
 

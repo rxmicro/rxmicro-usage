@@ -104,7 +104,7 @@ final class StaticResourcesTest {
     void Static_resources_should_be_accessible(final String url) {
         final ClientHttpResponse response = blockingHttpClient.get(url);
 
-        assertEquals(url, response.getBodyAsString());
+        assertEquals(url, response.getBodyAsUTF8String());
         assertEquals(200, response.getStatusCode());
     }
 
@@ -113,7 +113,7 @@ final class StaticResourcesTest {
     void Should_return_404(){
         final ClientHttpResponse response = blockingHttpClient.get("/not_found.txt");
 
-        assertEquals("Resource 'HttpServerConfig.getRootDirectory() + /not_found.txt' not found!", response.getBodyAsString());
+        assertEquals("Resource 'HttpServerConfig.getRootDirectory() + /not_found.txt' not found!", response.getBodyAsUTF8String());
         assertEquals(404, response.getStatusCode());
     }
 
