@@ -35,6 +35,7 @@ import static io.rxmicro.json.JsonTypes.asJsonObject;
 import static io.rxmicro.json.JsonTypes.asJsonString;
 
 public class JniProcessor implements GraalVmProcessor {
+
     @Override
     public List<RxMicroNativeImageResource> process(final File rxMicroHome,
                                                     final List<Map.Entry<Example, Object>> data) {
@@ -47,9 +48,9 @@ public class JniProcessor implements GraalVmProcessor {
                 if (name.startsWith("io.rxmicro.examples.")) {
                     // ignore
                 } else if (name.startsWith("java.")) {
-                    jsonModelMap.computeIfAbsent("java-jni.config", k -> new ArrayList<>()).add(jsonObject);
+                    jsonModelMap.computeIfAbsent("java-jni-config", k -> new ArrayList<>()).add(jsonObject);
                 } else if (name.startsWith("sun.")) {
-                    jsonModelMap.computeIfAbsent("sun-jni.config", k -> new ArrayList<>()).add(jsonObject);
+                    jsonModelMap.computeIfAbsent("sun-jni-config", k -> new ArrayList<>()).add(jsonObject);
                 } else {
                     throw new MissingProcessingLogicException("Unsupported class name: '?'", name);
                 }

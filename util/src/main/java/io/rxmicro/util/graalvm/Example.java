@@ -26,9 +26,12 @@ public enum Example {
 
     rest_server,
 
-    rest_client;
+    rest_client_jdk,
 
-    public static Example of(final String projectName) {
+    rest_client_netty;
+
+    public static Example of(final String projectName,
+                             final String graalDirectory) {
         if ("graalvm-native-image-config".equals(projectName)) {
             return config;
         } else if ("graalvm-native-image-mongo-data-repository".equals(projectName)) {
@@ -38,10 +41,13 @@ public enum Example {
         } else if ("graalvm-native-image-quick-start".equals(projectName)) {
             return rest_server;
         } else if ("graalvm-native-image-rest-client".equals(projectName)) {
-            return rest_client;
-        } else {
-            throw new IllegalArgumentException("Not implemented: " + projectName);
+            if (".graal-jdk".equals(graalDirectory)) {
+                return rest_client_jdk;
+            } else if (".graal-netty".equals(graalDirectory)) {
+                return rest_client_netty;
+            }
         }
+        throw new IllegalArgumentException("Not implemented: " + projectName + "/" + graalDirectory);
     }
 }
 

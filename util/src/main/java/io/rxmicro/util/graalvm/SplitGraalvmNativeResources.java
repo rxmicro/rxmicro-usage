@@ -35,6 +35,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import static io.rxmicro.common.RxMicroModule.RX_MICRO_SLF4J_PROXY_MODULE;
 import static io.rxmicro.common.util.Formats.format;
 import static io.rxmicro.util.CommonSettings.RX_MICRO_WORKSPACE_HOME;
 import static io.rxmicro.util.graalvm.NativeConfigs.createNativeConfigs;
@@ -110,6 +111,23 @@ public final class SplitGraalvmNativeResources {
                     propertyHeader + "Args =  " + String.join(" \\\n        ", propValues) + lineSeparator()
             );
             System.out.println(format("'?' updated!", rxMicroModule.getName()));
+        }
+        addCustomSettings(rxMicroHome, propertyHeader);
+    }
+
+    private static void addCustomSettings(final File rxMicroHome,
+                                          final String propertyHeader) throws IOException {
+        //Add --initialize-at-build-time=org.slf4j.LoggerFactory to RX_MICRO_SLF4J_PROXY_MODULE
+        {
+            final File nativeImageDir = new File(
+                    rxMicroHome.getAbsolutePath() + "/" + RX_MICRO_SLF4J_PROXY_MODULE.getDirectory() +
+                            "/src/main/resources/META-INF/native-image"
+            );
+            final Path rootConfigDir = createDirectories(Paths.get(nativeImageDir.getAbsolutePath(), "io.rxmicro", RX_MICRO_SLF4J_PROXY_MODULE.getDirectory()));
+            writeString(
+                    rootConfigDir.resolve("native-image.properties"),
+                    propertyHeader + "Args =  --initialize-at-build-time=org.slf4j.LoggerFactory" + lineSeparator()
+            );
         }
     }
 

@@ -50,6 +50,11 @@
             <artifactId>rxmicro-exchange-json</artifactId>
             <version>${rxmicro.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.rxmicro</groupId>
+            <artifactId>rxmicro-netty-native-all</artifactId>
+            <version>${rxmicro.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>commons-io</groupId>

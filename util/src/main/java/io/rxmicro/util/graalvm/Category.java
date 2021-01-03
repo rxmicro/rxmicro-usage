@@ -37,7 +37,7 @@ public enum Category {
     }
 
     public String getFileName() {
-        return format("?-config.json", name());
+        return format("?-config", name());
     }
 
     public String getInstruction() {
@@ -46,7 +46,7 @@ public enum Category {
 
     public static Category of(final String fileName) {
         for (final Category category : Category.values()) {
-            if (category.getFileName().equals(fileName)) {
+            if (fileName.equals(category.getFileName() + ".json")) {
                 return category;
             }
         }

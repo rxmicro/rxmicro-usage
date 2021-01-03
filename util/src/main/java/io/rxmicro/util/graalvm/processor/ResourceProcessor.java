@@ -34,6 +34,10 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 import static io.rxmicro.common.RxMicroModule.RX_MICRO_DATA_SQL_R2DBC_POSTGRESQL_MODULE;
+import static io.rxmicro.common.RxMicroModule.RX_MICRO_NETTY_NATIVE_ALL_MODULE;
+import static io.rxmicro.common.RxMicroModule.RX_MICRO_NETTY_NATIVE_LINUX_MODULE;
+import static io.rxmicro.common.RxMicroModule.RX_MICRO_NETTY_NATIVE_MODULE;
+import static io.rxmicro.common.RxMicroModule.RX_MICRO_NETTY_NATIVE_OSX_MODULE;
 import static io.rxmicro.common.RxMicroModule.RX_MICRO_REST_SERVER_NETTY_MODULE;
 import static io.rxmicro.common.RxMicroModule.RX_MICRO_RUNTIME_MODULE;
 import static io.rxmicro.json.JsonTypes.asJsonObject;
@@ -44,13 +48,32 @@ import static java.util.stream.Collectors.toSet;
 public class ResourceProcessor implements GraalVmProcessor {
 
     private final Set<String> ignoredResources = Set.of(
-            "\\Qjul.properties\\E"
+            "\\Qjul.properties\\E",
+            "\\Qjul.test.properties\\E"
     );
 
-    private final Map<String, RxMicroModule> notStandardModules = Map.ofEntries(
-            entry("\\QMETA-INF/maven/io.rxmicro/rxmicro-runtime/pom.properties\\E", RX_MICRO_RUNTIME_MODULE),
-            entry("\\Qmime-types.properties\\E", RX_MICRO_REST_SERVER_NETTY_MODULE),
-            entry("\\QMETA-INF/services/io.r2dbc.postgresql.extension.Extension\\E", RX_MICRO_DATA_SQL_R2DBC_POSTGRESQL_MODULE)
+    private final Map<String, List<RxMicroModule>> notStandardModules = Map.ofEntries(
+            entry(
+                    "\\QMETA-INF/maven/io.rxmicro/rxmicro-runtime/pom.properties\\E",
+                    List.of(RX_MICRO_RUNTIME_MODULE)
+            ),
+            entry(
+                    "\\Qmime-types.properties\\E",
+                    List.of(RX_MICRO_REST_SERVER_NETTY_MODULE)
+            ),
+            entry(
+                    "\\QMETA-INF/services/io.r2dbc.postgresql.extension.Extension\\E",
+                    List.of(RX_MICRO_DATA_SQL_R2DBC_POSTGRESQL_MODULE)
+            ),
+
+            entry(
+                    "\\QMETA-INF/native/libnetty_transport_native_epoll_x86_64.so\\E",
+                    List.of(RX_MICRO_NETTY_NATIVE_LINUX_MODULE, RX_MICRO_NETTY_NATIVE_MODULE, RX_MICRO_NETTY_NATIVE_ALL_MODULE)
+            ),
+            entry(
+                    "\\QMETA-INF/native/libnetty_transport_native_kqueue_x86_64.jnilib\\E",
+                    List.of(RX_MICRO_NETTY_NATIVE_OSX_MODULE, RX_MICRO_NETTY_NATIVE_MODULE, RX_MICRO_NETTY_NATIVE_ALL_MODULE)
+            )
     );
 
     @Override
@@ -62,18 +85,20 @@ public class ResourceProcessor implements GraalVmProcessor {
                 .collect(toSet());
         final Map<RxMicroModule, Set<String>> resourceMap = new EnumMap<>(RxMicroModule.class);
         for (final String resource : resources) {
-            final RxMicroModule rxMicroModule = notStandardModules.get(resource);
-            if (rxMicroModule != null) {
-                resourceMap.computeIfAbsent(rxMicroModule, m -> new TreeSet<>()).add(resource);
+            final List<RxMicroModule> rxMicroModules = notStandardModules.get(resource);
+            if (rxMicroModules != null) {
+                for (final RxMicroModule rxMicroModule : rxMicroModules) {
+                    resourceMap.computeIfAbsent(rxMicroModule, m -> new TreeSet<>()).add(resource);
+                }
             } else if (resource.startsWith("\\QMETA-INF/services/io.rxmicro.")) {
                 final String resourcePath = resource.substring(2, resource.length() - 2);
-                final File[] rxMicroModules = requireNonNull(rxMicroHome.listFiles((dir, name) -> name.startsWith("rxmicro-")));
+                final File[] rxMicroProjects = requireNonNull(rxMicroHome.listFiles((dir, name) -> name.startsWith("rxmicro-")));
                 boolean found = false;
-                for (final File microModuleDir : rxMicroModules) {
-                    if (new File(microModuleDir.getAbsolutePath() + "/src/main/resources/" + resourcePath).exists()) {
+                for (final File rxMicroProject : rxMicroProjects) {
+                    if (new File(rxMicroProject.getAbsolutePath() + "/src/main/resources/" + resourcePath).exists()) {
                         resourceMap
                                 .computeIfAbsent(
-                                        RxMicroModule.of(microModuleDir.getName().replace('-', '.')).orElseThrow(),
+                                        RxMicroModule.of(rxMicroProject.getName().replace('-', '.')).orElseThrow(),
                                         m -> new TreeSet<>()
                                 )
                                 .add(resource);
@@ -87,6 +112,7 @@ public class ResourceProcessor implements GraalVmProcessor {
                 throw new MissingProcessingLogicException("Unsupported resource: '?'!", resource);
             }
         }
+        addHardcodedStructuresIfNotDefined(resourceMap, resources);
         return resourceMap.entrySet().stream()
                 .map(e -> new RxMicroNativeImageResource(
                                 e.getKey(),
@@ -103,6 +129,17 @@ public class ResourceProcessor implements GraalVmProcessor {
                         )
                 )
                 .collect(Collectors.toList());
+    }
+
+    private void addHardcodedStructuresIfNotDefined(final Map<RxMicroModule, Set<String>> resourceMap,
+                                                    final Set<String> resources) {
+        for (final Map.Entry<String, List<RxMicroModule>> entry : notStandardModules.entrySet()) {
+            if (!resources.contains(entry.getKey())) {
+                for (final RxMicroModule rxMicroModule : entry.getValue()) {
+                    resourceMap.computeIfAbsent(rxMicroModule, m -> new TreeSet<>()).add(entry.getKey());
+                }
+            }
+        }
     }
 }
 

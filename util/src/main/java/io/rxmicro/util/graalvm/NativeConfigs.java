@@ -32,6 +32,7 @@ import static io.rxmicro.json.JsonHelper.readJsonObject;
 import static io.rxmicro.json.JsonTypes.asJsonArray;
 import static io.rxmicro.json.JsonTypes.asJsonObject;
 import static java.util.Map.entry;
+import static java.util.stream.Collectors.toList;
 
 public class NativeConfigs {
 
@@ -76,20 +77,29 @@ public class NativeConfigs {
         }
         final Map<Category, List<Map.Entry<Example, File>>> fileMap = new EnumMap<>(Category.class);
         for (final File projectDir : projects) {
-            final File graalDir = new File(projectDir, ".graal");
-            if (!graalDir.exists()) {
-                throw new InvalidStateException("Required '?' dir not found!", graalDir.getAbsolutePath());
-            }
-            final File[] files = graalDir.listFiles();
-            if (files == null) {
-                throw new InvalidStateException("'?' dir is empty!", graalDir.getAbsolutePath());
-            }
-            for (final File file : files) {
-                final Example example = Example.of(projectDir.getName());
-                fileMap.computeIfAbsent(Category.of(file.getName()), c -> new ArrayList<>()).add(entry(example, file));
+            for (final File graalDir : getGraalDirectories(projectDir)) {
+                final File[] files = graalDir.listFiles();
+                if (files == null) {
+                    throw new InvalidStateException("'?' dir is empty!", graalDir.getAbsolutePath());
+                }
+                for (final File file : files) {
+                    final Example example = Example.of(projectDir.getName(), graalDir.getName());
+                    fileMap.computeIfAbsent(Category.of(file.getName()), c -> new ArrayList<>()).add(entry(example, file));
+                }
             }
         }
         return merge(fileMap);
+    }
+
+    private static List<File> getGraalDirectories(final File projectDir) {
+        final List<String> graalDirNames = List.of(
+                ".graal", ".graal-jdk", ".graal-netty"
+        );
+        final List<File> dirs = graalDirNames.stream().map(name -> new File(projectDir, name)).filter(File::exists).collect(toList());
+        if (dirs.isEmpty()) {
+            throw new InvalidStateException("Required '?' dir(s) not found!", graalDirNames);
+        }
+        return dirs;
     }
 
     private static NativeConfigs merge(final Map<Category, List<Map.Entry<Example, File>>> fileMap) throws IOException {
