@@ -28,6 +28,6 @@ import io.rxmicro.rest.model.GenerateOption;
                 RestClientGeneratorConfig.RequestValidationMode.RETURN_ERROR_SIGNAL // <4>
 )
 module rest.client.generator {
-    requires rxmicro.rest.client.jdk;
+    requires rxmicro.rest.client;
 }
 // end::content[]

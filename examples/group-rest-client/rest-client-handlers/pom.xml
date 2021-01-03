@@ -12,6 +12,33 @@
     <artifactId>rest-client-handlers</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <profiles>
+        <profile>
+            <id>jdk-http-client</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>io.rxmicro</groupId>
+                    <artifactId>rxmicro-rest-client-jdk</artifactId>
+                    <version>${rxmicro.version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+
+        <profile>
+            <id>netty-http-client</id>
+            <dependencies>
+                <dependency>
+                    <groupId>io.rxmicro</groupId>
+                    <artifactId>rxmicro-rest-client-netty</artifactId>
+                    <version>${rxmicro.version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
+
     <build>
         <pluginManagement>
             <plugins>
@@ -100,11 +127,12 @@
     </build>
 
     <dependencies>
-        <dependency>
+        <!-- this rest client impl dependency moved to maven profile. See above!-->
+        <!--dependency>
             <groupId>io.rxmicro</groupId>
             <artifactId>rxmicro-rest-client-jdk</artifactId>
             <version>${rxmicro.version}</version>
-        </dependency>
+        </dependency-->
         <dependency>
             <groupId>io.rxmicro</groupId>
             <artifactId>rxmicro-rest-client-exchange-json</artifactId>

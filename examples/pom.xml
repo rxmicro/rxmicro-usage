@@ -11,6 +11,15 @@
     <artifactId>examples</artifactId>
     <packaging>pom</packaging>
 
+    <profiles>
+        <profile>
+            <id>default</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+    </profiles>
+
     <modules>
         <module>quick-start</module>
 
