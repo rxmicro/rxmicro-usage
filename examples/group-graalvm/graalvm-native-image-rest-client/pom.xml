@@ -29,7 +29,6 @@
     <version>1.0-SNAPSHOT</version>
 
     <build>
-        <finalName>RestClientLauncher</finalName>
         <testSourceDirectory>src/it/java</testSourceDirectory>
         <testResources>
             <testResource>
@@ -126,11 +125,11 @@
     <profiles>
         <profile>
             <id>graal-vm-native-image</id>
-            <activation>
+            <!--activation>
                 <property>
                     <name>env.GRAALVM_HOME</name>
                 </property>
-            </activation>
+            </activation-->
             <build>
                 <plugins>
                     <plugin>
@@ -166,6 +165,8 @@
                                 <configuration>
                                     <tasks>
                                         <delete file="${basedir}/RestClientLauncher"/>
+                                        <delete file="${basedir}/RestJdkClientLauncher"/>
+                                        <delete file="${basedir}/RestNettyClientLauncher"/>
                                     </tasks>
                                 </configuration>
                                 <goals>
@@ -177,14 +178,46 @@
                 </plugins>
             </build>
         </profile>
+
+        <profile>
+            <id>jdk-http-client</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <finalName>RestJdkClientLauncher</finalName>
+            </build>
+            <dependencies>
+                <dependency>
+                    <groupId>io.rxmicro</groupId>
+                    <artifactId>rxmicro-rest-client-jdk</artifactId>
+                    <version>${rxmicro.version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+
+        <profile>
+            <id>netty-http-client</id>
+            <build>
+                <finalName>RestNettyClientLauncher</finalName>
+            </build>
+            <dependencies>
+                <dependency>
+                    <groupId>io.rxmicro</groupId>
+                    <artifactId>rxmicro-rest-client-netty</artifactId>
+                    <version>${rxmicro.version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
     </profiles>
 
     <dependencies>
-        <dependency>
+        <!-- this rest client impl dependency moved to maven profile. See above!-->
+        <!--dependency>
             <groupId>io.rxmicro</groupId>
             <artifactId>rxmicro-rest-client-jdk</artifactId>
             <version>${rxmicro.version}</version>
-        </dependency>
+        </dependency-->
         <dependency>
             <groupId>io.rxmicro</groupId>
             <artifactId>rxmicro-rest-client-exchange-json</artifactId>

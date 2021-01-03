@@ -20,6 +20,7 @@ import io.rxmicro.test.SystemOut;
 import io.rxmicro.test.TestedProcessBuilder;
 import io.rxmicro.test.junit.RxMicroIntegrationTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledIf;
 import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
 
 import java.io.File;
@@ -41,9 +42,20 @@ final class RestClientLauncher_UsingNativeImage_IT {
     private SystemOut systemOut;
 
     @Test
-    void Should_return_Hello_World() throws IOException, InterruptedException {
+    @EnabledIf("isRestJdkClientLauncherBuilt")
+    void RestJdkClientLauncher_should_return_Hello_World() throws IOException, InterruptedException {
+        test("./RestJdkClientLauncher");
+    }
+
+    @Test
+    @EnabledIf("isRestNettyClientLauncherBuilt")
+    void RestNettyClientLauncher_should_return_Hello_World() throws IOException, InterruptedException {
+        test("./RestNettyClientLauncher");
+    }
+
+    private void test(final String commandWithArgs) throws IOException, InterruptedException {
         final Process process = new TestedProcessBuilder()
-                .setCommandWithArgs("./RestClientLauncher")
+                .setCommandWithArgs(commandWithArgs)
                 .setWorkingDir(new File("."))
                 .start();
         final int result = process.waitFor();
@@ -55,6 +67,14 @@ final class RestClientLauncher_UsingNativeImage_IT {
                 out.contains(requiredMessage),
                 format("Console out does not contain required message: '?'. Full out is \n?", requiredMessage, out)
         );
+    }
+
+    static boolean isRestJdkClientLauncherBuilt(){
+        return new File("./RestJdkClientLauncher").exists();
+    }
+
+    static boolean isRestNettyClientLauncherBuilt(){
+        return new File("./RestNettyClientLauncher").exists();
     }
 
 }
