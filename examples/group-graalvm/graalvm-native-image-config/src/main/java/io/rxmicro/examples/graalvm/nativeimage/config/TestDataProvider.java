@@ -59,10 +59,18 @@ public final class TestDataProvider {
             entry("rest-client.accessKey", "accessKey"),
             entry("rest-client.followRedirects", "false"),
             entry("rest-client.requestTimeout", "PT10S"),
+            entry("rest-client.connectTimeout", "PT3S"),
             entry("rest-client.connectionString", "https://10.10.10.10:8443"),
             entry("rest-client.schema", "HTTPS"),
             entry("rest-client.port", "8443"),
-            entry("rest-client.host", "10.10.10.10")
+            entry("rest-client.host", "10.10.10.10"),
+            entry("rest-client.maxIdleTime", "PT10S"),
+            entry("rest-client.maxLifeTime", "PT15S"),
+            entry("rest-client.evictionInterval", "PT20S"),
+            entry("rest-client.maxConnections", "12"),
+            entry("rest-client.pendingAcquireMaxCount", "10"),
+            entry("rest-client.pendingAcquireTimeout", "PT30S"),
+            entry("rest-client.leasingStrategy", "LIFO")
     );
 
     public static final Map<String, String> HTTP_SERVER_SYSTEM_PROPERTIES = Map.ofEntries(

@@ -153,6 +153,14 @@ final class GetConfigLauncher_UsingNativeImage_IT {
         assertRequestMessageExists(out, "io.rxmicro.rest.client.RestClientConfig.schema = HTTPS");
         assertRequestMessageExists(out, "io.rxmicro.rest.client.RestClientConfig.port = 8443");
         assertRequestMessageExists(out, "io.rxmicro.rest.client.RestClientConfig.host = 10.10.10.10");
+
+        assertRequestMessageExists(out, "io.rxmicro.rest.client.RestClientConfig.maxIdleTime = Optional[PT10S]");
+        assertRequestMessageExists(out, "io.rxmicro.rest.client.RestClientConfig.maxLifeTime = Optional[PT15S]");
+        assertRequestMessageExists(out, "io.rxmicro.rest.client.RestClientConfig.evictionInterval = PT20S");
+        assertRequestMessageExists(out, "io.rxmicro.rest.client.RestClientConfig.maxConnections = 12");
+        assertRequestMessageExists(out, "io.rxmicro.rest.client.RestClientConfig.pendingAcquireMaxCount = OptionalInt[10]");
+        assertRequestMessageExists(out, "io.rxmicro.rest.client.RestClientConfig.pendingAcquireTimeout = PT30S");
+        assertRequestMessageExists(out, "io.rxmicro.rest.client.RestClientConfig.leasingStrategy = LIFO");
     }
 
     @Order(5)

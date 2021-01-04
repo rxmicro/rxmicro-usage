@@ -70,10 +70,18 @@ public class GetConfigLauncher {
 
     private static void getRestClientConfig() {
         final RestClientConfig restClientConfig = getConfig(RestClientConfig.class);
-        System.out.println("io.rxmicro.rest.client.RestClientConfig.enableAdditionalValidations = " + restClientConfig.isEnableAdditionalValidations());
         System.out.println("io.rxmicro.rest.client.RestClientConfig.accessKey = " + restClientConfig.getAccessKey());
         System.out.println("io.rxmicro.rest.client.RestClientConfig.followRedirects = " + restClientConfig.isFollowRedirects());
         System.out.println("io.rxmicro.rest.client.RestClientConfig.requestTimeout = " + restClientConfig.getRequestTimeout());
+        System.out.println("io.rxmicro.rest.client.RestClientConfig.enableAdditionalValidations = " + restClientConfig.isEnableAdditionalValidations());
+        System.out.println("io.rxmicro.rest.client.RestClientConfig.connectTimeout = " + restClientConfig.getConnectTimeout());
+        System.out.println("io.rxmicro.rest.client.RestClientConfig.maxIdleTime = " + restClientConfig.getMaxIdleTime());
+        System.out.println("io.rxmicro.rest.client.RestClientConfig.maxLifeTime = " + restClientConfig.getMaxLifeTime());
+        System.out.println("io.rxmicro.rest.client.RestClientConfig.evictionInterval = " + restClientConfig.getEvictionInterval());
+        System.out.println("io.rxmicro.rest.client.RestClientConfig.maxConnections = " + restClientConfig.getMaxConnections());
+        System.out.println("io.rxmicro.rest.client.RestClientConfig.pendingAcquireMaxCount = " + restClientConfig.getPendingAcquireMaxCount());
+        System.out.println("io.rxmicro.rest.client.RestClientConfig.pendingAcquireTimeout = " + restClientConfig.getPendingAcquireTimeout());
+        System.out.println("io.rxmicro.rest.client.RestClientConfig.leasingStrategy = " + restClientConfig.getLeasingStrategy());
         System.out.println("io.rxmicro.rest.client.RestClientConfig.connectionString = " + restClientConfig.getConnectionString());
         System.out.println("io.rxmicro.rest.client.RestClientConfig.schema = " + restClientConfig.getSchema());
         System.out.println("io.rxmicro.rest.client.RestClientConfig.port = " + restClientConfig.getPort());
