@@ -68,7 +68,7 @@ final class RESTClient2Test {
     }
 
     private void prepareUserDefinedMethod() {
-        when(httpClientFactory.create(any(), any(), any(), any()))
+        when(httpClientFactory.create(any(), any(), any(), any(), any()))
                 .thenReturn(httpClient);
     }
 
