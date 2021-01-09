@@ -21,6 +21,7 @@
         <module>documentation-asciidoctor-full</module>
         <module>documentation-asciidoctor-errors</module>
         <module>documentation-asciidoctor-all-std-validators</module>
+        <module>documentation-asciidoctor-variables-support</module>
     </modules>
 
     <build>

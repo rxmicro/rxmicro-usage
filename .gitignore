@@ -57,6 +57,7 @@ test.*
 /examples/group-documentation-asciidoctor/documentation-asciidoctor-quick-start/src/main/asciidoc/*.adoc
 /examples/group-documentation-asciidoctor/documentation-asciidoctor-validation/src/main/asciidoc/*.adoc
 /examples/group-documentation-asciidoctor/documentation-asciidoctor-all-std-validators/src/main/asciidoc/*.adoc
+/examples/group-documentation-asciidoctor/documentation-asciidoctor-variables-support/src/main/asciidoc/*.adoc
 /examples/group-unnamed-module/unnamed-module-documentation-asciidoctor-metadata-annotations/src/main/asciidoc/*.adoc
 /code-fragments/src/main/asciidoc/*.adoc
 
