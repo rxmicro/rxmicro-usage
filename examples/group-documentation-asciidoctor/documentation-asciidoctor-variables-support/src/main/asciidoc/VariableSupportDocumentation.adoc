@@ -1,6 +1,6 @@
 = Variable Support
 Richard Hendricks <Richard.Hendricks@piedpiper.com>
-0.0.1, 2021-01-09
+0.0.1
 :icons: font
 :sectanchors: 
 :sectlinks: 
