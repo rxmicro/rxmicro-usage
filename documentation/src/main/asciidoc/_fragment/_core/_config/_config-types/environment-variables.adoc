@@ -24,6 +24,35 @@ Server started at 0.0.0.0:9090 using NETTY transport in 500 millis. # <2>
 Thus, the format of configurations using environment variables corresponds to the format of `rxmicro.properties` file or classpath resource.
 ====
 
+[IMPORTANT]
+====
+*Allowed characters in environment variable names!*
+
+From https://pubs.opengroup.org/onlinepubs/000095399/basedefs/xbd_chap08.html[The Open Group^]:
+
+_These strings have the form name=value; names shall not contain the character '='.
+For values to be portable across systems conforming to IEEE Std 1003.1-2001, the value shall be composed of characters from the portable character set (except NUL and as indicated below)._
+
+So names may contain any character except `=` and `NUL`, but:
+
+_Environment variable names used by the utilities in the Shell and Utilities volume of IEEE Std 1003.1-2001 consist solely of *uppercase letters, digits, and the '_' (underscore)* from the characters defined in Portable Character Set and do not begin with a digit.
+Other characters may be permitted by an implementation; applications shall tolerate the presence of such names._
+
+So for such restricted environment the RxMicro framework supports the following format for environment variable mapping as well:
+
+[source,text,subs="verbatim,quotes"]
+----
+export *HTTP_SERVER_PORT*=9090 # <1>
+
+java -p ./classes:lib -m examples.quick.start/io.rxmicro.examples.quick.start.HelloWorldMicroService
+2020-01-02 18:49:58.372 [INFO] io.rxmicro.rest.server.netty.internal.component.NettyServer :
+Server started at *0.0.0.0:9090* using NETTY transport in 500 millis. # <2>
+----
+
+<1> Setting the `HTTP_SERVER_PORT` environment variable = 9090 (custom port for HTTP server).
+<2> The HTTP server has started at the `9090` port instead of the standard `8080` port.
+====
+
 *Configuring with environment variables is very convenient when using https://www.docker.com/[docker^] containers!*
 
 [IMPORTANT]
