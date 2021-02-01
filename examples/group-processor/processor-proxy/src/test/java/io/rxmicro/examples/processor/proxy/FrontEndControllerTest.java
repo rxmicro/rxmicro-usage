@@ -97,7 +97,7 @@ final class FrontEndControllerTest {
                 blockingHttpClient.put("/", HttpHeaders.of("Header", "header"), jsonObject("param", "error"));
 
         assertEquals(jsonErrorObject("custom error"), response.getBody());
-        assertEquals(toJsonString(jsonErrorObject("custom error")), response.getBodyAsUTF8String());
+        assertEquals(toJsonString(jsonErrorObject("custom error"), true), response.getBodyAsUTF8String());
         assertEquals(418, response.getStatusCode());
     }
 
