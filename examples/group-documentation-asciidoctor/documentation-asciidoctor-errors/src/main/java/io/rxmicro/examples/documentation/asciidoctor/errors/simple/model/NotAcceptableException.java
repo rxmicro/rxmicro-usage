@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.rxmicro.examples.documentation.asciidoctor.errors.model;
+package io.rxmicro.examples.documentation.asciidoctor.errors.simple.model;
 
 import io.rxmicro.documentation.Description;
 import io.rxmicro.documentation.Example;

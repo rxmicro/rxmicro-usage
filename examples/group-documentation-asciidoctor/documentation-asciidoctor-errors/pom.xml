@@ -29,6 +29,7 @@
                         </annotationProcessorPaths>
                         <compilerArgs>
                             <arg>-ARX_MICRO_DOC_ANALYZE_PARENT_POM=false</arg>
+                            <arg>-ARX_MICRO_STRICT_MODE=true</arg>
                         </compilerArgs>
                     </configuration>
                     <executions>
@@ -150,6 +151,11 @@
     </build>
 
     <dependencies>
+        <dependency>
+            <groupId>io.rxmicro</groupId>
+            <artifactId>rxmicro-validation</artifactId>
+            <version>${rxmicro.version}</version>
+        </dependency>
         <dependency>
             <groupId>io.rxmicro</groupId>
             <artifactId>rxmicro-rest-server-netty</artifactId>
