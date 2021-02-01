@@ -44,3 +44,7 @@ include::_json/type-mapping.adoc[]
 <<<
 
 include::_json/microservice-test.adoc[]
+
+<<<
+
+include::_json/wrappers.adoc[]
