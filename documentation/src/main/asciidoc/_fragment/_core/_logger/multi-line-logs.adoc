@@ -1,0 +1,56 @@
+// suppress inspection "AsciiDocLinkResolve" for whole file
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../___fragment-settings.adoc[]
+
+==== Multiline Logs Issue For Docker Environment
+
+By default `docker` log driver does not support multiline log data. +
+It means that if Your microservice prints the stacktrace of any exception to the `System.out` or `System.err` each stack trace element will be processed as separate log event.
+
+There are several standard solutions to this problem.
+The RxMicro framework adds the one of them.
+
+===== Solution From RxMicro Framework
+
+If Your logger configuration contains the following setting:
+
+[source, properties]
+----
+io.rxmicro.logger.jul.PatternFormatter.singleLine=true
+----
+
+than all multiline log events are processed by the RxMicro framework as single line ones: +
+i.e. the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-logger/src/main/java/io/rxmicro/logger/jul/PatternFormatter.java[`PatternFormatter`^]
+component replaces `'\n'` character by the `"\\n"` string before printing it to the `System.out` or `System.err`. +
+_(For Windows platform the `"\r\n""` character combination will be replaced by `"\\r\\n"` string!)_
+
+===== How To View Original Log Events?
+
+To view original logs You can use the https://www.gnu.org/software/sed/manual/sed.html[`sed`^] util:
+
+[source,bash]
+----
+docker logs microservice-container | sed -e 's/\\n/\n/g'
+----
+
+or
+
+[source,bash]
+----
+kubectl logs microservice-pod | sed -e 's/\\n/\n/g'
+----
+
+To view original logs on Your log aggregation tool if https://www.fluentd.org/[`fluentd`^]
+open source data collector is used, it is necessary to add the following filter:
+
+[source,text]
+----
+<filter exampleTag>
+    @type record_transformer
+    enable_ruby true
+    <record>
+        # --- Replace "\n" string by '\n' character ---
+        log ${record["log"].gsub("\\n", "\n")}
+    </record>
+</filter>
+----

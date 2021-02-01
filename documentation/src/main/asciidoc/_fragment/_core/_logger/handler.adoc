@@ -6,20 +6,37 @@ include::../../___fragment-settings.adoc[]
 
 By default the `INFO` logging level is activated for the all logger.
 
-All logger events are sent to the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-logger/src/main/java/io/rxmicro/logger/jul/SystemConsoleHandler.java[`SystemConsoleHandler`^] appender, which outputs all logging information into `System.out`.
+All logger events are sent to the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-logger/src/main/java/io/rxmicro/logger/jul/SystemConsoleHandler.java[`SystemConsoleHandler`^]
+appender, which outputs all error logging information into `System.err` and all other levels into `System.out`.
 
 [TIP]
 ====
-The `rxmicro.logger` module follows the logs recommendations, that are defined at https://12factor.net/logs[The Twelve-Factor App Manifest^] and logs messages to `System.out` only!
+The `rxmicro.logger` module follows the logs recommendations, that are defined at https://12factor.net/logs[The Twelve-Factor App Manifest^] and logs messages to `System.out`/`System.err` only!
 
 If these functions are not enough You can use any other logging framework:
 http://logback.qos.ch/[`Logback`^],
 https://logging.apache.org/log4j/2.x/[`Apache Log4j 2`^] and others.
 ====
 
-If the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-logger/src/main/java/io/rxmicro/logger/jul/SystemConsoleHandler.java[`SystemConsoleHandler`^] appender must output all logging information into `System.err` it is necessary to add the following configuration:
+If the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-logger/src/main/java/io/rxmicro/logger/jul/SystemConsoleHandler.java[`SystemConsoleHandler`^]
+appender must output all logging information into `System.out` or `System.err` it is necessary to set `stream` parameter:
 
+* To enable `System.err` output for all log levels use the following configuration:
 [source,properties]
 ----
 io.rxmicro.logger.jul.SystemConsoleHandler.stream=stderror
 ----
+
+* To enable `System.out` output for all log levels use the following configuration:
+[source,properties]
+----
+io.rxmicro.logger.jul.SystemConsoleHandler.stream=stdout
+----
+
+[NOTE]
+====
+To get more information about the configuration of the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-logger/src/main/java/io/rxmicro/logger/jul/SystemConsoleHandler.java[`SystemConsoleHandler`^]
+component read javadoc for this component: +
+{RX-MICRO-JAVADOC-ROOT-URL}rxmicro-logger/latest/rxmicro.logger/io/rxmicro/logger/jul/SystemConsoleHandler.html[^]
+====

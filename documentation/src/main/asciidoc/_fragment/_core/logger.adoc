@@ -34,3 +34,11 @@ include::_logger/handler.adoc[]
 <<<
 
 include::_logger/pattern-formatter.adoc[]
+
+<<<
+
+include::_logger/log-event.adoc[]
+
+<<<
+
+include::_logger/multi-line-logs.adoc[]

@@ -1,0 +1,35 @@
+// suppress inspection "AsciiDocLinkResolve" for whole file
+:FRAGMENT_RELATIVE_DIR: ../../
+include::../../___fragment-settings.adoc[]
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
+
+==== Custom Log Event
+
+The RxMicro framework provides a factory method to build custom logger event:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/logger/LoggerEventBuilderTest.java[tag=intro,indent=0]
+----
+
+A custom logger event can be useful if Your log message depends on some parameter. +
+For example, the following methods implement the same logic:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/logger/LoggerEventBuilderTest.java[tag=usage,indent=0]
+----
+
+A custom logger event allows customizing auto detect parameters:
+
+* Thread id;
+* Thread name;
+* Source class name;
+* Source method name;
+* Source file name;
+* Source line number.
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/logger/LoggerEventBuilderTest.java[tag=features,indent=0]
+----

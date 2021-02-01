@@ -1,6 +1,7 @@
 // suppress inspection "AsciiDocLinkResolve" for whole file
 :FRAGMENT_RELATIVE_DIR: ../../
 include::../../___fragment-settings.adoc[]
+:RX-MICRO-USAGE-ROOT-LOCAL-PATH: ../../../../../../../
 
 ==== Logger Configuration
 
@@ -36,10 +37,46 @@ When activating the `java.logging` logger, the RxMicro framework automatically c
 This option makes it possible to use unsupported but widely used in other logging frameworks logging levels for the `java.logging` logger.
 ====
 
+===== Default Reading Order of Config Sources.
+
+By default, the `rxmicro.logger` module reads configuration sources in the following order (From the lowest to the highest priority):
+
+* Default config.
+* Configuration from the `jul.properties` classpath resource if the resource found.
+* Configuration from the `jul.test.properties` classpath resource if the resource found.
+
+===== Using Additional Config Sources for Logging Configuration
+
+Besides `jul.properties` and `jul.test.properties` classpath resources the `rxmicro.logger` module supports the following configuration sources:
+
+* Configuration using environment variables;
+* Configuration using Java system variables;
+* Configuration using properties file that is located at the following paths:
+** `./jul.properties`;
+** `~/jul.properties`;
+** `~/.rxmicro/jul.properties`;
+
+To enable the additional config sources use the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-logger/src/main/java/io/rxmicro/logger/LoggerConfigSources.java[`LoggerConfigSources`^] class:
+
+[source,java]
+----
+include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/logger/LoggerConfigSourceTest.java[tag=content,indent=0]
+----
+<1> - The logger config sources must be configured before the first usage of the
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-logger/src/main/java/io/rxmicro/logger/LoggerFactory.java[`LoggerFactory`^],
+otherwise these config settings will be ignored.
+
+[IMPORTANT]
+====
+*If You know exactly which configuration sources should be used by the microservice, ALWAYS specify them explicitly!*
+
+*With this approach, at the microservice starting, the RxMicro framework won’t try to search for non-existent sources, spending precious microseconds!*
+====
+
 ===== Using Environment Variables And Java System Properties
 
-Besides configuration file (`jul.properties`) the `rxmicro.logger` module supports configuration using environment variables and java system properties.
-
+If You activated the configuration using environment variables and(or) Java system variables, then the RxMicro framework tries to resolve this(these) configuration(s). +
 If Your runtime contains an environment variable and (or) java system property with name that starts with `logger.` phrase, the `rxmicro.logger` module interprets it as configuration.
 For example to enable `TRACE` logger level for `MicroServiceLauncher` it is necessary to provide one of the following configurations:
 
@@ -56,13 +93,3 @@ or
 ----
 java -p lib:. -Dlogger.io.rxmicro.rest.server.level=TRACE -m module/package.MicroServiceLauncher
 ----
-
-===== Default Reading Order of Config Sources.
-
-By default, the `rxmicro.logger` module reads configuration sources in the following order (From the lowest to the highest priority):
-
-* Default config.
-* Configuration from the `jul.properties` classpath resource if the resource found.
-* Configuration from the `jul.test.properties` classpath resource if the resource found.
-* Configuration from the environment variables if any environment variable with `logger.` prefix found.
-* Configuration from the java system properties if any java system property with `logger.` prefix found.

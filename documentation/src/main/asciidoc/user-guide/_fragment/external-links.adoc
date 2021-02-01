@@ -9,6 +9,8 @@ ifeval::["{rxmicro-version-qualifier}" == ""]
 :RX-MICRO-SRC-ROOT-TREE-URL: https://github.com/rxmicro/rxmicro/tree/v{rxmicro-version}/
 :RX-MICRO-SRC-ROOT-BLOB-URL: https://github.com/rxmicro/rxmicro/blob/v{rxmicro-version}/
 endif::[]
+:RX-MICRO-JAVADOC-ROOT-URL: https://javadoc.io/doc/io.rxmicro/
+
 :RX-MICRO-EXAMPLES-SRC-ROOT-TREE-URL: https://github.com/rxmicro/rxmicro-usage/tree/master/examples/
 :RX-MICRO-EXAMPLES-SRC-ROOT-BLOB-URL: https://github.com/rxmicro/rxmicro-usage/blob/master/examples/
 // Oracle Java Root Links
