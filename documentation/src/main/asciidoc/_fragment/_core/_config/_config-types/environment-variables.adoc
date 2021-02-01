@@ -60,3 +60,23 @@ Server started at *0.0.0.0:9090* using NETTY transport in 500 millis. # <2>
 To protect Your secret data, use configuration via properties files instead of environment variables.
 The config directory with secret config files (for example `$HOME/.rxmicro/`) must be mount as external volume using https://en.wikipedia.org/wiki/Tmpfs[`tmpfs`^] file system.
 ====
+
+If it is necessary to separate environment variables used for the configuration of the RxMicro environment from other environment variables,
+You must define the standard environment variable with name `RX_MICRO_CONFIG_ENVIRONMENT_VARIABLE_PREFIX`!
+
+For example if You runtime contains the following environment variable `RX_MICRO_CONFIG_ENVIRONMENT_VARIABLE_PREFIX=MY_RUNTIME_`
+than it is necessary to use
+
+[source,text,subs="verbatim,quotes"]
+----
+export *MY_RUNTIME_HTTP_SERVER_PORT*=9090
+----
+
+instead of
+
+[source,text,subs="verbatim,quotes"]
+----
+export *HTTP_SERVER_PORT*=9090
+----
+
+settings for configuring a port for the HTTP server!

@@ -42,6 +42,7 @@ The RxMicro framework supports the following primitive Java types:
 * `java.time.ZoneOffset`;
 * `java.time.ZoneId`;
 * `java.time.Period`;
+* `java.nio.file.Path`;
 
 [NOTE]
 ====

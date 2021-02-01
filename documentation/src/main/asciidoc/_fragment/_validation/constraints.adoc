@@ -46,6 +46,10 @@ a|The annotated element must be a valid country code:
 |{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
 |The annotated element must be a https://tools.ietf.org/html/rfc5322#section-3.4.1[well-formed email address^].
 
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/EndsWith.java[`@EndsWith`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
+|The annotated element value must end with the provided suffix.
+
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Enumeration.java[`@Enumeration`^]
 a|* {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
 * {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Character.html[`java.lang.Character`^]
@@ -201,6 +205,10 @@ a|* {JDK-JAVA-BASE-DOC-ROOT-URL}java/util/List.html[`java.util.List`^]
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/Skype.java[`@Skype`^]
 |{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
 |The annotated element must be a valid `skype` number.
+
+|{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/StartsWith.java[`@StartsWith`^]
+|{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/String.html[`java.lang.String`^]
+|The annotated element value must start with the provided prefix.
 
 |{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/constraint/SubEnum.java[`@SubEnum`^]
 |{JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Enum.html[`? extends java.lang.Enum`^]
