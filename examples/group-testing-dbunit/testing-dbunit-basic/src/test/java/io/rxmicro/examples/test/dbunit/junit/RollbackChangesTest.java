@@ -22,6 +22,7 @@ import io.rxmicro.test.dbunit.RollbackChanges;
 import io.rxmicro.test.dbunit.junit.DbUnitTest;
 import io.rxmicro.test.junit.RxMicroIntegrationTest;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -32,6 +33,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static io.rxmicro.test.dbunit.TestDatabaseConfig.getCurrentTestDatabaseConfig;
 
+@Disabled("Temporary disabled: https://github.com/rxmicro/rxmicro/issues/1")
 // tag::content[]
 @RxMicroIntegrationTest
 @Testcontainers
