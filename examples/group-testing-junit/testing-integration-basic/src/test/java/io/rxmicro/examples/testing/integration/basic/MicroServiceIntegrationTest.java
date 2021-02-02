@@ -17,11 +17,11 @@
 package io.rxmicro.examples.testing.integration.basic;
 
 import io.rxmicro.config.Configs;
-import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.rest.server.HttpServerConfig;
 import io.rxmicro.rest.server.ServerInstance;
 import io.rxmicro.test.BlockingHttpClient;
 import io.rxmicro.test.BlockingHttpClientSettings;
+import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.test.SystemOut;
 import io.rxmicro.test.junit.RxMicroIntegrationTest;
 import org.junit.jupiter.api.AfterAll;

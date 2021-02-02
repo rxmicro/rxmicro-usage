@@ -17,8 +17,8 @@
 package io.rxmicro.examples.rest.controller.extendable.model.request.any_body.body_header_path;
 
 import io.rxmicro.http.HttpHeaders;
-import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.test.BlockingHttpClient;
+import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.test.SystemOut;
 import io.rxmicro.test.junit.RxMicroRestBasedMicroServiceTest;
 import org.junit.jupiter.api.DisplayNameGeneration;

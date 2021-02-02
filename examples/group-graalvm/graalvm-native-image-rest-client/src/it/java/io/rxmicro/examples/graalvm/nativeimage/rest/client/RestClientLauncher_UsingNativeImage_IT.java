@@ -69,11 +69,11 @@ final class RestClientLauncher_UsingNativeImage_IT {
         );
     }
 
-    static boolean isRestJdkClientLauncherBuilt(){
+    static boolean isRestJdkClientLauncherBuilt() {
         return new File("./RestJdkClientLauncher").exists();
     }
 
-    static boolean isRestNettyClientLauncherBuilt(){
+    static boolean isRestNettyClientLauncherBuilt() {
         return new File("./RestNettyClientLauncher").exists();
     }
 

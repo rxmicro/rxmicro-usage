@@ -16,8 +16,8 @@
 
 package io.rxmicro.examples.rest.controller.extendable.model.request.path_vars_only.child_model_without_fields;
 
-import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.test.BlockingHttpClient;
+import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.test.SystemOut;
 import io.rxmicro.test.junit.RxMicroRestBasedMicroServiceTest;
 import org.junit.jupiter.api.DisplayNameGeneration;

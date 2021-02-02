@@ -70,8 +70,8 @@ public class FileReadBenchmark {
 
     @Benchmark
     public void readUsingIOStream() throws IOException {
-        final byte[] buffer = new byte[(int)tempFile.length()];
-        try(InputStream inputStream = new BufferedInputStream(new FileInputStream(tempFile))) {
+        final byte[] buffer = new byte[(int) tempFile.length()];
+        try (InputStream inputStream = new BufferedInputStream(new FileInputStream(tempFile))) {
             inputStream.read(buffer);
         }
     }

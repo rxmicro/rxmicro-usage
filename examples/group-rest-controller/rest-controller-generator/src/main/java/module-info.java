@@ -15,6 +15,7 @@
  */
 
 // tag::content[]
+
 import io.rxmicro.rest.model.GenerateOption;
 import io.rxmicro.rest.model.ServerExchangeFormatModule;
 import io.rxmicro.rest.server.RestServerGeneratorConfig;

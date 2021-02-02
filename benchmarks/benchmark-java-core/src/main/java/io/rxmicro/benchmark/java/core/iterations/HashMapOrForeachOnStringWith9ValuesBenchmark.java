@@ -66,55 +66,55 @@ public class HashMapOrForeachOnStringWith9ValuesBenchmark {
             TEST_9_DATA.stream().map(e -> entry(e, e)).collect(toUnmodifiableMap(Map.Entry::getKey, Map.Entry::getValue));
 
     @Benchmark
-    public void arrayList9Search(){
+    public void arrayList9Search() {
         for (final String s : arrayList9) {
-            if("first".equals(s)){
+            if ("first".equals(s)) {
                 break;
             }
         }
         for (final String s : arrayList9) {
-            if("fifth".equals(s)){
+            if ("fifth".equals(s)) {
                 break;
             }
         }
         for (final String s : arrayList9) {
-            if("ninth".equals(s)){
+            if ("ninth".equals(s)) {
                 break;
             }
         }
         for (final String s : arrayList9) {
-            if("not_found".equals(s)){
+            if ("not_found".equals(s)) {
                 break;
             }
         }
     }
 
     @Benchmark
-    public void unmodifiedList9Search(){
+    public void unmodifiedList9Search() {
         for (final String s : unmodifiedList9) {
-            if("first".equals(s)){
+            if ("first".equals(s)) {
                 break;
             }
         }
         for (final String s : unmodifiedList9) {
-            if("fifth".equals(s)){
+            if ("fifth".equals(s)) {
                 break;
             }
         }
         for (final String s : unmodifiedList9) {
-            if("ninth".equals(s)){
+            if ("ninth".equals(s)) {
                 break;
             }
         }
         for (final String s : unmodifiedList9) {
-            if("not_found".equals(s)){
+            if ("not_found".equals(s)) {
                 break;
             }
         }
     }
 
     @Benchmark
-    public void hashMap9Search(){
+    public void hashMap9Search() {
         hashMap9.get("first");
         hashMap9.get("fifth");
         hashMap9.get("ninth");
@@ -122,7 +122,7 @@ public class HashMapOrForeachOnStringWith9ValuesBenchmark {
     }
 
     @Benchmark
-    public void unmodifiedMap9Search(){
+    public void unmodifiedMap9Search() {
         unmodifiedMap9.get("first");
         unmodifiedMap9.get("fifth");
         unmodifiedMap9.get("ninth");

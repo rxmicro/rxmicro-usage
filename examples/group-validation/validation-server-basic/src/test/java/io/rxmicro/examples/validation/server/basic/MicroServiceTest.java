@@ -16,8 +16,8 @@
 
 package io.rxmicro.examples.validation.server.basic;
 
-import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.test.BlockingHttpClient;
+import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.test.SystemOut;
 import io.rxmicro.test.junit.RxMicroRestBasedMicroServiceTest;
 import org.junit.jupiter.api.Test;
@@ -52,7 +52,7 @@ final class MicroServiceTest {
         final ClientHttpResponse response = blockingHttpClient.put(path);
 
         assertEquals(jsonErrorObject(expectedErrorMessage), response.getBody()); // <2>
-        assertEquals(400, response.getStatusCode());                   // <2>
+        assertEquals(400, response.getStatusCode()); // <2>
         assertTrue(systemOut.isEmpty(), "System.out is not empty: " + systemOut.asString()); // <3>
     }
 

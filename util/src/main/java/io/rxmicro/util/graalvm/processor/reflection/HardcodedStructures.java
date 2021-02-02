@@ -46,7 +46,7 @@ public final class HardcodedStructures {
                                             .add(ThreadFactory.class.getName())
                                             .build()
                                     )
-                            .build()
+                                    .build()
                     )
                     .build())
             .build();
@@ -86,7 +86,7 @@ public final class HardcodedStructures {
                                             .add(ThreadFactory.class.getName())
                                             .build()
                                     )
-                            .build()
+                                    .build()
                     )
                     .build())
             .build();
@@ -141,7 +141,7 @@ public final class HardcodedStructures {
         }
     }
 
-    private HardcodedStructures(){
+    private HardcodedStructures() {
     }
 }
 

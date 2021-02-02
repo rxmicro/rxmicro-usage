@@ -17,9 +17,9 @@
 package io.rxmicro.examples.validation.client.all.types;
 
 import io.rxmicro.examples.validation.client.all.types.model.Request;
-import io.rxmicro.rest.client.detail.HttpClientFactory;
 import io.rxmicro.http.error.ValidationException;
 import io.rxmicro.rest.client.RestClientConfig;
+import io.rxmicro.rest.client.detail.HttpClientFactory;
 import io.rxmicro.test.Alternative;
 import io.rxmicro.test.WithConfig;
 import io.rxmicro.test.junit.RxMicroComponentTest;

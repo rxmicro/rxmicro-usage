@@ -17,9 +17,9 @@
 package io.rxmicro.examples.testing.microservice.alternatives.mongo.repository;
 
 import com.mongodb.reactivestreams.client.MongoDatabase;
-import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.test.Alternative;
 import io.rxmicro.test.BlockingHttpClient;
+import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroRestBasedMicroServiceTest;
 import io.rxmicro.test.mockito.junit.InitMocks;

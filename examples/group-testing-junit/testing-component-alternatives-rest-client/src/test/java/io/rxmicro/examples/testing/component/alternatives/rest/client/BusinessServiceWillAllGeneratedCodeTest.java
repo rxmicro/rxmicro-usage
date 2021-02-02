@@ -16,8 +16,8 @@
 
 package io.rxmicro.examples.testing.component.alternatives.rest.client;
 
-import io.rxmicro.rest.client.detail.HttpClientFactory;
 import io.rxmicro.http.error.HttpErrorException;
+import io.rxmicro.rest.client.detail.HttpClientFactory;
 import io.rxmicro.test.Alternative;
 import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;

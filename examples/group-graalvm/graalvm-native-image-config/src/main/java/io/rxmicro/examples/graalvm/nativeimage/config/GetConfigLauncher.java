@@ -183,7 +183,7 @@ public class GetConfigLauncher {
             getRestServerConfig();
         } else if ("NettyRuntimeConfig".equals(args[0])) {
             getNettyRuntimeConfig();
-        }  else if ("NettyRestServerConfig".equals(args[0])) {
+        } else if ("NettyRestServerConfig".equals(args[0])) {
             getNettyRestServerConfig();
         } else if ("CustomConfigs".equals(args[0])) {
             getCustomConfigs();

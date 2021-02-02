@@ -17,11 +17,11 @@
 package io.rxmicro.examples.rest.controller.static_resources.basic;
 
 import io.rxmicro.config.Configs;
-import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.rest.server.HttpServerConfig;
 import io.rxmicro.rest.server.ServerInstance;
 import io.rxmicro.test.BlockingHttpClient;
 import io.rxmicro.test.BlockingHttpClientSettings;
+import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.test.junit.RxMicroIntegrationTest;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -110,7 +110,7 @@ final class StaticResourcesTest {
 
     @Test
     @Order(2)
-    void Should_return_404(){
+    void Should_return_404() {
         final ClientHttpResponse response = blockingHttpClient.get("/not_found.txt");
 
         assertEquals("Resource 'HttpServerConfig.getRootDirectory() + /not_found.txt' not found!", response.getBodyAsUTF8String());

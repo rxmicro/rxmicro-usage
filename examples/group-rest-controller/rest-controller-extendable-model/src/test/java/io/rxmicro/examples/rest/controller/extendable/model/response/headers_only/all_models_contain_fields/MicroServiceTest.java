@@ -17,8 +17,8 @@
 package io.rxmicro.examples.rest.controller.extendable.model.response.headers_only.all_models_contain_fields;
 
 import io.rxmicro.examples.rest.controller.extendable.model.AbstractTest;
-import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.test.BlockingHttpClient;
+import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.test.junit.RxMicroRestBasedMicroServiceTest;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;

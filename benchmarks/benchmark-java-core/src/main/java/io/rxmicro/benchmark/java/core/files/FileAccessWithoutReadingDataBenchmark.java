@@ -94,7 +94,7 @@ public class FileAccessWithoutReadingDataBenchmark {
     }
 
     @Benchmark
-    public void File_size(){
+    public void File_size() {
         tempFile.length();
     }
 

@@ -16,9 +16,9 @@
 
 package io.rxmicro.examples.testing.microservice.alternatives.basic;
 
-import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.test.Alternative;
 import io.rxmicro.test.BlockingHttpClient;
+import io.rxmicro.test.ClientHttpResponse;
 import io.rxmicro.test.SystemOut;
 import io.rxmicro.test.junit.RxMicroRestBasedMicroServiceTest;
 import org.junit.jupiter.api.Test;

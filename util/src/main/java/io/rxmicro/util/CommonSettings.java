@@ -32,7 +32,7 @@ public final class CommonSettings {
         });
     }
 
-    private CommonSettings(){
+    private CommonSettings() {
     }
 }
 
