@@ -16,30 +16,38 @@
 
 package io.rxmicro.examples.test.dbunit.junit;
 
+import io.rxmicro.examples.test.dbunit.junit.debug.AfterDbUnitTestDebugExtension;
+import io.rxmicro.examples.test.dbunit.junit.debug.BeforeDbUnitTestDebugExtension;
 import io.rxmicro.test.dbunit.ExpectedDataSet;
 import io.rxmicro.test.dbunit.InitialDataSet;
 import io.rxmicro.test.dbunit.RollbackChanges;
 import io.rxmicro.test.dbunit.junit.DbUnitTest;
 import io.rxmicro.test.junit.RxMicroIntegrationTest;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+import static io.rxmicro.common.util.Formats.format;
 import static io.rxmicro.test.dbunit.TestDatabaseConfig.getCurrentTestDatabaseConfig;
 
-@Disabled("Temporary disabled: https://github.com/rxmicro/rxmicro/issues/1")
 // tag::content[]
 @RxMicroIntegrationTest
 @Testcontainers
+// end::content[]
+@ExtendWith(BeforeDbUnitTestDebugExtension.class)
+// tag::content[]
 // <1>
 @DbUnitTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+// end::content[]
+@ExtendWith(AfterDbUnitTestDebugExtension.class)
+// tag::content[]
 final class RollbackChangesTest {
 
     @Container
@@ -52,6 +60,16 @@ final class RollbackChangesTest {
         getCurrentTestDatabaseConfig()
                 .setHost(POSTGRESQL_TEST_DB.getContainerIpAddress())
                 .setPort(POSTGRESQL_TEST_DB.getFirstMappedPort());
+        // end::content[]
+        // For debug purposes and should be ignored by generated documentation!
+        final Thread currentThread = Thread.currentThread();
+        System.out.println(format(
+                "[INFO] Running ? {?/?}: beforeAll test method: container: ?:?, config: ?",
+                RollbackChangesTest.class.getName(), currentThread.getId(), currentThread.getName(),
+                POSTGRESQL_TEST_DB.getContainerIpAddress(), POSTGRESQL_TEST_DB.getFirstMappedPort(),
+                getCurrentTestDatabaseConfig().getJdbcUrl()
+        ));
+        // tag::content[]
     }
 
     @Test
@@ -61,14 +79,28 @@ final class RollbackChangesTest {
     @ExpectedDataSet("dataset/rxmicro-test-dataset-empty.xml")
     @Order(1)
     void Should_set_and_compare_dataset() {
-
+        // end::content[]
+        // For debug purposes and should be ignored by generated documentation!
+        final Thread currentThread = Thread.currentThread();
+        System.out.println(format(
+                "[INFO] Running ? {?/?}: test method: Should_set_and_compare_dataset",
+                getClass().getName(), currentThread.getId(), currentThread.getName()
+        ));
+        // tag::content[]
     }
 
     @Test
     @ExpectedDataSet("dataset/rxmicro-test-dataset.xml")
     @Order(2)
     void Should_contain_expected_dataset() {
-
+        // end::content[]
+        // For debug purposes and should be ignored by generated documentation!
+        final Thread currentThread = Thread.currentThread();
+        System.out.println(format(
+                "[INFO] Running ? {?/?}: test method: Should_set_and_compare_dataset",
+                getClass().getName(), currentThread.getId(), currentThread.getName()
+        ));
+        // tag::content[]
     }
 }
 // end::content[]
