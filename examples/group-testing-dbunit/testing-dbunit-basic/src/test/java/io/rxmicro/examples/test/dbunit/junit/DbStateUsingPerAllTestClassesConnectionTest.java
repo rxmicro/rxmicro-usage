@@ -16,8 +16,6 @@
 
 package io.rxmicro.examples.test.dbunit.junit;
 
-import io.rxmicro.examples.test.dbunit.junit.debug.AfterDbUnitTestDebugExtension;
-import io.rxmicro.examples.test.dbunit.junit.debug.BeforeDbUnitTestDebugExtension;
 import io.rxmicro.test.WithConfig;
 import io.rxmicro.test.dbunit.DatabaseType;
 import io.rxmicro.test.dbunit.ExpectedDataSet;
@@ -29,7 +27,6 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.testcontainers.containers.FixedHostPortGenericContainer;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.junit.jupiter.Container;
@@ -41,15 +38,9 @@ import static io.rxmicro.test.dbunit.junit.RetrieveConnectionStrategy.PER_ALL_TE
 // tag::content[]
 @RxMicroIntegrationTest
 @Testcontainers
-// end::content[]
-@ExtendWith(BeforeDbUnitTestDebugExtension.class)
-// tag::content[]
 // <1>
 @DbUnitTest(retrieveConnectionStrategy = PER_ALL_TEST_CLASSES)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-// end::content[]
-@ExtendWith(AfterDbUnitTestDebugExtension.class)
-// tag::content[]
 final class DbStateUsingPerAllTestClassesConnectionTest {
 
     private static final int DB_PORT = getRandomFreePort();

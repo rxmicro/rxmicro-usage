@@ -16,8 +16,6 @@
 
 package io.rxmicro.examples.test.dbunit.junit;
 
-import io.rxmicro.examples.test.dbunit.junit.debug.AfterDbUnitTestDebugExtension;
-import io.rxmicro.examples.test.dbunit.junit.debug.BeforeDbUnitTestDebugExtension;
 import io.rxmicro.test.dbunit.ExpectedDataSet;
 import io.rxmicro.test.dbunit.InitialDataSet;
 import io.rxmicro.test.dbunit.junit.DbUnitTest;
@@ -27,7 +25,6 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
@@ -37,15 +34,9 @@ import static io.rxmicro.test.dbunit.TestDatabaseConfig.getCurrentTestDatabaseCo
 // tag::content[]
 @RxMicroIntegrationTest
 @Testcontainers
-// end::content[]
-@ExtendWith(BeforeDbUnitTestDebugExtension.class)
-// tag::content[]
 // <1>
 @DbUnitTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-// end::content[]
-@ExtendWith(AfterDbUnitTestDebugExtension.class)
-// tag::content[]
 final class DbStateUsingPerClassConnectionTest {
 
     @Container
