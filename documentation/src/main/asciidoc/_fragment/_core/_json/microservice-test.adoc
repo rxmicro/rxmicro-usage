@@ -135,7 +135,7 @@ Thus, the following JSON objects:
 }
 ----
 
-и
+and
 
 [source,json]
 ----

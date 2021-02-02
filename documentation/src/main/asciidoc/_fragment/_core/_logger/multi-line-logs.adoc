@@ -4,8 +4,8 @@ include::../../___fragment-settings.adoc[]
 
 ==== Multiline Logs Issue For Docker Environment
 
-By default `docker` log driver does not support multiline log data. +
-It means that if Your microservice prints the stacktrace of any exception to the `System.out` or `System.err` each stack trace element will be processed as separate log event.
+By default the `docker` log driver does not support multiline log data. +
+It means that if Your microservice prints a stacktrace of any exception to the `System.out` or `System.err` each stack trace element will be processed as separate log event.
 
 There are several standard solutions to this problem.
 The RxMicro framework adds the one of them.
@@ -54,3 +54,8 @@ open source data collector is used, it is necessary to add the following filter:
     </record>
 </filter>
 ----
+
+[TIP]
+====
+FYI: This filter requires that your log messages are parsed and converted to the json property with `log` name before invocation of this filter!
+====

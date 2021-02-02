@@ -4,10 +4,13 @@ include::../../___fragment-settings.adoc[]
 
 ==== Logger Handler
 
-By default the `INFO` logging level is activated for the all logger.
+By default the `INFO` logging level is activated for the all loggers.
 
 All logger events are sent to the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-logger/src/main/java/io/rxmicro/logger/jul/SystemConsoleHandler.java[`SystemConsoleHandler`^]
-appender, which outputs all error logging information into `System.err` and all other levels into `System.out`.
+appender, which outputs:
+
+* Logger events with `ERROR` level into `System.err`;
+* Logger events with other levels into `System.out`.
 
 [TIP]
 ====
@@ -16,18 +19,21 @@ The `rxmicro.logger` module follows the logs recommendations, that are defined a
 If these functions are not enough You can use any other logging framework:
 http://logback.qos.ch/[`Logback`^],
 https://logging.apache.org/log4j/2.x/[`Apache Log4j 2`^] and others.
+
+P.S. You can use also the `FileHandler`, `SocketHandler`, etc that defined at the
+{JDK-JAVA-LOGGING-DOC-ROOT-URL}java/util/logging/package-summary.html[`java.logging`^] module.
 ====
 
 If the {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-logger/src/main/java/io/rxmicro/logger/jul/SystemConsoleHandler.java[`SystemConsoleHandler`^]
 appender must output all logging information into `System.out` or `System.err` it is necessary to set `stream` parameter:
 
-* To enable `System.err` output for all log levels use the following configuration:
+* To enable `System.err` output for the all log levels use the following configuration:
 [source,properties]
 ----
 io.rxmicro.logger.jul.SystemConsoleHandler.stream=stderror
 ----
 
-* To enable `System.out` output for all log levels use the following configuration:
+* To enable `System.out` output for the all log levels use the following configuration:
 [source,properties]
 ----
 io.rxmicro.logger.jul.SystemConsoleHandler.stream=stdout
@@ -38,5 +44,5 @@ io.rxmicro.logger.jul.SystemConsoleHandler.stream=stdout
 To get more information about the configuration of the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-logger/src/main/java/io/rxmicro/logger/jul/SystemConsoleHandler.java[`SystemConsoleHandler`^]
 component read javadoc for this component: +
-{RX-MICRO-JAVADOC-ROOT-URL}rxmicro-logger/latest/rxmicro.logger/io/rxmicro/logger/jul/SystemConsoleHandler.html[^]
+{RX-MICRO-JAVADOC-ROOT-URL}rxmicro-logger/latest/rxmicro.logger/io/rxmicro/logger/jul/SystemConsoleHandler.html[SystemConsoleHandler.html^]
 ====

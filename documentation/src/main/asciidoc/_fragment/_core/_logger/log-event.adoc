@@ -5,7 +5,7 @@ include::../../___fragment-settings.adoc[]
 
 ==== Custom Log Event
 
-The RxMicro framework provides a factory method to build custom logger event:
+The RxMicro framework provides a factory method to build a custom logger event:
 
 [source,java]
 ----
@@ -20,7 +20,7 @@ For example, the following methods implement the same logic:
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}code-fragments/src/main/java/io/rxmicro/examples/code/fragments/logger/LoggerEventBuilderTest.java[tag=usage,indent=0]
 ----
 
-A custom logger event allows customizing auto detect parameters:
+Besides that a custom logger event allows customizing the following auto detect parameters:
 
 * Thread id;
 * Thread name;

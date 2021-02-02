@@ -39,7 +39,7 @@ This option makes it possible to use unsupported but widely used in other loggin
 
 ===== Default Reading Order of Config Sources.
 
-By default, the `rxmicro.logger` module reads configuration sources in the following order (From the lowest to the highest priority):
+By default, the `rxmicro.logger` module reads configuration sources in the following order _(From the lowest to the highest priority)_:
 
 * Default config.
 * Configuration from the `jul.properties` classpath resource if the resource found.
@@ -50,11 +50,24 @@ By default, the `rxmicro.logger` module reads configuration sources in the follo
 Besides `jul.properties` and `jul.test.properties` classpath resources the `rxmicro.logger` module supports the following configuration sources:
 
 * Configuration using environment variables;
-* Configuration using Java system variables;
+* Configuration using Java system properties;
 * Configuration using properties file that is located at the following paths:
 ** `./jul.properties`;
-** `~/jul.properties`;
-** `~/.rxmicro/jul.properties`;
+** `$HOME/jul.properties`;
+** `$HOME/.rxmicro/jul.properties`;
+
+[TIP]
+====
+where
+
+* `.` - is the current project directory _(i.e. `System.getProperty("user.dir")`)_;
+* `$HOME` - is the home directory _(i.e. `System.getProperty("user.home")`)_:
+** for Linux platform: `/home/${USER-NAME}`;
+** for MacOS platform: `/Users/${USER-NAME}`;
+** for Windows platform: `C:\Documents and Settings\${USER-NAME}`.
+====
+
+
 
 To enable the additional config sources use the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-logger/src/main/java/io/rxmicro/logger/LoggerConfigSources.java[`LoggerConfigSources`^] class:
@@ -76,9 +89,11 @@ otherwise these config settings will be ignored.
 
 ===== Using Environment Variables And Java System Properties
 
-If You activated the configuration using environment variables and(or) Java system variables, then the RxMicro framework tries to resolve this(these) configuration(s). +
+After activation of the configuration using environment variables and(or) Java system properties, the RxMicro framework parses environment variables and(or) Java system properties. +
 If Your runtime contains an environment variable and (or) java system property with name that starts with `logger.` phrase, the `rxmicro.logger` module interprets it as configuration.
 For example to enable `TRACE` logger level for `MicroServiceLauncher` it is necessary to provide one of the following configurations:
+
+* Example of the configuration using environment variable:
 
 [source,bash]
 ----
@@ -88,6 +103,8 @@ java -p lib:. -m module/package.MicroServiceLauncher
 ----
 
 or
+
+* Example of the configuration using Java system property:
 
 [source,bash]
 ----

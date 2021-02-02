@@ -13,5 +13,5 @@ If you want to work with JSON format using usual Java style, the RxMicro framewo
 ----
 include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-common/json/src/test/java/io/rxmicro/examples/json/MicroServiceTestWithWrappers.java[tag=content,indent=0]
 ----
-<1> - To convert internal view of JSON object to the JSON wrapper use `JsonWrappers.toJsonObject` method.
-<2> - To convert string view of JSON object to the JSON wrapper use `JsonWrappers.readJsonObject` method.
+<1> - To convert a internal view of JSON object to the JSON wrapper use `JsonWrappers.toJsonObject` method.
+<2> - To convert a string view of JSON object to the JSON wrapper use `JsonWrappers.readJsonObject` method.
