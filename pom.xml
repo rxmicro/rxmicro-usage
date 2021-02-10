@@ -53,7 +53,7 @@
         <build-helper-maven-plugin.version>3.2.0</build-helper-maven-plugin.version>
 
         <!-- Docker runtime -->
-        <org.testcontainers.junit.jupiter.version>1.15.1</org.testcontainers.junit.jupiter.version>
+        <org.testcontainers.junit.jupiter.version>1.15.0</org.testcontainers.junit.jupiter.version>
     </properties>
 
     <build>
