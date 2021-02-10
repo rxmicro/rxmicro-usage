@@ -24,6 +24,7 @@
             </plugins>
         </pluginManagement>
     </build>
+
     <dependencies>
         <dependency>
             <groupId>io.rxmicro</groupId>

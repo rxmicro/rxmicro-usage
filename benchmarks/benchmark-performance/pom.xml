@@ -38,6 +38,4 @@
         <module>benchmark-performance-vertx-netty</module>
         <module>benchmark-performance-rxmicro-native</module>
     </modules>
-
-
 </project>

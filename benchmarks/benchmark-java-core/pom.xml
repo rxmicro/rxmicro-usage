@@ -24,9 +24,6 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>io.rxmicro.benchmarks</groupId>
     <artifactId>benchmark-java-core</artifactId>
-
-
 </project>
