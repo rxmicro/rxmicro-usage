@@ -61,6 +61,7 @@
                         <argLine>
                             @{argLine}
                             --add-opens java.base/java.lang.reflect=rxmicro.reflection
+                            --add-opens examples.testing.component.alternatives.ambiguty.resolving.complex/io.rxmicro.examples.testing.component.alternatives.ambiguty.resolving.complex=ALL-UNNAMED
                         </argLine>
                     </configuration>
                 </plugin>
