@@ -48,7 +48,7 @@ To enable `native transports` feature, add one of the following dependencies:
 * The `rxmicro-netty-native-osx` dependency adds the `netty-transport-native-kqueue` artifact;
 * The `rxmicro-netty-native` dependency activates `native transports` for the current platform:
 ** in case of the `Linux` current platform, the `netty-transport-native-epoll` artifact is added;
-** in case of the `OSX` current platform, the `netty-transport-native-kqueue` artifact is added;
+** in case of the `MacOS` current platform, the `netty-transport-native-kqueue` artifact is added;
 ** otherwise `native transports` is not activated for the current platform;
 * the `rxmicro-netty-native-all` dependency adds the `netty-transport-native-epoll` and `netty-transport-native-kqueue` artifacts.
 

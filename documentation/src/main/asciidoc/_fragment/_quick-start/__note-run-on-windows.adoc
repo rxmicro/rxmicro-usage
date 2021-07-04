@@ -5,7 +5,7 @@ include::../___fragment-settings.adoc[]
 ====
 The above example of launching a microservice project using a terminal won't work on `Windows` OS.
 
-Inoperability is caused by the use of different special symbols on Unix (Linux and Osx) and Windows platforms:
+Inoperability is caused by the use of different special symbols on Unix (Linux and MacOS) and Windows platforms:
 
 * {JDK-JAVA-BASE-DOC-ROOT-URL}java/io/File.html#pathSeparatorChar[`Path separator`^]:
 ** Unix uses the `:` symbol.

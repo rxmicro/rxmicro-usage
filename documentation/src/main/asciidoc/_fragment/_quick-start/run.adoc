@@ -50,11 +50,11 @@ It is assumed that the `M2_REPO` environment variable is set on Your computer.
 This variable must contain a path to the maven local repository.
 
 By default, the local repository is located in the `$HOME/.m2/repository`
-folder, where `$HOME` is the user's home directory:
+folder, where `$HOME` is the home directory _(i.e. `System.getProperty("user.home")`)_:
 
-* For Linux systems: `$HOME` = `/home/$USER`.
-* For Osx systems: `$HOME` = `/Users/$USER`.
-* For Windows systems: `$HOME` = `C:\Documents and Settings\%USERNAME%`.
+** for Linux platform the `$HOME` directory is `/home/$USERNAME`;
+** for MacOS platform the `$HOME` directory is `/Users/$USERNAME`;
+** for Windows platform the `$HOME` directory is `C:\Documents and Settings\%USERNAME%` or `C:\Users\%USERNAME%`.
 ====
 
 include::__note-run-on-windows.adoc[]

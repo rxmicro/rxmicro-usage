@@ -62,9 +62,9 @@ where
 
 * `.` - is the current project directory _(i.e. `System.getProperty("user.dir")`)_;
 * `$HOME` - is the home directory _(i.e. `System.getProperty("user.home")`)_:
-** for Linux platform: `/home/${USER-NAME}`;
-** for MacOS platform: `/Users/${USER-NAME}`;
-** for Windows platform: `C:\Documents and Settings\${USER-NAME}`.
+** for Linux platform the `$HOME` directory is `/home/$USERNAME`;
+** for MacOS platform the `$HOME` directory is `/Users/$USERNAME`;
+** for Windows platform the `$HOME` directory is `C:\Documents and Settings\%USERNAME%` or `C:\Users\%USERNAME%`.
 ====
 
 
