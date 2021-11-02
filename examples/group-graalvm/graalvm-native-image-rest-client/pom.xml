@@ -131,6 +131,26 @@
                 </property>
             </activation-->
             <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <artifactId>maven-clean-plugin</artifactId>
+                            <version>${maven-clean-plugin.version}</version>
+                            <configuration>
+                                <filesets>
+                                    <fileset>
+                                        <directory>${basedir}</directory>
+                                        <includes>
+                                            <include>RestClientLauncher</include>
+                                            <include>RestJdkClientLauncher</include>
+                                            <include>RestNettyClientLauncher</include>
+                                        </includes>
+                                    </fileset>
+                                </filesets>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
                 <plugins>
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
@@ -153,25 +173,6 @@
                                         <argument>${project.build.directory}/${project.build.finalName}.jar</argument>
                                     </arguments>
                                 </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <artifactId>maven-antrun-plugin</artifactId>
-                        <version>${maven-antrun-plugin.version}</version>
-                        <executions>
-                            <execution>
-                                <phase>clean</phase>
-                                <configuration>
-                                    <tasks>
-                                        <delete file="${basedir}/RestClientLauncher"/>
-                                        <delete file="${basedir}/RestJdkClientLauncher"/>
-                                        <delete file="${basedir}/RestNettyClientLauncher"/>
-                                    </tasks>
-                                </configuration>
-                                <goals>
-                                    <goal>run</goal>
-                                </goals>
                             </execution>
                         </executions>
                     </plugin>

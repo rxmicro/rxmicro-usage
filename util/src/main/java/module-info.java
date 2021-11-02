@@ -17,7 +17,7 @@
 module rxmicro.examples.util {
     requires rxmicro.common;
     requires rxmicro.json;
-    requires commons.io;
+    requires org.apache.commons.io;
     requires org.jsoup;
     requires java.net.http;
     requires rxmicro.data.mongo;

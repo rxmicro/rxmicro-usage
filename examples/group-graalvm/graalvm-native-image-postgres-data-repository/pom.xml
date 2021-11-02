@@ -132,6 +132,24 @@
                 </property>
             </activation>
             <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <artifactId>maven-clean-plugin</artifactId>
+                            <version>${maven-clean-plugin.version}</version>
+                            <configuration>
+                                <filesets>
+                                    <fileset>
+                                        <directory>${basedir}</directory>
+                                        <includes>
+                                            <include>PostgresLauncher</include>
+                                        </includes>
+                                    </fileset>
+                                </filesets>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
                 <plugins>
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
@@ -154,23 +172,6 @@
                                         <argument>${project.build.directory}/${project.build.finalName}.jar</argument>
                                     </arguments>
                                 </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <artifactId>maven-antrun-plugin</artifactId>
-                        <version>${maven-antrun-plugin.version}</version>
-                        <executions>
-                            <execution>
-                                <phase>clean</phase>
-                                <configuration>
-                                    <tasks>
-                                        <delete file="${basedir}/PostgresLauncher"/>
-                                    </tasks>
-                                </configuration>
-                                <goals>
-                                    <goal>run</goal>
-                                </goals>
                             </execution>
                         </executions>
                     </plugin>

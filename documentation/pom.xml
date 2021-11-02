@@ -12,7 +12,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <asciidoctorj.pdf.version>1.5.3</asciidoctorj.pdf.version>
+        <asciidoctorj-pdf.version>1.6.0</asciidoctorj-pdf.version>
     </properties>
 
     <build>
@@ -82,7 +82,7 @@
                     <attributes>
                         <pagenums/>
                         <rxmicro-version>${rxmicro.version}</rxmicro-version>
-                        <netty-version>4.1.55.Final</netty-version>
+                        <netty-version>4.1.69.Final</netty-version>
                         <maven-compiler-plugin-version>${maven-compiler-plugin.version}</maven-compiler-plugin-version>
                         <maven-surefire-plugin-version>${maven-surefire-plugin.version}</maven-surefire-plugin-version>
                         <maven-dependency-plugin-version>${maven-dependency-plugin.version}</maven-dependency-plugin-version>
@@ -93,7 +93,7 @@
                     <dependency>
                         <groupId>org.asciidoctor</groupId>
                         <artifactId>asciidoctorj-pdf</artifactId>
-                        <version>${asciidoctorj.pdf.version}</version>
+                        <version>${asciidoctorj-pdf.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
