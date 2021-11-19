@@ -24,7 +24,7 @@ import java.util.concurrent.CompletableFuture;
 import static io.rxmicro.rest.server.RxMicro.startRestServer;
 import static java.util.concurrent.CompletableFuture.completedFuture;
 
-@EnableHttpHealthCheck
+@EnableHttpHealthCheck("/http-health-check")
 public final class HelloWorldMicroService {
 
     @GET("/")
