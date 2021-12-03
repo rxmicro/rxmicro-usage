@@ -28,8 +28,8 @@ import io.rxmicro.rest.server.RestServerGeneratorConfig;
         generateResponseValidators = GenerateOption.DISABLED    // <4>
 )
 module examples.validation {
-    requires rxmicro.rest.server.netty;
-    requires rxmicro.rest.client.jdk;
+    requires rxmicro.rest.server;
+    requires rxmicro.rest.client;
     requires rxmicro.validation;
 }
 // end::content[]

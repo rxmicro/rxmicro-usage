@@ -13,7 +13,7 @@ In such cases a virtual descriptor must be created:
 
 [source,java]
 ----
-@Retention(SOURCE)
+@Retention(CLASS)
 @Target({})
 public @interface ModuleInfo {
 }
@@ -23,7 +23,7 @@ A virtual descriptor is a custom annotation that meets the following requirement
 
 . The name of the virtual descriptor is fixed and equal to: `ModuleInfo`.
 . The annotation must be contained in the default package (`unnamed package`).
-. The annotation should be available only during the compilation process: `@Retention(SOURCE)`.
+. The annotation should be available only during the compilation process: `@Retention(CLASS)`.
 . The annotation must contain an empty list of targets: `@Target({})`.
 
 [TIP]
