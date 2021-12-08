@@ -19,7 +19,7 @@ package io.rxmicro.examples.code.fragments.config.cmd_line_args;
 import io.rxmicro.config.Configs;
 import io.rxmicro.examples.code.fragments.MicroService;
 
-import static io.rxmicro.rest.server.RxMicro.startRestServer;
+import static io.rxmicro.rest.server.RxMicroRestServer.startRestServer;
 
 public final class Main {
 

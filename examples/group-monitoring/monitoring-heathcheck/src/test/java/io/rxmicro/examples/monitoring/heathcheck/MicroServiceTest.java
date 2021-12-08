@@ -27,7 +27,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static io.rxmicro.rest.server.RxMicro.startRestServer;
+import static io.rxmicro.rest.server.RxMicroRestServer.startRestServer;
 import static io.rxmicro.test.HttpServers.getRandomFreePort;
 import static io.rxmicro.test.json.JsonFactory.jsonObject;
 import static org.junit.jupiter.api.Assertions.assertEquals;

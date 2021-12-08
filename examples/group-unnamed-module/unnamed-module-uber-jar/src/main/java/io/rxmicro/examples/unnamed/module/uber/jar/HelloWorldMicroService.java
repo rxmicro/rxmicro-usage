@@ -16,7 +16,7 @@
 package io.rxmicro.examples.unnamed.module.uber.jar;
 
 import io.rxmicro.rest.method.GET;
-import io.rxmicro.rest.server.RxMicro;
+import io.rxmicro.rest.server.RxMicroRestServer;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -29,6 +29,6 @@ public final class HelloWorldMicroService {
     }
 
     public static void main(final String[] args) {
-        RxMicro.startRestServer(HelloWorldMicroService.class);
+        RxMicroRestServer.startRestServer(HelloWorldMicroService.class);
     }
 }

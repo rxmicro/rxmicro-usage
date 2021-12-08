@@ -21,7 +21,7 @@ import io.rxmicro.examples.code.fragments.MicroService;
 
 import static io.rxmicro.config.ConfigSource.RXMICRO_CLASS_PATH_RESOURCE;
 import static io.rxmicro.config.ConfigSource.SEPARATE_CLASS_PATH_RESOURCE;
-import static io.rxmicro.rest.server.RxMicro.startRestServer;
+import static io.rxmicro.rest.server.RxMicroRestServer.startRestServer;
 
 public final class WithOrderedConfigSourcesUsageExample {
 

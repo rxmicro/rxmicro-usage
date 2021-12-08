@@ -23,7 +23,7 @@ import static io.rxmicro.config.ConfigSource.RXMICRO_FILE_AT_THE_CURRENT_DIR;
 import static io.rxmicro.config.ConfigSource.RXMICRO_FILE_AT_THE_HOME_DIR;
 import static io.rxmicro.config.ConfigSource.SEPARATE_FILE_AT_THE_CURRENT_DIR;
 import static io.rxmicro.config.ConfigSource.SEPARATE_FILE_AT_THE_HOME_DIR;
-import static io.rxmicro.rest.server.RxMicro.startRestServer;
+import static io.rxmicro.rest.server.RxMicroRestServer.startRestServer;
 
 public final class UsePropertiesFilesOnlyExample {
 

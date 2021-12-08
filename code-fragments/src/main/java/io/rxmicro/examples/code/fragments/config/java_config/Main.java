@@ -20,7 +20,7 @@ import io.rxmicro.config.Configs;
 import io.rxmicro.examples.code.fragments.MicroService;
 import io.rxmicro.rest.server.HttpServerConfig;
 
-import static io.rxmicro.rest.server.RxMicro.startRestServer;
+import static io.rxmicro.rest.server.RxMicroRestServer.startRestServer;
 
 public final class Main {
 

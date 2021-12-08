@@ -16,7 +16,7 @@
 
 package io.rxmicro.examples.config.custom;
 
-import static io.rxmicro.rest.server.RxMicro.startRestServer;
+import static io.rxmicro.rest.server.RxMicroRestServer.startRestServer;
 
 // tag::content[]
 public final class Launcher {

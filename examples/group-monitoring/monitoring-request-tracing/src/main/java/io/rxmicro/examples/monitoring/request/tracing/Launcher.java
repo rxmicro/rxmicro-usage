@@ -17,7 +17,7 @@
 package io.rxmicro.examples.monitoring.request.tracing;
 
 import io.rxmicro.config.WaitFor;
-import io.rxmicro.rest.server.RxMicro;
+import io.rxmicro.rest.server.RxMicroRestServer;
 
 public final class Launcher {
 
@@ -26,6 +26,6 @@ public final class Launcher {
 
     public static void main(final String[] args) {
         new WaitFor(args).start();
-        RxMicro.startRESTServer(Launcher.class.getPackageName());
+        RxMicroRestServer.startRestServer(Launcher.class.getModule(), Launcher.class.getPackageName());
     }
 }

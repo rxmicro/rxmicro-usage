@@ -18,7 +18,7 @@ package io.rxmicro.benchmark.rxmicro.simple.microservice.startup;
 
 import io.rxmicro.config.Configs;
 import io.rxmicro.rest.method.GET;
-import io.rxmicro.rest.server.RxMicro;
+import io.rxmicro.rest.server.RxMicroRestServer;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -36,7 +36,7 @@ public final class HelloWorldMicroService {
         new Configs.Builder()
                 .withoutAnyConfigSources()
                 .build();
-        RxMicro.startRestServer(HelloWorldMicroService.class);
+        RxMicroRestServer.startRestServer(HelloWorldMicroService.class);
         System.exit(0);
     }
 }

@@ -64,7 +64,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/quick-start/src/main/java/io/r
 static method is used to create an object of `CompletableFuture` class.
 <3> To launch a REST-based microservice the `main` method is used.
 <4> The launch is performed using the
-{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/RxMicro.java#L77[`RxMicro.startRestServer(Class<?>)`^]
+{RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-rest-server/src/main/java/io/rxmicro/rest/server/RxMicro.java#L77[`RxMicroRestServer.startRestServer(Class<?>)`^]
 static method, which requires the REST-based microservice class as parameter.
 
 [NOTE]

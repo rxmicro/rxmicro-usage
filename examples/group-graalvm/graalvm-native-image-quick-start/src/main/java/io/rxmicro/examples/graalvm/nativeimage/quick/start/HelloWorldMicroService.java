@@ -17,7 +17,7 @@ package io.rxmicro.examples.graalvm.nativeimage.quick.start;
 
 import io.rxmicro.config.Configs;
 import io.rxmicro.rest.method.GET;
-import io.rxmicro.rest.server.RxMicro;
+import io.rxmicro.rest.server.RxMicroRestServer;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -34,7 +34,7 @@ public final class HelloWorldMicroService {
         new Configs.Builder()
                 .withContainerConfigSources() // <1>
                 .build();
-        RxMicro.startRestServer(HelloWorldMicroService.class);
+        RxMicroRestServer.startRestServer(HelloWorldMicroService.class);
     }
 }
 // end::content[]

@@ -40,7 +40,7 @@ import static java.util.Objects.requireNonNull;
 import static org.apache.commons.io.FileUtils.deleteDirectory;
 import static org.apache.commons.io.FileUtils.forceMkdir;
 
-public final class Launcher {
+public final class UpdateRxMicroTestFiles {
 
     private static void clearInputOutputDirs() throws IOException {
         for (final Map.Entry<String, String> entry : RX_MICRO_MODULES.entrySet()) {
@@ -160,7 +160,7 @@ public final class Launcher {
         }
     }
 
-    private Launcher() {
+    private UpdateRxMicroTestFiles() {
     }
 
     public static void main(final String[] args) throws IOException {

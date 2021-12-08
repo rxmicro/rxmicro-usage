@@ -24,7 +24,7 @@ import io.rxmicro.logger.LoggerImplProviderFactory;
 import io.rxmicro.rest.client.RestClientConfig;
 import io.rxmicro.rest.server.HttpServerConfig;
 import io.rxmicro.rest.server.RestServerConfig;
-import io.rxmicro.rest.server.RxMicro;
+import io.rxmicro.rest.server.RxMicroRestServer;
 import io.rxmicro.rest.server.ServerInstance;
 import io.rxmicro.test.BlockingHttpClient;
 import io.rxmicro.test.ClientHttpResponse;
@@ -73,7 +73,7 @@ final class FrontEndControllerTest {
                         .setPort(RANDOM_PORT)
                         .setEnableAdditionalValidations(true))
                 .build();
-        serverInstance = RxMicro.startRESTServer(RestControllerProxy.class);
+        serverInstance = RxMicroRestServer.startRestServer(RestControllerProxy.class);
         new WaitFor("localhost:" + RANDOM_PORT).start();
     }
 

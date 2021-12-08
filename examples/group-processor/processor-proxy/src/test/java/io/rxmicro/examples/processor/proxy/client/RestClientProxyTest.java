@@ -26,7 +26,7 @@ import io.rxmicro.rest.client.RestClientConfig;
 import io.rxmicro.rest.model.HttpCallFailedException;
 import io.rxmicro.rest.server.HttpServerConfig;
 import io.rxmicro.rest.server.RestServerConfig;
-import io.rxmicro.rest.server.RxMicro;
+import io.rxmicro.rest.server.RxMicroRestServer;
 import io.rxmicro.rest.server.ServerInstance;
 import io.rxmicro.test.junit.RxMicroIntegrationTest;
 import org.junit.jupiter.api.AfterAll;
@@ -77,7 +77,7 @@ final class RestClientProxyTest {
                         .setPort(RANDOM_PORT)
                         .setEnableAdditionalValidations(true))
                 .build();
-        serverInstance = RxMicro.startRESTServer(RestControllerProxy.class);
+        serverInstance = RxMicroRestServer.startRestServer(RestControllerProxy.class);
         new WaitFor("localhost:" + RANDOM_PORT).start();
     }
 

@@ -18,7 +18,7 @@ package io.rxmicro.examples.config.annotations.supplier;
 
 import io.rxmicro.rest.method.GET;
 
-import static io.rxmicro.rest.server.RxMicro.startRestServer;
+import static io.rxmicro.rest.server.RxMicroRestServer.startRestServer;
 
 @SuppressWarnings("EmptyMethod")
 // tag::content[]

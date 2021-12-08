@@ -40,7 +40,7 @@ import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 
-import static io.rxmicro.rest.server.RxMicro.startRestServer;
+import static io.rxmicro.rest.server.RxMicroRestServer.startRestServer;
 import static io.rxmicro.test.HttpServers.getRandomFreePort;
 import static java.nio.file.FileVisitResult.CONTINUE;
 import static java.nio.file.Files.createDirectories;
@@ -86,7 +86,7 @@ final class StaticResourcesTest {
                         .setRootDirectory(tempRootPath)
                 )
                 .build();
-        serverInstance = startRestServer(Launcher.class.getPackageName());
+        serverInstance = startRestServer(Launcher.class.getModule(), Launcher.class.getPackageName());
     }
 
     @ParameterizedTest
