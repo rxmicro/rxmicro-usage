@@ -14,11 +14,10 @@
  * limitations under the License.
  */
 
-package io.rxmicro.examples.test.fixer.microservice;
+package io.rxmicro.examples.test.fixer;
 
-import io.rxmicro.test.junit.RxMicroRestBasedMicroServiceTest;
+import io.rxmicro.test.junit.RxMicroComponentTest;
 
-@RxMicroRestBasedMicroServiceTest(Void.class)
-final class MicroServiceTest {
-
+@RxMicroComponentTest(Void.class)
+final class ComponentTest {
 }

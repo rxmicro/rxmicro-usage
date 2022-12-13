@@ -34,6 +34,7 @@ import static io.rxmicro.util.tests.Settings.DATA_MONGO;
 import static io.rxmicro.util.tests.Settings.DATA_R2DBC_POSTGRESQL;
 import static io.rxmicro.util.tests.Settings.DOCUMENTATION_ASCIIDOC;
 import static io.rxmicro.util.tests.Settings.EXAMPLES_ROOT_DIR_PATH;
+import static io.rxmicro.util.tests.Settings.MODULE_INFO_JAVA;
 import static io.rxmicro.util.tests.Settings.RX_MICRO_MODULES;
 import static io.rxmicro.util.tests.Settings.UNNAMED_MODULE_PREFIX;
 import static java.util.Objects.requireNonNull;
@@ -82,7 +83,7 @@ public final class UpdateRxMicroTestFiles {
 
     private static void clearOutputDir(final String root) throws IOException {
         final File output = new File(root + "/output");
-        for (final File packageName : requireNonNull(output.listFiles((dir, name) -> !"rxmicro".equals(name)))) {
+        for (final File packageName : requireNonNull(output.listFiles())) {
             deleteDirectory(packageName);
             System.out.println("Directory erased: " + packageName.getAbsolutePath());
         }
@@ -142,11 +143,12 @@ public final class UpdateRxMicroTestFiles {
                         "RestClient.java"
                 ));
             }
-            if (!exampleProject.getName().contains(UNNAMED_MODULE_PREFIX) &&
+            /*if (!exampleProject.getName().contains(UNNAMED_MODULE_PREFIX) &&
                     !exampleProject.getName().contains("extendable-model")) {
                 exclude.add("$$EnvironmentCustomizer.java");
-            }
-            copyOutput(destRoot, rootPackage, entry.getValue() + "/output", exclude.toArray(new String[0]));
+            }*/
+            final File moduleInfoFile = new File(format("?/src/main/java", exampleProject.getAbsolutePath()), MODULE_INFO_JAVA);
+            copyOutput(moduleInfoFile, destRoot, rootPackage, entry.getValue() + "/output", exclude.toArray(new String[0]));
         }
         final String genDocsRoot = format("?/src/main/asciidoc", exampleProject.getAbsolutePath());
         if (new File(genDocsRoot).exists()) {

@@ -14,6 +14,6 @@
  * limitations under the License.
  */
 
-module examples.test.fixer.microservice {
+module test {
     requires rxmicro.test.mockito.junit;
 }

@@ -20,7 +20,9 @@ import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Arrays;
+import java.util.List;
 
 import static io.rxmicro.common.util.Formats.format;
 import static io.rxmicro.util.tests.Settings.MODULE_INFO_JAVA;
@@ -48,7 +50,8 @@ public final class Copies {
         copyAllFiles(sourceDir, destRootDir);
     }
 
-    public static void copyOutput(final String srcRoot,
+    public static void copyOutput(final File moduleInfoFile,
+                                  final String srcRoot,
                                   final String rootPackage,
                                   final String destRoot,
                                   final String... excludes) throws IOException {
@@ -57,7 +60,7 @@ public final class Copies {
 
         forceMkdir(destRootDir);
         copyAllFiles(sourceDir, destRootDir, excludes);
-        copyRxMicroFolder(srcRoot, destRootDir, excludes);
+        copyRxMicroFolder(moduleInfoFile, rootPackage, srcRoot, new File(destRoot), excludes);
     }
 
     public static void copyDocs(final String projectRoot,
@@ -97,18 +100,42 @@ public final class Copies {
         }
     }
 
-    private static void copyRxMicroFolder(final String srcRoot,
+    private static void copyRxMicroFolder(final File moduleInfoFile,
+                                          final String rootPackage,
+                                          final String srcRoot,
                                           final File destRootDir,
                                           final String... excludes) throws IOException {
         final File rxMicroPackage = new File(srcRoot + "/rxmicro");
         if (rxMicroPackage.exists()) {
+            String rxMicroFileSubFolderPath = getRxMicroFileSubFolderPath(moduleInfoFile);
+            final File srcRxMicroSubFolder = new File(rxMicroPackage.getAbsolutePath() + "/" + rxMicroFileSubFolderPath.replace(".", "/"));
+            final File destRxMicroSubFolder =
+                "unnamed".equals(rxMicroFileSubFolderPath) ?
+                    new File(destRootDir.getAbsolutePath() + "/rxmicro/" + rxMicroFileSubFolderPath + "-" + rootPackage) :
+                    new File(destRootDir.getAbsolutePath() + "/rxmicro/" + rxMicroFileSubFolderPath);
             for (final File file : requireNonNull(
-                    rxMicroPackage.listFiles(
-                            (dir, name) -> Arrays.stream(excludes).noneMatch(f -> new File(dir, name).getAbsolutePath().contains(f))
-                    ),
-                    "Directory not found: " + rxMicroPackage.getAbsolutePath())) {
-                copyFile(file, new File(destRootDir, file.getName()));
+                srcRxMicroSubFolder.listFiles(
+                    (dir, name) -> Arrays.stream(excludes).noneMatch(f -> new File(dir, name).getAbsolutePath().contains(f))
+                ),
+                "Directory not found: " + rxMicroPackage.getAbsolutePath())) {
+                copyFile(file, new File(destRxMicroSubFolder, file.getName()));
             }
+        }
+    }
+    
+    private static String getRxMicroFileSubFolderPath(final File moduleInfoFile) throws IOException {
+        if (moduleInfoFile.exists()) {
+            List<String> lines = Files.readAllLines(moduleInfoFile.toPath());
+            for (String line : lines) {
+                if (line.startsWith("module ")) {
+                   return line.replace("module", "")
+                       .replace("{", "")
+                       .trim(); 
+                }
+            }
+            throw new IllegalStateException("Invalid content of the file: " + moduleInfoFile.getAbsolutePath());
+        } else {
+            return "unnamed";
         }
     }
 

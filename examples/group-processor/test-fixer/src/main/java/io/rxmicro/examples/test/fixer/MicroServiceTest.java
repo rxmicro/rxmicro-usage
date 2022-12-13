@@ -14,6 +14,11 @@
  * limitations under the License.
  */
 
-module examples.test.fixer.integration {
-    requires rxmicro.test.mockito.junit;
+package io.rxmicro.examples.test.fixer;
+
+import io.rxmicro.test.junit.RxMicroRestBasedMicroServiceTest;
+
+@RxMicroRestBasedMicroServiceTest(Void.class)
+final class MicroServiceTest {
+
 }

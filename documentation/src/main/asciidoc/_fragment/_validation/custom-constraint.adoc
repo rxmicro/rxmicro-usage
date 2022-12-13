@@ -34,9 +34,7 @@ include::{RX-MICRO-USAGE-ROOT-LOCAL-PATH}examples/group-validation/validation-se
 <1> The validator class must implement the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-validation/src/main/java/io/rxmicro/validation/ConstraintValidator.java[`ConstraintValidator`^] interface parameterized by the data type. +
 _(If constraint annotation can be applied to different data types, a separate validator class must be created for each data type.)_
-<2> Validator must ignore `null` values. +
-_(To check for `null` there is a predefined validator.)_
-<3> If the parameter is incorrect, the
+<2> If the parameter is incorrect, the
 {RX-MICRO-SRC-ROOT-BLOB-URL}rxmicro-http/src/main/java/io/rxmicro/http/error/ValidationException.java[`ValidationException`^] exception with a clear error message must be thrown.
 
 Using a custom validator is no different from using a predefined validator:

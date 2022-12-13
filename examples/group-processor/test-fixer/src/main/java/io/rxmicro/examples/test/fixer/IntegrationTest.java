@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.rxmicro.examples.test.fixer.component;
+package io.rxmicro.examples.test.fixer;
 
-import io.rxmicro.test.junit.RxMicroComponentTest;
+import io.rxmicro.test.junit.RxMicroIntegrationTest;
 
-@RxMicroComponentTest(Void.class)
-final class ComponentTest {
+@RxMicroIntegrationTest
+final class IntegrationTest {
 }

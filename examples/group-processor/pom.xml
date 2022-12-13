@@ -12,9 +12,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>test-fixer-component</module>
-        <module>test-fixer-microservice</module>
-        <module>test-fixer-integration</module>
         <module>processor-all-components</module>
         <module>processor-microservice</module>
         <module>processor-restclient</module>
@@ -22,6 +19,7 @@
         <module>processor-mongo</module>
         <module>processor-r2dbc-postgresql</module>
         <module>processor-proxy</module>
+        <module>test-fixer</module>
     </modules>
 
     <build>
