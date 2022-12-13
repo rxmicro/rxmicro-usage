@@ -47,7 +47,7 @@ public interface DeleteSuccessfulDataRepository {
     Mono<Boolean> deleteOne02();
 
     @Delete("DELETE FROM ${table} WHERE id = 3")
-    Mono<Integer> deleteOne03();
+    Mono<Long> deleteOne03();
 
     @Delete("DELETE FROM ${table} WHERE id = 4")
     Completable deleteOne04();
@@ -56,7 +56,7 @@ public interface DeleteSuccessfulDataRepository {
     Single<Boolean> deleteOne05();
 
     @Delete("DELETE FROM ${table} WHERE id = 6")
-    Single<Integer> deleteOne06();
+    Single<Long> deleteOne06();
 
     @Delete("DELETE FROM ${table} WHERE id = 7")
     CompletableFuture<Void> deleteOne07();
@@ -65,7 +65,7 @@ public interface DeleteSuccessfulDataRepository {
     CompletableFuture<Boolean> deleteOne08();
 
     @Delete("DELETE FROM ${table} WHERE id = 9")
-    CompletableFuture<Integer> deleteOne09();
+    CompletableFuture<Long> deleteOne09();
 
     @Delete("DELETE FROM ${table} WHERE id = 10")
     CompletionStage<Void> deleteOne10();
@@ -74,7 +74,7 @@ public interface DeleteSuccessfulDataRepository {
     CompletionStage<Boolean> deleteOne11();
 
     @Delete("DELETE FROM ${table} WHERE id = 12")
-    CompletionStage<Integer> deleteOne12();
+    CompletionStage<Long> deleteOne12();
     // -----------------------------------------------------------------------------------------------------------------
 
     @Delete("DELETE FROM ${table} WHERE id = 13 RETURNING *")

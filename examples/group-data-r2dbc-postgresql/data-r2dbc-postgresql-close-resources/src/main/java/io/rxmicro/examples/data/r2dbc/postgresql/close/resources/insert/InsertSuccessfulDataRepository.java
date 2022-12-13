@@ -47,7 +47,7 @@ public interface InsertSuccessfulDataRepository {
     Mono<Boolean> insertOne02();
 
     @Insert("INSERT INTO ${table} VALUES(102, 'name', 100.00, 10)")
-    Mono<Integer> insertOne03();
+    Mono<Long> insertOne03();
 
     @Insert("INSERT INTO ${table} VALUES(103, 'name', 100.00, 10)")
     Completable insertOne04();
@@ -56,7 +56,7 @@ public interface InsertSuccessfulDataRepository {
     Single<Boolean> insertOne05();
 
     @Insert("INSERT INTO ${table} VALUES(105, 'name', 100.00, 10)")
-    Single<Integer> insertOne06();
+    Single<Long> insertOne06();
 
     @Insert("INSERT INTO ${table} VALUES(106, 'name', 100.00, 10)")
     CompletableFuture<Void> insertOne07();
@@ -65,7 +65,7 @@ public interface InsertSuccessfulDataRepository {
     CompletableFuture<Boolean> insertOne08();
 
     @Insert("INSERT INTO ${table} VALUES(108, 'name', 100.00, 10)")
-    CompletableFuture<Integer> insertOne09();
+    CompletableFuture<Long> insertOne09();
 
     @Insert("INSERT INTO ${table} VALUES(109, 'name', 100.00, 10)")
     CompletionStage<Void> insertOne10();
@@ -74,7 +74,7 @@ public interface InsertSuccessfulDataRepository {
     CompletionStage<Boolean> insertOne11();
 
     @Insert("INSERT INTO ${table} VALUES(111, 'name', 100.00, 10)")
-    CompletionStage<Integer> insertOne12();
+    CompletionStage<Long> insertOne12();
     // -----------------------------------------------------------------------------------------------------------------
 
     @Insert("INSERT INTO ${table} VALUES(112, 'name', 100.00, 10) RETURNING *")

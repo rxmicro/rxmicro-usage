@@ -22,38 +22,61 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <rxmicro.version>0.10-SNAPSHOT</rxmicro.version>
+        <!-- https://mvnrepository.com/artifact/org.openjdk.jmh/jmh-core -->
+        <jmh.version>1.36</jmh.version>
 
-        <jmh.version>1.33</jmh.version>
+        <!-- https://mvnrepository.com/artifact/io.reactivex.rxjava3/rxjava -->
+        <rxjava.version>3.1.5</rxjava.version>
+        <!-- https://mvnrepository.com/artifact/io.projectreactor/reactor-core -->
+        <projectreactor.version>3.5.0</projectreactor.version>
 
-        <projectreactor.version>3.4.11</projectreactor.version>
-        <rxjava.version>3.1.2</rxjava.version>
-
-        <!-- Maven core plugins -->
-        <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
-        <maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
-        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
-        <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
-        <maven-install-plugin.version>3.0.0-M1</maven-install-plugin.version>
-        <maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
+        <!-- ========== Maven core plugins ========== -->
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-clean-plugin -->
+        <maven-clean-plugin.version>3.2.0</maven-clean-plugin.version>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin -->
+        <maven-resources-plugin.version>3.3.0</maven-resources-plugin.version>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+        <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+        <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
+        <maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-install-plugin -->
+        <maven-install-plugin.version>3.1.0</maven-install-plugin.version>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-deploy-plugin -->
+        <maven-deploy-plugin.version>3.0.0</maven-deploy-plugin.version>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-site-plugin -->
         <maven-site-plugin.version>3.9.1</maven-site-plugin.version>
-        <maven-project-info-reports-plugin.version>3.1.2</maven-project-info-reports-plugin.version>
-        <maven-dependency-plugin.version>3.2.0</maven-dependency-plugin.version>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-project-info-reports-plugin -->
+        <maven-project-info-reports-plugin.version>3.12.1</maven-project-info-reports-plugin.version>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-dependency-plugin -->
+        <maven-dependency-plugin.version>3.4.0</maven-dependency-plugin.version>
 
-        <!-- Maven additional plugins -->
+        <!-- ========== Maven additional plugins ========== -->
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-dependency-plugin -->
         <maven-dependency-plugin.version>3.2.0</maven-dependency-plugin.version>
+        <!-- https://mvnrepository.com/artifact/org.jacoco/jacoco-maven-plugin -->
         <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
+        <!-- https://mvnrepository.com/artifact/com.spotify/dockerfile-maven-plugin -->
         <dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
+        <!-- https://mvnrepository.com/artifact/org.asciidoctor/asciidoctor-maven-plugin -->
         <asciidoctor-maven-plugin.version>2.2.1</asciidoctor-maven-plugin.version>
+        <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/versions-maven-plugin -->
         <versions-maven-plugin.version>2.8.1</versions-maven-plugin.version>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-shade-plugin -->
         <maven-shade-plugin.version>3.2.4</maven-shade-plugin.version>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-failsafe-plugin -->
         <maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version>
+        <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin -->
         <exec-maven-plugin.version>3.0.0</exec-maven-plugin.version>
+        <!-- https://mvnrepository.com/artifact/com.samaxes.maven/minify-maven-plugin -->
         <minify-maven-plugin.version>1.7.6</minify-maven-plugin.version>
+        <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/build-helper-maven-plugin -->
         <build-helper-maven-plugin.version>3.2.0</build-helper-maven-plugin.version>
 
-        <!-- Docker runtime -->
-        <org.testcontainers.junit.jupiter.version>1.16.2</org.testcontainers.junit.jupiter.version>
+        <!-- ========== Docker runtime ========== -->
+        <!-- https://mvnrepository.com/artifact/org.testcontainers/junit-jupiter -->
+        <org.testcontainers.junit.jupiter.version>1.17.6</org.testcontainers.junit.jupiter.version>
     </properties>
 
     <build>

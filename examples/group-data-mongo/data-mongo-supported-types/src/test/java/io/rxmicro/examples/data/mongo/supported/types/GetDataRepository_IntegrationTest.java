@@ -19,6 +19,9 @@ package io.rxmicro.examples.data.mongo.supported.types;
 import io.rxmicro.data.mongo.MongoConfig;
 import io.rxmicro.test.WithConfig;
 import io.rxmicro.test.junit.RxMicroComponentTest;
+import org.bson.codecs.Codec;
+import org.bson.codecs.CollectionCodecProvider;
+import org.bson.codecs.configuration.CodecRegistry;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayNameGeneration;
@@ -29,6 +32,7 @@ import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Function;
@@ -55,7 +59,8 @@ final class GetDataRepository_IntegrationTest extends AbstractDataRepositoryInte
         getCurrentMongoCodecsConfigurator()
                 .withDefaultConfiguration()
                 .withExtendJavaCodecs()
-                .withExtendMongoCodecs();
+                .withExtendMongoCodecs()
+                .withCollectionCodecs();
     }
 
     @BeforeAll

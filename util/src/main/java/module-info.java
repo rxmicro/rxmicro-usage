@@ -24,7 +24,7 @@ module rxmicro.examples.util {
     requires rxmicro.data.sql.r2dbc.postgresql;
     requires rxmicro.rest.server.netty;
     requires rxmicro.rest.client.jdk;
-    requires io.netty.transport.epoll;
-    requires io.netty.transport.kqueue;
+    requires io.netty.transport.classes.epoll;
+    requires io.netty.transport.classes.kqueue;
     requires io.netty.common;
 }

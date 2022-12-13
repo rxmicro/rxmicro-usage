@@ -48,7 +48,8 @@ final class DeleteDataRepository_IntegrationTest {
         getCurrentMongoCodecsConfigurator()
                 .withDefaultConfiguration()
                 .withExtendJavaCodecs()
-                .withExtendMongoCodecs();
+                .withExtendMongoCodecs()
+                .withCollectionCodecs();
     }
 
     @Container

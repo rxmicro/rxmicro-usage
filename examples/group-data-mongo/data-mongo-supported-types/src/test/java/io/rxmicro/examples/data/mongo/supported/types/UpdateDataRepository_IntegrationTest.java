@@ -58,7 +58,8 @@ final class UpdateDataRepository_IntegrationTest {
         getCurrentMongoCodecsConfigurator()
                 .withDefaultConfiguration()
                 .withExtendJavaCodecs()
-                .withExtendMongoCodecs();
+                .withExtendMongoCodecs()
+                .withCollectionCodecs();
     }
 
     @BeforeAll

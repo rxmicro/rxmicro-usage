@@ -47,7 +47,7 @@ public interface UpdateSuccessfulDataRepository {
     Mono<Boolean> updateOne02();
 
     @Update("UPDATE ${table} SET count = 0 WHERE id = 3")
-    Mono<Integer> updateOne03();
+    Mono<Long> updateOne03();
 
     @Update("UPDATE ${table} SET count = 0 WHERE id = 4")
     Completable updateOne04();
@@ -56,7 +56,7 @@ public interface UpdateSuccessfulDataRepository {
     Single<Boolean> updateOne05();
 
     @Update("UPDATE ${table} SET count = 0 WHERE id = 6")
-    Single<Integer> updateOne06();
+    Single<Long> updateOne06();
 
     @Update("UPDATE ${table} SET count = 0 WHERE id = 7")
     CompletableFuture<Void> updateOne07();
@@ -65,7 +65,7 @@ public interface UpdateSuccessfulDataRepository {
     CompletableFuture<Boolean> updateOne08();
 
     @Update("UPDATE ${table} SET count = 0 WHERE id = 9")
-    CompletableFuture<Integer> updateOne09();
+    CompletableFuture<Long> updateOne09();
 
     @Update("UPDATE ${table} SET count = 0 WHERE id = 10")
     CompletionStage<Void> updateOne10();
@@ -74,7 +74,7 @@ public interface UpdateSuccessfulDataRepository {
     CompletionStage<Boolean> updateOne11();
 
     @Update("UPDATE ${table} SET count = 0 WHERE id = 12")
-    CompletionStage<Integer> updateOne12();
+    CompletionStage<Long> updateOne12();
     // -----------------------------------------------------------------------------------------------------------------
 
     @Update("UPDATE ${table} SET count = 0 WHERE id = 13 RETURNING *")

@@ -46,7 +46,8 @@ final class InsertDataRepository_IntegrationTest {
         getCurrentMongoCodecsConfigurator()
                 .withDefaultConfiguration()
                 .withExtendJavaCodecs()
-                .withExtendMongoCodecs();
+                .withExtendMongoCodecs()
+                .withCollectionCodecs();
     }
 
     @Container
