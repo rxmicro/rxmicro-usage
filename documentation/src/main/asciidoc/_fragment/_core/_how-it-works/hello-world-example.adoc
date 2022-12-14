@@ -255,11 +255,11 @@ The aggregators perform the following functions:
 The aggregators are invoked by the RxMicro framework using `reflection`. +
 _(That' s why aggregators have a permanent and predefined names and are located in the special package: `rxmicro`.)_
 
-*An Aggregator of the REST Controllers for any project is always the `rxmicro.$$RestControllerAggregatorImpl` class*:
+*An Aggregator of the REST Controllers for any project is always the `rxmicro.MODULE_NAME.$$RestControllerAggregatorImpl` class*:
 
 [source,java]
 ----
-package rxmicro; //<1>
+package rxmicro.MODULE_NAME; //<1>
 
 public final class $$RestControllerAggregatorImpl extends RestControllerAggregator { // <2>
 
@@ -275,7 +275,7 @@ public final class $$RestControllerAggregatorImpl extends RestControllerAggregat
 
 }
 ----
-<1> All aggregators are *always* generated in the special package: `rxmicro`.
+<1> All aggregators are *always* generated in the special package: `rxmicro.MODULE_NAME`, where `MODULE_NAME` is the module name or `unnamed` constant if the current project does not declare the `module-info.java` descriptor (Read more: <<{java-integration}#java-integration-unnamed-module,`Unnamed Modules Support`>>).
 <2> The predefined name of the REST controller aggregator class is always `$$RestControllerAggregatorImpl`.
 <3> When the aggregator class is loaded by the RxMicro framework, the component of the <<core-how-it-works-environment-customizer,current environment customization>> is invoked.
 <4> The aggregator registers all generated additional classes for REST controllers;
@@ -285,9 +285,9 @@ public final class $$RestControllerAggregatorImpl extends RestControllerAggregat
 
 Java 9 has introduced the {WHAT-IS-JPMS-LINK}[`JPMS`^].
 
-This system requires that a developer configures access to classes in the *module-info.java* file of the microservice project.
+This system requires that a developer configures access to classes in the `module-info.java` file of the microservice project.
 
-To enable the RxMicro framework to load aggregator classes, You must export the `rxmicro` package to the `rxmicro.reflection` module:
+To enable the RxMicro framework to load aggregator classes, You must export the `rxmicro.MODULE_NAME` package to the `rxmicro.reflection` module:
 
 [source,java]
 ----
@@ -295,25 +295,26 @@ module examples.quick.start {
     requires rxmicro.rest.server.netty;
     requires rxmicro.rest.server.exchange.json;
 
-    exports rxmicro to rxmicro.reflection; // <1>
+    exports rxmicro.MODULE_NAME to rxmicro.reflection; // <1>
 }
 ----
-<1>  Allow access of reflection util classes from the `rxmicro.reflection` module to all classes from the `rxmicro` package.
+<1>  Allow access of reflection util classes from the `rxmicro.reflection` module to all classes from the `rxmicro.MODULE_NAME` package.
 
-But the `rxmicro` package is created automatically and after deleting all the generated files, it won't be possible to compile the `module-info.java` because of the following error:
+But the `rxmicro.MODULE_NAME` package is created automatically and after deleting all the generated files, it won't be possible to compile the `module-info.java` because of the following error:
 
-`package is empty or does not exist: rxmicro`.
+`package is empty or does not exist: rxmicro.MODULE_NAME`.
 
-To solve this problem, the RxMicro framework generates the `rxmicro.$$EnvironmentCustomizer` class:
+To solve this problem, the RxMicro framework generates the `rxmicro.MODULE_NAME.$$EnvironmentCustomizer` class:
 
 [source,java]
 ----
-package rxmicro; //<1>
+package rxmicro.MODULE_NAME; //<1>
 
 final class $$EnvironmentCustomizer {
 
     static {
         exportTheRxmicroPackageToReflectionModule(); // <2>
+        invokeAllStaticSections($$EnvironmentCustomizer.class.getModule(), "$$EnvironmentCustomizer"); // <3>
         // All required customization must be here
     }
 
@@ -323,20 +324,21 @@ final class $$EnvironmentCustomizer {
 
     private static void exportTheRxmicroPackageToReflectionModule() {
         final Module currentModule = $$EnvironmentCustomizer.class.getModule();
-        currentModule.addExports("rxmicro", RX_MICRO_REFLECTION_MODULE); // <3>
+        currentModule.addExports("rxmicro.MODULE_NAME", RX_MICRO_REFLECTION_MODULE); // <4>
     }
 
     private $$EnvironmentCustomizer() {
     }
 }
 ----
-<1> All customizers are *always* generated in the special package: `rxmicro`.
+<1> All customizers are *always* generated in the special package: `rxmicro.MODULE_NAME`, where `MODULE_NAME` is the module name or `unnamed` constant if the current project does not declare the `module-info.java` descriptor (Read more: <<{java-integration}#java-integration-unnamed-module,`Unnamed Modules Support`>>).
 <2> When the class is loaded, the `exportTheRxmicroPackageToReflectionModule()` static method is invoked.
-<3> In this method body, the export of the `rxmicro` package to the `rxmicro.reflection` module is performed dynamically using the capabilities of the {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Module.html[`java.lang.Module`^] class.
+<3> Finds all `$$EnvironmentCustomizer` classes that are defined in other modules in the current module path and invokes static sections. 
+<4> In this method body, the export of the `rxmicro.MODULE_NAME` package to the `rxmicro.reflection` module is performed dynamically using the capabilities of the {JDK-JAVA-BASE-DOC-ROOT-URL}java/lang/Module.html[`java.lang.Module`^] class.
 
 Due to this additional class, all necessary settings for the {WHAT-IS-JPMS-LINK}[`JPMS`^] are created automatically.
 
 [TIP]
 ====
-If the RxMicro framework needs additional automatic settings for its correct work, these settings will be automatically added by the `RxMicro Annotation Processor` to the `rxmicro.$$EnvironmentCustomizer` class.
+If the RxMicro framework needs additional automatic settings for its correct work, these settings will be automatically added by the `RxMicro Annotation Processor` to the `rxmicro.MODULE_NAME.$$EnvironmentCustomizer` class.
 ====

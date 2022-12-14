@@ -26,20 +26,20 @@ endif::[]
 :REACTOR-CORE-DOC-USER_GUIDE: https://projectreactor.io/docs/core/release/reference/index.html
 :REACTOR-CORE-DOC-ROOT-URL: https://projectreactor.io/docs/core/release/api/
 // Testing Lib Root Links
-:JUNIT5-DOC-ROOT-URL: https://junit.org/junit5/docs/current/
+:JUNIT5-DOC-ROOT-URL: https://junit.org/junit5/docs/current/user-guide/
 :MOCKITO-DOC-ROOT-URL: https://javadoc.io/doc/org.mockito/mockito-core/latest/
-:TESTCONTAINERS-JUNIT-DOC-ROOT-URL: https://github.com/testcontainers/testcontainers-java/blob/master/modules/junit-jupiter/src/main/java/
+:TESTCONTAINERS-JUNIT-DOC-ROOT-URL: https://github.com/testcontainers/testcontainers-java/blob/main/modules/junit-jupiter/src/main/java/
 // Data Repositories Root Links
-:R2DBC-SPEC-ROOT-URL: https://r2dbc.io/spec/0.8.1.RELEASE/spec/html/
-:R2DBC-JAVADOC-ROOT-URL: https://r2dbc.io/spec/0.8.1.RELEASE/api/
-:R2DBC-JAVADOC-POOL-URL: https://javadoc.io/static/io.r2dbc/r2dbc-pool/0.8.1.RELEASE/
+:R2DBC-SPEC-ROOT-URL: https://r2dbc.io/spec/1.0.0.RELEASE/spec/html/
+:R2DBC-JAVADOC-ROOT-URL: https://r2dbc.io/spec/1.0.0.RELEASE/api/
+:R2DBC-JAVADOC-POOL-URL: https://javadoc.io/static/io.r2dbc/r2dbc-pool/1.0.0.RELEASE/
 
 :POSTGRESQL-R2DBC-GITHUB-ROOT: https://github.com/pgjdbc/r2dbc-postgresql
 :MONGO-ASYNC-DRIVER_DOC: http://mongodb.github.io/mongo-java-driver/4.0/driver/
-:MONGO-ASYNC-REACTIVE_DOC: http://mongodb.github.io/mongo-java-driver-reactivestreams/1.9/javadoc/
+:MONGO-ASYNC-REACTIVE_DOC: https://mongodb.github.io/mongo-java-driver-reactivestreams/1.13/javadoc/
 
 :RX-MICRO-DOCKER_HUB_ROOT: https://hub.docker.com/r/rxmicro/
 
 :WHAT-IS-JPMS-LINK: https://www.oracle.com/corporate/features/understanding-java-9-modules.html
 
-:DBUNIT-API-DOC-ROOT-URL: http://dbunit.sourceforge.net/apidocs/
+:DBUNIT-API-DOC-ROOT-URL: https://dbunit.sourceforge.net/
