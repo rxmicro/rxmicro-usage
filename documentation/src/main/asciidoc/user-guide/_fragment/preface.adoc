@@ -1,4 +1,4 @@
-(C) 2019-2020 rxmicro.io.
+(C) 2019-2022 rxmicro.io.
 Free use of this software is granted under the terms of the {RX-MICRO-SRC-ROOT-BLOB-URL}LICENSE[`Apache License 2.0`^].
 
 [NOTE]

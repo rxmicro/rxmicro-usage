@@ -30,7 +30,7 @@ The `rxmicro.data.sql.r2dbc.postgresql` module supports the following primitive 
 * `java.math.BigDecimal`;
 * `java.lang.Character`;
 * `java.lang.String`;
-* `java.time.Intant`;
+* `java.time.Instant`;
 * `java.time.LocalTime`;
 * `java.time.LocalDate`;
 * `java.time.LocalDateTime`;
