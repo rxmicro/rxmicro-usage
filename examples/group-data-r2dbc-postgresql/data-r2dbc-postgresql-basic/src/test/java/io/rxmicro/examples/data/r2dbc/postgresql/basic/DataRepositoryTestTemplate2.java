@@ -49,7 +49,7 @@ final class DataRepositoryTestTemplate2 {
     @BeforeEach
     void beforeEach() {
         config
-                .setHost(postgresqlTestDb.getContainerIpAddress()) // <8>
+                .setHost(postgresqlTestDb.getHost()) // <8>
                 .setPort(postgresqlTestDb.getFirstMappedPort());
     }
 

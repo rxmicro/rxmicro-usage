@@ -60,7 +60,7 @@ final class InsertDataRepository_IntegrationTest {
     @BeforeEach
     void beforeEach() {
         MONGO_CONFIG
-                .setHost(mongoTestDb.getContainerIpAddress())
+                .setHost(mongoTestDb.getHost())
                 .setPort(mongoTestDb.getFirstMappedPort());
     }
 

@@ -47,7 +47,7 @@ final class DataRepositoryTestTemplate1 {
     static void beforeAll() {
         MONGO_TEST_DB.start(); // <7>
         MONGO_CONFIG
-                .setHost(MONGO_TEST_DB.getContainerIpAddress()) // <8>
+                .setHost(MONGO_TEST_DB.getHost()) // <8>
                 .setPort(MONGO_TEST_DB.getFirstMappedPort());
     }
 

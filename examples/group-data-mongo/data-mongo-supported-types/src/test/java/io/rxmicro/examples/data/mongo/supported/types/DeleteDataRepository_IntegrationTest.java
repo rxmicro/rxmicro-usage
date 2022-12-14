@@ -84,7 +84,7 @@ final class DeleteDataRepository_IntegrationTest {
     @BeforeEach
     void beforeEach() {
         MONGO_CONFIG
-                .setHost(mongoTestDb.getContainerIpAddress())
+                .setHost(mongoTestDb.getHost())
                 .setPort(mongoTestDb.getFirstMappedPort());
     }
 

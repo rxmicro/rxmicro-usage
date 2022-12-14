@@ -50,7 +50,7 @@ final class DataRepositoryTest {
     @BeforeEach
     void beforeEach() {
         config
-                .setHost(postgresqlTestDb.getContainerIpAddress())
+                .setHost(postgresqlTestDb.getHost())
                 .setPort(postgresqlTestDb.getFirstMappedPort());
     }
 

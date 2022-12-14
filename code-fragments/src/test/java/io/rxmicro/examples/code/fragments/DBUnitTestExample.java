@@ -31,7 +31,7 @@ public class DBUnitTestExample {
     @BeforeEach
     void beforeEach() {
         getCurrentTestDatabaseConfig()
-                .setHost(postgresqlTestDockerContainer.getContainerIpAddress())
+                .setHost(postgresqlTestDockerContainer.getHost())
                 .setPort(postgresqlTestDockerContainer.getFirstMappedPort());
     }
     // end::config[]
@@ -56,7 +56,7 @@ public class DBUnitTestExample {
 
     private interface PostgresqlTestDockerContainer {
 
-        String getContainerIpAddress();
+        String getHost();
 
         int getFirstMappedPort();
     }

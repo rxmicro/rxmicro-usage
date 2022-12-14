@@ -51,7 +51,7 @@ final class DbStateUsingPerMethodConnectionTest {
     @BeforeEach
     void beforeEach() {
         getCurrentTestDatabaseConfig()
-                .setHost(postgresqlTestDb.getContainerIpAddress())
+                .setHost(postgresqlTestDb.getHost())
                 .setPort(postgresqlTestDb.getFirstMappedPort());
     }
 

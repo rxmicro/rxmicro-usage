@@ -52,7 +52,7 @@ final class InsertSuccessfulDataRepositoryTest extends AbstractDataRepositoryTes
     static void beforeAll() {
         POSTGRESQL_TEST_DB.start();
         CONFIG
-                .setHost(POSTGRESQL_TEST_DB.getContainerIpAddress())
+                .setHost(POSTGRESQL_TEST_DB.getHost())
                 .setPort(POSTGRESQL_TEST_DB.getFirstMappedPort());
     }
 

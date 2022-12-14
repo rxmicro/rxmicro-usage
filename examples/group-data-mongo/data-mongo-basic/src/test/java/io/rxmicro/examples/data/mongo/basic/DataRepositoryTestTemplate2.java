@@ -47,7 +47,7 @@ final class DataRepositoryTestTemplate2 {
     @BeforeEach
     void beforeEach() {
         mongoConfig
-                .setHost(mongoTestDb.getContainerIpAddress()) // <8>
+                .setHost(mongoTestDb.getHost()) // <8>
                 .setPort(mongoTestDb.getFirstMappedPort());
     }
 

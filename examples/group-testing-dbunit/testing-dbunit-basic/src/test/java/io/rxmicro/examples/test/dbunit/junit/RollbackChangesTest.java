@@ -51,7 +51,7 @@ final class RollbackChangesTest {
     @BeforeAll
     static void beforeAll() {
         getCurrentTestDatabaseConfig()
-                .setHost(POSTGRESQL_TEST_DB.getContainerIpAddress())
+                .setHost(POSTGRESQL_TEST_DB.getHost())
                 .setPort(POSTGRESQL_TEST_DB.getFirstMappedPort());
     }
 

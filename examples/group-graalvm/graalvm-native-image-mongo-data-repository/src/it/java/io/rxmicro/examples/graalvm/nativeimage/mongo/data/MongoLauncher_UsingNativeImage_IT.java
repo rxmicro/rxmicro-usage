@@ -55,7 +55,7 @@ public final class MongoLauncher_UsingNativeImage_IT {
             process = new TestedProcessBuilder()
                     .setCommandWithArgs(
                             "./MongoLauncher",
-                            "-Dmongo.host=" + MONGO_TEST_DB.getContainerIpAddress(),
+                            "-Dmongo.host=" + MONGO_TEST_DB.getHost(),
                             "-Dmongo.port=" + MONGO_TEST_DB.getFirstMappedPort()
                     )
                     .setRedirectStdOutAndStdErrToSysOut(true)

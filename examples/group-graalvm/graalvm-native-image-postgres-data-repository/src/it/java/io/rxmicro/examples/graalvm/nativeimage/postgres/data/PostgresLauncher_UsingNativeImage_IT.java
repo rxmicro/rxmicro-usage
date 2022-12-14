@@ -58,7 +58,7 @@ public final class PostgresLauncher_UsingNativeImage_IT {
             process = new TestedProcessBuilder()
                     .setCommandWithArgs(
                             "./PostgresLauncher",
-                            "-Dpostgre-sql.host=" + POSTGRESQL_TEST_DB.getContainerIpAddress(),
+                            "-Dpostgre-sql.host=" + POSTGRESQL_TEST_DB.getHost(),
                             "-Dpostgre-sql.port=" + POSTGRESQL_TEST_DB.getFirstMappedPort()
                     )
                     .setRedirectStdOutAndStdErrToSysOut(true)

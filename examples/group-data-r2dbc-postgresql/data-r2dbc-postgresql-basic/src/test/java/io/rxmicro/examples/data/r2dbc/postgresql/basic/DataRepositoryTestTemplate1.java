@@ -49,7 +49,7 @@ final class DataRepositoryTestTemplate1 {
     static void beforeAll() {
         POSTGRESQL_TEST_DB.start(); // <7>
         CONFIG
-                .setHost(POSTGRESQL_TEST_DB.getContainerIpAddress()) // <8>
+                .setHost(POSTGRESQL_TEST_DB.getHost()) // <8>
                 .setPort(POSTGRESQL_TEST_DB.getFirstMappedPort());
     }
 

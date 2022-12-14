@@ -53,7 +53,7 @@ final class DataRepository_IntegrationTest {
     static void beforeAll() {
         MONGO_TEST_DB.start();
         MONGO_CONFIG
-                .setHost(MONGO_TEST_DB.getContainerIpAddress())
+                .setHost(MONGO_TEST_DB.getHost())
                 .setPort(MONGO_TEST_DB.getFirstMappedPort());
     }
 
