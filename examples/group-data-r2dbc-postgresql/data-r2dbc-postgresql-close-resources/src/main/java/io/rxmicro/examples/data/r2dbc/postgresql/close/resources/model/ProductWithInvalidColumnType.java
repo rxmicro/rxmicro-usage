@@ -19,11 +19,13 @@ package io.rxmicro.examples.data.r2dbc.postgresql.close.resources.model;
 import io.rxmicro.data.Column;
 import io.rxmicro.data.sql.Table;
 
+import java.time.Instant;
+
 import static io.rxmicro.examples.data.r2dbc.postgresql.close.resources.Constants.PRODUCT_TABLE_NAME;
 
 @Table(name = PRODUCT_TABLE_NAME)
 public class ProductWithInvalidColumnType {
 
     @Column(length = Column.UNLIMITED_LENGTH)
-    String id;
+    Instant id;
 }
