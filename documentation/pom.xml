@@ -82,7 +82,7 @@
                     <attributes>
                         <pagenums/>
                         <rxmicro-version>${rxmicro.version}</rxmicro-version>
-                        <netty-version>4.1.69.Final</netty-version>
+                        <netty-version>4.1.85.Final</netty-version>
                         <maven-compiler-plugin-version>${maven-compiler-plugin.version}</maven-compiler-plugin-version>
                         <maven-surefire-plugin-version>${maven-surefire-plugin.version}</maven-surefire-plugin-version>
                         <maven-dependency-plugin-version>${maven-dependency-plugin.version}</maven-dependency-plugin-version>
