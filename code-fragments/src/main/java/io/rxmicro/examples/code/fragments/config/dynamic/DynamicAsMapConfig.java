@@ -20,5 +20,8 @@ import io.rxmicro.config.AsMapConfig;
 
 // tag::content[]
 public final class DynamicAsMapConfig extends AsMapConfig {
+    public DynamicAsMapConfig(final String namespace) {
+        super(namespace);
+    }
 }
 // end::content[]

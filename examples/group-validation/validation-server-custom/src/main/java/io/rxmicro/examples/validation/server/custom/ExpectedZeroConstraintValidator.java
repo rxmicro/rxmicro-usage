@@ -17,7 +17,7 @@
 package io.rxmicro.examples.validation.server.custom;
 
 import io.rxmicro.http.error.ValidationException;
-import io.rxmicro.rest.model.HttpModelType;
+import io.rxmicro.model.ModelType;
 import io.rxmicro.validation.ConstraintValidator;
 
 import java.math.BigDecimal;
@@ -28,12 +28,12 @@ public final class ExpectedZeroConstraintValidator
 
     @Override
     public void validateNonNull(final BigDecimal value,
-                                final HttpModelType httpModelType,
+                                final ModelType modelType,
                                 final String modelName) throws ValidationException {
         if (value.compareTo(BigDecimal.ZERO) != 0) { // <2>
             throw new ValidationException(
                 "Invalid ? \"?\": Expected a zero value!",
-                httpModelType, modelName
+                modelType, modelName
             );
         }
     }

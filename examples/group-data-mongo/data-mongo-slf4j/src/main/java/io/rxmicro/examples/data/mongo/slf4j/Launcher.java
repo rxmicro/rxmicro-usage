@@ -26,7 +26,7 @@ public final class Launcher {
 
     public static void main(final String[] args) {
         new Configs.Builder()
-                .withConfigs(new MongoConfig()
+                .withConfigs(new MongoConfig("mongo")
                         .setDatabase("rxmicro"))
                 .build();
         System.out.println(new BusinessService().getAdminAccount());

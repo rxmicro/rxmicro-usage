@@ -19,5 +19,9 @@ package io.rxmicro.examples.graalvm.nativeimage.config.config;
 import io.rxmicro.config.AsMapConfig;
 
 public final class DynamicConfig extends AsMapConfig {
+
+    public DynamicConfig(final String namespace) {
+        super(namespace);
+    }
 }
 

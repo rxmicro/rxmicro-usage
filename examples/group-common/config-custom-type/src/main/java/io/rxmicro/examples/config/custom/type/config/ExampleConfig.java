@@ -24,6 +24,10 @@ public final class ExampleConfig extends Config {
 
     private CustomType type = () -> "DEFAULT_CONSTANT";
 
+    public ExampleConfig(final String namespace) {
+        super(namespace);
+    }
+
     public CustomType getType() {
         return type;
     }

@@ -23,6 +23,10 @@ public final class BusinessServiceConfig extends Config {
 
     private boolean production = true;
 
+    public BusinessServiceConfig(final String namespace) {
+        super(namespace);
+    }
+
     public boolean isProduction() {
         return production;
     }

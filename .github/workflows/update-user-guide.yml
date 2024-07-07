@@ -11,6 +11,7 @@ on:
     branches: [ master ]
     paths:
       - 'documentation/**'
+      - 'code-fragments/src/main/java/io/rxmicro/examples/**'
       - 'examples/group-documentation-asciidoctor/documentation-asciidoctor-custom-sections/**'
       - 'examples/group-documentation-asciidoctor/documentation-asciidoctor-echo/**'
       - 'examples/group-documentation-asciidoctor/documentation-asciidoctor-errors/**'

@@ -22,6 +22,10 @@ public final class CustomConfig extends Config {
 
     private String value;
 
+    public CustomConfig(final String namespace) {
+        super(namespace);
+    }
+
     public String getValue() {
         return value;
     }

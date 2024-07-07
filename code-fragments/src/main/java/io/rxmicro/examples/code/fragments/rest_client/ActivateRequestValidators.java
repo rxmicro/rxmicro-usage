@@ -24,7 +24,7 @@ public class ActivateRequestValidators {
     public static void main(final String[] args) {
         // tag::content[]
         new Configs.Builder()
-                .withConfigs(new RestClientConfig()
+                .withConfigs(new RestClientConfig("rest-client")
                         .setEnableAdditionalValidations(true)) // <1>
                 .build();
         // end::content[]

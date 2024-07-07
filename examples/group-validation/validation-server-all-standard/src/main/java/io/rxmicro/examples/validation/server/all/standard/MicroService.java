@@ -37,12 +37,12 @@ import io.rxmicro.validation.constraint.Lowercase;
 import io.rxmicro.validation.constraint.MaxDouble;
 import io.rxmicro.validation.constraint.MaxInt;
 import io.rxmicro.validation.constraint.MaxLength;
-import io.rxmicro.validation.constraint.MaxNumber;
+import io.rxmicro.validation.constraint.Max;
 import io.rxmicro.validation.constraint.MaxSize;
 import io.rxmicro.validation.constraint.MinDouble;
 import io.rxmicro.validation.constraint.MinInt;
 import io.rxmicro.validation.constraint.MinLength;
-import io.rxmicro.validation.constraint.MinNumber;
+import io.rxmicro.validation.constraint.Min;
 import io.rxmicro.validation.constraint.MinSize;
 import io.rxmicro.validation.constraint.Nullable;
 import io.rxmicro.validation.constraint.NullableArrayItem;
@@ -51,6 +51,7 @@ import io.rxmicro.validation.constraint.Past;
 import io.rxmicro.validation.constraint.PastOrPresent;
 import io.rxmicro.validation.constraint.Pattern;
 import io.rxmicro.validation.constraint.Phone;
+import io.rxmicro.validation.constraint.Port;
 import io.rxmicro.validation.constraint.Size;
 import io.rxmicro.validation.constraint.Skype;
 import io.rxmicro.validation.constraint.SubEnum;
@@ -99,34 +100,37 @@ final class MicroService {
     CompletionStage<Model> put2(@Nullable final String optionalParameter,
                                 @AssertFalse
                                 @AssertTrue final Boolean booleanParameter,
+                                /*@Min("PT0S")
+                                @Max("PT5S")
+                                Duration durationParameter,*/
                                 @MinInt(3)
                                 @MaxInt(10)
-                                @MinNumber("3")
-                                @MaxNumber("10") final Byte byteParameter,
+                                @Min("3")
+                                @Max("10") final Byte byteParameter,
                                 @MinInt(3)
                                 @MaxInt(10)
-                                @MinNumber("3")
-                                @MaxNumber("10") final Short shortParameter,
+                                @Min("3")
+                                @Max("10") final Short shortParameter,
                                 @MinInt(3)
                                 @MaxInt(10)
-                                @MinNumber("3")
-                                @MaxNumber("10") final Integer intParameter,
+                                @Min("3")
+                                @Max("10") final Integer intParameter,
                                 @MinInt(3)
                                 @MaxInt(10)
-                                @MinNumber("3")
-                                @MaxNumber("10") final Long longParameter,
-                                @MinNumber("3")
-                                @MaxNumber("10") final BigInteger bigIntParameter,
+                                @Min("3")
+                                @Max("10") final Long longParameter,
+                                @Min("3")
+                                @Max("10") final BigInteger bigIntParameter,
                                 @MinDouble(3.1)
                                 @MaxDouble(10.9)
-                                @MinNumber("3")
-                                @MaxNumber("10") final Float floatParameter,
+                                @Min("3")
+                                @Max("10") final Float floatParameter,
                                 @MinDouble(3.1)
                                 @MaxDouble(10.9)
-                                @MinNumber("3")
-                                @MaxNumber("10") final Double doubleParameter,
-                                @MinNumber("3.1")
-                                @MaxNumber("10.9")
+                                @Min("3")
+                                @Max("10") final Double doubleParameter,
+                                @Min("3.1")
+                                @Max("10.9")
                                 @Lat
                                 @Lng
                                 @Numeric(scale = 5, precision = 2) final BigDecimal decimalParameter,
@@ -211,8 +215,8 @@ final class MicroService {
                                 @Size(12)
                                 @MinSize(2)
                                 @MaxSize(50)
-                                @MinNumber("3.1")
-                                @MaxNumber("10.9")
+                                @Min("3.1")
+                                @Max("10.9")
                                 @Lat
                                 @Lng
                                 @Numeric(scale = 5, precision = 2) final List<BigDecimal> decimals,
@@ -220,8 +224,8 @@ final class MicroService {
                                 @Size(12)
                                 @MinSize(2)
                                 @MaxSize(50)
-                                @MinNumber("3")
-                                @MaxNumber("10") final List<BigInteger> bigIntegers,
+                                @Min("3")
+                                @Max("10") final List<BigInteger> bigIntegers,
                                 @UniqueItems
                                 @Size(12)
                                 @MinSize(2)
@@ -304,16 +308,16 @@ final class MicroService {
                                 @Size(12)
                                 @MinSize(2)
                                 @MaxSize(50)
-                                @MinNumber("3.1")
-                                @MaxNumber("10.9")
+                                @Min("3.1")
+                                @Max("10.9")
                                 @Lat
                                 @Lng
                                 @Numeric(scale = 5, precision = 2) final Set<BigDecimal> decimalSet,
                                 @Size(12)
                                 @MinSize(2)
                                 @MaxSize(50)
-                                @MinNumber("3")
-                                @MaxNumber("10") final Set<BigInteger> bigIntegerSet,
+                                @Min("3")
+                                @Max("10") final Set<BigInteger> bigIntegerSet,
                                 @Size(12)
                                 @MinSize(2)
                                 @MaxSize(50)
@@ -394,16 +398,16 @@ final class MicroService {
                                 @Size(12)
                                 @MinSize(2)
                                 @MaxSize(50)
-                                @MinNumber("3.1")
-                                @MaxNumber("10.9")
+                                @Min("3.1")
+                                @Max("10.9")
                                 @Lat
                                 @Lng
                                 @Numeric(scale = 5, precision = 2) final Map<String, BigDecimal> decimalMap,
                                 @Size(12)
                                 @MinSize(2)
                                 @MaxSize(50)
-                                @MinNumber("3")
-                                @MaxNumber("10") final Map<String, BigInteger> bigIntegerMap,
+                                @Min("3")
+                                @Max("10") final Map<String, BigInteger> bigIntegerMap,
                                 @Size(12)
                                 @MinSize(2)
                                 @MaxSize(50)
@@ -463,7 +467,11 @@ final class MicroService {
                                 @Lat(ACCURACY_11_CENTIMETERS) final BigDecimal lat11cm,
                                 @Lng(ACCURACY_11_CENTIMETERS) final BigDecimal lng11cm,
                                 @Lat(ACCURACY_1_CENTIMETER) final BigDecimal lat1cm,
-                                @Lng(ACCURACY_1_CENTIMETER) final BigDecimal lng1cm) {
+                                @Lng(ACCURACY_1_CENTIMETER) final BigDecimal lng1cm,
+                                /*@ExistingPath final Path anyPath,
+                                @ExistingDirectory final Path dirPath,
+                                @ExistingFile final Path filePath,*/
+                                @Port final Integer port) {
         return completedStage(new Model());
     }
 

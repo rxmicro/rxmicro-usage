@@ -12,7 +12,7 @@
 
     <modules>
         <module>examples</module>
-        <module>benchmarks</module>
+        <!--module>benchmarks</module-->
         <module>documentation</module>
         <module>util</module>
         <module>code-fragments</module>

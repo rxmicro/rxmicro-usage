@@ -17,6 +17,7 @@
 package io.rxmicro.examples.validation.client.basic;
 
 import io.rxmicro.examples.validation.client.basic.model.Response;
+import io.rxmicro.http.error.UnexpectedResponseException;
 import io.rxmicro.rest.client.detail.HttpClientFactory;
 import io.rxmicro.rest.model.HttpMethod;
 import io.rxmicro.test.Alternative;
@@ -24,7 +25,6 @@ import io.rxmicro.test.junit.BeforeThisTest;
 import io.rxmicro.test.junit.RxMicroComponentTest;
 import io.rxmicro.test.mockito.httpclient.HttpRequestMock;
 import io.rxmicro.test.mockito.junit.InitMocks;
-import io.rxmicro.validation.UnexpectedResponseException;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 

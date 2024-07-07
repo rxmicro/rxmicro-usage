@@ -26,6 +26,10 @@ public final class CustomRestClientConfig extends RestClientConfig {
 
     private Mode mode = Mode.PRODUCTION;
 
+    public CustomRestClientConfig(final String namespace) {
+        super(namespace);
+    }
+
     public boolean isUseProxy() {
         return useProxy;
     }
@@ -55,7 +59,7 @@ public final class CustomRestClientConfig extends RestClientConfig {
     }
 
     @Override
-    public CustomRestClientConfig setPort(final int port) {
+    public CustomRestClientConfig setPort(final Integer port) {
         return (CustomRestClientConfig) super.setPort(port);
     }
 

@@ -40,7 +40,7 @@ import static org.mockito.Answers.RETURNS_DEEP_STUBS;
 final class RESTClient2Test {
 
     @WithConfig
-    private static RestClientConfig CONFIG = new RestClientConfig()
+    private static RestClientConfig CONFIG = new RestClientConfig("test")
             .setEnableAdditionalValidations(true);
 
     private RESTClient2 restClient2;
